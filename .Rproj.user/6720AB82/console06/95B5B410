@@ -1,0 +1,10 @@
+]0;~/Dropbox/prefresher[?1034hShiros-MacBook-Pro-2:prefresher shirokuriwaki$ [KShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git remote add orig in https://github.com/kuriwaki/prefresher.git
+fatal: Not a git repository (or any of the parent directories): .git
+]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git init
+Initialized empty Git repository in /Users/shirokuriwaki/Dropbox/prefresher/.git/
+]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git remote add orig in https://github.com/kuriwaki/prefresher.git
+]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git push -u origin  master
+error: src refspec master does not match any.
+error: failed to push some refs to 'https://github.com/kuriwaki/prefresher.git'
+]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git add -u
+]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git add .

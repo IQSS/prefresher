@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1529201120449.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "BF40ABE5",
+    "lastKnownWriteTime" : 1529204761,
+    "last_content_update" : 1529204761908,
+    "path" : "~/Dropbox/prefresher/02-literature.Rmd",
+    "project_path" : "02-literature.Rmd",
+    "properties" : {
+        "cursorPosition" : "58,7",
+        "docOutlineVisible" : "0",
+        "scrollLine" : "27"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

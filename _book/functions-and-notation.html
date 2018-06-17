@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>A Minimal Book Example</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="A Minimal Book Example" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A Minimal Book Example" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Yihui Xie">
+
+
+<meta name="date" content="2018-06-16">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="intro.html">
+<link rel="next" href="methods.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="functions-and-notation.html"><a href="functions-and-notation.html"><i class="fa fa-check"></i><b>3</b> Functions and Notation</a><ul>
+<li class="chapter" data-level="3.1" data-path="functions-and-notation.html"><a href="functions-and-notation.html#dimensionality"><i class="fa fa-check"></i><b>3.1</b> Dimensionality</a></li>
+<li class="chapter" data-level="3.2" data-path="functions-and-notation.html"><a href="functions-and-notation.html#interval-notation-for-bf-r1"><i class="fa fa-check"></i><b>3.2</b> Interval Notation for <span class="math inline">\({\bf R}^1\)</span></a></li>
+<li class="chapter" data-level="3.3" data-path="functions-and-notation.html"><a href="functions-and-notation.html#neighborhoods-intervals-disks-and-balls"><i class="fa fa-check"></i><b>3.3</b> Neighborhoods: Intervals, Disks, and Balls</a></li>
+<li class="chapter" data-level="3.4" data-path="functions-and-notation.html"><a href="functions-and-notation.html#introduction-to-functions"><i class="fa fa-check"></i><b>3.4</b> Introduction to Functions</a></li>
+<li class="chapter" data-level="3.5" data-path="functions-and-notation.html"><a href="functions-and-notation.html#domain-and-rangeimage"><i class="fa fa-check"></i><b>3.5</b> Domain and Range/Image</a></li>
+<li class="chapter" data-level="3.6" data-path="functions-and-notation.html"><a href="functions-and-notation.html#some-general-types-of-functions"><i class="fa fa-check"></i><b>3.6</b> Some General Types of Functions</a></li>
+<li class="chapter" data-level="3.7" data-path="functions-and-notation.html"><a href="functions-and-notation.html#log-ln-and-e"><i class="fa fa-check"></i><b>3.7</b> Log, Ln, and e</a></li>
+<li class="chapter" data-level="3.8" data-path="functions-and-notation.html"><a href="functions-and-notation.html#other-useful-functions"><i class="fa fa-check"></i><b>3.8</b> Other Useful Functions</a></li>
+<li class="chapter" data-level="3.9" data-path="functions-and-notation.html"><a href="functions-and-notation.html#graphing-functions"><i class="fa fa-check"></i><b>3.9</b> Graphing Functions</a></li>
+<li class="chapter" data-level="3.10" data-path="functions-and-notation.html"><a href="functions-and-notation.html#solving-for-variables-and-finding-inverses"><i class="fa fa-check"></i><b>3.10</b> Solving for Variables and Finding Inverses</a></li>
+<li class="chapter" data-level="3.11" data-path="functions-and-notation.html"><a href="functions-and-notation.html#finding-the-roots-or-zeroes-of-a-function"><i class="fa fa-check"></i><b>3.11</b> Finding the Roots or Zeroes of a Function</a></li>
+<li class="chapter" data-level="3.12" data-path="functions-and-notation.html"><a href="functions-and-notation.html#the-limit-of-a-function"><i class="fa fa-check"></i><b>3.12</b> The Limit of a Function</a></li>
+<li class="chapter" data-level="3.13" data-path="functions-and-notation.html"><a href="functions-and-notation.html#continuity"><i class="fa fa-check"></i><b>3.13</b> Continuity</a></li>
+<li class="chapter" data-level="3.14" data-path="functions-and-notation.html"><a href="functions-and-notation.html#sets"><i class="fa fa-check"></i><b>3.14</b> Sets</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a></li>
+<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
+<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
+<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="functions-and-notation" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Functions and Notation</h1>
+<p>Topics:\</p>
+<p>Dimensionality; Interval Notation for <span class="math inline">\({\bf R}^1\)</span>; Neighborhoods: Intervals, Disks, and Balls; Introduction to Functions; Domain and Range; Some General Types of Functions; Log, Ln, and e; Other Useful Functions; Graphing Functions; Solving for Variables; Finding Roots; Limit of a Function; Continuity; Sets, Sets, and More Sets.</p>
+<div id="dimensionality" class="section level2">
+<h2><span class="header-section-number">3.1</span> Dimensionality</h2>
+<ul>
+<li><span class="math inline">\({\bf R}^1\)</span> is the set of all real numbers extending from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(+\infty\)</span> — i.e., the real number line.</li>
+<li><span class="math inline">\({\bf R}^n\)</span> is an <span class="math inline">\(n\)</span>-dimensional space (often referred to as Euclidean space), where each of the <span class="math inline">\(n\)</span> axes extends from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(+\infty\)</span>.
+<ul>
+<li><span class="math inline">\({\bf R}^1\)</span> is a one dimensional line. <span class="math inline">\({\bf R}^2\)</span> is a two dimensional plane. <span class="math inline">\({\bf R}^3\)</span> is a three dimensional space. <span class="math inline">\({\bf R}^4\)</span> could be 3-D plus time (or temperature, etc).</li>
+</ul></li>
+<li>Points in <span class="math inline">\({\bf R}^n\)</span> are ordered <span class="math inline">\(n\)</span>-tuples, where each element of the <span class="math inline">\(n\)</span>-tuple represents the coordinate along that dimension.
+<ul>
+<li><span class="math inline">\({\bf R}^1\)</span>: (3)</li>
+<li><span class="math inline">\({\bf R}^2\)</span>: (-15, 5)</li>
+<li><span class="math inline">\({\bf R}^3\)</span>: (86, 4, 0)\</li>
+</ul></li>
+</ul>
+</div>
+<div id="interval-notation-for-bf-r1" class="section level2">
+<h2><span class="header-section-number">3.2</span> Interval Notation for <span class="math inline">\({\bf R}^1\)</span></h2>
+<p>Open interval: <span class="math display">\[(a,b)\equiv \{ x\in{\bf R}^1: a&lt;x&lt;b\}\]</span></p>
+<p><span class="math inline">\(x\)</span> is a one-dimensional element in which x is greater than a and less than b</p>
+<p>Closed interval: <span class="math display">\[[a,b]\equiv \{ x\in{\bf R}^1: a\le x \le b\}\]</span></p>
+<p><span class="math inline">\(x\)</span> is a one-dimensional element in which x is greater or equal to than a and less than or equal to b</p>
+<p>Half open, half closed: <span class="math display">\[(a,b]\equiv \{ x\in{\bf R}^1: a&lt;x\le b\}\]</span></p>
+<p><span class="math inline">\(x\)</span> is a one-dimensional element in which x is greater than a and less than or equal to b</p>
+</div>
+<div id="neighborhoods-intervals-disks-and-balls" class="section level2">
+<h2><span class="header-section-number">3.3</span> Neighborhoods: Intervals, Disks, and Balls</h2>
+<p>In many areas of math, we need a formal construct for what it means to be “near” a point <span class="math inline">\(\bf c\)</span> in <span class="math inline">\({\bf R}^n\)</span>. This is generally called the <strong>neighborhood</strong> of <span class="math inline">\(\bf c\)</span>. It’s represented by an open interval, disk, or ball, depending on whether <span class="math inline">\({\bf R}^n\)</span> is of one, two, or more dimensions, respectively.</p>
+<p>Given the point <span class="math inline">\(c\)</span>, these are defined as</p>
+<ul>
+<li>{} in <span class="math inline">\({\bf R}^1\)</span>:} <span class="math inline">\(\{x : |x-c|&lt;\epsilon \}\)</span>. <span class="math inline">\(x\)</span> is in the neighborhood of {} if it is in the open interval <span class="math inline">\((c-\epsilon,c+\epsilon)\)</span>.</li>
+<li>{} in <span class="math inline">\({\bf R}^2\)</span>: <span class="math inline">\(\{x : || x-c ||&lt;\epsilon\}\)</span>. <span class="math inline">\(x\)</span> is in the neighborhood of {} if it is inside the circle or disc with center <span class="math inline">\(\bf c\)</span> and radius <span class="math inline">\(\epsilon\)</span>.</li>
+<li>} <span class="math inline">\(\{x : || x-c ||&lt;\epsilon\}\)</span>. <span class="math inline">\(x\)</span> is in the neighborhood of {} if it is inside the sphere or ball with center <span class="math inline">\(\bf c\)</span> and radius <span class="math inline">\(\epsilon\)</span>.\</li>
+</ul>
+</div>
+<div id="introduction-to-functions" class="section level2">
+<h2><span class="header-section-number">3.4</span> Introduction to Functions</h2>
+<p>A {} (in <span class="math inline">\({\bf R}^1\)</span>) is a mapping, or transformation, that relates members of one set to members of another set. For instance, if you have two sets: set <span class="math inline">\(A\)</span> and set <span class="math inline">\(B\)</span>, a function from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span> maps every value <span class="math inline">\(a\)</span> in set <span class="math inline">\(A\)</span> such that <span class="math inline">\(f(a) \in B\)</span>. Functions can be <code>many-to-one&quot;, where many values or combinations of values from set $A$ produce a single output in set $B$, or they can be</code>one-to-one“, where each value in set <span class="math inline">\(A\)</span> corresponds to a single value in set <span class="math inline">\(B\)</span>.</p>
+<p>Examples: Mapping notation</p>
+<ul>
+<li>Function of one variable: <span class="math inline">\(f:{\bf R}^1\to{\bf R}^1\)</span>\ <span class="math inline">\(f(x)=x+1\)</span>\ For each <span class="math inline">\(x\)</span> in <span class="math inline">\({\bf R}^1\)</span>, <span class="math inline">\(f(x)\)</span> assigns the number <span class="math inline">\(x+1\)</span>.</li>
+<li>Function of two variables: <span class="math inline">\(f: {\bf R}^2\to{\bf R}^1\)</span>\ <span class="math inline">\(f(x,y)=x^2+y^2\)</span>\ For each ordered pair <span class="math inline">\((x,y)\)</span> in <span class="math inline">\({\bf R}^2\)</span>, <span class="math inline">\(f(x,y)\)</span> assigns the number <span class="math inline">\(x^2+y^2\)</span>.</li>
+</ul>
+<p>We often use variable <span class="math inline">\(x\)</span> as input and another <span class="math inline">\(y\)</span> as output, e.g. <span class="math inline">\(y=x+1\)</span></p>
+</div>
+<div id="domain-and-rangeimage" class="section level2">
+<h2><span class="header-section-number">3.5</span> Domain and Range/Image</h2>
+<p>Some functions are defined only on proper subsets of <span class="math inline">\({\bf R}^n\)</span>. * {}: the set of numbers in <span class="math inline">\(X\)</span> at which <span class="math inline">\(f(x)\)</span> is defined. * {}: elements of <span class="math inline">\(Y\)</span> assigned by <span class="math inline">\(f(x)\)</span> to elements of <span class="math inline">\(X\)</span>, or <span class="math display">\[f(X)=\{ y : y=f(x), x\in X\}\]</span> Most often used when talking about a function <span class="math inline">\(f:{\bf R}^1\to{\bf R}^1\)</span>. * {}: same as range, but more often used when talking about a function <span class="math inline">\(f:{\bf R}^n\to{\bf R}^1\)</span>.</p>
+<pre><code>&lt;!-- \begin{samepage}    --&gt;
+&lt;!-- \begin{framed} --&gt;
+&lt;!-- \item[] Examples: --&gt;</code></pre>
+<!--    \begin{enumerate} -->
+<!--        \item \parbox[c]{3.75in}{$f(x)=\frac{3}{1+x^2}\quad$ \\[6pt] -->
+<!-- %                              Domain $X={\bf R}^1$\\ -->
+<!--                                %Range $f(X)=(0,3]$ -->
+<!--                                } -->
+<!--        <!-- \parbox{1in}{\,  {\includegraphics[width=1in, angle = 270]{3ovr1x2.eps}}}\\[12pt] -->
+<p>–&gt;</p>
+<!--        \item $f(x)=\left\{ -->
+<!--            \begin{array}{lcl} -->
+<!--                x+1, &\quad & 1\le x\le 2\\ -->
+<!--                0,   &      & x=0\\ -->
+<!--                1-x,  &      & -2\le x\le -1 -->
+<!--            \end{array} -->
+<!--            \right.$\\[6pt] -->
+<!--            %Domain $X=$    $[-2,-1]\cup\{0\}\cup[1,2] -->
+<!--            %Range $f(X)=$ $[2,3]\cup\{0\}$\\ -->
+<!--        \item \parbox[c]{3.75in}{$f(x)=1/x$\\[6pt] -->
+<!--            %Domain $X=(-\infty, 0)\cup (0,\infty)$\\ -->
+<!--            %Range $f(X)=(-\infty, 0)\cup (0,\infty)$ -->
+<!--            } -->
+<!--        <!-- \parbox{1in}{\, {\includegraphics[width=1in, angle = 270]{1ovrx.eps}}}\\ -->
+<p>–&gt;</p>
+<!--        \item \parbox[c]{3.75in}{$f(x,y)=x^2+y^2$\\[6pt] -->
+<!--            %Domain $X,Y={\bf R}^2$\\ -->
+<!--            %Image $f(X,Y)={\bf R}^1_+$ -->
+<!--            } -->
+<!--        \epsfxsize=2.5in -->
+<!--        <!-- \parbox{1in}{\,  {\includegraphics[width=1.5in, angle = 270]{x2y2.eps}}} -->
+<p>–&gt; <!--    \end{enumerate} --> <!-- \end{framed} --> <!-- \end{samepage} --> <!-- \item[] --> <!-- \end{itemize} --></p>
+</div>
+<div id="some-general-types-of-functions" class="section level2">
+<h2><span class="header-section-number">3.6</span> Some General Types of Functions</h2>
+<pre><code>\begin{itemize}
+\item {\bf Monomials}:  $f(x)=a x^k$\\
+    $a$ is the coefficient.  $k$ is the degree.\\
+    Examples: $y=x^2$, $y=-\frac{1}{2}x^3$
+
+\item {\bf Polynomials}: sum of monomials.\\
+    Examples: $y=-\frac{1}{2}x^3+x^2$, $y=3x+5$\\
+    The degree of a polynomial is the highest degree of its monomial terms.  Also, it&#39;s often a good idea to write polynomials with terms in decreasing degree.
+
+\item {\bf Rational Functions}: ratio of two polynomials.\\
+    Examples: $y=\frac{x}{2}$, $y=\frac{x^2+1}{x^2-2x+1}$
+
+\item {\bf Exponential Functions}: Example: $y=2^x$
+
+\item {\bf Trigonometric Functions}: Examples: $y=\cos(x)$, $y=3\sin(4x)$
+
+\item \parbox[c]{4.75in}{{\bf Linear}: polynomial of degree 1.\\
+    &lt;!-- Example: $y=m x + b$, where $m$ is the slope and $b$ is the $y$-intercept.}\epsfxsize=1in \parbox{1in}{\, {\includegraphics[width=.9in, angle = 270]{linear.eps}}} --&gt;
+
+\item \parbox[c]{4.75in}{{\bf Nonlinear}: anything that isn&#39;t constant or polynomial of degree 1.\\
+    Examples:  $y=x^2+2x+1$, $y=\sin(x)$, $y=\ln(x)$, $y=e^x$}
+    &lt;!-- \parbox{1in}{\,  {\includegraphics[width=.9in, angle = 270]{nonlin.eps}}} --&gt;
+\item[]</code></pre>
+<p>\end{itemize}</p>
+</div>
+<div id="log-ln-and-e" class="section level2">
+<h2><span class="header-section-number">3.7</span> Log, Ln, and e</h2>
+<p><strong>Relationship of logarithmic and exponential functions</strong>: <span class="math display">\[y=\log_a(x) \iff a^y=x\]</span></p>
+<p>The log function can be thought of as an inverse for exponential functions. <span class="math inline">\(a\)</span> is referred to as the ``base&quot; of the logarithm.</p>
+<p><strong>Common Bases</strong>: The two most common logarithms are base 10 and base <span class="math inline">\(e\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Base 10: <span class="math inline">\(\quad y=\log_{10}(x) \iff 10^y=x\)</span>. The base 10 logarithm is often simply written as ``<span class="math inline">\(\log(x)\)</span>&quot; with no base denoted.</li>
+<li>Base <span class="math inline">\(e\)</span>: <span class="math inline">\(\quad y=\log_e(x) \iff e^y=x\)</span>. The base <span class="math inline">\(e\)</span> logarithm is referred to as the <code>natural&quot; logarithm and is written as</code><span class="math inline">\(\ln(x)\)</span>“.</li>
+</ol>
+
+<p><strong>Properties of exponential functions:</strong></p>
+<ul>
+<li><span class="math inline">\(a^x a^y = a^{x+y}\)</span></li>
+<li><span class="math inline">\(a^{-x} = 1/a^x\)</span></li>
+<li><span class="math inline">\(a^x/a^y = a^{x-y}\)</span></li>
+<li><span class="math inline">\((a^x)^y = a^{x y}\)</span></li>
+<li><span class="math inline">\(a^0 = 1\)</span></li>
+</ul>
+<p><strong>Properties of logarithmic functions</strong> (any base):</p>
+<p>Generally, when statisticians or social scientists write <span class="math inline">\(\log(x)\)</span> they mean <span class="math inline">\(\log_e(x)\)</span>. In other words: <span class="math inline">\(\log_e(x) \equiv \ln(x) \equiv \log(x)\)</span></p>
+<p><span class="math display">\[\log_a(a^x)=x\]</span> and <span class="math display">\[a^{\log_a(x)}=x\]</span></p>
+<ul>
+<li><span class="math inline">\(\log(x y)=\log(x)+\log(y)\)</span></li>
+<li><span class="math inline">\(\log(x^y)=y\log(x)\)</span></li>
+<li><span class="math inline">\(\log(1/x)=\log(x^{-1})=-\log(x)\)</span></li>
+<li><span class="math inline">\(\log(x/y)=\log(x\cdot y^{-1})=\log(x)+\log(y^{-1})=\log(x)-\log(y)\)</span></li>
+<li><span class="math inline">\(\log(1)=\log(e^0)=0\)</span></li>
+</ul>
+<p><strong>Change of Base Formula</strong>: Use the change of base formula to switch bases as necessary: <span class="math display">\[\log_b(x) = \frac{\log_a(x)}{\log_a(b)}\]</span></p>
+<p>Example: <span class="math display">\[\log_{10}(x) = \frac{\ln(x)}{\ln(10)}\]</span></p>
+
+</div>
+<div id="other-useful-functions" class="section level2">
+<h2><span class="header-section-number">3.8</span> Other Useful Functions</h2>
+<p><strong>Factorials!:</strong></p>
+<p><span class="math display">\[x! = x\cdot (x-1) \cdot (x-2) \cdots (1)\]</span></p>
+<p><strong>Modulo:</strong> Tells you the remainder when you divide one number by another. Can be extremely useful for programming.</p>
+<ul>
+<li> or </li>
+<li><span class="math inline">\(17 \mod 3 = 2\)</span></li>
+<li><span class="math inline">\(100 \ \% \ 30 = 10\)</span></li>
+</ul>
+<p><strong>Summation:</strong></p>
+<p><span class="math display">\[\sum\limits_{i=1}^n x_i = x_1+x_2+x_3+\cdots+x_n\]</span></p>
+
+<p><strong>Product:</strong></p>
+<p><span class="math display">\[\prod\limits_{i=1}^n x_i = x_1 x_2 x_3 \cdots x_n\]</span></p>
+<p>Properties:</p>
+
+<p>You can use logs to go between sum and product notation. This will be particularly important when you’re learning maximum likelihood estimation.</p>
+<pre><code>    \begin{eqnarray*}
+        \log \bigg(\prod\limits_{i=1}^n x_i \bigg) &amp;=&amp; \log(x_1 \cdot x_2 \cdot x_3 \cdots \cdot x_n)\\
+        &amp;=&amp; \log(x_1) + \log(x_2) + \log(x_3) + \cdots + \log(x_n)\\
+        &amp;=&amp; \sum\limits_{i=1}^n \log (x_i)
+    \end{eqnarray*}
+    
+    Therefore, you can see that the log of a product is equal to the sum of the logs. We can write this more generally by adding in a constant, $c$:
+    
+    \begin{eqnarray*}
+        \log \bigg(\prod\limits_{i=1}^n c x_i\bigg) &amp;=&amp; \log(cx_1 \cdot cx_2 \cdots cx_n)\\
+        &amp;=&amp; \log(c^n \cdot x_1 \cdot x_2 \cdots x_n)\\
+        &amp;=&amp; \log(c^n) + \log(x_1) + \log(x_2) + \cdots + \log(x_n)\\\\
+        &amp;=&amp; n \log(c) +  \sum\limits_{i=1}^n \log (x_i)\\
+    \end{eqnarray*} </code></pre>
+</div>
+<div id="graphing-functions" class="section level2">
+<h2><span class="header-section-number">3.9</span> Graphing Functions</h2>
+What can a graph tell you about a function?
+
+</div>
+<div id="solving-for-variables-and-finding-inverses" class="section level2">
+<h2><span class="header-section-number">3.10</span> Solving for Variables and Finding Inverses</h2>
+<p>Sometimes we’re given a function <span class="math inline">\(y=f(x)\)</span> and we want to find how <span class="math inline">\(x\)</span> varies as a function of <span class="math inline">\(y\)</span>. If <span class="math inline">\(f\)</span> is a one-to-one mapping, then it has an inverse.</p>
+<p>Use algebra to move <span class="math inline">\(x\)</span> to the left hand side (LHS) of the equation and so that the right hand side (RHS) is only a function of <span class="math inline">\(y\)</span>.\</p>
+<p>Examples: (we want to solve for <span class="math inline">\(x\)</span>)</p>
+
+<p>Sometimes (often?) the inverse does not exist. For example, we’re given the function <span class="math inline">\(y=x^2\)</span> (a parabola). Solving for <span class="math inline">\(x\)</span>, we get <span class="math inline">\(x=\pm\sqrt{y}\)</span>. For each value of <span class="math inline">\(y\)</span>, there are two values of <span class="math inline">\(x\)</span>.</p>
+</div>
+<div id="finding-the-roots-or-zeroes-of-a-function" class="section level2">
+<h2><span class="header-section-number">3.11</span> Finding the Roots or Zeroes of a Function</h2>
+<p>Solving for variables is especially important when we want to find the {} of an equation: those values of variables that cause an equation to equal zero. Especially important in finding equilibria and in doing maximum likelihood estimation.</p>
+<p>Procedure: Given <span class="math inline">\(y=f(x)\)</span>, set <span class="math inline">\(f(x)=0\)</span>. Solve for <span class="math inline">\(x\)</span>.</p>
+<p>Multiple Roots: <span class="math display">\[f(x)=x^2 - 9 \quad\Longrightarrow\quad 0=x^2 - 9 \quad\Longrightarrow\quad 9=x^2 \quad\Longrightarrow\quad \pm \sqrt{9}=\sqrt{x^2} \quad\Longrightarrow\quad \pm 3=x\]</span></p>
+<p><strong>Quadratic Formula:</strong> For quadratic equations <span class="math inline">\(ax^2+bx+c=0\)</span>, use the quadratic formula: <span class="math display">\[x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\]</span>}</p>
+Examples:
+
+</div>
+<div id="the-limit-of-a-function" class="section level2">
+<h2><span class="header-section-number">3.12</span> The Limit of a Function</h2>
+<pre><code>We&#39;re often interested in determining if a function $f$ approaches some number $L$ as its independent variable $x$ moves to some number $c$ (usually 0 or $\pm\infty$).  If it does, we say that the limit of $f(x)$, as $x$ approaches $c$, is $L$: $\lim\limits_{x \to c} f(x)=L$.</code></pre>
+<p>For a limit <span class="math inline">\(L\)</span> to exist, the function <span class="math inline">\(f(x)\)</span> must approach <span class="math inline">\(L\)</span> from both the left and right.</p>
+<p><strong>Limit of a function</strong>. Let <span class="math inline">\(f(x)\)</span> be defined at each point in some open interval containing the point <span class="math inline">\(c\)</span>. Then <span class="math inline">\(L\)</span> equals <span class="math inline">\(\lim\limits_{x \to c} f(x)\)</span> if for any (small positive) number <span class="math inline">\(\epsilon\)</span>, there exists a corresponding number <span class="math inline">\(\delta&gt;0\)</span> such that if <span class="math inline">\(0&lt;|x-c|&lt;\delta\)</span>, then <span class="math inline">\(|f(x)-L|&lt;\epsilon\)</span>.</p>
+<p>Note: f(x) does not necessarily have to be defined at <span class="math inline">\(c\)</span> for <span class="math inline">\(\lim\limits_{x \to c}\)</span> to exist.</p>
+<p><strong>Uniqueness</strong>: <span class="math inline">\(\lim\limits_{x \to c} f(x)=L\)</span> and <span class="math inline">\(\lim\limits_{x \to c} f(x)=M \Longrightarrow L=M\)</span></p>
+<p>Properties: Let <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> be functions with <span class="math inline">\(\lim\limits_{x \to c} f(x)=A\)</span> and <span class="math inline">\(\lim\limits_{x \to c} g(x)=B\)</span>.</p>
+
+<p>Examples:</p>
+
+<p>Types of limits:</p>
+<ol style="list-style-type: decimal">
+<li>Right-hand limit: The value approached by <span class="math inline">\(f(x)\)</span> when you move from right to left.
+</li>
+<li>Left-hand limit: The value approached by <span class="math inline">\(f(x)\)</span> when you move from left to right.\</li>
+<li>Infinity: The value approached by <span class="math inline">\(f(x)\)</span> as x grows infinitely large. Sometimes this may be a number; sometimes it might be <span class="math inline">\(\infty\)</span> or <span class="math inline">\(-\infty\)</span>.\</li>
+<li>Negative infinity: The value approached by <span class="math inline">\(f(x)\)</span> as x grows infinitely negative. Sometimes this may be a number; sometimes it might be <span class="math inline">\(\infty\)</span> or <span class="math inline">\(-\infty\)</span>.\</li>
+</ol>
+
+</div>
+<div id="continuity" class="section level2">
+<h2><span class="header-section-number">3.13</span> Continuity</h2>
+<p><strong>Continuity</strong>: Suppose that the domain of the function <span class="math inline">\(f\)</span> includes an open interval containing the point <span class="math inline">\(c\)</span>. Then <span class="math inline">\(f\)</span> is continuous at <span class="math inline">\(c\)</span> if <span class="math inline">\(\lim\limits_{x \to c} f(x)\)</span> exists and if <span class="math inline">\(\lim\limits_{x \to c} f(x)=f(c)\)</span>. Further, <span class="math inline">\(f\)</span> is continuous on an open interval <span class="math inline">\((a,b)\)</span> if it is continuous at each point in the interval.</p>
+<ul>
+<li>Examples: Continuous functions.</li>
+</ul>
+
+<p>Properties:</p>
+<ol style="list-style-type: decimal">
+<li>If <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are continuous at point <span class="math inline">\(c\)</span>, then <span class="math inline">\(f+g\)</span>, <span class="math inline">\(f-g\)</span>, <span class="math inline">\(f \cdot g\)</span>, <span class="math inline">\(|f|\)</span>, and <span class="math inline">\(\alpha f\)</span> are continuous at point <span class="math inline">\(c\)</span> also. <span class="math inline">\(f/g\)</span> is continuous, provided <span class="math inline">\(g(c)\ne 0\)</span>.</li>
+<li>Boundedness: If <span class="math inline">\(f\)</span> is continuous on the closed bounded interval <span class="math inline">\([a,b]\)</span>, then there is a number <span class="math inline">\(K\)</span> such that <span class="math inline">\(|f(x)|\le K\)</span> for each <span class="math inline">\(x\)</span> in <span class="math inline">\([a,b]\)</span>.</li>
+<li>Max/Min: If <span class="math inline">\(f\)</span> is continuous on the closed bounded interval <span class="math inline">\([a,b]\)</span>, then <span class="math inline">\(f\)</span> has a maximum and a minimum on <span class="math inline">\([a,b]\)</span>. They may be located at the end points.</li>
+</ol>
+</div>
+<div id="sets" class="section level2">
+<h2><span class="header-section-number">3.14</span> Sets</h2>
+<p><strong>Interior Point</strong>: The point <span class="math inline">\(\bf x\)</span> is an interior point of the set <span class="math inline">\(S\)</span> if <span class="math inline">\(\bf x\)</span> is in <span class="math inline">\(S\)</span> and if there is some <span class="math inline">\(\epsilon\)</span>-ball around <span class="math inline">\(\bf x\)</span> that contains only points in <span class="math inline">\(S\)</span>. The {} of <span class="math inline">\(S\)</span> is the collection of all interior points in <span class="math inline">\(S\)</span>. The interior can also be defined as the union of all open sets in <span class="math inline">\(S\)</span>.</p>
+<ul>
+<li>If the set <span class="math inline">\(S\)</span> is circular, the interior points are everything inside of the circle, but not on the circle’s rim.</li>
+<li>Example: The interior of the set <span class="math inline">\(\{ (x,y) : x^2+y^2\le 4 \}\)</span> is <span class="math inline">\(\{ (x,y) : x^2+y^2&lt; 4 \}\)</span> .</li>
+</ul>
+<p><strong>Boundary Point</strong>: The point <span class="math inline">\(\bf x\)</span> is a boundary point of the set <span class="math inline">\(S\)</span> if every <span class="math inline">\(\epsilon\)</span>-ball around <span class="math inline">\(\bf x\)</span> contains both points that are in <span class="math inline">\(S\)</span> and points that are outside <span class="math inline">\(S\)</span>. The {} is the collection of all boundary points.</p>
+<ul>
+<li>If the set <span class="math inline">\(S\)</span> is circular, the boundary points are everything on the circle’s rim.</li>
+<li>Example: The boundary of <span class="math inline">\(\{ (x,y) : x^2+y^2\le 4 \}\)</span> is <span class="math inline">\(\{ (x,y) : x^2+y^2 = 4 \}\)</span>.</li>
+</ul>
+<p><strong>Open</strong>: A set <span class="math inline">\(S\)</span> is open if for each point <span class="math inline">\(\bf x\)</span> in <span class="math inline">\(S\)</span>, there exists an open <span class="math inline">\(\epsilon\)</span>-ball around <span class="math inline">\(\bf x\)</span> completely contained in <span class="math inline">\(S\)</span>.</p>
+<ul>
+<li>If the set <span class="math inline">\(S\)</span> is circular and open, the points contained within the set get infinitely close to the circle’s rim, but do not touch it.</li>
+<li>Example: <span class="math inline">\(\{ (x,y) : x^2+y^2&lt;4 \}\)</span></li>
+</ul>
+<p><strong>Closed</strong>: A set <span class="math inline">\(S\)</span> is closed if it contains all of its boundary points. * If the set <span class="math inline">\(S\)</span> is circular and closed, the set contains all points within the rim as well as the rim itself. * Example: <span class="math inline">\(\{ (x,y) : x^2+y^2\le 4 \}\)</span> * Note: a set may be neither open nor closed. Example: <span class="math inline">\(\{ (x,y) : 2 &lt; x^2+y^2\le 4 \}\)</span></p>
+<p><strong>Complement</strong>: The complement of set <span class="math inline">\(S\)</span> is everything outside of <span class="math inline">\(S\)</span>.\ * If the set <span class="math inline">\(S\)</span> is circular, the complement of <span class="math inline">\(S\)</span> is everything outside of the circle. * Example: The complement of <span class="math inline">\(\{ (x,y) : x^2+y^2\le 4 \}\)</span> is <span class="math inline">\(\{ (x,y) : x^2+y^2 &gt; 4 \}\)</span>.</p>
+<p><strong>Closure</strong>: The closure of set <span class="math inline">\(S\)</span> is the smallest closed set that contains <span class="math inline">\(S\)</span>. Example: The closure of <span class="math inline">\(\{ (x,y) : x^2+y^2&lt;4 \}\)</span> is <span class="math inline">\(\{ (x,y) : x^2+y^2\le 4 \}\)</span></p>
+<p><strong>Bounded</strong>: A set <span class="math inline">\(S\)</span> is bounded if it can be contained within an <span class="math inline">\(\epsilon\)</span>-ball.</p>
+<ul>
+<li>Examples: Bounded: any interval that doesn’t have <span class="math inline">\(\infty\)</span> or <span class="math inline">\(-\infty\)</span> as endpoints; any disk in a plane with finite radius.</li>
+<li>Unbounded: the set of integers in <span class="math inline">\({\bf R}^1\)</span>; any ray.</li>
+</ul>
+<p><strong>Compact</strong>: A set is compact if and only if it is both closed and bounded.</p>
+<p><strong>Empty</strong>: The empty (or null) set is a unique set that has no elements, denoted by {} or . </p>
+<ul>
+<li>Examples: The set of squares with 5 sides; the set of countries south of the South Pole.\</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["prefresher.pdf", "prefresher.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
