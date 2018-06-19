@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Math (P)refresher for Political Scientists</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Math (P)refresher for Political Scientists" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Math (P)refresher for Political Scientists" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Shiro Kuriwaki and Yon Soo Park">
+
+
+<meta name="date" content="2018-06-19">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="functions-and-notation.html">
+<link rel="next" href="calculus-ii.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a></li>
+<li class="chapter" data-level="2" data-path="linear-algebra.html"><a href="linear-algebra.html"><i class="fa fa-check"></i><b>2</b> Linear Algebra</a><ul>
+<li class="chapter" data-level="2.1" data-path="linear-algebra.html"><a href="linear-algebra.html#working-with-vectors"><i class="fa fa-check"></i><b>2.1</b> Working with Vectors</a></li>
+<li class="chapter" data-level="2.2" data-path="linear-algebra.html"><a href="linear-algebra.html#linear-independence"><i class="fa fa-check"></i><b>2.2</b> Linear Independence</a></li>
+<li class="chapter" data-level="2.3" data-path="linear-algebra.html"><a href="linear-algebra.html#basics-of-matrix-algebra"><i class="fa fa-check"></i><b>2.3</b> Basics of Matrix Algebra</a></li>
+<li class="chapter" data-level="2.4" data-path="linear-algebra.html"><a href="linear-algebra.html#square-matrices"><i class="fa fa-check"></i><b>2.4</b> Square Matrices</a></li>
+<li class="chapter" data-level="2.5" data-path="linear-algebra.html"><a href="linear-algebra.html#linear-equations"><i class="fa fa-check"></i><b>2.5</b> Linear Equations</a></li>
+<li class="chapter" data-level="2.6" data-path="linear-algebra.html"><a href="linear-algebra.html#systems-of-linear-equations"><i class="fa fa-check"></i><b>2.6</b> Systems of Linear Equations</a></li>
+<li class="chapter" data-level="2.7" data-path="linear-algebra.html"><a href="linear-algebra.html#systems-of-equations-as-matrices"><i class="fa fa-check"></i><b>2.7</b> Systems of Equations as Matrices</a></li>
+<li class="chapter" data-level="2.8" data-path="linear-algebra.html"><a href="linear-algebra.html#finding-solutions-to-augmented-matrices-and-systems-of-equations"><i class="fa fa-check"></i><b>2.8</b> Finding Solutions to Augmented Matrices and Systems of Equations</a></li>
+<li class="chapter" data-level="2.9" data-path="linear-algebra.html"><a href="linear-algebra.html#rank-and-whether-a-system-has-one-infinite-or-no-solutions"><i class="fa fa-check"></i><b>2.9</b> Rank — and Whether a System Has One, Infinite, or No Solutions</a></li>
+<li class="chapter" data-level="2.10" data-path="linear-algebra.html"><a href="linear-algebra.html#the-inverse-of-a-matrix"><i class="fa fa-check"></i><b>2.10</b> The Inverse of a Matrix</a></li>
+<li class="chapter" data-level="2.11" data-path="linear-algebra.html"><a href="linear-algebra.html#linear-systems-and-inverses"><i class="fa fa-check"></i><b>2.11</b> Linear Systems and Inverses</a></li>
+<li class="chapter" data-level="2.12" data-path="linear-algebra.html"><a href="linear-algebra.html#determinants"><i class="fa fa-check"></i><b>2.12</b> Determinants</a></li>
+<li class="chapter" data-level="2.13" data-path="linear-algebra.html"><a href="linear-algebra.html#getting-inverse-of-a-matrix-using-its-determinant-and-matrix-of-cofactors"><i class="fa fa-check"></i><b>2.13</b> Getting Inverse of a Matrix using its Determinant and Matrix of Cofactors</a></li>
+<li class="chapter" data-level="2.14" data-path="linear-algebra.html"><a href="linear-algebra.html#inverse-of-larger-matrices"><i class="fa fa-check"></i><b>2.14</b> Inverse of Larger Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="functions-and-notation.html"><a href="functions-and-notation.html"><i class="fa fa-check"></i><b>3</b> Functions and Notation</a><ul>
+<li class="chapter" data-level="3.1" data-path="functions-and-notation.html"><a href="functions-and-notation.html#dimensionality"><i class="fa fa-check"></i><b>3.1</b> Dimensionality</a></li>
+<li class="chapter" data-level="3.2" data-path="functions-and-notation.html"><a href="functions-and-notation.html#interval-notation-for-bf-r1"><i class="fa fa-check"></i><b>3.2</b> Interval Notation for <span class="math inline">\({\bf R}^1\)</span></a></li>
+<li class="chapter" data-level="3.3" data-path="functions-and-notation.html"><a href="functions-and-notation.html#neighborhoods-intervals-disks-and-balls"><i class="fa fa-check"></i><b>3.3</b> Neighborhoods: Intervals, Disks, and Balls</a></li>
+<li class="chapter" data-level="3.4" data-path="functions-and-notation.html"><a href="functions-and-notation.html#introduction-to-functions"><i class="fa fa-check"></i><b>3.4</b> Introduction to Functions</a></li>
+<li class="chapter" data-level="3.5" data-path="functions-and-notation.html"><a href="functions-and-notation.html#domain-and-rangeimage"><i class="fa fa-check"></i><b>3.5</b> Domain and Range/Image</a></li>
+<li class="chapter" data-level="3.6" data-path="functions-and-notation.html"><a href="functions-and-notation.html#some-general-types-of-functions"><i class="fa fa-check"></i><b>3.6</b> Some General Types of Functions</a></li>
+<li class="chapter" data-level="3.7" data-path="functions-and-notation.html"><a href="functions-and-notation.html#log-ln-and-exp"><i class="fa fa-check"></i><b>3.7</b> <span class="math inline">\(\log\)</span>, <span class="math inline">\(\ln\)</span>, and <span class="math inline">\(\exp\)</span></a></li>
+<li class="chapter" data-level="3.8" data-path="functions-and-notation.html"><a href="functions-and-notation.html#other-useful-functions"><i class="fa fa-check"></i><b>3.8</b> Other Useful Functions</a></li>
+<li class="chapter" data-level="3.9" data-path="functions-and-notation.html"><a href="functions-and-notation.html#graphing-functions"><i class="fa fa-check"></i><b>3.9</b> Graphing Functions</a></li>
+<li class="chapter" data-level="3.10" data-path="functions-and-notation.html"><a href="functions-and-notation.html#solving-for-variables-and-finding-inverses"><i class="fa fa-check"></i><b>3.10</b> Solving for Variables and Finding Inverses</a></li>
+<li class="chapter" data-level="3.11" data-path="functions-and-notation.html"><a href="functions-and-notation.html#finding-the-roots-or-zeroes-of-a-function"><i class="fa fa-check"></i><b>3.11</b> Finding the Roots or Zeroes of a Function</a></li>
+<li class="chapter" data-level="3.12" data-path="functions-and-notation.html"><a href="functions-and-notation.html#the-limit-of-a-function"><i class="fa fa-check"></i><b>3.12</b> The Limit of a Function</a></li>
+<li class="chapter" data-level="3.13" data-path="functions-and-notation.html"><a href="functions-and-notation.html#continuity"><i class="fa fa-check"></i><b>3.13</b> Continuity</a></li>
+<li class="chapter" data-level="3.14" data-path="functions-and-notation.html"><a href="functions-and-notation.html#sets"><i class="fa fa-check"></i><b>3.14</b> Sets</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="calculus-i.html"><a href="calculus-i.html"><i class="fa fa-check"></i><b>4</b> Calculus I</a><ul>
+<li class="chapter" data-level="4.1" data-path="calculus-i.html"><a href="calculus-i.html#sequences"><i class="fa fa-check"></i><b>4.1</b> Sequences</a></li>
+<li class="chapter" data-level="4.2" data-path="calculus-i.html"><a href="calculus-i.html#the-limit-of-a-sequence"><i class="fa fa-check"></i><b>4.2</b> The Limit of a Sequence</a></li>
+<li class="chapter" data-level="4.3" data-path="calculus-i.html"><a href="calculus-i.html#series"><i class="fa fa-check"></i><b>4.3</b> Series</a></li>
+<li class="chapter" data-level="4.4" data-path="calculus-i.html"><a href="calculus-i.html#derivatives"><i class="fa fa-check"></i><b>4.4</b> Derivatives</a></li>
+<li class="chapter" data-level="4.5" data-path="calculus-i.html"><a href="calculus-i.html#higher-order-derivatives-or-derivatives-of-derivatives-of-derivatives"><i class="fa fa-check"></i><b>4.5</b> Higher-Order Derivatives or, Derivatives of Derivatives of Derivatives</a></li>
+<li class="chapter" data-level="4.6" data-path="calculus-i.html"><a href="calculus-i.html#composite-functions-and-the-chain-rule"><i class="fa fa-check"></i><b>4.6</b> Composite Functions and the Chain Rule</a></li>
+<li class="chapter" data-level="4.7" data-path="calculus-i.html"><a href="calculus-i.html#derivatives-of-eulers-number-and-natural-logs"><i class="fa fa-check"></i><b>4.7</b> Derivatives of Euler’s number and natural logs</a></li>
+<li class="chapter" data-level="4.8" data-path="calculus-i.html"><a href="calculus-i.html#applications-of-the-derivative-maxima-and-minima"><i class="fa fa-check"></i><b>4.8</b> Applications of the Derivative: Maxima and Minima</a></li>
+<li class="chapter" data-level="4.9" data-path="calculus-i.html"><a href="calculus-i.html#partial-derivatives"><i class="fa fa-check"></i><b>4.9</b> Partial Derivatives</a></li>
+<li class="chapter" data-level="4.10" data-path="calculus-i.html"><a href="calculus-i.html#lhopitals-rule"><i class="fa fa-check"></i><b>4.10</b> L’H^opital’s Rule</a></li>
+<li class="chapter" data-level="4.11" data-path="calculus-i.html"><a href="calculus-i.html#taylor-series-approximation"><i class="fa fa-check"></i><b>4.11</b> Taylor Series Approximation</a></li>
+<li class="chapter" data-level="4.12" data-path="calculus-i.html"><a href="calculus-i.html#summary-derivative-calculus-in-6-steps"><i class="fa fa-check"></i><b>4.12</b> Summary: Derivative calculus in 6 steps</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="calculus-ii.html"><a href="calculus-ii.html"><i class="fa fa-check"></i><b>5</b> Calculus II</a><ul>
+<li class="chapter" data-level="5.1" data-path="calculus-ii.html"><a href="calculus-ii.html#the-indefinite-integral-the-antiderivative"><i class="fa fa-check"></i><b>5.1</b> The Indefinite Integral: The Antiderivative</a></li>
+<li class="chapter" data-level="5.2" data-path="calculus-ii.html"><a href="calculus-ii.html#common-rules-of-integration"><i class="fa fa-check"></i><b>5.2</b> Common Rules of Integration</a></li>
+<li class="chapter" data-level="5.3" data-path="calculus-ii.html"><a href="calculus-ii.html#the-definite-integral-the-area-under-the-curve"><i class="fa fa-check"></i><b>5.3</b> The Definite Integral: The Area under the Curve</a></li>
+<li class="chapter" data-level="5.4" data-path="calculus-ii.html"><a href="calculus-ii.html#integration-by-substitution"><i class="fa fa-check"></i><b>5.4</b> Integration by Substitution</a></li>
+<li class="chapter" data-level="5.5" data-path="calculus-ii.html"><a href="calculus-ii.html#integration-by-parts-or-ultraviolet-voodoo"><i class="fa fa-check"></i><b>5.5</b> Integration by Parts, or Ultraviolet Voodoo</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="optimization.html"><a href="optimization.html"><i class="fa fa-check"></i><b>6</b> Optimization</a><ul>
+<li class="chapter" data-level="6.1" data-path="optimization.html"><a href="optimization.html#quadratic-forms"><i class="fa fa-check"></i><b>6.1</b> Quadratic Forms</a></li>
+<li class="chapter" data-level="6.2" data-path="optimization.html"><a href="optimization.html#concavity-of-quadratic-forms"><i class="fa fa-check"></i><b>6.2</b> Concavity of Quadratic Forms</a></li>
+<li class="chapter" data-level="6.3" data-path="optimization.html"><a href="optimization.html#definiteness-of-quadratic-forms"><i class="fa fa-check"></i><b>6.3</b> Definiteness of Quadratic Forms</a></li>
+<li class="chapter" data-level="6.4" data-path="optimization.html"><a href="optimization.html#first-order-conditions"><i class="fa fa-check"></i><b>6.4</b> First Order Conditions</a></li>
+<li class="chapter" data-level="6.5" data-path="optimization.html"><a href="optimization.html#second-order-conditions"><i class="fa fa-check"></i><b>6.5</b> Second Order Conditions</a></li>
+<li class="chapter" data-level="6.6" data-path="optimization.html"><a href="optimization.html#definiteness-and-concavity"><i class="fa fa-check"></i><b>6.6</b> Definiteness and Concavity</a></li>
+<li class="chapter" data-level="6.7" data-path="optimization.html"><a href="optimization.html#global-maxima-and-minima"><i class="fa fa-check"></i><b>6.7</b> Global Maxima and Minima</a></li>
+<li class="chapter" data-level="6.8" data-path="optimization.html"><a href="optimization.html#constrained-optimization"><i class="fa fa-check"></i><b>6.8</b> Constrained Optimization</a></li>
+<li class="chapter" data-level="6.9" data-path="optimization.html"><a href="optimization.html#equality-constraints"><i class="fa fa-check"></i><b>6.9</b> Equality Constraints</a></li>
+<li class="chapter" data-level="6.10" data-path="optimization.html"><a href="optimization.html#inequality-constraints"><i class="fa fa-check"></i><b>6.10</b> Inequality Constraints</a></li>
+<li class="chapter" data-level="6.11" data-path="optimization.html"><a href="optimization.html#kuhn-tucker-conditions"><i class="fa fa-check"></i><b>6.11</b> Kuhn-Tucker Conditions</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="7" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>7</b> Introduction</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Math (P)refresher for Political Scientists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="calculus-i" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Calculus I</h1>
+<p><strong>Topics</strong>: Sequences; Limit of a Sequence; Series; Derivatives; Higher-Order Derivatives; Composite Functions and The Chain Rule; Derivatives of Exp and Ln; Maxima and Minima; Partial Derivatives; L’H^opital’s Rule; Taylor Approximation; Derivative Calculus in 6 Steps</p>
+<p>Much of the material and examples for this lecture are taken from Simon &amp; Blume (1994)  and from Boyce &amp; Diprima (1988) </p>
+<div id="sequences" class="section level2">
+<h2><span class="header-section-number">4.1</span> Sequences</h2>
+<p>A  <span class="math inline">\(\{y_n\}=\{y_1, y_2, y_3, \ldots, y_n\}\)</span> is an ordered set of real numbers, where <span class="math inline">\(y_1\)</span> is the first term in the sequence and <span class="math inline">\(y_n\)</span> is the <span class="math inline">\(n\)</span>th term. Generally, a sequence is , that is it extends to <span class="math inline">\(n=\infty\)</span>. We can also write the sequence as <span class="math inline">\(\{y_n\}^\infty_{n=1}\)</span>.</p>
+Examples:
+
+<p>Think of sequences like functions. Before, we had <span class="math inline">\(y=f(x)\)</span> with <span class="math inline">\(x\)</span> specified over some domain. Now we have <span class="math inline">\(\{y_n\}=\{f(n)\}\)</span> with <span class="math inline">\(n=1,2,3,\ldots\)</span>.</p>
+<p><strong>Three kinds of sequences</strong>:</p>
+<ol style="list-style-type: decimal">
+<li>Sequences like 1 above that converge to a limit.</li>
+<li>Sequences like 2 above that increase without bound.</li>
+<li>Sequences like 3 above that neither converge nor increase without bound — alternating over the number line.</li>
+</ol>
+<p><strong>Boundedness and monotonicity:</strong></p>
+<ol style="list-style-type: decimal">
+<li>: if <span class="math inline">\(|y_n|\le K\)</span> for all <span class="math inline">\(n\)</span></li>
+<li>: <span class="math inline">\(y_{n+1}&gt;y_n\)</span> for all <span class="math inline">\(n\)</span></li>
+<li>: <span class="math inline">\(y_{n+1}&lt;y_n\)</span> for all <span class="math inline">\(n\)</span></li>
+</ol>
+<p>: Choose an infinite collection of entries from <span class="math inline">\(\{ y_n \}\)</span>, retaining their order.</p>
+</div>
+<div id="the-limit-of-a-sequence" class="section level2">
+<h2><span class="header-section-number">4.2</span> The Limit of a Sequence</h2>
+<p>We’re often interested in whether a sequence  to a . Limits of sequences are conceptually similar to the limits of functions addressed in the previous lecture.</p>
+<p>. The sequence <span class="math inline">\(\{y_n\}\)</span> has the limit <span class="math inline">\(L\)</span>, that is <span class="math inline">\(\lim\limits_{n \to \infty} y_n =L\)</span>, if for any <span class="math inline">\(\epsilon&gt;0\)</span> there is an integer <span class="math inline">\(N\)</span> (which depends on <span class="math inline">\(\epsilon\)</span>) with the property that <span class="math inline">\(|y_n -L|&lt;\epsilon\)</span> for each <span class="math inline">\(n&gt;N\)</span>. <span class="math inline">\(\{y_n\}\)</span> is said to converge to <span class="math inline">\(L\)</span>. If the above does not hold, then <span class="math inline">\(\{y_n\}\)</span> diverges.</p>
+<p>: If <span class="math inline">\(\{y_n\}\)</span> converges, then the limit <span class="math inline">\(L\)</span> is unique.</p>
+<p> Let <span class="math inline">\(\lim\limits_{n \to \infty} y_n = A\)</span> and <span class="math inline">\(\lim\limits_{n \to \infty} z_n =B\)</span>. Then</p>
+
+<p>Examples</p>
+
+
+<p>Finding the limit of a sequence in <span class="math inline">\({\bf R}^n\)</span> is similar to that in <span class="math inline">\({\bf R}^1\)</span>.</p>
+<p> The sequence of vectors <span class="math inline">\(\bf \{ y_n \}\)</span> has the limit <span class="math inline">\(\bf L\)</span>, that is <span class="math inline">\(\lim\limits_{n\to\infty} {\bf y_n}={\bf L}\)</span>, if for any <span class="math inline">\(\epsilon\)</span> there is an integer <span class="math inline">\(N\)</span> where <span class="math inline">\(\bf ||y_n-L||&lt;\epsilon\)</span> for each <span class="math inline">\(n&gt;N\)</span>. The sequence of vectors <span class="math inline">\(\bf \{ y_n\}\)</span> is said to converge to the vector <span class="math inline">\(\bf L\)</span> — and the distances between <span class="math inline">\(\bf y_n\)</span> and <span class="math inline">\(\bf L\)</span> converge to zero.</p>
+<p>Think of each coordinate of the vector <span class="math inline">\(\bf y_n\)</span> as being part of its own sequence over <span class="math inline">\(n\)</span>. Then a sequence of vectors in <span class="math inline">\({\bf R}^n\)</span> converges if and only if all <span class="math inline">\(n\)</span> sequences of its components converge.</p>
+<p>Examples:</p>
+
+: Any sequence contained in a compact (i.e., closed and bounded) subset of <span class="math inline">\({\bf R}^n\)</span> contains a convergent subsequence.\ <br />
+
+
+
+</div>
+<div id="series" class="section level2">
+<h2><span class="header-section-number">4.3</span> Series</h2>
+<p>The sum of the terms of a sequence is a . As there are both finite and infinite sequences, there are  and .</p>
+<p>The series associated with the sequence <span class="math inline">\(\{y_n\}=\{y_1, y_2, y_3, \ldots, y_n\} = \{y_n\}_{n=1}^{\infty}\)</span> is <span class="math inline">\(\sum_{n=1}^{\infty} y_n\)</span>. The <span class="math inline">\(n\)</span>th partial sum <span class="math inline">\(S_n\)</span> is defined as <span class="math inline">\(S_n=\sum_{k=1}^n y_k\)</span>,the sum of the first <span class="math inline">\(n\)</span> terms of the sequence.</p>
+<p> A series <span class="math inline">\(\sum y_n\)</span> converges if the sequence of partial sums <span class="math inline">\(\{S_1, S_2, S_3, ...\}\)</span> converges, i.e has a finite limit.</p>
+<p>A  is a series that can be written as <span class="math inline">\(\sum_{n=0}^{\infty} r^n\)</span>, where <span class="math inline">\(r\)</span> is called the ratio. A geometric series converges to <span class="math inline">\(\frac{1}{1-r}\)</span> if <span class="math inline">\(|r|&lt; 1\)</span> and diverges otherwise. For example, <span class="math inline">\(\sum_{n=0}^{\infty} \frac{1}{2^n} = 2\)</span>.</p>
+Examples of other series:
+
+</div>
+<div id="derivatives" class="section level2">
+<h2><span class="header-section-number">4.4</span> Derivatives</h2>
+<p>The derivative of <span class="math inline">\(f\)</span> at <span class="math inline">\(x\)</span> is its rate of change at <span class="math inline">\(x\)</span> — i.e., how much <span class="math inline">\(f(x)\)</span> changes with a change in <span class="math inline">\(x\)</span>.</p>
+<ul>
+<li>For a line, the derivative is the slope.\</li>
+<li>For a curve, the derivative is the slope of the line tangent to the curve at <span class="math inline">\(x\)</span>.</li>
+</ul>
+<p>: Let <span class="math inline">\(f\)</span> be a function whose domain includes an open interval containing the point <span class="math inline">\(x\)</span>. The derivative of <span class="math inline">\(f\)</span> at <span class="math inline">\(x\)</span> is given by</p>
+<span class="math display">\[\begin{eqnarray}
+        f&#39;(x) &amp;=&amp;\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{(x+h)-x}\nonumber\\
+        &amp;=&amp;\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{h}\nonumber
+\end{eqnarray}\]</span>
+<p>If <span class="math inline">\(f&#39;(x)\)</span> exists at a point <span class="math inline">\(x\)</span>, then <span class="math inline">\(f\)</span> is said to be <strong>differentiable</strong> at <span class="math inline">\(x\)</span>. Similarly, if <span class="math inline">\(f&#39;(x)\)</span> exists for every point a long an interval, then <span class="math inline">\(f\)</span> is differentiable along that interval. For <span class="math inline">\(f\)</span> to be differentiable at <span class="math inline">\(x\)</span>, <span class="math inline">\(f\)</span> must be both continuous and “smooth’’ at <span class="math inline">\(x\)</span>. The process of calculating <span class="math inline">\(f&#39;(x)\)</span> is called <strong>differentiation</strong>.</p>
+<strong>Notation for derivatives:</strong>
+
+<p> Suppose that <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are differentiable at <span class="math inline">\(x\)</span> and that <span class="math inline">\(\alpha\)</span> is a constant. Then the functions <span class="math inline">\(f\pm g\)</span>, <span class="math inline">\(\alpha f\)</span>, <span class="math inline">\(f g\)</span>, and <span class="math inline">\(f/g\)</span> (provided <span class="math inline">\(g(x)\ne 0\)</span>) are also differentiable at <span class="math inline">\(x\)</span>. Additionally,</p>
+
+
+</div>
+<div id="higher-order-derivatives-or-derivatives-of-derivatives-of-derivatives" class="section level2">
+<h2><span class="header-section-number">4.5</span> Higher-Order Derivatives or, Derivatives of Derivatives of Derivatives</h2>
+<p>We can keep applying the differentiation process to functions that are themselves derivatives. The derivative of <span class="math inline">\(f&#39;(x)\)</span> with respect to <span class="math inline">\(x\)</span>, would then be <span class="math display">\[f&#39;&#39;(x)=\lim\limits_{h\to 0}\frac{f&#39;(x+h)-f&#39;(x)}{h}\]</span> and so on. Similarly, the derivative of <span class="math inline">\(f&#39;&#39;(x)\)</span> would be denoted <span class="math inline">\(f&#39;&#39;&#39;(x)\)</span>.</p>
+<p> <span class="math inline">\(f&#39;(x)\)</span>, <span class="math inline">\(y&#39;\)</span>, <span class="math inline">\(\frac{df(x)}{dx}\)</span>, <span class="math inline">\(\frac{dy}{dx}\)</span></p>
+<p> <span class="math inline">\(f&#39;&#39;(x)\)</span>, <span class="math inline">\(y&#39;&#39;\)</span>, <span class="math inline">\(\frac{d^2f(x)}{dx^2}\)</span>, <span class="math inline">\(\frac{d^2y}{dx^2}\)</span></p>
+<p> <span class="math inline">\(\frac{d^nf(x)}{dx^n}\)</span>, <span class="math inline">\(\frac{d^ny}{dx^n}\)</span></p>
+Example:
+<span class="math display">\[\begin{align*}
+f(x) &amp;=x^3
+f&#39;(x) &amp;=3x^2
+f&#39;&#39;(x) &amp;=6x 
+f&#39;&#39;&#39;(x) &amp;=6
+f&#39;&#39;&#39;&#39;(x) &amp;=0
+\end{align*}\]</span>
+</div>
+<div id="composite-functions-and-the-chain-rule" class="section level2">
+<h2><span class="header-section-number">4.6</span> Composite Functions and the Chain Rule</h2>
+<p><strong>Composite functions</strong> are formed by substituting one function into another and are denoted by <span class="math display">\[(f\circ g)(x)=f[g(x)]\]</span> To form <span class="math inline">\(f[g(x)]\)</span>, the range of <span class="math inline">\(g\)</span> must be contained (at least in part) within the domain of <span class="math inline">\(f\)</span>. The domain of <span class="math inline">\(f\circ g\)</span> consists of all the points in the domain of <span class="math inline">\(g\)</span> for which <span class="math inline">\(g(x)\)</span> is in the domain of <span class="math inline">\(f\)</span>.</p>
+<p>Examples:</p>
+
+<p>: Let <span class="math inline">\(y=(f\circ g)(x)= f[g(x)]\)</span>. The derivative of <span class="math inline">\(y\)</span> with respect to <span class="math inline">\(x\)</span> is <span class="math display">\[\frac{d}{dx} \{ f[g(x)] \} = f&#39;[g(x)] g&#39;(x)\]</span> which can also be written as <span class="math display">\[\frac{dy}{dx}=\frac{dy}{dg(x)} \frac{dg(x)}{dx}\]</span> (Note: the above does not imply that the <span class="math inline">\(dg(x)\)</span>’s cancel out, as in fractions. They are part of the derivative notation and you can’t separate them out or cancel them.)</p>
+<p>The chain rule can be thought of as the derivative of the “outside” times the derivative of the “inside”, remembering that the derivative of the outside function is evaluated at the value of the inside function.</p>
+<p>: If <span class="math inline">\(y=[g(x)]^k\)</span>, then <span class="math inline">\(dy/dx=k[g(x)]^{k-1}g&#39;(x)\)</span>.</p>
+
+</div>
+<div id="derivatives-of-eulers-number-and-natural-logs" class="section level2">
+<h2><span class="header-section-number">4.7</span> Derivatives of Euler’s number and natural logs</h2>
+<p><strong>Derivatives of Exp or <span class="math inline">\(e\)</span></strong>:</p>
+
+Examples: Find <span class="math inline">\(dy/dx\)</span> for
+
+:
+
+Examples: Find <span class="math inline">\(dy/dx\)</span> for
+
+</div>
+<div id="applications-of-the-derivative-maxima-and-minima" class="section level2">
+<h2><span class="header-section-number">4.8</span> Applications of the Derivative: Maxima and Minima</h2>
+The first derivative, <span class="math inline">\(f&#39;(x)\)</span>, identifies whether the function <span class="math inline">\(f(x)\)</span> at the point <span class="math inline">\(x\)</span> is increasing or decreasing at <span class="math inline">\(x\)</span>.
+
+Examples:
+
+The second derivative <span class="math inline">\(f&#39;&#39;(x)\)</span> identifies whether the function <span class="math inline">\(f(x)\)</span> at the point <span class="math inline">\(x\)</span> is
+
+<p><strong>Maximum (Minimum)</strong>: <span class="math inline">\(x_0\)</span> is a <strong>local maximum (minimum)</strong> if <span class="math inline">\(f(x_0)&gt;f(x)\)</span> (<span class="math inline">\(f(x_0)&lt;f(x))\)</span> for all <span class="math inline">\(x\)</span> within some open interval containing <span class="math inline">\(x_0\)</span>. <span class="math inline">\(x_0\)</span> is a __ global maximum (minimum)__ if <span class="math inline">\(f(x_0)&gt;f(x)\)</span> (<span class="math inline">\(f(x_0)&lt;f(x))\)</span> for all <span class="math inline">\(x\)</span> in the domain of <span class="math inline">\(f\)</span>.</p>
+<p><strong>Critical points</strong>: Given the function <span class="math inline">\(f\)</span> defined over domain <span class="math inline">\(D\)</span>, all of the following are defined as <strong>critical points</strong>:</p>
+<ol style="list-style-type: decimal">
+<li>Any interior point of <span class="math inline">\(D\)</span> where <span class="math inline">\(f&#39;(x)=0\)</span>.</li>
+<li>Any interior point of <span class="math inline">\(D\)</span> where <span class="math inline">\(f&#39;(x)\)</span> does not exist.</li>
+<li>Any endpoint that is in <span class="math inline">\(D\)</span>.</li>
+</ol>
+<p>The maxima and minima will be a subset of the critical points.</p>
+<strong>Second Derivative Test of Maxima/Minima</strong>: We can use the second derivative to tell us whether a point is a maximum or minimum of <span class="math inline">\(f(x)\)</span>.
+
+<p>. Sometimes no global max or min exists — e.g., <span class="math inline">\(f(x)\)</span> not bounded above or below. However, there are three situations where we can fairly easily identify global max or min.</p>
+
+Examples: Find any critical points and identify whether they’re a max, min, or saddle point:
+
+</div>
+<div id="partial-derivatives" class="section level2">
+<h2><span class="header-section-number">4.9</span> Partial Derivatives</h2>
+<p>Suppose we have a function <span class="math inline">\(f\)</span> now of two (or more) variables and we want to determine the rate of change relative to one of the variables. To do so, we would find it’s partial derivative, which is defined similar to the derivative of a function of one variable.</p>
+<p><strong>Partial Derivative</strong>: Let <span class="math inline">\(f\)</span> be a function of the variables <span class="math inline">\((x_1,\ldots,x_n)\)</span>. The partial derivative of <span class="math inline">\(f\)</span> with respect to <span class="math inline">\(x_i\)</span> is</p>
+<p><span class="math display">\[\frac{\partial f}{\partial x_i} (x_1,\ldots,x_n) = \lim\limits_{h\to 0} \frac{f(x_1,\ldots,x_i+h,\ldots,x_n)-f(x_1,\ldots,x_i,\ldots,x_n)}{h}\]</span> Only the <span class="math inline">\(i\)</span>th variable changes — the others are treated as constants.</p>
+<p>We can take higher-order partial derivatives, like we did with functions of a single variable, except now we the higher-order partials can be with respect to multiple variables.</p>
+
+</div>
+<div id="lhopitals-rule" class="section level2">
+<h2><span class="header-section-number">4.10</span> L’H^opital’s Rule</h2>
+<p>In studying limits, we saw that <span class="math inline">\(\lim\limits_{x \to c} f(x)/g(x) = \left(\lim\limits_{x \to c} f(x)\right)/\left(\lim\limits_{x \to c} g(x)\right)\)</span>, provided that <span class="math inline">\(\lim\limits_{x \to c} g(x)\ne 0\)</span>.</p>
+<p>If both <span class="math inline">\(\lim\limits_{x \to c} f(x)=0\)</span> and <span class="math inline">\(\lim\limits_{x \to c} g(x)=0\)</span>, then we get an <strong>indeterminate form</strong> of the type <span class="math inline">\(0/0\)</span> as <span class="math inline">\(x\to c\)</span>. However, a limit may still exist. We can use L’H^opital’s rule to find the limit.</p>
+<p><strong>L’H^opital’s Rule</strong>: Suppose <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are differentiable on some interval <span class="math inline">\(a&lt;x&lt;b\)</span> and that either</p>
+
+<p>Suppose further that <span class="math inline">\(g&#39;(x)\)</span> is never zero on <span class="math inline">\(a&lt;x&lt;b\)</span> and that <span class="math display">\[\lim\limits_{x\to a^+} \frac{f&#39;(x)}{g&#39;(x)}=L\]</span> then <span class="math display">\[\lim\limits_{x\to a^+} \frac{f(x)}{g(x)}=L\]</span></p>
+<p>%Put more simply, if <span class="math inline">\(\lim\limits_{x\to a f(x)}\)</span> is of the form <span class="math inline">\(0/0\)</span> or <span class="math inline">\(\pm \infty / \pm \infty\)</span>, then <span class="math display">\[\lim\limits_{x\to a} f(x) = \lim\limits_{x\to a} f&#39;(x)\]</span>\</p>
+<p>And if <span class="math inline">\(\lim\limits_{x\to a} \frac{f&#39;(x)}{g&#39;(x)} = 0/0\)</span> or <span class="math inline">\(\pm \infty / \pm \infty\)</span> then you can apply L’H^opital’s rule a second time, and continue applying it until you have a solution.</p>
+
+</div>
+<div id="taylor-series-approximation" class="section level2">
+<h2><span class="header-section-number">4.11</span> Taylor Series Approximation</h2>
+<p> (also known as the delta method) are used commonly to represent functions as infinite series of the function’s derivatives at some point <span class="math inline">\(a\)</span>. For example, Taylor series are very helpful in representing <em>nonlinear</em> functions as linear functions. One can thus <em>approximate</em> functions by using lower-order, finite series known as . If <span class="math inline">\(a=0\)</span>, the series is called a Maclaurin series.</p>
+<p>Specifically, a Taylor series of a real or complex function <span class="math inline">\(f(x)\)</span> that is infinitely differentiable in the neighborhood of point <span class="math inline">\(a\)</span> is:</p>
+<span class="math display">\[\begin{align*}
+    f(x) &amp;= f(a) + \frac{f&#39;(a)}{1!} (x-a) +  \frac{f&#39;&#39;(a)}{2!} (x-a)^2 + \cdots\\
+     &amp;= \sum_{n=0}^\infty \frac{f^{(n)} (a)}{n!} (x-a)^n
+\end{align*}\]</span>
+<p><strong>Taylor Approximation</strong>: We can often approximate the curvature of a function <span class="math inline">\(f(x)\)</span> at point <span class="math inline">\(a\)</span> using a 2nd order Taylor polynomial around point <span class="math inline">\(a\)</span>:</p>
+<p><span class="math display">\[f(x) = f(a) + \frac{f&#39;(a)}{1!} (x-a) +  \frac{f&#39;&#39;(a)}{2!} (x-a)^2
++ R_2\]</span></p>
+<p><span class="math inline">\(R_2\)</span> is the Lagrange remainder and often treated as negligible, giving us:</p>
+<p><span class="math display">\[f(x) \approx f(a) + f&#39;(a)(x-a) +  \dfrac{f&#39;&#39;(a)}{2} (x-a)^2\]</span></p>
+<p>Taylor series expansion is easily generalized to multiple dimensions.\</p>
+<p>: The Hessian is used in a Taylor polynomial approximation to <span class="math inline">\(\fx\)</span> and provides information about the curvature of <span class="math inline">\(\fx\)</span> at <span class="math inline">\(\bm{x}\)</span> — e.g., which tells us whether a critical point <span class="math inline">\(\bm{x}^*\)</span> is a min, max, or saddle point.</p>
+
+</div>
+<div id="summary-derivative-calculus-in-6-steps" class="section level2">
+<h2><span class="header-section-number">4.12</span> Summary: Derivative calculus in 6 steps</h2>
+<p>With these six rules (and decent algebra and trigonometry skills) you can figure out the derivative of anything.</p>
+<ol style="list-style-type: decimal">
+<li>Sum rule: <span class="math display">\[[f(x)\pm g(x)]&#39; = f&#39;(x)\pm g&#39;(x)\]</span></li>
+<li>Product rule: <span class="math display">\[[f(x)g(x)]&#39; = f&#39;(x)g(x)+f(x)g&#39;(x)\]</span></li>
+<li>Power rule: <span class="math display">\[[x^k]&#39; = k x^{k-1}\]</span></li>
+<li>Chain rule: <span class="math display">\[\frac{d}{dx} \{ f[g(x)] \} = f&#39;[g(x)] g&#39;(x)\]</span></li>
+<li><span class="math inline">\(e^x\)</span>: <span class="math display">\[\frac{d}{dx} e^x = e^x\]</span></li>
+<li>Trig identity: <span class="math display">\[\frac{d}{dx} \sin(x) = \cos(x)\]</span></li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="functions-and-notation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="calculus-ii.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["prefresher.pdf", "prefresher.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

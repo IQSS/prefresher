@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="references.html">
-
+<link rel="prev" href="calculus-i.html">
+<link rel="next" href="optimization.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -192,195 +192,83 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro" class="section level1">
-<h1><span class="header-section-number">Chapter 7</span> Introduction</h1>
-<p>You can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="intro.html#intro">7</a>. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter <a href="#methods"><strong>??</strong></a>.</p>
-<p>Figures and tables with captions will be placed in <code>figure</code> and <code>table</code> environments, respectively.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, .<span class="dv">1</span>, .<span class="dv">1</span>))
-<span class="kw">plot</span>(pressure, <span class="dt">type =</span> <span class="st">&#39;b&#39;</span>, <span class="dt">pch =</span> <span class="dv">19</span>)</code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:nice-fig"></span>
-<img src="prefresher_files/figure-html/nice-fig-1.png" alt="Here is a nice figure!" width="80%" />
-<p class="caption">
-Figure 7.1: Here is a nice figure!
-</p>
-</div>
-<p>Reference a figure by its code chunk label with the <code>fig:</code> prefix, e.g., see Figure <a href="intro.html#fig:nice-fig">7.1</a>. Similarly, you can reference tables generated from <code>knitr::kable()</code>, e.g., see Table <a href="intro.html#tab:nice-tab">7.1</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(
-  <span class="kw">head</span>(iris, <span class="dv">20</span>), <span class="dt">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,
-  <span class="dt">booktabs =</span> <span class="ot">TRUE</span>
-)</code></pre></div>
-<table>
-<caption><span id="tab:nice-tab">Table 7.1: </span>Here is a nice table!</caption>
-<thead>
-<tr class="header">
-<th align="right">Sepal.Length</th>
-<th align="right">Sepal.Width</th>
-<th align="right">Petal.Length</th>
-<th align="right">Petal.Width</th>
-<th align="left">Species</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">5.1</td>
-<td align="right">3.5</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.9</td>
-<td align="right">3.0</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.7</td>
-<td align="right">3.2</td>
-<td align="right">1.3</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.6</td>
-<td align="right">3.1</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.0</td>
-<td align="right">3.6</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.4</td>
-<td align="right">3.9</td>
-<td align="right">1.7</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.6</td>
-<td align="right">3.4</td>
-<td align="right">1.4</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.0</td>
-<td align="right">3.4</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.4</td>
-<td align="right">2.9</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.9</td>
-<td align="right">3.1</td>
-<td align="right">1.5</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.4</td>
-<td align="right">3.7</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.8</td>
-<td align="right">3.4</td>
-<td align="right">1.6</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.8</td>
-<td align="right">3.0</td>
-<td align="right">1.4</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.3</td>
-<td align="right">3.0</td>
-<td align="right">1.1</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.8</td>
-<td align="right">4.0</td>
-<td align="right">1.2</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.7</td>
-<td align="right">4.4</td>
-<td align="right">1.5</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.4</td>
-<td align="right">3.9</td>
-<td align="right">1.3</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.1</td>
-<td align="right">3.5</td>
-<td align="right">1.4</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.7</td>
-<td align="right">3.8</td>
-<td align="right">1.7</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.1</td>
-<td align="right">3.8</td>
-<td align="right">1.5</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-</tbody>
-</table>
-<p>You can write citations, too. For example, we are using the <strong>bookdown</strong> package <span class="citation">(Xie <a href="#ref-R-bookdown">2018</a>)</span> in this sample book, which was built on top of R Markdown and <strong>knitr</strong> <span class="citation">(Xie <a href="#ref-xie2015">2015</a>)</span>.</p>
+<div id="calculus-ii" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Calculus II</h1>
+<p>Today’s Topics: The Indefinite Integral: The Antiderivative; Common Rules of Integration; The Definite Integral: The Area under the Curve; Integration by Substitution; Integration by Parts</p>
+<p>Much of the material and examples for this lecture are taken from Simon &amp; Blume (1994)  and from Boyce &amp; Diprima (1988) </p>
+<div id="the-indefinite-integral-the-antiderivative" class="section level2">
+<h2><span class="header-section-number">5.1</span> The Indefinite Integral: The Antiderivative</h2>
+<p>So far, we’ve been interested in finding the derivative <span class="math inline">\(g=f&#39;\)</span> of a function <span class="math inline">\(f\)</span>. However, sometimes we’re interested in exactly the reverse: finding the function <span class="math inline">\(f\)</span> for which <span class="math inline">\(g\)</span> is its derivative. We refer to <span class="math inline">\(f\)</span> as the {} of <span class="math inline">\(g\)</span>.</p>
+<p>Let <span class="math inline">\(DF\)</span> be the derivative of <span class="math inline">\(F\)</span>. And let <span class="math inline">\(DF(x)\)</span> be the derivative of <span class="math inline">\(F\)</span> evaluated at <span class="math inline">\(x\)</span>. Then the antiderivative is denoted by <span class="math inline">\(D^{-1}\)</span> (i.e., the inverse derivative). If <span class="math inline">\(DF=f\)</span>, then <span class="math inline">\(F=D^{-1}f\)</span>.</p>
+<p><strong>Indefinite Integral</strong>: Equivalently, if <span class="math inline">\(F\)</span> is the antiderivative of <span class="math inline">\(f\)</span>, then <span class="math inline">\(F\)</span> is also called the indefinite integral of <span class="math inline">\(f\)</span> and written <span class="math inline">\(F(x)=\int\limits f(x)dx\)</span>.</p>
 
-<div id="refs" class="references">
-<div>
-<p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a>.</p>
+<p>Notice from these examples that while there is only a single derivative for any function, there are multiple antiderivatives: one for any arbitrary constant <span class="math inline">\(c\)</span>. <span class="math inline">\(c\)</span> just shifts the curve up or down on the <span class="math inline">\(y\)</span>-axis. If more info is present about the antiderivative — e.g., that it passes through a particular point — then we can solve for a specific value of <span class="math inline">\(c\)</span>. \end{itemize}</p>
 </div>
-<div>
-<p>———. 2018. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown" class="uri">https://CRAN.R-project.org/package=bookdown</a>.</p>
+<div id="common-rules-of-integration" class="section level2">
+<h2><span class="header-section-number">5.2</span> Common Rules of Integration</h2>
+
+
 </div>
+<div id="the-definite-integral-the-area-under-the-curve" class="section level2">
+<h2><span class="header-section-number">5.3</span> The Definite Integral: The Area under the Curve</h2>
+<p><strong>Riemann Sum</strong>: Suppose we want to determine the area <span class="math inline">\(A(R)\)</span> of a region <span class="math inline">\(R\)</span> defined by a curve <span class="math inline">\(f(x)\)</span> and some interval <span class="math inline">\(a\le x \le b\)</span>. One way to calculate the area would be to divide the interval <span class="math inline">\(a\le x\le b\)</span> into <span class="math inline">\(n\)</span> subintervals of length <span class="math inline">\(\Delta x\)</span> and then approximate the region with a series of rectangles, where the base of each rectangle is <span class="math inline">\(\Delta x\)</span> and the height is <span class="math inline">\(f(x)\)</span> at the midpoint of that interval. <span class="math inline">\(A(R)\)</span> would then be approximated by the area of the union of the rectangles, which is given by <span class="math display">\[S(f,\Delta x)=\sum\limits_{i=1}^n f(x_i)\Delta x\]</span> and is called a Riemann sum.</p>
+<p>As we decrease the size of the subintervals <span class="math inline">\(\Delta x\)</span>, making the rectangles “thinner,” we would expect our approximation of the area of the region to become closer to the true area. This gives the limiting process <span class="math display">\[A(R)=\lim\limits_{\Delta x\to 0}\sum\limits_{i=1}^n f(x_i)\Delta x\]</span></p>
+<p><strong>Riemann Integral</strong>: If for a given function <span class="math inline">\(f\)</span> the Riemann sum approaches a limit as <span class="math inline">\(\Delta x \to 0\)</span>, then that limit is called the Riemann integral of <span class="math inline">\(f\)</span> from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span>. Formally, <span class="math display">\[\int\limits_a^b f(x) dx= \lim\limits_{\Delta x\to 0} \sum\limits_{i=1}^n f(x_i)\Delta x\]</span></p>
+<p><strong>Definite Integral</strong>: We use the notation <span class="math inline">\(\int\limits_a^b f(x) dx\)</span> to denote the definite integral of <span class="math inline">\(f\)</span> from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span>. In words, the definite integral <span class="math inline">\(\int\limits_a^b f(x)dx\)</span> is the area under the ``curve&quot; f(x) from <span class="math inline">\(x=a\)</span> to <span class="math inline">\(x=b\)</span>.</p>
+<p><strong>First Fundamental Theorem of Calculus</strong>: Let the function <span class="math inline">\(f\)</span> be bounded on <span class="math inline">\([a,b]\)</span> and continuous on <span class="math inline">\((a,b)\)</span>. Then the function <span class="math display">\[F(x)=\int\limits_a^x f(t)dt, \quad a\le x\le b\]</span> has a derivative at each point in <span class="math inline">\((a,b)\)</span> and <span class="math display">\[F&#39;(x)=f(x), \quad a&lt;x&lt;b\]</span> This last point shows that differentiation is the inverse of integration.</p>
+<p><strong>Second Fundamental Theorem of Calculus</strong>: Let the function <span class="math inline">\(f\)</span> be bounded on <span class="math inline">\([a,b]\)</span> and continuous on <span class="math inline">\((a,b)\)</span>. Let <span class="math inline">\(F\)</span> be any function that is continuous on <span class="math inline">\([a,b]\)</span> such that <span class="math inline">\(F&#39;(x)=f(x)\)</span> on <span class="math inline">\((a,b)\)</span>. Then <span class="math display">\[\int\limits_a^bf(x)dx = F(b)-F(a)\]</span></p>
+<p> <span class="math inline">\(\int\limits_a^b f(x)dx\)</span>:</p>
+<ol style="list-style-type: decimal">
+<li>Find the indefinite integral <span class="math inline">\(F(x)\)</span>.</li>
+<li>Evaluate <span class="math inline">\(F(b)-F(a)\)</span>.</li>
+</ol>
+
+Properties of Definite Integrals:
+
+
 </div>
+<div id="integration-by-substitution" class="section level2">
+<h2><span class="header-section-number">5.4</span> Integration by Substitution</h2>
+<p>Sometimes the integrand doesn’t appear integrable using common rules and antiderivatives. A method one might try is <strong>integration by substitution</strong>, which is related to the Chain Rule.</p>
+<p>Suppose we want to find the indefinite integral <span class="math inline">\(\int g(x)dx\)</span> and assume we can identify a function <span class="math inline">\(u(x)\)</span> such that <span class="math inline">\(g(x)=f[u(x)]u&#39;(x)\)</span>. Let’s refer to the antiderivative of <span class="math inline">\(f\)</span> as <span class="math inline">\(F\)</span>. Then the chain rule tells us that <span class="math inline">\(\frac{d}{dx} F[u(x)]=f[u(x)]u&#39;(x)\)</span>. So, <span class="math inline">\(F[u(x)]\)</span> is the antiderivative of <span class="math inline">\(g\)</span>. We can then write <span class="math display">\[\int g(x) dx= \int f[u(x)]u&#39;(x)dx = \int \frac{d}{dx} F[u(x)]dx = F[u(x)]+c\]</span></p>
+<p><strong>Procedure to determine the indefinite integral <span class="math inline">\(\int g(x)dx\)</span> by the method of substitution:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Identify some part of <span class="math inline">\(g(x)\)</span> that might be simplified by substituting in a single variable <span class="math inline">\(u\)</span> (which will then be a function of <span class="math inline">\(x\)</span>).</li>
+<li>Determine if <span class="math inline">\(g(x)dx\)</span> can be reformulated in terms of <span class="math inline">\(u\)</span> and <span class="math inline">\(du\)</span>.</li>
+<li>Solve the indefinite integral.</li>
+<li>Substitute back in for <span class="math inline">\(x\)</span></li>
+</ol>
+<p>Substitution can also be used to calculate a definite integral. Using the same procedure as above, <span class="math display">\[\int\limits_a^b g(x)dx=\int\limits_c^d f(u)du = F(d)-F(c)\]</span> where <span class="math inline">\(c=u(a)\)</span> and <span class="math inline">\(d=u(b)\)</span>.</p>
+<p>Example: <span class="math inline">\(\int x^2 \sqrt{x+1}dx\)</span></p>
+
+<p>The problem here is the <span class="math inline">\(\sqrt{x+1}\)</span> term. However, if the integrand had <span class="math inline">\(\sqrt{x}\)</span> times some polynomial, then we’d be in business. Let’s try <span class="math inline">\(u=x+1\)</span>. Then <span class="math inline">\(x=u-1\)</span> and <span class="math inline">\(dx=du\)</span>. Substituting these into the above equation, we get</p>
+<span class="math display">\[\begin{eqnarray}
+            \int x^2\sqrt{x+1}dx&amp;=&amp;\int (u-1)^2\sqrt{u}du\nonumber\\
+            &amp;=&amp;\int (u^2-2u+1)u^{1/2}du\nonumber\\
+            &amp;=&amp;\int (u^{5/2}-2u^{3/2}+u^{1/2})du\nonumber
+\end{eqnarray}\]</span>
+<p>We can easily integrate this, since it’s just a polynomial. Doing so and substituting <span class="math inline">\(u=x+1\)</span> back in, we get <span class="math display">\[\int x^2\sqrt{x+1}dx=2(x+1)^{3/2}\left[\frac{1}{7}(x+1)^2 -
+\frac{2}{5}(x+1)+\frac{1}{3}\right]+c\]</span></p>
+<p>For the above problem, we could have also used the substitution <span class="math inline">\(u=\sqrt{x+1}\)</span>. Then <span class="math inline">\(x=u^2-1\)</span> and <span class="math inline">\(dx=2u du\)</span>. Substituting these in, we get <span class="math display">\[\int x^2\sqrt{x+1}dx=\int (u^2-1)^2 u 2u du\]</span> which when expanded is again a polynomial and gives the same result as above.</p>
+<p>Another Example <span class="math inline">\(\int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx\)</span></p>
+
+When an expression is raised to a power, it’s often helpful to use this expression as the basis for a substitution. So, let <span class="math inline">\(u=1+e^{2x}\)</span>. Then <span class="math inline">\(du=2e^{2x}dx\)</span> and we can set <span class="math inline">\(5e^{2x}dx=5du/2\)</span>. Additionally, <span class="math inline">\(u=2\)</span> when <span class="math inline">\(x=0\)</span> and <span class="math inline">\(u=1+e^2\)</span> when <span class="math inline">\(x=1\)</span>. Substituting all of this in, we get
+<span class="math display">\[\begin{eqnarray}
+            \int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx
+            &amp;=&amp; \frac{5}{2}\int\limits_2^{1+e^2}\frac{du}{u^{1/3}}\nonumber\\
+            &amp;=&amp; \frac{5}{2}\int\limits_2^{1+e^2} u^{-1/3}du\nonumber\\
+            &amp;=&amp; \left. \frac{15}{4} u^{2/3} \right|_2^{1+e^2}\nonumber\\
+            &amp;=&amp; 9.53\nonumber
+\end{eqnarray}\]</span>
 </div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-R-bookdown">
-<p>Xie, Yihui. 2018. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown" class="uri">https://CRAN.R-project.org/package=bookdown</a>.</p>
-</div>
-<div id="ref-xie2015">
-<p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a>.</p>
+<div id="integration-by-parts-or-ultraviolet-voodoo" class="section level2">
+<h2><span class="header-section-number">5.5</span> Integration by Parts, or Ultraviolet Voodoo</h2>
+<p>Another useful integration technique is {}, which is related to the Product Rule of differentiation. The product rule states that <span class="math display">\[\frac{d}{dx}(uv)=u\frac{dv}{dx}+v\frac{du}{dx}\]</span> Integrating this and rearranging, we get <span class="math display">\[\int u\frac{dv}{dx}dx= u v - \int v \frac{du}{dx}dx\]</span> or <span class="math display">\[\int u(x) v&#39;(x)dx=u(x)v(x) - \int v(x)u&#39;(x)dx\]</span> More frequently remembered as <span class="math display">\[\int u dv = u v - \int v du\]</span> where <span class="math inline">\(du=u&#39;(x)dx\)</span> and <span class="math inline">\(dv=v&#39;(x)dx\)</span>.</p>
+<p>For definite integrals: <span class="math inline">\(\int\limits_a^b u\frac{dv}{dx}dx = \left. u v \right|_a^b - \int\limits_a^b v \frac{du}{dx}dx\)</span></p>
+<p>Our goal here is to find expressions for <span class="math inline">\(u\)</span> and <span class="math inline">\(dv\)</span> that, when substituted into the above equation, yield an expression that’s more easily evaluated.</p>
+<p>Examples:</p>
+
+
 </div>
 </div>
             </section>
@@ -388,8 +276,8 @@ Figure 7.1: Here is a nice figure!
           </div>
         </div>
       </div>
-<a href="references.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="calculus-i.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="optimization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
