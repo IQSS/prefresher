@@ -1,4 +1,4 @@
-\contentsline {chapter}{\numberline {1}Welcome}{5}{chapter.1}
+\contentsline {chapter}{\numberline {1}About this Booklet}{5}{chapter.1}
 \contentsline {chapter}{\numberline {2}Linear Algebra}{7}{chapter.2}
 \contentsline {section}{\numberline {2.1}Working with Vectors}{7}{section.2.1}
 \contentsline {section}{\numberline {2.2}Linear Independence}{8}{section.2.2}
@@ -13,7 +13,7 @@
 \contentsline {section}{\numberline {2.11}Linear Systems and Inverses}{17}{section.2.11}
 \contentsline {section}{\numberline {2.12}Determinants}{17}{section.2.12}
 \contentsline {section}{\numberline {2.13}Getting Inverse of a Matrix using its Determinant and Matrix of Cofactors}{19}{section.2.13}
-\contentsline {section}{\numberline {2.14}Inverse of Larger Matrices}{20}{section.2.14}
+\contentsline {section}{\numberline {2.14}Inverse of Larger Matrices}{19}{section.2.14}
 \contentsline {chapter}{\numberline {3}Functions and Notation}{21}{chapter.3}
 \contentsline {section}{\numberline {3.1}Dimensionality}{21}{section.3.1}
 \contentsline {section}{\numberline {3.2}Interval Notation for \({\bf R}^1\)}{21}{section.3.2}

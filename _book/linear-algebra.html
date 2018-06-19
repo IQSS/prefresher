@@ -5,21 +5,21 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Math (P)refresher for Political Scientists</title>
-  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.">
+  <title>Math Prefresher for Political Scientists</title>
+  <meta name="description" content="This is a trial version of Harvard department of Government Math Prefresher Text">
   <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
-  <meta property="og:title" content="Math (P)refresher for Political Scientists" />
+  <meta property="og:title" content="Math Prefresher for Political Scientists" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta property="og:description" content="This is a trial version of Harvard department of Government Math Prefresher Text" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Math (P)refresher for Political Scientists" />
+  <meta name="twitter:title" content="Math Prefresher for Political Scientists" />
   
-  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="twitter:description" content="This is a trial version of Harvard department of Government Math Prefresher Text" />
   
 
 <meta name="author" content="Shiro Kuriwaki and Yon Soo Park">
@@ -103,7 +103,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About this Booklet</a></li>
 <li class="chapter" data-level="2" data-path="linear-algebra.html"><a href="linear-algebra.html"><i class="fa fa-check"></i><b>2</b> Linear Algebra</a><ul>
 <li class="chapter" data-level="2.1" data-path="linear-algebra.html"><a href="linear-algebra.html#working-with-vectors"><i class="fa fa-check"></i><b>2.1</b> Working with Vectors</a></li>
 <li class="chapter" data-level="2.2" data-path="linear-algebra.html"><a href="linear-algebra.html#linear-independence"><i class="fa fa-check"></i><b>2.2</b> Linear Independence</a></li>
@@ -184,7 +184,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Math (P)refresher for Political Scientists</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Math Prefresher for Political Scientists</a>
           </h1>
         </div>
 
@@ -408,16 +408,16 @@ Examples:
 <div id="linear-systems-and-inverses" class="section level2">
 <h2><span class="header-section-number">2.11</span> Linear Systems and Inverses</h2>
 <p>Let’s return to the matrix representation of a linear system</p>
-<p><span class="math display">\[\bf {\bf A} x = b\]</span></p>
-<p>If <span class="math inline">\({\bf A}\)</span> is an <span class="math inline">\(n\times n\)</span> matrix,then <span class="math inline">\(\bf {\bf A} x=b\)</span> is a system of <span class="math inline">\(n\)</span> equations in <span class="math inline">\(n\)</span> unknowns. Suppose ${} $ is nonsingular <span class="math inline">\(\quad \Longrightarrow \quad\)</span> <span class="math inline">\({\bf A}^{-1}\)</span> exists. To solve this system, we can premultiply each side by <span class="math inline">\({\bf A}^{-1}\)</span> and reduce it as follows:</p>
-<span class="math display">\[\begin{eqnarray} 
-            {\bf A}^{-1} ({\bf A} \bf x)&amp;=&amp;{\bf A}^{-1} \bf b \nonumber\\
-            ({\bf A}^{-1} {\bf A})\bf x &amp;=&amp;{\bf A}^{-1} \bf b \nonumber\\
-            {\bf I}_n \bf x     &amp;=&amp;{\bf A}^{-1} \bf b \nonumber\\
-            \bf x&amp;=&amp;{\bf A}^{-1} \bf b \nonumber
-\end{eqnarray}\]</span>
-<p>Hence, given <span class="math inline">\(\bm{A}\)</span> and <span class="math inline">\(\bm{b}\)</span> and given that <span class="math inline">\(\bm{A}\)</span> is nonsingular, then <span class="math inline">\(\bm{x} = \bm{A}^{-1} b\)</span> is a unique solution to this system.</p>
-<p>Notice also that the requirements for <span class="math inline">\({\bf A}\)</span> to be nonsingular correspond to the requirements for a linear system to have a unique solution: <span class="math inline">\(\mbox{rank\,}{\bf A}=\mbox{rows\,}{\bf A}=\mbox{cols\,}{\bf A}\)</span>.</p>
+<p><span class="math display">\[\bf{Ax} = \bf{b}\]</span></p>
+<p>If <span class="math inline">\(\bf{A}\)</span> is an <span class="math inline">\(n\times n\)</span> matrix,then <span class="math inline">\(\bf{Ax}=\bf{b}\)</span> is a system of <span class="math inline">\(n\)</span> equations in <span class="math inline">\(n\)</span> unknowns. Suppose <span class="math inline">\(\bf{A}\)</span> is nonsingular. Then <span class="math inline">\(\bf{A}^{-1}\)</span> exists. To solve this system, we can premultiply each side by <span class="math inline">\(\bf{A}^{-1}\)</span> and reduce it as follows:</p>
+<span class="math display">\[\begin{eqnarray*} 
+\bf{A}^{-1} (\bf{A} \bf{x}) &amp; = &amp; \bf{A}^{-1} \bf{b} \\
+(\bf{A}^{-1} \bf{A})\bf{x} &amp; = &amp; \bf{A}^{-1} \bf{b}\\
+\bf{I}_n \bf{x}     &amp; = &amp; \bf{A}^{-1} \bf{b}\\
+\bf{x} &amp; = &amp; \bf{A}^{-1} \bf{b}
+\end{eqnarray*}\]</span>
+<p>Hence, given <span class="math inline">\(\bf{A}\)</span> and <span class="math inline">\(\bf{b}\)</span> and given that <span class="math inline">\(\bf{A}\)</span> is nonsingular, then <span class="math inline">\(\bf{x} = \bf{A}^{-1} \bf{b}\)</span> is a unique solution to this system.</p>
+<p>Notice also that the requirements for <span class="math inline">\(\bf{A}\)</span> to be nonsingular correspond to the requirements for a linear system to have a unique solution: <span class="math display">\[\text{rank}\bf{A} = \text{rows}\bf{A} = \text{cols}\bf{A}\]</span></p>
 </div>
 <div id="determinants" class="section level2">
 <h2><span class="header-section-number">2.12</span> Determinants</h2>

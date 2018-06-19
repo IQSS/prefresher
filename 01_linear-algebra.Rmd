@@ -576,21 +576,21 @@ Find the inverse of ${\bf A}=\begin{pmatrix} 1&1&1\\0&2&3\\5&5&1 \end{pmatrix}$
 
 Let's return to the matrix representation of a linear system 
 		
-\[\bf {\bf A} x = b\]
+\[\bf{Ax} = \bf{b}\]
 
-If ${\bf A}$ is an $n\times n$ matrix,then $\bf {\bf A} x=b$ is a system of $n$ equations in $n$ unknowns.  Suppose ${\bf A} $ is nonsingular $\quad \Longrightarrow \quad$ ${\bf A}^{-1}$ exists.  To solve this system, we can premultiply each side by ${\bf A}^{-1}$ and reduce it as follows:
+If $\bf{A}$ is an $n\times n$ matrix,then $\bf{Ax}=\bf{b}$ is a system of $n$ equations in $n$ unknowns.  Suppose $\bf{A}$ is nonsingular. Then $\bf{A}^{-1}$ exists.  To solve this system, we can premultiply each side by $\bf{A}^{-1}$ and reduce it as follows:
 		
-\begin{eqnarray} 
-			{\bf A}^{-1} ({\bf A} \bf x)&=&{\bf A}^{-1} \bf b \nonumber\\
-			({\bf A}^{-1} {\bf A})\bf x &=&{\bf A}^{-1} \bf b \nonumber\\
-			{\bf I}_n \bf x     &=&{\bf A}^{-1} \bf b \nonumber\\
-			\bf x&=&{\bf A}^{-1} \bf b \nonumber
-\end{eqnarray}
+\begin{eqnarray*} 
+\bf{A}^{-1} (\bf{A} \bf{x}) & = & \bf{A}^{-1} \bf{b} \\
+(\bf{A}^{-1} \bf{A})\bf{x} & = & \bf{A}^{-1} \bf{b}\\
+\bf{I}_n \bf{x}     & = & \bf{A}^{-1} \bf{b}\\
+\bf{x} & = & \bf{A}^{-1} \bf{b}
+\end{eqnarray*}
 
-Hence, given $\bm{A}$ and $\bm{b}$ and given that $\bm{A}$ is nonsingular, then $\bm{x} = \bm{A}^{-1} b$ is a unique solution to this system.
+Hence, given $\bf{A}$ and $\bf{b}$ and given that $\bf{A}$ is nonsingular, then $\bf{x} = \bf{A}^{-1} \bf{b}$ is a unique solution to this system.
 
-Notice also that the requirements for ${\bf A}$ to be nonsingular correspond to the requirements for a linear system to have a unique solution:
-$\mbox{rank\,}{\bf A}=\mbox{rows\,}{\bf A}=\mbox{cols\,}{\bf A}$.
+Notice also that the requirements for $\bf{A}$ to be nonsingular correspond to the requirements for a linear system to have a unique solution:
+\[\text{rank}\bf{A} = \text{rows}\bf{A} = \text{cols}\bf{A}\]
 
 
 

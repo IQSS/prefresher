@@ -24,7 +24,7 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
 \hypersetup{unicode=true,
-            pdftitle={Math (P)refresher for Political Scientists},
+            pdftitle={Math Prefresher for Political Scientists},
             pdfauthor={Shiro Kuriwaki and Yon Soo Park},
             pdfborder={0 0 0},
             breaklinks=true}
@@ -116,7 +116,7 @@
 }
 
 \setlength{\droptitle}{-2em}
-  \title{Math (P)refresher for Political Scientists}
+  \title{Math Prefresher for Political Scientists}
   \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
   \author{Shiro Kuriwaki and Yon Soo Park}
@@ -181,7 +181,7 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\chapter{Welcome}\label{welcome}
+\chapter{About this Booklet}\label{about-this-booklet}
 
 The documents in this booklet are the product of generations of Math
 (P)refresher Instructors: Curt Signorino 1996-1997; Ken Scheve
@@ -192,7 +192,7 @@ Ellie Powell 2006-2007; Jen Katkin 2007-2008; Patrick Lam 2008-2009;
 Viridiana Rios 2009-2010; Jennifer Pan 2010-2011; Konstantin Kashin
 2011-2012; Sol'\{e\} Prillaman 2013; Stephen Pettigrew 2013-2014; Anton
 Strezhnev 2014-2015; Mayya Komisarchik 2015-2016; Connor Jerzak
-2016-2017; Shiro Kuriwaki 2017-2018; Yon Soo Park 2018-.
+2016-2017; Shiro Kuriwaki 2017-2018; Yon Soo Park 2018-
 
 \chapter{Linear Algebra}\label{linear-algebra}
 
@@ -871,29 +871,27 @@ Find the inverse of
 
 Let's return to the matrix representation of a linear system
 
-\[\bf {\bf A} x = b\]
+\[\bf{Ax} = \bf{b}\]
 
-If \({\bf A}\) is an \(n\times n\) matrix,then \(\bf {\bf A} x=b\) is a
-system of \(n\) equations in \(n\) unknowns. Suppose \$\{\bf A\} \$ is
-nonsingular \(\quad \Longrightarrow \quad\) \({\bf A}^{-1}\) exists. To
-solve this system, we can premultiply each side by \({\bf A}^{-1}\) and
-reduce it as follows:
+If \(\bf{A}\) is an \(n\times n\) matrix,then \(\bf{Ax}=\bf{b}\) is a
+system of \(n\) equations in \(n\) unknowns. Suppose \(\bf{A}\) is
+nonsingular. Then \(\bf{A}^{-1}\) exists. To solve this system, we can
+premultiply each side by \(\bf{A}^{-1}\) and reduce it as follows:
 
-\begin{eqnarray} 
-            {\bf A}^{-1} ({\bf A} \bf x)&=&{\bf A}^{-1} \bf b \nonumber\\
-            ({\bf A}^{-1} {\bf A})\bf x &=&{\bf A}^{-1} \bf b \nonumber\\
-            {\bf I}_n \bf x     &=&{\bf A}^{-1} \bf b \nonumber\\
-            \bf x&=&{\bf A}^{-1} \bf b \nonumber
-\end{eqnarray}
+\begin{eqnarray*} 
+\bf{A}^{-1} (\bf{A} \bf{x}) & = & \bf{A}^{-1} \bf{b} \\
+(\bf{A}^{-1} \bf{A})\bf{x} & = & \bf{A}^{-1} \bf{b}\\
+\bf{I}_n \bf{x}     & = & \bf{A}^{-1} \bf{b}\\
+\bf{x} & = & \bf{A}^{-1} \bf{b}
+\end{eqnarray*}
 
-Hence, given \(\bm{A}\) and \(\bm{b}\) and given that \(\bm{A}\) is
-nonsingular, then \(\bm{x} = \bm{A}^{-1} b\) is a unique solution to
-this system.
+Hence, given \(\bf{A}\) and \(\bf{b}\) and given that \(\bf{A}\) is
+nonsingular, then \(\bf{x} = \bf{A}^{-1} \bf{b}\) is a unique solution
+to this system.
 
-Notice also that the requirements for \({\bf A}\) to be nonsingular
+Notice also that the requirements for \(\bf{A}\) to be nonsingular
 correspond to the requirements for a linear system to have a unique
-solution:
-\(\mbox{rank\,}{\bf A}=\mbox{rows\,}{\bf A}=\mbox{cols\,}{\bf A}\).
+solution: \[\text{rank}\bf{A} = \text{rows}\bf{A} = \text{cols}\bf{A}\]
 
 \section{Determinants}\label{determinants}
 
