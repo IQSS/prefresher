@@ -1,0 +1,852 @@
+# Optimization
+
+
+Topics:
+
+$\bullet$ Quadratic Forms $\bullet$ Definiteness of Quadratic Forms $\bullet$
+Maxima and Minima in ${\bf R}^n$ $\bullet$ First Order Conditions $\bullet$ Second
+Order Conditions $\bullet$ Global Maxima and Minima
+$\bullet$ Constrained Optimization
+$\bullet$ Equality Constraints
+$\bullet$ Inequality Constraints
+$\bullet$ Kuhn-Tucker Conditions
+
+Much of the material and examples for
+this lecture are taken from Simon \& Blume (1994) \emph{Mathematics for
+Economists} and Ecker \& Kupferschmid (1988) \emph{Introduction to
+Operations Research}
+
+## Quadratic Forms
+
+Quadratic forms important because
+1. Approximates local curvature around a point --- e.g., used to
+identify max vs min vs saddle point.
+2. Simple, so easy to deal with.
+3. Have a matrix representation.
+
+__Quadratic Form__:  A polynomial where each term is a monomial
+of degree 2 in any number of variables:
+
+\begin{align*}
+\text{One variable: }& Q(x_1) = a_{11}x_1^2\\
+\text{Two variables: }& Q(x_1,x_2) = a_{11}x_1^2 + a_{12}x_1x_2 + a_{22}x_2^2\\
+\text{N variables: }& Q(x_1,\cdots,x_n)=\sum\limits_{i\le j} a_{ij}x_i x_j
+\end{align*}
+
+which can be written in matrix terms:
+
+\begin{align*}
+\text{One variable: }& Q({\bf x}) = x_1^T a_{11} x_1\\
+\text{N variables: }& Q({\bf x})=\begin{pmatrix} x1&x2&\cdots&x_n\end{pmatrix}
+\begin{pmatrix}
+a_{11}&\frac{1}{2}a_{12}&\cdots&\frac{1}{2}a_{1n}\\
+\frac{1}{2}a_{12}&a_{22}&\cdots&\frac{1}{2}a_{2n}\\
+\vdots&\vdots&\ddots&\vdots\\
+\frac{1}{2}a_{1n}&\frac{1}{2}a_{2n}&\cdots&a_{nn}
+\end{pmatrix}
+\begin{pmatrix} x_1\\x_2\\\vdots\\x_n\end{pmatrix}\\
+&={\bf x}^T{\bf A}{\bf x}
+\end{align*}
+
+Examples:
+  \begin{enumerate}
+  \item Quadratic on ${\bf R}^2$:
+  \begin{eqnarray*}
+  Q(x_1,x_2)&=&\begin{pmatrix} x_1& x_2 \end{pmatrix} \begin{pmatrix} a_{11}&\frac{1}{2} a_{12}\\
+  \frac{1}{2}a_{12}&a_{22}\end{pmatrix} \begin{pmatrix} x_1\\x_2 \end{pmatrix} \\
+  &=& a_{11}x_1^2 + a_{12}x_1x_2 + a_{22}x_2^2
+  \end{eqnarray*}
+  
+  \item Quadratic on ${\bf R}^3$:
+  $Q(x_1,x_2,x_3)= 
+  \phantom{
+  \begin{pmatrix} x_1& x_2&x_3 \end{pmatrix}
+  \begin{pmatrix} a_{11}&\frac{1}{2} a_{12}&\frac{1}{2} a_{13}\\
+  \frac{1}{2}a_{12}&a_{22}&\frac{1}{2} a_{23}\\
+  \frac{1}{2}a_{13}&\frac{1}{2}a_{23}& a_{33}\end{pmatrix}
+  \begin{pmatrix} x_1\\x_2\\x_3 \end{pmatrix} \\
+  = a_{11}x_1^2 + a_{22}x_2^2 + a_{33}x_3^2 + a_{12}x_1x_2 +
+      a_{13}x_1x_3 + a_{23}x_2x_3}$
+  \vspace{2cm}
+\end{enumerate}
+
+
+
+
+## Concavity of Quadratic Forms
+
+Concavity helps identify the curvature of a function, $f( x)$, in 2 dimensional space.
+
+\parbox[c]{5in}{{\bf $\bullet$ Concave}: A function f is strictly concave over the set S \underline{if} $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) > af(x_1) + (1-a)f(x_2)$$
+\textit{Any} line connecting two points on a concave function will lie \textit{below} the function.}
+
+\begin{comment}
+  \parbox{2in}{\includegraphics[scale=.4]{Concave.pdf}}
+\end{comment}
+
+
+\parbox[c]{5in}{{\bf $\bullet$ Convex}: A function f is strictly convex over the set S \underline{if} $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) < af(x_1) + (1-a)f(x_2)$$
+
+\textit{Any} line connecting two points on a convex function will lie \textit{above} the function.}
+
+\begin{comment}
+  \parbox{2in}{\includegraphics[scale=.4]{Convex.pdf}}
+\end{comment}
+  
+\parbox[c]{5in}{{\bf $\bullet$ Quasiconcave}: A function f is quasiconcave over the set S \underline{if} $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) \ge \min(f(x_1),f(x_2))$$
+No matter what two points you select, the \textit{lowest} valued point will always be an end point.}
+
+\begin{comment}
+  \parbox{2in}{\includegraphics[scale=.4]{Quasiconcave.pdf}}
+\end{comment}
+
+\parbox[c]{5in}{{\bf $\bullet$ Quasiconvex}: A function f is quasiconcave over the set S \underline{if} $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) \le \max(f(x_1),f(x_2))$$
+No matter what two points you select, the \textit{highest} valued point will always be an end point.}
+
+\begin{comment}
+  \parbox{1.8in}{\includegraphics[scale=.4]{Quasiconvex.pdf}}
+\end{comment}
+  
+\parbox[c]{5in}{{\bf $\bullet$ Quasilinear}: A function that is both quasiconvex and quasiconcave is quasilinear.}
+\begin{comment}
+  \parbox{1.8in}{\includegraphics[scale=.4]{Quasilinear.pdf}}\\
+\end{comment}
+
+\textbf{Second Derivative Test of Concavity}: The second derivative can be used to understand concavity. 
+
+If
+\[\begin{array}{lll}
+f''(x) < 0 & \Rightarrow & \text{Concave}\\
+f''(x) > 0 & \Rightarrow & \text{Convex}
+\end{array}\]
+
+
+## Definiteness of Quadratic Forms
+
+
+Definiteness helps identify the curvature of a function, $Q({\bf x})$, in n dimensional space.
+
+__Definiteness__:  By definition, a quadratic form always takes on the value of zero when $x = 0$, $Q({\bf x})=0$ at ${\bf x}=0$. The definiteness of the matrix ${\bf A}$ is  determined by whether the
+quadratic form $Q({\bf x})={\bf x}^T{\bf A}{\bf x}$ is greater than zero, less than
+zero, or sometimes both over all ${\bf x}\ne 0$.
+
+\begin{enumerate}
+  \item \parbox[t]{2in}{Positive Definite}
+  \parbox[t]{2in}{${\bf x}^T{\bf A}{\bf x}>0, \quad \forall {\bf x}\ne 0$} \quad  Min
+    \item[] ex: $Q(x_1,x_2) = x_1^2 + x_2^2$
+  \item \parbox[t]{2in}{Positive Semidefinite}
+  \parbox[t]{2in}{${\bf x}^T{\bf A}{\bf x}\ge 0, \quad \forall {\bf x}\ne 0$}
+    \item[] ex: $Q(x_1,x_2) = x_1^2 + 2x_1x_2 + x_2^2$
+  \item \parbox[t]{2in}{Negative Definite}
+  \parbox[t]{2in}{${\bf x}^T{\bf A}{\bf x}<0, \quad \forall {\bf x}\ne 0$}  \quad Max
+    \item[] ex: $Q(x_1,x_2) = -x_1^2 - x_2^2$
+  \item \parbox[t]{2in}{Negative Semidefinite}
+  \parbox[t]{2in}{${\bf x}^T{\bf A}{\bf x}\le 0, \quad \forall {\bf x}\ne 0$}
+    \item[] ex: $Q(x_1,x_2) = - x_1^2 -2x_1x_2 - x_2^2$
+  \item \parbox[t]{2in}{Indefinite}
+  \parbox[t]{2in}{${\bf x}^T{\bf A}{\bf x}>0$ for some ${\bf x}\ne 0$ and ${\bf x}^T{\bf A}{\bf x}<0$ for
+other ${\bf x}\ne 0$} \quad Neither
+    \item[] ex: $Q(x_1,x_2) = x_1^2 - x_2^2$\\\\
+\end{enumerate}
+
+Examples:
+
+\begin{enumerate}
+  \item[] \parbox[c]{2in}{1. Positive Definite:\\
+$ \begin{array}{rl}
+Q({\bf x}) &={\bf x}^T \begin{pmatrix} 1&0\\0&1\end{pmatrix} {\bf x} \\
+         &=x_1^2+x_2^2
+\end{array} $ }
+
+\begin{comment}
+\parbox{2in}{\includegraphics[angle=270, width=2.5in]{posdef.eps}}
+\end{comment}
+
+  \item[] \parbox[c]{2in}{2. Positive Semidefinite:\\
+
+$ \begin{array}{rl}
+Q({\bf x})&={\bf x}^T \begin{pmatrix} 1&-1\\-1&1\end{pmatrix} {\bf x} \\
+       &=(x_1-x_2)^2
+\end{array} $ }
+\begin{comment}
+\parbox{2in}{\includegraphics[angle=270, width=2.5in]{possem.eps}}
+\end{comment}
+
+  \item[] \parbox[c]{2in}{3. Indefinite:\\
+
+$ \begin{array}{rl}
+Q({\bf x})&={\bf x}^T \begin{pmatrix} 1&0\\0&-1\end{pmatrix} {\bf x} \\
+       &=x_1^2-x_2^2
+       \end{array} $ }
+\begin{comment}
+  \parbox{2in}{\includegraphics[angle=270, width=2.5in]{indef.eps}}
+\end{comment}
+\end{enumerate}
+
+
+## First Order Conditions
+
+When we examined functions of one variable $x$, we found critical points by taking the first
+derivative,  setting it to zero, and solving for $x$.  For functions of
+$n$ variables, the critical points are found in much the same way,
+except now we set the partial derivatives equal to zero.\footnote{We
+will only consider critical points on the interior of a function's
+domain.}
+
+__Gradient__ ($\nabla \fx$): Given a function $f({\bf x})$ in $n$ variables, the gradient $\nabla \fx$ is a column vector, where the $i$th element is the partial derivative of $f({\bf x})$ with respect to $x_i$: 
+
+\[\nabla \fx = \begin{pmatrix}
+\frac{\partial \fx}{\partial x_1}\\[9pt] \frac{\partial \fx}{\partial x_2}\\
+  \vdots \\[3pt] \frac{\partial \fx}{\partial x_n} \end{pmatrix}\]
+
+__Critical Point__: ${\bf x}^*$ is a critical point iff $\nabla f({\bf x}^*)=0$. If the partial derivative of f(x) with respect to $x^*$ is 0, then ${\bf x}^*$ is a critical point. To solve for ${\bf x}^*$, find the gradient, set each element equal to 0, and solve the system of equations. $${\bf x}^* = \begin{pmatrix} x_1^*\\x_2^*\\ \vdots \\ x_n^*\end{pmatrix}$$
+
+Example: Given a function $\fx=(x_1-1)^2+x_2^2+1$, find the:
+\begin{enumerate}
+  \item Gradient $\nabla \fx =$ 
+  $$\phantom{\begin{pmatrix}
+	\frac{\partial \fx}{\partial x_1}\\[9pt] \frac{\partial \fx}
+	{\partial x_2} \end{pmatrix}
+	= \begin{pmatrix}
+	2(x_1-1)\\ 2x_2 \end{pmatrix}}$$
+
+  \item Critical Point $x^* =$
+  $$\phantom{\frac{\partial \fx}{\partial x_1} = 2(x_1-1) = 0 
+  \Rightarrow x_1^* = 1}$$
+  $$\phantom{\frac{\partial \fx}{\partial x_2} = 2x_2 = 0 \Rightarrow 
+  x_2^* = 0}$$
+  $$\phantom{{\bf x}^* = (1,0)}$$
+  \end{enumerate}
+\end{itemize}
+
+
+
+## Second Order Conditions
+When we found a critical point for a function of one variable, we used the second derivative as an
+indicator of the curvature at the point in order to determine whether
+the point was a min, max, or saddle (second derivative test of concavity).  For functions of $n$ variables, we
+ use \textit{second order partial derivatives} as an indicator of curvature.
+
+__Hessian__ (${\bf H(x)}$): Given a function $f({\bf x})$ in $n$ variables, the hessian ${\bf H(x)}$ is
+an $n\times n$ matrix, where the $(i,j)$th element is the second order
+partial derivative of $f({\bf x})$ with respect to $x_i$ and $x_j$:
+
+\[{\bf H(x)}=\begin{pmatrix}
+\frac{\partial^2 \fx}{\partial x_1^2}&\frac{\partial^2\fx}{\partial x_1 \partial x_2}&
+\cdots & \frac{\partial^2 \fx}{\partial x_1 \partial x_n}\\[9pt]
+\frac{\partial^2 \fx}{\partial x_2 \partial x_1}&\frac{\partial^2\fx}{\partial x_2^2}&
+\cdots & \frac{\partial^2 \fx}{\partial x_2 \partial x_n}\\
+\vdots & \vdots & \ddots & \vdots \\[3pt]
+\frac{\partial^2 \fx}{\partial x_n \partial x_1}&\frac{\partial^2\fx}{\partial x_n \partial x_2}&
+\cdots & \frac{\partial^2 \fx}{\partial x_n^2}\end{pmatrix}\]
+
+Note that the hessian will be a symmetric matrix because $\frac{\partial \fx}{\partial x_1\partial x_2} = \frac{\partial \fx}{\partial x_2\partial x_1}$.
+
+Also note that given that $\fx$ is of quadratic form, each element of the hessian will be a constant.
+
+\smallskip
+
+__Second Order Conditions__:\\[6pt]
+Given a function $\fx$ and a point ${\bf x}^*$ such that $\nabla f({\bf x}^*)=0$,
+
+\begin{enumerate}
+  \item \parbox[t]{2in}{$\bf H(x^*)$ Positive Definite} $\quad \Longrightarrow \quad$
+  Strict Local Min
+  \item \parbox[t]{2in}{$\bf H(x)$ Positive Semidefinite\\ $\forall {\bf x}\in
+B({\bf x}^*,\epsilon)$} $\quad \Longrightarrow \quad$
+  Local Min
+  \item \parbox[t]{2in}{$\bf H(x^*)$ Negative Definite} $\quad \Longrightarrow \quad$
+  Strict Local Max
+  \item \parbox[t]{2in}{$\bf H(x)$ Negative Semidefinite\\ $\forall {\bf x}\in
+B({\bf x}^*,\epsilon)$} $\quad \Longrightarrow \quad$
+  Local Max
+  \item \parbox[t]{2in}{$\bf H(x^*)$ Indefinite} $\quad \Longrightarrow \quad$\\
+  Saddle Point
+\end{enumerate}
+
+\medskip
+
+Example:  We found that the only critical point of
+$\fx=(x_1-1)^2+x_2^2+1$ is at ${\bf x}^*=(1,0)$.  Is it a min, max, or
+saddle point?
+\begin{enumerate}
+  \item Hessian $\bf H({\bf x})=$
+  	$$\phantom{\begin{pmatrix} 2&0\\0&2 \end{pmatrix}}$$
+ \item Leading principal minors of $\bf H({\bf x})=$
+ 	$$\phantom{M_1=2; M_2=4}$$
+ \item Definiteness?\\
+ 	\phantom{Since both leading principal minors are positive, the 
+ 	Hessian is positive definite}\\
+ \item Maxima, Minima, or Saddle Point?\\
+ 	\phantom{Since the hessian is positive definite and the gradient 
+ 	equals 0, $x^8 = (1,0)$ is a strict local minimum.}\\
+ \item Alternate check of definiteness. Is $\bf H({\bf x}^*) \ge \le 0 
+ \quad \forall \quad \bf x\ne 0$?\\
+	$$\phantom{{\bf x^T H({\bf x}^*) x} = \begin{pmatrix} x_1 & x_2 
+	\end{pmatrix} \begin{pmatrix} 2&0\\0&2 \end{pmatrix}
+	\begin{pmatrix} x_1\\x_2\end{pmatrix} = 2x_1^2+2x_2^2}$$
+	\phantom{For any $\bf x\ne 0$, $2(x_1^2+x_2^2)>0$, so the Hessian is 
+	positive definite and ${\bf x}^*$ is a strict local minimum.}
+    
+\end{enumerate}
+
+
+
+## Definiteness and Concavity
+
+Although definiteness helps us to understand the curvature of an n-dimensional function, it does not necessarily tell us whether the function is globally concave or convex.
+
+We need to know whether a function is globally concave or convex to determine whether a critical point is a global min or max.
+
+__Testing for Global Concavity__: We can use the definiteness of the Hessian to determine whether a function is globally concave or convex:
+
+\begin{enumerate}
+  		\item \parbox[t]{2.3in}{$\bf H(x)$ Positive Semidefinite 
+  		$\forall {\bf x}$} $\quad \Longrightarrow \quad$ Globally Convex
+ 		 \item \parbox[t]{2.3in}{$\bf H(x)$ Negative Semidefinite 
+ 		 $\forall {\bf x}$} $\quad \Longrightarrow \quad$ Globally 
+ 		 Concave
+\end{enumerate}
+Notice that the definiteness conditions must be satisfied over the entire domain.
+
+
+## Global Maxima and Minima
+
+__Global Max/Min Conditions__: Given a function $\fx$ and a point ${\bf x}^*$ such that $\nabla f({\bf x}^*)=0$,
+
+\begin{enumerate}
+  \item \parbox[t]{2in}{$\fx$ Globally Convex} $\quad
+\Longrightarrow \quad$ Global Min
+  \item \parbox[t]{2in}{$\fx$ Globally Concave} $\quad
+\Longrightarrow \quad$ Global Max
+\end{enumerate}
+
+Note that showing that $\bf H(x^*)$ is negative semidefinite is
+not enough to guarantee ${\bf x}^*$ is a local max.  However, showing that
+$\bf H(x)$ is negative semidefinite for all ${\bf x}$ guarantees that $x^*$
+is a global max.  (The same goes for positive semidefinite and minima.)\\
+
+
+Example: Take $f_1(x)=x^4$ and $f_2(x)=-x^4$.  Both have $x=0$ as
+a critical point.  Unfortunately, $f''_1(0)=0$ and $f''_2(0)=0$, so we
+can't tell whether $x=0$ is a min or max for either.  However,
+$f''_1(x)=12x^2$ and $f''_2(x)=-12x^2$.  For all $x$, $f''_1(x)\ge 0$
+and $f''_2(x)\le 0$ --- i.e., $f_1(x)$ is globally convex and $f_2(x)$
+is globally concave.  So $x=0$ is a global min of $f_1(x)$ and a
+global max of $f_2(x)$.
+
+Example 
+
+Given $f({\bf x})=x_1^3-x_2^3+9x_1x_2$, find any maxima or minima.
+  \begin{enumerate}
+  \item First order conditions.  
+	\begin{enumerate}
+	\item Gradient $\nabla f({\bf x}) = $
+		$$\phantom{\begin{pmatrix} \frac{\partial f}{\partial x_1} \\ 
+		\frac{\partial f}{\partial x_2}\end{pmatrix} =
+		\begin{pmatrix} 3x_1^2+9x_2 \\ -3x_2^2+9x_1 \end{pmatrix}}$$
+	\item Critical Points ${\bf x^*} =$\\
+		\phantom{Set the gradient equal to zero and solve for $x_1$ and 
+		$x_2$.We have two equations and two unknowns.  Solving for $x_1$ 
+		and $x_2$, we get two critical points:  ${\bf x}_1^*=(0,0)$ and
+		${\bf x}_2^*=(3,-3)$.}
+		$$\phantom{3x_1^2 + 9x_2 = 0 \quad \Rightarrow \quad  9x_2 = 
+		-3x_1^2 \quad \Rightarrow \quad  x_2 = -\frac{1}{3}x_1^2}$$
+		$$\phantom{-3x_2^2 + 9x_1 = 0 \quad \Rightarrow \quad 
+		-3(-\frac{1} {3}x_1^2)^2 + 9x_1 = 0}$$ 
+		$$\phantom{\Rightarrow \quad -\frac{1}{3}x_1^4 
+		+ 9x_1 = 0 \quad \Rightarrow \quad x_1^3 = 27x_1 \quad 
+		\Rightarrow \quad x_1 = 3}$$
+		$$\phantom{3(3)^2 + 9x_2 = 0 \quad \Rightarrow \quad x_2 = -3}$$	
+	\end{enumerate}		  
+ 
+  \item Second order conditions.  
+	\begin{enumerate}
+	\item Hessian $\bf H(x) = $
+		$$\phantom{\begin{pmatrix} 6x_1&9\\9&-6x_2 \end{pmatrix}}$$
+	\item Hessian $\bf H(x_1^*) = $
+		$$\phantom{\begin{pmatrix} 0&9\\9&0\end{pmatrix}}$$
+	\item Leading principal minors of $\bf H(x_1^*) = $
+		$$\phantom{M_1=0; M_2=-81}$$\\
+	\item Definiteness of $\bf H(x_1^*)$?\\
+		\phantom{$\bf H(x_1^*)$ is indefinite}\\
+	\item Maxima, Minima, or Saddle Point for $\bf x_1^*$?\\
+		\phantom{Since $\bf H(x_1^*)$ is indefinite, ${\bf x}_1^*=(0,0)$ 
+		is a saddle point.}\\
+	\item Hessian $\bf H(x_2^*) = $
+		$$\phantom{\begin{pmatrix} 18&9\\9&18\end{pmatrix}}$$
+	\item Leading principal minors of $\bf H(x_2^*) = $
+		$$\phantom{M_1=18; M_2=243}$$\\
+	\item Definiteness of $\bf H(x_2^*)$?\\
+		\phantom{$\bf H(x_2^*)$ is positive definite}\\
+	\item Maxima, Minima, or Saddle Point for $\bf x_2^*$?\\
+		\phantom{Since $\bf H(x_2^*)$ is positive definite, ${\bf 
+		x}_1^*=(3,-3)$ is a strict local minimum}\\
+	\end{enumerate}	  
+	
+  \item Global concavity/convexity.  
+	\begin{enumerate}
+	\item Is f(x) globally concave/convex?\\
+		\phantom{No. 	In evaluating the Hessians for ${\bf x}_1^*$ 
+		and ${\bf x}_2^*$ we saw that the Hessian is not positive 
+		semidefinite at x $=$ (0,0).}\\
+	\item Are any $\bf x^*$ global minima or maxima?\\
+		\phantom{No. Since the function is not globally concave/convex, 
+		we can't infer that ${\bf x}_2^*=(3,-3)$ is a global minimum.  
+		In fact, if we set $x_1=0$, the $f({\bf x})=-x_2^3$, which will 
+		go to $-\infty$ as $x_2\to \infty$.}\\
+	\end{enumerate}	      
+\end{enumerate}
+
+
+## Constrained Optimization
+
+
+We have already looked at optimizing a function in one or more dimensions over the whole domain of the function.  Often, however, we want to find the maximum or minimum of a function over some restricted part of its domain.\\
+ex: Maximizing utility subject to a budget constraint
+
+\begin{comment}
+\begin{center}
+\includegraphics[scale=.35]{constraint.png}
+\end{center}
+\end{comment}
+
+
+__Types of Constraints__: For a function $f(x_1, \dots, x_n)$, there are two types of constraints that can be imposed:
+\begin{enumerate}
+\item \textbf{Equality constraints:} constraints of the form $c(x_1,\dots, x_n) = r$.
+Budget constraints are the classic example of equality constraints in social science.
+\item \textbf{Inequality constraints:} constraints of the form $c(x_1, \dots, x_n) \leq r$.  These might arise from non-negativity constraints or other threshold effects.
+\end{enumerate}
+
+In any constrained optimization problem, the constrained maximum will always be less than or equal to the unconstrained maximum.  If the constrained maximum is less than the unconstrained maximum, then the constraint is binding. Essentially, this means that you can treat your constraint as an equality constraint rather than an inequality constraint. 
+
+For example, the budget constraint binds when you spend your entire budget. This generally happens because we believe that utility is strictly increasing in consumption, i.e. you always want more so you spend everything you have.
+
+Any number of constraints can be placed on an optimization problem. When working with multiple constraints, always make sure that the set of constraints are not pathological; it must be possible for all of the constraints to be satisfied simultaneously.
+
+\textbf{Set-up for Constrained Optimization:}
+$$\max_{x_1,x_2} f(x_1,x_2) \text{ s.t. } c(x_1,x_2)$$
+$$\min_{x_1,x_2} f(x_1,x_2) \text{ s.t. } c(x_1,x_2)$$
+This tells us to maximize/minimize our function, $f(x_1,x_2)$, with respect to the choice variables, $x_1,x_2$, subject to the constraint.
+
+
+Example: 
+$$\max_{x_1,x_2} f(x_1, x_2) = -(x_1^2 + 2x_2^2) \text{ s.t. }x_1 + x_2 = 4$$
+It is easy to see that the \textit{unconstrained} maximum occurs at $(x_1, x_2) = (0,0)$, but that does not satisfy the constraint.  How should we proceed?
+
+
+
+## Equality Constraints
+
+Equality constraints are the easiest to deal with because we know that the maximum or minimum has to lie on the (intersection of the) constraint(s).
+
+The trick is to change the problem from a constrained optimization problem in $n$ variables to an unconstrained optimization problem in $n + k$ variables, adding \textit{one} variable for \textit{each} equality constraint. We do this using a lagrangian multiplier.
+
+__Lagrangian function__:  The Lagrangian function allows us to combine the function we want to optimize and the constraint function into a single function. Once we have this single function, we can proceed as if this were an \textit{unconstrained} optimization problem.\\
+
+For each constraint, we must include a \textbf{Lagrange multiplier} ($\lambda_i$) as an additional variable in the analysis. These terms are the link between the constraint and the Lagrangian function.\\
+
+Given a \textit{two dimensional} set-up:
+$$\max_{x_1,x_2}/\min_{x_1,x_2} f(x_1,x_2) \text{ s.t. } c(x_1,x_2) = a$$
+
+We define the Lagrangian function $L(x_1,x_2,\lambda_1)$ as follows:
+$$L(x_1,x_2,\lambda_1) = f(x_1,x_2) - \lambda_1 (c(x_1,x_2) - a)$$
+
+More generally, in \textit{n dimensions}:
+$$ L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k) = f(x_1, \dots, x_n) - \sum_{i=1}^k\lambda_i(c_i(x_1,\dots, x_n) - r_i)$$
+
+\textbf{Getting the sign right:}\\
+Note that above we subtract the lagrangian term \textit{and} we subtract the constraint constant from the constraint function. Occasionally, you may see the following alternative form of the Lagrangian, which is \textit{equivalent}:
+$$ L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k) = f(x_1, \dots, x_n) + \sum_{i=1}^k\lambda_i(r_i - c_i(x_1,\dots, x_n))$$
+Here we add the lagrangian term \textit{and} we subtract the constraing function from the constraint constant. 
+
+
+\textbf{Using the Lagrangian to Find the Critical Points}: To find the critical points, we take the partial derivatives of lagrangian function, $L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k)$, with respect to each of its variables (all choice variables ${\bf x}$ \textit{and} all lagrangian multipliers ${\bf \lambda}$).  At a critical point, \textit{each} of these partial derivatives must be equal to zero, so we obtain a system of \textit{$n + k$ equations in $n + k$ unknowns}:
+
+\begin{eqnarray*}
+\frac{\partial L}{\partial x_1} = \frac{\partial f}{\partial x_1} - \sum_{i = 1}^k\lambda_i\frac{\partial c_i}{\partial x_1} & = & 0\\
+ \vdots & = & \vdots \nonumber \\ 
+\frac{\partial L}{\partial x_n}  = \frac{\partial f}{\partial x_n} - \sum_{i = 1}^k\lambda_i\frac{\partial c_i}{\partial x_n} & =  & 0\\
+\frac{\partial L}{\partial \lambda_1} = c_1(x_i, \dots, x_n) - r_1& = & 0\\
+ \vdots & = & \vdots \nonumber \\
+\frac{\partial L}{\partial \lambda_k} = c_k(x_i, \dots, x_n) - r_k & = & 0
+\end{eqnarray*}
+
+We can then solve this system of equations, because there are $n+k$ equations and $n+k$ unknowns, to calculate the critical point $(x_1^*,\dots,x_n^*,\lambda_1^*,\dots,\lambda_k^*)$.
+
+\textbf{Second-order Conditions and Unconstrained Optimization:} There may be more than one critical point, i.e. we need to verify that the critical point we find is a maximum/minimum.  Similar to unconstrained optimization, we can do this by checking the second-order conditions.
+
+Example:  
+$$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } x_1 + x_2 = 4$$
+
+\begin{enumerate}
+\item Begin by writing the Lagrangian:
+$$L(x_1, x_2, \lambda) =  \phantom{-(x_1^2 + 2x_2^2) - \lambda(x_1 + x_2 - 4)}$$
+\item Take the partial derivatives and set equal to zero:
+
+\begin{eqnarray*}
+\frac{\partial L}{\partial x_1} = \phantom{-2x_1 - \lambda} \quad \quad \quad & = & 0\\
+\frac{\partial L}{\partial x_2}  = \phantom{-4x_2 - \lambda} \quad \quad \quad & =  & 0\\
+\frac{\partial L}{\partial \lambda} = \phantom{-(x_1 + x_2 - 4)} \quad & = & 0\\
+\end{eqnarray*}
+
+\item Solve the system of equations:
+\phantom{
+1.  Using the first two partials, we see that $\lambda = -2x_1$ and $\lambda = -4x_2$\\
+2.  Set these equal to see that $x_1 = 2x_2$\\
+3.  Using the third partial and the above equality, $4 = 2x_2 + x_2 \Rightarrow x_2^* = 4/3$\\
+4.  $\Rightarrow x_1^* = 8/3$ and $\lambda = -16/3$\\
+5.  Therefore, the only critical point is $x_1^* = \frac{8}{3}$ and $x_2^* = \frac{4}{3}$\\
+6. This gives $f(\frac{8}{3}, \frac{4}{3}) = -\frac{96}{9}$, which is less than the unconstrained optimum $f(0,0) = 0$}
+\vspace{10pt}
+\end{enumerate}
+
+Notice that when we take the partial derivative of L with respect to the lagranigian multiplier and set it equal to 0, we return exactly our constraint! This is why signs matter.
+
+
+## Inequality Constraints
+
+Inequality constraints define the boundary of a region over which we seek to optimize the function. This makes inequality constraints more challenging because we do not know if the maximum/minimum lies along one of the constraints (the constraint binds) or in the interior of the region.  
+
+We must introduce more variables in order to turn the problem into an unconstrained optimization.
+
+__Slack:__ For \textit{each} inequality constraint $c_i(x_1, \dots, x_n) \leq a_i$, we define a slack variable $s_i^2$ for which the expression $c_i(x_1, \dots, x_n) \leq a_i - s_i^2$ would hold with equality.  These slack variables capture how close the constraint comes to binding.  We use $s^2$ rather than $s$ to ensure that the slack is positive.
+
+Slack is just a way to transform our constraints.
+
+Given a \textit{two-dimensional} set-up and these edited constraints:
+$$\max_{x_1,x_2}/\min_{x_1,x_2} f(x_1,x_2) \text{ s.t. } c(x_1,x_2) \le a_1$$
+
+Adding in Slack:
+$$\max_{x_1,x_2}/\min_{x_1,x_2} f(x_1,x_2) \text{ s.t. } c(x_1,x_2) \le a_1 - s_1^2$$
+
+We define the Lagrangian function $L(x_1,x_2,\lambda_1,s_1)$ as follows:
+$$L(x_1,x_2,\lambda_1,s_1) = f(x_1,x_2) - \lambda_1 ( c(x_1,x_2) + s_1^2 - a_1)$$
+
+More generally, in \textit{n dimensions}:
+$$ L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k, s_1, \dots, s_k) = f(x_1, \dots, x_n) - \sum_{i = 1}^k \lambda_i(c_i(x_1,\dots, x_n) + s_i^2 - a_i)$$
+
+
+\textbf{Finding the Critical Points}: To find the critical points, we take the partial derivatives of the lagrangian function, $L(x_1,\dots,x_n,\lambda_1,\dots,\lambda_k,s_1,\dots,s_k)$, with respect to each of its variables (all choice variables $x$, all lagrangian multipliers $\lambda$, and all slack variables $s$). At a critical point, \textit{each} of these partial derivatives must be equal to zero, so we obtain a system of \textit{$n + 2k$ equations in $n + 2k$ unknowns}:
+
+\begin{eqnarray*}
+\frac{\partial L}{\partial x_1} = \frac{\partial f}{\partial x_1} - \sum_{i = 1}^k\lambda_i\frac{\partial c_i}{\partial x_1} & = & 0\\
+ \vdots & = & \vdots \nonumber \\
+\frac{\partial L}{\partial x_n}  = \frac{\partial f}{\partial x_n} - \sum_{i = 1}^k\lambda_i\frac{\partial c_i}{\partial x_n} & =  & 0\\
+\frac{\partial L}{\partial \lambda_1} = c_1(x_i, \dots, x_n) + s_1^2 - b_1& = & 0\\
+ \vdots & = & \vdots \nonumber \\
+\frac{\partial L}{\partial \lambda_k} = c_k(x_i, \dots, x_n) + s_k^2 - b_k & = & 0\\
+\frac{\partial L}{\partial s_1} = 2s_1\lambda_1 & = & 0\\
+ \vdots & = & \vdots \nonumber \\
+\frac{\partial L}{\partial s_k} = 2s_k\lambda_k & = & 0
+\end{eqnarray*}
+
+\textbf{Complementary slackness conditions}: The last set of first order conditions of the form $2s_i\lambda_i = 0$ (the partials taken with respect to the slack variables) are known as complementary slackness conditions. These conditions can be satisfied one of three ways:
+
+\begin{enumerate}
+\item $\lambda_i = 0$ and $s_i \neq 0$: This implies that the slack is positive and thus \textit{the constraint does not bind}.
+\item $\lambda_i \neq 0$ and $s_i = 0$: This implies that there is no slack in the constraint and \textit{the constraint does bind}.
+\item $\lambda_i = 0$ and $s_i = 0$: In this case, there is no slack but the \textit{constraint binds trivially}, without changing the optimum.\\
+\end{enumerate}
+
+
+Example: Find the critical points for the following constrained optimization:
+$$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } x_1 + x_2 \le 4$$
+\begin{enumerate}
+\item Rewrite with the slack variables:
+$$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } x_1 + x_2 \le 4 - s_1^2$$
+
+\item Write the Lagrangian:
+$$L(x_1,x_2,\lambda_1,s_1) = -(x_1^2 + 2x_2^2) - \lambda_1 (x_1 + x_2 + s_1^2 - 4)$$
+
+\item Take the partial derivatives and set equal to 0:
+
+\begin{eqnarray*}
+\frac{\partial L}{\partial x_1} = -2x_1 - \lambda_1  & = & 0\\
+\frac{\partial L}{\partial x_2}  = -4x_2 - \lambda_1 & =  & 0\\
+\frac{\partial L}{\partial \lambda_1} = -(x_1 + x_2 + s_1^2 - 4)& = & 0\\
+\frac{\partial L}{\partial s_1} = -2s_1\lambda_1 & = & 0\\
+\end{eqnarray*}
+
+\item Consider all ways that the complementary slackness conditions are solved:
+\begin{center}
+\begin{tabular}{|l|cccc|c|}
+\hline
+Hypothesis & $s_1$ & $\lambda_1$ & $x_1$ & $x_2$ & $f(x_1, x_2)$\\
+\hline
+$s_1 = 0$ $\lambda_1 = 0$ & \multicolumn{4}{l|}{No solution} & \\
+$s_1 \neq 0$ $\lambda_1 = 0$ & 2 & 0 & 0 & 0  & 0\\
+$s_1 = 0$ $\lambda_1 \neq 0$ & 0 & $\frac{-16}{3}$ & $\frac{8}{3}$ & $\frac{4}{3}$ & $-\frac{32}{3}$\\
+$s_1 \neq 0$ $\lambda_1 \neq 0$ & \multicolumn{4}{l|}{No solution} &\\
+\hline
+\end{tabular}
+\end{center}
+
+This shows that there are two critical points: $(0,0)$ and $(\frac{8}{3},\frac{4}{3})$.
+
+\item Find maximum:
+Looking at the values of $f(x_1,x_2)$ at the critical points, we see that $f(x_1,x_2)$ is maximized at $x_1^* = 0$ and $x_2^*=0$.
+
+\end{enumerate}
+
+
+Example: Find the critical points for the following constrained optimization:
+$$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } 
+\begin{array}{l}
+x_1 + x_2 \le 4\\
+x_1 \ge 0\\
+x_2 \ge 0
+\end{array}$$
+
+\begin{enumerate}
+\item Rewrite with the slack variables:
+$$\phantom{max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } 
+\begin{array}{l}
+x_1 + x_2 \le 4 - s_1^2\\
+-x_1 \le 0 - s_2^2\\
+-x_2 \le 0 - s_3^2
+\end{array}}$$
+
+\item Write the Lagrangian:
+$$\phantom{L(x_1, x_2, \lambda_1, \lambda_2, \lambda_3, s_1, s_2, s_3) =  -(x_1^2 + 2x_2^2) - \lambda_1(x_1 + x_2 + s_1^2  - 4) - \lambda_2(-x_1 + s_2^2) - \lambda_3(-x_2 + s_3^2)}$$
+\item Take the partial derivatives and set equal to zero:
+ 
+ \phantom{
+$\frac{\partial L}{\partial x_1} = -2x_1 - \lambda_1 + \lambda_2  =  0$\\
+$\frac{\partial L}{\partial x_2}  = -4x_2 - \lambda_1 + \lambda_3  =   0$\\
+$\frac{\partial L}{\partial \lambda_1} = -(x_1 + x_2 + s_1^2 - 4) =  0$\\
+$\frac{\partial L}{\partial \lambda_2} = -(-x_1 + s_2^2)  =  0$\\
+$\frac{\partial L}{\partial \lambda_3} = -(-x_2 + s_3^2)  =  0$\\
+$\frac{\partial L}{\partial s_1} = 2s_1\lambda_1  =  0$\\
+$\frac{\partial L}{\partial s_2} = 2s_2\lambda_2  =  0$\\
+$\frac{\partial L}{\partial s_3} = 2s_3\lambda_3  =  0$}
+\item[]
+\item[]
+\item[]
+\item[]
+\item[]
+\item[]
+\item[]
+\item[]
+\item[]
+\item[]
+\item[]
+
+\item Consider all ways that the complementary slackness conditions are solved:
+\begin{center}
+\begin{tabular}{|l|cccccccc|c|}
+\hline
+Hypothesis & $s_1$ & $s_2$ & $s_3$ & $\lambda_1$ & $\lambda_2$ & $\lambda_3$ & $x_1$ & $x_2$ & $f(x_1, x_2)$\\
+\hline
+$s_1 = s_2 = s_3 = 0$ & \multicolumn{8}{l|}{\phantom{No solution}} & \\
+$s_1 \neq 0, s_2 = s_3 = 0$ & \phantom{2} & \phantom{0} & \phantom{0} & \phantom{0} & \phantom{0} & \phantom{0} & \phantom{0} & \phantom{0} & \phantom{0}\\
+$s_2 \neq 0, s_1 = s_3 = 0$ & \phantom{0} & \phantom{2} & \phantom{0} & \phantom{-8} & \phantom{0} & \phantom{-8} & \phantom{4} & \phantom{0} & \phantom{-16}\\
+$s_3 \neq 0, s_1 = s_2 = 0$ & \phantom{0} & \phantom{0} & \phantom{2} & \phantom{-16} & \phantom{-16} & \phantom{0} & \phantom{0} & \phantom{4} & \phantom{-32}\\
+$s_1 \neq 0, s_2 \neq 0, s_3 = 0$ &\multicolumn{8}{l|}{\phantom{No solution}} & \\
+$s_1 \neq 0, s_3 \neq 0, s_2 = 0$ &\multicolumn{8}{l|}{\phantom{No solution}} & \\
+$s_2 \neq 0, s_3 \neq 0, s_1 = 0$ &\phantom{0} & \phantom{$\sqrt{\frac{8}{3}}$} & \phantom{$\sqrt{\frac{4}{3}}$} & \phantom{$-\frac{16}{3}$} & \phantom{0} & \phantom{0} & \phantom{$\frac{8}{3}$}& \phantom{$\frac{4}{3}$} & \phantom{$-\frac{32}{3}$}\\
+$s_1 \neq 0, s_2 \neq 0, s_3 \neq 0$ &\multicolumn{8}{l|}{\phantom{No solution}}& \\
+\hline
+\end{tabular}
+\end{center}
+
+\phantom{This shows that there are four critical points: $(0,0)$, $(4,0)$, $(0,4)$, and $(\frac{8}{3},\frac{4}{3})$}
+
+\item  Find maximum: \phantom{Looking at the values of $f(x_1,x_2)$ at the critical points, we see that the constrained maximum is located at $(x_1, x_2) = (0,0)$, which is the same as the unconstrained max.  The constrained minimum is located at $(x_1, x_2) = (0,4)$, while there is no unconstrained minimum for this problem.}
+
+\end{enumerate}
+
+
+
+## Kuhn-Tucker Conditions
+
+
+As you can see, this can be a pain. When dealing explicitly with \textit{non-negativity constraints}, this process is simplified by using the Kuhn-Tucker method.
+
+\textbf{\bf Kuhn-Tucker conditions}: Because the problem of maximizing a function subject to inequality and non-negativity constraints arises frequently in economics, the Kuhn-Tucker approach provides a method that often makes it easier to both calculate the critical points and identify points that are (local) maxima.\\
+
+Given a \textit{two-dimensional set-up}:
+$$\max_{x_1,x_2}/\min_{x_1,x_2} f(x_1,x_2) \text{ s.t. }
+\begin{array}{l}
+c(x_1,x_2) \le a_1\\
+x_1 \ge 0 \\
+gx_2 \ge 0
+\end{array}$$
+
+We define the Lagrangian function $L(x_1,x_2,\lambda_1)$ the same as if we did not have the non-negativity constraints: 
+$$L(x_1,x_2,\lambda_2) = f(x_1,x_2) - \lambda_1(c(x_1,x_2) - a_1)$$
+
+More generally, in \textit{n dimensions}:
+$$ L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k) = f(x_1, \dots, x_n) - \sum_{i=1}^k\lambda_i(c_i(x_1,\dots, x_n) - a_i)$$
+
+
+\textbf{Kuhn-Tucker and Complementary Slackness Conditions}: To find the critical points, we first calculate the \textbf{Kuhn-Tucker conditions} by taking the partial derivatives of the lagrangian function, $L(x_1,\dots,x_n,\lambda_1,\dots,\lambda_k)$, with respect to each of its variables (all choice variable s$x$ and all lagrangian multipliers $\lambda$) \underline{and} we calculate the \textbf{complementary slackness conditions} by multiplying each partial derivative by its respective variable \underline{and} include \textbf{non-negativity conditions} for all variables (choice variables $x$ and lagrangian multipliers $\lambda$).\\
+
+\textbf{Kuhn-Tucker Conditions}
+
+\begin{eqnarray*}
+\frac{\partial L}{\partial x_1} \leq 0, & \dots, & \frac{\partial L}{\partial x_n} \leq 0\\
+\frac{\partial L}{\partial \lambda_1} \geq 0, & \dots, & \frac{\partial L}{\partial \lambda_m} \geq 0
+\end{eqnarray*}
+
+\textbf{Complementary Slackness Conditions}
+
+\begin{eqnarray*}
+x_1\frac{\partial L}{\partial x_1} = 0, & \dots, & x_n\frac{\partial L}{\partial x_n} = 0\\
+\lambda_1\frac{\partial L}{\partial \lambda_1} = 0, & \dots, & \lambda_m \frac{\partial L}{\partial \lambda_m} = 0
+\end{eqnarray*}
+
+\textbf{Non-negativity Conditions}
+\begin{eqnarray*}
+x_1 \geq 0 & \dots & x_n \geq 0\\
+\lambda_1 \geq 0 & \dots & \lambda_m \geq 0
+\end{eqnarray*}
+
+Note that some of these conditions are set equal to 0, while others are set as inequalities!\\
+
+Note also that to minimize the function $f(x_1, \dots, x_n)$, the simplest thing to do is maximize the function $-f(x_1, \dots, x_n)$; all of the conditions remain the same after reformulating as a maximization problem.\\
+
+There are additional assumptions (notably, f(x) is quasi-concave and the constraints are convex) that are sufficient to ensure that a point satisfying the Kuhn-Tucker conditions is a global max; if these assumptions do not hold, you may have to check more than one point.
+
+\textbf{Finding the Critical Points with Kuhn-Tucker Conditions}: Given the above conditions, to find the critical points we solve the above system of equations. To do so, we must check \textit{all} border and interior solutions to see if they satisfy the above conditions.
+
+In a two-dimensional set-up, this means we must check the following cases:
+\begin{enumerate}
+\item[(1)] \parbox[c]{2in}{$x_1 = 0, x_2 = 0$} \parbox{2in}{Border Solution}
+\item[(2)] \parbox[c]{2in}{$x_1 = 0, x_2 \neq 0$} \parbox{2in}{Border Solution}
+\item[(3)] \parbox[c]{2in}{$x_1 \neq 0, x_2 = 0$} \parbox{2in}{Border Solution}
+\item[(4)] \parbox[c]{2in}{$x_1 \neq 0, x_2 \neq 0$} \parbox{2in}{Interior Solution}\\
+\end{enumerate}
+
+
+
+
+
+
+Example:
+$$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } 
+\begin{array}{l}
+x_1 + x_2 \le 4\\
+x_1 \ge 0\\
+x_2 \ge 0
+\end{array}$$
+
+\begin{enumerate}
+\item Write the Lagrangian:
+$$L(x_1, x_2, \lambda) =  -(x_1^2 + 2x_2^2) - \lambda(x_1 + x_2 - 4)$$
+
+\item Find the First Order Conditions:\\
+Kuhn-Tucker Conditions
+ \begin{eqnarray*}
+\frac{\partial L}{\partial x_1} = -2x_1 - \lambda  & \leq & 0\\
+\frac{\partial L}{\partial x_2}  = -4x_2 - \lambda & \leq  & 0\\
+\frac{\partial L}{\partial \lambda} = -(x_1 + x_2 - 4)& \geq & 0
+\end{eqnarray*}
+
+Complementary Slackness Conditions
+\begin{eqnarray*}
+x_1\frac{\partial L}{\partial x_2} = x_1(-2x_1 - \lambda)  = & 0\\
+x_2\frac{\partial L}{\partial x_2} = x_2(-4x_2 - \lambda)  & = & 0\\
+\lambda\frac{\partial L}{\partial \lambda} = -\lambda(x_1 + x_2 - 4)& = & 0
+\end{eqnarray*}
+
+Non-negativity Conditions
+\begin{eqnarray*}
+x_1 & \geq & 0\\
+x_2 & \geq & 0\\
+\lambda & \geq & 0
+\end{eqnarray*}
+
+\item Consider all border and interior cases:
+\begin{center}
+\begin{tabular}{|l|ccc|c|}
+\hline
+Hypothesis  & $\lambda$& $x_1$ & $x_2$ & $f(x_1, x_2)$\\
+\hline
+$x_1 = 0, x_2 = 0$  &0 & 0 & 0 & 0\\
+$x_1 = 0, x_2 \neq 0$  &-16 & 0 & 4 & -32\\
+$x_1 \neq 0, x_2 = 0$  &-8 & 4 & 0 & -16\\
+$x_1 \neq 0, x_2 \neq 0$ & $-\frac{16}{3}$ & $\frac{8}{3}$ & $\frac{4}{3}$ & $-\frac{32}{3}$\\
+\hline
+\end{tabular}
+\end{center}
+
+\item  Find Maximum:\\
+Three of the critical points violate the requirement that $\lambda \geq 0$, so the point $(0,0,0)$ is the maximum.\\
+\end{enumerate}
+
+
+
+Example: 
+
+$$\max_{x_1,x_2} f(x) = \frac{1}{3}\log (x_1 + 1) + \frac{2}{3}\log (x_2 + 1) \text{ s.t. }  
+\begin{array}{l}
+x_1 + 2x_2 \leq 4\\
+	 x_1 \geq 0\\
+	x_2 \geq 0
+\end{array}$$
+
+
+\begin{enumerate}
+\item Write the Lagrangian:
+$$\phantom{L(x_1, x_2, \lambda) =  \frac{1}{3}\log(x_1+1) + \frac{2}{3}\log(x_2+1) - \lambda(x_1 + 2x_2 - 4)}$$
+
+\item Find the First Order Conditions:\\
+Kuhn-Tucker Conditions\\
+\phantom{$\frac{\partial L}{\partial x_1} = \frac{1}{3(x_1+1)} - \lambda   \leq  0$\\
+$\frac{\partial L}{\partial x_2}  = \frac{2}{3(x_2+1)} - \lambda  \leq   0$\\
+$\frac{\partial L}{\partial \lambda} = -(x_1 + 2x_2 - 4) \geq  0$}\\
+\item[]
+\item[]
+\item[]
+\item[]
+\item[]
+\item[]
+\item[]
+\item[]
+ 
+Complementary Slackness Conditions\\
+\phantom{$x_1\frac{\partial L}{\partial x_2} = x_1(\frac{1}{3(x_1+1)} - \lambda)  =  0$\\
+$x_2\frac{\partial L}{\partial x_2} = x_2(\frac{2}{3(x_2+1)} - \lambda)   =  0$\\
+$\lambda\frac{\partial L}{\partial \lambda} = -\lambda(x_1 + 2x_2 - 4) =  0$}\\
+\item[]
+\item[]
+\item[]
+\item[]
+\item[]
+\item[]
+\item[]
+\item[]
+\item[]
+
+Non-negativity Conditions\\
+\phantom{$x_1  \geq  0$\\
+$x_2  \geq  0$\\
+$\lambda  \geq  $0}\\
+\item[]
+\item[]
+\item[]
+
+\item Consider all border and interior cases:
+\begin{center}
+\begin{tabular}{|l|ccc|c|}
+\hline
+Hypothesis  & $\lambda$& $x_1$ & $x_2$ & $f(x_1, x_2)$\\
+\hline
+$x_1 = 0, x_2 = 0$  &\multicolumn{3}{l|}{\phantom{No Solution}}& \\
+$x_1 = 0, x_2 \neq 0$  &\multicolumn{3}{l|}{\phantom{No Solution}}& \\
+$x_1 \neq 0, x_2 = 0$  & \multicolumn{3}{l|}{\phantom{No Solution}}& \\
+$x_1 \neq 0, x_2 \neq 0$ &  & \phantom{$\frac{4}{3}$} & \phantom{$\frac{4}{3}$} & \phantom{$\log\frac{7}{3}$}\\
+\hline
+\end{tabular}
+\end{center}
+
+\item[]
+\item[]
+\item[]
+\item[]
+
+\item  Find Maximum:\\
+\phantom{Three of the critical points violate the constraints, so the point $(\frac{4}{3},\frac{4}{3})$ is the maximum.}\\
+\end{enumerate}
