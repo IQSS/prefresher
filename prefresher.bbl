@@ -6,10 +6,4 @@ Xie, Y. (2015).
 \newblock Chapman and Hall/CRC, Boca Raton, Florida, 2nd edition.
 \newblock ISBN 978-1498716963.
 
-\bibitem[Xie, 2018]{R-bookdown}
-Xie, Y. (2018).
-\newblock {\em bookdown: Authoring Books and Technical Documents with R
-  Markdown}.
-\newblock R package version 0.7.
-
 \end{thebibliography}

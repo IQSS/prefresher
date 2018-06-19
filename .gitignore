@@ -3,3 +3,6 @@
 .RData
 .Ruserdata
 .Rproj.user
+_book/*.epub
+_book/*.pdf
+_book/*.html

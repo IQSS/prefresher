@@ -60,4 +60,37 @@
 \contentsline {section}{\numberline {6.9}Equality Constraints}{52}{section.6.9}
 \contentsline {section}{\numberline {6.10}Inequality Constraints}{53}{section.6.10}
 \contentsline {section}{\numberline {6.11}Kuhn-Tucker Conditions}{56}{section.6.11}
-\contentsline {chapter}{\numberline {7}Introduction}{61}{chapter.7}
+\contentsline {chapter}{\numberline {7}Programming Module 1}{61}{chapter.7}
+\contentsline {section}{\numberline {7.1}Where are we? Where are we headed?}{61}{section.7.1}
+\contentsline {section}{\numberline {7.2}Check your understanding}{61}{section.7.2}
+\contentsline {section}{\numberline {7.3}Motivation}{61}{section.7.3}
+\contentsline {section}{\numberline {7.4}Read data}{62}{section.7.4}
+\contentsline {section}{\numberline {7.5}Counting}{62}{section.7.5}
+\contentsline {section}{\numberline {7.6}Tabulating}{63}{section.7.6}
+\contentsline {section}{\numberline {7.7}Visualization}{64}{section.7.7}
+\contentsline {subsection}{\numberline {7.7.1}base R}{64}{subsection.7.7.1}
+\contentsline {subsection}{\numberline {7.7.2}ggplot}{65}{subsection.7.7.2}
+\contentsline {subsection}{\numberline {7.7.3}Improving your graphics}{65}{subsection.7.7.3}
+\contentsline {subsection}{\numberline {7.7.4}Cross-tabs}{67}{subsection.7.7.4}
+\contentsline {subsection}{\numberline {7.7.5}Histograms}{70}{subsection.7.7.5}
+\contentsline {section}{\numberline {7.8}What is an object?}{72}{section.7.8}
+\contentsline {subsection}{\numberline {7.8.1}lists}{73}{subsection.7.8.1}
+\contentsline {section}{\numberline {7.9}Making your own objects}{73}{section.7.9}
+\contentsline {subsection}{\numberline {7.9.1}Seeing R through objects}{74}{subsection.7.9.1}
+\contentsline {subsection}{\numberline {7.9.2}Parsing an object by \texttt {str()s}}{76}{subsection.7.9.2}
+\contentsline {section}{\numberline {7.10}Types of variables}{77}{section.7.10}
+\contentsline {subsection}{\numberline {7.10.1}scalars}{77}{subsection.7.10.1}
+\contentsline {subsection}{\numberline {7.10.2}numeric vectors}{77}{subsection.7.10.2}
+\contentsline {subsection}{\numberline {7.10.3}characters (aka strings)}{77}{subsection.7.10.3}
+\contentsline {subsection}{\numberline {7.10.4}matricies}{78}{subsection.7.10.4}
+\contentsline {subsection}{\numberline {7.10.5}data frames}{79}{subsection.7.10.5}
+\contentsline {subsection}{\numberline {7.10.6}Extracting variables from lists}{79}{subsection.7.10.6}
+\contentsline {section}{\numberline {7.11}What is a function?}{81}{section.7.11}
+\contentsline {subsection}{\numberline {7.11.1}Write your own function}{81}{subsection.7.11.1}
+\contentsline {section}{\numberline {7.12}What is a package?}{82}{section.7.12}
+\contentsline {section}{\numberline {7.13}Review Exercises}{82}{section.7.13}
+\contentsline {subsection}{\numberline {7.13.1}Exercise 1: Make your own graphic}{82}{subsection.7.13.1}
+\contentsline {subsection}{\numberline {7.13.2}Exercise 2: Counting CVAP}{83}{subsection.7.13.2}
+\contentsline {subsection}{\numberline {7.13.3}Exercise 3: Write your own function}{83}{subsection.7.13.3}
+\contentsline {section}{\numberline {7.14}Tell us about this session.}{83}{section.7.14}
+\contentsline {chapter}{\numberline {8}bookdown snippets}{85}{chapter.8}

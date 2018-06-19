@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2018-06-19}
+  \date{2018-06-20}
 
 \usepackage{booktabs}
 
@@ -1715,7 +1715,7 @@ elements, denoted by \{\} or \(\o\).
   not empty.
 \end{itemize}
 
-\chapter{Calculus I}\label{calculus-i}
+\chapter{Calculus I}\label{derivatives}
 
 \textbf{Topics}: Sequences; Limit of a Sequence; Series; Derivatives;
 Higher-Order Derivatives; Composite Functions and The Chain Rule;
@@ -3541,12 +3541,1397 @@ $x_1 \neq 0, x_2 \neq 0$ &  & \phantom{$\frac{4}{3}$} & \phantom{$\frac{4}{3}$} 
 \phantom{Three of the critical points violate the constraints, so the point $(\frac{4}{3},\frac{4}{3})$ is the maximum.}\\
 \end{enumerate}
 
-\chapter{Introduction}\label{intro}
+\chapter{Programming Module 1}\label{programming-module-1}
+
+Module originally written by Shiro Kuriwaki
+
+\section{Where are we? Where are we
+headed?}\label{where-are-we-where-are-we-headed}
+
+Up till now, you should have covered:
+
+\begin{itemize}
+\tightlist
+\item
+  The tutorial assignment at \url{http://tryr.codeschool.com/}
+\end{itemize}
+
+Today we'll cover:
+
+\begin{itemize}
+\tightlist
+\item
+  Counting.
+\item
+  Visualization.
+\item
+  Data Wrangling
+\item
+  Objects and Classes.
+\item
+  Function and Packages
+\end{itemize}
+
+\section{Check your understanding}\label{check-your-understanding}
+
+\begin{itemize}
+\tightlist
+\item
+  What does \texttt{:} mean in R? What about \texttt{==}? \texttt{,}?,
+  \texttt{!=} , \texttt{\&}, \texttt{\textbar{}}, \texttt{\%in\%}
+\item
+  What does \texttt{\%\textgreater{}\%} do
+\item
+  What is the difference between the console and script? What happens if
+  you ``clear'' the Console? What happens if you ``clear'' the script?
+  Your ``environment''
+\item
+  How do you read in a spreadsheet (\texttt{csv}) into R?
+\item
+  How do you count the number of observations for a given category?
+\item
+  How do you make a barplot, in base-R and in ggplot?
+\item
+  What is the difference between a data frame and a matrix?
+\item
+  What are three ways to extract a single variable from a data frame?
+\item
+  How would you identify a class or type of an object?
+\item
+  How do you define a new function?
+\end{itemize}
+
+\section{Motivation}\label{motivation}
+
+In this module, let's jump into using the basic functions of R from an
+actual Census.
+
+Why care about the Census? The Census is one of the fundamental acts of
+a government. See the Law Review article by
+\href{http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf}{Persily
+(2011)}, ``The Law of the Census''\footnote{\href{http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf}{Persily,
+  Nathaniel. 2011. ``The Law of the Census: How to Count, What to Count,
+  Whom to Count, and Where to Count Them.'' \emph{Cardozo Law Review}
+  32(3): 755--91.}}. The Census is government's primary tool for
+apportionment (allocating seats to districts), appropriations
+(allocating federal funding), and tracking demographic change.
+See\footnote{\href{https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2}{Hochschild,
+  Jennifer L., and Brenna Marea Powell. 2008. ``Racial Reorganization
+  and the United States Census 1850--1930: Mulattoes, Half-Breeds, Mixed
+  Parentage, Hindoos, and the Mexican Race.'' \emph{Studies in American
+  Political Development} 22(1): 59--96.}} for example
+\href{https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2}{Hochschild
+and Powell (2008)} on how the categorizations of race in the Census
+during 1850-1930.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(dplyr)}
+\KeywordTok{library}\NormalTok{(readr)}
+\KeywordTok{library}\NormalTok{(scales)}
+\KeywordTok{library}\NormalTok{(forcats)}
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Read data}\label{read-data}
+
+The first of line code you will write is often to read in data. Here,
+let's read in a subset of the 2010 Census. This is a 0.01 percent random
+sample of the entire U.S. Census.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cen10 <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"input/usc2010_001percent.csv"}\NormalTok{, }\DataTypeTok{col_types =} \KeywordTok{cols}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+The data comes from IPUMS\footnote{\href{http://doi.org/10.18128/D010.V6.0}{Ruggles,
+  Steven, Katie Genadek, Ronald Goeken, Josiah Grover, and Matthew
+  Sobek. 2015. Integrated Public Use Microdata Series: Version 6.0
+  dataset}}, a great source to extract and analyze Census and
+Census-conducted survey (ACS, CPS) data.
+
+What does this data look like?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cen10}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 30,871 x 13
+##     year serial pernum region state countyfips city  cpuma0010 sex     age
+##    <int>  <int>  <int> <chr>  <chr>      <int> <chr>     <int> <chr> <int>
+##  1  2010 8.80e6      4 Middl~ New ~          0 Not ~       636 Fema~     8
+##  2  2010 9.80e6      1 East ~ Ohio         103 Not ~       802 Male     24
+##  3  2010 8.69e6      1 Mount~ Neva~          3 Not ~       582 Male     37
+##  4  2010 6.35e6      3 East ~ Mich~          0 Not ~       476 Fema~    12
+##  5  2010 6.15e6      2 South~ Mary~         33 Not ~       449 Fema~    18
+##  6  2010 8.10e6      1 New E~ New ~          0 Not ~       586 Male     50
+##  7  2010 4.06e6      1 West ~ Iowa           0 Not ~       362 Fema~    51
+##  8  2010 7.03e6      2 West ~ Miss~          0 Not ~       550 Fema~    41
+##  9  2010 8.16e6      2 Middl~ New ~          3 Not ~       592 Male     62
+## 10  2010 1.12e6      3 Pacif~ Cali~         37 Los ~        81 Male     25
+## # ... with 30,861 more rows, and 3 more variables: race <chr>,
+## #   hhtype <chr>, relate <chr>
+\end{verbatim}
+
+\section{Counting}\label{counting}
+
+How many people are in your sample. Three ways to count:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{nrow}\NormalTok{(cen10)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 30871
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dim}\NormalTok{(cen10)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 30871    13
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{length}\NormalTok{(cen10}\OperatorTok{$}\NormalTok{year)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 30871
+\end{verbatim}
+
+Multiply this number by the inverse of the sample proportion. Does it
+equal the total population of the U.S. in 2010\footnote{The 2010 Census
+  reported 308,745,539.
+  \href{https://en.wikipedia.org/wiki/2010_United_States_Census}{Wikipedia}}?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{nrow}\NormalTok{(cen10)}\OperatorTok{*}\DecValTok{100}\OperatorTok{*}\DecValTok{100}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 308710000
+\end{verbatim}
+
+This and all subsequent tasks involve manipulating and summarizing data,
+sometimes called ``wrangling''. There are at least two approaches,
+``base-R'' and ``tidyverse functions''. The tidyverse functions are
+add-ons that programmers have built, and appears to be popular.
+
+\section{Tabulating}\label{tabulating}
+
+Here are two ways to count by group, or to tabulate.
+
+Use the \texttt{table} function
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(cen10}\OperatorTok{$}\NormalTok{race)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## American Indian or Alaska Native                      Black/Negro 
+##                              295                             4013 
+##                          Chinese                         Japanese 
+##                              354                               77 
+##  Other Asian or Pacific Islander                  Other race, nec 
+##                             1129                             1839 
+##        Three or more major races                  Two major races 
+##                               88                              869 
+##                            White 
+##                            22207
+\end{verbatim}
+
+With tidyverse, use \texttt{group\_by} to group by a variable, and then
+\texttt{summarize} to count.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cen10 }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(race) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 9 x 2
+##   race                             count
+##   <chr>                            <int>
+## 1 American Indian or Alaska Native   295
+## 2 Black/Negro                       4013
+## 3 Chinese                            354
+## 4 Japanese                            77
+## 5 Other Asian or Pacific Islander   1129
+## 6 Other race, nec                   1839
+## 7 Three or more major races           88
+## 8 Two major races                    869
+## 9 White                            22207
+\end{verbatim}
+
+These \texttt{tidyverse} commands from the \texttt{dplyr} package are
+newer and not built-in, but they are one of the increasingly more
+popular ways to wrangle data.
+
+\begin{itemize}
+\tightlist
+\item
+  80 percent of your data wrangling needs might be doable with these
+  basic \texttt{dplyr} functions: \texttt{select}, \texttt{mutate},
+  \texttt{group\_by}, \texttt{summarize}, and \texttt{arrange}.
+\item
+  These verbs roughly correspond to the same commands in SQL, another
+  important language in data science.
+\item
+  The \texttt{\%\textgreater{}\%} symbol is a pipe. It takes the thing
+  on the left side and pipes it down to the function on the right side.
+  \texttt{cen10\ \%\textgreater{}\%\ group\_by(race)} means take
+  \texttt{cen10} and pass it on to the function \texttt{group\_by},
+  which will group observations by race. Passing that
+  (\texttt{\%\textgreater{}\%}) to \texttt{summarize(count\ =\ n())}
+  means to then summarize the grouped output by the variable
+  \texttt{count}, which we define by the number of rows \texttt{n()}.
+\end{itemize}
+
+\section{Visualization}\label{visualization}
+
+Visualizing data is the key part of communication; good data viz gets
+the point across\footnote{\href{http://www.princeton.edu/~jkastell/Tables2Graphs/graphs.pdf}{Kastellec,
+  Jonathan P., and Eduardo L. Leoni. 2007. ``Using Graphs Instead of
+  Tables in Political Science.''" \emph{Perspectives on Politics} 5 (4):
+  755--71.}}.
+
+Two prevalent ways of making graphing are referred to as ``base-R'' and
+``ggplot''.
+
+\subsection{base R}\label{base-r}
+
+``Base-R'' graphics are graphics that are made with R's default graphics
+commands. First, let's assign our tabulation to an object, call it
+\texttt{tab\_race}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tab_race <-}\StringTok{ }\KeywordTok{table}\NormalTok{(cen10}\OperatorTok{$}\NormalTok{race)}
+\end{Highlighting}
+\end{Shaded}
+
+Then put it in the \texttt{barplot()} function
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{barplot}\NormalTok{(tab_race)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+\subsection{ggplot}\label{ggplot}
+
+A popular alternative a \texttt{ggplot} graphics. \texttt{gg} stands for
+grammar of graphics by Hadley Wickham, and it has a new semantics of
+explaining graphics in R. Again, first let's set up the data.
+
+Let's group and count first, like we just did.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{grp_race <-}\StringTok{ }\KeywordTok{group_by}\NormalTok{(cen10, race) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+We will now plot this grouped set of numbers. The \texttt{ggplot()}
+function takes two main arguments, \texttt{data} and \texttt{aes}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  First enter a single dataframe from which you will draw a plot.
+\item
+  Then enter the \texttt{aes}, or aesthetics. This defines which
+  variable in the data the plotting functions should take for pre-set
+  dimensions in graphics. The dimenions \texttt{x} and \texttt{y} are
+  the most important. We will assign \texttt{race} and \texttt{count} to
+  them, respectively,
+\item
+  After you close \texttt{ggplot()} .. add \textbf{layers} by the plus
+  sign. A \texttt{geom} is a layer of graphical representation, for
+  example \texttt{geom\_histogram} renders a histogram,
+  \texttt{geom\_point} renders a scatter plot. For a barplot, we can use
+  \texttt{geom\_col()}
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ grp_race, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ race, }\DataTypeTok{y =}\NormalTok{ count)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_col}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-13-1.pdf}
+
+\subsection{Improving your graphics}\label{improving-your-graphics}
+
+Adjusting your graphics to make the point clear is an important skill.
+Here is an example of showing the same numbers but with a different
+design, in a way that aims to maximize the data-to-ink ratio\footnote{Tufte,
+  Edward. \emph{The Visual Display of Quantitative Information}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{oma =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+\KeywordTok{barplot}\NormalTok{(}\KeywordTok{sort}\NormalTok{(tab_race), }\CommentTok{# sort numbers}
+        \DataTypeTok{horiz =} \OtherTok{TRUE}\NormalTok{, }\CommentTok{# flip}
+        \DataTypeTok{border =} \OtherTok{NA}\NormalTok{, }\CommentTok{# border is extraneous}
+        \DataTypeTok{xlab =} \StringTok{"Number in Race Category"}\NormalTok{, }
+        \DataTypeTok{bty =} \StringTok{"n"}\NormalTok{, }\CommentTok{# no box}
+        \DataTypeTok{las =} \DecValTok{1}\NormalTok{) }\CommentTok{# alignment of axis labels is horizontal}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-14-1.pdf}
+
+Notice that we applied the \texttt{sort()} function to order the bars in
+terms of their counts. The default ordering of a categorical variable /
+factor is alphabetical. Alphabetical ordering is uninformative and
+almost never the way you should order variables.
+
+In ggplot you might do this by:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{grp_race_ordered <-}\StringTok{ }\KeywordTok{arrange}\NormalTok{(grp_race, count) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{race =}\NormalTok{ forcats}\OperatorTok{::}\KeywordTok{as_factor}\NormalTok{(race))}
+
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ grp_race_ordered, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ race, }\DataTypeTok{y =}\NormalTok{ count)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_col}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{coord_flip}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{y =} \StringTok{"Number in Race Category"}\NormalTok{,}
+       \DataTypeTok{x =} \StringTok{""}\NormalTok{,}
+       \DataTypeTok{caption =} \StringTok{"Source: 2010 U.S. Census sample"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-15-1.pdf}
+
+\subsection{Cross-tabs}\label{cross-tabs}
+
+A cross-tab is counting with two types of variables, and is a simple and
+powerful tool to show the relationship between multiple variables.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{xtab_race_state <-}\StringTok{ }\KeywordTok{table}\NormalTok{(cen10}\OperatorTok{$}\NormalTok{race, cen10}\OperatorTok{$}\NormalTok{state)}
+\KeywordTok{dim}\NormalTok{(xtab_race_state)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  9 51
+\end{verbatim}
+
+The \texttt{barplot} function kindly takes cross-tabs and figures out
+how to plot them:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{oma =} \KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\KeywordTok{barplot}\NormalTok{(xtab_race_state)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-17-1.pdf}
+
+What if we care about proportions within states, rather than counts. We
+want to compare the racial composition of a small state (like Delaware)
+and a large state (like California).
+
+One way to transform a table of counts to a table of proportions is the
+function \texttt{prop.table}. Be careful what you want to take
+proportions of -- this is set by the \texttt{margin} argument. In R, the
+first margin (1) is \emph{rows} and the second margin (2) is columns.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ptab_race_state <-}\StringTok{ }\KeywordTok{prop.table}\NormalTok{(xtab_race_state, }\DataTypeTok{margin =} \DecValTok{2}\NormalTok{)}
+\KeywordTok{dim}\NormalTok{(ptab_race_state)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  9 51
+\end{verbatim}
+
+Now we can plot these numbers. Let's orient them horizontally:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{barplot}\NormalTok{(ptab_race_state, }\DataTypeTok{horiz =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{las =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-19-1.pdf}
+
+To make the same figure with \texttt{ggplot()}.
+
+First, we want a count for each state \(\times\) race combination. So
+group by those two factors and count how many observations are in each
+two-way categorization.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{grp_race_state <-}\StringTok{ }\NormalTok{cen10 }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(race, state) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+Can you tell from the code what \texttt{grp\_race\_state} will look
+like?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# run on your own}
+\NormalTok{grp_race_state}
+\end{Highlighting}
+\end{Shaded}
+
+Now, we want to tell \texttt{ggplot2} something like the following: I
+want bars by state, where heights indicate racial groups. Each bar
+should be colored by the race. With some googling, you will get
+something like this
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ grp_race_state, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ state, }\DataTypeTok{y =}\NormalTok{ count,  }\DataTypeTok{fill =}\NormalTok{ race)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_col}\NormalTok{(}\DataTypeTok{position =} \StringTok{"fill"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# the position is dertemined by the fill ae}
+\StringTok{  }\KeywordTok{scale_fill_brewer}\NormalTok{(}\DataTypeTok{palette =} \StringTok{"OrRd"}\NormalTok{, }\DataTypeTok{direction =} \OperatorTok{-}\DecValTok{1}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# choose palette}
+\StringTok{  }\KeywordTok{coord_flip}\NormalTok{() }\OperatorTok{+}\StringTok{ }\CommentTok{# flip axes}
+\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{labels =}\NormalTok{ percent) }\OperatorTok{+}\StringTok{ }\CommentTok{# label numbers as percentage}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{y =} \StringTok{"Proportion of Racial Group within State"}\NormalTok{,}
+       \DataTypeTok{x =} \StringTok{""}\NormalTok{,}
+       \DataTypeTok{source =} \StringTok{"Source: 2010 Census  sample"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-22-1.pdf}
+
+\subsection{Histograms}\label{histograms}
+
+When our data is continuous rather than categorical, our first graphics
+will probably be a histogram.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(cen10}\OperatorTok{$}\NormalTok{age, }\DataTypeTok{main =} \StringTok{"Age Distribution"}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{"Age"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-23-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ cen10, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ age)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_histogram}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-24-1.pdf}
+
+\section{What is an object?}\label{what-is-an-object}
+
+Now that we have covered some hands-on ways to use graphics, let's go
+into some fundamentals of the R language.
+
+Objects are abstract symbols in which you store data. Here we will
+create an object from \texttt{copy}, and assign \texttt{cen10} to it.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{copy <-}\StringTok{ }\NormalTok{cen10 }
+\end{Highlighting}
+\end{Shaded}
+
+This looks the same as the original dataset:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{copy}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 30,871 x 13
+##     year serial pernum region state countyfips city  cpuma0010 sex     age
+##    <int>  <int>  <int> <chr>  <chr>      <int> <chr>     <int> <chr> <int>
+##  1  2010 8.80e6      4 Middl~ New ~          0 Not ~       636 Fema~     8
+##  2  2010 9.80e6      1 East ~ Ohio         103 Not ~       802 Male     24
+##  3  2010 8.69e6      1 Mount~ Neva~          3 Not ~       582 Male     37
+##  4  2010 6.35e6      3 East ~ Mich~          0 Not ~       476 Fema~    12
+##  5  2010 6.15e6      2 South~ Mary~         33 Not ~       449 Fema~    18
+##  6  2010 8.10e6      1 New E~ New ~          0 Not ~       586 Male     50
+##  7  2010 4.06e6      1 West ~ Iowa           0 Not ~       362 Fema~    51
+##  8  2010 7.03e6      2 West ~ Miss~          0 Not ~       550 Fema~    41
+##  9  2010 8.16e6      2 Middl~ New ~          3 Not ~       592 Male     62
+## 10  2010 1.12e6      3 Pacif~ Cali~         37 Los ~        81 Male     25
+## # ... with 30,861 more rows, and 3 more variables: race <chr>,
+## #   hhtype <chr>, relate <chr>
+\end{verbatim}
+
+What happens if you do this next?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{copy <-}\StringTok{ ""}
+\end{Highlighting}
+\end{Shaded}
+
+It got reassigned:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{copy}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] ""
+\end{verbatim}
+
+\subsection{lists}\label{lists}
+
+Lists are one of the most generic and flexible type of object. You can
+make an empty list by the function \texttt{list()}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_list <-}\StringTok{ }\KeywordTok{list}\NormalTok{()}
+\NormalTok{my_list}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## list()
+\end{verbatim}
+
+And start filling it in. Slots on the list are invoked by double square
+brackets \texttt{{[}{[}{]}{]}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_list[[}\DecValTok{1}\NormalTok{]] <-}\StringTok{ "contents of the first slot -- this is a string"}
+\NormalTok{my_list[[}\StringTok{"slot 2"}\NormalTok{]] <-}\StringTok{ "contents of slot named slot 2"}
+\NormalTok{my_list}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [[1]]
+## [1] "contents of the first slot -- this is a string"
+## 
+## $`slot 2`
+## [1] "contents of slot named slot 2"
+\end{verbatim}
+
+each slot can be anything. What are we doing here? We are defining the
+1st slot of the list \texttt{my\_list} to be a vector
+\texttt{c(1,\ 2,\ 3,\ 4,\ 5)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_list[[}\DecValTok{1}\NormalTok{]] <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+You can even make nested lists. Let's say we want the 1st slot of the
+list to be another list of three elements.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_list[[}\DecValTok{1}\NormalTok{]][[}\DecValTok{1}\NormalTok{]] <-}\StringTok{ "subitem 1 in slot 1 of my_list"}
+\NormalTok{my_list[[}\DecValTok{1}\NormalTok{]][[}\DecValTok{2}\NormalTok{]] <-}\StringTok{ "subitem 1 in slot 2 of my_list"}
+\NormalTok{my_list[[}\DecValTok{1}\NormalTok{]][[}\DecValTok{3}\NormalTok{]] <-}\StringTok{ "subitem 1 in slot 3 of my_list"}
+
+\NormalTok{my_list}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [[1]]
+## [1] "subitem 1 in slot 1 of my_list" "subitem 1 in slot 2 of my_list"
+## [3] "subitem 1 in slot 3 of my_list" "4"                             
+## [5] "5"                             
+## 
+## $`slot 2`
+## [1] "contents of slot named slot 2"
+\end{verbatim}
+
+\section{Making your own objects}\label{making-your-own-objects}
+
+We've covered one type of object, which is a list. You saw it was quite
+flexible. How many types of objects are there?
+
+There are an infinite number of objects, because people make their own
+class of object. You can detect the type of the object (the class) by
+the function \texttt{class}
+
+What is type of object is \texttt{cen10}?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(cen10)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "tbl_df"     "tbl"        "data.frame"
+\end{verbatim}
+
+What about this text?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(}\StringTok{"some random text"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "character"
+\end{verbatim}
+
+To change or create the class of any object, you can \emph{assign} it.
+To do this, assign the name of your class to character to an object's
+\texttt{class()}.
+
+We can start from a simple list. For example, say we wanted to store
+data about pokemon. Because there is no pre-made package for this, we
+decide to make our own class.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pikachu <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DataTypeTok{name =} \StringTok{"Pikachu"}\NormalTok{,}
+                \DataTypeTok{number =} \DecValTok{25}\NormalTok{,}
+                \DataTypeTok{type =} \StringTok{"Electric"}\NormalTok{,}
+                \DataTypeTok{color =} \StringTok{"Yellow"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+and we can give it any class name we want.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(pikachu) <-}\StringTok{ "Pokemon"}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Seeing R through objects}\label{seeing-r-through-objects}
+
+Most of the R objects that you will see as you advance are their own
+objects. For example, here's a linear regression object (which you will
+learn more about in Gov 2000):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ols <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(mpg }\OperatorTok{~}\StringTok{ }\NormalTok{wt }\OperatorTok{+}\StringTok{ }\NormalTok{vs }\OperatorTok{+}\StringTok{ }\NormalTok{gear }\OperatorTok{+}\StringTok{ }\NormalTok{carb, mtcars)}
+\KeywordTok{class}\NormalTok{(ols)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "lm"
+\end{verbatim}
+
+Anything can be an object! Even graphs (in \texttt{ggplot}) can be
+assigned, re-assigned, and edited.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gg_tab <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ grp_race_ordered) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ race, }\DataTypeTok{y =}\NormalTok{ count) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_col}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{caption =} \StringTok{"Source: U.S. Census 2010"}\NormalTok{)}
+\NormalTok{gg_tab}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-38-1.pdf}
+
+You can change the orientation
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gg_tab }\OperatorTok{+}\StringTok{ }\KeywordTok{coord_flip}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-39-1.pdf}
+
+Or even change the variables altogether, while still maintaining the
+same format.
+
+\subsection{\texorpdfstring{Parsing an object by
+\texttt{str()s}}{Parsing an object by str()s}}\label{parsing-an-object-by-strs}
+
+It can be hard to understand an \texttt{R} object because it's contents
+are unknown. The function \texttt{str}, short for structure, is a quick
+way to look into the innards of an object
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str}\NormalTok{(my_list)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## List of 2
+##  $       : chr [1:5] "subitem 1 in slot 1 of my_list" "subitem 1 in slot 2 of my_list" "subitem 1 in slot 3 of my_list" "4" ...
+##  $ slot 2: chr "contents of slot named slot 2"
+\end{verbatim}
+
+Same for the object we just made
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{str}\NormalTok{(pikachu)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## List of 4
+##  $ name  : chr "Pikachu"
+##  $ number: num 25
+##  $ type  : chr "Electric"
+##  $ color : chr "Yellow"
+##  - attr(*, "class")= chr "Pokemon"
+\end{verbatim}
+
+What does a \texttt{ggplot} object look like? Very complicated, but at
+least you can see it:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# enter this on your console}
+\KeywordTok{str}\NormalTok{(gg_tab)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Types of variables}\label{types-of-variables}
+
+In the social science we often analyze variables. As you saw in the
+tutorial, different types of variables require different care.
+
+A key link with what we just learned is that variables are also types of
+R objects.
+
+\subsection{scalars}\label{scalars}
+
+One number. How many people did we count in our Census sample?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{nrow}\NormalTok{(cen10)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 30871
+\end{verbatim}
+
+Question: What proportion of our census sample is Native American? This
+number is also a scalar
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Enter yourself}
+\end{Highlighting}
+\end{Shaded}
+
+Hint: you can use the function \texttt{mean()} to calcualte the sample
+mean. The sample proportion is the mean of a sequence of number, where
+your event of interest is a 1 (or \texttt{TRUE}) and others are 0 (or
+\texttt{FALSE}).
+
+\subsection{numeric vectors}\label{numeric-vectors}
+
+A sequence of numbers.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{grp_race_ordered}\OperatorTok{$}\NormalTok{count}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]    77    88   295   354   869  1129  1839  4013 22207
+\end{verbatim}
+
+Or even, all the ages of the millions of people in our Census. Here are
+just the first few numbers of the list.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{head}\NormalTok{(cen10}\OperatorTok{$}\NormalTok{age)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  8 24 37 12 18 50
+\end{verbatim}
+
+\subsection{characters (aka strings)}\label{characters-aka-strings}
+
+This can be just one stretch of characters
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_name <-}\StringTok{ "Shiro"}
+\NormalTok{my_name}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Shiro"
+\end{verbatim}
+
+or more characters. Notice here that there's a difference between a
+vector of individual characters and a length-one object of characters.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_name_letters <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"S"}\NormalTok{, }\StringTok{"h"}\NormalTok{, }\StringTok{"i"}\NormalTok{, }\StringTok{"r"}\NormalTok{, }\StringTok{"o"}\NormalTok{)}
+\NormalTok{my_name_letters}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "S" "h" "i" "r" "o"
+\end{verbatim}
+
+Finally, remember that lower vs.~upper case matters in R!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_name2 <-}\StringTok{ "shiro"}
+\NormalTok{my_name }\OperatorTok{==}\StringTok{ }\NormalTok{my_name2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\subsection{matricies}\label{matricies}
+
+Matrices are rectangular structures of numbers (they have to be numbers,
+and they can't be characters).
+
+A cross-tab can be considered a matrix:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(cen10}\OperatorTok{$}\NormalTok{race, cen10}\OperatorTok{$}\NormalTok{sex)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                                   
+##                                    Female  Male
+##   American Indian or Alaska Native    142   153
+##   Black/Negro                        2070  1943
+##   Chinese                             192   162
+##   Japanese                             51    26
+##   Other Asian or Pacific Islander     587   542
+##   Other race, nec                     877   962
+##   Three or more major races            37    51
+##   Two major races                     443   426
+##   White                             11252 10955
+\end{verbatim}
+
+But a subset of your data -- individual values-- can be considered a
+matrix too.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cen10[}\DecValTok{1}\OperatorTok{:}\DecValTok{20}\NormalTok{, }\KeywordTok{c}\NormalTok{(}\StringTok{"year"}\NormalTok{, }\StringTok{"age"}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 20 x 2
+##     year   age
+##    <int> <int>
+##  1  2010     8
+##  2  2010    24
+##  3  2010    37
+##  4  2010    12
+##  5  2010    18
+##  6  2010    50
+##  7  2010    51
+##  8  2010    41
+##  9  2010    62
+## 10  2010    25
+## 11  2010    23
+## 12  2010    66
+## 13  2010    57
+## 14  2010    73
+## 15  2010    43
+## 16  2010    29
+## 17  2010     8
+## 18  2010    78
+## 19  2010    10
+## 20  2010     9
+\end{verbatim}
+
+A vector is a special type of matrix with only one column or only one
+row (more on this in tomorrow's linear algebra session).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cen10[}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{, }\KeywordTok{c}\NormalTok{(}\StringTok{"age"}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 10 x 1
+##      age
+##    <int>
+##  1     8
+##  2    24
+##  3    37
+##  4    12
+##  5    18
+##  6    50
+##  7    51
+##  8    41
+##  9    62
+## 10    25
+\end{verbatim}
+
+\subsection{data frames}\label{data-frames}
+
+You can think of data frames maybe as matrices-plus, because a column
+can take on characters as well as numbers. As we just saw, this is often
+useful for real data analyses.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cen10}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 30,871 x 13
+##     year serial pernum region state countyfips city  cpuma0010 sex     age
+##    <int>  <int>  <int> <chr>  <chr>      <int> <chr>     <int> <chr> <int>
+##  1  2010 8.80e6      4 Middl~ New ~          0 Not ~       636 Fema~     8
+##  2  2010 9.80e6      1 East ~ Ohio         103 Not ~       802 Male     24
+##  3  2010 8.69e6      1 Mount~ Neva~          3 Not ~       582 Male     37
+##  4  2010 6.35e6      3 East ~ Mich~          0 Not ~       476 Fema~    12
+##  5  2010 6.15e6      2 South~ Mary~         33 Not ~       449 Fema~    18
+##  6  2010 8.10e6      1 New E~ New ~          0 Not ~       586 Male     50
+##  7  2010 4.06e6      1 West ~ Iowa           0 Not ~       362 Fema~    51
+##  8  2010 7.03e6      2 West ~ Miss~          0 Not ~       550 Fema~    41
+##  9  2010 8.16e6      2 Middl~ New ~          3 Not ~       592 Male     62
+## 10  2010 1.12e6      3 Pacif~ Cali~         37 Los ~        81 Male     25
+## # ... with 30,861 more rows, and 3 more variables: race <chr>,
+## #   hhtype <chr>, relate <chr>
+\end{verbatim}
+
+Another way to think about data frames is that it is a type of list. Try
+the \texttt{str()} code below and notice how it is organized in slots.
+Each slot is a vector. They can be vectors of numbers or characters.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# enter this on your console}
+\KeywordTok{str}\NormalTok{(cen10)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Extracting variables from
+lists}\label{extracting-variables-from-lists}
+
+Often you want to inspect one variable of you r dataset. There are
+multiple ways to do this.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  with the single-square bracket, as in a matrix:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cen10[, }\StringTok{"race"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 30,871 x 1
+##    race       
+##    <chr>      
+##  1 White      
+##  2 White      
+##  3 White      
+##  4 White      
+##  5 Black/Negro
+##  6 White      
+##  7 White      
+##  8 White      
+##  9 White      
+## 10 White      
+## # ... with 30,861 more rows
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  which you can also refer to by the number of the column
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cen10[, }\DecValTok{11}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 30,871 x 1
+##    race       
+##    <chr>      
+##  1 White      
+##  2 White      
+##  3 White      
+##  4 White      
+##  5 Black/Negro
+##  6 White      
+##  7 White      
+##  8 White      
+##  9 White      
+## 10 White      
+## # ... with 30,861 more rows
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  with double-square brackets as in a data frame
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{head}\NormalTok{(cen10[[}\StringTok{"race"}\NormalTok{]])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "White"       "White"       "White"       "White"       "Black/Negro"
+## [6] "White"
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  and with the dollar-sign \texttt{\$}
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{head}\NormalTok{(cen10}\OperatorTok{$}\NormalTok{race)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "White"       "White"       "White"       "White"       "Black/Negro"
+## [6] "White"
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  in the \texttt{dplyr} package, you can \texttt{select} multiple
+  variables like this:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cen10 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{select}\NormalTok{(race, state, age)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 30,871 x 3
+##    race        state           age
+##    <chr>       <chr>         <int>
+##  1 White       New York          8
+##  2 White       Ohio             24
+##  3 White       Nevada           37
+##  4 White       Michigan         12
+##  5 Black/Negro Maryland         18
+##  6 White       New Hampshire    50
+##  7 White       Iowa             51
+##  8 White       Missouri         41
+##  9 White       New Jersey       62
+## 10 White       California       25
+## # ... with 30,861 more rows
+\end{verbatim}
+
+\section{What is a function?}\label{what-is-a-function}
+
+Most of what we do in R is executing a function. \texttt{read\_csv()},
+\texttt{nrow()}, \texttt{ggplot()} .. pretty much anything with a
+parentheses is a function. And even things like \texttt{\textless{}-}
+and \texttt{{[}} are functions as well.
+
+A function is a set of instructions with specified ingredients. It takes
+an \textbf{input}, then \textbf{manipulates} it -- changes it in some
+way -- and then returns the manipulated product.
+
+One way to see what a function actually does is to enter it without
+parentheses.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# enter this on your console}
+\NormalTok{table}
+\end{Highlighting}
+\end{Shaded}
+
+You'll see below that the most basic functions are quite complicated
+internally.
+
+You'll notice that functions contain other functions. \emph{wrapper}
+functions are functions that ``wrap around'' existing functions. This
+sounds redundant, but it's an important feature of programming. If you
+find yourself repeating a command more than two times, you should make
+your own function, rather than writing the same type of code.
+
+\subsection{Write your own function}\label{write-your-own-function}
+
+It's worth remembering the basic structure of a function. You create a
+new function, call it \texttt{my\_fun} by this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_fun <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{() \{}
+  
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+If we wanted to generate a function that computed the number of men in
+your data, what would that look like?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{count_men <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(data) \{}
+  
+\NormalTok{  nmen <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(data}\OperatorTok{$}\NormalTok{sex }\OperatorTok{==}\StringTok{ "Male"}\NormalTok{)}
+  
+  \KeywordTok{return}\NormalTok{(nmen)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Then all we need to do is feed this function a dataset
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{count_men}\NormalTok{(cen10)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 15220
+\end{verbatim}
+
+The point of a function is that you can use it again and again without
+typing up the set of constituent manipulations. So, what if we wanted to
+figure out the number of men in California?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{count_men}\NormalTok{(}\KeywordTok{filter}\NormalTok{(cen10, state }\OperatorTok{==}\StringTok{ "California"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1876
+\end{verbatim}
+
+Let's go one step further. What if we want to know the proportion of
+non-whites in a state, just by entering the name of the state? There's
+multiple ways to do it, but it could look something like this
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nw_in_state <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(data, state) \{}
+\NormalTok{  s.subset <-}\StringTok{ }\KeywordTok{filter}\NormalTok{(data, state }\OperatorTok{==}\StringTok{ }\NormalTok{state)}
+  
+\NormalTok{  total.s <-}\StringTok{ }\KeywordTok{nrow}\NormalTok{(s.subset)}
+\NormalTok{  nw.s <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(s.subset}\OperatorTok{$}\NormalTok{race }\OperatorTok{!=}\StringTok{ "White"}\NormalTok{)}
+  
+\NormalTok{  nw.s }\OperatorTok{/}\StringTok{ }\NormalTok{total.s}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+The last line is what gets generated from the function. To be more
+explicit you can wrap the last line around \texttt{return()}. (as in
+\texttt{return(nw.s/total.s}). \texttt{return()} is used when you want
+to break out of a function in the middle of it and not wait till the
+last line.
+
+Try it on your favorite state!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{nw_in_state}\NormalTok{(cen10, }\StringTok{"Alabama"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.2806517
+\end{verbatim}
+
+Exercise. Try making your own function, \texttt{asians\_in\_state}, that
+will give you the number of \texttt{Chinese}, \texttt{Japanese}, and
+\texttt{Other\ Asian\ or\ Pacific\ Islander} people in a given state.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Enter on your own}
+\end{Highlighting}
+\end{Shaded}
+
+\section{What is a package?}\label{what-is-a-package}
+
+You can think of a package as a suite of functions that other people
+have already built for you to make your life easier.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{help}\NormalTok{(}\DataTypeTok{package =} \StringTok{"ggplot2"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+To use a package, you need to do two things: (1) install it, and then
+(2) load it.
+
+Installing is a one-time thing
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+But you need to load each time you start a R instance. So always keep
+these commands on a script.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\end{Highlighting}
+\end{Shaded}
+
+In \texttt{rstudio.cloud}, we already installed a set of packages for
+you. But when you start your own R instance, you need to have installed
+the package at some point.
+
+\section{Review Exercises}\label{review-exercises}
+
+In the time remaining, try the following exercises. Order doesn't
+matter.
+
+\subsection{Exercise 1: Make your own
+graphic}\label{exercise-1-make-your-own-graphic}
+
+Make a graphic from the census data that tells us something interesting
+about the U.S. 2010 population.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Enter yourself}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Exercise 2: Counting CVAP}\label{exercise-2-counting-cvap}
+
+A issue raised in Persily's article is that the full-count U.S. Census
+does not record whether the residents are citizens of the United
+States\footnote{Here is that argument of his again, more recently in the
+  popular press.
+  \href{http://www.politico.com/magazine/story/2015/06/the-supreme-courts-big-data-problem-118568}{``The
+  Mysterious Number of American Citizens''. June 2, 2015.
+  \emph{POLITICO}}}. Instead, this question is asked in a survey, the
+American Community Survey. The two are fundamentally different
+exercises: the Census counts everyone by definition, a survey samples
+its data. Load the 1 percent sample of the 2015 ACS
+(\texttt{acs2015\_1percent.csv}, in the \texttt{input} folder) and give
+an estimate of the proportion of a state's ACS respondents that are
+reportedly U.S. citizens.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Enter yourself}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Exercise 3: Write your own
+function}\label{exercise-3-write-your-own-function}
+
+Write your own function that makes some task of data analysis simpler.
+Ideally, it would be a function that helps you do either of the previous
+tasks in fewer lines of code.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Enter yourself}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Tell us about this session.}\label{tell-us-about-this-session.}
+
+This is day 1 and we covered a lot of material. Some of you might have
+found this completely new; others not so. Please click through this
+survey before you leave so we can adjust accordingly on the next few
+days.
+
+\chapter{bookdown snippets}\label{bookdown-snippets}
 
 You can label chapter and section titles using \texttt{\{\#label\}}
-after them, e.g., we can reference Chapter \ref{intro}. If you do not
-manually label them, there will be automatic labels anyway, e.g.,
-Chapter \ref{methods}.
+after them, e.g., we can reference Chapter \ref{derivatives}. If you do
+not manually label them, there will be automatic labels anyway.
 
 Figures and tables with captions will be placed in \texttt{figure} and
 \texttt{table} environments, respectively.
@@ -3617,8 +5002,8 @@ Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
 \end{table}
 
 You can write citations, too. For example, we are using the
-\textbf{bookdown} package \citep{R-bookdown} in this sample book, which
-was built on top of R Markdown and \textbf{knitr} \citep{xie2015}.
+\textbf{bookdown} package in this sample book, which was built on top of
+R Markdown and \textbf{knitr} \citep{xie2015}.
 
 \bibliography{book.bib,packages.bib}
 
