@@ -1,0 +1,749 @@
+# Linear Algebra
+
+Topics:
+$\bullet$ Working with Vectors 
+$\bullet$ Linear Independence
+$\bullet$ Basics of Matrix Algebra
+$\bullet$ Square Matrices
+$\bullet$ Linear Equations
+$\bullet$ Systems of Linear Equations
+$\bullet$ Systems of Equations as Matrices
+$\bullet$ Solving Augmented Matrices and Systems of Equations
+$\bullet$ Rank
+$\bullet$ The Inverse of a Matrix
+$\bullet$ Inverse of Larger Matrices
+
+Much of the material and examples for this lecture are taken from Gill (2006) \emph{Essential Mathematics for Political and Social Scientists}, Simon \& Blume (1994) \emph{Mathematics for Economists} and Kolman (1993) \emph{Introductory Linear Algebra with Applications}.
+
+
+## Working with Vectors
+__Vector__: A vector in $n$-space is an ordered list of $n$ numbers.  These numbers can be represented as either a row vector or a column vector: 
+		$$ {\bf v} \begin{pmatrix} v_1 & v_2 & \dots & v_n\end{pmatrix} , {\bf v} = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}$$ 
+		
+We can also think of a vector as defining a point in $n$-dimensional space, usually ${\bf R}^n$; each element of the vector defines the coordinate of the point in a particular direction.
+
+__Vector Addition and Subtraction__:  If two vectors, ${\bf u}$ and ${\bf v}$, have the same length (i.e. have the same number of elements), they can be added (subtracted) together:
+		$$ {\bf u} + {\bf v} = \begin{pmatrix} u_1 + v_1 & u_2 + v_2 & \cdots & u_k + v_n \end{pmatrix}$$
+		$$ {\bf u} - {\bf v} = \begin{pmatrix} u_1 - v_1 & u_2 - v_2 & \cdots & u_k - v_n \end{pmatrix}$$
+
+__Scalar Multiplication__:  The product of a scalar $c$ (i.e. a constant) and vector ${\bf v}$ is: \
+		$$ c{\bf v} =  \begin{pmatrix} cv_1 & cv_2 & \dots & cv_n \end{pmatrix} $$
+
+__Vector Inner Product__: The inner product (also called the dot product or scalar product) of two vectors  ${\bf u}$ and ${\bf v}$ is again defined iff they have the same number of elements 
+		$$ {\bf u} \cdot {\bf v} = u_1v_1 + u_2v_2 + \cdots + u_nv_n = \sum_{i = 1}^n u_iv_i$$
+		If ${\bf u} \cdot {\bf v} = 0$, the two vectors are orthogonal (or perpendicular).
+
+__Vector Norm__: The norm of a vector is a measure of its length.  There are many different ways to calculate the norm, but the most common of is the Euclidean norm (which corresponds to our usual conception of distance in three-dimensional space):
+		$$ ||{\bf v}|| = \sqrt{{\bf v}\cdot{\bf v}} = \sqrt{ v_1v_1 + v_2v_2 + \cdots + v_nv_n}$$
+
+
+## Linear Independence
+
+__Linear combinations__: The vector ${\bf u}$ is a linear combination of the vectors ${\bf v}_1, {\bf v}_2,  \cdots , {\bf v}_k$ if
+		$${\bf u} = c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k$$
+
+__Linear independence__:  A set of vectors ${\bf v}_1, {\bf v}_2,  \cdots , {\bf v}_k$ is linearly independent if the only solution to the equation
+		$$c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k = 0$$
+		is $c_1 = c_2 = \cdots = c_k = 0$.  If another solution exists, the set of vectors is linearly dependent.
+	
+A set $S$ of vectors is linearly dependent iff at least one of the vectors in $S$ can be written as a linear combination of the other vectors in $S$.
+
+ Linear independence is only defined for sets of vectors with the same number of elements; any linearly independent set of vectors in $n$-space contains at most $n$ vectors.
+
+Exercises: Are the following sets of vectors linearly independent?
+
+\begin{enumerate}
+		\item $${\bf v}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} $$ 
+			\phantom{Yes}
+		\item $${\bf v}_1 = \begin{pmatrix} 3 \\ 2 \\ -1 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} -2 \\ 2 \\ 4 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} 2 \\ 3 \\ 1 \end{pmatrix} $$ 
+			\phantom{No. $-{\bf v}_1 - .5\cdot {\bf v}_2 + {\bf v}_3 = 0$}
+\end{enumerate}
+
+
+
+## Basics of Matrix Algebra
+
+__Matrix__: A matrix is an array of real numbers arranged in $m$ rows by $n$ columns. The dimensionality of the matrix is defined as the number of rows by the number of columns, $m x n$.
+
+\[{\bf A}=\begin{pmatrix}
+			a_{11} & a_{12} & \cdots & a_{1n} \\
+			a_{21} & a_{22} & \cdots & a_{2n} \\
+			\vdots & \vdots & \ddots & \vdots \\
+			a_{m1} & a_{m2} & \cdots & a_{mn}
+		\end{pmatrix}\]
+		
+Note that you can think of vectors as special cases of matrices; a column vector of length $k$ is a $k \times 1$ matrix, while a row vector of the same length is a $1 \times k$ matrix.
+
+It's also useful to think of matrices as being made up of a collection of row or column vectors.  For example,
+		$$\bf A = \begin{pmatrix} {\bf a}_1 & {\bf a}_2 &  \cdots & {\bf a}_m \end{pmatrix}$$
+	
+__Matrix Addition__: Let $\bf A$ and $\bf B$ be two $m\times n$ matrices.
+		$${\bf A+B}=\begin{pmatrix}
+			a_{11}+b_{11} & a_{12}+b_{12} & \cdots & a_{1n}+b_{1n} \\
+			a_{21}+b_{21} & a_{22}+b_{22} & \cdots & a_{2n}+b_{2n} \\
+			\vdots & \vdots  & \ddots & \vdots \\
+			a_{m1}+b_{m1} & a_{m2}+b_{m2} & \cdots & a_{mn}+b_{mn}
+		\end{pmatrix}$$
+
+Note that matrices ${\bf A}$ and ${\bf B}$ must have the same dimensionality, in which case they are __conformable for addition__.
+	
+Example:
+		$${\bf A}=\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}, \qquad
+			{\bf B}=\begin{pmatrix} 1 & 2 & 1 \\ 2 & 1 & 2 \end{pmatrix}$$
+		$${\bf A+B}= \phantom{\begin{pmatrix} 2 & 4 & 4 \\ 6 & 6 & 8 \end{pmatrix}}$$
+	
+__Scalar Multiplication__:  Given the scalar $s$, the scalar multiplication of $s {\bf A}$ is
+		$$ s {\bf A}=  s \begin{pmatrix}
+			a_{11} & a_{12} & \cdots & a_{1n} \\
+			a_{21} & a_{22} & \cdots & a_{2n} \\
+			\vdots & \vdots & \ddots & \vdots \\
+			a_{m1} & a_{m2} & \cdots & a_{mn}
+		\end{pmatrix}
+		= \begin{pmatrix}
+			s a_{11} & s a_{12} & \cdots & s a_{1n} \\
+			s a_{21} & s a_{22} & \cdots & s a_{2n} \\
+			\vdots & \vdots & \ddots & \vdots \\
+			s a_{m1} & s a_{m2} & \cdots & s a_{mn}
+		\end{pmatrix}$$
+
+Example:
+		$$s=2, \qquad {\bf A}=\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}$$
+		$$s {\bf A} = \phantom{\begin{pmatrix} 2 & 4 & 6 \\ 8 & 10 & 12 \end{pmatrix}}$$
+
+__Matrix Multiplication__:  If ${\bf A}$ is an $m\times k$ matrix and $\bf B$ is a $k\times n$ matrix, then their product $\bf C = A B$ is the $m\times n$ matrix where
+		$$c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{ik}b_{kj}$$
+
+Examples:
+
+\begin{enumerate}
+		\item $\begin{pmatrix} a&b\\c&d\\e&f \end{pmatrix} \begin{pmatrix} A&B\\C&D \end{pmatrix}
+			= \phantom{\begin{pmatrix} aA+bC&aB+bD\\cA+dC&cB+dD\\eA+fC&eB+fD \end{pmatrix}}$ 
+		
+		\item $\begin{pmatrix} 1&2&-1\\3&1&4 \end{pmatrix} \begin{pmatrix} -2&5\\4&-3\\2&1\end{pmatrix} = 
+			\phantom{\begin{pmatrix} 1(-2)+2(4)-1(2)&1(5)+2(-3)-1(1)\\
+				3(-2)+1(4)+4(2)&3(5)+1(-3)+4(1)\end{pmatrix} =
+			\begin{pmatrix} 4&-2\\6&16\end{pmatrix}}$
+	\end{enumerate}
+	
+Note that the number of columns of the first matrix must equal the number of rows of the second matrix, in which case they are __conformable for multiplication__.  The sizes of the matrices (including the resulting product) must be $$(m\times k)(k\times n)=(m\times n)$$
+	
+Also note that if __AB__ exists, __BA__ exists only if $\dim({\bf A}) = m \times n$ and $\dim({\bf B}) = n \times m$.
+	
+This does not mean that __AB__ = __BA__. __AB__ = __BA__ is true only in special circumstances, like when ${\bf A}$ or ${\bf B}$ is an identity matrix, ${\bf A} = {\bf B}^{-1}$, or ${\bf A} = {\bf B}$ and __A__ is idempotent.
+
+__Laws of Matrix Algebra__:
+\begin{enumerate}
+		\item \parbox[t]{1.5in}{Associative:} $\bf (A+B)+C = A+(B+C)$\\
+			\parbox[t]{1.5in}{\quad}  $\bf (AB)C = A(BC)$
+		\item \parbox[t]{1.5in}{Commutative:} $\bf A+B=B+A$
+		\item \parbox[t]{1.5in}{Distributive:} $\bf A(B+C)=AB+AC$\\
+			\parbox[t]{1.5in}{\quad}   $\bf (A+B)C=AC+BC$
+\end{enumerate}
+	
+Commutative law for multiplication does not hold -- the order of multiplication matters:
+		$$\bf AB\ne BA$$
+
+Example:
+		$${\bf A}=\begin{pmatrix} 1&2\\-1&3\end{pmatrix}, \qquad {\bf B}=\begin{pmatrix} 2&1\\0&1\end{pmatrix}$$
+		$${\bf AB}=\begin{pmatrix} 2&3\\-2&2\end{pmatrix}, \qquad {\bf BA}=\begin{pmatrix} 1&7\\-1&3\end{pmatrix}$$
+
+__Transpose__: The transpose of the $m\times n$ matrix $\bf A$ is the $n\times m$ matrix ${\bf A}^T$  (also written ${\bf A}'$) obtained by interchanging the rows and columns of $\bf A$.
+
+Examples:
+	\begin{enumerate}
+		\item ${\bf A}=\begin{pmatrix} 4&-2&3\\0&5&-1\end{pmatrix}, \qquad {\bf A}^T=\begin{pmatrix} 4&0\\-2&5\\3&-1 \end{pmatrix}$
+		\item ${\bf B}=\begin{pmatrix} 2\\-1\\3 \end{pmatrix}, \qquad {\bf B}^T=\begin{pmatrix} 2&-1&3\end{pmatrix}$
+	\end{enumerate}
+
+The following rules apply for transposed matrices:
+	\begin{enumerate}
+		\item $({\bf A+B})^T = {\bf A}^T+{\bf B}^T$
+		\item $({\bf A}^T)^T={\bf A}$
+		\item $(s{\bf A})^T = s{\bf A}^T$
+		\item $({\bf AB})^T = {\bf B}^T{\bf A}^T$; and by induction $({\bf ABC})^T = {\bf C}^T{\bf B}^T{\bf A}^T$
+\end{enumerate}
+
+Example of $({\bf AB})^T = {\bf B}^T{\bf A}^T$:
+		$${\bf A}=\begin{pmatrix} 1&3&2\\2&-1&3\end{pmatrix}, \qquad {\bf B}=\begin{pmatrix} 0&1\\2&2\\3&-1\end{pmatrix}$$
+		$$ ({\bf AB})^T = \left[ \begin{pmatrix} 1&3&2\\2&-1&3\end{pmatrix} \begin{pmatrix} 0&1\\2&2\\3&-1\end{pmatrix} \right]^T = \begin{pmatrix} 12&7\\5&-3 \end{pmatrix}$$
+		$$ {\bf B}^T{\bf A}^T= \begin{pmatrix} 0&2&3\\1&2&-1 \end{pmatrix}  \begin{pmatrix} 1&2\\3&-1\\2&3 \end{pmatrix} = \begin{pmatrix} 12&7\\5&-3 \end{pmatrix}$$
+
+
+
+
+## Square Matrices
+__Square__ matrices have the same number of rows and columns; a $k \times k$ square matrix is referred to as a matrix of order $k$.
+
+The __diagonal__ of a square matrix is the vector of matrix elements that have the same subscripts.  If __A__  is a square matrix of order $k$, then its diagonal is $[ a_{11}, a_{22}, \dots, a_{kk}]'$.
+	
+There are several important types of square matrices:
+	
+1. __Identity Matrix__:  The $n\times n$ identity matrix ${\bf I}_n$ is the matrix whose diagonal elements are 1 and all off-diagonal elements are 0. Examples:
+			$$ {\bf I}_2=\begin{pmatrix} 1&0\\0&1 \end{pmatrix}, \qquad {\bf I}_3=\begin{pmatrix} 1&0&0\\ 0&1&0\\ 
+			0&0&1 \end{pmatrix}$$	
+	
+2. __Symmetric Matrix__: A matrix __A__ is symmetric if ${\bf A} = {\bf A}'$; this implies that $a_{ij} = a_{ji}$ for all $i$ and $j$. Examples:
+			$$ {\bf A} = \begin{pmatrix} 1&2\\2&1 \end{pmatrix} = {\bf A}', \qquad {\bf B} =\begin{pmatrix} 4&2&-1\\ 2&1&3\\
+			-1&3&1 \end{pmatrix} = {\bf B}'$$
+
+3. __Diagonal Matrix__: A matrix __A__ is diagonal if all of its non-diagonal entries are zero; formally, if $a_{ij} = 0$ for all $i \neq j$ Examples:
+$$ {\bf A} = \begin{pmatrix} 1&0\\0&2 \end{pmatrix}, \qquad {\bf B} =\begin{pmatrix} 4&0&0\\ 0&1&0\\
+			0&0&1 \end{pmatrix}$$
+		
+4. __Triangular Matrix__: A matrix is triangular one of two cases.  If all entries below the diagonal are zero ($a_{ij} = 0$ for all $i > j$), it is __upper triangular__.  Conversely, if all entries above the diagonal are zero ($a_{ij} = 0$ for all $i < j$), it is __lower triangular__.
+
+Examples:
+\[ {\bf A}_{LT}= \begin{pmatrix} 1&0 & 0\\4&2&0\\-3 & 2 & 5 \end{pmatrix}, \qquad {\bf A}_{UT}=\begin{pmatrix} 1&7&-4\\ 0&3&9\\
+0&0&-3 \end{pmatrix}\]
+
+
+
+
+
+## Linear Equations
+
+__Linear Equation__:  $a_1 x_1 + a_2 x_2 + \cdots + a_n x_n = b$
+
+$a_i$ are parameters or coefficients.  $x_i$ are variables or unknowns.
+	
+
+Linear because only one variable per term and degree is at most 1.
+	\begin{enumerate} 
+		\item \parbox[t]{1.5in}{${\bf R}^2$: line} $x_2 = \frac{b}{a_2}-\frac{a_1}{a_2} x_1$
+		\item \parbox[t]{1.5in}{${\bf R}^3$: plane} $x_3= \frac{b}{a_3}-\frac{a_1}{a_3} x_1-\frac{a_2}{a_3} x_2 $
+		\item ${\bf R}^n$: hyperplane
+	\end{enumerate}
+
+
+
+## Systems of Linear Equations
+
+We are often interested in solving linear systems like\\
+
+\[\begin{matrix}
+			x  & - & 3y & = & -3\\
+			2x & + &  y & = &  8
+			\end{matrix}\]
+			
+\begin{comment}
+		\parbox[t]{1in}{\includegraphics[angle=270, width = 1in]{linsys.eps}}
+\end{comment}
+
+More generally, we might have a system of $m$ equations in $n$ unknowns
+
+\[\begin{matrix}
+			a_{11}x_1  & + & a_{12}x_2 & + & \cdots & + & a_{1n}x_n & = & b_1\\
+			a_{21}x_1  & + & a_{22}x_2 & + & \cdots & + & a_{2n}x_n & = & b_2\\
+			\vdots     &   &     &   & \vdots &   &     & \vdots & \\
+			a_{m1}x_1  & + & a_{m2}x_2 & + & \cdots & + & a_{mn}x_n & = & b_m
+			\end{matrix}\]
+
+A __solution__ to a linear system of $m$ equations in $n$ unknowns is a set of $n$ numbers $x_1, x_2, \cdots, x_n$ that satisfy each of the $m$ equations.
+	\begin{enumerate} 
+		\item ${\bf R}^2$: intersection of the lines. 
+		\item ${\bf R}^3$: intersection of the planes.
+		\item ${\bf R}^n$: intersection of the hyperplanes.
+	\end{enumerate}
+
+Example:  $x=3$ and $y=2$ is the solution to the above $2\times 2$ linear system.  Notice from the graph that the two lines intersect at $(3,2)$.
+
+
+Does a linear system have one, no, or multiple solutions? For a system of 2 equations in 2 unknowns (i.e., two lines):
+		
+\begin{enumerate}
+		\item \parbox[t]{1.5in}{One solution:} The lines intersect at exactly one point.
+		\item \parbox[t]{1.5in}{No solution:}  The lines are parallel.
+		\item \parbox[t]{1.5in}{Infinite solutions:} The lines coincide.
+\end{enumerate}
+
+Methods to solve linear systems:
+
+1. Substitution
+2.  Elimination of variables
+3.  Matrix methods
+
+
+
+
+## Systems of Equations as Matrices
+
+Matrices provide an easy and efficient way to represent linear systems such as
+	$$\begin{matrix}
+		a_{11}x_1  & + & a_{12}x_2 & + & \cdots & + & a_{1n}x_n & = & b_1\\
+		a_{21}x_1  & + & a_{22}x_2 & + & \cdots & + & a_{2n}x_n & = & b_2\\
+		\vdots     &   &     &   & \vdots &   &     & \vdots & \\
+		a_{m1}x_1  & + & a_{m2}x_2 & + & \cdots & + & a_{mn}x_n & = & b_m
+		\end{matrix}$$
+
+as $${\bf A x = b}$$ where
+
+\begin{enumerate}
+
+\item The $m \times n$ \textbf{coefficient matrix} ${\bf A}$ is an array of $m n$  real numbers arranged in $m$ rows by $n$ columns:
+			$${\bf A}=\begin{pmatrix}
+			a_{11} & a_{12} & \cdots & a_{1n} \\
+			a_{21} & a_{22} & \cdots & a_{2n} \\
+			\vdots &  & \ddots & \vdots \\
+			a_{m1} & a_{m2} & \cdots & a_{mn}
+			\end{pmatrix}$$
+
+		\item The unknown quantities are represented by the vector ${\bf x}=\begin{pmatrix} x_1\\x_2\\\vdots\\x_n \end{pmatrix}$.
+		\item The right hand side of the linear system is represented by the vector ${\bf b}=\begin{pmatrix} b_1\\b_2\\\vdots\\b_m \end{pmatrix}$.
+	\end{enumerate}
+
+__Augmented Matrix__:  When we append $\bf b$ to the coefficient matrix $\bf A$, we get the augmented matrix $\widehat{\bf A}=[\bf A | b]$
+		$$\begin{pmatrix}
+			a_{11} & a_{12} & \cdots & a_{1n} & | & b_1\\
+			a_{21} & a_{22} & \cdots & a_{2n} & | & b_2\\
+			\vdots &  & \ddots & \vdots & | & \vdots\\
+			a_{m1} & a_{m2} & \cdots & a_{mn} & | & b_m
+			\end{pmatrix}$$
+
+
+
+
+## Finding Solutions to Augmented Matrices and Systems of Equations
+
+
+__Row Echelon Form__: Our goal is to translate our augmented matrix or system of equations into row echelon form. This will provide us with the values of the vector __x__ which solve the system. We use the row operations to change coefficients in lower triangle of the augmented matrix to 0.  An augmented matrix of the form
+
+$$\begin{pmatrix}
+			\fbox{$a'_{11}$}& a'_{12} & a'_{13}& \cdots & a'_{1n} & | & b'_1\\
+			0 & \fbox{$a'_{22}$} & a'_{23}& \cdots & a'_{2n} & | & b'_2\\
+			0 & 0 & \fbox{$a'_{33}$}& \cdots & a'_{3n} & | & b'_3\\
+			0 & 0 &0 & \ddots & \vdots  & | & \vdots \\
+			0 & 0 &0 &0 & \fbox{$a'_{mn}$} & | & b'_m
+			\end{pmatrix}$$
+
+is said to be in row echelon form --- each row has more leading zeros than the row preceding it.
+
+__Reduced Row Echelon Form__: We can go one step further and put the matrix into reduced row echelon form. Reduced row echelon form makes the value of __x__ which solves the system very obvious. For a system of $m$ equations in $m$ unknowns, with no all-zero rows, the reduced row echelon form would be
+
+$$\begin{pmatrix}
+			\fbox{$1$}  &  0 &   0 &    0  &   0 & | & b^*_1\\
+			0  &  \fbox{$1$} &   0 &    0  &   0 & | & b^*_2\\
+			0  &  0 &   \fbox{$1$} &    0  &   0 & | & b^*_3\\
+			0  &  0 &   0 &\ddots &   0 & | &\vdots\\
+			0  &  0 &   0 &    0  &   \fbox{$1$} & | & b^*_m
+			\end{pmatrix}$$
+
+
+__Gaussian and Gauss-Jordan elimination__:  We can conduct elementary row operations to get our augmented matrix into row echelon or reduced row echelon form. The methods of transforming a matrix or system into row echelon and reduced row echelon form are referred to as Gaussian elimination and Gauss-Jordan elimination, respectively.
+		
+__Elementary Row Operations__: To do Gaussian and Gauss-Jordan elimination, we use three basic operations to transform the augmented matrix into another augmented matrix that represents an equivalent linear system -- equivalent in the sense that the same values of $x_j$ solve both the original and transformed matrix/system:
+
+\begin{enumerate}
+		\item \parbox[t]{2.5in}{Interchanging two rows.}$\Longrightarrow\qquad$ \parbox[t]{2.5in}{Interchanging two equations.}
+		\item \parbox[t]{2.5in}{Multiplying a row by a constant.}$\Longrightarrow\qquad$ \parbox[t]{2.5in}{Multiplying both sides of an equation by a constant.}
+		\item \parbox[t]{2.5in}{Adding two rows to each other.}$\Longrightarrow\qquad$ \parbox[t]{2.5in}{Adding two equations to each other.}
+	\end{enumerate}
+
+__Interchanging Rows__:  Suppose we have the augmented matrix 
+		$${\widehat{\bf A}}=\begin{pmatrix} a_{11} & a_{12} & | & b_1\\
+			a_{21} & a_{22} & | & b_2 
+			\end{pmatrix}$$
+		If we interchange the two rows, we get the augmented matrix
+		$$\begin{pmatrix}
+			a_{21} & a_{22} & | & b_2\\
+			a_{11} & a_{12} & | & b_1
+			\end{pmatrix}$$
+		which represents a linear system equivalent to that represented by matrix $\widehat{\bf A}$.
+
+__Multiplying by a Constant__: If we multiply the second row of matrix $\widehat{\bf A}$ by a constant $c$, we get the augmented matrix
+		$$\begin{pmatrix}
+			a_{11} & a_{12} & | & b_1\\
+			c a_{21} & c a_{22} & | & c b_2
+			\end{pmatrix}$$
+		which represents a linear system equivalent to that represented by matrix $\widehat{\bf A}$.
+
+__Adding (subtracting) Rows__:  If we add (subtract) the first row of matrix $\widehat{\bf A}$ to the second, we obtain the augmented matrix
+		$$\begin{pmatrix}
+			a_{11} & a_{12} & | & b_1\\
+			a_{11}+a_{21} & a_{12}+a_{22} & | & b_1+b_2
+			\end{pmatrix}$$
+		which represents a linear system equivalent to that represented by matrix $\widehat{\bf A}$.
+
+
+Exercises: Using Gaussian or Gauss-Jordan elimination, solve the following linear systems by putting them into row echelon or reduced row echelon form:
+
+\begin{enumerate}
+		\item  $$\begin{matrix}
+			x  & - & 3y & = & -3\\
+			2x & + &  y & = &  8
+			\end{matrix}$$\\
+			\phantom{$\begin{matrix}
+			x  & - & 3y & = & -3\\
+			   &   & 7y & = & 14\\			
+			\end{matrix}$}
+			\phantom{$\begin{matrix}
+			x  & - & 3y & = & -3\\
+			   &   & y & = & 2\\			
+			\end{matrix}$}\\
+			\phantom{$\begin{matrix}
+			x & = & 3\\
+			y & = & 2\\			
+			\end{matrix}$}
+		\bigskip
+
+			
+\end{enumerate}
+
+
+
+
+
+## Rank --- and Whether a System Has One, Infinite, or No Solutions
+
+ We previously noted that a $2\times 2$ system had one,  infinite, or no solutions if the two lines intersected, were the same, or were parallel, respectively.  More generally, to determine how many solutions exist, we can use information about (1) the number of equations $m$, (2) the number of unknowns $n$, and (3) the __rank__ of the matrix representing the linear system.
+	
+__Rank__:  The row rank or column rank of a matrix is the number of nonzero rows or columns in its row echelon form.  The rank also corresponds to the maximum number of linearly independent row or column vectors in the matrix. For any matrix __A__, the row rank always equals column rank, and we refer to this number as the rank of __A__.
+
+Examples:
+\begin{enumerate}
+		\item \parbox[t]{2in}{$\begin{pmatrix} 1 & 2 & 3 \\
+			0 & 4 & 5 \\
+			0 & 0 & 6 \end{pmatrix}$}
+			  Rank=\phantom{3}
+		\item \parbox[t]{2in}{$\begin{pmatrix} 1 & 2 & 3 \\ 
+			0 & 4 & 5 \\
+			0 & 0 & 0 \end{pmatrix}$}
+			Rank=\phantom{2}
+
+		\item \parbox[t]{2in}{$\begin{pmatrix} 1 & 2 & 3  & | & b_1 \\
+			0 & 4 & 5 & | & b_2 \\
+			0 & 0 & 0 & | & b_3 \end{pmatrix}, \quad b_i\ne 0$}
+			Rank=\phantom{3}
+\end{enumerate}
+
+Let $\bf A$ be the coefficient matrix and $\widehat{\bf A}=[ {\bf A} | {\bf b}]$ be the augmented matrix.  Then
+	
+\begin{enumerate}
+		\item \parbox[t]{1.75in}{$\mbox{rank\,} {\bf A} \le \mbox{rank\,} \widehat{\bf A}$} \parbox[t]{4in}{Augmenting $\bf A$ with $\bf b$ can never result in more zero rows than originally in $\bf A$ itself.  Suppose row $i$ in $\bf A$ is all zeros and that $b_i$ is non-zero.  Augmenting $\bf A$ with $\bf b$ will yield a non-zero row $i$ in $\widehat{\bf A}$.}\\
+		
+		\item \parbox[t]{1.75in}{$\mbox{rank\,} {\bf A} \le \mbox{rows\,} {\bf A}$} 
+			\parbox[t]{4in}{By definition of ``rank."}\\[-6pt]
+		\item \parbox[t]{1.75in}{$\mbox{rank\,} {\bf A} \le \mbox{cols\,} {\bf A}$}
+			\parbox[t]{4in}{Suppose there are more rows than columns (otherwise the previous rule applies).  Each column can contain at most one pivot.  By
+pivoting, all other entries in a column below the pivot are zeroed. Hence, there will only be as many non-zero rows as pivots, which will equal the number of columns.}
+	\end{enumerate}
+
+__Existence of Solutions__:
+\begin{enumerate}
+		\item \parbox[t]{1.75in}{Exactly one solution:}
+			\parbox[t]{4in}{$\mbox{rank\,}{\bf A} = \mbox{rank\,} \widehat{\bf A}=\mbox{rows\,} {\bf A}  = \mbox{cols\,}{\bf A}$ \\
+			[3pt] Necessary condition for a system to have a unique solution: that there be exactly as many equations as unknowns.}\\
+	
+		\item \parbox[t]{1.75in}{Infinite solutions:} \parbox[t]{4in}{$\mbox{rank\,} {\bf A}=\mbox{rank\,} \widehat{\bf A}$ and $\mbox{cols\,} {\bf A} > \mbox{rank\,} {\bf A}$\\
+			[3pt] If a system has a solution and has more unknowns than equations, then it has infinitely many solutions.}
+
+		\item \parbox[t]{1.75in}{No solution:} \parbox[t]{4in}{$\mbox{rank\,} {\bf A} < \mbox{rank\,} \widehat{\bf A}$ \\
+		[3pt] Then there is a zero row $i$ in $\bf A$'s reduced echelon that corresponds to a non-zero row $i$ in $\widehat{\bf A}$'s reduced echelon.  Row $i$ of the $\widehat{\bf A}$ translates to the equation  $$0 x_{i1} + 0 x_{i2} + \cdots + 0 x_{in} = b'_{i}$$ where $b'_{i}\ne 0$.  Hence the system has no solution.}\\
+
+\end{enumerate}
+
+
+Find the rank and number of solutions for the systems of equations below.:
+
+\begin{enumerate}
+		\item
+			$$\begin{matrix}
+			x  & - & 3y & = & -3\\
+			2x & + &  y & = &  8
+			\end{matrix}$$
+			\phantom{Rank = 2; One solution}\\
+
+		\bigskip
+
+		\item
+			$$\begin{matrix}
+			x & + & 2y & + & 3z & = & 6\\
+			2x& - & 3y & + & 2z & = &14\\
+			3x& + & y  & - & z  & = &-2
+			\end{matrix}$$
+			\phantom{Rank = 3; One solution}\\
+
+		\bigskip
+
+		\item
+			$$\begin{matrix}
+			x & + & 2y & - & 3z & = & -4\\
+			2x& + & y  & - & 3z & = & 4\\
+			3x & + & 6y & - & 9z & = & -12 
+			\end{matrix}$$
+			\phantom{Rank = 2; Infinite solutions}\\
+
+		\bigskip
+
+		\item
+			$$\begin{matrix}
+			x &+& 2y &+& 3z &+& 4w &=& 5\\
+			x &+& 3y &+& 5z &+& 7w &=& 11\\
+			x & &    &-& z  &-& 2w &=&-6
+			\end{matrix}$$
+			\phantom{Rank = 3; Infinite solutions}\\
+
+\end{enumerate}
+
+
+
+## The Inverse of a Matrix
+
+__Inverse Matrix__:  An $n\times n$ matrix ${\bf A}$ is __nonsingular__ or __invertible__ if there exists an $n\times n$ matrix ${\bf A}^{-1}$ such that $${\bf A} {\bf A}^{-1} = {\bf A}^{-1} {\bf A} = {\bf I}_n$$ where ${\bf A}^{-1}$ is the inverse of ${\bf A}$.  If there is no such ${\bf A}^{-1}$, then ${\bf A}$ is singular or noninvertible.
+
+Example:  Let
+		$${\bf A} = \begin{pmatrix} 2&3\\2&2 \end{pmatrix}, \qquad {\bf B}=\begin{pmatrix} -1&\frac{3}{2}\\ 1&-1
+		\end{pmatrix}$$
+		Since $${\bf A} {\bf B} = {\bf B} {\bf A} = {\bf I}_n$$ we conclude that ${\bf B}$ is the inverse, ${\bf A}^{-1}$, of ${\bf A}$ and that ${\bf A}$ is nonsingular.
+
+__Properties of the Inverse__:
+
+\begin{enumerate}
+\item If the inverse exists, it is unique.
+\item \parbox[t]{4in}{${\bf A}$ nonsingular $\quad \Longrightarrow \quad $ ${\bf A}^{-1}$ nonsingular} $({\bf A}^{-1})^{-1} = {\bf A}$
+%\item \parbox[t]{4in}{${\bf A}$ and ${\bf B}$ nonsingular $\quad\lra\quad$ ${\bf A}{\bf B}$ nonsingular} $({\bf A}{\bf B})^{-1} = {\bf B}^{-1}{\bf A}^{-1}$
+\item ${\bf A}$ nonsingular $\quad \Longrightarrow\quad$ $({\bf A}^T)^{-1}=({\bf A}^{-1})^T$
+	\end{enumerate}
+ 
+\textbf{Procedure to Find ${\bf A}^{-1}$}:  We know that if ${\bf B}$ is the inverse of ${\bf A}$, then $${\bf A} {\bf B} = {\bf B} {\bf A} = {\bf I}_n$$  Looking only at the first and last parts of this $${\bf A} {\bf B} = {\bf I}_n$$  Solving for ${\bf B}$ is equivalent to solving for $n$ linear systems, where each column of ${\bf B}$ is solved for the corresponding column in ${\bf I}_n$.  We can solve the systems simultaneously by augmenting ${\bf A}$ with ${\bf I}_n$ and performing Gauss-Jordan elimination on ${\bf A}$.  If Gauss-Jordan elimination on $[{\bf A} | {\bf I}_n]$ results in $[{\bf I}_n | {\bf B} ]$, then ${\bf B}$ is the inverse of ${\bf A}$.  Otherwise, ${\bf A}$ is singular.\\
+		[12pt] To summarize:  To calculate the inverse of ${\bf A}$ 
+		
+\begin{enumerate} 
+\item Form the augmented matrix $[ {\bf A} | {\bf I}_n]$
+\item Using elementary row operations, transform the augmented matrix to reduced row echelon form.
+\item The result of step 2 is an augmented matrix $[ {\bf C} | {\bf B} ]$.
+			\begin{enumerate}
+				\item  If ${\bf C}={\bf I}_n$, then ${\bf B}={\bf A}^{-1}$.
+				\item  If ${\bf C}\ne{\bf I}_n$, then $\bf C$ has a row of zeros.
+				${\bf A}$ is singular and ${\bf A}^{-1}$ does not exist.
+			\end{enumerate}
+\end{enumerate}
+		
+
+Exercise:
+
+Find the inverse of ${\bf A}=\begin{pmatrix} 1&1&1\\0&2&3\\5&5&1 \end{pmatrix}$
+
+\phantom{$\left(\begin{array}{ccc|ccc}
+	1&1&1&1&0&0\\
+	0&2&3&0&1&0\\
+	5&5&1&0&0&1
+\end{array} \right)$\\}
+
+\phantom{$\left(\begin{array}{ccc|ccc}
+	1&1&1&1&0&0\\
+	0&2&3&0&1&0\\
+	5&5&1&0&0&1
+\end{array} \right)$\\}
+		
+\phantom{$\left(\begin{array}{ccc|ccc}
+	1&1&1 &1 &0&0\\
+	0&2&3 &0 &1&0\\
+	0&0&-4&-5&0&1
+\end{array} \right)$\\}
+
+\phantom{$\left(\begin{array}{ccc|ccc}
+	1&1&1&1  &0&0\\
+	0&2&3&0  &1&0\\
+	0&0&1&5/4&0&-1/4
+\end{array} \right)$\\}
+
+\phantom{$\left(\begin{array}{ccc|ccc}
+	1&1&0&-1/4 &0&1/4\\
+	0&2&0&-15/4&1&3/4\\
+	0&0&1&5/4  &0&-1/4
+\end{array} \right)$\\}
+
+\phantom{$\left(\begin{array}{ccc|ccc}
+	1&1&0&-1/4 &0  &1/4\\
+	0&1&0&-15/8&1/2&3/8\\
+	0&0&1&5/4  &0 &-1/4
+\end{array} \right)$\\}	
+	
+\phantom{$\left(\begin{array}{ccc|ccc}
+	1&0&0&13/8 &-1/2&-1/8\\
+	0&1&0&-15/8&1/2 &3/8\\
+	0&0&1&5/4  &0   &-1/4
+\end{array} \right)$\\}
+
+\phantom{${\bf A}^{-1} = \left(\begin{array}{ccc}
+	13/8 &-1/2&-1/8\\
+	-15/8&1/2 &3/8\\
+	5/4  &0   &-1/4
+\end{array} \right)$\\}
+
+
+## Linear Systems and Inverses
+
+Let's return to the matrix representation of a linear system 
+		
+\[\bf {\bf A} x = b\]
+
+If ${\bf A}$ is an $n\times n$ matrix,then $\bf {\bf A} x=b$ is a system of $n$ equations in $n$ unknowns.  Suppose ${\bf A} $ is nonsingular $\quad \Longrightarrow \quad$ ${\bf A}^{-1}$ exists.  To solve this system, we can premultiply each side by ${\bf A}^{-1}$ and reduce it as follows:
+		
+\begin{eqnarray} 
+			{\bf A}^{-1} ({\bf A} \bf x)&=&{\bf A}^{-1} \bf b \nonumber\\
+			({\bf A}^{-1} {\bf A})\bf x &=&{\bf A}^{-1} \bf b \nonumber\\
+			{\bf I}_n \bf x     &=&{\bf A}^{-1} \bf b \nonumber\\
+			\bf x&=&{\bf A}^{-1} \bf b \nonumber
+\end{eqnarray}
+
+Hence, given $\bm{A}$ and $\bm{b}$ and given that $\bm{A}$ is nonsingular, then $\bm{x} = \bm{A}^{-1} b$ is a unique solution to this system.
+
+Notice also that the requirements for ${\bf A}$ to be nonsingular correspond to the requirements for a linear system to have a unique solution:
+$\mbox{rank\,}{\bf A}=\mbox{rows\,}{\bf A}=\mbox{cols\,}{\bf A}$.
+
+
+
+## Determinants
+
+__Singularity__:  Determinants can be used to \emph{determine} whether a square matrix is nonsingular.
+	
+ A square matrix is nonsingular iff its determinant is not zero.
+	
+
+Determinant of a $1 \times 1$ matrix, __A__, equals $a_{11}$
+
+Determinant of a $2 \times 2$ matrix, __A__, 
+		$\begin{vmatrix} a_{11}&a_{12}\\ 
+			a_{21}&a_{22} \end{vmatrix}$:
+
+\begin{eqnarray*}
+\det({\bf A}) &=& |{\bf A}|\\
+			&=& a_{11}|a_{22}| - a_{12}|a_{21}|\\
+			&=& a_{11}a_{22} - a_{12}a_{21}
+\end{eqnarray*}
+
+We can extend the second to last equation above to get the definition of the determinant of a $3 \times 3$ matrix:
+
+\begin{eqnarray*}
+			\begin{vmatrix} a_{11}&a_{12}&a_{13}\\  a_{21} & a_{22}&a_{23}\\ a_{31}&a_{32}&a_{33} \end{vmatrix} 
+				&=& 
+				a_{11} \begin{vmatrix} a_{22}&a_{23}\\ a_{32}&a_{33} \end{vmatrix}
+				- a_{12} \begin{vmatrix} a_{21}&a_{23}\\ a_{31}&a_{33} \end{vmatrix}
+				+ a_{13} \begin{vmatrix} a_{21}&a_{22}\\ a_{31}&a_{32} 
+				\end{vmatrix}\\
+				&=& a_{11}(a_{22}a_{33} - a_{23}a_{32}) - a_{12}(a_{21}a_{33} - a_{23}a_{31}) + a_{13}(a_{21}a_{32} - a_{22}a_{31})
+\end{eqnarray*}
+
+Let's extend this now to any $n\times n$ matrix. Let's define ${\bf A}_{ij}$ as the $(n-1)\times (n-1)$ submatrix of ${\bf A}$ obtained by deleting row $i$ and column $j$.  Let the $(i,j)$th __minor__ of ${\bf A}$ be  the determinant of ${\bf A}_{ij}$:
+			$$M_{ij}=|{\bf A}_{ij}|$$
+			Then for any $n\times n$ matrix ${\bf A}$
+			$$|{\bf A}|= a_{11}M_{11} - a_{12}M_{12} + \cdots + (-1)^{n+1} a_{1n} M_{1n}$$
+
+
+	
+Example:  Does the following matrix have an inverse? 
+		$${\bf A}=\begin{pmatrix} 1&1&1\\0&2&3\\5&5&1 \end{pmatrix}$$
+1. Calculate its determinant.
+\begin{eqnarray}
+				&=& 1(2-15) - 1(0-15) + 1(0-10) \nonumber\\
+				&=& -13+15-10 \nonumber\\
+				&=& -8\nonumber
+\end{eqnarray}
+2. Since $|{\bf A}|\ne 0$, we conclude that ${\bf A}$ has an inverse.
+
+	
+__Determinant of Triangular or Diagonal Matrices__: For any upper-triangular, lower-triangular, or diagonal matrix, the determinant is just the product of the diagonal terms.
+
+Example:  Suppose we have the following square matrix in row echelon form (i.e., upper triangular) 
+\[{\bf R} =\begin{pmatrix} r_{11}&r_{12}&r_{13}\\
+			0&r_{22}&r_{23}\\
+			0&     0&r_{33} \end{pmatrix}\]
+
+Then 
+\[|{\bf R}| = r_{11} \begin{vmatrix} r_{22}&r_{23}\\ 0&r_{33} \end{vmatrix} = r_{11}r_{22}r_{33}\]
+	
+__Properties of Determinants__:
+
+\begin{enumerate}
+		\item $|{\bf A}|=|{\bf A}^T|$\\
+		\item \parbox[t]{2.7in}{If ${\bf B}$ results from ${\bf A}$ by interchanging two rows, then $|{\bf B}|=-|{\bf A}|$.}\
+		\item \parbox[t]{2.7in}{If two rows of ${\bf A}$ are equal, then $|{\bf A}|=0$.}\qquad \parbox[t]{2.7in}{(Notice that in this case $\mbox{rank\,}{\bf A} \ne \mbox{rows\,}{\bf A}$, which was one of the conditions for the existence of a unique solution.)} \\
+		\item \parbox[t]{2.7in}{If a row of ${\bf A}$ consists of all zeros, then $|{\bf A}|=0$.}\qquad \parbox[t]{2.7in}{(Same as 3.)}\\
+		\item \parbox[t]{2.7in}{If ${\bf B}$ is obtained by multiplying a row of ${\bf A}$ by a scalar $s$, then $|{\bf B}|=s|{\bf A}|$.}\\
+		\item \parbox[t]{2.7in}{If ${\bf B}$ is obtained from ${\bf A}$ by adding to the $i$th row of ${\bf A}$ the $j$th row ($i\ne j$) multiplied by a scalar $s$, then $|{\bf B}|=|{\bf A}|$.}\qquad \parbox[t]{2.7in}{(i.e., If the row isn't simply multiplied by a scalar and left,
+then the determinant remains the same.)}\\
+		\item \parbox[t]{2.7in}{If no row interchanges and no scalar multiplications of a single row are used to compute the row echelon form $\bf R$ from the $n\times n$ coefficient matrix ${\bf A}$, then $\bf |A|=|R|$.}\qquad \parbox[t]{2.7in}{(Implied by the previous properties.)}\\
+		\item \parbox[t]{2.7in}{{A square matrix is nonsingular iff its determinant $\ne 0$.}} \qquad \parbox[t]{2.7in}{(Implied by the previous properties.)}\\
+		\item $|{\bf A} {\bf B}|=|{\bf A}| |{\bf B}|$\\
+		\item \parbox[t]{2.7in}{If ${\bf A}$ is nonsingular, then $|{\bf A}|\ne 0$ and $|{\bf A}^{-1}|=\frac{1}{|{\bf A}|}$.}
+\end{enumerate}
+
+
+
+## Getting Inverse of a Matrix using its Determinant and Matrix of Cofactors
+
+Thus far, we have a number of algorithms to
+
+1. Find the solution of a linear system,
+2. Find the inverse of a matrix
+
+but these remain just that --- algorithms.  At this point, we have no way of telling how the solutions $x_j$ change as the parameters $a_{ij}$ and $b_i$ change, except by changing the values and "rerunning" the algorithms.
+
+
+With determinants, we can 
+1. Provide an explicit formula for the inverse, and
+2. Provide an explicit formula for the solution of an $n\times n$ linear system.
+
+Hence, we can examine how changes in the parameters and $b_i$ affect the solutions $x_j$.
+
+__Determinant Formula for the Inverse of a $2 \times 2$__: The determinant of a $2 \times 2$ matrix __A__ $\begin{pmatrix} a & b\\ c & d\\ \end{pmatrix}$ is defined as:
+\[\frac{1}{\det({\bf A})} \begin{pmatrix}
+			d & -b\\
+			-c & a\\
+		\end{pmatrix}\]
+
+
+
+## Inverse of Larger Matrices
+
+
+__Cofactors and Adjoint Matrices__:
+
+First define the $(i,j)$th __cofactor__ $C_{ij}$ of ${\bf A}$ as $(-1)^{i+j}M_{ij}$. Recall that $M_{ij}$ is the minor of __A__, defined as the determinant of the matrix that results from removing row $i$ and column $j$ from __A__.
+		
+Then define the __adjoint__ of ${\bf A}$ as the $n\times n$ matrix whose $(i,j)$th entry is $C_{ji}$ (notice the switch in indices!).  In other words, adj(${\bf A}$) is the transpose of the cofactor matrix of ${\bf A}$.
+
+Then the inverse of ${\bf A}$ is defined as the reciprocal of the determinant of __A__ times its adjoint, given by the formula
+\[{\bf A}^{-1}=\frac{1}{|{\bf A}|}\mbox{adj\,}{\bf A}= 
+		\begin{pmatrix}
+			\frac{C_{11}}{|{\bf A}|}&\frac{C_{21}}{|{\bf A}|}&\cdots&\frac{C_{n1}}{|{\bf A}|}\\[6pt]
+			\frac{C_{12}}{|{\bf A}|}&\frac{C_{22}}{|{\bf A}|}&\cdots&\frac{C_{n2}}{|{\bf A}|}\\[6pt]
+			\vdots     &\vdots     &\ddots&\vdots \\[6pt]
+			\frac{C_{1n}}{|{\bf A}|}&\frac{C_{2n}}{|{\bf A}|}&\cdots&\frac{C_{nn}}{|{\bf A}|}
+		\end{pmatrix}\]
+	
+
+Exercises:
+
+Let ${\bf A}=\begin{pmatrix} 5&1&3\\0&2&3\\5&5&1 \end{pmatrix}$
+
+1. Find the determinant of __A__.
+			\begin{eqnarray*}
+				\det{\bf A} &=& \phantom{5\cdot(2\cdot 1 - 3\cdot 5) - 1\cdot(0\cdot 1 - 3\cdot 5) + 3\cdot(2\cdot 5 - 0\cdot 5)}\\
+				&=& \phantom{5\cdot(-13) - (-15) + 3\cdot(-10)}\\
+				&=& \phantom{-65 + 15 - 30}\\
+				&=& \phantom{-80}
+			\end{eqnarray*}
+			
+2. Find the adjoint matrix of __A__.
+
+adj({\bf A}) = \phantom{$\begin{pmatrix}
+				-13 & 14 & -3\\
+				15 & -10 & -15\\
+				-10 & -20 & 10\\
+			\end{pmatrix}$}
+			
+3. Find the inverse of {\bf A}.
+
+${\bf A}^{-1}$ = \phantom{$\begin{pmatrix}
+				13/80 & -7/40 & 3/80\\
+				-3/16 & 1/8 & 3/16\\
+				1/8 & 1/4 & -1/8\\
+			\end{pmatrix}
+			= \begin{pmatrix}
+				0.1625 & -0.175 & 0.0375\\
+				-0.1875 & 0.125 & 0.1875\\
+				0.125 & 0.25 & -0.125\\
+			\end{pmatrix}$}
+			
