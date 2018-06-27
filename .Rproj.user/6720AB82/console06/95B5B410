@@ -113,4 +113,39 @@ remote: Resolving deltas:   0% (0/16)   [Kremote: Resolving deltas:  43% (7/16
 To https://github.com/kuriwaki/prefresher.git
  * [new branch]      master -> master
 Branch 'master' set up to track remote branch 'master' from 'origin'.
+[KShiros-MacBook-Pro-2:prefresher shirokuriwaki$ [KShiros-MacBook-Pro-2:prefresher shirokuriwaki$ [KShiros-MacBook-Pro-2:prefresher shirokuriwaki$ ls .Rproj.u ser
+6720AB82	shared
+]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ [KShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git rm -- cached .Rproj.user/*
+fatal: pathspec 'cached' did not match any files
+]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git rm -- cached .Rproj.user/*[1P
+fatal: not removing '.Rproj.user/6720AB82' recursively without -r
+]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git rm --cached .Rproj.user/*=.Rproj.user/*r.Rproj.user/*[1P.Rproj.user/*[1P.Rproj.user/*-.Rproj.user/*r.Rproj.user/* .Rproj.user/*
+error: the following files have staged content different from both the
+file and the HEAD:
+    .Rproj.user/6720AB82/console06/95B5B410
+    .Rproj.user/6720AB82/console06/INDEX001
+(use -f to force removal)
+]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git rm --cached -r .Rproj.user/*-.Rproj.user/*f.Rproj.user/* .Rproj.user/*
+rm '.Rproj.user/6720AB82/console06/95B5B410'
+rm '.Rproj.user/6720AB82/console06/95B5B410.env'
+rm '.Rproj.user/6720AB82/console06/INDEX001'
+rm '.Rproj.user/6720AB82/pcs/files-pane.pper'
+rm '.Rproj.user/6720AB82/pcs/source-pane.pper'
+rm '.Rproj.user/6720AB82/pcs/windowlayoutstate.pper'
+rm '.Rproj.user/6720AB82/pcs/workbench-pane.pper'
+rm '.Rproj.user/6720AB82/rmd-outputs'
+rm '.Rproj.user/6720AB82/saved_source_markers'
+rm '.Rproj.user/6720AB82/sources/prop/3726EC32'
+rm '.Rproj.user/6720AB82/sources/prop/4944DCEA'
+rm '.Rproj.user/6720AB82/sources/prop/4A4AD64F'
+rm '.Rproj.user/6720AB82/sources/prop/8144487D'
+rm '.Rproj.user/6720AB82/sources/prop/8F4A860D'
+rm '.Rproj.user/6720AB82/sources/prop/9FD23FF7'
+rm '.Rproj.user/6720AB82/sources/prop/A983FF14'
+rm '.Rproj.user/6720AB82/sources/prop/BAC6BF5C'
+rm '.Rproj.user/6720AB82/sources/prop/F737AC73'
+rm '.Rproj.user/6720AB82/sources/prop/INDEX'
+rm '.Rproj.user/shared/notebooks/3C9407D1-index/1/6720AB8251F82F9A/chunks.json'
+rm '.Rproj.user/shared/notebooks/patch-chunk-names'
+rm '.Rproj.user/shared/notebooks/paths'
 ]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ 
