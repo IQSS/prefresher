@@ -1,4 +1,4 @@
-# Linear Algebra
+# Linear Algebra 2
 
 Topics:
 $\bullet$ Working with Vectors 
