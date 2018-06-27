@@ -23,3 +23,5 @@ For each of the following functions $f(x)$, find the derivative $f'(x)$ or $\fra
 6. $f(x)=(x^3)(2x^4)$
 7. $f(x)=\frac{x^2+1}{x^2-1}$
 	
+
+## Probability	

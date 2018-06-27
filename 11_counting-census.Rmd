@@ -122,7 +122,7 @@ Two prevalent ways of making graphing are referred to as "base-R" and "ggplot".
 
 ```{r}
 tab_race <- table(cen10$race)
-```
+``` 
 
 Then put it in the `barplot()` function
 ```{r, fig.fullwidth = TRUE}
