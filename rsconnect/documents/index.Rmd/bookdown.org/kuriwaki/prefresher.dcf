@@ -5,6 +5,6 @@ account: kuriwaki
 server: bookdown.org
 hostUrl: https://bookdown.org/__api__
 appId: 1448
-bundleId: 6204
+bundleId: 6259
 url: https://bookdown.org/kuriwaki/prefresher/
-when: 1529451349.82791
+when: 1530134088.06907
