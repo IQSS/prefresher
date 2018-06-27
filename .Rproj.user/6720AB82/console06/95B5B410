@@ -1,151 +1,0 @@
-]0;~/Dropbox/prefresher[?1034hShiros-MacBook-Pro-2:prefresher shirokuriwaki$ [KShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git remote add orig in https://github.com/kuriwaki/prefresher.git
-fatal: Not a git repository (or any of the parent directories): .git
-]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git init
-Initialized empty Git repository in /Users/shirokuriwaki/Dropbox/prefresher/.git/
-]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git remote add orig in https://github.com/kuriwaki/prefresher.git
-]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git push -u origin  master
-error: src refspec master does not match any.
-error: failed to push some refs to 'https://github.com/kuriwaki/prefresher.git'
-]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git add -u
-]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git add .
-]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git[K[K[Kgit remote add orig in https://github.com/kuriwaki/prefresher.git
-fatal: remote origin already exists.
-]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git remote add origiin https://github.com/kuriwaki/prefresher.git[A[C[C[C[C[C[C[10Padd .
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[Kgit commit -m ""s"t"a" [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cr""t"[1P"[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C" [K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P"
-[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P"[1P"f"i"r" [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cs""t" "p"u"[1P"u"s"h" "t"o" "g"i"t"
-[master (root-commit) dc50a7d] first push to git
- 88 files changed, 7478 insertions(+)
- create mode 100644 .Rproj.user/6720AB82/console06/95B5B410
- create mode 100644 .Rproj.user/6720AB82/console06/95B5B410.env
- create mode 100644 .Rproj.user/6720AB82/console06/INDEX001
- create mode 100644 .Rproj.user/6720AB82/pcs/files-pane.pper
- create mode 100644 .Rproj.user/6720AB82/pcs/source-pane.pper
- create mode 100644 .Rproj.user/6720AB82/pcs/windowlayoutstate.pper
- create mode 100644 .Rproj.user/6720AB82/pcs/workbench-pane.pper
- create mode 100644 .Rproj.user/6720AB82/rmd-outputs
- create mode 100644 .Rproj.user/6720AB82/saved_source_markers
- create mode 100644 .Rproj.user/6720AB82/sources/prop/3726EC32
- create mode 100644 .Rproj.user/6720AB82/sources/prop/4944DCEA
- create mode 100644 .Rproj.user/6720AB82/sources/prop/4A4AD64F
- create mode 100644 .Rproj.user/6720AB82/sources/prop/8144487D
- create mode 100644 .Rproj.user/6720AB82/sources/prop/8F4A860D
- create mode 100644 .Rproj.user/6720AB82/sources/prop/9FD23FF7
- create mode 100644 .Rproj.user/6720AB82/sources/prop/A983FF14
- create mode 100644 .Rproj.user/6720AB82/sources/prop/BAC6BF5C
- create mode 100644 .Rproj.user/6720AB82/sources/prop/F737AC73
- create mode 100644 .Rproj.user/6720AB82/sources/prop/INDEX
- create mode 100644 .Rproj.user/6720AB82/sources/s-6668632E/40191637
- create mode 100644 .Rproj.user/6720AB82/sources/s-6668632E/40191637-contents
- create mode 100644 .Rproj.user/6720AB82/sources/s-6668632E/6BEB4C16
- create mode 100644 .Rproj.user/6720AB82/sources/s-6668632E/6BEB4C16-contents
- create mode 100644 .Rproj.user/6720AB82/sources/s-6668632E/7DD7AAE8
- create mode 100644 .Rproj.user/6720AB82/sources/s-6668632E/7DD7AAE8-contents
- create mode 100644 .Rproj.user/6720AB82/sources/s-6668632E/988A10BA
- create mode 100644 .Rproj.user/6720AB82/sources/s-6668632E/988A10BA-contents
- create mode 100644 .Rproj.user/6720AB82/sources/s-6668632E/BB2227D5
- create mode 100644 .Rproj.user/6720AB82/sources/s-6668632E/BB2227D5-contents
- create mode 100644 .Rproj.user/6720AB82/sources/s-6668632E/BF40ABE5
- create mode 100644 .Rproj.user/6720AB82/sources/s-6668632E/BF40ABE5-contents
- create mode 100644 .Rproj.user/6720AB82/sources/s-6668632E/C0952478
- create mode 100644 .Rproj.user/6720AB82/sources/s-6668632E/C0952478-contents
- create mode 100644 .Rproj.user/6720AB82/sources/s-6668632E/C0BE5B52
- create mode 100644 .Rproj.user/6720AB82/sources/s-6668632E/C0BE5B52-contents
- create mode 100644 .Rproj.user/6720AB82/sources/s-6668632E/E08E9636
- create mode 100644 .Rproj.user/6720AB82/sources/s-6668632E/E08E9636-contents
- create mode 100644 .Rproj.user/6720AB82/sources/s-6668632E/lock_file
- create mode 100644 .Rproj.user/shared/notebooks/3C9407D1-index/1/6720AB8251F82F9A/chunks.json
- create mode 100644 .Rproj.user/shared/notebooks/B163523D-prefresher/1/6720AB826668632E/chunks.json
- create mode 100644 .Rproj.user/shared/notebooks/B163523D-prefresher/1/s/chunks.json
- create mode 100644 .Rproj.user/shared/notebooks/CE9F95F6-02-literature/1/6720AB826668632E/chunks.json
- create mode 100644 .Rproj.user/shared/notebooks/CE9F95F6-02-literature/1/s/chunks.json
- create mode 100644 .Rproj.user/shared/notebooks/patch-chunk-names
- create mode 100644 .Rproj.user/shared/notebooks/paths
- create mode 100644 01-intro.Rmd
- create mode 100644 02-literature.Rmd
- create mode 100644 03-method.Rmd
- create mode 100644 04-application.Rmd
- create mode 100644 05-summary.Rmd
- create mode 100644 06-references.Rmd
- create mode 100644 README.md
- create mode 100644 _book/applications.html
- create mode 100644 _book/final-words.html
- create mode 100644 _book/functions-and-notation.html
- create mode 100644 _book/index.html
- create mode 100644 _book/intro.html
- create mode 100644 _book/libs/gitbook-2.6.7/css/fontawesome/fontawesome-webfont.ttf
- create mode 100644 _book/libs/gitbook-2.6.7/css/plugin-bookdown.css
- create mode 100644 _book/libs/gitbook-2.6.7/css/plugin-fontsettings.css
- create mode 100644 _book/libs/gitbook-2.6.7/css/plugin-highlight.css
- create mode 100644 _book/libs/gitbook-2.6.7/css/plugin-search.css
- create mode 100644 _book/libs/gitbook-2.6.7/css/style.css
- create mode 100644 _book/libs/gitbook-2.6.7/js/app.min.js
- create mode 100644 _book/libs/gitbook-2.6.7/js/jquery.highlight.js
- create mode 100644 _book/libs/gitbook-2.6.7/js/lunr.js
- create mode 100644 _book/libs/gitbook-2.6.7/js/plugin-bookdown.js
- create mode 100644 _book/libs/gitbook-2.6.7/js/plugin-fontsettings.js
- create mode 100644 _book/libs/gitbook-2.6.7/js/plugin-search.js
- create mode 100644 _book/libs/gitbook-2.6.7/js/plugin-sharing.js
- create mode 100644 _book/libs/jquery-2.2.3/jquery.min.js
- create mode 100644 _book/literature.html
- create mode 100644 _book/methods.html
- create mode 100644 _book/prefresher.epub
- create mode 100644 _book/prefresher.pdf
- create mode 100644 _book/prefresher.tex
- create mode 100644 _book/prefresher_files/figure-html/nice-fig-1.png
- create mode 100644 _book/references.html
- create mode 100644 _book/search_index.json
- create mode 100644 _book/style.css
- create mode 100644 _bookdown.yml
- create mode 100644 _output.yml
- create mode 100644 book.bib
- create mode 100644 index.Rmd
- create mode 100644 packages.bib
- create mode 100644 preamble.tex
- create mode 100644 prefresher.Rproj
- create mode 100644 style.css
-]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git push origin [K[K[K[K[K[K[K-u origin  master
-Counting objects: 102, done.
-Delta compression using up to 4 threads.
-Compressing objects:   1% (1/85)   Compressing objects:   2% (2/85)   Compressing objects:   3% (3/85)   Compressing objects:   4% (4/85)   Compressing objects:   5% (5/85)   Compressing objects:   7% (6/85)   Compressing objects:   8% (7/85)   Compressing objects:   9% (8/85)   Compressing objects:  10% (9/85)   Compressing objects:  11% (10/85)   Compressing objects:  12% (11/85)   Compressing objects:  14% (12/85)   Compressing objects:  15% (13/85)   Compressing objects:  16% (14/85)   Compressing objects:  17% (15/85)   Compressing objects:  18% (16/85)   Compressing objects:  20% (17/85)   Compressing objects:  21% (18/85)   Compressing objects:  22% (19/85)   Compressing objects:  23% (20/85)   Compressing objects:  24% (21/85)   Compressing objects:  25% (22/85)   Compressing objects:  27% (23/85)   Compressing objects:  28% (24/85)   Compressing objects:  29% (25/85)   Compressing objects:  30% (26/85)   Compressing objects:  31% (27/85)   Compressing objects:  32% (28/85)   Compressing objects:  34% (29/85)   Compressing objects:  35% (30/85)   Compressing objects:  36% (31/85)   Compressing objects:  37% (32/85)   Compressing objects:  38% (33/85)   Compressing objects:  40% (34/85)   Compressing objects:  41% (35/85)   Compressing objects:  42% (36/85)   Compressing objects:  43% (37/85)   Compressing objects:  44% (38/85)   Compressing objects:  45% (39/85)   Compressing objects:  47% (40/85)   Compressing objects:  48% (41/85)   Compressing objects:  49% (42/85)   Compressing objects:  50% (43/85)   Compressing objects:  51% (44/85)   Compressing objects:  52% (45/85)   Compressing objects:  54% (46/85)   Compressing objects:  55% (47/85)   Compressing objects:  56% (48/85)   Compressing objects:  57% (49/85)   Compressing objects:  58% (50/85)   Compressing objects:  60% (51/85)   Compressing objects:  61% (52/85)   Compressing objects:  62% (53/85)   Compressing objects:  63% (54/85)   Compressing objects:  64% (55/85)   Compressing objects:  65% (56/85)   Compressing objects:  67% (57/85)   Compressing objects:  68% (58/85)   Compressing objects:  69% (59/85)   Compressing objects:  70% (60/85)   Compressing objects:  71% (61/85)   Compressing objects:  72% (62/85)   Compressing objects:  74% (63/85)   Compressing objects:  75% (64/85)   Compressing objects:  76% (65/85)   Compressing objects:  77% (66/85)   Compressing objects:  78% (67/85)   Compressing objects:  80% (68/85)   Compressing objects:  81% (69/85)   Compressing objects:  82% (70/85)   Compressing objects:  83% (71/85)   Compressing objects:  84% (72/85)   Compressing objects:  85% (73/85)   Compressing objects:  87% (74/85)   Compressing objects:  88% (75/85)   Compressing objects:  89% (76/85)   Compressing objects:  90% (77/85)   Compressing objects:  91% (78/85)   Compressing objects:  92% (79/85)   Compressing objects:  94% (80/85)   Compressing objects:  95% (81/85)   Compressing objects:  96% (82/85)   Compressing objects:  97% (83/85)   Compressing objects:  98% (84/85)   Compressing objects: 100% (85/85)   Compressing objects: 100% (85/85), done.
-Writing objects:   0% (1/102)   Writing objects:   1% (2/102)   Writing objects:   2% (3/102)   Writing objects:   3% (4/102)   Writing objects:   4% (5/102)   Writing objects:   5% (6/102)   Writing objects:   6% (7/102)   Writing objects:   7% (8/102)   Writing objects:   8% (9/102)   Writing objects:   9% (10/102)   Writing objects:  10% (11/102)   Writing objects:  11% (12/102)   Writing objects:  12% (13/102)   Writing objects:  13% (14/102)   Writing objects:  14% (15/102)   Writing objects:  15% (16/102)   Writing objects:  16% (17/102)   Writing objects:  17% (18/102)   Writing objects:  18% (19/102)   Writing objects:  19% (20/102)   Writing objects:  20% (21/102)   Writing objects:  21% (22/102)   Writing objects:  22% (23/102)   Writing objects:  23% (24/102)   Writing objects:  24% (25/102)   Writing objects:  28% (29/102)   Writing objects:  29% (30/102)   Writing objects:  31% (32/102)   Writing objects:  33% (34/102)   Writing objects:  34% (35/102)   Writing objects:  35% (36/102)   Writing objects:  36% (37/102)   Writing objects:  38% (39/102)   Writing objects:  39% (40/102)   Writing objects:  40% (41/102)   Writing objects:  41% (42/102)   Writing objects:  42% (43/102)   Writing objects:  43% (44/102)   Writing objects:  44% (45/102)   Writing objects:  45% (46/102)   Writing objects:  46% (47/102)   Writing objects:  47% (48/102)   Writing objects:  48% (49/102)   Writing objects:  49% (50/102)   Writing objects:  50% (51/102)   Writing objects:  51% (53/102)   Writing objects:  52% (54/102)   Writing objects:  53% (55/102)   Writing objects:  54% (56/102)   Writing objects:  55% (57/102)   Writing objects:  56% (58/102)   Writing objects:  57% (59/102)   Writing objects:  58% (60/102)   Writing objects:  59% (61/102)   Writing objects:  60% (62/102)   Writing objects:  61% (63/102)   Writing objects:  62% (64/102)   Writing objects:  63% (65/102)   Writing objects:  65% (67/102)   Writing objects:  66% (68/102)   Writing objects:  67% (69/102)   Writing objects:  68% (70/102)   Writing objects:  69% (71/102)   Writing objects:  70% (72/102)   Writing objects:  71% (73/102)   Writing objects:  72% (74/102)   Writing objects:  73% (75/102)   Writing objects:  74% (76/102)   Writing objects:  75% (77/102)   Writing objects:  76% (78/102)   Writing objects:  77% (79/102)   Writing objects:  78% (80/102)   Writing objects:  79% (81/102)   Writing objects:  80% (82/102)   Writing objects:  81% (83/102)   Writing objects:  82% (84/102)   Writing objects:  83% (85/102)   Writing objects:  84% (86/102)   Writing objects:  85% (87/102)   Writing objects:  86% (88/102)   Writing objects:  87% (89/102)   Writing objects:  88% (90/102)   Writing objects:  89% (91/102)   Writing objects:  90% (92/102)   Writing objects:  91% (93/102)   Writing objects:  92% (94/102)   Writing objects:  93% (95/102)   Writing objects:  94% (96/102)   Writing objects:  95% (97/102)   Writing objects:  96% (98/102)   Writing objects:  97% (99/102)   Writing objects:  98% (100/102)   Writing objects:  99% (101/102)   Writing objects: 100% (102/102)   Writing objects: 100% (102/102), 442.54 KiB | 2.63 MiB/s, done.
-Total 102 (delta 16), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/16)   [Kremote: Resolving deltas:  43% (7/16)   [Kremote: Resolving deltas:  68% (11/16)   [Kremote: Resolving deltas: 100% (16/16)   [Kremote: Resolving deltas: 100% (16/16), done.[K
-To https://github.com/kuriwaki/prefresher.git
- * [new branch]      master -> master
-Branch 'master' set up to track remote branch 'master' from 'origin'.
-[KShiros-MacBook-Pro-2:prefresher shirokuriwaki$ [KShiros-MacBook-Pro-2:prefresher shirokuriwaki$ [KShiros-MacBook-Pro-2:prefresher shirokuriwaki$ ls .Rproj.u ser
-6720AB82	shared
-]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ [KShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git rm -- cached .Rproj.user/*
-fatal: pathspec 'cached' did not match any files
-]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git rm -- cached .Rproj.user/*[1P
-fatal: not removing '.Rproj.user/6720AB82' recursively without -r
-]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git rm --cached .Rproj.user/*=.Rproj.user/*r.Rproj.user/*[1P.Rproj.user/*[1P.Rproj.user/*-.Rproj.user/*r.Rproj.user/* .Rproj.user/*
-error: the following files have staged content different from both the
-file and the HEAD:
-    .Rproj.user/6720AB82/console06/95B5B410
-    .Rproj.user/6720AB82/console06/INDEX001
-(use -f to force removal)
-]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ git rm --cached -r .Rproj.user/*-.Rproj.user/*f.Rproj.user/* .Rproj.user/*
-rm '.Rproj.user/6720AB82/console06/95B5B410'
-rm '.Rproj.user/6720AB82/console06/95B5B410.env'
-rm '.Rproj.user/6720AB82/console06/INDEX001'
-rm '.Rproj.user/6720AB82/pcs/files-pane.pper'
-rm '.Rproj.user/6720AB82/pcs/source-pane.pper'
-rm '.Rproj.user/6720AB82/pcs/windowlayoutstate.pper'
-rm '.Rproj.user/6720AB82/pcs/workbench-pane.pper'
-rm '.Rproj.user/6720AB82/rmd-outputs'
-rm '.Rproj.user/6720AB82/saved_source_markers'
-rm '.Rproj.user/6720AB82/sources/prop/3726EC32'
-rm '.Rproj.user/6720AB82/sources/prop/4944DCEA'
-rm '.Rproj.user/6720AB82/sources/prop/4A4AD64F'
-rm '.Rproj.user/6720AB82/sources/prop/8144487D'
-rm '.Rproj.user/6720AB82/sources/prop/8F4A860D'
-rm '.Rproj.user/6720AB82/sources/prop/9FD23FF7'
-rm '.Rproj.user/6720AB82/sources/prop/A983FF14'
-rm '.Rproj.user/6720AB82/sources/prop/BAC6BF5C'
-rm '.Rproj.user/6720AB82/sources/prop/F737AC73'
-rm '.Rproj.user/6720AB82/sources/prop/INDEX'
-rm '.Rproj.user/shared/notebooks/3C9407D1-index/1/6720AB8251F82F9A/chunks.json'
-rm '.Rproj.user/shared/notebooks/patch-chunk-names'
-rm '.Rproj.user/shared/notebooks/paths'
-]0;~/Dropbox/prefresherShiros-MacBook-Pro-2:prefresher shirokuriwaki$ 
