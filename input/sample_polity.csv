@@ -1,0 +1,608 @@
+scode,ccode,country,year,polity2
+FRN,220,France,1800,-8
+FRN,220,France,1801,-8
+FRN,220,France,1802,-8
+FRN,220,France,1803,-8
+FRN,220,France,1804,-8
+FRN,220,France,1805,-8
+FRN,220,France,1806,-8
+FRN,220,France,1807,-8
+FRN,220,France,1808,-8
+FRN,220,France,1809,-8
+FRN,220,France,1810,-8
+FRN,220,France,1811,-8
+FRN,220,France,1812,-8
+FRN,220,France,1813,-8
+FRN,220,France,1814,-4
+FRN,220,France,1815,-4
+FRN,220,France,1816,-4
+FRN,220,France,1817,-4
+FRN,220,France,1818,-4
+FRN,220,France,1819,-4
+FRN,220,France,1820,-4
+FRN,220,France,1821,-4
+FRN,220,France,1822,-4
+FRN,220,France,1823,-4
+FRN,220,France,1824,-4
+FRN,220,France,1825,-4
+FRN,220,France,1826,-4
+FRN,220,France,1827,-4
+FRN,220,France,1828,-4
+FRN,220,France,1829,-4
+FRN,220,France,1830,-1
+FRN,220,France,1831,-1
+FRN,220,France,1832,-1
+FRN,220,France,1833,-1
+FRN,220,France,1834,-1
+FRN,220,France,1835,-1
+FRN,220,France,1836,-1
+FRN,220,France,1837,-1
+FRN,220,France,1838,-1
+FRN,220,France,1839,-1
+FRN,220,France,1840,-1
+FRN,220,France,1841,-1
+FRN,220,France,1842,-1
+FRN,220,France,1843,-1
+FRN,220,France,1844,-1
+FRN,220,France,1845,-1
+FRN,220,France,1846,-1
+FRN,220,France,1847,-1
+FRN,220,France,1848,6
+FRN,220,France,1849,6
+FRN,220,France,1850,6
+FRN,220,France,1851,-1
+FRN,220,France,1852,-8
+FRN,220,France,1853,-8
+FRN,220,France,1854,-8
+FRN,220,France,1855,-8
+FRN,220,France,1856,-8
+FRN,220,France,1857,-8
+FRN,220,France,1858,-8
+FRN,220,France,1859,-8
+FRN,220,France,1860,-8
+FRN,220,France,1861,-7
+FRN,220,France,1862,-6
+FRN,220,France,1863,-6
+FRN,220,France,1864,-6
+FRN,220,France,1865,-6
+FRN,220,France,1866,-6
+FRN,220,France,1867,-6
+FRN,220,France,1868,-6
+FRN,220,France,1869,-3
+FRN,220,France,1870,-2
+FRN,220,France,1871,-1
+FRN,220,France,1872,1
+FRN,220,France,1873,2
+FRN,220,France,1874,3
+FRN,220,France,1875,5
+FRN,220,France,1876,6
+FRN,220,France,1877,7
+FRN,220,France,1878,7
+FRN,220,France,1879,7
+FRN,220,France,1880,7
+FRN,220,France,1881,7
+FRN,220,France,1882,7
+FRN,220,France,1883,7
+FRN,220,France,1884,7
+FRN,220,France,1885,7
+FRN,220,France,1886,7
+FRN,220,France,1887,7
+FRN,220,France,1888,7
+FRN,220,France,1889,7
+FRN,220,France,1890,7
+FRN,220,France,1891,7
+FRN,220,France,1892,7
+FRN,220,France,1893,7
+FRN,220,France,1894,7
+FRN,220,France,1895,7
+FRN,220,France,1896,7
+FRN,220,France,1897,7
+FRN,220,France,1898,8
+FRN,220,France,1899,8
+FRN,220,France,1900,8
+FRN,220,France,1901,8
+FRN,220,France,1902,8
+FRN,220,France,1903,8
+FRN,220,France,1904,8
+FRN,220,France,1905,8
+FRN,220,France,1906,8
+FRN,220,France,1907,8
+FRN,220,France,1908,8
+FRN,220,France,1909,8
+FRN,220,France,1910,8
+FRN,220,France,1911,8
+FRN,220,France,1912,8
+FRN,220,France,1913,8
+FRN,220,France,1914,8
+FRN,220,France,1915,8
+FRN,220,France,1916,8
+FRN,220,France,1917,8
+FRN,220,France,1918,8
+FRN,220,France,1919,9
+FRN,220,France,1920,9
+FRN,220,France,1921,9
+FRN,220,France,1922,9
+FRN,220,France,1923,9
+FRN,220,France,1924,9
+FRN,220,France,1925,9
+FRN,220,France,1926,9
+FRN,220,France,1927,9
+FRN,220,France,1928,9
+FRN,220,France,1929,9
+FRN,220,France,1930,10
+FRN,220,France,1931,10
+FRN,220,France,1932,10
+FRN,220,France,1933,10
+FRN,220,France,1934,10
+FRN,220,France,1935,10
+FRN,220,France,1936,10
+FRN,220,France,1937,10
+FRN,220,France,1938,10
+FRN,220,France,1939,10
+FRN,220,France,1940,-9
+FRN,220,France,1941,-9
+FRN,220,France,1942,-9
+FRN,220,France,1943,-9
+FRN,220,France,1944,-3
+FRN,220,France,1945,4
+FRN,220,France,1946,10
+FRN,220,France,1947,10
+FRN,220,France,1948,10
+FRN,220,France,1949,10
+FRN,220,France,1950,10
+FRN,220,France,1951,10
+FRN,220,France,1952,10
+FRN,220,France,1953,10
+FRN,220,France,1954,10
+FRN,220,France,1955,10
+FRN,220,France,1956,10
+FRN,220,France,1957,10
+FRN,220,France,1958,5
+FRN,220,France,1959,5
+FRN,220,France,1960,5
+FRN,220,France,1961,5
+FRN,220,France,1962,5
+FRN,220,France,1963,5
+FRN,220,France,1964,5
+FRN,220,France,1965,5
+FRN,220,France,1966,5
+FRN,220,France,1967,5
+FRN,220,France,1968,5
+FRN,220,France,1969,8
+FRN,220,France,1970,8
+FRN,220,France,1971,8
+FRN,220,France,1972,8
+FRN,220,France,1973,8
+FRN,220,France,1974,8
+FRN,220,France,1975,8
+FRN,220,France,1976,8
+FRN,220,France,1977,8
+FRN,220,France,1978,8
+FRN,220,France,1979,8
+FRN,220,France,1980,8
+FRN,220,France,1981,8
+FRN,220,France,1982,8
+FRN,220,France,1983,8
+FRN,220,France,1984,8
+FRN,220,France,1985,8
+FRN,220,France,1986,9
+FRN,220,France,1987,9
+FRN,220,France,1988,9
+FRN,220,France,1989,9
+FRN,220,France,1990,9
+FRN,220,France,1991,9
+FRN,220,France,1992,9
+FRN,220,France,1993,9
+FRN,220,France,1994,9
+FRN,220,France,1995,9
+FRN,220,France,1996,9
+FRN,220,France,1997,9
+FRN,220,France,1998,9
+FRN,220,France,1999,9
+FRN,220,France,2e3,9
+FRN,220,France,2001,9
+FRN,220,France,2002,9
+FRN,220,France,2003,9
+FRN,220,France,2004,9
+FRN,220,France,2005,9
+FRN,220,France,2006,9
+FRN,220,France,2007,9
+FRN,220,France,2008,9
+FRN,220,France,2009,9
+FRN,220,France,2010,9
+FRN,220,France,2011,9
+FRN,220,France,2012,9
+FRN,220,France,2013,9
+FRN,220,France,2014,9
+FRN,220,France,2015,9
+FRN,220,France,2016,9
+GMY,255,Prussia,1800,-10
+GMY,255,Prussia,1801,-10
+GMY,255,Prussia,1802,-10
+GMY,255,Prussia,1803,-10
+GMY,255,Prussia,1804,-10
+GMY,255,Prussia,1805,-10
+GMY,255,Prussia,1806,NA
+GMY,255,Prussia,1807,NA
+GMY,255,Prussia,1808,NA
+GMY,255,Prussia,1809,NA
+GMY,255,Prussia,1810,NA
+GMY,255,Prussia,1811,NA
+GMY,255,Prussia,1812,NA
+GMY,255,Prussia,1813,-10
+GMY,255,Prussia,1814,-10
+GMY,255,Prussia,1815,-10
+GMY,255,Prussia,1816,-10
+GMY,255,Prussia,1817,-10
+GMY,255,Prussia,1818,-10
+GMY,255,Prussia,1819,-10
+GMY,255,Prussia,1820,-10
+GMY,255,Prussia,1821,-10
+GMY,255,Prussia,1822,-10
+GMY,255,Prussia,1823,-10
+GMY,255,Prussia,1824,-10
+GMY,255,Prussia,1825,-10
+GMY,255,Prussia,1826,-10
+GMY,255,Prussia,1827,-10
+GMY,255,Prussia,1828,-10
+GMY,255,Prussia,1829,-10
+GMY,255,Prussia,1830,-10
+GMY,255,Prussia,1831,-10
+GMY,255,Prussia,1832,-10
+GMY,255,Prussia,1833,-10
+GMY,255,Prussia,1834,-10
+GMY,255,Prussia,1835,-10
+GMY,255,Prussia,1836,-10
+GMY,255,Prussia,1837,-10
+GMY,255,Prussia,1838,-10
+GMY,255,Prussia,1839,-10
+GMY,255,Prussia,1840,-9
+GMY,255,Prussia,1841,-9
+GMY,255,Prussia,1842,-9
+GMY,255,Prussia,1843,-9
+GMY,255,Prussia,1844,-9
+GMY,255,Prussia,1845,-9
+GMY,255,Prussia,1846,-9
+GMY,255,Prussia,1847,-9
+GMY,255,Prussia,1848,-8
+GMY,255,Prussia,1849,-8
+GMY,255,Prussia,1850,-8
+GMY,255,Prussia,1851,-8
+GMY,255,Prussia,1852,-8
+GMY,255,Prussia,1853,-8
+GMY,255,Prussia,1854,-9
+GMY,255,Prussia,1855,-9
+GMY,255,Prussia,1856,-9
+GMY,255,Prussia,1857,-9
+GMY,255,Prussia,1858,-8
+GMY,255,Prussia,1859,-7
+GMY,255,Prussia,1860,-7
+GMY,255,Prussia,1861,-7
+GMY,255,Prussia,1862,-7
+GMY,255,Prussia,1863,-7
+GMY,255,Prussia,1864,-7
+GMY,255,Prussia,1865,-7
+GMY,255,Prussia,1866,-7
+GMY,255,Prussia,1867,-6
+GMY,255,Germany,1868,-6
+GMY,255,Germany,1869,-5
+GMY,255,Germany,1870,-5
+GMY,255,Germany,1871,-4
+GMY,255,Germany,1872,-4
+GMY,255,Germany,1873,-4
+GMY,255,Germany,1874,-4
+GMY,255,Germany,1875,-4
+GMY,255,Germany,1876,-4
+GMY,255,Germany,1877,-4
+GMY,255,Germany,1878,-4
+GMY,255,Germany,1879,-4
+GMY,255,Germany,1880,-4
+GMY,255,Germany,1881,-4
+GMY,255,Germany,1882,-4
+GMY,255,Germany,1883,-4
+GMY,255,Germany,1884,-4
+GMY,255,Germany,1885,-4
+GMY,255,Germany,1886,-4
+GMY,255,Germany,1887,-4
+GMY,255,Germany,1888,-4
+GMY,255,Germany,1889,-4
+GMY,255,Germany,1890,1
+GMY,255,Germany,1891,1
+GMY,255,Germany,1892,1
+GMY,255,Germany,1893,1
+GMY,255,Germany,1894,1
+GMY,255,Germany,1895,1
+GMY,255,Germany,1896,1
+GMY,255,Germany,1897,1
+GMY,255,Germany,1898,1
+GMY,255,Germany,1899,1
+GMY,255,Germany,1900,1
+GMY,255,Germany,1901,1
+GMY,255,Germany,1902,1
+GMY,255,Germany,1903,1
+GMY,255,Germany,1904,1
+GMY,255,Germany,1905,1
+GMY,255,Germany,1906,1
+GMY,255,Germany,1907,1
+GMY,255,Germany,1908,1
+GMY,255,Germany,1909,2
+GMY,255,Germany,1910,2
+GMY,255,Germany,1911,2
+GMY,255,Germany,1912,2
+GMY,255,Germany,1913,2
+GMY,255,Germany,1914,2
+GMY,255,Germany,1915,2
+GMY,255,Germany,1916,2
+GMY,255,Germany,1917,2
+GMY,255,Germany,1918,4
+GMY,255,Germany,1919,6
+GMY,255,Germany,1920,6
+GMY,255,Germany,1921,6
+GMY,255,Germany,1922,6
+GMY,255,Germany,1923,6
+GMY,255,Germany,1924,6
+GMY,255,Germany,1925,6
+GMY,255,Germany,1926,6
+GMY,255,Germany,1927,6
+GMY,255,Germany,1928,6
+GMY,255,Germany,1929,6
+GMY,255,Germany,1930,6
+GMY,255,Germany,1931,6
+GMY,255,Germany,1932,6
+GMY,255,Germany,1933,-9
+GMY,255,Germany,1934,-9
+GMY,255,Germany,1935,-9
+GMY,255,Germany,1936,-9
+GMY,255,Germany,1937,-9
+GMY,255,Germany,1938,-9
+GMY,255,Germany,1939,-9
+GMY,255,Germany,1940,-9
+GMY,255,Germany,1941,-9
+GMY,255,Germany,1942,-9
+GMY,255,Germany,1943,-9
+GMY,255,Germany,1944,-9
+GMY,255,Germany,1945,NA
+GMY,255,Germany,1990,10
+GMY,255,Germany,1991,10
+GMY,255,Germany,1992,10
+GMY,255,Germany,1993,10
+GMY,255,Germany,1994,10
+GMY,255,Germany,1995,10
+GMY,255,Germany,1996,10
+GMY,255,Germany,1997,10
+GMY,255,Germany,1998,10
+GMY,255,Germany,1999,10
+GMY,255,Germany,2e3,10
+GMY,255,Germany,2001,10
+GMY,255,Germany,2002,10
+GMY,255,Germany,2003,10
+GMY,255,Germany,2004,10
+GMY,255,Germany,2005,10
+GMY,255,Germany,2006,10
+GMY,255,Germany,2007,10
+GMY,255,Germany,2008,10
+GMY,255,Germany,2009,10
+GMY,255,Germany,2010,10
+GMY,255,Germany,2011,10
+GMY,255,Germany,2012,10
+GMY,255,Germany,2013,10
+GMY,255,Germany,2014,10
+GMY,255,Germany,2015,10
+GMY,255,Germany,2016,10
+USA,2,United States,1800,4
+USA,2,United States,1801,4
+USA,2,United States,1802,4
+USA,2,United States,1803,4
+USA,2,United States,1804,4
+USA,2,United States,1805,4
+USA,2,United States,1806,4
+USA,2,United States,1807,4
+USA,2,United States,1808,4
+USA,2,United States,1809,9
+USA,2,United States,1810,9
+USA,2,United States,1811,9
+USA,2,United States,1812,9
+USA,2,United States,1813,9
+USA,2,United States,1814,9
+USA,2,United States,1815,9
+USA,2,United States,1816,9
+USA,2,United States,1817,9
+USA,2,United States,1818,9
+USA,2,United States,1819,9
+USA,2,United States,1820,9
+USA,2,United States,1821,9
+USA,2,United States,1822,9
+USA,2,United States,1823,9
+USA,2,United States,1824,9
+USA,2,United States,1825,9
+USA,2,United States,1826,9
+USA,2,United States,1827,9
+USA,2,United States,1828,9
+USA,2,United States,1829,9
+USA,2,United States,1830,9
+USA,2,United States,1831,9
+USA,2,United States,1832,9
+USA,2,United States,1833,9
+USA,2,United States,1834,9
+USA,2,United States,1835,9
+USA,2,United States,1836,9
+USA,2,United States,1837,9
+USA,2,United States,1838,9
+USA,2,United States,1839,9
+USA,2,United States,1840,9
+USA,2,United States,1841,9
+USA,2,United States,1842,9
+USA,2,United States,1843,9
+USA,2,United States,1844,9
+USA,2,United States,1845,10
+USA,2,United States,1846,10
+USA,2,United States,1847,10
+USA,2,United States,1848,10
+USA,2,United States,1849,10
+USA,2,United States,1850,9
+USA,2,United States,1851,9
+USA,2,United States,1852,9
+USA,2,United States,1853,9
+USA,2,United States,1854,8
+USA,2,United States,1855,8
+USA,2,United States,1856,8
+USA,2,United States,1857,8
+USA,2,United States,1858,8
+USA,2,United States,1859,8
+USA,2,United States,1860,8
+USA,2,United States,1861,8
+USA,2,United States,1862,8
+USA,2,United States,1863,8
+USA,2,United States,1864,8
+USA,2,United States,1865,8
+USA,2,United States,1866,8
+USA,2,United States,1867,8
+USA,2,United States,1868,8
+USA,2,United States,1869,8
+USA,2,United States,1870,8
+USA,2,United States,1871,10
+USA,2,United States,1872,10
+USA,2,United States,1873,10
+USA,2,United States,1874,10
+USA,2,United States,1875,10
+USA,2,United States,1876,10
+USA,2,United States,1877,10
+USA,2,United States,1878,10
+USA,2,United States,1879,10
+USA,2,United States,1880,10
+USA,2,United States,1881,10
+USA,2,United States,1882,10
+USA,2,United States,1883,10
+USA,2,United States,1884,10
+USA,2,United States,1885,10
+USA,2,United States,1886,10
+USA,2,United States,1887,10
+USA,2,United States,1888,10
+USA,2,United States,1889,10
+USA,2,United States,1890,10
+USA,2,United States,1891,10
+USA,2,United States,1892,10
+USA,2,United States,1893,10
+USA,2,United States,1894,10
+USA,2,United States,1895,10
+USA,2,United States,1896,10
+USA,2,United States,1897,10
+USA,2,United States,1898,10
+USA,2,United States,1899,10
+USA,2,United States,1900,10
+USA,2,United States,1901,10
+USA,2,United States,1902,10
+USA,2,United States,1903,10
+USA,2,United States,1904,10
+USA,2,United States,1905,10
+USA,2,United States,1906,10
+USA,2,United States,1907,10
+USA,2,United States,1908,10
+USA,2,United States,1909,10
+USA,2,United States,1910,10
+USA,2,United States,1911,10
+USA,2,United States,1912,10
+USA,2,United States,1913,10
+USA,2,United States,1914,10
+USA,2,United States,1915,10
+USA,2,United States,1916,10
+USA,2,United States,1917,10
+USA,2,United States,1918,10
+USA,2,United States,1919,10
+USA,2,United States,1920,10
+USA,2,United States,1921,10
+USA,2,United States,1922,10
+USA,2,United States,1923,10
+USA,2,United States,1924,10
+USA,2,United States,1925,10
+USA,2,United States,1926,10
+USA,2,United States,1927,10
+USA,2,United States,1928,10
+USA,2,United States,1929,10
+USA,2,United States,1930,10
+USA,2,United States,1931,10
+USA,2,United States,1932,10
+USA,2,United States,1933,10
+USA,2,United States,1934,10
+USA,2,United States,1935,10
+USA,2,United States,1936,10
+USA,2,United States,1937,10
+USA,2,United States,1938,10
+USA,2,United States,1939,10
+USA,2,United States,1940,10
+USA,2,United States,1941,10
+USA,2,United States,1942,10
+USA,2,United States,1943,10
+USA,2,United States,1944,10
+USA,2,United States,1945,10
+USA,2,United States,1946,10
+USA,2,United States,1947,10
+USA,2,United States,1948,10
+USA,2,United States,1949,10
+USA,2,United States,1950,10
+USA,2,United States,1951,10
+USA,2,United States,1952,10
+USA,2,United States,1953,10
+USA,2,United States,1954,10
+USA,2,United States,1955,10
+USA,2,United States,1956,10
+USA,2,United States,1957,10
+USA,2,United States,1958,10
+USA,2,United States,1959,10
+USA,2,United States,1960,10
+USA,2,United States,1961,10
+USA,2,United States,1962,10
+USA,2,United States,1963,10
+USA,2,United States,1964,10
+USA,2,United States,1965,10
+USA,2,United States,1966,10
+USA,2,United States,1967,8
+USA,2,United States,1968,8
+USA,2,United States,1969,8
+USA,2,United States,1970,8
+USA,2,United States,1971,8
+USA,2,United States,1972,8
+USA,2,United States,1973,8
+USA,2,United States,1974,10
+USA,2,United States,1975,10
+USA,2,United States,1976,10
+USA,2,United States,1977,10
+USA,2,United States,1978,10
+USA,2,United States,1979,10
+USA,2,United States,1980,10
+USA,2,United States,1981,10
+USA,2,United States,1982,10
+USA,2,United States,1983,10
+USA,2,United States,1984,10
+USA,2,United States,1985,10
+USA,2,United States,1986,10
+USA,2,United States,1987,10
+USA,2,United States,1988,10
+USA,2,United States,1989,10
+USA,2,United States,1990,10
+USA,2,United States,1991,10
+USA,2,United States,1992,10
+USA,2,United States,1993,10
+USA,2,United States,1994,10
+USA,2,United States,1995,10
+USA,2,United States,1996,10
+USA,2,United States,1997,10
+USA,2,United States,1998,10
+USA,2,United States,1999,10
+USA,2,United States,2e3,10
+USA,2,United States,2001,10
+USA,2,United States,2002,10
+USA,2,United States,2003,10
+USA,2,United States,2004,10
+USA,2,United States,2005,10
+USA,2,United States,2006,10
+USA,2,United States,2007,10
+USA,2,United States,2008,10
+USA,2,United States,2009,10
+USA,2,United States,2010,10
+USA,2,United States,2011,10
+USA,2,United States,2012,10
+USA,2,United States,2013,10
+USA,2,United States,2014,10
+USA,2,United States,2015,10
+USA,2,United States,2016,8
