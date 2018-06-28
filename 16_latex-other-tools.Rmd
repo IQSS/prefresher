@@ -1,5 +1,8 @@
 #  command-line, markdown, LaTeX, git
 
+Module originally written by Shiro Kuriwaki
+
+
 
 ## Where are we? Where are we headed?
 
@@ -69,7 +72,7 @@ Or you can go up to your parent directory. The syntax for that are two periods, 
 
 ```{bash}
 cd ..
-ls
+pwd
 ```
 
 
@@ -162,7 +165,7 @@ Each has their own keyboard shortcuts and special features. You can browse a cou
 
 ## LaTeX
 
-$\LaTeX$ is a typesetting program. You'd engage with LaTeX much like you engage with your `R` code. You will interact with LaTeX in a text editor, and will writing code which will be interpreted by the LaTeX compiler and which will finally be parsed to form your final PDF.
+LaTeX is a typesetting program. You'd engage with LaTeX much like you engage with your `R` code. You will interact with LaTeX in a text editor, and will writing code which will be interpreted by the LaTeX compiler and which will finally be parsed to form your final PDF.
 
 ### compile your first LaTeX document.
 LaTeX is a very stable system, and few changes to it have been made since the 1990s. The main benefit: better control over how your papers will look; better methods for writing equations or making tables; overall pleasing aesthetic. 

@@ -226,9 +226,9 @@ One of the key decisions we need to make is how to represent the text as numbers
 Once the text is represented numerically, we can then apply a host of statistical 
 and machine learning methods to it. Those methods are discussed more in the Gov methods sequence (Gov 2000-2003). Here's a summary of the decisions you must make: 
 
-       1. WHICH TEXT TO USE? Which text do I want to analyze? What is my universe of documents? 
-       2. HOW TO REPRESENT THE TEXT NUMERICALLY? How do I use numbers to represent different things about the text? 
-       3. HOW TO ANALYZE THE NUMERICAL REPRESENTATION? How do I extract meaning out of the numerical representation? 
+1. WHICH TEXT TO USE? Which text do I want to analyze? What is my universe of documents? 
+2. HOW TO REPRESENT THE TEXT NUMERICALLY? How do I use numbers to represent different things about the text? 
+3. HOW TO ANALYZE THE NUMERICAL REPRESENTATION? How do I extract meaning out of the numerical representation? 
 
 * Representing text numerically.  
 

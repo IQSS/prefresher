@@ -1,7 +1,7 @@
 # Simulation
 
 
-Module originally written by Connor Jerzak
+Module originally written by Connor Jerzak and Shiro Kuriwaki
 
 
 
@@ -212,7 +212,7 @@ The Monty Hall problem is a counterintuitive example demonstrating the importanc
 The original formulation of the problem appeared on a magazine column in 1990
 
 > "Suppose you're on a game show, and you're given the choice of three doors: Behind one door is a car; behind the others, goats. You pick a door, say No. 1, and the host, who knows what's behind the doors, opens another door, say No. 3, which has a goat. He then says to you, 'Do you want to pick door No. 2?' Is it to your advantage to switch your choice?"
-> `r tufte::quote_footer('[https://en.wikipedia.org/wiki/Monty_Hall_problem](https://en.wikipedia.org/wiki/Monty_Hall_problem)')`
+> [https://en.wikipedia.org/wiki/Monty_Hall_problem](https://en.wikipedia.org/wiki/Monty_Hall_problem)
 
 Give an answer to this question by a  Monte Carlo simulation. As in the previous expample, set a number `sims` for the number of simulations you will run.
 
