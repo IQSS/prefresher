@@ -1,0 +1,329 @@
+---
+title: "`R` programming with 'The Origins of Mistrust'"
+subtitle: "Programming Module 2 - Math Prefresher 2017"
+author: "Connor Jerzak and Shiro Kuriwaki"
+date: "2017-08-17"
+output: 
+  html_document:
+    theme: united
+    highlight: default
+    toc: true
+    toc_depth: 1
+    toc_float: TRUE
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+# Where are we? Where are we headed?
+
+Up till now, you should have covered:
+
+* R basic programming
+* Counting. 
+* Visualization. 
+* Statistical Summaries.
+* Objects and Classes. 
+* Functions.
+
+
+Today we'll cover
+
+* Matrices in R
+* Manipulating variables 
+* And other `R` tips!
+
+
+# Motivation
+
+[Nunn and Wantchekon (2011)](https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf) --  "The Slave Trade and the Origins of Mistrust in Africa"^[[Nunn, Nathan, and Leonard Wantchekon. 2011. “The Slave Trade and the Origins of Mistrust in Africa.” American Economic Review 101(7): 3221–52.](https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf)] --  argues that across African countries, the distrust of co-ethnics fueled by the slave trade has had long-lasting effects on modern day trust in these territories. They argued that the slave trade created distrust in these societies in part because as some African groups were employed by European traders to capture their neighbors and bring them to the slave ships.
+
+Nunn and Wantchekon use a variety of statistical tools to make their case (adding controls, ordered logit, instrumental variables, falsification tests, causal mechanisms), many of which will be covered in future courses. In this module we will only touch on their first set of analysis that use Ordinary Least Squares (OLS). OLS is likely the most common application of linear algebra in the social sciences. We will cover some linear algebra, matrix manipulation, and vector manipulation from this data. 
+
+
+# Setup
+```{r libraries, message=FALSE, warning=FALSE}
+library(dplyr)
+library(readr)
+library(haven)
+library(ggplot2)
+```
+
+
+# Read Data
+```{r}
+library(haven)
+nunn_full <- read_dta("./input/Nunn_Wantchekon_AER_2011.dta")
+```
+
+
+Nunn and Wantchekon's main dataset has more than 20,000 observations. Each observation is a respondent from the Afrobarometer survey.
+```{r}
+nunn_full
+```
+
+
+First, let's consider a small subset of this dataset. 
+```{r, include = FALSE}
+set.seed(02138)
+sample <- sample_n(nunn_full, 10)
+sample <- select(sample, trust_neighbors, exports, ln_exports, export_area, ln_export_area)
+write_dta(sample, "./input/Nunn_Wantchekon_sample.dta")
+```
+
+```{r}
+nunn <- read_dta("./input/Nunn_Wantchekon_sample.dta")
+```
+
+```{r}
+nunn
+```
+
+
+
+# data.frame vs. matricies
+This is a `data.frame` object. 
+```{r}
+class(nunn)
+```
+
+
+But it can be also consider a matrix in the linear algebra sense. What are the dimensions of this matrix?
+```{r}
+nrow(nunn)
+```
+
+`data.frame`s and matrices have much overlap in `R`, but to explicitly treat an object as a matrix, you'd need to coerce its class. Let's call this matrix `X`.
+
+```{r}
+X <- as.matrix(nunn)
+```
+
+
+What is the difference between a `data.frame` and a matrix? A `data.frame` can have columns that are of different types, whereas --- in a matrix --- all columns must be of the same type (usually either "numeric" or "character").
+
+# Speed considerations 
+```{r}
+Nrow <- 100
+Ncol  <- 5
+Xmat <- matrix(rnorm(Nrow * Ncol), nrow = Nrow, ncol = Ncol)
+Xdf <- as.data.frame(Xmat)
+
+system.time(replicate(50000, colMeans(Xmat)))
+system.time(replicate(50000, colMeans(Xdf)))
+100 * (0.3 - 3.0)/3.0
+```
+
+# Handling matricies in `R`
+
+
+```{r}
+t(X)
+```
+
+
+
+```{r}
+X[, 1]
+```
+
+
+```{r}
+X[, "exports"]
+```
+
+
+```{r}
+X[1, ]
+```
+
+```{r}
+X[1, 1]
+```
+
+Pause and consider the following problem on your own. What is the following code doing? 
+```{r}
+X[X[,"trust_neighbors"] == 0,"export_area"]
+```
+Why does it give the same output as the following? 
+```{r}
+X[which(X[,"trust_neighbors"] == 0),"export_area"]
+```
+
+
+
+Some more manipulation 
+```{r}
+X + X
+```
+
+```{r}
+X - X
+```
+
+```{r}
+t(X) %*% X
+```
+
+```{r}
+cbind(X, 1:10)
+```
+
+```{r}
+cbind(X, 1)
+```
+
+
+```{r}
+colnames(X)
+```
+
+
+# Variable Transformations
+
+`exports` is the total number of slaves that were taken from the individual's ethnic group between Africa's four slave trades between 1400-1900. 
+
+What is `ln_exports`? The article describes this as the natural log of one plus the `exports`. This is a transformation of one column by a particular function
+
+```{r}
+log(1 + X[, "exports"])
+```
+Question for you: why add the 1? 
+
+Verify that this is the same as `X[, "ln_exports"]`
+
+
+What is `ln_export_area`?  Why do you think they do this transformation?
+
+
+# Linear Combinations
+
+In Table 1 we see "OLS Estimates". These are estimates of OLS coefficients and standard errors. You do not need to know what these are for now, but it doesn't hurt to getting used to seeing them. 
+
+![](nunn_wantchekon_table1.png)
+
+A very crude way to describe regression is through linear combinations. The simplest linear combination is a one-to-one transformation.
+
+Take the first number in Table 1, which is -0.00068. Now, multiply this by `exports`
+
+```{r}
+-0.00068 * X[, "exports"]
+```
+
+
+Now, just one more step. Make a new matrix with just exports and the value 1
+```{r}
+X2 <- cbind(1, X[, "exports"])
+```
+
+name this new column "intercept"
+
+```{r}
+colnames(X2)
+```
+
+```{r}
+colnames(X2) <- c("intercept", "exports")
+```
+
+
+What are the dimensions of the matrix `X2`?
+```{r}
+dim(X2)
+```
+
+
+Now consider a new matrix, called `B`.
+
+```{r}
+B <- matrix(c(1.62, -0.00068))
+```
+
+What are the dimensions of `B`?
+```{r}
+dim(B)
+```
+
+
+What is the product of `X2` and `B`? From the dimensions, can you tell if it will be conformable?
+```{r}
+X2 %*% B
+```
+
+What is this multiplication doing in terms of equations?
+
+
+```{r, echo = FALSE, eval = FALSE}
+# FYI regression in Table 1 (without cluster SEs)
+
+form <- "trust_neighbors ~ exports + age + age2 +  male + urban_dum + factor(education) + factor(occupation) + factor(religion) + factor(living_conditions) + district_ethnic_frac + frac_ethnicity_in_district + isocode"
+lm_1_1 <- lm(as.formula(form), nunn_full)
+summary(lm_1_1)
+```
+
+
+# Functions in functions
+
+```{r}
+tapply(nunn_full$trust_neighbors, INDEX = nunn_full$isocode, FUN = mean)
+```
+
+```{r}
+tapply(nunn_full$trust_neighbors, INDEX = nunn_full$isocode, FUN = function (x) mean(x, na.rm = TRUE))
+```
+
+
+
+# Extension and Exercises
+
+## Exercise 1
+First start from visualization. In ggplot, using the full dataset, make a "facetted" scatterplot where
+
+* each facet is a (respondent's current) country,
+* the x-axis is the natural log of (one plus a respondent's ethnicity's slave exports divided by the land area), and 
+* the y-axis is the respondent's level of mistrust (with the numerical coding preserved). 
+
+You should define a new column in the dataset for the x-axis, calling it something like `ln_exports_area`.
+
+```{r}
+# Enter yourself or see your_script.R
+
+```
+
+
+## Exercise 2: Fitted vs. Observed values
+Make a scatterplot with:
+
+* x axis: The linear combination of the intercept and `log_export_area` (a n by 2 matrix) with the coefficient matrix given above (`matrix(c(1.62, -0.00068))`). 
+* y axis: The observed level of mistrust for each respondent. 
+
+Then add a facetting layer to show a scatterplot by country. 
+
+```{r}
+# Enter yourself
+```
+
+
+## Exercise 3: Matrix powers
+Let
+\[\mathbf{A} = \left[\begin{array}
+{rrr}
+0.6 & 0.2\\
+0.4 & 0.8\\
+\end{array}\right]
+\]
+
+Use R to write a loop that will consecutively multiply $A$ to itself. What is the value of $A^{100}$? $A^{500}$? Store each iteration of $A^n$ where $n = 1, 2....$ and plot how each element of the product changes over $n$ iterations. 
+
+```{r}
+# Enter yourself
+
+```
+
+
+Note that R notation of matrices is different from the math notation. Simply trying `X^n` where `X` is a matrix will only take the power of each element to `n`. Instead, this problem asks you to perform matrix multiplication.
+
+
+## Exercise 4: Challenge problem!
+Write an `R` function that takes two inputs (A and B). A and B can both either be matrices or data frames. Write code that checks to make sure whether A and B are either matrices or dateframe. Print an error message if one of them is not a matrix or data frame. Convert any data frames to matrices. Check whether the A and B have compatible dimensions. If they don't, print an error message. If they do, perform the matrix multiplication A * B.

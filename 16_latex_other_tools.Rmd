@@ -1,0 +1,357 @@
+---
+title: "command-line, markdown, LaTeX, git"
+subtitle: "Programming Module 6 - Math Prefresher 2017"
+author: "Connor Jerzak and Shiro Kuriwaki"
+date: "2017-08-23"
+output: 
+  html_document:
+    theme: united
+    highlight: default
+    toc: true
+    toc_depth: 1
+    toc_float: TRUE
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+# Where are we? Where are we headed?
+
+Up till now, you should have covered:
+
+* Statistical Programming in `R`
+
+This is only the beginning of `R` -- programming is like learning a language, so learn more as we use it.
+
+Today we will take a quick look at some other software / languages that many of us will end up using.
+
+* command-line
+* Markdown
+* LaTeX (and BibTeX)
+* git
+
+command-line are a basic set of tools that you may have to use from time to time. It also clarifies what more complicated programs are doing. Markdown is an example of compiling a plain text file. LaTeX is a typesetting program and git is a version control program -- both are useful for non-quantitative work as well.
+
+
+# Check your understanding
+
+Check if you have an idea of how you might code the following tasks:
+
+* What does "WYSIWYG" stand for? How would a non-WYSIWYG format text?
+* What is a GUI?
+* What do the following commands stand for in shell: `ls` (or `dir` in Windows), `cd`, `rm`, `mv` (or `move` in windows), `cp` (or `copy` in Windows).
+* What is the difference between a relative path and an absolute path?
+* What paths do these refer to in shell/terminal: `~/`, `.`, `..`
+* How do you start a header in markdown?
+* What are some "plain text" editors?
+* How do you start a document in `.tex`?
+* How do you start a environment in `.tex`?
+* How do you insert a figure in `.tex`?
+* How do you reference a figure in `.tex`?
+* What is a `.bib` file? 
+* Say you came across a interesting journal article. How would you want to maintain this reference so that you can refer to its citation in all your subsequent papers?
+
+* What is a _repository_ in github?
+* What does it mean to "clone" a repository?
+
+
+
+# Motivation
+Statistical programming is a fast-moving field. The beta version of `R` was released in 2000, `ggplot2` was released on 2005, and  `RStudio` started around 2010. Of course, some programming technologies are quite "old": (`C` in 1969, `C++` around 1989, `TeX` in 1978, `Linux` in 1991, Mac OS in 1984). But it is easy to feel you are falling behind in the recent developments of programming. Today we will do a **brief** and rough overview of some fundamental and new tools other than `R`, with the general aim of having you break out of your comfort zone so you won't be shut out from learning these tools in the future.
+
+# `command-line`
+Elementary programming operations are done on the command-line, or by entering commands into your computer. This is different from a UI or GUI -- graphical user-interface -- which are interfaces that allow you to click buttons and enter commands in more readable form. Although there are good enough GUIs for most of your needs, you still might need to go under the hood sometimes and run a command. 
+
+
+
+## command-line commands
+Open up `Terminal` in a Mac. (`Command Prompt` in Windows)
+
+Running this command in a Mac (`dir` in Windows) should show you a list of all files in the directory that you are currently in.
+```{bash}
+ls
+```
+
+`pwd` stands for present working directory (`cd` in Windows)
+```{bash}
+pwd
+```
+
+`cd` means change directory. You need to give it what to change your current directory _to_. You can specify a name of another directory in your directory. 
+
+Or you can go up to your parent directory. The syntax for that are two periods, `..` . One period `.` refers to the current directory.
+
+```{bash}
+cd ..
+ls
+```
+
+
+`~/` stands for your home directory defined by your computer. 
+```{bash}
+cd ~/
+ls
+```
+
+
+Using `..` and `.` are "relative" to where you are currently at. So are things like `figures/figure1.pdf`, which is implicitly writing `./figures/figure1.pdf`. These are called relative paths. In contrast, `/Users/shirokuriwaki/project1/figures/figure1.pdf` is an "absolute" path because it does not start from your current directory.
+
+Relative paths are nice if you have a shared Dropbox, for example, and I had `/Users/shirokuriwaki/mathcamp` but Connor's path to the same folder is `/Users/connorjerzak/mathcamp`. To run the same code in `mathcamp`, we should be using relative paths that start from "`mathcamp`". Relative paths are also shorter, and they are invariant to higher-level changes in your computer.
+
+
+
+## running things via command-line
+Suppose you have a simple Rscript, call it `hello_world.R`. This is simply a plain text file that contains
+```
+cat("Hello World")
+```
+
+Then in command-line, go to the directory that contains `hello_world.R` and enter
+
+```{bash, eval = FALSE}
+Rscript hello_world.R
+```
+
+This should give you the output `Hello World`, which verifies that you "executed" the file with R via the command-line. 
+
+## why do command-line?
+If you know exactly what you want to do your files and the changes are local, then command-line might be faster and be more sensible than navigating yourself through a GUI. For example, what if you wanted a single command that will run 10 R scripts successively at once (as Gentzkow and Shapiro suggest you should do in your research)? It is tedious to run each of your scripts on Rstudio, especially if running some take more than a few minutes. Instead you could write a "batch" script that you can run on the terminal,
+
+```{bash, eval = FALSE}
+Rscript 01_read_data.R
+Rscript 02_merge_data.R
+Rscript 03_run_regressions.R
+Rscript 04_make_graphs.R
+Rscript 05_maketable.R
+```
+
+Then run this single file, call it `run_all_Rscripts.sh`, on your terminal as
+```{bash, eval = FALSE}
+sh run_all_Rscripts.sh
+```
+
+
+On the other hand, command-line prompts may require more keystrokes, and is also less intuitive than a good GUI. It can also be dangerous for beginners, because it can allow you to make large irreversible changes inadvertently. For example, removing a file (`rm`) has no "Undo" feature. 
+
+
+# Markdown
+Markdown is the text we have been using throughout this course! At its core markdown is just plain text. Plain text does not have any formatting embedded in it. Instead, the formatting is coded up as text. Markdown is _not_ a WYSIWYG (What you see is what you get) text editor like Microsoft Word or Google Docs. This will mean that you need to explicitly code for `bold{text}` rather than hitting Command+B and making your text look __bold__ on your own computer. 
+
+Markdown is known as a "light-weight" editor, which means that it is relatively easy to write code that will compile. It is quick and easy and satisfies most presentation purposes; you might want to try `LaTeX` for more involved papers.
+
+## markdown commands
+For italic and bold, use either the asterisks or the underlines, 
+```{md}
+*italic*   **bold**
+_italic_   __bold__
+```
+
+And for headers use the hash symbols, 
+```{md}
+# Main Header
+## Sub-headers
+```
+
+## your own markdown 
+RStudio makes it easy to compile your very first markdown file by giving you templates. Got to `New > R Markdown`, pick a document and click Ok. This will give you a skeleton of a document you can compile -- or "knit".
+
+Rmd is actually a slight modification of real markdown. It is a type of file that R reads and turns into a proper `md` file. Then, it uses a document-conversion called pandoc to compile your `md` into documents like PDF or HTML.
+
+![](RMarkdownFlow.png)
+
+One of the things `Rmds` facilitates is the use of code chunks, which you have all been using. These start and end with three back-ticks. In the beginning, we can add options in curly braces (`{}`). Specifying `r` in the beginning tells the compiler that this is meant to be R code. Options like `echo = TRUE` or `eval = FALSE` switch between not executing the code (i.e., just showing it for display), or executing the code but not showing the code that was executed (if you think it is distracting).
+
+
+## A note on plain-text editors
+Multiple software exist where you can edit plain-text (roughly speaking, text that is not WYSIWYG). 
+
+* RStudio (especially for R-related links)
+* TeXMaker, TeXShop (especially for TeX)
+* [emacs](https://www.gnu.org/software/emacs/), aquamacs (general)
+* [vim](http://www.vim.org/download.php) (general)
+* [Sublime Text](https://www.sublimetext.com) (general)
+
+Each has their own keyboard shortcuts and special features. You can browse a couple and see which one(s) you like.
+ 
+
+# LaTeX
+
+$\LaTeX$ is a typesetting program. You'd engage with LaTeX much like you engage with your `R` code. You will interact with LaTeX in a text editor, and will writing code which will be interpreted by the LaTeX compiler and which will finally be parsed to form your final PDF.
+
+## compile your first LaTeX document.
+LaTeX is a very stable system, and few changes to it have been made since the 1990s. The main benefit: better control over how your papers will look; better methods for writing equations or making tables; overall pleasing aesthetic. 
+
+1. Open a plain text editor. Then type in this.
+
+```{bash, eval = FALSE}
+\documentclass{article}
+\begin{document}
+Hello World
+\end{document}
+```
+
+2. Save this as `hello_world.tex`. Make sure you get the file extension right. 
+3. Open this in your "LaTeX" editor. This can be `TeXMaker`, `Aqumacs`, etc..
+4. Go through the click/dropdown interface and click compile.
+
+
+## main LaTeX commands
+LaTeX can cover most of your typesetting needs, to clean equations and intricate diagrams. 
+
+Some main commands you'll be using:
+
+Most involved features require that you begin a specific "environment" for that feature, clearly demarcating them by the notation `\begin{figure}` and then `\end{figure}`, e.g. in the case of figures.
+
+```
+\begin{figure}
+\includegraphics{histogram.pdf}
+\end{figure}
+```
+where `histogram.pdf` is a path to one of your files. 
+
+Notice that each line starts with a backslash `\` -- in LaTeX this is the symbol to run a command.
+
+The following syntax at the endpoints are shorthand for math equations.
+```
+$$\int x^2 dx$$
+\[\int x^2 dx\]
+```
+both of these compile math symbols: $\displaystyle \int x^2 dx.$
+
+
+The `align` environment is useful to align your multi-line math, for example. 
+```
+\begin{align}
+P(A \mid B) &= \frac{P(A \cap B)}{P(B)}\\
+&= \frac{P(B \mid A)P(A)}{P(B)}
+\end{align}
+```
+\begin{align}
+P(A \mid B) &= \frac{P(A \cap B)}{P(B)}\\
+&= \frac{P(B \mid A)P(A)}{P(B)}
+\end{align}
+
+Regression tables should be outputted as `.tex` files with packages like `xtable` and `stargzer`, and then called into LaTeX by `\input{regression_table.tex}` where `regression_table.tex` is the path to your regression output.
+
+Figures and equations should be labelled with the tag (e.g. `label{tab:regression}` so that you can refer to them later with their tag `Table \ref{tab:regression}`, instead of hard-coding `Table 2`).
+
+For some LaTeX commands you might need to load a separate package that someone else has written. Do this in your preamble (i.e. before `\begin{document}`):
+```
+\usepackage[options]{package}
+```
+where `package` is the name of the package and `options` are options specific to the package. 
+
+## more Commands
+For a more comprehensive listing of LaTeX commands, Mayya Komisarchik (prefresher instructor from 2015-2016) has a great tutorial set of folders that you can download from your website: <https://scholar.harvard.edu/mkomisarchik/tutorials-0>
+
+There is a version of LaTeX called Beamer, which is a popular way of making a slideshow. Slides in markdown is also a competitor. The language of Beamer is the same as LaTeX but has some special functions for slides.
+
+
+# BibTeX
+
+BibTeX is a reference system for bibliographical tests. We have a `.bib` file separately on our computer. This is also a plain text file, but it encodes bibliographical resources with special syntax so that a program can rearrange parts accordingly for different citation systems. 
+
+## what is a `.bib` file?
+For example, here is the Nunn and Wantchekon article entry in `.bib` form.
+
+```{}
+@article{nunn2011slave,
+  title={The Slave Trade and the Origins of Mistrust in Africa},
+  author={Nunn, Nathan and Wantchekon, Leonard},
+  journal={American Economic Review},
+  volume={101},
+  number={7},
+  pages={3221--3252},
+  year={2011}
+}
+```
+
+The first entry, `nunn2011slave`, is "pick your favorite" -- pick your own name for your reference system. The other slots in this `@article` entry are entries that refer to specific bibliographical text.
+
+## what does LaTeX do with .bib files?
+Now, in LaTeX, if you type  
+
+      \textcite{nunn2011slave} argue that current variation in the trust among citizens of African countries has historical roots in the European slave trade in the 1600s.
+      
+as part of your text, then when the `.tex` file is compiled the PDF shows something like 
+
+![](biblatex_inline.png)
+
+in whatever citation style (APSA, APA, Chicago) you pre-specified! 
+
+
+Also at the end of your paper you will have a bibliography with entries ordered and formatted in the appropriate citation.
+
+![](biblatex_bibliography.png)
+
+This is a much less frustrating way of keeping track of your references -- no need to hand-edit formatting the bibliography to conform to citation rules (which biblatex already knows) and no need to update your bibliography as you add and drop references (biblatex will only show entries that are used in the main text).
+
+
+## stocking up on your .bib files
+You should keep your own `.bib` file that has all your bibliographical resources. Storing entries is cheap (does not take much memory), so it is fine to keep all your references in one place (but you'll want to make a new one for collaborative projects where multiple people will compile a `.tex` file).
+
+For example, Gary's BibTeX file is here: <https://github.com/iqss-research/gkbibtex/blob/master/gk.bib>
+
+Citation management software (Mendeley or Zotero) automatically generates .bib entries from your library of PDFs for you, provided you have the bibliography attributes right. 
+
+
+
+# git
+
+Git is a tool for version control. It comes pre-installed on Macs, you will probably need to install it yourself on Windows. 
+
+## why version control?
+All version control software should be built to 
+
+* preserve all snapshots of your work
+* and catalog them in such a way that you can refer back or even revert back your files to the past snapshot. 
+* makes it easy to see exactly which parts of your files you changed between directories.
+
+Further, git is most commonly used for collaborative work.
+
+* maintains "branches", or parallel universes of your files that people can switch back and forth on, doing version control on each one
+* makes it easy to "merge" a sub-branch to a master branch when it is ready.
+
+Note that Dropbox is useful for collaborative work too. But the added value of git's branches is that people can make different changes simultaneously on their computers and merge them to the master branch later. In Dropbox, there is only one copy of each thing so simultaneous editing is not possible. 
+
+## open-source code at your fingertips
+Some links to check out:
+
+* <https://github.com/tidyverse/dplyr>
+* <https://github.com/apple/swift>
+* <https://github.com/kosukeimai/qss>
+
+
+GitHub <https://github.com> is the GUI to git. Making an account there is free. Making an account will allow you to be a part of the collaborative programming community. It will also allow you to "fork" other people's "repositories". "Forking" is making your own copy of the project that forks off from the master project at a point in time. A "repository" is simply the name of your main project directory.
+
+"cloning" someone else's repository is similar to forking -- it gives you your own copy. 
+
+## commands in git
+As you might have noticed from all the quoted terms, git uses a lot of its own terms that are not intuitive and hard to remember at first. The nuts and bolts of maintaining your version control further requires "adding", "committing", and "push"ing, sometimes "pull"ing.
+
+The tutorial <https://try.github.io/> is quite good. You'd want to have familiarity with command-line to fully understand this and use it in your work.
+
+RStudio Projects has a great git GUI as well. 
+
+
+## is git worth it?
+
+While git is a powerful tool, you may choose to not use it for everything because 
+
+* git is mainly for code, not data. It has a fairly strict limit on the size of your dataset that you cover.
+* your collaborators might want to work with Dropbox
+* unless you get a paid account, all your repositories will be public. 
+
+
+# Concluding PreFresher
+
+Keep on learning, trying new techniques to improve your work, and learn from others! 
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"> <a href="https://twitter.com/EmilyRiederer/status/898735640031920129">August 18, 2017</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+## please tell us how we can improve the PreFresher
+The PreFresher is a work in progress, with material mainly driven by graduate students. Please tell us how we should change (or not change) each of its elements:
+
+<https://harvard.az1.qualtrics.com/jfe/form/SV_9moFLOtHV7lkNhz>
