@@ -56,12 +56,11 @@ Where $\binom{x}{y} = \frac{x!}{(x-y)!y!}$ and $0! = 1$
 
 
 Example: There are five balls numbered from 1 through 5 in a jar. Three balls are chosen. How many possible choices are there?
-\begin{enumerate}
-\item Ordered, with replacement $=$
-\item Ordered, without replacement $=$
-\item Unordered, with replacement $=$
-\item Unordered, without replacement $=$
-\end{enumerate} 
+
+1. Ordered, with replacement $=$
+2. Ordered, without replacement $=$
+3. Unordered, with replacement $=$
+4. Unordered, without replacement $=$
 
 
 
@@ -78,7 +77,7 @@ Examples:
 1. Discrete:  the numbers on a die, the number of possible wars that could occur each year, whether a vote cast is republican or democrat.
 2. Continuous: GNP, arms spending, age.
 
-\textbf{Event}: Any collection of possible outcomes of an experiment. Any subset of the full set of possibilities, including the full set itself. Event A $\subset$ S.
+__Event__: Any collection of possible outcomes of an experiment. Any subset of the full set of possibilities, including the full set itself. Event A $\subset$ S.
 
 __Empty Set__: a set with no elements.  $S = \{\emptyset\}$
 
@@ -446,7 +445,7 @@ The correlation coefficient is the covariance divided by the standard deviations
 
 ## Special Distributions
 
-Two \emph{discrete} distributions used often are:  
+Two _discrete_ distributions used often are:  
 
 
 __Binomial Distribution__: $Y$ is distributed binomial if it represents the number of ``successes" observed in $n$ independent, identical ``trials," where the probability of success in any trial is $p$ and the probability of failure is $q=1-p$.\\[6pt]
@@ -460,7 +459,9 @@ Example: Republicans vote for Democrat-sponsored bills 2\% of the time. What is 
   \item $E(Y)=$ 
   \item $V(Y)=6$
   \end{enumerate}}
+  \begin{comment}
   \parbox{1.5in}{\hfill \epsffile{binopmf.eps}}
+  \end{comment}
 \end{framed}
    
 __Poisson Distribution__:  A random variable $Y$ has a Poisson distribution if $$p(y)=\frac{\lambda^y}{y!}e^{-\lambda}, \quad y=0,1,2,\ldots, \quad \lambda>0$$  The Poisson has the unusual feature that its expectation equals its variance: $E(Y)=V(Y)=\lambda$. The Poisson distribution is often used to model rare event counts:  counts of the number of events that occur during some unit of time.  $\lambda$ is often called the "arrival rate."
@@ -473,7 +474,9 @@ Example: Border disputes occur between two countries at a rate of 2 per month.  
   \item $P(Y=2)=$ 
   \item $\Pr(Y<5)=$ 
   \end{enumerate}}
-\parbox{1.5in}{\hfill \epsffile{poispmf.eps}}
+ \begin{comment}
+ \parbox{1.5in}{\hfill \epsffile{poispmf.eps}}
+ \end{comment}
 \end{framed}
 
 
@@ -512,28 +515,33 @@ Often, we are interested in two or more random variables defined on the same sam
 
 __Joint Probability Distribution__: If both $X$ and $Y$ are random variable, their joint probability mass/density function assigns probabilities to each pair of outcomes
 
-Discrete: $p(x, y) = \Pr(X = x, Y = y)$
-\begin{itemize}
-\item[] s.t. $p(x,y) \in [0,1]$ and $\sum\sum p(x,y) = 1$
-\end{itemize}
+Discrete: 
 
-Continuous: $f(x,y);\Pr((X,Y) \in A) = \int\!\!\!\int_A f(x,y)dx dy $
-\begin{itemize}
-\item[] s.t. $f(x,y)\ge 0$ and $\int_{-\infty}^\infty\int_{-\infty}^\infty f(x,y)dxdy =1 $\\
-\end{itemize}
-\item[] If X and Y are independent, then $P(X=x,Y=y) = P(X=x)P(Y=y)$ and $f(x,y) = f(x)f(y)$
-\end{itemize}
+\[p(x, y) = \Pr(X = x, Y = y)\]
+
+such that  $p(x,y) \in [0,1]$ and \[\sum\sum p(x,y) = 1\]
+
+
+Continuous: 
+
+\[f(x,y);\Pr((X,Y) \in A) = \int\!\!\!\int_A f(x,y)dx dy \]
+
+s.t. $f(x,y)\ge 0$ and 
+
+\[\int_{-\infty}^\infty\int_{-\infty}^\infty f(x,y)dxdy = 1\]
+
+If X and Y are independent, then $P(X=x,Y=y) = P(X=x)P(Y=y)$ and $f(x,y) = f(x)f(y)$
 
 
 __Marginal Probability Distribution__: probability distribution of only one of the two variables (ignoring information about the other variable), we can obtain the marginal distribution by summing/integrating across the variable that we don't care about:
 
 * Discrete: $p_X(x) = \sum_i p(x, y_i)$
-* Continuous: $f_X(x) = \int_{-\infty}^\infty f(x,y)dy $
+* Continuous: $f_X(x) = \int_{-\infty}^\infty f(x,y)dy$
 
 __Conditional Probability Distribution__: probability distribution for one variable, holding the other variable fixed.  Recalling from the previous lecture that $\Pr(A|B)=\frac{\Pr(A\cap B)}{\Pr(B)}$, we can write the conditional distribution as
 
-* Discrete: $ p_{Y|X}(y|x) = \frac{p(x,y)}{p_X(x)}, \quad p_X(x) > 0$
-* Continuous: $ f_{Y|X}(y|x) = \frac{f(x,y)}{f_X(x)},\quad f_X(x) > 0$\\
+* Discrete: $p_{Y|X}(y|x) = \frac{p(x,y)}{p_X(x)}, \quad p_X(x) > 0$
+* Continuous: $f_{Y|X}(y|x) = \frac{f(x,y)}{f_X(x)},\quad f_X(x) > 0$
 
 \begin{framed}
 
@@ -598,11 +606,11 @@ $$ \Var(X) = \frac{1}{n-1}\sum_{i = 1}^n (x_i - \bar{x})^2$$
 
 Again, this is an \textit{estimate} of the variance of a random variable; we divide by $n - 1$ instead of $n$ in order to get an unbiased estimate.
 
-\textbf{Standard deviation}:  The sample standard deviation is the square root of the sample variance.
+__Standard deviation__:  The sample standard deviation is the square root of the sample variance.
 $$ \SD(X) = \sqrt{\Var(X)} = \sqrt{\frac{1}{n-1}\sum_{i = 1}^n (x_i - \bar{x})^2}$$
 
-\textbf{Median absolute deviation (MAD)}:  The MAD is a different measure of dispersion, based on deviations from the median rather than deviations from the mean.
-$$MAD(X) = median(|x_i - median(x)|)$$
+__Median absolute deviation (MAD)__:  The MAD is a different measure of dispersion, based on deviations from the median rather than deviations from the mean.
+\[\mathrm{MAD}(X) = \mathrm{median}\left(|x_i - \mathrm{median}(x)|\right)\]
 
 
 \begin{framed}
@@ -615,11 +623,11 @@ Example: Using table above, calculate:
 \end{framed}
 
 
-\textbf{Covariance and Correlation}: Both of these quantities measure the degree to which two variables vary together, and are estimates of the covariance and correlation of two random variables as defined above.
+__Covariance and Correlation__: Both of these quantities measure the degree to which two variables vary together, and are estimates of the covariance and correlation of two random variables as defined above.
 
 
 1. \textbf{Sample covariance}: $\Cov(X,Y) = \frac{1}{n-1}\sum_{i = 1}^n(x_i - \bar{x})(y_i - \bar{y})$
-2. \textbf{Sample correlation}: $r = \frac{\Cov(X,Y)}{\sqrt{\Var(X)\Var(Y)}}$
+2. \textbf{Sample correlation}: $\rho = \frac{\Cov(X,Y)}{\sqrt{\Var(X)\Var(Y)}}$
 
 
 \begin{framed}
@@ -629,7 +637,6 @@ Example:  Using above table, calculate:
 \item $r = $
 \end{enumerate}
 \end{framed}
-\end{itemize}
 
 
 
@@ -655,12 +662,14 @@ Intuitively, whenever a lot of small, independent processes somehow combine toge
 
 
 __Law of Large Numbers__. Let $\{X_n\} = \{X_1, X_2, ..., X_n\}$ be a sequence of i.i.d. random variables with a finite expected value of $\mu$. Then, 
+
 \begin{align*} 
 \bar{X}_n = \frac{x_1 + x_2 + ... + x_n}{n} \stackrel{\textrm{a.s.}}{\to} \mu
-\end{align*} 
+\end{align*}
+
 as $n\to \infty$. In other words, $\Pr( \lim_{n\to\infty}\bar{X}_n = \mu) = 1$. This theorem, known as the Strong Law of Large Numbers, is an important motivation for the widespread use of the sample mean, as well as the intuition link between averages and expected values. 
 
-\emph{Important note}: The Strong Law of Large Numbers holds so long as the expected value exists; no other assumptions are needed. However, the rate of convergence will differ greatly depending on the distribution underlying the observed data. When extreme observations occur often (i.e. kurtosis is large), the rate of convergence is much slower. Cf. The distribution of financial returns. 
+_Important note_: The Strong Law of Large Numbers holds so long as the expected value exists; no other assumptions are needed. However, the rate of convergence will differ greatly depending on the distribution underlying the observed data. When extreme observations occur often (i.e. kurtosis is large), the rate of convergence is much slower. Cf. The distribution of financial returns. 
 
 __Big $\mathcal{O}$ Notation__. Some of you may encounter "big-OH''-notation. If $f, g$ are two functions, we say that $f = \mathcal{O}(g)$ if there exists some constant, $c$, such that $f(n) \leq c \times g(n)$ for large enough $n$. This notation is useful for simplifying complex problems in game theory, computer science, and statistics. 
 
