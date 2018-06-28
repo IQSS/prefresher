@@ -1,0 +1,681 @@
+# Probability Theory
+
+Topics:
+ Counting rules;
+ Sets;
+ Probability;
+ Conditional Probability and  Bayes' Rule;
+ Random Variables;
+ Independence;
+ Levels of Measurement;
+ Distributions;
+ Expectation and Moments;
+ Special Distributions;
+ Joint Distributions;
+ Summarizing Observed Data;
+ Asymptotics
+ 
+ Much of the material and examples for
+this lecture are taken from Gill (2006) \emph{Essential Mathematics for Political and Social Research}, Wackerly, Mendenhall, \& Scheaffer (1996)
+\emph{Mathematical Statistics with Applications}, Degroot (1985)
+\emph{Probability and Statistics}, Morrow (1994) \emph{Game Theory for
+Political Scientists}, King (1989) \emph{Unifying Political Methodology},
+ and Ross (1987) \emph{Introduction to Probability
+and Statistics for Scientists and Engineers}.
+
+## Counting rules
+
+__Fundamental Theorem of Counting__: If an object has $j$ different characteristics and each characteristic has $n_j$ ways of being expressed, then there are $\prod_{i = 1}^j n_j$ possible  unique objects.
+
+Example: Cards can be either red or black and can take on any of 13 values.
+
+j $= $ \hspace{1.5cm} $n_{color} = $ \hspace{1.5cm} $n_{number} = $ \hspace{1.5cm} \# Outcomes $=$
+
+
+We often need to count the number of ways to choose a \textit{subset} from some set of possibilities.  The number of outcomes depends on two characteristics of the process: does the \emph{order} matter and is \emph{replacement} allowed?
+
+__Sampling Table__: If there are $n$ objects and we select $k < n$ of them, how many different outcomes are possible?
+
+
+\begin{table}[h!]
+\begin{center}
+\caption*{\textbf{Sampling Table}}
+\begin{tabular}{|r|c|c|}
+\hline
+& \textbf{Order Matters} & \textbf{Order Doesn't Matter}\\
+\hline
+\textbf{With Replacement} & $n^k$ & $\binom{n+k-1}{k}$\\
+\hline
+\textbf{Without Replacement} & $ \frac{n!}{(n-k)!}$ & $\binom{n}{k}$\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+Where $\binom{x}{y} = \frac{x!}{(x-y)!y!}$ and $0! = 1$
+
+
+Example: There are five balls numbered from 1 through 5 in a jar. Three balls are chosen. How many possible choices are there?
+\begin{enumerate}
+\item Ordered, with replacement $=$
+\item Ordered, without replacement $=$
+\item Unordered, with replacement $=$
+\item Unordered, without replacement $=$
+\end{enumerate} 
+
+
+
+
+## Sets
+
+
+__Set__ : A set is any well defined collection of elements.  If $x$ is an element of $S$, $x \in S$.
+
+__Sample Space (S)__:  A set or collection of all possible outcomes from some process.  Outcomes in the set can be discrete elements (countable) or points along a continuous interval (uncountable).
+
+Examples:
+
+1. Discrete:  the numbers on a die, the number of possible wars that could occur each year, whether a vote cast is republican or democrat.
+2. Continuous: GNP, arms spending, age.
+
+\textbf{Event}: Any collection of possible outcomes of an experiment. Any subset of the full set of possibilities, including the full set itself. Event A $\subset$ S.
+
+__Empty Set__: a set with no elements.  $S = \{\emptyset\}$
+
+
+Set operations:
+
+1. __Union__: The union of two sets $A$ and $B$, $A \cup B$, is the set containing all of the elements in $A$ or $B$. \[A_1 \cup A_2  \cup... A_n = \bigcup_{i=1}^n A_i\]
+2. __Intersection__: The intersection of sets $A$ and $B$, $A \cap B$, is the set containing all of the elements in both $A$ and $B$. \[A_1 \cap A_2  \cap... A_n = \bigcap_{i=1}^n A_i\]
+3. __Complement__: If set $A$ is a subset of $S$, then the complement of $A$, denoted $A^C$, is the set containing all of the elements in $S$ that are not in $A$.
+
+
+Properties of set operations:
+
+* __Commutative__: $A \cup B = B \cup A$; $A \cap B = B \cap A$
+* __Associative__: $A \cup (B \cup C) = (A \cup B) \cup C$; $A \cap (B \cap C) = (A \cap B) \cap C$
+\item \textbf{Distributive: }$A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$; $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+* __de Morgan's laws__: $(A \cup B)^C = A^C \cap B^C$; $(A \cap B)^C = A^C \cup B^C$
+* __Disjointness__: Sets are disjoint when they do not intersect, such that $A \cap B = \{\emptyset\}$.  A collection of sets is pairwise disjoint (\textbf{mutually exclusive}) if, for all $i \neq j$, $A_i \cap A_j = \{\emptyset\}$.  A collection of sets form a partition of set $S$ if they are pairwise disjoint and they cover set $S$, such that $\bigcup_{i = 1}^k A_i = S$.
+
+
+## Probability
+
+__Probability__: Many events or outcomes are random. In everyday speech, we say that we are  \emph{uncertain} about the outcome of random events. Probability is a formal model of uncertainty which provides a measure of uncertainty governed by a particular set of rules. A different model of uncertainty would, of course, have a different set of rules and measures. Our focus on probability is justified because it has proven to be a particularly useful model of uncertainty.
+
+__Probability Distribution Function__ (Pr(A)): a mapping of each event in the sample space $S$ to the real numbers that satisfy the following three axioms (also called Kolmogorov's Axioms).
+
+__Axioms of Probability__:  Define $\Pr(A)$ as the probability of event $A$ occurring in sample space $S$, such that:
+
+1. For any event $A$, $\Pr(A)\ge 0$.
+2. $\Pr(S)=1$
+3.  For any sequence of \textit{disjoint} (mutually exclusive) events $A_1,A_2,\ldots$ (of which there may be infinitely many), \[\Pr\left( \bigcup\limits_{i=1}^k
+A_i\right)=\sum\limits_{i=1}^k \Pr(A_i)\]
+
+
+__Probability Operations__:  Using these three axioms, we can define all of the common rules of probability.
+
+1.  $\Pr(\emptyset)=0$
+2.  For any event $A$, $0\le \Pr(A) \le 1$.
+3. $\Pr({A}^C)=1-\Pr(A)$
+4. If $A\subset B$ ($A$ is a subset of $B$), then $\Pr(A)\le \Pr(B)$.
+5. For \textit{any} two events $A$ and $B$, $\Pr(A\cup
+B)=\Pr(A)+\Pr(B)-\Pr(A\cap B)$
+6. Boole's Inequality: For any sequence of $n$ events (which need not be disjoint) $A_1,A_2,\ldots,A_n$,  then $\Pr\left( \bigcup\limits_{i=1}^n
+A_i\right) \leq \sum\limits_{i=1}^n \Pr(A_i)$.
+
+\begin{framed}
+Examples:  Let's assume we have an evenly-balanced, six-sided die.
+
+Then,
+
+1. Sample space $S=$ %%
+2. $\Pr(1)=\cdots=\Pr(6)=$
+3. $\Pr(\emptyset)=\Pr(7)=$
+4.  $\Pr\left( \{ 1, 3, 5 \} \right)=$
+5. $\Pr\left( \{ 1, 2 \}^C \right)= \Pr\left( \{ 3, 4, 5, 6 \}\right)=$
+6. Let $A=\{ 1,2,3,4,5 \}\subset S$.  Then $\Pr(A)=5/6<\Pr(S)=$ 
+7.  Let $A=\{ 1, 2, 3 \}$ and $B=\{ 2, 4, 6 \}$.  Then $A\cup B=\{
+1, 2, 3, 4, 6\}$, $A\cap B=\{2\}$, and
+\begin{eqnarray}
+  \Pr(A\cup B)&=
+\end{eqnarray}
+\end{framed}
+
+
+## Conditional Probability and Bayes Law
+
+__Conditional Probability__:  The conditional probability $\Pr(A|B)$ of an event $A$ is the probability of $A$, given that another event $B$ has occurred. Conditional probability allows for the inclusion of other information into the calculation of the probability of an event.  It is calculated as
+
+\[\Pr(A|B)=\frac{\Pr(A\cap B)}{\Pr(B)}\]
+
+Note that conditional probabilities are probabilities and must also follow the Kolmagorov axioms of probability.
+
+\begin{framed}
+Example:  Assume $A$ and $B$ occur with the following frequencies: $\quad$
+
+\begin{tabular}{lcc}
+         & $A$          & $A^C$ \\\hline
+$B$      & $n_{ab}$     & $n_{a^Cb}$ \\
+$B^C$ & $n_{ab^C}$ & $n_{(ab)^C}$
+\end{tabular}
+
+
+and let $n_{ab}+n_{a^Cb}+n_{ab^C}+n_{(ab)^C}=N$.  Then
+
+1. $\Pr(A)= $ 
+2.  $\Pr(B)= $ 
+3.  $\Pr(A\cap B)= $ 
+4.  $\Pr(A|B)= \frac{\Pr(A\cap B)}{\Pr(B)}=  $ 
+5.  $\Pr(B|A)= \frac{\Pr(A\cap B)}{\Pr(A)}= $ 
+\end{framed}
+
+\begin{framed}
+Example:  A six-sided die is rolled.  What is the probability of a 1, given the outcome is an odd number? 
+
+\end{framed}
+
+
+__Multiplicative Law of Probability__: The probability of the intersection of two events $A$ and $B$ is $\Pr(A\cap B)=\Pr(A)\Pr(B|A)=\Pr(B)\Pr(A|B)$ which follows directly from the definition of conditional probability. More generally,\\ $P(A_1\cap ...\cap A_k) = P(A_k| A_{k-1}\cap... \cap A_1)\times P(A_{k-1}|A_{k-2}\cap ...A_1)...\times P(A_2|A_1)\times P(A_1)$
+
+
+__Law of Total Probability__:  Let $S$ be the sample space of some experiment and let the disjoint $k$ events $B_1,\ldots,B_k$ partition $S$, such that $P(B_1\cup ... \cup B_k) = P(S) = 1$.  If $A$ is some other event in $S$, then the events $A\cap B_1, A\cap B_2, \ldots, A\cap B_k$ will form a partition of $A$ and we can write $A$ as $A=(A\cap B_1)\cup\cdots\cup (A\cap B_k)$.  
+
+\begin{comment}
+\begin{center}\includegraphics[scale=.45]{lotp.pdf}\end{center}
+\end{comment}
+
+Since the $k$ events are disjoint,
+
+\begin{eqnarray*}
+\Pr(A)&=&\sum\limits_{i=1}^k \Pr(A \cap B_i)\\
+      &=&\sum\limits_{i=1}^k \Pr(B_i)\Pr(A|B_i)
+\end{eqnarray*}
+
+Sometimes it is easier to calculate these conditional probabilities and sum them than it is to calculate $\Pr(A)$ directly.
+
+__Bayes Rule__: Assume that events $B_1,\ldots,B_k$ form a partition of the space $S$.  Then by the Law of Total Probability 
+
+\[\Pr(B_j|A)= \frac{\Pr(A \cap B_j)} {\Pr(A)} = \frac{\Pr(B_j) \Pr(A|B_j)}{\sum\limits_{i=1}^k \Pr(B_i)\Pr(A|B_i)}\]
+
+If there are only two states of $B$, then this is just 
+\[\Pr(B_1|A)=\frac{\Pr(B_1)\Pr(A|B_1)} {\Pr(B_1)\Pr(A|B_1)+\Pr(B_2)\Pr(A|B_2)}\]
+
+
+Bayes' rule  determines the posterior probability of a state  $\Pr(B_j|A)$ by calculating the probability $\Pr(A \cap B_j)$ that both the event $A$ and the state $B_j$ will occur and dividing it by the probability that the event will occur regardless of the state (by summing across all $B_i$). The states could be something like Normal/Defective, Healthy/Diseased, Republican/Democrat/Independent, etc.  The event on which one conditions could be something like a sampling from a batch of components, a test for a disease, or a question about a policy position.
+
+__Prior and Posterior Probabilities__:  Above, $\Pr(B_1)$ is often called the prior probability, since it's the probability of $B_1$ before anything else is known.  $\Pr(B_1|A)$ is called the posterior probability, since it's the probability after other information is taken into account.
+
+\begin{framed}
+Examples:
+
+\begin{enumerate}
+\item A test for cancer correctly detects it 90\%  of the time, but incorrectly identifies a person as having cancer 10\% of the time.  If 10\% of all people have cancer at any given time, what is the probability that a person who tests positive actually has cancer?\\[6pt]
+\item In Boston, 30\% of the people are conservatives, 50\% are liberals, and 20\% are independents.  In the last election, 65\% of conservatives, 82\% of liberals, and 50\% of independents voted.  If a person in Boston is selected at random and we learn that s/he did not vote last election, what is the probability s/he is a liberal?\\[6pt]
+\end{enumerate}
+\end{framed}
+
+
+## Random Variables
+
+Most questions in the social sciences involve events, rather than numbers per se. To analyze and reason about events quantiatively, we need a way of mapping events to numbers. A random variable does exactly that.
+
+A \textbf{random variable} is a measurable function $X$ that maps from the sample space $S$ to the set of real numbers $R.$ It assigns a real number to every outcome $s \in S$. 
+
+It might seem strange to define a random variable as a function -- which is neither random nor variable. The randomness comes from the realization of an event from the sample space $s$.
+
+
+\textbf{Randomness} means that the outcome of some experiment is not deterministic, i.e. there is some probability ($0 < P(A) < 1$) that the event will occur.
+
+The \textbf{support} of a random variable is all values for which there is a positive probability of occurrence.
+
+\begin{framed}
+
+Example: Flip a fair coin two times.   What is the sample space? 
+
+A random variable must map events to the real line. For example, let a random variable $X$ be the number of heads. The event $(H, H)$ gets mapped to 2 $X(s) = 2$, and the events $\{(H, T), (T, H)\}$ gets mapped to 1 $(X(s) = 1)$, the event $(T, T)$ gets mapped to 0 $(X(s) = 0)$. Notice again that the while the mapping is not deterministic, what $s \in S$ will consist of is random. We often abbreviate the $(s)$ from $X(s)$ to refer to a random variable $X$, but all random variables are functions.
+
+What are other possible random variables?
+\end{framed}
+
+
+
+## Independence
+
+
+__Independence__:  If the occurrence or nonoccurrence of either events $A$ and $B$ have no effect on the occurrence or nonoccurrence of the other, then $A$ and $B$ are independent.  If $A$ and $B$ are independent, then
+
+1. $\Pr(A|B)=\Pr(A)$
+2. $\Pr(B|A)=\Pr(B)$
+3.  $\Pr(A\cap B)=\Pr(A)\Pr(B)$
+4.  More generally than the above, $\Pr(\bigcap_{i=1}^k A_i) = \prod_{i = 1}^K \Pr(A_i)$
+
+
+Are mutually exclusive events independent of each other?
+
+
+No. If A and B are mutually exclusive, then they cannot happen simultaneously. If we know that A occurred, then we know that B couldn't have occurred. Because of this, A and B aren't independent.
+
+\textbf{Pairwise Independence}: A set of more than two events $A_1, A_2, \dots, A_k$ is pairwise independent if  $\Pr(A_i\cap A_j)=\Pr(A_i)\Pr(A_j)$, $\forall i\neq j$.  Note that this does \emph{not} necessarily imply independence.
+
+\textbf{Conditional Independence}: If $A$ and $B$ are independent once you know the occurrence of a third event $C$, then $A$ and $B$ are conditionally independent (conditional on $C$):
+
+1.  $\Pr(A|B \cap C)=\Pr(A|C)$
+2. $\Pr(B|A \cap C)=\Pr(B|C)$
+3.  $\Pr(A\cap B|C)=\Pr(A|C)\Pr(B|C)$
+
+
+
+## Types of Observed Data
+
+
+In empirical research, data can be classified along several dimensions. We can look at the precision with which the underlying quantities are measured.
+
+\textbf{Nominal} (Categorical): \textit{Discrete} data are nominal if there is no way to put the categories represented by the data into a meaningful order.  Typically, this kind of data represents names (hence `nominal') or attributes. Example: Republican or Democrat, Male or Female.
+
+\textbf{Ordinal}:  \textit{Discrete} data are ordinal if there is a logical order to the categories represented by the data, but there is no common scale for differences between adjacent categories. Example: Party identification, common survey responses.
+
+\textbf{Interval}:  \textit{Discrete or continuous} data are interval if there is an order to the values and there is a common scale, so that differences between two values have substantive meanings. Example: dates, temperature.
+
+\textbf{Ratio}:  Discrete or continuous data are ratio if the data have the characteristics of interval data and zero is a meaningful quantity.  This allows us to consider the ratio of two values as well as difference between them.  Allows direct ratio comparison because of the meaningful baseline of 0. Example: quantities measured in dollars, crime rates.
+
+
+
+## Distributions
+
+The distribution of a random variable $X$ is the probability function it induces on the real line. It is given, roughly speaking, by $p(s) = P(X \in s)$ 
+
+The formal definition of a random variable is easier to given by separating out two cases: discrete random variables when the numeric summaries of the events are discrete,  and continuous random variables whern they are continuous.
+
+
+__Discrete Random Variable__: $Y$ is a discrete random variable if it can assume only a finite or countably infinite number of distinct values. Examples:  number of wars per year, heads or tails.
+
+__Probability Mass Function__ (p(y)): For a discrete random variable $Y$, the probability mass function (Also referred to simply as the "probability distribution.") (pmf), $p(y)=\Pr(Y=y)$, assigns probabilities to a countable number of distinct $y$ values such that
+
+1. $0\le p(y)\le 1$
+2.  $\sum\limits_y p(y)=1$
+
+\parbox[t]{5in}{Example: For a fair six-sided die, there is an equal probability of rolling any number.  Since there are six sides, the probability mass function is then $p(y)=1/6$ for $y=1,\ldots,6$, 0 otherwise.}
+
+\begin{comment}
+\parbox[t]{1in}{\, \epsffile{diepmf.eps}}
+\end{comment}
+
+__Cumulative Density Function__:  The cumulative density function (Also referred to simply as the "cumulative distribution."), $F(y)$ or $\Pr(Y\le y)$, is the probability that $Y$ is less than or equal to some value $y$, or \[\Pr(Y\le y)=\sum\limits_{i\le y} p(i)\]
+
+
+\underline{Properties a CDF \textit{must} satisfy:}
+
+1. $F(y)$ is non-decreasing in $y$.
+2. $\lim\limits_{y \to -\infty} F(y) = 0$ and $\lim\limits_{y \to \infty} F(y) = 1$
+3. $F(y)$ is right-continuous.
+
+
+Note that $P(Y > y) = 1 - P(Y \le y)$.
+
+\begin{framed}
+\parbox[c]{4.55in}{Example:  For a fair die,\\ $\Pr(Y\le 1)=$\\ $\Pr(Y\le 3)=$\\ $\Pr(Y\le 6)=$} % \parbox{1.5in}{\includegraphics[width=1.25in]{diecmf.eps}}
+\end{framed}
+
+
+We also have a similar definition for \emph{continuous} random variables. 
+
+
+__Continuous Random Variable__:  $Y$ is a continuous random variable if there exists a nonnegative function $f(y)$ defined for all real $y\in (-\infty,\infty)$, such that for any interval $A$, $\Pr(Y\in A)=\int\limits_A f(y)dy$. Examples: age, income, GNP, temperature.
+
+__Probability Density Function__:  The function $f$ above is called the probability density function (pdf) of $Y$ and must satisfy
+  \begin{enumerate}
+  \item $f(y)\ge 0$
+  \item $\int\limits_{-\infty}^\infty f(y)dy=1$
+  \end{enumerate}
+Note also that $\Pr(Y=y)=0$ --- i.e., the probability of any point $y$ is zero.
+
+\begin{comment}
+\item[] \parbox[t]{4.5in}{Example: $f(y)=1, \quad 0\le y \le1$}\parbox{1.5in}{\hfill
+\epsffile{contpdf.eps}}
+\end{comment}
+
+
+For both discrete and continous random variables, we have a unifying concept of another measure: the cumulative distribution: 
+
+__Cumulative Density Function__:  Because the probability that a continuous random variable will assume any particular value is zero, we can only make statements about the probability of a continuous random variable being within an interval.  The cumulative distribution gives the probability that $Y$ lies on the interval $(-\infty,y)$ and is defined as $$F(y)=\Pr(Y\le y)=\int\limits_{-\infty}^y f(s)ds$$  Note that $F(y)$ has similar  properties with continuous distributions as it does with discrete - non-decreasing, continuous (not just right-continuous), and $\lim\limits_{y \to -\infty} F(y) = 0$ and $\lim\limits_{y \to \infty} F(y) = 1$.\\
+
+We can also make statements about the probability of $Y$ falling in an interval $a\le y\le b$. 
+\[\Pr(a\le y\le b)=\int\limits_a^b f(y)dy\]
+
+\textbf{Link between PDF and CDF:} \[f(y) = F'(y)=\frac{dF(y)}{dy}\]
+
+
+\begin{framed}
+\parbox[c]{4.25in}{Example: $f(y)=1, \quad 0<y<1$.\\ 
+$F(y)=$\\
+$\Pr(.5<y<.75)=$ }
+\begin{comment}
+\parbox{1.5in}{\hfill \epsffile{contcdf.eps}}
+\end{comment}
+\end{framed}
+
+
+
+## Expectation and Other Moments
+
+We often want to summarize some characteristics of the distribution of a random variable.  The most important summary is the expectation (or expected value, or mean), in which the possible values of a random variable are weighted by their probabilities.
+
+__Expectation of a Discrete Random Variable__:  The expected value of a discrete random variable $Y$ is \[E(Y)=\sum\limits_{y} y P(Y=y)= \sum\limits_{y} y p(y)\]  
+In words, it is the weighted average of all possible values of $Y$, weighted by the probability that $y$ occurs.  It is not necessarily the number we would expect $Y$ to take on, but the average value of $Y$ after a large number of repetitions of an experiment.
+
+\begin{framed}
+Example: For a fair die, $E(Y)=$  \phantom{We would never expect the
+result of a rolled die to be $7/2$, but that would be the average over a
+large number of rolls of the die.}
+\end{framed}
+
+
+__Expectation of a Continuous Random Variable__:  The expected
+value of a continuous random variable is similar in concept to that of
+the discrete random variable, except that instead of summing using
+probabilities as weights, we integrate using the density to weight.
+Hence, the expected value of the continuous variable $Y$ is defined by
+\[E(Y)=\int\limits_{y} y f(y) dy\]
+
+\begin{framed}
+Example:  Find $E(Y)$ for $f(y)=\frac{1}{1.5}, \quad 0<y<1.5$.\\
+$E(Y)=$ 
+\end{framed}
+
+__Expected Value of a Function__
+
+\begin{enumerate}
+  \item \parbox[t]{1.5in}{Discrete:}   $E[g(Y)]=\sum\limits_y g(y)p(y)$
+  \item \parbox[t]{1.5in}{Continuous:} $E[g(Y)]=\int\limits_{-\infty}^\infty g(y)f(y)dy$
+\end{enumerate}
+
+\underline{Properties of Expected Values}:
+
+\begin{enumerate}
+\item $E(c)=c$
+\item $E[E[Y]] = E[Y]$ \phantom{(because the expected value of a random variable is a constant)}
+\item $E[c g(Y)]= c E[g(Y)]$
+\item Linearity: $E[g(Y_1) + \cdots + g(Y_n)]=E[g(Y_1)]+\cdots+E[g(Y_n)]$, \textit{regardless} of independence
+\item $E[XY] = E[X]E[Y]$, if X and Y are independent 
+\end{enumerate}
+
+  
+  
+__Conditional Expectation__: With joint distributions, we are often interested in the expected value of a variable $Y$ if we could hold the other variable $X$ fixed.  This is the conditional expectation of $Y$ given $X = x$:
+
+\begin{enumerate}
+\item $Y$ discrete:  $E(Y|X = x) = \sum_y yp_{Y|X}(y|x)$
+\item $Y$ continuous: $E(Y|X = x) = \int_y yf_{Y|X}(y|x)dy$
+\end{enumerate}
+
+The conditional expectation is often used for prediction when one knows the value of $X$ but not $Y$; the realized value of $X$ contains information about the unknown $Y$ so long as $E(Y|X = x) \neq E(Y) \forall x$.
+  
+
+__Variance__:  We can also look at other summaries of the distribution, which build on the idea of taking expectations. Variance tells us about the ``spread" of the distribution; it is the expected value of the squared deviations from the mean of the distribution.  The standard deviation is simply the square root of the variance.
+
+\begin{enumerate}
+\item \parbox[t]{1.5in}{Variance:} $\sigma^2= \Var(Y) = E[(Y - E(Y))^2] =  E(Y^2)-[E(Y)]^2$
+\item \parbox[t]{1.5in}{Standard Deviation:} $\sigma= \sqrt{\Var(Y)}$
+\end{enumerate}
+
+\textbf{Covariance and Correlation}: The covariance measures the degree to which two random variables vary together; if the covariance is positive, X tends to be larger than its mean when Y is larger than its mean.  The covariance of a variable with itself is the variance of that variable.
+
+\[\Cov(X,Y) = E[(X - E(X))(Y - E(Y))] = E(XY) - E(X)E(Y)\]
+
+The correlation coefficient is the covariance divided by the standard deviations of X and Y.  It is a unitless measure and always takes on values in the interval $[-1,1]$.
+
+\[\rho = \frac{\Cov(X,Y)}{\sqrt{\Var(X)\Var(Y)}} = \frac{\Cov(X,Y)}{\SD(X)\SD(Y)}\]
+
+\underline{Properties of Variance and Covariance}:
+
+\begin{enumerate}
+\item $\Var(c) = 0$
+\item $\Var[cY] = c^2\Var[Y]$
+\item $\Cov[Y,Y] = \Var[Y]$
+\item $\Cov[X,Y] = \Cov[Y,X]$
+\item $\Cov[aX,bY] = ab\Cov[X,Y]$
+\item $\Cov[X+a,Y] = \Cov[X,Y]$
+\item $\Cov[X+Z,Y+W] = \Cov[X,Y] + \Cov[X,W] + \Cov[Z,Y] + \Cov[Z,W]$
+\item $\Var[X+Y] = \Var[X] + \Var[Y] + 2\Cov[X,Y]$\\
+\end{enumerate}
+
+\end{itemize}
+
+
+
+## Special Distributions
+
+Two \emph{discrete} distributions used often are:  
+
+
+__Binomial Distribution__: $Y$ is distributed binomial if it represents the number of ``successes" observed in $n$ independent, identical ``trials," where the probability of success in any trial is $p$ and the probability of failure is $q=1-p$.\\[6pt]
+For any particular sequence of $y$ successes and $n-y$ failures, the probability of obtaining that sequence is $p^y q^{n-y}$ (by the multiplicative law and independence).  However, there are $\binom{n}{y}=\frac{n!}{(n-y)!y!}$ ways of obtaining a sequence with $y$ successes and $n-y$ failures.  So the binomial distribution is given by $$p(y)=\binom{n}{y}p^y q^{n-y}, \quad y=0,1,2,\ldots,n$$ with mean $\mu=E(Y)=np$ and variance $\sigma^2=V(Y)=npq$.
+
+\begin{framed}
+Example: Republicans vote for Democrat-sponsored bills 2\% of the time. What is the probability that out of 10 Republicans questioned, half voted for a particular Democrat-sponsored bill?  What is the mean number of Republicans voting for Democrat-sponsored bills?  The variance?\\
+  \parbox[c]{4.25in}{
+  \begin{enumerate}
+  \item $P(Y=5)=$
+  \item $E(Y)=$ 
+  \item $V(Y)=6$
+  \end{enumerate}}
+  \parbox{1.5in}{\hfill \epsffile{binopmf.eps}}
+\end{framed}
+   
+__Poisson Distribution__:  A random variable $Y$ has a Poisson distribution if $$p(y)=\frac{\lambda^y}{y!}e^{-\lambda}, \quad y=0,1,2,\ldots, \quad \lambda>0$$  The Poisson has the unusual feature that its expectation equals its variance: $E(Y)=V(Y)=\lambda$. The Poisson distribution is often used to model rare event counts:  counts of the number of events that occur during some unit of time.  $\lambda$ is often called the "arrival rate."
+
+\begin{framed}
+Example: Border disputes occur between two countries at a rate of 2 per month.  What is the probability of 0, 2, and less than 5 disputes occurring in a month?\\
+\parbox[c]{4.25in}{
+  \begin{enumerate}
+  \item $P(Y=0)=$ 
+  \item $P(Y=2)=$ 
+  \item $\Pr(Y<5)=$ 
+  \end{enumerate}}
+\parbox{1.5in}{\hfill \epsffile{poispmf.eps}}
+\end{framed}
+
+
+Two \emph{continuous} distributions used often are: 
+
+
+__Uniform Distribution__:  A random variable $Y$ has a continuous uniform distribution on the interval $(\alpha,\beta)$ if its density is given by $$f(y)=\frac{1}{\beta-\alpha}, \quad \alpha\le y\le \beta$$  The mean and variance of $Y$ are $E(Y)=\frac{\alpha+\beta}{2}$ and $V(Y)=\frac{(\beta-\alpha)^2}{12}$.
+
+\begin{framed}
+Example: $Y$ uniformly distributed over $(1,3)$.\\
+ \parbox[c]{4.25in}{
+ \begin{enumerate}
+ \item $P(Y=2) = $
+ \item $f(2) = $
+ \item $P(Y\le 2) = $
+ \item $P(Y > 2) =$
+\end{enumerate}}
+\begin{comment}
+\parbox{1.5in}{\hfill \epsffile{unifpdf.eps}}
+\end{comment}
+\end{framed}
+
+\textbf{Normal Distribution}:  A random variable $Y$ is normally distributed with mean $E(Y)=\mu$ and variance $V(Y)=\sigma^2$ if its density is 
+
+\[f(y)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(y-\mu)^2}{2\sigma^2}}\]
+
+\begin{comment}
+\parbox[c]{4.25in}{Example: $Y$ normally distributed with mean $\mu=0$ and variance $\sigma^2=.1$}
+\parbox{1.5in}{\hfill \epsffile{normpdf.eps}}
+\end{comment}
+
+
+## Joint Distributions
+
+Often, we are interested in two or more random variables defined on the same sample space.  The distribution of these variables is called a joint distribution.  Joint distributions can be made up of any combination of discrete and continuous random variables.
+
+__Joint Probability Distribution__: If both $X$ and $Y$ are random variable, their joint probability mass/density function assigns probabilities to each pair of outcomes
+
+Discrete: $p(x, y) = \Pr(X = x, Y = y)$
+\begin{itemize}
+\item[] s.t. $p(x,y) \in [0,1]$ and $\sum\sum p(x,y) = 1$
+\end{itemize}
+
+Continuous: $f(x,y);\Pr((X,Y) \in A) = \int\!\!\!\int_A f(x,y)dx dy $
+\begin{itemize}
+\item[] s.t. $f(x,y)\ge 0$ and $\int_{-\infty}^\infty\int_{-\infty}^\infty f(x,y)dxdy =1 $\\
+\end{itemize}
+\item[] If X and Y are independent, then $P(X=x,Y=y) = P(X=x)P(Y=y)$ and $f(x,y) = f(x)f(y)$
+\end{itemize}
+
+
+__Marginal Probability Distribution__: probability distribution of only one of the two variables (ignoring information about the other variable), we can obtain the marginal distribution by summing/integrating across the variable that we don't care about:
+
+* Discrete: $p_X(x) = \sum_i p(x, y_i)$
+* Continuous: $f_X(x) = \int_{-\infty}^\infty f(x,y)dy $
+
+__Conditional Probability Distribution__: probability distribution for one variable, holding the other variable fixed.  Recalling from the previous lecture that $\Pr(A|B)=\frac{\Pr(A\cap B)}{\Pr(B)}$, we can write the conditional distribution as
+
+* Discrete: $ p_{Y|X}(y|x) = \frac{p(x,y)}{p_X(x)}, \quad p_X(x) > 0$
+* Continuous: $ f_{Y|X}(y|x) = \frac{f(x,y)}{f_X(x)},\quad f_X(x) > 0$\\
+
+\begin{framed}
+
+Example:  Suppose we are interested in the outcomes of flipping a coin and rolling a 6-sided die at the same time.  The sample space for this process contains 12 elements: $$\{(H, 1), (H, 2), (H, 3), (H, 4), (H. 5), (H, 6), (T, 1), (T, 2), (T, 3), (T, 4), (T, 5), (T, 6)\}$$  We can define two random variables $X$ and $Y$ such that $X = 1$ if heads and $X = 0$ if tails, while $Y$ equals the number on the die.  We can then make statements about the joint distribution of $X$ and $Y$.
+
+\begin{enumerate}
+\item $P(X=x) =$
+\item $P(Y=y) =$
+\item $P(X=x, Y=y) = $
+\item $P(X=x|Y=y) = $
+\item Are X and Y independent? 
+\end{enumerate}
+
+\end{framed}
+
+
+
+
+
+## Summarizing Observed Events (Data)
+
+
+So far, we've talked about distributions in a theoretical sense, looking at different properties of random variables.  We don't observe random variables; we observe realizations of the random variable. These realizations of events are roughly equivalent to what we mean by "data".
+
+__Central tendency__: The central tendency describes the location of the "middle" of the observed data along some scale.  There are several measures of central tendency.
+
+
+__Sample mean__:  This is the most common measure of central tendency, calculated by summing across the observations and dividing by the number of observations.
+\[\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i\]
+The sample mean is an \textit{estimate} of the expected value of a distribution.
+
+__Sample median__: The median is the value of the ``middle'' observation.  It is obtained by ordering $n$ data points from smallest to largest and taking the value of the $n+1/2$th observation (if $n$ is odd) or the mean of the $n/2$th and $(n+1)/2$th observations (if $n$ is even).
+
+__Sample mode__: The mode is the most frequently observed value in the data:
+\[m_x = X_i : n(X_i) > n(X_j) \forall j\neq i\]
+When the data are realizations of a continuous random variable, it often makes sense to group the data into bins, either by rounding or some other process, in order to get a reasonable estimate of the mode.
+
+\begin{framed}
+Example:  
+\begin{center}
+\begin{tabular}{|l|cccccccccc|}
+\hline
+X & 6 & 3 & 7 & 5 & 5 & 5 & 6 & 4 & 7 & 2\\
+\hline
+Y & 1 & 2 & 1 & 2 & 2 & 1 & 2 & 0 & 2 & 0\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+\item $\bar{x} = $ \hspace{3.1cm} $\bar{y} = $
+\item median(x) $ = $ \hspace{1.5cm} median(y) $ = $
+\item $m_x = $ \hspace{2.75cm} $m_y =$\\
+\end{enumerate}
+\end{framed}
+
+
+__Dispersion__: We also typically want to know how spread out the data are relative to the center of the observed distribution.  There are several ways to measure dispersion.
+
+__Sample variance__: The sample variance is the sum of the squared deviations from the sample mean, divided by the number of observations minus 1.
+$$ \Var(X) = \frac{1}{n-1}\sum_{i = 1}^n (x_i - \bar{x})^2$$
+
+Again, this is an \textit{estimate} of the variance of a random variable; we divide by $n - 1$ instead of $n$ in order to get an unbiased estimate.
+
+\textbf{Standard deviation}:  The sample standard deviation is the square root of the sample variance.
+$$ \SD(X) = \sqrt{\Var(X)} = \sqrt{\frac{1}{n-1}\sum_{i = 1}^n (x_i - \bar{x})^2}$$
+
+\textbf{Median absolute deviation (MAD)}:  The MAD is a different measure of dispersion, based on deviations from the median rather than deviations from the mean.
+$$MAD(X) = median(|x_i - median(x)|)$$
+
+
+\begin{framed}
+Example: Using table above, calculate: 
+\begin{enumerate}
+\item $\Var(X) = $ \hspace{1.5cm} $\Var(Y) = $
+\item $\SD(X) = $ \hspace{1.65cm} $\SD(Y) = $
+\item $MAD(X) = $ \hspace{1.1cm} $MAD(Y) = $
+\end{enumerate}
+\end{framed}
+
+
+\textbf{Covariance and Correlation}: Both of these quantities measure the degree to which two variables vary together, and are estimates of the covariance and correlation of two random variables as defined above.
+
+
+1. \textbf{Sample covariance}: $\Cov(X,Y) = \frac{1}{n-1}\sum_{i = 1}^n(x_i - \bar{x})(y_i - \bar{y})$
+2. \textbf{Sample correlation}: $r = \frac{\Cov(X,Y)}{\sqrt{\Var(X)\Var(Y)}}$
+
+
+\begin{framed}
+Example:  Using above table, calculate:
+\begin{enumerate}
+\item $\Cov(X,Y) = $
+\item $r = $
+\end{enumerate}
+\end{framed}
+\end{itemize}
+
+
+
+
+## Asymptotic Theory
+
+In theoretical and applied research, asymptotic arguments are often made. In this section we briefly introduce some of this material. 
+
+What are asymptotics?  In probability theory, asymptotic analysis is the study of limiting behavior. By limiting behavior, we mean the behavior of some random process as the number of observations gets larger and larger. 
+
+Why is this important?  We rarely know the true process governing the events we see in the social world. It is helpful to understand how such unknown processes theoretically must behave and asymptotic theory helps us do this. 
+
+
+Examples. 
+
+__Central Limit Theorem__. Let $\{X_n\} = \{X_1, X_2, ..., X_n\}$ be a sequence of i.i.d. random variables with finite mean ($\mu$) and variance ($\sigma^2$). Then, 
+\begin{align*} 
+\bar{X}_n = \frac{x_1 + x_2 + ... + x_n}{n} \to \mathcal{N}\bigg(\mu, \frac{\sigma^2}{n}\bigg) 
+\end{align*} 
+as $n\to \infty$. This result, known as the Central Limit Theorem, is an important motivation for many quantitative methods, as well as for the widespread use of the Normal distribution. 
+
+Intuitively, whenever a lot of small, independent processes somehow combine together to form the realized observations, practitioners often feel comfortable assuming Normality. 
+
+
+__Law of Large Numbers__. Let $\{X_n\} = \{X_1, X_2, ..., X_n\}$ be a sequence of i.i.d. random variables with a finite expected value of $\mu$. Then, 
+\begin{align*} 
+\bar{X}_n = \frac{x_1 + x_2 + ... + x_n}{n} \stackrel{\textrm{a.s.}}{\to} \mu
+\end{align*} 
+as $n\to \infty$. In other words, $\Pr( \lim_{n\to\infty}\bar{X}_n = \mu) = 1$. This theorem, known as the Strong Law of Large Numbers, is an important motivation for the widespread use of the sample mean, as well as the intuition link between averages and expected values. 
+
+\emph{Important note}: The Strong Law of Large Numbers holds so long as the expected value exists; no other assumptions are needed. However, the rate of convergence will differ greatly depending on the distribution underlying the observed data. When extreme observations occur often (i.e. kurtosis is large), the rate of convergence is much slower. Cf. The distribution of financial returns. 
+
+__Big $\mathcal{O}$ Notation__. Some of you may encounter "big-OH''-notation. If $f, g$ are two functions, we say that $f = \mathcal{O}(g)$ if there exists some constant, $c$, such that $f(n) \leq c \times g(n)$ for large enough $n$. This notation is useful for simplifying complex problems in game theory, computer science, and statistics. 
+
+
+Example. 
+
+
+What is $\mathcal{O}( 5\exp(0.5 n) + n^2 + n / 2)$? Answer: $\exp(n)$. Why? Because, for large $n$, 
+\[
+\frac{ 5\exp(0.5 n) + n^2 + n / 2 }{ \exp(n)} \leq \frac{ c \exp(n) }{ \exp(n)} = c. 
+\]
+whenever $n > 4$ and where $c = 1$. 
+
+\begin{comment}
+n_seq <- 1:100; numerator <- (5 * exp(0.5 * n_seq) + n_seq^2 + n_seq / 2) 
+denominator <- exp(n_seq)
+numerator / denominator <= (1 * denominator) / denominator
+\end{comment}
