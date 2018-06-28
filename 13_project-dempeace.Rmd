@@ -1,16 +1,4 @@
----
-title: "`R` application with 'The Democratic Peace'"
-subtitle: "Programming Module 3 - Math Prefresher 2017"
-author: "Connor Jerzak and Shiro Kuriwaki"
-date: "2017-08-18"
-output: 
-  html_document:
-    theme: united
-    highlight: default
-    toc: true
-    toc_depth: 1
-    toc_float: TRUE
----
+# Programming 3: Joins and Merges, Wide and Long
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
@@ -38,7 +26,7 @@ The "Democratic Peace" is one of the most widely discussed propositions in polit
 
 An empirical demonstration of the democratic peace is also a good example of a __Time Series Cross Sectional__ (or panel) dataset, where the same units (in this case countries) are observed repeatedly for multiple time periods. Experience in assembling and analyzing a TSCS dataset will prepare you for any future research in this area.
 
-# Setting up
+## Setting up
 
 ```{r libraries, message=FALSE, warning=FALSE}
 library(dplyr)
@@ -51,7 +39,7 @@ library(ggplot2)
 
 
 
-# Create a project directory
+## Create a project directory
 
 First start a directory for this project. This can be done manually or through RStudio's Project feature(`File > New Project...`)
 
@@ -62,19 +50,19 @@ Chapter 4 of Gentzkow and Shapiro's memo, [Code and Data for the Social Scientis
 
 
 
-# Data Sources
+## Data Sources
 Most projects you do will start with downloading data from elsewhere. For this task, you'll probably want to track down and download the following: 
 
 * __Correlates of war dataset (COW):__ Find and download the Militarized Interstate Disputes (MIDs) data from the Correlates of War website: <http://www.correlatesofwar.org/data-sets>. Or a dyad-version on dataverse: <https://dataverse.harvard.edu/dataset.xhtml?persistentId=hdl:1902.1/11489>
 * __PRIO Data on Armed Conflict:__ Find and download the Uppsala Conflict Data Program  (UCDP) and PRIO dyad-year data on armed conflict(<https://www.prio.org>) or this link to to the flat csv file (<http://ucdp.uu.se/downloads/dyadic/ucdp-dyadic-171.csv>). 
 * __Polity:__ The Polity data can be downloaded from their website (<http://www.systemicpeace.org/inscrdata.html>). Look for the newest version of the time series that has the widest coverage.
 
-# Example with 2 Datasets
+## Example with 2 Datasets
 
 Let's read in a sample dataset. 
 ```{r}
-polity <- read_csv("data/input/sample_polity.csv")
-mid <- read_csv("data/input/sample_mid.csv")
+polity <- read_csv("input/sample_polity.csv")
+mid <- read_csv("input/sample_mid.csv")
 ```
 
 
@@ -92,7 +80,7 @@ mid
 ```
 
 
-# Loops
+## Loops
 Notice that in the `mid` data, we have a start of a dispute vs. an end of a dispute.In order to combine this into the `polity` data, we want a way to give each of the interval years a row. 
 
 There are many ways to do this, but one is a loop. We go through one row at a time, and then for each we make a new dataset. that has `year` as a sequence of each year.
@@ -101,14 +89,14 @@ There are many ways to do this, but one is a loop. We go through one row at a ti
 ```{r}
 mid_year_by_year <- foreach(i = 1:nrow(mid), .combine = "bind_rows") %do% { 
   
-  data_frame(ccode = mid$ccode[i], # row i's country
-             year = mid$StYear[i]:mid$EndYear[i],  # sequence of years for dispute in row i
+  data_frame(ccode = mid$ccode[i], ## row i's country
+             year = mid$StYear[i]:mid$EndYear[i],  ## sequence of years for dispute in row i
              dispute = 1) 
 }
 ```
 
 
-# Merging
+## Merging
 We want to combine these two datasets by merging. Base-R has a function called `merge`. `dplyr` has several types of `joins` (the same thing). Those names are based on SQL syntax.
 
 ![](dplyr-joins.png)
@@ -136,11 +124,11 @@ p_m_w <- dcast(data = as.data.table(p_m),
 ```
 
 
-# Main Project
+## Main Project
 
 Try building a panel that would be useful in answering the Democratic Peace Question, perhaps in these steps.
 
-## Task 1: Data Input and Standardization
+### Task 1: Data Input and Standardization
 
 Often, files we need are saved in the `.xls` or `xlsx` format. It is possible to read these files directly into `R`, but experience suggests that this process is slower than converting them first to `.csv` format and reading them in as `.csv` files. The `rio` package^[<https://github.com/leeper/rio>] has functions to convert between file types. 
 
@@ -152,7 +140,7 @@ Often, files we need are saved in the `.xls` or `xlsx` format. It is possible to
 
 
 
-## Task 2: Data Merging
+### Task 2: Data Merging
 We will use data to test a version of the Democratic Peace Thesis (DPS): are democracies less likely to engage in militarized interstate disputes with one another? 
 
 To start, let's download and merge some data. 
@@ -166,7 +154,7 @@ To start, let's download and merge some data.
 ```
 
 
-## Task 3: Tabulations and Visualization
+### Task 3: Tabulations and Visualization
 
 * Calculate the mean Polity2 score by year. Plot the result. Use graphical indicators of your choosing to show where key events fall in this timeline (such as 1914, 1929, 1939, 1989, 2008). Speculate on why the behavior from 1800 to 1920 seems to be qualitatively different than behavior afterwards.
 * Once you have merged the datasets, what fraction of all MIDs in the time period we have data for involve 2 countries both with Polity2 scores greater than 5? Greater than 8? If there are any of the latter, find out what MIDs those are and research them for a bit. 

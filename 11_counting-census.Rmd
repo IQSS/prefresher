@@ -1,4 +1,4 @@
-# Programming Module 1
+# Programming 1: Counting and Visualization
 
 Module originally written by Shiro Kuriwaki
 

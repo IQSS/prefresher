@@ -1,16 +1,7 @@
----
-title: "`R` working with random variables"
-subtitle: "Programming Module 5 - Math Prefresher 2017"
-author: "Connor Jerzak and Shiro Kuriwaki"
-date: "2017-08-22"
-output: 
-  html_document:
-    theme: united
-    highlight: default
-    toc: true
-    toc_depth: 1
-    toc_float: TRUE
----
+# Programming 5: Simulation
+
+
+Module originally written by Connor Jerzak
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
@@ -25,7 +16,7 @@ library(forcats)
 library(ggplot2)
 ```
 
-# Where are we? Where are we headed?
+## Where are we? Where are we headed?
 
 Up till now, you should have covered:
 
@@ -36,7 +27,7 @@ Up till now, you should have covered:
 In this module, we will start to work with generating data within R, from thin air, as it were. This branch of statistics is grouped as "simulation", and it is becoming increasing relevant and useful for empirical social sciece researchers, not just statisticians.
 
 
-# Preview!
+## Preview!
 
 Check if you have an idea of how you might code the following tasks:
 
@@ -47,7 +38,7 @@ Check if you have an idea of how you might code the following tasks:
 
 We're going to learn about this today!
 
-# Motivation
+## Motivation
 An increasing amount of political science contributions now include a simulation. 
 
 * [Axelrod (1977)](http://www-personal.umich.edu/~axe/research/Dissemination.pdf) demonstrated via simulation how atomized individuals evolve to be grouped in similar clusters or countries, a model of culture^[[Axelrod, Robert. 1997. "The Dissemination of Culture." _Journal of Conflict Resolution_ 41(2): 203–26.](http://www-personal.umich.edu/~axe/research/Dissemination.pdf)].
@@ -61,10 +52,10 @@ Statistical methods also incorporate simulation:
       2. Bagging: a method for improving machine learning predictions by re-sampling observations, storing the estimate across many re-samples, and averaging these estimates to form the final estimate. A variance reduction technique. 
       3. Statistical reasoning: if you are trying to understand a quantitative problem, a wonderful first-step to understand the problem better is to simulate it! The analytical solution is often very hard (or impossible), but the simulation is often much easier :-) 
 
-# Key functions
+## Key functions
 The core functions for coding up stochastic data revolves around several key functions, so we will simply review them here.  
 
-# `sample()`
+## `sample()`
 Suppose you have a vector of values `x` and from it you want to randomly sample a sample of length `size`. For this, use the `sample` function
 ```{r}
 sample(x = 1:10, size = 5)
@@ -77,12 +68,12 @@ help(sample)
 
 Sampling without replacement (`replace = FALSE`) means once an element of `x` is chosen, it will not be considered again:
 ```{r}
-sample(x = 1:10, size = 10, replace = FALSE) # no number appears more than once
+sample(x = 1:10, size = 10, replace = FALSE) ## no number appears more than once
 ```
 
 Sampling with repalcement (`replace = TRUE`) means that even if an element of `x` is chosen, it is put back in the pool and may be chosen again. 
 ```{r}
-sample(x = 1:10, size = 10, replace = TRUE) # any number can appear more than once
+sample(x = 1:10, size = 10, replace = TRUE) ## any number can appear more than once
 ```
 
 It follows than that you cannot sample without replacement a sample that is larger than the pool.
@@ -105,7 +96,7 @@ sample(c("Head", "Tail"), size = 20, prob = c(0.2, 0.8), replace = TRUE)
 ```
 
 
-# `rbinom()`
+## `rbinom()`
 `rbinom` builds upon `sample` as a tool to help you answer the question -- what is the _total number of successes_ I would get if I ran sampled a binary (bernoulli) result from a pool of size `size`, with a event-wise probability of `prob`, with `n` number of trials?
 
 For example, I want to know how many Heads I would get if I flipped a fair coin 100 times. 
@@ -118,7 +109,7 @@ Now imagine this I wanted to do this experiment 10 times, which would require I 
 rbinom(n = 10, size = 100, prob = 0.5)
 ```
 
-# `runif()`
+## `runif()`
 `runif` also simulates a stochastic scheme where each event has equal probability of getting chosen like `sample`, but is a continuous rather than discrete system.  We will cover this more in the next math module.
 
 The intuition to emphasize here is that one can generate potentially infinite amounts (size `n`) of noise that is a essentially random
@@ -129,7 +120,7 @@ runif(n = 5)
 ```
 
 
-# `rnorm()`
+## `rnorm()`
 `rnorm` is also a continous distribution, but draws from a Normal distribution -- perhaps the most important distribution in statistics. It runs the same way as `runif`
 
 ```{r}
@@ -142,7 +133,7 @@ To better visualize the difference between the output of `runif` and `rnorm`, le
 from_runif <- runif(n = 1000)
 from_rnorm <- rnorm(n = 1000)
 
-par(mfrow = c(1, 2)) # two plots at once
+par(mfrow = c(1, 2)) ## two plots at once
 hist(from_runif)
 hist(from_rnorm)
 ```
@@ -150,7 +141,7 @@ hist(from_rnorm)
 
 
 
-# `set.seed()`
+## `set.seed()`
 `R` doesn't have the ability to generate truly random numbers! Random numbers are actually very hard to generate. (Think: flipping a coin --> can be perfectly predicted if I know windspeed, the angle the coin is flipped, etc.). Some people use random noise in the atmosphere or random behavior in quantuum systems to generate "truly" (?) random numbers. Convserely, R uses deterministic algorithms which take as an input a "seed" and which then perform a series of operations to generate a sequence of random-seeming numbers (that is, numbers whose sequence is sufficiently hard to predict).
 
 Let's think about this another way. Sampling is a stochastic process, so every time you run `sample()` or `runif()` you are bound to get a different output (because different random seeds are used). This is intenional in some cases but you might want to avoid it in others. For example, you might want to diagnose a coding discrepancy by setting the random number generator to give the same number each time. To do this, use the function `set.seed()`.
@@ -160,7 +151,7 @@ In the function goes any number. When you run a sample function in the same comm
 ```{r}
 set.seed(02138)
 runif(n = 5)
-# exact same output long as you preced the function by the same seed, 
+## exact same output long as you preced the function by the same seed, 
 set.seed(02138)
 runif(n = 5)
 ```
@@ -170,12 +161,12 @@ A true random number generator would give you the exact same sequence of output 
 runif(n = 5)
 ```
 
-# Anything else? Specific questions? General questions? 
+## Anything else? Specific questions? General questions? 
 :-) 
 
-# Exercises
+## Exercises
 
-## The Birthday problem
+### The Birthday problem
 Write code that will answer the well-known birthday probelm via simulation^[This exercise draws from Imai (2017)]. 
 
 The problem is fairly simple: Suppose $k$ people gather together in a room. What is the probability at least two people share the same birthday?
@@ -219,7 +210,7 @@ _Extra credit_: Give an "analtyical" answer to this problem, that is an answer t
 ```
 
 
-## The Monty Hall problem
+### The Monty Hall problem
 The Monty Hall problem is a counterintuitive example demonstrating the importance of conditional probability that also shows up in most probability textbooks. 
 
 The original formulation of the problem appeared on a magazine column in 1990
