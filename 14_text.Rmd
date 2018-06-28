@@ -1,12 +1,9 @@
-# Programming 4: Text
+# Text
 
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
-```
 
 Module originally written by Connor Jerzak
 
-```{r libraries, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE}
 library(dplyr)
 library(readr)
 library(data.table)
@@ -15,7 +12,7 @@ library(forcats)
 library(ggplot2)
 ```
 
-# Where are we? Where are we headed?
+## Where are we? Where are we headed?
 
 Up till now, you should have covered: 
 

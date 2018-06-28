@@ -1,15 +1,11 @@
-# Programming 5: Simulation
+# Simulation
 
 
 Module originally written by Connor Jerzak
 
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
-```
 
 
-
-```{r libraries, message=FALSE,warning=FALSE}
+```{r, message=FALSE,warning=FALSE}
 library(readr)
 library(scales)
 library(forcats)

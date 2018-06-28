@@ -1,11 +1,7 @@
-# Programming 3: Joins and Merges, Wide and Long
-
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
-```
+# Joins and Merges, Wide and Long
 
 
-# Where are we? Where are we headed?
+## Where are we? Where are we headed?
 
 Up till now, you should have covered:
 
@@ -20,7 +16,7 @@ Today you will work on your own, but feel free to ask a fellow classmate nearby 
 
 
 
-# Motivation
+## Motivation
 
 The "Democratic Peace" is one of the most widely discussed propositions in political science, covering the fields of International Relations and Comparative Politics, with insights to domestic politics of democracies (e.g. American Politics). The one-sentence idea is that democracies do not fight with each other. There have been much theoretical debate -- for example in earlier work, [Oneal and Russet (1999)](https://blackboard.angelo.edu/bbcswebdav/institution/LFA/CSS/Course%20Material/SEC6302/Readings/Lesson_3/Oneal-Russett.pdf) argue that the democratic peace is not due to the hegemony of strong democracies like the U.S. and attempt to distinguish between realist and what they call Kantian propositions (e.g. democratic governance, international organizations)^[[The Kantian Peace: The Pacific Benefits of Democracy, Interdependence, and International Organizations, 1885-1992. _World Politics_ 52(1):1-37](https://blackboard.angelo.edu/bbcswebdav/institution/LFA/CSS/Course%20Material/SEC6302/Readings/Lesson_3/Oneal-Russett.pdf)]. 
 
@@ -28,7 +24,7 @@ An empirical demonstration of the democratic peace is also a good example of a _
 
 ## Setting up
 
-```{r libraries, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE}
 library(dplyr)
 library(readr)
 library(data.table)

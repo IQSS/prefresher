@@ -1,9 +1,6 @@
-#  Programming 2: Matrices
+#  Manipulating Vectors and  Matrices
 
 
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
-```
 
 ## Where are we? Where are we headed?
 
@@ -32,7 +29,7 @@ Nunn and Wantchekon use a variety of statistical tools to make their case (addin
 
 
 ## Setup
-```{r libraries, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE}
 library(dplyr)
 library(readr)
 library(haven)
