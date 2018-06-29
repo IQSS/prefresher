@@ -134,13 +134,10 @@ __Polynomials__: sum of monomials. Examples: $y=-\frac{1}{2}x^3+x^2$, $y=3x+5$
 
 The degree of a polynomial is the highest degree of its monomial terms.  Also, it's often a good idea to write polynomials with terms in decreasing degree.
 	
-__Rational Functions__: ratio of two polynomials.
 
-Examples: $y=\frac{x}{2}$, $y=\frac{x^2+1}{x^2-2x+1}$
 
 __Exponential Functions__: Example: $y=2^x$
 
-__Trigonometric Functions__: Examples: $y=\cos(x)$, $y=3\sin(4x)$
 
 \begin{comment}
 	\parbox[c]{4.75in}{{\bf Linear}: polynomial of degree 1.\\
