@@ -247,22 +247,25 @@ doc3 <- "Many cities of men he saw and learned their minds,
           many pains he suffered, heartsick on the open sea,
           fighting to save his life and bring his comrades home."
 DocVec <- c(doc1, doc2, doc3)
+```
 
+Now we can use utility functions in the `tm` package: 
+
+```{R, eval = FALSE}
 library(tm)
 DocCorpus <- Corpus(VectorSource(DocVec) ) 
 DTM1 <-  inspect( DocumentTermMatrix(DocCorpus) ) 
 
-#Consider the effect of different "pre-processing" choices on the resulting DTM!
+# Consider the effect of different "pre-processing" choices on the resulting DTM!
 DocVec <- tolower(DocVec)
 DocVec <- gsub(DocVec, pattern ="[[:punct:]]", replace = " ")
 DocVec <- gsub(DocVec, pattern ="[[:cntrl:]]", replace = " ")
 DocCorpus <- Corpus(VectorSource(DocVec) ) 
-DTM2 <-  inspect( DocumentTermMatrix(DocCorpus, control = list(stopwords = T, 
-                                                               stemming = T)) ) 
-#NOTE: stemming is the process of reducing inflected/derived words to their word stem or base (e.g. stemming, stemmed, stemmer --> stem*)
-print(dim(DTM1))
-print(dim(DTM2))
+DTM2 <-  inspect(DocumentTermMatrix(DocCorpus, 
+                                    control = list(stopwords = TRUE,  stemming = TRUE))) 
 ```
+
+Stemming is the process of reducing inflected/derived words to their word stem or base (e.g. stemming, stemmed, stemmer --> stem*)
 
 ##  Important packages for parsing text 
 
@@ -272,50 +275,80 @@ print(dim(DTM2))
 
 
 ##  Exercises to check your understanding! 
+
+### 1
+
+Figure out why this command does what it does: 
+
 ````{R}
-#1. Figure out why this command does what it does: 
 sprintf("%s of spontaneous events are %s in the mind. 
         Really, %.2f?", 
         "15.03322123", "puzzles", 15.03322123)
+```
 
-#2. Why does this command not work? 
+### 2 
+Why does this command not work? 
+
+```{R}
 try(sprintf("%s of spontaneous events are %s in the mind. Really, %.2f?",
             "15.03322123", "puzzles", "15.03322123" ), T)  
+```
 
-#3. Using ?grepl, these materials, Google, and your friends, 
-#describe what the following command does. What changes when value = F?
+### 3 
+
+Using `grepl`, these materials, Google, and your friends,  describe what the following command does. What changes when `value = FALSE`?
+
+```{r}
 grep('\'',c("To dare is to lose one's footing momentarily.", 
             "To not dare is to lose oneself."), value = TRUE)
+```
 
 
-#3. Write code to automatically extract the file names that 
-   #DO end start with presidential and DO end in .pdf
 
+### 4 
+
+Write code to automatically extract the file names that DO end start with presidential and DO end in .pdf
+
+```{r}
 my_string <- c("legislative1_term1.png", "legislative1_term1.pdf",
                "legislative1_term2.png", "legislative1_term2.pdf",
                "term2_presidential1.png", 
                "presidential1.png", "presidential1_term2.png",
                "presidential1_term1.pdf", "presidential1_term2.pdf")
+```
 
-#4. Using the same string as in the above, write code to automatically 
-    #extract the file names that end in .pdf and that contain the text "term2". 
+### 5 
+Using the same string as in the above, write code to automatically  extract the file names that end in .pdf and that contain the text `term2`. 
 
-#5. Combine these two strings into a single string separated by a "-". 
-#Desired output: "The carbonyl group in aldehydes and ketones is an oxygen analog of the carbon–carbon double bond."
+```{r}
+# Your code here
+```
 
+
+### 6 
+
+Combine these two strings into a single string separated by a "-".  Desired output: "The carbonyl group in aldehydes and ketones is an oxygen analog of the carbon–carbon double bond."
+
+```{r}
 string1 <- "The carbonyl group in aldehydes and ketones 
           is an oxygen analog of the carbon" 
-string2 <- "–carbon double bond."
-
-#6. Challenge problem! Download this webpage 
-#(https://en.wikipedia.org/wiki/Odyssey)
-#Read the html file into your R workspace. 
-#Remove all of the htlm tags (you may need Google to help with this one). 
-#Remove all punctuation. 
-#Make all the characters lower case. 
-#Do this same process with this webpage (https://en.wikipedia.org/wiki/Iliad). 
-#Form a document term matrix from the two resulting text strings. 
+string2 <-  "–carbon double bond."
+```
 
 
+### 7 
 
-````
+Challenge problem! Download this webpage  <https://en.wikipedia.org/wiki/Odyssey>
+ 
+* Read the html file into your R workspace. 
+* Remove all of the htlm tags (you may need Google to help with this one). 
+* Remove all punctuation. 
+* Make all the characters lower case. 
+* Do this same process with this webpage (https://en.wikipedia.org/wiki/Iliad). 
+* Form a document term matrix from the two resulting text strings. 
+
+
+```{r}
+# Your code here
+```
+
