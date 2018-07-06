@@ -1,13 +1,42 @@
 # Pre-PreFresher Exercises
 
 
-## Expressions
 
 
 ## Linear Algebra
 
+## Operations
+
+
+Simplify the following
+
+1. $\sum^3_{i = 1} i$
+2. $\sum^5_{k = 1}(3k + 7)$
+3. $\sum^3_{i= 1} 3k + i + 7$
+
+
+
+Simplify the following
+
+1. $4^2$
+2. $4^2 2^3$
+3. $\log_{10}100$
+4. $\log_{2}4$
+5. $\log e$, where $\log$ is the natural log (alsowritten as $\ln$) -- a log with base $e$, and $e$ is Euler's constant
+6. $e^a e^b e^c$, where $a, b, c$ are each constants
+7. $\log 0$
+8. $e^0$
+9. $e^1$
+10. $\log e^2$
+
 
 ## Limits
+
+Find the limit of the following.
+
+1. $\lim_{x \to 2} (x - 1)$
+2. $\lim_{x \to 2} \frac{(x - 2) (x - 1)}{(x - 2)}$
+3. $\lim_{x \to 2}\frac{x^2 - 3x + 2}{x- 2}$
 
 
 
