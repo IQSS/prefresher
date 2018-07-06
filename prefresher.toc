@@ -1,10 +1,10 @@
 \contentsline {chapter}{About this Booklet}{7}{chapter*.2}
 \contentsline {chapter}{\numberline {1}Pre-PreFresher Exercises}{9}{chapter.1}
-\contentsline {section}{\numberline {1.1}Expressions}{9}{section.1.1}
-\contentsline {section}{\numberline {1.2}Linear Algebra}{9}{section.1.2}
+\contentsline {section}{\numberline {1.1}Linear Algebra}{9}{section.1.1}
+\contentsline {section}{\numberline {1.2}Operations}{9}{section.1.2}
 \contentsline {section}{\numberline {1.3}Limits}{9}{section.1.3}
 \contentsline {section}{\numberline {1.4}Calculus}{9}{section.1.4}
-\contentsline {section}{\numberline {1.5}Probability}{9}{section.1.5}
+\contentsline {section}{\numberline {1.5}Probability}{10}{section.1.5}
 \contentsline {chapter}{\numberline {2}Linear Algebra 2}{11}{chapter.2}
 \contentsline {section}{\numberline {2.1}Working with Vectors}{11}{section.2.1}
 \contentsline {section}{\numberline {2.2}Linear Independence}{12}{section.2.2}
@@ -19,7 +19,6 @@
 \contentsline {section}{\numberline {2.11}Linear Systems and Inverses}{21}{section.2.11}
 \contentsline {section}{\numberline {2.12}Determinants}{21}{section.2.12}
 \contentsline {section}{\numberline {2.13}Getting Inverse of a Matrix using its Determinant and Matrix of Cofactors}{23}{section.2.13}
-\contentsline {section}{\numberline {2.14}Inverse of Larger Matrices}{23}{section.2.14}
 \contentsline {chapter}{\numberline {3}Functions and Notation}{25}{chapter.3}
 \contentsline {section}{\numberline {3.1}Dimensionality}{25}{section.3.1}
 \contentsline {section}{\numberline {3.2}Interval Notation for \({\bf R}^1\)}{25}{section.3.2}
@@ -44,14 +43,14 @@
 \contentsline {section}{\numberline {4.6}Composite Functions and the Chain Rule}{36}{section.4.6}
 \contentsline {section}{\numberline {4.7}Derivatives of Euler's number and natural logs}{37}{section.4.7}
 \contentsline {section}{\numberline {4.8}Applications of the Derivative: Maxima and Minima}{37}{section.4.8}
-\contentsline {section}{\numberline {4.9}Partial Derivatives}{39}{section.4.9}
+\contentsline {section}{\numberline {4.9}Partial Derivatives}{38}{section.4.9}
 \contentsline {section}{\numberline {4.10}L'H\^{}opital's Rule}{39}{section.4.10}
 \contentsline {section}{\numberline {4.11}Taylor Series Approximation}{40}{section.4.11}
 \contentsline {section}{\numberline {4.12}Summary: Derivative calculus in 6 steps}{41}{section.4.12}
 \contentsline {section}{\numberline {4.13}The Indefinite Integral: The Antiderivative}{41}{section.4.13}
-\contentsline {section}{\numberline {4.14}Common Rules of Integration}{42}{section.4.14}
+\contentsline {section}{\numberline {4.14}Common Rules of Integration}{41}{section.4.14}
 \contentsline {section}{\numberline {4.15}The Definite Integral: The Area under the Curve}{42}{section.4.15}
-\contentsline {section}{\numberline {4.16}Integration by Substitution}{44}{section.4.16}
+\contentsline {section}{\numberline {4.16}Integration by Substitution}{43}{section.4.16}
 \contentsline {section}{\numberline {4.17}Integration by Parts, or Ultraviolet Voodoo}{45}{section.4.17}
 \contentsline {chapter}{\numberline {5}Optimization}{47}{chapter.5}
 \contentsline {section}{\numberline {5.1}Quadratic Forms}{47}{section.5.1}
@@ -150,7 +149,14 @@
 \contentsline {section}{\numberline {10.6}Regular expressions}{119}{section.10.6}
 \contentsline {section}{\numberline {10.7}Representing Text}{121}{section.10.7}
 \contentsline {section}{\numberline {10.8}Important packages for parsing text}{122}{section.10.8}
-\contentsline {section}{\numberline {10.9}Exercises to check your understanding!}{123}{section.10.9}
+\contentsline {section}{\numberline {10.9}Exercises to check your understanding!}{122}{section.10.9}
+\contentsline {subsection}{\numberline {10.9.1}1}{122}{subsection.10.9.1}
+\contentsline {subsection}{\numberline {10.9.2}2}{122}{subsection.10.9.2}
+\contentsline {subsection}{\numberline {10.9.3}3}{123}{subsection.10.9.3}
+\contentsline {subsection}{\numberline {10.9.4}4}{123}{subsection.10.9.4}
+\contentsline {subsection}{\numberline {10.9.5}5}{123}{subsection.10.9.5}
+\contentsline {subsection}{\numberline {10.9.6}6}{123}{subsection.10.9.6}
+\contentsline {subsection}{\numberline {10.9.7}7}{123}{subsection.10.9.7}
 \contentsline {chapter}{\numberline {11}Simulation}{125}{chapter.11}
 \contentsline {section}{\numberline {11.1}Where are we? Where are we headed?}{125}{section.11.1}
 \contentsline {section}{\numberline {11.2}Preview!}{125}{section.11.2}
@@ -173,10 +179,10 @@
 \contentsline {subsection}{\numberline {12.4.1}command-line commands}{132}{subsection.12.4.1}
 \contentsline {subsection}{\numberline {12.4.2}running things via command-line}{134}{subsection.12.4.2}
 \contentsline {subsection}{\numberline {12.4.3}why do command-line?}{134}{subsection.12.4.3}
-\contentsline {section}{\numberline {12.5}Markdown}{135}{section.12.5}
+\contentsline {section}{\numberline {12.5}Markdown}{134}{section.12.5}
 \contentsline {subsection}{\numberline {12.5.1}markdown commands}{135}{subsection.12.5.1}
 \contentsline {subsection}{\numberline {12.5.2}your own markdown}{135}{subsection.12.5.2}
-\contentsline {subsection}{\numberline {12.5.3}A note on plain-text editors}{136}{subsection.12.5.3}
+\contentsline {subsection}{\numberline {12.5.3}A note on plain-text editors}{135}{subsection.12.5.3}
 \contentsline {section}{\numberline {12.6}LaTeX}{136}{section.12.6}
 \contentsline {subsection}{\numberline {12.6.1}compile your first LaTeX document.}{136}{subsection.12.6.1}
 \contentsline {subsection}{\numberline {12.6.2}main LaTeX commands}{136}{subsection.12.6.2}
@@ -185,10 +191,10 @@
 \contentsline {subsection}{\numberline {12.7.1}what is a \texttt {.bib} file?}{137}{subsection.12.7.1}
 \contentsline {subsection}{\numberline {12.7.2}what does LaTeX do with .bib files?}{138}{subsection.12.7.2}
 \contentsline {subsection}{\numberline {12.7.3}stocking up on your .bib files}{138}{subsection.12.7.3}
-\contentsline {section}{\numberline {12.8}git}{139}{section.12.8}
+\contentsline {section}{\numberline {12.8}git}{138}{section.12.8}
 \contentsline {subsection}{\numberline {12.8.1}why version control?}{139}{subsection.12.8.1}
 \contentsline {subsection}{\numberline {12.8.2}open-source code at your fingertips}{139}{subsection.12.8.2}
 \contentsline {subsection}{\numberline {12.8.3}commands in git}{139}{subsection.12.8.3}
-\contentsline {subsection}{\numberline {12.8.4}is git worth it?}{140}{subsection.12.8.4}
+\contentsline {subsection}{\numberline {12.8.4}is git worth it?}{139}{subsection.12.8.4}
 \contentsline {section}{\numberline {12.9}Concluding PreFresher}{140}{section.12.9}
 \contentsline {subsection}{\numberline {12.9.1}please tell us how we can improve the PreFresher}{140}{subsection.12.9.1}

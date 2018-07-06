@@ -25,7 +25,6 @@
 \usepackage{hyperref}
 \hypersetup{unicode=true,
             pdftitle={Math Prefresher for Political Scientists},
-            pdfauthor={Shiro Kuriwaki and Yon Soo Park},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
@@ -116,15 +115,15 @@
 }
 
 \setlength{\droptitle}{-2em}
+
   \title{Math Prefresher for Political Scientists}
-  \pretitle{\vspace{\droptitle}\centering\huge}
+    \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
-  \author{Shiro Kuriwaki and Yon Soo Park}
-  \preauthor{\centering\large\emph}
-  \postauthor{\par}
-  \predate{\centering\large\emph}
+    \author{}
+    \preauthor{}\postauthor{}
+      \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2018-06-28}
+    \date{2018-07-06}
 
 \usepackage{booktabs}
 
@@ -184,6 +183,11 @@
 \chapter*{About this Booklet}\label{about-this-booklet}
 \addcontentsline{toc}{chapter}{About this Booklet}
 
+The Prefresher is held each in the Gov department. See our website
+\url{https://projects.iq.harvard.edu/prefresher}. The 2018 Prefresher
+Instructors are Shiro Kuriwaki and Yon Soo Park, and the faculty sponsor
+is Gary King.
+
 The documents in this booklet are the product of generations of Math
 (P)refresher Instructors: Curt Signorino 1996-1997; Ken Scheve
 1997-1998; Eric Dickson 1998-2000; Orit Kedar 1999; James Fowler
@@ -197,11 +201,65 @@ Strezhnev 2014-2015; Mayya Komisarchik 2015-2016; Connor Jerzak
 
 \chapter{Pre-PreFresher Exercises}\label{pre-prefresher-exercises}
 
-\section{Expressions}\label{expressions}
-
 \section{Linear Algebra}\label{linear-algebra}
 
+\section{Operations}\label{operations}
+
+Simplify the following
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\sum^3_{i = 1} i\)
+\item
+  \(\sum^5_{k = 1}(3k + 7)\)
+\item
+  \(\sum^3_{i= 1} 3k + i + 7\)
+\end{enumerate}
+
+Simplify the following
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(4^2\)
+\item
+  \(4^2 2^3\)
+\item
+  \(\log_{10}100\)
+\item
+  \(\log_{2}4\)
+\item
+  \(\log e\), where \(\log\) is the natural log (alsowritten as \(\ln\))
+  -- a log with base \(e\), and \(e\) is Euler's constant
+\item
+  \(e^a e^b e^c\), where \(a, b, c\) are each constants
+\item
+  \(\log 0\)
+\item
+  \(e^0\)
+\item
+  \(e^1\)
+\item
+  \(\log e^2\)
+\end{enumerate}
+
 \section{Limits}\label{limits}
+
+Find the limit of the following.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\lim_{x \to 2} (x - 1)\)
+\item
+  \(\lim_{x \to 2} \frac{(x - 2) (x - 1)}{(x - 2)}\)
+\item
+  \(\lim_{x \to 2}\frac{x^2 - 3x + 2}{x- 2}\)
+\end{enumerate}
 
 \section{Calculus}\label{calculus}
 
@@ -982,21 +1040,6 @@ Calculate its determinant.
   Since \(|{\bf A}|\ne 0\), we conclude that \({\bf A}\) has an inverse.
 \end{enumerate}
 
-\textbf{Determinant of Triangular or Diagonal Matrices}: For any
-upper-triangular, lower-triangular, or diagonal matrix, the determinant
-is just the product of the diagonal terms.
-
-Example: Suppose we have the following square matrix in row echelon form
-(i.e., upper triangular)
-\[{\bf R} =\begin{pmatrix} r_{11}&r_{12}&r_{13}\\
-            0&r_{22}&r_{23}\\
-            0&     0&r_{33} \end{pmatrix}\]
-
-Then
-\[|{\bf R}| = r_{11} \begin{vmatrix} r_{22}&r_{23}\\ 0&r_{33} \end{vmatrix} = r_{11}r_{22}r_{33}\]
-
-\textbf{Properties of Determinants}:
-
 \begin{enumerate}
         \item $|{\bf A}|=|{\bf A}^T|$\\
         \item \parbox[t]{2.7in}{If ${\bf B}$ results from ${\bf A}$ by interchanging two rows, then $|{\bf B}|=-|{\bf A}|$.}\
@@ -1044,75 +1087,6 @@ determinant of a \(2 \times 2\) matrix \textbf{A}
             d & -b\\
             -c & a\\
         \end{pmatrix}\]
-
-\section{Inverse of Larger Matrices}\label{inverse-of-larger-matrices}
-
-\textbf{Cofactors and Adjoint Matrices}:
-
-First define the \((i,j)\)th \textbf{cofactor} \(C_{ij}\) of \({\bf A}\)
-as \((-1)^{i+j}M_{ij}\). Recall that \(M_{ij}\) is the minor of
-\textbf{A}, defined as the determinant of the matrix that results from
-removing row \(i\) and column \(j\) from \textbf{A}.
-
-Then define the \textbf{adjoint} of \({\bf A}\) as the \(n\times n\)
-matrix whose \((i,j)\)th entry is \(C_{ji}\) (notice the switch in
-indices!). In other words, adj(\({\bf A}\)) is the transpose of the
-cofactor matrix of \({\bf A}\).
-
-Then the inverse of \({\bf A}\) is defined as the reciprocal of the
-determinant of \textbf{A} times its adjoint, given by the formula
-\[{\bf A}^{-1}=\frac{1}{|{\bf A}|}\mbox{adj\,}{\bf A}= 
-        \begin{pmatrix}
-            \frac{C_{11}}{|{\bf A}|}&\frac{C_{21}}{|{\bf A}|}&\cdots&\frac{C_{n1}}{|{\bf A}|}\\[6pt]
-            \frac{C_{12}}{|{\bf A}|}&\frac{C_{22}}{|{\bf A}|}&\cdots&\frac{C_{n2}}{|{\bf A}|}\\[6pt]
-            \vdots     &\vdots     &\ddots&\vdots \\[6pt]
-            \frac{C_{1n}}{|{\bf A}|}&\frac{C_{2n}}{|{\bf A}|}&\cdots&\frac{C_{nn}}{|{\bf A}|}
-        \end{pmatrix}\]
-
-Exercises:
-
-Let \({\bf A}=\begin{pmatrix} 5&1&3\\0&2&3\\5&5&1 \end{pmatrix}\)
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Find the determinant of \textbf{A}.
-
-  \begin{eqnarray*}
-              \det{\bf A} &=& \phantom{5\cdot(2\cdot 1 - 3\cdot 5) - 1\cdot(0\cdot 1 - 3\cdot 5) + 3\cdot(2\cdot 5 - 0\cdot 5)}\\
-              &=& \phantom{5\cdot(-13) - (-15) + 3\cdot(-10)}\\
-              &=& \phantom{-65 + 15 - 30}\\
-              &=& \phantom{-80}
-          \end{eqnarray*}
-\item
-  Find the adjoint matrix of \textbf{A}.
-\end{enumerate}
-
-adj(\{\bf A\}) = \phantom{$\begin{pmatrix}
-                -13 & 14 & -3\\
-                15 & -10 & -15\\
-                -10 & -20 & 10\\
-            \end{pmatrix}$}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{2}
-\tightlist
-\item
-  Find the inverse of \{\bf A\}.
-\end{enumerate}
-
-\({\bf A}^{-1}\) = \phantom{$\begin{pmatrix}
-                13/80 & -7/40 & 3/80\\
-                -3/16 & 1/8 & 3/16\\
-                1/8 & 1/4 & -1/8\\
-            \end{pmatrix}
-            = \begin{pmatrix}
-                0.1625 & -0.175 & 0.0375\\
-                -0.1875 & 0.125 & 0.1875\\
-                0.125 & 0.25 & -0.125\\
-            \end{pmatrix}$}
 
 \chapter{Functions and Notation}\label{functions-and-notation}
 
@@ -1265,14 +1239,7 @@ The degree of a polynomial is the highest degree of its monomial terms.
 Also, it's often a good idea to write polynomials with terms in
 decreasing degree.
 
-\textbf{Rational Functions}: ratio of two polynomials.
-
-Examples: \(y=\frac{x}{2}\), \(y=\frac{x^2+1}{x^2-2x+1}\)
-
 \textbf{Exponential Functions}: Example: \(y=2^x\)
-
-\textbf{Trigonometric Functions}: Examples: \(y=\cos(x)\),
-\(y=3\sin(4x)\)
 
 \begin{comment}
     \parbox[c]{4.75in}{{\bf Linear}: polynomial of degree 1.\\
@@ -6134,7 +6101,7 @@ whereas --- in a matrix --- all columns must be of the same type
 
 \begin{verbatim}
 ##    user  system elapsed 
-##   0.387   0.004   0.561
+##   0.352   0.005   0.371
 \end{verbatim}
 
 \begin{Shaded}
@@ -6145,7 +6112,7 @@ whereas --- in a matrix --- all columns must be of the same type
 
 \begin{verbatim}
 ##    user  system elapsed 
-##   4.487   0.020   7.296
+##   3.675   0.048   3.909
 \end{verbatim}
 
 \begin{Shaded}
@@ -7048,12 +7015,12 @@ Up till now, you should have covered:
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]       [,2]        [,3]      [,4]       [,5]
-## [1,] 19.8598310 -0.7616485  15.5305382 -4.500862  -8.074072
-## [2,] -0.7616485  2.0940468   0.7814756 -1.920251  -2.560791
-## [3,] 15.5305382  0.7814756  16.0215931 -9.500438 -12.995103
-## [4,] -4.5008620 -1.9202510  -9.5004384 11.190818  13.718656
-## [5,] -8.0740724 -2.5607908 -12.9951028 13.718656  17.653511
+##            [,1]       [,2]       [,3]       [,4]      [,5]
+## [1,]  467.77335   66.02989 -103.84497  240.63806 -644.3458
+## [2,]   66.02989   20.17639  -22.22397   26.37366 -118.5975
+## [3,] -103.84497  -22.22397   33.06948  -41.85809  170.7060
+## [4,]  240.63806   26.37366  -41.85809  137.43425 -300.9630
+## [5,] -644.34577 -118.59754  170.70601 -300.96303  972.9864
 \end{verbatim}
 
 \begin{Shaded}
@@ -7469,73 +7436,30 @@ yourself at the end!
 \StringTok{          many pains he suffered, heartsick on the open sea,}
 \StringTok{          fighting to save his life and bring his comrades home."}
 \NormalTok{DocVec <-}\StringTok{ }\KeywordTok{c}\NormalTok{(doc1, doc2, doc3)}
-
-\KeywordTok{library}\NormalTok{(tm)}
-\NormalTok{DocCorpus <-}\StringTok{ }\KeywordTok{Corpus}\NormalTok{(}\KeywordTok{VectorSource}\NormalTok{(DocVec) ) }
-\NormalTok{DTM1 <-}\StringTok{  }\KeywordTok{inspect}\NormalTok{( }\KeywordTok{DocumentTermMatrix}\NormalTok{(DocCorpus) ) }
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## <<DocumentTermMatrix (documents: 3, terms: 59)>>
-## Non-/sparse entries: 64/113
-## Sparsity           : 64%
-## Maximal term length: 9
-## Weighting          : term frequency (tf)
-## Sample             :
-##     Terms
-## Docs achaeans achilles and born his many rage souls that the
-##    1        1        1   0    0   0    1    2     2    1   3
-##    2        0        0   1    2   0    0    0     0    1   1
-##    3        0        0   2    0   2    2    0     0    0   1
-\end{verbatim}
+Now we can use utility functions in the \texttt{tm} package:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{#Consider the effect of different "pre-processing" choices on the resulting DTM!}
+\KeywordTok{library}\NormalTok{(tm)}
+\NormalTok{DocCorpus <-}\StringTok{ }\KeywordTok{Corpus}\NormalTok{(}\KeywordTok{VectorSource}\NormalTok{(DocVec) ) }
+\NormalTok{DTM1 <-}\StringTok{  }\KeywordTok{inspect}\NormalTok{( }\KeywordTok{DocumentTermMatrix}\NormalTok{(DocCorpus) ) }
+
+\CommentTok{# Consider the effect of different "pre-processing" choices on the resulting DTM!}
 \NormalTok{DocVec <-}\StringTok{ }\KeywordTok{tolower}\NormalTok{(DocVec)}
 \NormalTok{DocVec <-}\StringTok{ }\KeywordTok{gsub}\NormalTok{(DocVec, }\DataTypeTok{pattern =}\StringTok{"[[:punct:]]"}\NormalTok{, }\DataTypeTok{replace =} \StringTok{" "}\NormalTok{)}
 \NormalTok{DocVec <-}\StringTok{ }\KeywordTok{gsub}\NormalTok{(DocVec, }\DataTypeTok{pattern =}\StringTok{"[[:cntrl:]]"}\NormalTok{, }\DataTypeTok{replace =} \StringTok{" "}\NormalTok{)}
 \NormalTok{DocCorpus <-}\StringTok{ }\KeywordTok{Corpus}\NormalTok{(}\KeywordTok{VectorSource}\NormalTok{(DocVec) ) }
-\NormalTok{DTM2 <-}\StringTok{  }\KeywordTok{inspect}\NormalTok{( }\KeywordTok{DocumentTermMatrix}\NormalTok{(DocCorpus, }\DataTypeTok{control =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{stopwords =}\NormalTok{ T, }
-                                                               \DataTypeTok{stemming =}\NormalTok{ T)) ) }
+\NormalTok{DTM2 <-}\StringTok{  }\KeywordTok{inspect}\NormalTok{(}\KeywordTok{DocumentTermMatrix}\NormalTok{(DocCorpus, }
+                                    \DataTypeTok{control =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{stopwords =} \OtherTok{TRUE}\NormalTok{,  }\DataTypeTok{stemming =} \OtherTok{TRUE}\NormalTok{))) }
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## <<DocumentTermMatrix (documents: 3, terms: 48)>>
-## Non-/sparse entries: 49/95
-## Sparsity           : 66%
-## Maximal term length: 9
-## Weighting          : term frequency (tf)
-## Sample             :
-##     Terms
-## Docs achaean achill aliv born brave bring citi mani rage soul
-##    1       1      1    0    0     0     0    0    1    2    2
-##    2       0      0    1    2     1     0    0    0    0    0
-##    3       0      0    0    0     0     1    1    2    0    0
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{#NOTE: stemming is the process of reducing inflected/derived words to their word stem or base (e.g. stemming, stemmed, stemmer --> stem*)}
-\KeywordTok{print}\NormalTok{(}\KeywordTok{dim}\NormalTok{(DTM1))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1]  3 10
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{print}\NormalTok{(}\KeywordTok{dim}\NormalTok{(DTM2))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1]  3 10
-\end{verbatim}
+Stemming is the process of reducing inflected/derived words to their
+word stem or base (e.g.~stemming, stemmed, stemmer --\textgreater{}
+stem*)
 
 \section{Important packages for parsing
 text}\label{important-packages-for-parsing-text}
@@ -7555,9 +7479,12 @@ text}\label{important-packages-for-parsing-text}
 \section{Exercises to check your
 understanding!}\label{exercises-to-check-your-understanding}
 
+\subsection{1}\label{section}
+
+Figure out why this command does what it does:
+
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{#1. Figure out why this command does what it does: }
 \KeywordTok{sprintf}\NormalTok{(}\StringTok{"%s of spontaneous events are %s in the mind. }
 \StringTok{        Really, %.2f?"}\NormalTok{, }
         \StringTok{"15.03322123"}\NormalTok{, }\StringTok{"puzzles"}\NormalTok{, }\FloatTok{15.03322123}\NormalTok{)}
@@ -7568,14 +7495,25 @@ understanding!}\label{exercises-to-check-your-understanding}
 ## [1] "15.03322123 of spontaneous events are puzzles in the mind. \n        Really, 15.03?"
 \end{verbatim}
 
+\subsection{2}\label{section-1}
+
+Why does this command not work?
+
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{#2. Why does this command not work? }
 \KeywordTok{try}\NormalTok{(}\KeywordTok{sprintf}\NormalTok{(}\StringTok{"%s of spontaneous events are %s in the mind. Really, %.2f?"}\NormalTok{,}
             \StringTok{"15.03322123"}\NormalTok{, }\StringTok{"puzzles"}\NormalTok{, }\StringTok{"15.03322123"}\NormalTok{ ), T)  }
+\end{Highlighting}
+\end{Shaded}
 
-\CommentTok{#3. Using ?grepl, these materials, Google, and your friends, }
-\CommentTok{#describe what the following command does. What changes when value = F?}
+\subsection{3}\label{section-2}
+
+Using \texttt{grepl}, these materials, Google, and your friends,
+describe what the following command does. What changes when
+\texttt{value\ =\ FALSE}?
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \KeywordTok{grep}\NormalTok{(}\StringTok{'}\CharTok{\textbackslash{}'}\StringTok{'}\NormalTok{,}\KeywordTok{c}\NormalTok{(}\StringTok{"To dare is to lose one's footing momentarily."}\NormalTok{, }
             \StringTok{"To not dare is to lose oneself."}\NormalTok{), }\DataTypeTok{value =} \OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
@@ -7585,35 +7523,73 @@ understanding!}\label{exercises-to-check-your-understanding}
 ## [1] "To dare is to lose one's footing momentarily."
 \end{verbatim}
 
+\subsection{4}\label{section-3}
+
+Write code to automatically extract the file names that DO end start
+with presidential and DO end in .pdf
+
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{#3. Write code to automatically extract the file names that }
-   \CommentTok{#DO end start with presidential and DO end in .pdf}
-
 \NormalTok{my_string <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"legislative1_term1.png"}\NormalTok{, }\StringTok{"legislative1_term1.pdf"}\NormalTok{,}
                \StringTok{"legislative1_term2.png"}\NormalTok{, }\StringTok{"legislative1_term2.pdf"}\NormalTok{,}
                \StringTok{"term2_presidential1.png"}\NormalTok{, }
                \StringTok{"presidential1.png"}\NormalTok{, }\StringTok{"presidential1_term2.png"}\NormalTok{,}
                \StringTok{"presidential1_term1.pdf"}\NormalTok{, }\StringTok{"presidential1_term2.pdf"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
-\CommentTok{#4. Using the same string as in the above, write code to automatically }
-    \CommentTok{#extract the file names that end in .pdf and that contain the text "term2". }
+\subsection{5}\label{section-4}
 
-\CommentTok{#5. Combine these two strings into a single string separated by a "-". }
-\CommentTok{#Desired output: "The carbonyl group in aldehydes and ketones is an oxygen analog of the carbon–carbon double bond."}
+Using the same string as in the above, write code to automatically
+extract the file names that end in .pdf and that contain the text
+\texttt{term2}.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Your code here}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{6}\label{section-5}
+
+Combine these two strings into a single string separated by a ``-''.
+Desired output: ``The carbonyl group in aldehydes and ketones is an
+oxygen analog of the carbon--carbon double bond.''
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{string1 <-}\StringTok{ "The carbonyl group in aldehydes and ketones }
 \StringTok{          is an oxygen analog of the carbon"} 
-\NormalTok{string2 <-}\StringTok{ "–carbon double bond."}
+\NormalTok{string2 <-}\StringTok{  "–carbon double bond."}
+\end{Highlighting}
+\end{Shaded}
 
-\CommentTok{#6. Challenge problem! Download this webpage }
-\CommentTok{#(https://en.wikipedia.org/wiki/Odyssey)}
-\CommentTok{#Read the html file into your R workspace. }
-\CommentTok{#Remove all of the htlm tags (you may need Google to help with this one). }
-\CommentTok{#Remove all punctuation. }
-\CommentTok{#Make all the characters lower case. }
-\CommentTok{#Do this same process with this webpage (https://en.wikipedia.org/wiki/Iliad). }
-\CommentTok{#Form a document term matrix from the two resulting text strings. }
+\subsection{7}\label{section-6}
+
+Challenge problem! Download this webpage
+\url{https://en.wikipedia.org/wiki/Odyssey}
+
+\begin{itemize}
+\tightlist
+\item
+  Read the html file into your R workspace.
+\item
+  Remove all of the htlm tags (you may need Google to help with this
+  one).
+\item
+  Remove all punctuation.
+\item
+  Make all the characters lower case.
+\item
+  Do this same process with this webpage
+  (\url{https://en.wikipedia.org/wiki/Iliad}).
+\item
+  Form a document term matrix from the two resulting text strings.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Your code here}
 \end{Highlighting}
 \end{Shaded}
 
@@ -7735,7 +7711,7 @@ randomly sample a sample of length \texttt{size}. For this, use the
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 3 1 6 8 7
+## [1]  7  8  9 10  5
 \end{verbatim}
 
 There are two subtypes of sampling -- with and without replacement.
@@ -7767,7 +7743,7 @@ element of \texttt{x} is chosen, it will not be considered again:
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  6  7  8  9 10  5  4  3  1  2
+##  [1]  6  5 10  9  7  4  2  8  1  3
 \end{verbatim}
 
 Sampling with repalcement (\texttt{replace\ =\ TRUE}) means that even if
@@ -7781,7 +7757,7 @@ be chosen again.
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  3  2  9  7  3  9  5 10  7  7
+##  [1] 4 4 9 9 5 4 3 1 2 5
 \end{verbatim}
 
 It follows than that you cannot sample without replacement a sample that
@@ -7812,8 +7788,8 @@ likely to happen)
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Tail" "Tail" "Head" "Head" "Head" "Head" "Head" "Tail" "Head" "Tail"
-## [11] "Tail" "Head" "Head" "Tail" "Tail" "Head" "Tail" "Head" "Head" "Tail"
+##  [1] "Head" "Head" "Tail" "Head" "Tail" "Head" "Head" "Tail" "Tail" "Head"
+## [11] "Tail" "Tail" "Head" "Head" "Head" "Head" "Head" "Head" "Head" "Tail"
 \end{verbatim}
 
 But this simulates 20 biased coin tosses, where say the probability of
@@ -7826,8 +7802,8 @@ Tails is 4 times more likely than the number of Heads
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Tail" "Tail" "Tail" "Tail" "Tail" "Tail" "Tail" "Tail" "Tail" "Head"
-## [11] "Tail" "Tail" "Tail" "Tail" "Tail" "Tail" "Tail" "Tail" "Tail" "Head"
+##  [1] "Head" "Tail" "Tail" "Tail" "Tail" "Tail" "Head" "Tail" "Tail" "Tail"
+## [11] "Tail" "Tail" "Head" "Tail" "Head" "Tail" "Tail" "Head" "Tail" "Tail"
 \end{verbatim}
 
 \section{\texorpdfstring{\texttt{rbinom()}}{rbinom()}}\label{rbinom}
@@ -7848,7 +7824,7 @@ fair coin 100 times.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 52
+## [1] 48
 \end{verbatim}
 
 Now imagine this I wanted to do this experiment 10 times, which would
@@ -7862,7 +7838,7 @@ in one line
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 46 50 48 56 46 43 44 52 54 56
+##  [1] 57 46 49 61 55 54 55 47 50 45
 \end{verbatim}
 
 \section{\texorpdfstring{\texttt{runif()}}{runif()}}\label{runif}
@@ -7882,7 +7858,7 @@ infinite amounts (size \texttt{n}) of noise that is a essentially random
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.7498098 0.2865145 0.6986467 0.6675015 0.5820730
+## [1] 0.13080413 0.85462899 0.02815262 0.42524095 0.40160461
 \end{verbatim}
 
 \section{\texorpdfstring{\texttt{rnorm()}}{rnorm()}}\label{rnorm}
@@ -7898,7 +7874,7 @@ It runs the same way as \texttt{runif}
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  1.68526197  0.37065693  0.04140107  1.70359210 -0.21014906
+## [1]  0.2619920  0.4180800  0.8148500 -0.9994268 -0.9693139
 \end{verbatim}
 
 To better visualize the difference between the output of \texttt{runif}
@@ -7915,7 +7891,7 @@ and \texttt{rnorm}, let's generate lots of each and plot a histogram.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-148-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-155-1.pdf}
 
 \section{\texorpdfstring{\texttt{set.seed()}}{set.seed()}}\label{set.seed}
 
@@ -8259,10 +8235,7 @@ a list of all files in the directory that you are currently in.
 ## prefresher.aux
 ## prefresher.bbl
 ## prefresher.blg
-## prefresher.log
 ## prefresher.out
-## prefresher.pdf
-## prefresher.tex
 ## prefresher.toc
 ## prefresher_files
 ## rsconnect
@@ -8325,6 +8298,7 @@ your computer.
 ## PaladinTemp
 ## Pictures
 ## Public
+## Untitled.ipynb
 \end{verbatim}
 
 Using \texttt{..} and \texttt{.} are ``relative'' to where you are
