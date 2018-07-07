@@ -1,1 +1,4 @@
-This is a trial version of Harvard department of Government Math Prefresher Text. It is built from the minimal example of a book based on R Markdown and **bookdown** (https://github.com/rstudio/bookdown).
+The material here comprise the booklet for the Harvard Department of Government Math Prefresher for incoming PhD students.
+
+- More about the Prefresher: https://projects.iq.harvard.edu/prefresher
+- View this book on a browser: https://bookdown.org/kuriwaki/prefresher/ 
