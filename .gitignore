@@ -2,6 +2,8 @@
 .Rhistory
 .RData
 .Ruserdata
+_book/
+_bookdown_files/
 _book/*.epub
 _book/*.pdf
 _book/*.html
