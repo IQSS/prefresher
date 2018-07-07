@@ -3,10 +3,11 @@
 .RData
 .Ruserdata
 _book/
-_bookdown_files/
 _book/*.epub
 _book/*.pdf
 _book/*.html
+_bookdown_files/
+rsconnect/
 
 input/Nunn_Wantchekon_AER_2011.dta
 .Rproj.user
