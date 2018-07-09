@@ -5,6 +5,77 @@
 
 ## Linear Algebra
 
+### Vectors
+
+Given that $u = (1,2,3)$, $v = (4,5,6)$, and $c = 2$, Calculate the following:
+
+1. $u + v$
+2. $cv$
+3. $uv$
+
+If you are having trouble with these problems, please review section 2.1 "Working with Vectors" in Chapter 2. 
+
+
+Are the following sets of vectors linearly independent?
+
+
+1. $u = \begin{pmatrix} 1\\ 2\\ 5 \end{pmatrix}$, $b = \begin{pmatrix} 3\\ 7\\ 9 \end{pmatrix}$
+
+
+2. $a = \begin{pmatrix} 2\\ -1\\ 1 \end{pmatrix}$, $b = \begin{pmatrix} 3\\ -4\\ -2 \end{pmatrix}$, $c = \begin{pmatrix} 5\\ -10\\ -8 \end{pmatrix}$
+
+
+If you are having trouble with these problems, please review section 2.2 "Linear Independence" in Chapter 2. 
+
+
+### Matrices
+
+\[{\bf A}=\begin{pmatrix}
+			7 & 5 & 1 \\
+			11 & 9 & 3 \\ 
+			2 & 14 & 21 \\ 
+			4 & 1 & 5
+		\end{pmatrix}\]
+		
+		
+What is the dimensionality of matrix ${\bf A}$?
+
+What is the element $a_{23}$ of ${\bf A}$?
+
+Given that 
+		
+\[{\bf B}=\begin{pmatrix}
+			1 & 2 & 8 \\
+			3 & 9 & 11 \\ 
+			4 & 7 & 5 \\ 
+			5 & 1 & 9
+		\end{pmatrix}\]
+		
+What is ${\bf A}$ + ${\bf B}$?
+
+
+Given that 
+		
+\[{\bf C}=\begin{pmatrix}
+			1 & 2 & 8 \\
+			3 & 9 & 11 \\ 
+			4 & 7 & 5 \\ 
+		\end{pmatrix}\]
+		
+What is ${\bf A}$ + ${\bf C}$?
+
+
+
+Given that 
+
+\[c = 2\]
+
+What is $c$${\bf A}$
+
+If you are having trouble with these problems, please review section 2.3 "Basics of Matrix Algebra" in Chapter 2. 
+
+
+
 ## Operations
 
 
@@ -28,6 +99,7 @@ Simplify the following
 8. $e^0$
 9. $e^1$
 10. $\log e^2$
+
 
 
 ## Limits
