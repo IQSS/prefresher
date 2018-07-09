@@ -53,3 +53,6 @@ For each of the following functions $f(x)$, find the derivative $f'(x)$ or $\fra
 	
 
 ## Probability	
+
+1. If we roll two fair dice, what is the probability that their sum would be 11?
+2. If we roll two fair dice, what is the probability that their sum would be 12?
