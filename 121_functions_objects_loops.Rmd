@@ -1,4 +1,4 @@
-#  Manipulating Vectors and  Matrices
+#  Functions, Objects, Loops
 
 
 
@@ -7,8 +7,11 @@
 Up till now, you should have covered:
 
 * R basic programming
-* Data Import
+* Counting. 
+* Visualization. 
 * Statistical Summaries.
+* Objects and Classes. 
+* Functions.
 
 
 Today we'll cover
@@ -16,40 +19,6 @@ Today we'll cover
 * Matrices in R
 * Manipulating variables 
 * And other `R` tips!
-
-## Basics - Matrices
-
-Matrices are rectangular structures of numbers (they have to be numbers, and they can't be characters).
-
-A cross-tab can be considered a matrix:
-```{r}
-table(cen10$race, cen10$sex)
-```
-
-But a subset of your data -- individual values-- can be considered a matrix too. 
-```{r}
-cen10[1:20, c("year", "age")]
-```
-
-A vector is a special type of matrix with only one column or only one row 
-```{r}
-cen10[1:10, c("age")]
-```
-
-
-
-### data frames
-You can think of data frames maybe as matrices-plus, because a column can take on characters as well as numbers. As we just saw, this is often useful for real data analyses.
-```{r}
-cen10
-```
-
-
-Another way to think about data frames is that it is a type of list. Try the `str()` code below and notice how it is organized in slots. Each slot is a vector. They can be vectors of numbers or characters.
-```{r, eval = FALSE}
-# enter this on your console
-str(cen10)
-```
 
 
 ## Motivation
@@ -78,7 +47,6 @@ nunn_full <- read_dta("./input/Nunn_Wantchekon_AER_2011.dta")
 Nunn and Wantchekon's main dataset has more than 20,000 observations. Each observation is a respondent from the Afrobarometer survey.
 ```{r}
 nunn_full
-vars(nunn_full)
 ```
 
 
