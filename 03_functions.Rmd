@@ -4,6 +4,7 @@
 
 __Topics__
  Dimensionality;
+ heheee;
  Interval Notation for ${\bf R}^1$;
  Neighborhoods: Intervals, Disks, and Balls; Introduction to Functions;
  Domain and Range;
