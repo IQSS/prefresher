@@ -1,28 +1,23 @@
-# Functions, Objects, Loops
-
-
-
-
-
-```{r libraries, message=FALSE, warning=FALSE}
-library(dplyr)
-library(readr)
-library(scales)
-library(forcats)
-library(ggplot2)
-```
-
-```{r}
-cen10 <- read_csv("input/usc2010_001percent.csv", col_types = cols())
-```
-
-
+# Objects, Functions, Loops
 
 
 
 ## What is an object?
 
 Now that we have covered some hands-on ways to use graphics, let's go into some fundamentals of the R language. 
+
+## Setup
+```{r, message=FALSE, warning=FALSE}
+library(dplyr)
+library(readr)
+library(haven)
+library(ggplot2)
+```
+
+
+```{r}
+cen10 <- read_csv("input/usc2010_001percent.csv", col_types = cols())
+```
 
 
 Objects are abstract symbols in which you store data. Here we will create an object from `copy`, and assign `cen10` to it. 
@@ -229,40 +224,6 @@ my_name == my_name2
 ```
 
 
-### matricies
-
-Matrices are rectangular structures of numbers (they have to be numbers, and they can't be characters).
-
-A cross-tab can be considered a matrix:
-```{r}
-table(cen10$race, cen10$sex)
-```
-
-But a subset of your data -- individual values-- can be considered a matrix too. 
-```{r}
-cen10[1:20, c("year", "age")]
-```
-
-A vector is a special type of matrix with only one column or only one row 
-```{r}
-cen10[1:10, c("age")]
-```
-
-
-
-### data frames
-You can think of data frames maybe as matrices-plus, because a column can take on characters as well as numbers. As we just saw, this is often useful for real data analyses.
-```{r}
-cen10
-```
-
-
-Another way to think about data frames is that it is a type of list. Try the `str()` code below and notice how it is organized in slots. Each slot is a vector. They can be vectors of numbers or characters.
-```{r, eval = FALSE}
-# enter this on your console
-str(cen10)
-```
-
 
 ### Extracting variables from lists
 Often you want to inspect one variable of you r dataset. There are multiple ways to do this.
@@ -278,22 +239,10 @@ cen10[, 11]
 ```
 
 
-3. with double-square brackets as in a data frame
-```{r}
-head(cen10[["race"]])
-```
-
-4. and with the dollar-sign `$`
+3. and with the dollar-sign `$`
 ```{r}
 head(cen10$race)
 ```
-
-
-5. in the `dplyr` package, you can `select` multiple variables like this:
-```{r}
-cen10 %>% select(race, state, age)
-```
-
 
 
 ## What is a function?
@@ -396,28 +345,38 @@ library(ggplot2)
 
 In `rstudio.cloud`, we already installed a set of packages for you. But when you start your own R instance, you need to have installed the package at some point. 
 
+## Conditionals
+
+Sometimes, you want to execute a command only under certain conditions.
+
+For example, 
+
+```{r}
+
+```
+
+
+## For-loops
 
 
 ## Review Exercises
 In the time remaining, try the following exercises. Order doesn't matter. 
 
-### Exercise 1: Make your own graphic
-Make a graphic from the census data that tells us something interesting about the U.S. 2010 population.
-```{r}
-# Enter yourself
 
-```
-
-
-### Exercise 2: Counting CVAP
+### Exercise 1: Counting CVAP
 A issue raised in Persily's article is that the full-count U.S. Census does not record  whether the residents are citizens of the United States^[Here is that argument of his again, more recently in the popular press. ["The Mysterious Number of American Citizens". June 2, 2015.  _POLITICO_](http://www.politico.com/magazine/story/2015/06/the-supreme-courts-big-data-problem-118568)]. Instead, this question is asked in a survey, the American Community Survey. The two are fundamentally different exercises: the Census counts everyone by definition, a survey samples its data. Load the 1 percent sample of the 2015 ACS (`acs2015_1percent.csv`, in the `input` folder) and give an estimate of the proportion of a state's ACS respondents that are reportedly U.S. citizens. 
 
 ```{r}
 # Enter yourself
-
+acs<- read_csv("input/acs2015_1percent.csv", col_types = cols())
+set.seed(02138)
+sample_acs <- sample_frac(acs, 0.01)
+colnames(sample_acs)
+unique(sample_acs$citizen)
+mean(sample_acs$citizen != "Not a citizen of the US")
 ```
 
-### Exercise 3: Write your own function
+### Exercise 2: Write your own function
 Write your own function that makes some task of data analysis simpler. Ideally, it would be a function that helps you do either of the previous tasks in fewer lines of code. 
 ```{r}
 # Enter yourself
@@ -426,5 +385,3 @@ Write your own function that makes some task of data analysis simpler. Ideally, 
 
 
 
-## Tell us about this session. 
-This is day 1 and we covered a lot of material. Some of you might have found this completely new; others not so. Please click through this survey before you leave so we can adjust accordingly on the next few days.

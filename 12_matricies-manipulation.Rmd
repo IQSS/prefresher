@@ -13,20 +13,46 @@ Up till now, you should have covered:
 
 Today we'll cover
 
-* Matrices in R
+* Matrices & Dataframes in R
 * Manipulating variables 
 * And other `R` tips!
 
+
 ## Basics - Matrices
+
+## Setup
+```{r, message=FALSE, warning=FALSE}
+library(dplyr)
+library(readr)
+library(haven)
+library(ggplot2)
+```
+
+Let's take a look at Matrices in the context of R
+
+```{r}
+cen10 <- read_csv("input/usc2010_001percent.csv", col_types = cols())
+```
 
 Matrices are rectangular structures of numbers (they have to be numbers, and they can't be characters).
 
 A cross-tab can be considered a matrix:
 ```{r}
 table(cen10$race, cen10$sex)
+
 ```
 
+
+```{r}
+cross_tab <- table(cen10$race, cen10$sex)
+dim(cross_tab)
+cross_tab[6,2]
+```
+
+
 But a subset of your data -- individual values-- can be considered a matrix too. 
+
+
 ```{r}
 cen10[1:20, c("year", "age")]
 ```
@@ -34,6 +60,8 @@ cen10[1:20, c("year", "age")]
 A vector is a special type of matrix with only one column or only one row 
 ```{r}
 cen10[1:10, c("age")]
+cen10[1,]
+
 ```
 
 
@@ -51,21 +79,12 @@ Another way to think about data frames is that it is a type of list. Try the `st
 str(cen10)
 ```
 
-
 ## Motivation
 
 [Nunn and Wantchekon (2011)](https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf) --  "The Slave Trade and the Origins of Mistrust in Africa"^[[Nunn, Nathan, and Leonard Wantchekon. 2011. “The Slave Trade and the Origins of Mistrust in Africa.” American Economic Review 101(7): 3221–52.](https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf)] --  argues that across African countries, the distrust of co-ethnics fueled by the slave trade has had long-lasting effects on modern day trust in these territories. They argued that the slave trade created distrust in these societies in part because as some African groups were employed by European traders to capture their neighbors and bring them to the slave ships.
 
 Nunn and Wantchekon use a variety of statistical tools to make their case (adding controls, ordered logit, instrumental variables, falsification tests, causal mechanisms), many of which will be covered in future courses. In this module we will only touch on their first set of analysis that use Ordinary Least Squares (OLS). OLS is likely the most common application of linear algebra in the social sciences. We will cover some linear algebra, matrix manipulation, and vector manipulation from this data. 
 
-
-## Setup
-```{r, message=FALSE, warning=FALSE}
-library(dplyr)
-library(readr)
-library(haven)
-library(ggplot2)
-```
 
 
 ## Read Data
@@ -77,9 +96,10 @@ nunn_full <- read_dta("./input/Nunn_Wantchekon_AER_2011.dta")
 
 Nunn and Wantchekon's main dataset has more than 20,000 observations. Each observation is a respondent from the Afrobarometer survey.
 ```{r}
-nunn_full
-vars(nunn_full)
+head(nunn_full)
+names(nunn_full)
 ```
+
 
 
 First, let's consider a small subset of this dataset. 
@@ -130,32 +150,35 @@ Xdf <- as.data.frame(Xmat)
 
 system.time(replicate(50000, colMeans(Xmat)))
 system.time(replicate(50000, colMeans(Xdf)))
-100 * (0.3 - 3.0)/3.0
+
 ```
 
 ## Handling matricies in `R`
 
 
+You can easily transpose a matrix
 ```{r}
+X
 t(X)
 ```
 
 
-
+What are the values of all rows in the first column? 
 ```{r}
 X[, 1]
 ```
 
-
+What are all the values of "exports"? (i.e. return the whole "exports" column)
 ```{r}
 X[, "exports"]
 ```
 
-
+What is the first observation (i.e. first row)?
 ```{r}
 X[1, ]
 ```
 
+What is the value of the first variable of the first observation?
 ```{r}
 X[1, 1]
 ```
@@ -293,37 +316,8 @@ tapply(nunn_full$trust_neighbors, INDEX = nunn_full$isocode, FUN = function (x) 
 
 
 
-## Extension and Exercises
 
-#### Exercise 1
-First start from visualization. In ggplot, using the full dataset, make a "facetted" scatterplot where
-
-* each facet is a (respondent's current) country,
-* the x-axis is the natural log of (one plus a respondent's ethnicity's slave exports divided by the land area), and 
-* the y-axis is the respondent's level of mistrust (with the numerical coding preserved). 
-
-You should define a new column in the dataset for the x-axis, calling it something like `ln_exports_area`.
-
-```{r}
-## Enter yourself or see your_script.R
-
-```
-
-
-#### Exercise 2: Fitted vs. Observed values
-Make a scatterplot with:
-
-* x axis: The linear combination of the intercept and `log_export_area` (a n by 2 matrix) with the coefficient matrix given above (`matrix(c(1.62, -0.00068))`). 
-* y axis: The observed level of mistrust for each respondent. 
-
-Then add a facetting layer to show a scatterplot by country. 
-
-```{r}
-## Enter yourself
-```
-
-
-#### Exercise 3: Matrix powers
+#### Exercise 1: Matrix powers
 Let
 \[\mathbf{A} = \left[\begin{array}
 {rrr}
@@ -343,5 +337,5 @@ Use R to write a loop that will consecutively multiply $A$ to itself. What is th
 Note that R notation of matrices is different from the math notation. Simply trying `X^n` where `X` is a matrix will only take the power of each element to `n`. Instead, this problem asks you to perform matrix multiplication.
 
 
-#### Exercise 4: Challenge problem!
+#### Exercise 2: Challenge problem!
 Write an `R` function that takes two inputs (A and B). A and B can both either be matrices or data frames. Write code that checks to make sure whether A and B are either matrices or dateframe. Print an error message if one of them is not a matrix or data frame. Convert any data frames to matrices. Check whether the A and B have compatible dimensions. If they don't, print an error message. If they do, perform the matrix multiplication A * B.
