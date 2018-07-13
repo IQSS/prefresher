@@ -19,7 +19,7 @@ __Topics__
 Much of the material and examples for this lecture are taken from Simon \& Blume (1994) \emph{Mathematics for Economists}, Boyce \& Diprima (1988) \emph{Calculus}, and Protter \& Morrey (1991) \emph{A First Course in Real Analysis}
 
 
-## Summation and Product Operators {#summation}
+## Summation Operators $\sum$ and $\prod$  {#summation}
 
 Addition (+), Substraction (-), multiplication and division are basic operations of arithmetic -- combining numbers. In statistics and calculus, we want to add a \emph{sequence} of numbers that can be expressed as a pattern without needing to write down all its components. For example, how do we express the sum of all numbers from 1 to 100?
 
@@ -148,7 +148,7 @@ __Exponential Functions__: Example: $y=2^x$
 		\parbox{1in}{\,  {\includegraphics[width=.9in, angle = 270]{nonlin.eps}}}
 \end{comment}
 
-## $\log$, $\ln$, and $\exp$
+## $\log$  and $\exp$ {#logexponents}
 
 __Relationship of logarithmic and exponential functions__: 
 		$$y=\log_a(x) \iff a^y=x$$
