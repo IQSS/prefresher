@@ -7,7 +7,7 @@ Module originally written by Shiro Kuriwaki
 
 Up till now, you should have covered:
 
-* The tutorial assignment at <http://tryr.codeschool.com/>
+* The R Visualization and Programming primers at  <https://rstudio.cloud/primers/>
 
 
 Today we'll cover:
