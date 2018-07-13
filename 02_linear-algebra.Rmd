@@ -1,4 +1,4 @@
-# Linear Algebra
+# Linear Algebra {#linearalgebra}
 
 Topics:
 $\bullet$ Working with Vectors 
@@ -16,7 +16,7 @@ $\bullet$ Inverse of Larger Matrices
 Much of the material and examples for this lecture are taken from Gill (2006) \emph{Essential Mathematics for Political and Social Scientists}, Simon \& Blume (1994) \emph{Mathematics for Economists} and Kolman (1993) \emph{Introductory Linear Algebra with Applications}.
 
 
-## Working with Vectors
+## Working with Vectors {#vectors}
 __Vector__: A vector in $n$-space is an ordered list of $n$ numbers.  These numbers can be represented as either a row vector or a column vector: 
 		$$ {\bf v} \begin{pmatrix} v_1 & v_2 & \dots & v_n\end{pmatrix} , {\bf v} = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}$$ 
 		
@@ -37,7 +37,7 @@ __Vector Norm__: The norm of a vector is a measure of its length.  There are man
 		$$ ||{\bf v}|| = \sqrt{{\bf v}\cdot{\bf v}} = \sqrt{ v_1v_1 + v_2v_2 + \cdots + v_nv_n}$$
 
 
-## Linear Independence
+## Linear Independence {#linearindependence}
 
 __Linear combinations__: The vector ${\bf u}$ is a linear combination of the vectors ${\bf v}_1, {\bf v}_2,  \cdots , {\bf v}_k$ if
 		$${\bf u} = c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k$$
@@ -61,7 +61,7 @@ Exercises: Are the following sets of vectors linearly independent?
 
 
 
-## Basics of Matrix Algebra
+## Basics of Matrix Algebra {#matrixbasics}
 
 __Matrix__: A matrix is an array of real numbers arranged in $m$ rows by $n$ columns. The dimensionality of the matrix is defined as the number of rows by the number of columns, $m x n$.
 

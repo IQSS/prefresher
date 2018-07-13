@@ -1,6 +1,6 @@
 
 
-# Functions and Notation
+# Functions and Operations
 
 __Topics__
  Dimensionality;
@@ -19,48 +19,48 @@ __Topics__
 Much of the material and examples for this lecture are taken from Simon \& Blume (1994) \emph{Mathematics for Economists}, Boyce \& Diprima (1988) \emph{Calculus}, and Protter \& Morrey (1991) \emph{A First Course in Real Analysis}
 
 
-## Dimensionality
+## Summation Operators $\sum$ and $\prod$  {#summation}
+
+Addition (+), Substraction (-), multiplication and division are basic operations of arithmetic -- combining numbers. In statistics and calculus, we want to add a \emph{sequence} of numbers that can be expressed as a pattern without needing to write down all its components. For example, how do we express the sum of all numbers from 1 to 100?
+
+For this we use the summation operator $\sum$ and the product operator $\prod$. 
+
+__Summation:__
+
+$$\sum\limits_{i=1}^n x_i = x_1+x_2+x_3+\cdots+x_n$$
+
+\begin{itemize}
+\item $\sum\limits_{i=1}^n c x_i = c \sum\limits_{i=1}^n x_i $
+\item $\sum\limits_{i=1}^n (x_i + y_i) =  \sum\limits_{i=1}^n x_i + \sum\limits_{i=1}^n y_i $
+\item $\sum\limits_{i=1}^n c = n c $
+\end{itemize}
+
+__Product:__
+
+$$\prod\limits_{i=1}^n x_i = x_1 x_2 x_3 \cdots x_n$$
+
+Properties:
+
+\begin{itemize}
+\item $\prod\limits_{i=1}^n c x_i = c^n \prod\limits_{i=1}^n x_i $
+\item $\prod\limits_{i=1}^n (x_i + y_i) =$ a total mess
+\item $\prod\limits_{i=1}^n c = c^n $
+\end{itemize}
 
 
-${\bf R}^1$ is the set of all real numbers extending from $-\infty$ to $+\infty$ --- i.e., the real number line. ${\bf R}^n$ is an $n$-dimensional space (often referred to as Euclidean space), where each of the $n$ axes extends from $-\infty$ to $+\infty$.
+Other Useful Functions
 
-* ${\bf R}^1$ is a one dimensional line.
-* ${\bf R}^2$ is a two dimensional plane.
-* ${\bf R}^3$ is a three dimensional space.
-* ${\bf R}^4$ could be 3-D plus time (or temperature, etc).
+__Factorials!:__
 
-Points in ${\bf R}^n$ are ordered $n$-tuples, where each element of the $n$-tuple represents the coordinate along that dimension.
+$$x! = x\cdot (x-1) \cdot (x-2) \cdots (1)$$
 
-* ${\bf R}^1$: (3)
-* ${\bf R}^2$: (-15, 5)
-* ${\bf R}^3$: (86, 4, 0)
-	
+__Modulo:__ Tells you the remainder when you divide one number by another. Can be extremely useful for programming: \texttt{x mod y} or \texttt{x \% y}
+
+* $17 \mod 3 = 2$
+* $100 \ \% \ 30 = 10$
 
 
-## Interval Notation for ${\bf R}^1$
 
-Open interval: $$(a,b)\equiv \{ x\in{\bf R}^1: a<x<b\}$$
-
-$x$ is a one-dimensional element in which x is greater than a and less than b
-
-Closed interval: $$[a,b]\equiv \{ x\in{\bf R}^1: a\le x \le b\}$$
-
-$x$ is a one-dimensional element in which x is greater or equal to than a and less than  or equal to b
-
-Half open, half closed: $$(a,b]\equiv \{ x\in{\bf R}^1: a<x\le b\}$$
-
-$x$ is a one-dimensional element in which x is greater than a and less than or equal to b
-
-
-## Neighborhoods: Intervals, Disks, and Balls
-
-In many areas of math, we need a formal construct for what it means to be "near" a point $\bf c$ in ${\bf R}^n$.  This is generally called the __neighborhood__ of $\bf c$. It's represented by an open interval, disk, or ball, depending on whether ${\bf R}^n$ is of one, two, or more dimensions, respectively.
-
-Given the point $c$, these are defined as
-
-* $\epsilon$-interval in ${\bf R}^1$: $\{x : |x-c|<\epsilon \}$. $x$ is in the neighborhood of {\bf c} if it is in the open interval $(c-\epsilon,c+\epsilon)$.
-* $\epsilon$-disk in ${\bf R}^2$: $\{x : || x-c ||<\epsilon\}$. $x$ is in the neighborhood of {\bf c} if it is inside the circle or disc with center $\bf c$ and radius $\epsilon$.
-* $\epsilon$-ball in ${\bf R}^n$: $\{x : || x-c ||<\epsilon\}$. $x$ is in the neighborhood of {\bf c} if it is inside the sphere or ball with center $\bf c$ and radius $\epsilon$.
 
 
 
@@ -76,8 +76,6 @@ Examples: Mapping notation
 
 We often use variable $x$ as input and another $y$ as output, e.g. $y=x+1$
 
-
-## Domain and Range/Image
 
 Some functions are defined only on proper subsets of ${\bf R}^n$.
 
@@ -125,7 +123,9 @@ Some functions are defined only on proper subsets of ${\bf R}^n$.
 <!-- \end{itemize} -->
 
 
-## Some General Types of Functions
+Some General Types of Functions
+
+
 __Monomials__:  $f(x)=a x^k$\\
 		$a$ is the coefficient.  $k$ is the degree.\\
 		Examples: $y=x^2$, $y=-\frac{1}{2}x^3$
@@ -148,7 +148,7 @@ __Exponential Functions__: Example: $y=2^x$
 		\parbox{1in}{\,  {\includegraphics[width=.9in, angle = 270]{nonlin.eps}}}
 \end{comment}
 
-## $\log$, $\ln$, and $\exp$
+## $\log$  and $\exp$ {#logexponents}
 
 __Relationship of logarithmic and exponential functions__: 
 		$$y=\log_a(x) \iff a^y=x$$
@@ -202,37 +202,8 @@ Example: $$\log_{10}(x) = \frac{\ln(x)}{\ln(10)}$$
 \end{itemize}
 
 
-## Other Useful Functions
-__Factorials!:__
 
-$$x! = x\cdot (x-1) \cdot (x-2) \cdots (1)$$
 
-__Modulo:__ Tells you the remainder when you divide one number by another. Can be extremely useful for programming: \texttt{x mod y} or \texttt{x \% y}
-
-* $17 \mod 3 = 2$
-* $100 \ \% \ 30 = 10$
-
-__Summation:__
-
-$$\sum\limits_{i=1}^n x_i = x_1+x_2+x_3+\cdots+x_n$$
-
-\begin{itemize}
-\item $\sum\limits_{i=1}^n c x_i = c \sum\limits_{i=1}^n x_i $
-\item $\sum\limits_{i=1}^n (x_i + y_i) =  \sum\limits_{i=1}^n x_i + \sum\limits_{i=1}^n y_i $
-\item $\sum\limits_{i=1}^n c = n c $
-\end{itemize}
-
-__Product:__
-
-$$\prod\limits_{i=1}^n x_i = x_1 x_2 x_3 \cdots x_n$$
-
-Properties:
-
-\begin{itemize}
-\item $\prod\limits_{i=1}^n c x_i = c^n \prod\limits_{i=1}^n x_i $
-\item $\prod\limits_{i=1}^n (x_i + y_i) =$ a total mess
-\item $\prod\limits_{i=1}^n c = c^n $
-\end{itemize}
 
 
 You can use logs to go between sum and product notation. This will be particularly important when you're learning maximum likelihood estimation.
@@ -310,86 +281,6 @@ Examples:
 		\item $f(x)=x^2+3x-4=0$  \\
 		%$\quad\Longrightarrow\quad x=\{1,-4\}$\\
 \end{enumerate}
-
-## The Limit of a Function
-	
-We're often interested in determining if a function $f$ approaches some number $L$ as its independent variable $x$ moves to some number $c$ (usually 0 or $\pm\infty$).  If it does, we say that the limit of $f(x)$, as $x$ approaches $c$, is $L$: $\lim\limits_{x \to c} f(x)=L$.
-	
-For a limit $L$ to exist, the function $f(x)$ must approach $L$ from both the left and right.
-	
-__Limit of a function__.  Let $f(x)$ be defined at each point in some open interval containing the point $c$.  Then $L$ equals $\lim\limits_{x \to c} f(x)$ if for any (small positive) number $\epsilon$, there exists a corresponding number $\delta>0$ such that if $0<|x-c|<\delta$, then $|f(x)-L|<\epsilon$.
-
-Note: f(x) does not necessarily have to be defined at $c$ for $\lim\limits_{x \to c}$ to exist.
-
-__Uniqueness__: $\lim\limits_{x \to c} f(x)=L$ and $\lim\limits_{x \to c} f(x)=M \Longrightarrow L=M$
-
-Properties: Let $f$ and $g$ be functions with $\lim\limits_{x \to c} f(x)=A$ and $\lim\limits_{x \to c} g(x)=B$.
-
-
-* $\lim\limits_{x \to c}[f(x)+g(x)]=\lim\limits_{x \to c} f(x)+ \lim\limits_{x \to c} g(x)$
-* $\lim\limits_{x \to c} \alpha f(x) = \alpha \lim\limits_{x \to c} f(x)$
-* $\lim\limits_{x \to c} f(x) g(x) = [\lim\limits_{x \to c} f(x)][\lim\limits_{x \to c} g(x)]$
-* $\lim\limits_{x \to c} \frac{f(x)}{g(x)} = \frac{\lim\limits_{x \to c} f(x)}{\lim\limits_{x \to c} g(x)}$, provided $\lim\limits_{x \to c} g(x)\ne 0$.
-
-Note: In a couple days we'll talk about L'H\^opital's Rule, which uses simple calculus to help find the limits of functions like this.
-
-Examples:
-
-\begin{align*}
-& \lim_{x \to c} k = \\
-& \lim_{x \to c} x = \\
-& \lim_{x\to 2} (2x-3) =\\
-& \lim_{x \to c} x^n = 
-\end{align*}
-
-\begin{comment}
-%= 2\lim\limits_{x\to 2} x- 3\lim\limits_{x\to 2} 1 = 2\times 2 - 3\times 1 = 1 
-%[\lim\limits_{x \to c} x]\cdots[\lim\limits_{x \to c} x] = c\cdots c =c^n 
-\end{comment}
-
-
-\begin{comment}
-		\item \parbox[t]{3.75in}{$\lim\limits_{x\to 0} |x| =$} \parbox[t]{1in}{\,{\includegraphics[width=1in, angle = 270]{abs.eps}}} % = 0
-		\item \parbox[t]{3.75in}{$\lim\limits_{x\to 0} \left(1+\frac{1}{x^2}\right)=$} \parbox[t]{1in}{\,  {\includegraphics[width=1in, angle = 270]{1p1ovrx2.eps}}} %\infty
-\end{comment}
-		
-
-
-Types of limits:
-
-1. Right-hand limit: The value approached by $f(x)$ when you move from right to left.
-\begin{comment}
-		\parbox[t]{2in}{Example:  $\lim\limits_{x\to 0^+} \sqrt{x} = 0$}\parbox[t]{1in}{\,  {\includegraphics[width=1in, angle = 270]{sqrt.eps}}}
-		\end{comment}
-2. Left-hand limit: The value approached by $f(x)$ when you move from left to right.
-3. Infinity: The value approached by $f(x)$ as x grows infinitely large. Sometimes this may be a number; sometimes it might be $\infty$ or $-\infty$.
-4. Negative infinity: The value approached by $f(x)$ as x grows infinitely negative. Sometimes this may be a number; sometimes it might be $\infty$ or $-\infty$.
-
-\begin{comment}
-\parbox[t]{2in}{Example:  $\lim\limits_{x\to \infty} 1/x = \lim\limits_{x\to -\infty} 1/x= 0$}\parbox[t]{1in}{\,  {\includegraphics[width=1in, angle = 270]{1ovrx.eps}}}\\ 
-\end{comment}
-
-
-## Continuity
-
-__Continuity__: Suppose that the domain of the function $f$ includes an open interval containing the point $c$.  Then $f$ is continuous at $c$ if $\lim\limits_{x \to c} f(x)$ exists and if $\lim\limits_{x \to c} f(x)=f(c)$. Further, $f$ is continuous on an open interval $(a,b)$ if it is continuous at each point in the interval.
-
-
-Examples: Continuous functions.
-
-\begin{comment}
-	\parbox[t]{1.5in}{\hfill$f(x)=\sqrt{x}\quad$}\parbox[t]{1in}{\,  {\includegraphics[width=1in, angle = 270]{sqrt.eps}}}
-	\parbox[t]{1.5in}{\hfill$f(x)=e^x\quad$}\parbox[t]{1in}{\,  {\includegraphics[width=1in, angle = 270]{exp.eps}}}
-	\item[] Examples: Discontinuous functions.\\
-	\parbox[t]{1.5in}{\hfill$f(x)=\mbox{floor}(x)\quad$}\parbox[t]{1in}{\,  {\includegraphics[width=1in, angle = 270]{floor.eps}}}
-	\parbox[t]{1.5in}{\hfill$f(x)=1+\frac{1}{x^2}\quad$}\parbox[t]{1in}{\,  {\includegraphics[width=1in, angle = 270]{1p1ovrx2.eps}}}
-\end{comment}
-
-Properties:
-
-1. If $f$ and $g$ are continuous at point $c$, then $f+g$, $f-g$, $f \cdot g$, $|f|$, and $\alpha f$ are continuous at point $c$ also. $f/g$ is continuous, provided $g(c)\ne 0$.
-2. Boundedness: If $f$ is continuous on the closed bounded interval $[a,b]$, then there is a number $K$ such that $|f(x)|\le K$ for each $x$ in $[a,b]$.
-3. Max/Min: If $f$ is continuous on the closed bounded interval $[a,b]$, then $f$ has a maximum and a minimum on $[a,b]$. They may be located at the end points.
 
 
 ## Sets

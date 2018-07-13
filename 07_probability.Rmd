@@ -65,7 +65,7 @@ Example: There are five balls numbered from 1 through 5 in a jar. Three balls ar
 
 
 
-## Sets
+## Sets {#setoper}
 
 
 __Set__ : A set is any well defined collection of elements.  If $x$ is an element of $S$, $x \in S$.
@@ -98,7 +98,7 @@ Properties of set operations:
 * __Disjointness__: Sets are disjoint when they do not intersect, such that $A \cap B = \{\emptyset\}$.  A collection of sets is pairwise disjoint (\textbf{mutually exclusive}) if, for all $i \neq j$, $A_i \cap A_j = \{\emptyset\}$.  A collection of sets form a partition of set $S$ if they are pairwise disjoint and they cover set $S$, such that $\bigcup_{i = 1}^k A_i = S$.
 
 
-## Probability
+## Probability {#probdef}
 
 __Probability__: Many events or outcomes are random. In everyday speech, we say that we are  \emph{uncertain} about the outcome of random events. Probability is a formal model of uncertainty which provides a measure of uncertainty governed by a particular set of rules. A different model of uncertainty would, of course, have a different set of rules and measures. Our focus on probability is justified because it has proven to be a particularly useful model of uncertainty.
 
