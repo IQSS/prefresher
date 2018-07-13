@@ -24,120 +24,7 @@ The Indefinite Integral: The Antiderivative;
 
 
 
-## Sequences
-
-
-A \textbf{sequence} $\{y_n\}=\{y_1, y_2, y_3, \ldots, y_n\}$ is an ordered set of real numbers, where $y_1$ is the first term in the sequence and $y_n$ is the $n$th term. Generally, a sequence is \textbf{infinite}, that is it extends to $n=\infty$. We can also write the sequence as $\{y_n\}^\infty_{n=1}$.
-	
-
-Examples:
-\begin{comment}
-	\begin{enumerate}
-		\item \parbox[t]{3in}{$\{y_n\}=\left\{ 2-\frac{1}{n^2} \right\} = $}\parbox[t]{1in}{\, {\includegraphics[width=1.5in]{limit.eps}}}
-		\item \parbox[t]{3in}{$\{y_n\}=\left\{ \frac{n^2+1}{n} \right\} = $}\parbox[t]{1in}{\,  {\includegraphics[width=1.5in]{unbound.eps}}}
-		\item \parbox[t]{3in}{$\{y_n\}=\left\{ (-1)^n \left(1-\frac{1}{n}\right) \right\} = $}\parbox[t]{1in}{\,  {\includegraphics[width=1.5in]{altrnate.eps}}}
-	\end{enumerate}
-\end{comment}
-
-
-Think of sequences like functions.  Before, we had $y=f(x)$ with $x$ specified over some domain.  Now we have $\{y_n\}=\{f(n)\}$ with $n=1,2,3,\ldots$.
-
-__Three kinds of sequences__:
-
-1. Sequences like 1 above that converge to a limit.
-2. Sequences like 2 above that increase without bound.
-3. Sequences like 3 above that neither converge nor increase without bound --- alternating over the number line.
-
-__Boundedness and monotonicity:__
-
-1. \textbf{Bounded}: if $|y_n|\le K$ for all $n$
-2. \textbf{Monotonically Increasing}: $y_{n+1}>y_n$ for all $n$
-3. \textbf{Monotonically Decreasing}: $y_{n+1}<y_n$ for all $n$
-
-\textbf{Subsequence}: Choose an infinite collection of entries from $\{ y_n \}$, retaining their order.
-
-
-
-
-
-## The Limit of a Sequence
-We're often interested in whether a sequence \textbf{converges} to a \textbf{limit}.  Limits of sequences are conceptually similar to the limits of functions addressed in the previous lecture.
-
-\textbf{Limit of a sequence}.  The sequence $\{y_n\}$ has the limit $L$, that is $\lim\limits_{n \to \infty} y_n =L$, if for any $\epsilon>0$ there is an integer $N$ (which depends on $\epsilon$) with the property that $|y_n -L|<\epsilon$ for each $n>N$.  $\{y_n\}$ is said to converge to $L$.  If the above does not hold, then $\{y_n\}$ diverges.
-
-\textbf{Uniqueness}: If $\{y_n\}$ converges, then the limit $L$ is unique.
-
-\underline{Properties:} Let $\lim\limits_{n \to \infty} y_n = A$ and $\lim\limits_{n \to \infty} z_n =B$.  Then
-
-\begin{enumerate}
-		\item $\lim\limits_{n \to \infty} [\alpha y_n + \beta z_n]=\alpha A+\beta B$
-		\item $\lim\limits_{n \to \infty} y_n z_n = A B$
-		\item $\lim\limits_{n \to \infty} \frac{y_n}{z_n} = \frac{A}{B}$, provided $B\ne 0$
-\end{enumerate}
-
-
-Examples
-
-\begin{enumerate}
-		\item $\lim\limits_{n \to \infty} \left\{ 2-\frac{1}{n^2} 
-		\right\} = $
-		\item $\lim\limits_{n \to \infty} \left\{ \frac{4^n}{n!} \right\} 
-		= $
-\end{enumerate}
-
-\begin{comment}
-	\parbox{1in}{\,  {\includegraphics[width=1.5in]{limit2.eps}}}
-\end{comment}
-	
-
-
-Finding the limit of a sequence in ${\bf R}^n$ is similar to that in ${\bf R}^1$.
-
-\textbf{Limit of a sequence of vectors.} The sequence of vectors $\bf \{ y_n \}$ has the limit $\bf L$, that is $\lim\limits_{n\to\infty} {\bf y_n}={\bf L}$, if for any $\epsilon$ there is an integer $N$ where $\bf ||y_n-L||<\epsilon$ for each $n>N$.  The sequence of vectors $\bf \{ y_n\}$ is said to converge to the vector $\bf L$ --- and the distances between $\bf y_n$ and $\bf L$ converge to zero.
-
-
-Think of each coordinate of the vector $\bf y_n$ as being part of its own sequence over $n$.  Then a sequence of vectors in ${\bf R}^n$ converges if and only if all $n$ sequences of its components converge.
-
-Examples:
-
-\begin{enumerate}
-		\item The sequence $\{ y_n \}$ where $y_n=\left( \frac{1}{n}, 2-\frac{1}{n^2} \right)$ converges to $(0,2)$.
-		\item The sequence $\{ y_n \}$ where $y_n=\left( \frac{1}{n}, (-1)^n \right)$ does not converge, since $\left\{ (-1)^n \right\}$ does not converge.
-\end{enumerate}
-
-\textbf{Bolzano-Weierstrass Theorem}: Any sequence contained in a compact (i.e., closed and bounded) subset of ${\bf R}^n$ contains a convergent subsequence.\\
-		\parbox[t]{4in}{Example: Take the sequence $\{ y_n \} =\left\{ (-1)^n \right\}$, which has two accumulating points, but no limit.  However, it is both closed and bounded.}			
-\begin{comment}
-		\parbox{1.5in}{\,  {\includegraphics[width=1.5in]{bolzwei.eps}}}\\[12pt]
-		\end{comment}
-		\begin{comment}
-		\parbox[t]{4in}{The subsequence of $\{ y_n \}$ defined by taking $n=1,3,5,\ldots$ does have a limit: $-1$.}\parbox{1.5in}{\,  {\includegraphics[width=1.5in]{bolzwei1.eps}}}\\[12pt]
-
-\parbox[t]{4in}{As does the subsequence defined by taking $n=2,4,6,\ldots$, whose limit is $1$.}\parbox{1.5in}{\,  {\includegraphics[width=1.5in]{bolzwei2.eps}}}
-\end{comment}
-
-
-
-## Series
-
-The sum of the terms of a sequence is a \textbf{series}. As there are both finite and infinite sequences, there are   \textbf{finite} and \textbf{infinite series}.
-
-The series associated with the sequence $\{y_n\}=\{y_1, y_2,   y_3, \ldots, y_n\} = \{y_n\}_{n=1}^{\infty}$ is $\sum_{n=1}^{\infty} y_n$. The $n$th partial sum $S_n$ is defined as $S_n=\sum_{k=1}^n y_k$,the sum of the first $n$ terms of the sequence.
-
-\textbf{Convergence:} A series $\sum y_n$ converges if the sequence of partial sums $\{S_1, S_2, S_3, ...\}$ converges, i.e has a finite limit. 
-
-A \textbf{geometric series} is a series that can be written as $\sum_{n=0}^{\infty} r^n$, where $r$ is called the ratio. A geometric series converges to $\frac{1}{1-r}$ if $|r|< 1$ and diverges otherwise. For example, $\sum_{n=0}^{\infty} \frac{1}{2^n} = 2$.
-	
-Examples of other series:
-\begin{enumerate}
-		\item  $\sum_{n=0}^{\infty} \frac{1}{n!} = 1 + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \cdots = e$.\\
-		This one is especially useful in statistics and probability.
-		\item $\sum_{n=1}^{\infty} \frac{1}{n} = \frac{1}{1} + \frac{1}{2}  + \frac{1}{3} + \cdots = \infty$ (harmonic series)
-\end{enumerate}
-
-
-
-## Derivatives
+## Derivatives {#derivintro}
 
 The derivative of $f$ at $x$ is its rate of change at $x$ --- i.e., how much $f(x)$ changes with a change in $x$.
 
@@ -203,7 +90,7 @@ __Notation for derivatives:__
 
 
 
-## Higher-Order Derivatives or, Derivatives of Derivatives of Derivatives
+## Higher-Order Derivatives or, Derivatives of Derivatives of Derivatives {#derivpoly}
 
 
 We can keep applying the differentiation process to functions that are themselves derivatives.  The derivative of $f'(x)$ with respect to $x$, would then be $$f''(x)=\lim\limits_{h\to 0}\frac{f'(x+h)-f'(x)}{h}$$ and so on.  Similarly, the derivative of $f''(x)$ would be denoted $f'''(x)$.
