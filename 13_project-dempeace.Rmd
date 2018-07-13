@@ -1,5 +1,7 @@
 # Joins and Merges, Wide and Long
 
+Module originally written by Shiro Kuriwaki
+
 
 ## Where are we? Where are we headed?
 
