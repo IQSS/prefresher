@@ -25,7 +25,7 @@ Are the following sets of vectors linearly independent?
 2. $a = \begin{pmatrix} 2\\ -1\\ 1 \end{pmatrix}$, $b = \begin{pmatrix} 3\\ -4\\ -2 \end{pmatrix}$, $c = \begin{pmatrix} 5\\ -10\\ -8 \end{pmatrix}$
 
 
-If you are having trouble with these problems, please review section 2.2 "Linear Independence" in Chapter 2. 
+If you are having trouble with these problems, please review section 2.2 "Linear Independence" in Chapter  \@ref(linearalgebra). 
 
 
 ### Matrices
@@ -81,9 +81,13 @@ If you are having trouble with these problems, please review section 2.3 "Basics
 
 Simplify the following
 
-1. $\sum^3_{i = 1} i$
-2. $\sum^5_{k = 1}(3k + 7)$
-3. $\sum^3_{i= 1} 3k + i + 7$
+1. \[\sum^3_{i = 1} i\]
+
+2. \[\sum^5_{k = 1}(3k + 7)\]
+
+3. \[\sum^3_{i= 1} 3k + i + 7\]
+
+To review this material, please see Section \@ref{summation}
 
 
 
