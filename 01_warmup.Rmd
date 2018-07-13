@@ -7,13 +7,13 @@
 
 ### Vectors {-}
 
-Given that $u = (1,2,3)$, $v = (4,5,6)$, and $c = 2$, Calculate the following:
+Define the vectors $u = \begin{pmatrix} 1 \\2 \\3 \end{pmatrix}$, $v = \begin{pmatrix} 4\\5\\6 \end{pmatrix}$, and the scalar $c = 2$. Calculate the following:
 
 1. $u + v$
 2. $cv$
 3. $uv$
 
-If you are having trouble with these problems, please review section \@ref(vectors) "Working with Vectors" in Chapter \@ref(linearalgebra). 
+If you are having trouble with these problems, please review Section \@ref(vectors) "Working with Vectors" in Chapter \@ref(linearalgebra). 
 
 
 Are the following sets of vectors linearly independent?

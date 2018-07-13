@@ -338,7 +338,5 @@ Keep on learning, trying new techniques to improve your work, and learn from oth
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"> <a href="https://twitter.com/EmilyRiederer/status/898735640031920129">August 18, 2017</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-### please tell us how we can improve the PreFresher
-The PreFresher is a work in progress, with material mainly driven by graduate students. Please tell us how we should change (or not change) each of its elements:
-
-<https://harvard.az1.qualtrics.com/jfe/form/SV_9moFLOtHV7lkNhz>
+### please tell us how we can improve the Prefresher
+The Prefresher is a work in progress, with material mainly driven by graduate students. Please tell us how we should change (or not change) each of its elements:
