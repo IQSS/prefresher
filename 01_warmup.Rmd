@@ -5,7 +5,7 @@
 
 ## Linear Algebra
 
-### Vectors
+### Vectors {-}
 
 Given that $u = (1,2,3)$, $v = (4,5,6)$, and $c = 2$, Calculate the following:
 
@@ -13,22 +13,24 @@ Given that $u = (1,2,3)$, $v = (4,5,6)$, and $c = 2$, Calculate the following:
 2. $cv$
 3. $uv$
 
-If you are having trouble with these problems, please review section 2.1 "Working with Vectors" in Chapter 2. 
+If you are having trouble with these problems, please review section \@ref(vectors) "Working with Vectors" in Chapter \@ref(linearalgebra). 
 
 
 Are the following sets of vectors linearly independent?
 
-
-1. $u = \begin{pmatrix} 1\\ 2\\ 5 \end{pmatrix}$, $b = \begin{pmatrix} 3\\ 7\\ 9 \end{pmatrix}$
-
-
-2. $a = \begin{pmatrix} 2\\ -1\\ 1 \end{pmatrix}$, $b = \begin{pmatrix} 3\\ -4\\ -2 \end{pmatrix}$, $c = \begin{pmatrix} 5\\ -10\\ -8 \end{pmatrix}$
+1. $u = \begin{pmatrix} 1\\ 2\end{pmatrix}$, $v = \begin{pmatrix} 2\\4\end{pmatrix}$
 
 
-If you are having trouble with these problems, please review section 2.2 "Linear Independence" in Chapter  \@ref(linearalgebra). 
+2. $u = \begin{pmatrix} 1\\ 2\\ 5 \end{pmatrix}$, $v = \begin{pmatrix} 3\\ 7\\ 9 \end{pmatrix}$
 
 
-### Matrices
+3. $a = \begin{pmatrix} 2\\ -1\\ 1 \end{pmatrix}$, $b = \begin{pmatrix} 3\\ -4\\ -2 \end{pmatrix}$, $c = \begin{pmatrix} 5\\ -10\\ -8 \end{pmatrix}$ (this requires some guesswork)
+
+
+If you are having trouble with these problems, please review Section \@ref(linearindependence). 
+
+
+### Matrices {-}
 
 \[{\bf A}=\begin{pmatrix}
 			7 & 5 & 1 \\
@@ -72,37 +74,49 @@ Given that
 
 What is $c$${\bf A}$?
 
-If you are having trouble with these problems, please review section 2.3 "Basics of Matrix Algebra" in Chapter 2. 
+If you are having trouble with these problems, please review Section \@ref(matrixbasics). 
 
 
 
 ## Operations
 
+### Summation {-}
 
 Simplify the following
 
-1. \[\sum^3_{i = 1} i\]
+1. \(\sum\limits_{i = 1}^3 i\)
 
-2. \[\sum^5_{k = 1}(3k + 7)\]
+2. \(\sum\limits_{k = 1}^3(3k + 2)\)
 
-3. \[\sum^3_{i= 1} 3k + i + 7\]
-
-To review this material, please see Section \@ref{summation}
+3. \(\sum\limits_{i= 1}^4 (3k + i + 2)\)
 
 
+### Products {-}
+
+1. \(\prod\limits_{i= 1}^3 i\)
+
+2. \(\prod\limits_{k=1}^3(3k + 2)\)
+
+
+To review this material, please see Section \@ref(summation).
+
+
+### Logs and exponents {-}
 
 Simplify the following
 
-1. $4^2$
-2. $4^2 2^3$
-3. $\log_{10}100$
-4. $\log_{2}4$
-5. $\log e$, where $\log$ is the natural log (alsowritten as $\ln$) -- a log with base $e$, and $e$ is Euler's constant
-6. $e^a e^b e^c$, where $a, b, c$ are each constants
-7. $\log 0$
-8. $e^0$
-9. $e^1$
-10. $\log e^2$
+1.  \(4^2\)
+2.  \(4^2 2^3\)
+3.  \(\log_{10}100\)
+4.  \(\log_{2}4\)
+5.  \(\log e\), where $\log$ is the natural log (also written as $\ln$) -- a log with base $e$, and $e$ is Euler's constant
+6.  \(e^a e^b e^c\), where $a, b, c$ are each constants
+7.  \(\log 0\)
+8.  \(e^0\)
+9.  \(e^1\)
+10. \(\log e^2\)
+
+To review this material, please see Section \@ref(logexponents)
 
 
 
@@ -110,10 +124,11 @@ Simplify the following
 
 Find the limit of the following.
 
-1. $\lim_{x \to 2} (x - 1)$
-2. $\lim_{x \to 2} \frac{(x - 2) (x - 1)}{(x - 2)}$
-3. $\lim_{x \to 2}\frac{x^2 - 3x + 2}{x- 2}$
+1. $\lim\limits_{x \to 2} (x - 1)$
+2. $\lim\limits_{x \to 2} \frac{(x - 2) (x - 1)}{(x - 2)}$
+3. $\lim\limits_{x \to 2}\frac{x^2 - 3x + 2}{x- 2}$
 
+To review this material please see Section \@ref(limitsfun)
 
 
 ## Calculus
@@ -126,13 +141,28 @@ For each of the following functions $f(x)$, find the derivative $f'(x)$ or $\fra
 4. $f(x)=x^3$
 5. $f(x)=3x^2+2x^{1/3}$
 6. $f(x)=(x^3)(2x^4)$
+
+For a review, please see Section \@ref(derivintro) - \@ref(derivpoly)
+
+## Optimization
+
+For each of the followng functions $f(x)$, does a maximum and minimum exist in the domain $x \in \mathbf{R}$? If so, for what are those values and for which values of $x$?
+
+1. $f(x) = x$
+2. $f(x) = x^2$
+3. $f(x) = -(x  - 2)^2$
+
+If you are stuck, please try sketching out a picture of each of the functions.
 	
 
 ## Probability	
 
-1. If we roll two fair dice, what is the probability that their sum would be 11?
-2. If we roll two fair dice, what is the probability that their sum would be 12?
-3. If there are 12 cards, numbered 1 to 12, and 4 cards are chosen, how many distinct possible choices are there? (unordered, without replacement) $\hspace{0.5cm}$ (See 6.1)
-  
-  
-4. Let $A = \{1,3,5,7,8\}$ and $B = \{2,4,7,8,12,13\}$. What is $A \cup B$? What is $A \cap B$? If $A$ is a subset of the Sample Space $S = \{1,2,3,4,5,6,7,8,9,10\}$, what is $A^C$? $\hspace{0.5cm}$(See 6.3)
+1. If there are 12 cards, numbered 1 to 12, and 4 cards are chosen, how many distinct possible choices are there? (unordered, without replacement) $\hspace{0.5cm}$
+2. Let $A = \{1,3,5,7,8\}$ and $B = \{2,4,7,8,12,13\}$. What is $A \cup B$? What is $A \cap B$? If $A$ is a subset of the Sample Space $S = \{1,2,3,4,5,6,7,8,9,10\}$, what is $A^C$? $\hspace{0.5cm}$
+
+3. If we roll two fair dice, what is the probability that their sum would be 11?
+4. If we roll two fair dice, what is the probability that their sum would be 12?
+
+
+For a review, please see Sections \@ref(setoper) - \@ref(probdef)
+
