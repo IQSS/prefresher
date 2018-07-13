@@ -389,7 +389,7 @@ With these six rules (and decent algebra and trigonometry skills) you can figure
 
 ## The Indefinite Integral: The Antiderivative
 
-So far, we've been interested in finding the derivative $g=f'$ of a function $f$.  However, sometimes we're interested in exactly the reverse:  finding the function $f$ for which $g$ is its derivative.  We refer to $f$ as the {\bf antiderivative} of $g$.
+So far, we've been interested in finding the derivative $g=f'$ of a function $f$.  However, sometimes we're interested in exactly the reverse:  finding the function $f$ for which $g$ is its derivative.  We refer to $f$ as the __antiderivative__ of $g$.
 
 Let $DF$ be the derivative of $F$.  And let $DF(x)$ be the derivative of $F$ evaluated at $x$.  Then the antiderivative is denoted by $D^{-1}$ (i.e., the inverse derivative).  If $DF=f$, then $F=D^{-1}f$.
 
@@ -535,7 +535,7 @@ When an expression is raised to a power, it's often helpful to use this expressi
 ## Integration by Parts, or Ultraviolet Voodoo
 
 
-Another useful integration technique is {\bf integration by parts}, which is related to the Product Rule of differentiation. The product rule states that $$\frac{d}{dx}(uv)=u\frac{dv}{dx}+v\frac{du}{dx}$$  Integrating this and rearranging, we get $$\int u\frac{dv}{dx}dx= u v - \int v \frac{du}{dx}dx$$ or $$\int u(x) v'(x)dx=u(x)v(x) - \int v(x)u'(x)dx$$
+Another useful integration technique is \textbf{integration by parts}, which is related to the Product Rule of differentiation. The product rule states that $$\frac{d}{dx}(uv)=u\frac{dv}{dx}+v\frac{du}{dx}$$  Integrating this and rearranging, we get $$\int u\frac{dv}{dx}dx= u v - \int v \frac{du}{dx}dx$$ or $$\int u(x) v'(x)dx=u(x)v(x) - \int v(x)u'(x)dx$$
 More frequently remembered as $$\int u dv = u v - \int v du$$ where $du=u'(x)dx$ and $dv=v'(x)dx$.
 
 
