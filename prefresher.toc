@@ -118,7 +118,7 @@
 \contentsline {chapter}{\numberline {9}Manipulating Vectors and Matrices}{103}{chapter.9}
 \contentsline {section}{\numberline {9.1}Where are we? Where are we headed?}{103}{section.9.1}
 \contentsline {section}{\numberline {9.2}Motivation}{103}{section.9.2}
-\contentsline {section}{\numberline {9.3}Setup}{103}{section.9.3}
+\contentsline {section}{\numberline {9.3}Setup}{104}{section.9.3}
 \contentsline {section}{\numberline {9.4}Read Data}{104}{section.9.4}
 \contentsline {section}{\numberline {9.5}data.frame vs.\nobreakspace {}matricies}{105}{section.9.5}
 \contentsline {section}{\numberline {9.6}Speed considerations}{105}{section.9.6}
@@ -134,7 +134,7 @@
 \contentsline {chapter}{\numberline {10}Joins and Merges, Wide and Long}{113}{chapter.10}
 \contentsline {section}{\numberline {10.1}Where are we? Where are we headed?}{113}{section.10.1}
 \contentsline {section}{\numberline {10.2}Motivation}{113}{section.10.2}
-\contentsline {section}{\numberline {10.3}Setting up}{113}{section.10.3}
+\contentsline {section}{\numberline {10.3}Setting up}{114}{section.10.3}
 \contentsline {section}{\numberline {10.4}Create a project directory}{114}{section.10.4}
 \contentsline {section}{\numberline {10.5}Data Sources}{114}{section.10.5}
 \contentsline {section}{\numberline {10.6}Example with 2 Datasets}{114}{section.10.6}
@@ -195,10 +195,10 @@
 \contentsline {subsection}{\numberline {13.7.1}what is a \texttt {.bib} file?}{139}{subsection.13.7.1}
 \contentsline {subsection}{\numberline {13.7.2}what does LaTeX do with .bib files?}{140}{subsection.13.7.2}
 \contentsline {subsection}{\numberline {13.7.3}stocking up on your .bib files}{140}{subsection.13.7.3}
-\contentsline {section}{\numberline {13.8}git}{141}{section.13.8}
+\contentsline {section}{\numberline {13.8}git}{140}{section.13.8}
 \contentsline {subsection}{\numberline {13.8.1}why version control?}{141}{subsection.13.8.1}
 \contentsline {subsection}{\numberline {13.8.2}open-source code at your fingertips}{141}{subsection.13.8.2}
 \contentsline {subsection}{\numberline {13.8.3}commands in git}{141}{subsection.13.8.3}
 \contentsline {subsection}{\numberline {13.8.4}is git worth it?}{141}{subsection.13.8.4}
 \contentsline {section}{\numberline {13.9}Concluding PreFresher}{142}{section.13.9}
-\contentsline {subsection}{\numberline {13.9.1}please tell us how we can improve the PreFresher}{142}{subsection.13.9.1}
+\contentsline {subsection}{\numberline {13.9.1}please tell us how we can improve the Prefresher}{142}{subsection.13.9.1}

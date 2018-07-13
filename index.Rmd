@@ -19,10 +19,3 @@ The documents in this booklet are the product of generations of Math (P)refreshe
 
 
 We transitioned the booklet into a public Rmarkdown github [repo](https://github.com/kurwiaki/prefresher) in 2018. As we update this version, any bug reports or fixes would be greatly appreciated. 
-
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
