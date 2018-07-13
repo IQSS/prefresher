@@ -126,6 +126,13 @@ class(ols)
 Anything can be an object! Even graphs (in `ggplot`) can be assigned, re-assigned, and edited. 
 
 ```{r}
+
+grp_race <- group_by(cen10, race)%>%
+  summarize(count = n())
+
+grp_race_ordered <- arrange(grp_race, count) %>% 
+  mutate(race = forcats::as_factor(race))
+
 gg_tab <- ggplot(data = grp_race_ordered) +
   aes(x = race, y = count) +
   geom_col() +
@@ -352,11 +359,24 @@ Sometimes, you want to execute a command only under certain conditions.
 For example, 
 
 ```{r}
-
+x <- 5
+if (x >0) {
+  print("positive number")
+} else if (x == 0)  {
+  print ("zero")
+} else {
+  print("negative number")
+}
 ```
 
 
 ## For-loops
+```{r}
+cen10_copy <- cen10
+cen10_copy$forties <- 0
+cen10_copy[cen10_copy$age > 39 & cen10_copy$age < 51, ]$forties <- 1
+head(cen10_copy[cen10_copy$age > 39 & cen10_copy$age < 51, ])
+``` 
 
 
 ## Review Exercises
