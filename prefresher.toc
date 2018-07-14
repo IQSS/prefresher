@@ -104,7 +104,7 @@
 \contentsline {subsection}{\numberline {8.10.1}scalars}{94}{subsection.8.10.1}
 \contentsline {subsection}{\numberline {8.10.2}numeric vectors}{94}{subsection.8.10.2}
 \contentsline {subsection}{\numberline {8.10.3}characters (aka strings)}{94}{subsection.8.10.3}
-\contentsline {subsection}{\numberline {8.10.4}matricies}{95}{subsection.8.10.4}
+\contentsline {subsection}{\numberline {8.10.4}matrices}{95}{subsection.8.10.4}
 \contentsline {subsection}{\numberline {8.10.5}data frames}{96}{subsection.8.10.5}
 \contentsline {subsection}{\numberline {8.10.6}Extracting variables from lists}{96}{subsection.8.10.6}
 \contentsline {section}{\numberline {8.11}What is a function?}{97}{section.8.11}
@@ -175,7 +175,7 @@
 \contentsline {section}{\numberline {12.11}Exercises}{129}{section.12.11}
 \contentsline {subsection}{\numberline {12.11.1}The Birthday problem}{129}{subsection.12.11.1}
 \contentsline {subsection}{\numberline {12.11.2}The Monty Hall problem}{130}{subsection.12.11.2}
-\contentsline {chapter}{\numberline {13}command-line, markdown, LaTeX, git}{131}{chapter.13}
+\contentsline {chapter}{\numberline {13}Command-line, markdown, LaTeX, git}{131}{chapter.13}
 \contentsline {section}{\numberline {13.1}Where are we? Where are we headed?}{131}{section.13.1}
 \contentsline {section}{\numberline {13.2}Check your understanding}{131}{section.13.2}
 \contentsline {section}{\numberline {13.3}Motivation}{132}{section.13.3}
@@ -200,5 +200,5 @@
 \contentsline {subsection}{\numberline {13.8.2}open-source code at your fingertips}{139}{subsection.13.8.2}
 \contentsline {subsection}{\numberline {13.8.3}commands in git}{139}{subsection.13.8.3}
 \contentsline {subsection}{\numberline {13.8.4}is git worth it?}{139}{subsection.13.8.4}
-\contentsline {section}{\numberline {13.9}Concluding PreFresher}{139}{section.13.9}
+\contentsline {section}{\numberline {13.9}Concluding the Prefresher}{139}{section.13.9}
 \contentsline {subsection}{\numberline {13.9.1}please tell us how we can improve the Prefresher}{139}{subsection.13.9.1}

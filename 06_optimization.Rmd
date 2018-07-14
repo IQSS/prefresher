@@ -464,7 +464,7 @@ $$ L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k) = f(x_1, \dots, x_n) - \sum_{
 \textbf{Getting the sign right:}\\
 Note that above we subtract the lagrangian term \textit{and} we subtract the constraint constant from the constraint function. Occasionally, you may see the following alternative form of the Lagrangian, which is \textit{equivalent}:
 $$ L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k) = f(x_1, \dots, x_n) + \sum_{i=1}^k\lambda_i(r_i - c_i(x_1,\dots, x_n))$$
-Here we add the lagrangian term \textit{and} we subtract the constraing function from the constraint constant. 
+Here we add the lagrangian term \textit{and} we subtract the constraining function from the constraint constant. 
 
 
 \textbf{Using the Lagrangian to Find the Critical Points}: To find the critical points, we take the partial derivatives of lagrangian function, $L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k)$, with respect to each of its variables (all choice variables $\mathbf{x}$ \textit{and} all lagrangian multipliers $\mathbf{\lambda}$).  At a critical point, \textit{each} of these partial derivatives must be equal to zero, so we obtain a system of \textit{$n + k$ equations in $n + k$ unknowns}:

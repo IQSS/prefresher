@@ -217,7 +217,7 @@ Examples:
 
 ## Random Variables
 
-Most questions in the social sciences involve events, rather than numbers per se. To analyze and reason about events quantiatively, we need a way of mapping events to numbers. A random variable does exactly that.
+Most questions in the social sciences involve events, rather than numbers per se. To analyze and reason about events quantitatively, we need a way of mapping events to numbers. A random variable does exactly that.
 
 A \textbf{random variable} is a measurable function $X$ that maps from the sample space $S$ to the set of real numbers $R.$ It assigns a real number to every outcome $s \in S$. 
 
@@ -284,7 +284,7 @@ In empirical research, data can be classified along several dimensions. We can l
 
 The distribution of a random variable $X$ is the probability function it induces on the real line. It is given, roughly speaking, by $p(s) = P(X \in s)$ 
 
-The formal definition of a random variable is easier to given by separating out two cases: discrete random variables when the numeric summaries of the events are discrete,  and continuous random variables whern they are continuous.
+The formal definition of a random variable is easier to given by separating out two cases: discrete random variables when the numeric summaries of the events are discrete,  and continuous random variables when they are continuous.
 
 
 __Discrete Random Variable__: $Y$ is a discrete random variable if it can assume only a finite or countably infinite number of distinct values. Examples:  number of wars per year, heads or tails.
