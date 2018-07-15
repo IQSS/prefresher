@@ -1,204 +1,206 @@
 \contentsline {chapter}{About this Booklet}{7}{chapter*.2}
-\contentsline {chapter}{\numberline {1}Pre-PreFresher Exercises}{9}{chapter.1}
-\contentsline {section}{\numberline {1.1}Linear Algebra}{9}{section.1.1}
-\contentsline {subsection}{Vectors}{9}{section*.3}
-\contentsline {subsection}{Matrices}{9}{section*.4}
-\contentsline {section}{\numberline {1.2}Operations}{10}{section.1.2}
-\contentsline {subsection}{Summation}{10}{section*.5}
-\contentsline {subsection}{Products}{10}{section*.6}
-\contentsline {subsection}{Logs and exponents}{10}{section*.7}
-\contentsline {section}{\numberline {1.3}Limits}{11}{section.1.3}
-\contentsline {section}{\numberline {1.4}Calculus}{11}{section.1.4}
-\contentsline {section}{\numberline {1.5}Optimization}{11}{section.1.5}
-\contentsline {section}{\numberline {1.6}Probability}{11}{section.1.6}
-\contentsline {chapter}{\numberline {2}Linear Algebra}{13}{chapter.2}
-\contentsline {section}{\numberline {2.1}Working with Vectors}{13}{section.2.1}
-\contentsline {section}{\numberline {2.2}Linear Independence}{14}{section.2.2}
-\contentsline {section}{\numberline {2.3}Basics of Matrix Algebra}{14}{section.2.3}
-\contentsline {section}{\numberline {2.4}Square Matrices}{16}{section.2.4}
-\contentsline {section}{\numberline {2.5}Linear Equations}{17}{section.2.5}
-\contentsline {section}{\numberline {2.6}Systems of Linear Equations}{17}{section.2.6}
-\contentsline {section}{\numberline {2.7}Systems of Equations as Matrices}{18}{section.2.7}
-\contentsline {section}{\numberline {2.8}Finding Solutions to Augmented Matrices and Systems of Equations}{19}{section.2.8}
-\contentsline {section}{\numberline {2.9}Rank --- and Whether a System Has One, Infinite, or No Solutions}{20}{section.2.9}
-\contentsline {section}{\numberline {2.10}The Inverse of a Matrix}{22}{section.2.10}
-\contentsline {section}{\numberline {2.11}Linear Systems and Inverses}{23}{section.2.11}
-\contentsline {section}{\numberline {2.12}Determinants}{23}{section.2.12}
-\contentsline {section}{\numberline {2.13}Getting Inverse of a Matrix using its Determinant and Matrix of Cofactors}{25}{section.2.13}
-\contentsline {chapter}{\numberline {3}Functions and Operations}{27}{chapter.3}
-\contentsline {section}{\numberline {3.1}Summation Operators \(\DOTSB \sum@ \slimits@ \) and \(\DOTSB \prod@ \slimits@ \)}{27}{section.3.1}
-\contentsline {section}{\numberline {3.2}Introduction to Functions}{28}{section.3.2}
-\contentsline {section}{\numberline {3.3}\(\qopname \relax o{log}\) and \(\qopname \relax o{exp}\)}{29}{section.3.3}
-\contentsline {section}{\numberline {3.4}Graphing Functions}{30}{section.3.4}
-\contentsline {section}{\numberline {3.5}Solving for Variables and Finding Inverses}{30}{section.3.5}
-\contentsline {section}{\numberline {3.6}Finding the Roots or Zeroes of a Function}{31}{section.3.6}
-\contentsline {section}{\numberline {3.7}Sets}{31}{section.3.7}
-\contentsline {chapter}{\numberline {4}Limits}{33}{chapter.4}
-\contentsline {section}{\numberline {4.1}Dimensionality}{33}{section.4.1}
-\contentsline {section}{\numberline {4.2}Interval Notation for \({\bf R}^1\)}{33}{section.4.2}
-\contentsline {section}{\numberline {4.3}Limits of a Function}{34}{section.4.3}
-\contentsline {section}{\numberline {4.4}Continuity}{35}{section.4.4}
-\contentsline {section}{\numberline {4.5}Sequences}{35}{section.4.5}
-\contentsline {section}{\numberline {4.6}The Limit of a Sequence}{35}{section.4.6}
-\contentsline {section}{\numberline {4.7}Series}{36}{section.4.7}
-\contentsline {chapter}{\numberline {5}Calculus}{37}{chapter.5}
-\contentsline {section}{\numberline {5.1}Derivatives}{37}{section.5.1}
-\contentsline {section}{\numberline {5.2}Higher-Order Derivatives or, Derivatives of Derivatives of Derivatives}{38}{section.5.2}
-\contentsline {section}{\numberline {5.3}Composite Functions and the Chain Rule}{38}{section.5.3}
-\contentsline {section}{\numberline {5.4}Derivatives of Euler's number and natural logs}{39}{section.5.4}
-\contentsline {section}{\numberline {5.5}Applications of the Derivative: Maxima and Minima}{40}{section.5.5}
-\contentsline {section}{\numberline {5.6}Partial Derivatives}{41}{section.5.6}
-\contentsline {section}{\numberline {5.7}L'H\^{}opital's Rule}{41}{section.5.7}
-\contentsline {section}{\numberline {5.8}Taylor Series Approximation}{42}{section.5.8}
-\contentsline {section}{\numberline {5.9}Summary: Derivative calculus in 6 steps}{43}{section.5.9}
-\contentsline {section}{\numberline {5.10}The Indefinite Integral: The Antiderivative}{43}{section.5.10}
-\contentsline {section}{\numberline {5.11}Common Rules of Integration}{44}{section.5.11}
-\contentsline {section}{\numberline {5.12}The Definite Integral: The Area under the Curve}{44}{section.5.12}
-\contentsline {section}{\numberline {5.13}Integration by Substitution}{46}{section.5.13}
-\contentsline {section}{\numberline {5.14}Integration by Parts, or Ultraviolet Voodoo}{47}{section.5.14}
-\contentsline {chapter}{\numberline {6}Optimization}{49}{chapter.6}
-\contentsline {section}{\numberline {6.1}Quadratic Forms}{49}{section.6.1}
-\contentsline {section}{\numberline {6.2}Concavity of Quadratic Forms}{50}{section.6.2}
-\contentsline {section}{\numberline {6.3}Definiteness of Quadratic Forms}{50}{section.6.3}
-\contentsline {section}{\numberline {6.4}First Order Conditions}{51}{section.6.4}
-\contentsline {section}{\numberline {6.5}Second Order Conditions}{52}{section.6.5}
-\contentsline {section}{\numberline {6.6}Definiteness and Concavity}{53}{section.6.6}
-\contentsline {section}{\numberline {6.7}Global Maxima and Minima}{53}{section.6.7}
-\contentsline {section}{\numberline {6.8}Constrained Optimization}{55}{section.6.8}
-\contentsline {section}{\numberline {6.9}Equality Constraints}{56}{section.6.9}
-\contentsline {section}{\numberline {6.10}Inequality Constraints}{57}{section.6.10}
-\contentsline {section}{\numberline {6.11}Kuhn-Tucker Conditions}{60}{section.6.11}
-\contentsline {chapter}{\numberline {7}Probability Theory}{65}{chapter.7}
-\contentsline {section}{\numberline {7.1}Counting rules}{65}{section.7.1}
-\contentsline {section}{\numberline {7.2}Sets}{66}{section.7.2}
-\contentsline {section}{\numberline {7.3}Probability}{66}{section.7.3}
-\contentsline {section}{\numberline {7.4}Conditional Probability and Bayes Law}{67}{section.7.4}
-\contentsline {section}{\numberline {7.5}Random Variables}{69}{section.7.5}
-\contentsline {section}{\numberline {7.6}Independence}{69}{section.7.6}
-\contentsline {section}{\numberline {7.7}Types of Observed Data}{69}{section.7.7}
-\contentsline {section}{\numberline {7.8}Distributions}{70}{section.7.8}
-\contentsline {section}{\numberline {7.9}Expectation and Other Moments}{71}{section.7.9}
-\contentsline {section}{\numberline {7.10}Special Distributions}{73}{section.7.10}
-\contentsline {section}{\numberline {7.11}Joint Distributions}{74}{section.7.11}
-\contentsline {section}{\numberline {7.12}Summarizing Observed Events (Data)}{75}{section.7.12}
-\contentsline {section}{\numberline {7.13}Asymptotic Theory}{76}{section.7.13}
-\contentsline {chapter}{\numberline {8}Counting and Visualization}{79}{chapter.8}
-\contentsline {section}{\numberline {8.1}Where are we? Where are we headed?}{79}{section.8.1}
-\contentsline {section}{\numberline {8.2}Check your understanding}{79}{section.8.2}
-\contentsline {section}{\numberline {8.3}Motivation}{79}{section.8.3}
-\contentsline {section}{\numberline {8.4}Read data}{80}{section.8.4}
-\contentsline {section}{\numberline {8.5}Counting}{80}{section.8.5}
-\contentsline {section}{\numberline {8.6}Tabulating}{81}{section.8.6}
-\contentsline {section}{\numberline {8.7}Visualization}{82}{section.8.7}
-\contentsline {subsection}{\numberline {8.7.1}base R}{82}{subsection.8.7.1}
-\contentsline {subsection}{\numberline {8.7.2}ggplot}{82}{subsection.8.7.2}
-\contentsline {subsection}{\numberline {8.7.3}Improving your graphics}{83}{subsection.8.7.3}
-\contentsline {subsection}{\numberline {8.7.4}Cross-tabs}{85}{subsection.8.7.4}
-\contentsline {subsection}{\numberline {8.7.5}Histograms}{88}{subsection.8.7.5}
-\contentsline {section}{\numberline {8.8}What is an object?}{90}{section.8.8}
-\contentsline {subsection}{\numberline {8.8.1}lists}{90}{subsection.8.8.1}
-\contentsline {section}{\numberline {8.9}Making your own objects}{91}{section.8.9}
-\contentsline {subsection}{\numberline {8.9.1}Seeing R through objects}{91}{subsection.8.9.1}
-\contentsline {subsection}{\numberline {8.9.2}Parsing an object by \texttt {str()s}}{93}{subsection.8.9.2}
-\contentsline {section}{\numberline {8.10}Types of variables}{94}{section.8.10}
-\contentsline {subsection}{\numberline {8.10.1}scalars}{94}{subsection.8.10.1}
-\contentsline {subsection}{\numberline {8.10.2}numeric vectors}{94}{subsection.8.10.2}
-\contentsline {subsection}{\numberline {8.10.3}characters (aka strings)}{94}{subsection.8.10.3}
-\contentsline {subsection}{\numberline {8.10.4}matrices}{95}{subsection.8.10.4}
-\contentsline {subsection}{\numberline {8.10.5}data frames}{96}{subsection.8.10.5}
-\contentsline {subsection}{\numberline {8.10.6}Extracting variables from lists}{96}{subsection.8.10.6}
-\contentsline {section}{\numberline {8.11}What is a function?}{97}{section.8.11}
-\contentsline {subsection}{\numberline {8.11.1}Write your own function}{98}{subsection.8.11.1}
-\contentsline {section}{\numberline {8.12}What is a package?}{99}{section.8.12}
-\contentsline {section}{\numberline {8.13}Review Exercises}{99}{section.8.13}
-\contentsline {subsection}{\numberline {8.13.1}Exercise 1: Make your own graphic}{99}{subsection.8.13.1}
-\contentsline {subsection}{\numberline {8.13.2}Exercise 2: Counting CVAP}{99}{subsection.8.13.2}
-\contentsline {subsection}{\numberline {8.13.3}Exercise 3: Write your own function}{100}{subsection.8.13.3}
-\contentsline {section}{\numberline {8.14}Tell us about this session.}{100}{section.8.14}
-\contentsline {chapter}{\numberline {9}Manipulating Vectors and Matrices}{101}{chapter.9}
-\contentsline {section}{\numberline {9.1}Where are we? Where are we headed?}{101}{section.9.1}
-\contentsline {section}{\numberline {9.2}Motivation}{101}{section.9.2}
-\contentsline {section}{\numberline {9.3}Setup}{102}{section.9.3}
-\contentsline {section}{\numberline {9.4}Read Data}{102}{section.9.4}
-\contentsline {section}{\numberline {9.5}data.frame vs.\nobreakspace {}matricies}{103}{section.9.5}
-\contentsline {section}{\numberline {9.6}Speed considerations}{103}{section.9.6}
-\contentsline {section}{\numberline {9.7}Handling matricies in \texttt {R}}{104}{section.9.7}
-\contentsline {section}{\numberline {9.8}Variable Transformations}{106}{section.9.8}
-\contentsline {section}{\numberline {9.9}Linear Combinations}{106}{section.9.9}
-\contentsline {section}{\numberline {9.10}Functions in functions}{108}{section.9.10}
-\contentsline {section}{\numberline {9.11}Extension and Exercises}{109}{section.9.11}
-\contentsline {subsubsection}{\numberline {9.11.0.1}Exercise 1}{109}{subsubsection.9.11.0.1}
-\contentsline {subsubsection}{\numberline {9.11.0.2}Exercise 2: Fitted vs.\nobreakspace {}Observed values}{109}{subsubsection.9.11.0.2}
-\contentsline {subsubsection}{\numberline {9.11.0.3}Exercise 3: Matrix powers}{109}{subsubsection.9.11.0.3}
-\contentsline {subsubsection}{\numberline {9.11.0.4}Exercise 4: Challenge problem!}{109}{subsubsection.9.11.0.4}
-\contentsline {chapter}{\numberline {10}Joins and Merges, Wide and Long}{111}{chapter.10}
-\contentsline {section}{\numberline {10.1}Where are we? Where are we headed?}{111}{section.10.1}
-\contentsline {section}{\numberline {10.2}Motivation}{111}{section.10.2}
-\contentsline {section}{\numberline {10.3}Setting up}{112}{section.10.3}
-\contentsline {section}{\numberline {10.4}Create a project directory}{112}{section.10.4}
-\contentsline {section}{\numberline {10.5}Data Sources}{112}{section.10.5}
-\contentsline {section}{\numberline {10.6}Example with 2 Datasets}{112}{section.10.6}
-\contentsline {section}{\numberline {10.7}Loops}{114}{section.10.7}
-\contentsline {section}{\numberline {10.8}Merging}{114}{section.10.8}
-\contentsline {section}{\numberline {10.9}Main Project}{115}{section.10.9}
-\contentsline {subsection}{\numberline {10.9.1}Task 1: Data Input and Standardization}{115}{subsection.10.9.1}
-\contentsline {subsection}{\numberline {10.9.2}Task 2: Data Merging}{115}{subsection.10.9.2}
-\contentsline {subsection}{\numberline {10.9.3}Task 3: Tabulations and Visualization}{115}{subsection.10.9.3}
-\contentsline {chapter}{\numberline {11}Text}{117}{chapter.11}
-\contentsline {section}{\numberline {11.1}Where are we? Where are we headed?}{117}{section.11.1}
-\contentsline {section}{\numberline {11.2}Review}{117}{section.11.2}
-\contentsline {section}{\numberline {11.3}Goals for today}{118}{section.11.3}
-\contentsline {section}{\numberline {11.4}Reading and writing text in R}{118}{section.11.4}
-\contentsline {section}{\numberline {11.5}paste and sprintf}{118}{section.11.5}
-\contentsline {section}{\numberline {11.6}Regular expressions}{119}{section.11.6}
-\contentsline {section}{\numberline {11.7}Representing Text}{121}{section.11.7}
-\contentsline {section}{\numberline {11.8}Important packages for parsing text}{122}{section.11.8}
-\contentsline {section}{\numberline {11.9}Exercises to check your understanding!}{122}{section.11.9}
-\contentsline {subsection}{\numberline {11.9.1}1}{122}{subsection.11.9.1}
-\contentsline {subsection}{\numberline {11.9.2}2}{122}{subsection.11.9.2}
-\contentsline {subsection}{\numberline {11.9.3}3}{122}{subsection.11.9.3}
-\contentsline {subsection}{\numberline {11.9.4}4}{123}{subsection.11.9.4}
-\contentsline {subsection}{\numberline {11.9.5}5}{123}{subsection.11.9.5}
-\contentsline {subsection}{\numberline {11.9.6}6}{123}{subsection.11.9.6}
-\contentsline {subsection}{\numberline {11.9.7}7}{123}{subsection.11.9.7}
-\contentsline {chapter}{\numberline {12}Simulation}{125}{chapter.12}
-\contentsline {section}{\numberline {12.1}Where are we? Where are we headed?}{125}{section.12.1}
-\contentsline {section}{\numberline {12.2}Preview!}{125}{section.12.2}
-\contentsline {section}{\numberline {12.3}Motivation}{125}{section.12.3}
-\contentsline {section}{\numberline {12.4}Key functions}{126}{section.12.4}
-\contentsline {section}{\numberline {12.5}\texttt {sample()}}{126}{section.12.5}
-\contentsline {section}{\numberline {12.6}\texttt {rbinom()}}{127}{section.12.6}
-\contentsline {section}{\numberline {12.7}\texttt {runif()}}{127}{section.12.7}
-\contentsline {section}{\numberline {12.8}\texttt {rnorm()}}{128}{section.12.8}
-\contentsline {section}{\numberline {12.9}\texttt {set.seed()}}{128}{section.12.9}
-\contentsline {section}{\numberline {12.10}Anything else? Specific questions? General questions?}{129}{section.12.10}
-\contentsline {section}{\numberline {12.11}Exercises}{129}{section.12.11}
-\contentsline {subsection}{\numberline {12.11.1}The Birthday problem}{129}{subsection.12.11.1}
-\contentsline {subsection}{\numberline {12.11.2}The Monty Hall problem}{130}{subsection.12.11.2}
-\contentsline {chapter}{\numberline {13}Command-line, markdown, LaTeX, git}{131}{chapter.13}
-\contentsline {section}{\numberline {13.1}Where are we? Where are we headed?}{131}{section.13.1}
-\contentsline {section}{\numberline {13.2}Check your understanding}{131}{section.13.2}
-\contentsline {section}{\numberline {13.3}Motivation}{132}{section.13.3}
-\contentsline {section}{\numberline {13.4}\texttt {command-line}}{132}{section.13.4}
-\contentsline {subsection}{\numberline {13.4.1}command-line commands}{132}{subsection.13.4.1}
-\contentsline {subsection}{\numberline {13.4.2}running things via command-line}{134}{subsection.13.4.2}
-\contentsline {subsection}{\numberline {13.4.3}why do command-line?}{134}{subsection.13.4.3}
-\contentsline {section}{\numberline {13.5}Markdown}{134}{section.13.5}
-\contentsline {subsection}{\numberline {13.5.1}markdown commands}{135}{subsection.13.5.1}
-\contentsline {subsection}{\numberline {13.5.2}your own markdown}{135}{subsection.13.5.2}
-\contentsline {subsection}{\numberline {13.5.3}A note on plain-text editors}{135}{subsection.13.5.3}
-\contentsline {section}{\numberline {13.6}LaTeX}{135}{section.13.6}
-\contentsline {subsection}{\numberline {13.6.1}compile your first LaTeX document.}{136}{subsection.13.6.1}
-\contentsline {subsection}{\numberline {13.6.2}main LaTeX commands}{136}{subsection.13.6.2}
-\contentsline {subsection}{\numberline {13.6.3}more Commands}{137}{subsection.13.6.3}
-\contentsline {section}{\numberline {13.7}BibTeX}{137}{section.13.7}
-\contentsline {subsection}{\numberline {13.7.1}what is a \texttt {.bib} file?}{137}{subsection.13.7.1}
-\contentsline {subsection}{\numberline {13.7.2}what does LaTeX do with .bib files?}{137}{subsection.13.7.2}
-\contentsline {subsection}{\numberline {13.7.3}stocking up on your .bib files}{138}{subsection.13.7.3}
-\contentsline {section}{\numberline {13.8}git}{138}{section.13.8}
-\contentsline {subsection}{\numberline {13.8.1}why version control?}{138}{subsection.13.8.1}
-\contentsline {subsection}{\numberline {13.8.2}open-source code at your fingertips}{139}{subsection.13.8.2}
-\contentsline {subsection}{\numberline {13.8.3}commands in git}{139}{subsection.13.8.3}
-\contentsline {subsection}{\numberline {13.8.4}is git worth it?}{139}{subsection.13.8.4}
-\contentsline {section}{\numberline {13.9}Concluding the Prefresher}{139}{section.13.9}
-\contentsline {subsection}{\numberline {13.9.1}please tell us how we can improve the Prefresher}{139}{subsection.13.9.1}
+\contentsline {chapter}{Pre-PreFresher Exercises}{9}{chapter*.3}
+\contentsline {section}{\numberline {0.1}Linear Algebra}{9}{section.0.1}
+\contentsline {subsection}{Vectors}{9}{section*.4}
+\contentsline {subsection}{Matrices}{9}{section*.5}
+\contentsline {section}{\numberline {0.2}Operations}{10}{section.0.2}
+\contentsline {subsection}{Summation}{10}{section*.6}
+\contentsline {subsection}{Products}{10}{section*.7}
+\contentsline {subsection}{Logs and exponents}{11}{section*.8}
+\contentsline {section}{\numberline {0.3}Limits}{11}{section.0.3}
+\contentsline {section}{\numberline {0.4}Calculus}{11}{section.0.4}
+\contentsline {section}{\numberline {0.5}Optimization}{11}{section.0.5}
+\contentsline {section}{\numberline {0.6}Probability}{12}{section.0.6}
+\contentsline {part}{I\hspace {1em}Math}{13}{part.1}
+\contentsline {chapter}{\numberline {1}Linear Algebra}{15}{chapter.1}
+\contentsline {section}{\numberline {1.1}Working with Vectors}{15}{section.1.1}
+\contentsline {section}{\numberline {1.2}Linear Independence}{16}{section.1.2}
+\contentsline {section}{\numberline {1.3}Basics of Matrix Algebra}{16}{section.1.3}
+\contentsline {section}{\numberline {1.4}Square Matrices}{18}{section.1.4}
+\contentsline {section}{\numberline {1.5}Linear Equations}{19}{section.1.5}
+\contentsline {section}{\numberline {1.6}Systems of Linear Equations}{19}{section.1.6}
+\contentsline {section}{\numberline {1.7}Systems of Equations as Matrices}{20}{section.1.7}
+\contentsline {section}{\numberline {1.8}Finding Solutions to Augmented Matrices and Systems of Equations}{21}{section.1.8}
+\contentsline {section}{\numberline {1.9}Rank --- and Whether a System Has One, Infinite, or No Solutions}{22}{section.1.9}
+\contentsline {section}{\numberline {1.10}The Inverse of a Matrix}{24}{section.1.10}
+\contentsline {section}{\numberline {1.11}Linear Systems and Inverses}{25}{section.1.11}
+\contentsline {section}{\numberline {1.12}Determinants}{25}{section.1.12}
+\contentsline {section}{\numberline {1.13}Getting Inverse of a Matrix using its Determinant and Matrix of Cofactors}{27}{section.1.13}
+\contentsline {chapter}{\numberline {2}Functions and Operations}{29}{chapter.2}
+\contentsline {section}{\numberline {2.1}Summation Operators \(\DOTSB \sum@ \slimits@ \) and \(\DOTSB \prod@ \slimits@ \)}{29}{section.2.1}
+\contentsline {section}{\numberline {2.2}Introduction to Functions}{30}{section.2.2}
+\contentsline {section}{\numberline {2.3}\(\qopname \relax o{log}\) and \(\qopname \relax o{exp}\)}{31}{section.2.3}
+\contentsline {section}{\numberline {2.4}Graphing Functions}{32}{section.2.4}
+\contentsline {section}{\numberline {2.5}Solving for Variables and Finding Inverses}{32}{section.2.5}
+\contentsline {section}{\numberline {2.6}Finding the Roots or Zeroes of a Function}{33}{section.2.6}
+\contentsline {section}{\numberline {2.7}Sets}{33}{section.2.7}
+\contentsline {chapter}{\numberline {3}Limits}{35}{chapter.3}
+\contentsline {section}{\numberline {3.1}Dimensionality}{35}{section.3.1}
+\contentsline {section}{\numberline {3.2}Interval Notation for \({\bf R}^1\)}{35}{section.3.2}
+\contentsline {section}{\numberline {3.3}Limits of a Function}{36}{section.3.3}
+\contentsline {section}{\numberline {3.4}Continuity}{37}{section.3.4}
+\contentsline {section}{\numberline {3.5}Sequences}{37}{section.3.5}
+\contentsline {section}{\numberline {3.6}The Limit of a Sequence}{37}{section.3.6}
+\contentsline {section}{\numberline {3.7}Series}{38}{section.3.7}
+\contentsline {chapter}{\numberline {4}Calculus}{39}{chapter.4}
+\contentsline {section}{\numberline {4.1}Derivatives}{39}{section.4.1}
+\contentsline {section}{\numberline {4.2}Higher-Order Derivatives or, Derivatives of Derivatives of Derivatives}{40}{section.4.2}
+\contentsline {section}{\numberline {4.3}Composite Functions and the Chain Rule}{40}{section.4.3}
+\contentsline {section}{\numberline {4.4}Derivatives of Euler's number and natural logs}{41}{section.4.4}
+\contentsline {section}{\numberline {4.5}Applications of the Derivative: Maxima and Minima}{42}{section.4.5}
+\contentsline {section}{\numberline {4.6}Partial Derivatives}{43}{section.4.6}
+\contentsline {section}{\numberline {4.7}L'H\^{}opital's Rule}{43}{section.4.7}
+\contentsline {section}{\numberline {4.8}Taylor Series Approximation}{44}{section.4.8}
+\contentsline {section}{\numberline {4.9}Summary: Derivative calculus in 6 steps}{45}{section.4.9}
+\contentsline {section}{\numberline {4.10}The Indefinite Integral: The Antiderivative}{45}{section.4.10}
+\contentsline {section}{\numberline {4.11}Common Rules of Integration}{46}{section.4.11}
+\contentsline {section}{\numberline {4.12}The Definite Integral: The Area under the Curve}{46}{section.4.12}
+\contentsline {section}{\numberline {4.13}Integration by Substitution}{48}{section.4.13}
+\contentsline {section}{\numberline {4.14}Integration by Parts, or Ultraviolet Voodoo}{49}{section.4.14}
+\contentsline {chapter}{\numberline {5}Optimization}{51}{chapter.5}
+\contentsline {section}{\numberline {5.1}Quadratic Forms}{51}{section.5.1}
+\contentsline {section}{\numberline {5.2}Concavity of Quadratic Forms}{52}{section.5.2}
+\contentsline {section}{\numberline {5.3}Definiteness of Quadratic Forms}{52}{section.5.3}
+\contentsline {section}{\numberline {5.4}First Order Conditions}{53}{section.5.4}
+\contentsline {section}{\numberline {5.5}Second Order Conditions}{54}{section.5.5}
+\contentsline {section}{\numberline {5.6}Definiteness and Concavity}{55}{section.5.6}
+\contentsline {section}{\numberline {5.7}Global Maxima and Minima}{55}{section.5.7}
+\contentsline {section}{\numberline {5.8}Constrained Optimization}{57}{section.5.8}
+\contentsline {section}{\numberline {5.9}Equality Constraints}{58}{section.5.9}
+\contentsline {section}{\numberline {5.10}Inequality Constraints}{59}{section.5.10}
+\contentsline {section}{\numberline {5.11}Kuhn-Tucker Conditions}{62}{section.5.11}
+\contentsline {chapter}{\numberline {6}Probability Theory}{67}{chapter.6}
+\contentsline {section}{\numberline {6.1}Counting rules}{67}{section.6.1}
+\contentsline {section}{\numberline {6.2}Sets}{68}{section.6.2}
+\contentsline {section}{\numberline {6.3}Probability}{68}{section.6.3}
+\contentsline {section}{\numberline {6.4}Conditional Probability and Bayes Law}{69}{section.6.4}
+\contentsline {section}{\numberline {6.5}Random Variables}{71}{section.6.5}
+\contentsline {section}{\numberline {6.6}Independence}{71}{section.6.6}
+\contentsline {section}{\numberline {6.7}Types of Observed Data}{71}{section.6.7}
+\contentsline {section}{\numberline {6.8}Distributions}{72}{section.6.8}
+\contentsline {section}{\numberline {6.9}Expectation and Other Moments}{73}{section.6.9}
+\contentsline {section}{\numberline {6.10}Special Distributions}{75}{section.6.10}
+\contentsline {section}{\numberline {6.11}Joint Distributions}{76}{section.6.11}
+\contentsline {section}{\numberline {6.12}Summarizing Observed Events (Data)}{77}{section.6.12}
+\contentsline {section}{\numberline {6.13}Asymptotic Theory}{78}{section.6.13}
+\contentsline {part}{II\hspace {1em}Programming}{81}{part.2}
+\contentsline {chapter}{\numberline {7}Counting and Visualization}{83}{chapter.7}
+\contentsline {section}{\numberline {7.1}Where are we? Where are we headed?}{83}{section.7.1}
+\contentsline {section}{\numberline {7.2}Check your understanding}{83}{section.7.2}
+\contentsline {section}{\numberline {7.3}Motivation}{83}{section.7.3}
+\contentsline {section}{\numberline {7.4}Read data}{84}{section.7.4}
+\contentsline {section}{\numberline {7.5}Counting}{84}{section.7.5}
+\contentsline {section}{\numberline {7.6}Tabulating}{85}{section.7.6}
+\contentsline {section}{\numberline {7.7}Visualization}{86}{section.7.7}
+\contentsline {subsection}{\numberline {7.7.1}base R}{86}{subsection.7.7.1}
+\contentsline {subsection}{\numberline {7.7.2}ggplot}{86}{subsection.7.7.2}
+\contentsline {subsection}{\numberline {7.7.3}Improving your graphics}{87}{subsection.7.7.3}
+\contentsline {subsection}{\numberline {7.7.4}Cross-tabs}{89}{subsection.7.7.4}
+\contentsline {subsection}{\numberline {7.7.5}Histograms}{92}{subsection.7.7.5}
+\contentsline {section}{\numberline {7.8}What is an object?}{94}{section.7.8}
+\contentsline {subsection}{\numberline {7.8.1}lists}{94}{subsection.7.8.1}
+\contentsline {section}{\numberline {7.9}Making your own objects}{95}{section.7.9}
+\contentsline {subsection}{\numberline {7.9.1}Seeing R through objects}{95}{subsection.7.9.1}
+\contentsline {subsection}{\numberline {7.9.2}Parsing an object by \texttt {str()s}}{97}{subsection.7.9.2}
+\contentsline {section}{\numberline {7.10}Types of variables}{98}{section.7.10}
+\contentsline {subsection}{\numberline {7.10.1}scalars}{98}{subsection.7.10.1}
+\contentsline {subsection}{\numberline {7.10.2}numeric vectors}{98}{subsection.7.10.2}
+\contentsline {subsection}{\numberline {7.10.3}characters (aka strings)}{98}{subsection.7.10.3}
+\contentsline {subsection}{\numberline {7.10.4}matrices}{99}{subsection.7.10.4}
+\contentsline {subsection}{\numberline {7.10.5}data frames}{100}{subsection.7.10.5}
+\contentsline {subsection}{\numberline {7.10.6}Extracting variables from lists}{100}{subsection.7.10.6}
+\contentsline {section}{\numberline {7.11}What is a function?}{101}{section.7.11}
+\contentsline {subsection}{\numberline {7.11.1}Write your own function}{102}{subsection.7.11.1}
+\contentsline {section}{\numberline {7.12}What is a package?}{103}{section.7.12}
+\contentsline {section}{\numberline {7.13}Review Exercises}{103}{section.7.13}
+\contentsline {subsection}{\numberline {7.13.1}Exercise 1: Make your own graphic}{103}{subsection.7.13.1}
+\contentsline {subsection}{\numberline {7.13.2}Exercise 2: Counting CVAP}{103}{subsection.7.13.2}
+\contentsline {subsection}{\numberline {7.13.3}Exercise 3: Write your own function}{104}{subsection.7.13.3}
+\contentsline {section}{\numberline {7.14}Tell us about this session.}{104}{section.7.14}
+\contentsline {chapter}{\numberline {8}Manipulating Vectors and Matrices}{105}{chapter.8}
+\contentsline {section}{\numberline {8.1}Where are we? Where are we headed?}{105}{section.8.1}
+\contentsline {section}{\numberline {8.2}Motivation}{105}{section.8.2}
+\contentsline {section}{\numberline {8.3}Setup}{106}{section.8.3}
+\contentsline {section}{\numberline {8.4}Read Data}{106}{section.8.4}
+\contentsline {section}{\numberline {8.5}data.frame vs.\nobreakspace {}matricies}{107}{section.8.5}
+\contentsline {section}{\numberline {8.6}Speed considerations}{107}{section.8.6}
+\contentsline {section}{\numberline {8.7}Handling matricies in \texttt {R}}{108}{section.8.7}
+\contentsline {section}{\numberline {8.8}Variable Transformations}{110}{section.8.8}
+\contentsline {section}{\numberline {8.9}Linear Combinations}{110}{section.8.9}
+\contentsline {section}{\numberline {8.10}Functions in functions}{112}{section.8.10}
+\contentsline {section}{\numberline {8.11}Extension and Exercises}{113}{section.8.11}
+\contentsline {subsubsection}{\numberline {8.11.0.1}Exercise 1}{113}{subsubsection.8.11.0.1}
+\contentsline {subsubsection}{\numberline {8.11.0.2}Exercise 2: Fitted vs.\nobreakspace {}Observed values}{113}{subsubsection.8.11.0.2}
+\contentsline {subsubsection}{\numberline {8.11.0.3}Exercise 3: Matrix powers}{113}{subsubsection.8.11.0.3}
+\contentsline {subsubsection}{\numberline {8.11.0.4}Exercise 4: Challenge problem!}{113}{subsubsection.8.11.0.4}
+\contentsline {chapter}{\numberline {9}Joins and Merges, Wide and Long}{115}{chapter.9}
+\contentsline {section}{\numberline {9.1}Where are we? Where are we headed?}{115}{section.9.1}
+\contentsline {section}{\numberline {9.2}Motivation}{115}{section.9.2}
+\contentsline {section}{\numberline {9.3}Setting up}{116}{section.9.3}
+\contentsline {section}{\numberline {9.4}Create a project directory}{116}{section.9.4}
+\contentsline {section}{\numberline {9.5}Data Sources}{116}{section.9.5}
+\contentsline {section}{\numberline {9.6}Example with 2 Datasets}{116}{section.9.6}
+\contentsline {section}{\numberline {9.7}Loops}{118}{section.9.7}
+\contentsline {section}{\numberline {9.8}Merging}{118}{section.9.8}
+\contentsline {section}{\numberline {9.9}Main Project}{119}{section.9.9}
+\contentsline {subsection}{\numberline {9.9.1}Task 1: Data Input and Standardization}{119}{subsection.9.9.1}
+\contentsline {subsection}{\numberline {9.9.2}Task 2: Data Merging}{119}{subsection.9.9.2}
+\contentsline {subsection}{\numberline {9.9.3}Task 3: Tabulations and Visualization}{119}{subsection.9.9.3}
+\contentsline {chapter}{\numberline {10}Text}{121}{chapter.10}
+\contentsline {section}{\numberline {10.1}Where are we? Where are we headed?}{121}{section.10.1}
+\contentsline {section}{\numberline {10.2}Review}{121}{section.10.2}
+\contentsline {section}{\numberline {10.3}Goals for today}{122}{section.10.3}
+\contentsline {section}{\numberline {10.4}Reading and writing text in R}{122}{section.10.4}
+\contentsline {section}{\numberline {10.5}paste and sprintf}{122}{section.10.5}
+\contentsline {section}{\numberline {10.6}Regular expressions}{123}{section.10.6}
+\contentsline {section}{\numberline {10.7}Representing Text}{125}{section.10.7}
+\contentsline {section}{\numberline {10.8}Important packages for parsing text}{126}{section.10.8}
+\contentsline {section}{\numberline {10.9}Exercises to check your understanding!}{126}{section.10.9}
+\contentsline {subsection}{\numberline {10.9.1}1}{126}{subsection.10.9.1}
+\contentsline {subsection}{\numberline {10.9.2}2}{126}{subsection.10.9.2}
+\contentsline {subsection}{\numberline {10.9.3}3}{126}{subsection.10.9.3}
+\contentsline {subsection}{\numberline {10.9.4}4}{127}{subsection.10.9.4}
+\contentsline {subsection}{\numberline {10.9.5}5}{127}{subsection.10.9.5}
+\contentsline {subsection}{\numberline {10.9.6}6}{127}{subsection.10.9.6}
+\contentsline {subsection}{\numberline {10.9.7}7}{127}{subsection.10.9.7}
+\contentsline {chapter}{\numberline {11}Simulation}{129}{chapter.11}
+\contentsline {section}{\numberline {11.1}Where are we? Where are we headed?}{129}{section.11.1}
+\contentsline {section}{\numberline {11.2}Preview!}{129}{section.11.2}
+\contentsline {section}{\numberline {11.3}Motivation}{129}{section.11.3}
+\contentsline {section}{\numberline {11.4}Key functions}{130}{section.11.4}
+\contentsline {section}{\numberline {11.5}\texttt {sample()}}{130}{section.11.5}
+\contentsline {section}{\numberline {11.6}\texttt {rbinom()}}{131}{section.11.6}
+\contentsline {section}{\numberline {11.7}\texttt {runif()}}{131}{section.11.7}
+\contentsline {section}{\numberline {11.8}\texttt {rnorm()}}{132}{section.11.8}
+\contentsline {section}{\numberline {11.9}\texttt {set.seed()}}{132}{section.11.9}
+\contentsline {section}{\numberline {11.10}Anything else? Specific questions? General questions?}{133}{section.11.10}
+\contentsline {section}{\numberline {11.11}Exercises}{133}{section.11.11}
+\contentsline {subsection}{\numberline {11.11.1}The Birthday problem}{133}{subsection.11.11.1}
+\contentsline {subsection}{\numberline {11.11.2}The Monty Hall problem}{134}{subsection.11.11.2}
+\contentsline {chapter}{\numberline {12}Command-line, markdown, LaTeX, git}{135}{chapter.12}
+\contentsline {section}{\numberline {12.1}Where are we? Where are we headed?}{135}{section.12.1}
+\contentsline {section}{\numberline {12.2}Check your understanding}{135}{section.12.2}
+\contentsline {section}{\numberline {12.3}Motivation}{136}{section.12.3}
+\contentsline {section}{\numberline {12.4}\texttt {command-line}}{136}{section.12.4}
+\contentsline {subsection}{\numberline {12.4.1}command-line commands}{136}{subsection.12.4.1}
+\contentsline {subsection}{\numberline {12.4.2}running things via command-line}{138}{subsection.12.4.2}
+\contentsline {subsection}{\numberline {12.4.3}why do command-line?}{138}{subsection.12.4.3}
+\contentsline {section}{\numberline {12.5}Markdown}{138}{section.12.5}
+\contentsline {subsection}{\numberline {12.5.1}markdown commands}{139}{subsection.12.5.1}
+\contentsline {subsection}{\numberline {12.5.2}your own markdown}{139}{subsection.12.5.2}
+\contentsline {subsection}{\numberline {12.5.3}A note on plain-text editors}{139}{subsection.12.5.3}
+\contentsline {section}{\numberline {12.6}LaTeX}{139}{section.12.6}
+\contentsline {subsection}{\numberline {12.6.1}compile your first LaTeX document.}{140}{subsection.12.6.1}
+\contentsline {subsection}{\numberline {12.6.2}main LaTeX commands}{140}{subsection.12.6.2}
+\contentsline {subsection}{\numberline {12.6.3}more Commands}{141}{subsection.12.6.3}
+\contentsline {section}{\numberline {12.7}BibTeX}{141}{section.12.7}
+\contentsline {subsection}{\numberline {12.7.1}what is a \texttt {.bib} file?}{141}{subsection.12.7.1}
+\contentsline {subsection}{\numberline {12.7.2}what does LaTeX do with .bib files?}{141}{subsection.12.7.2}
+\contentsline {subsection}{\numberline {12.7.3}stocking up on your .bib files}{142}{subsection.12.7.3}
+\contentsline {section}{\numberline {12.8}git}{142}{section.12.8}
+\contentsline {subsection}{\numberline {12.8.1}why version control?}{142}{subsection.12.8.1}
+\contentsline {subsection}{\numberline {12.8.2}open-source code at your fingertips}{143}{subsection.12.8.2}
+\contentsline {subsection}{\numberline {12.8.3}commands in git}{143}{subsection.12.8.3}
+\contentsline {subsection}{\numberline {12.8.4}is git worth it?}{143}{subsection.12.8.4}
+\contentsline {section}{\numberline {12.9}Concluding the Prefresher}{143}{section.12.9}
+\contentsline {subsection}{\numberline {12.9.1}please tell us how we can improve the Prefresher}{143}{subsection.12.9.1}

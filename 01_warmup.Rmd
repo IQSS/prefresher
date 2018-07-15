@@ -1,6 +1,9 @@
-# Pre-PreFresher Exercises
+# Pre-PreFresher Exercises {-}
 
 
+Before our first meeting on August 20th, please try solving these questions. They are a sample of the very beginning of each math section. We have provided links to the parts of the book you can read if the concepts are new to you. 
+
+The goal of this "pre"-prefresher assignment is not to intimidate you but to set common expectations so you can make the most out of the actual Prefresher. Even if you do not understand some or all of these questions after skimming through the linked sections, your effort will pay off and you will be better prepared for the math prefresher. We are also open to adjusting these expectations based on feedback (this class is for _you_), so please do not hesitate to write to the instructors for feedback. 
 
 
 ## Linear Algebra
