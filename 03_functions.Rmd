@@ -21,19 +21,20 @@ Much of the material and examples for this lecture are taken from Simon \& Blume
 
 ## Summation Operators $\sum$ and $\prod$  {#summation}
 
-Addition (+), Substraction (-), multiplication and division are basic operations of arithmetic -- combining numbers. In statistics and calculus, we want to add a \emph{sequence} of numbers that can be expressed as a pattern without needing to write down all its components. For example, how do we express the sum of all numbers from 1 to 100?
+Addition (+), Substraction (-), multiplication and division are basic operations of arithmetic -- combining numbers. In statistics and calculus, we want to add a _sequence_ of numbers that can be expressed as a pattern without needing to write down all its components. For example, how would we express the sum of all numbers from 1 to 100 without writing a hundred numbers?
 
 For this we use the summation operator $\sum$ and the product operator $\prod$. 
 
 __Summation:__
 
-$$\sum\limits_{i=1}^n x_i = x_1+x_2+x_3+\cdots+x_n$$
+\[\sum\limits_{i=1}^{100} x_i = x_1+x_2+x_3+\cdots+x_{100}\]
 
-\begin{itemize}
-\item $\sum\limits_{i=1}^n c x_i = c \sum\limits_{i=1}^n x_i $
-\item $\sum\limits_{i=1}^n (x_i + y_i) =  \sum\limits_{i=1}^n x_i + \sum\limits_{i=1}^n y_i $
-\item $\sum\limits_{i=1}^n c = n c $
-\end{itemize}
+The bottom of the $\sum$ symbol indicates an index (here, $i$), and its start value $1$. At the top is where the index ends. The notion of "addition" is part of the $\sum$ symbol.  The content to the right of the summation is the meat of what we add. While you can pick your favorite index, start, and end values, the content must also have the index.
+
+* \(\sum\limits_{i=1}^n c x_i = c \sum\limits_{i=1}^n x_i \)
+* \(\sum\limits_{i=1}^n (x_i + y_i) =  \sum\limits_{i=1}^n x_i + \sum\limits_{i=1}^n y_i\) 
+* \(\sum\limits_{i=1}^n c = n c \)
+
 
 __Product:__
 
@@ -54,7 +55,7 @@ __Factorials!:__
 
 $$x! = x\cdot (x-1) \cdot (x-2) \cdots (1)$$
 
-__Modulo:__ Tells you the remainder when you divide one number by another. Can be extremely useful for programming: \texttt{x mod y} or \texttt{x \% y}
+__Modulo:__ Tells you the remainder when you divide the first number by the seond. 
 
 * $17 \mod 3 = 2$
 * $100 \ \% \ 30 = 10$
