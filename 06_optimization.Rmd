@@ -16,6 +16,11 @@ this lecture are taken from Simon \& Blume (1994) \emph{Mathematics for
 Economists} and Ecker \& Kupferschmid (1988) \emph{Introduction to
 Operations Research}
 
+
+## The Meltzer and Richards Model
+
+
+
 ## Quadratic Forms
 
 Quadratic forms important because
