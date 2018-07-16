@@ -53,17 +53,18 @@
 \contentsline {section}{\numberline {4.16}Integration by Substitution}{43}{section.4.16}
 \contentsline {section}{\numberline {4.17}Integration by Parts, or Ultraviolet Voodoo}{45}{section.4.17}
 \contentsline {chapter}{\numberline {5}Optimization}{47}{chapter.5}
-\contentsline {section}{\numberline {5.1}Quadratic Forms}{47}{section.5.1}
-\contentsline {section}{\numberline {5.2}Concavity of Quadratic Forms}{48}{section.5.2}
-\contentsline {section}{\numberline {5.3}Definiteness of Quadratic Forms}{49}{section.5.3}
-\contentsline {section}{\numberline {5.4}First Order Conditions}{49}{section.5.4}
-\contentsline {section}{\numberline {5.5}Second Order Conditions}{50}{section.5.5}
-\contentsline {section}{\numberline {5.6}Definiteness and Concavity}{51}{section.5.6}
-\contentsline {section}{\numberline {5.7}Global Maxima and Minima}{52}{section.5.7}
-\contentsline {section}{\numberline {5.8}Constrained Optimization}{53}{section.5.8}
-\contentsline {section}{\numberline {5.9}Equality Constraints}{54}{section.5.9}
-\contentsline {section}{\numberline {5.10}Inequality Constraints}{55}{section.5.10}
-\contentsline {section}{\numberline {5.11}Kuhn-Tucker Conditions}{58}{section.5.11}
+\contentsline {section}{\numberline {5.1}The Meltzer and Richards Model}{47}{section.5.1}
+\contentsline {section}{\numberline {5.2}Quadratic Forms}{47}{section.5.2}
+\contentsline {section}{\numberline {5.3}Concavity of Quadratic Forms}{48}{section.5.3}
+\contentsline {section}{\numberline {5.4}Definiteness of Quadratic Forms}{49}{section.5.4}
+\contentsline {section}{\numberline {5.5}First Order Conditions}{49}{section.5.5}
+\contentsline {section}{\numberline {5.6}Second Order Conditions}{50}{section.5.6}
+\contentsline {section}{\numberline {5.7}Definiteness and Concavity}{51}{section.5.7}
+\contentsline {section}{\numberline {5.8}Global Maxima and Minima}{52}{section.5.8}
+\contentsline {section}{\numberline {5.9}Constrained Optimization}{53}{section.5.9}
+\contentsline {section}{\numberline {5.10}Equality Constraints}{54}{section.5.10}
+\contentsline {section}{\numberline {5.11}Inequality Constraints}{55}{section.5.11}
+\contentsline {section}{\numberline {5.12}Kuhn-Tucker Conditions}{58}{section.5.12}
 \contentsline {chapter}{\numberline {6}Probability Theory}{63}{chapter.6}
 \contentsline {section}{\numberline {6.1}Counting rules}{63}{section.6.1}
 \contentsline {section}{\numberline {6.2}Sets}{64}{section.6.2}
@@ -171,30 +172,33 @@
 \contentsline {section}{\numberline {11.11}Exercises}{129}{section.11.11}
 \contentsline {subsection}{\numberline {11.11.1}The Birthday problem}{129}{subsection.11.11.1}
 \contentsline {subsection}{\numberline {11.11.2}The Monty Hall problem}{130}{subsection.11.11.2}
-\contentsline {chapter}{\numberline {12}command-line, markdown, LaTeX, git}{131}{chapter.12}
+\contentsline {chapter}{\numberline {12}LaTeX and markdown}{131}{chapter.12}
 \contentsline {section}{\numberline {12.1}Where are we? Where are we headed?}{131}{section.12.1}
 \contentsline {section}{\numberline {12.2}Check your understanding}{131}{section.12.2}
 \contentsline {section}{\numberline {12.3}Motivation}{132}{section.12.3}
-\contentsline {section}{\numberline {12.4}\texttt {command-line}}{132}{section.12.4}
-\contentsline {subsection}{\numberline {12.4.1}command-line commands}{132}{subsection.12.4.1}
-\contentsline {subsection}{\numberline {12.4.2}running things via command-line}{134}{subsection.12.4.2}
-\contentsline {subsection}{\numberline {12.4.3}why do command-line?}{134}{subsection.12.4.3}
-\contentsline {section}{\numberline {12.5}Markdown}{134}{section.12.5}
-\contentsline {subsection}{\numberline {12.5.1}markdown commands}{135}{subsection.12.5.1}
-\contentsline {subsection}{\numberline {12.5.2}your own markdown}{135}{subsection.12.5.2}
-\contentsline {subsection}{\numberline {12.5.3}A note on plain-text editors}{135}{subsection.12.5.3}
-\contentsline {section}{\numberline {12.6}LaTeX}{136}{section.12.6}
-\contentsline {subsection}{\numberline {12.6.1}compile your first LaTeX document.}{136}{subsection.12.6.1}
-\contentsline {subsection}{\numberline {12.6.2}main LaTeX commands}{136}{subsection.12.6.2}
-\contentsline {subsection}{\numberline {12.6.3}more Commands}{137}{subsection.12.6.3}
-\contentsline {section}{\numberline {12.7}BibTeX}{137}{section.12.7}
-\contentsline {subsection}{\numberline {12.7.1}what is a \texttt {.bib} file?}{137}{subsection.12.7.1}
-\contentsline {subsection}{\numberline {12.7.2}what does LaTeX do with .bib files?}{138}{subsection.12.7.2}
-\contentsline {subsection}{\numberline {12.7.3}stocking up on your .bib files}{138}{subsection.12.7.3}
-\contentsline {section}{\numberline {12.8}git}{138}{section.12.8}
-\contentsline {subsection}{\numberline {12.8.1}why version control?}{139}{subsection.12.8.1}
-\contentsline {subsection}{\numberline {12.8.2}open-source code at your fingertips}{139}{subsection.12.8.2}
-\contentsline {subsection}{\numberline {12.8.3}commands in git}{139}{subsection.12.8.3}
-\contentsline {subsection}{\numberline {12.8.4}is git worth it?}{139}{subsection.12.8.4}
-\contentsline {section}{\numberline {12.9}Concluding PreFresher}{140}{section.12.9}
-\contentsline {subsection}{\numberline {12.9.1}please tell us how we can improve the PreFresher}{140}{subsection.12.9.1}
+\contentsline {section}{\numberline {12.4}Markdown}{132}{section.12.4}
+\contentsline {subsection}{\numberline {12.4.1}markdown commands}{132}{subsection.12.4.1}
+\contentsline {subsection}{\numberline {12.4.2}your own markdown}{132}{subsection.12.4.2}
+\contentsline {subsection}{\numberline {12.4.3}A note on plain-text editors}{133}{subsection.12.4.3}
+\contentsline {section}{\numberline {12.5}LaTeX}{133}{section.12.5}
+\contentsline {subsection}{\numberline {12.5.1}compile your first LaTeX document.}{133}{subsection.12.5.1}
+\contentsline {subsection}{\numberline {12.5.2}main LaTeX commands}{133}{subsection.12.5.2}
+\contentsline {subsection}{\numberline {12.5.3}more Commands}{134}{subsection.12.5.3}
+\contentsline {section}{\numberline {12.6}BibTeX}{135}{section.12.6}
+\contentsline {subsection}{\numberline {12.6.1}what is a \texttt {.bib} file?}{135}{subsection.12.6.1}
+\contentsline {subsection}{\numberline {12.6.2}what does LaTeX do with .bib files?}{135}{subsection.12.6.2}
+\contentsline {subsection}{\numberline {12.6.3}stocking up on your .bib files}{136}{subsection.12.6.3}
+\contentsline {section}{\numberline {12.7}Concluding PreFresher}{136}{section.12.7}
+\contentsline {subsection}{\numberline {12.7.1}please tell us how we can improve the PreFresher}{136}{subsection.12.7.1}
+\contentsline {chapter}{\numberline {13}Command-line, git}{137}{chapter.13}
+\contentsline {section}{\numberline {13.1}Where are we? Where are we headed?}{137}{section.13.1}
+\contentsline {section}{\numberline {13.2}Check your understanding}{137}{section.13.2}
+\contentsline {section}{\numberline {13.3}command-line}{137}{section.13.3}
+\contentsline {subsection}{\numberline {13.3.1}command-line commands}{137}{subsection.13.3.1}
+\contentsline {subsection}{\numberline {13.3.2}running things via command-line}{139}{subsection.13.3.2}
+\contentsline {subsection}{\numberline {13.3.3}why do command-line?}{139}{subsection.13.3.3}
+\contentsline {section}{\numberline {13.4}git}{140}{section.13.4}
+\contentsline {subsection}{\numberline {13.4.1}why version control?}{140}{subsection.13.4.1}
+\contentsline {subsection}{\numberline {13.4.2}open-source code at your fingertips}{140}{subsection.13.4.2}
+\contentsline {subsection}{\numberline {13.4.3}commands in git}{141}{subsection.13.4.3}
+\contentsline {subsection}{\numberline {13.4.4}is git worth it?}{141}{subsection.13.4.4}
