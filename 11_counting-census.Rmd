@@ -1,3 +1,5 @@
+# (PART) Programming {-}
+
 # Counting and Visualization
 
 Module originally written by Shiro Kuriwaki
@@ -7,7 +9,7 @@ Module originally written by Shiro Kuriwaki
 
 Up till now, you should have covered:
 
-* The tutorial assignment at <http://tryr.codeschool.com/>
+* The R Visualization and Programming primers at  <https://rstudio.cloud/primers/>
 
 
 Today we'll cover:
@@ -142,7 +144,7 @@ grp_race <- group_by(cen10, race) %>%
 We will now plot this grouped set of numbers. The `ggplot()` function takes two main arguments, `data` and `aes`. 
 
 1. First enter a single dataframe from which you will draw a plot.
-2. Then enter the `aes`, or aesthetics. This defines which variable in the data the plotting functions should take for pre-set dimensions in graphics. The dimenions `x` and `y` are the most important. We will assign `race` and `count` to them, respectively,
+2. Then enter the `aes`, or aesthetics. This defines which variable in the data the plotting functions should take for pre-set dimensions in graphics. The dimensions `x` and `y` are the most important. We will assign `race` and `count` to them, respectively,
 3. After you close `ggplot()` .. add __layers__ by the plus sign. A `geom` is a layer of graphical representation, for example `geom_histogram` renders a histogram, `geom_point` renders a scatter plot. For a barplot, we can use `geom_col()`
 
 
@@ -458,7 +460,7 @@ my_name == my_name2
 ```
 
 
-### matricies
+### matrices
 
 Matrices are rectangular structures of numbers (they have to be numbers, and they can't be characters).
 

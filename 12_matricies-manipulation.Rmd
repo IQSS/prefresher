@@ -1,5 +1,6 @@
 #  Manipulating Vectors and  Matrices
 
+Module originally written by Shiro Kuriwaki
 
 
 ## Where are we? Where are we headed?

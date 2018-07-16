@@ -50,7 +50,6 @@ Check if you have an idea of how you might code the following tasks:
 Statistical programming is a fast-moving field. The beta version of `R` was released in 2000, `ggplot2` was released on 2005, and  `RStudio` started around 2010. Of course, some programming technologies are quite "old": (`C` in 1969, `C++` around 1989, `TeX` in 1978, `Linux` in 1991, Mac OS in 1984). But it is easy to feel you are falling behind in the recent developments of programming. Today we will do a **brief** and rough overview of some fundamental and new tools other than `R`, with the general aim of having you break out of your comfort zone so you won't be shut out from learning these tools in the future.
 
 
-
 ## Markdown
 Markdown is the text we have been using throughout this course! At its core markdown is just plain text. Plain text does not have any formatting embedded in it. Instead, the formatting is coded up as text. Markdown is _not_ a WYSIWYG (What you see is what you get) text editor like Microsoft Word or Google Docs. This will mean that you need to explicitly code for `bold{text}` rather than hitting Command+B and making your text look __bold__ on your own computer. 
 
@@ -58,13 +57,14 @@ Markdown is known as a "light-weight" editor, which means that it is relatively 
 
 ### markdown commands
 For italic and bold, use either the asterisks or the underlines, 
-```{md}
+
+```{r, eval = FALSE, echo = TRUE}
 *italic*   **bold**
 _italic_   __bold__
 ```
 
 And for headers use the hash symbols, 
-```{md}
+```{r, eval = FALSE, echo = TRUE}
 # Main Header
 ## Sub-headers
 ```
@@ -130,10 +130,9 @@ Notice that each line starts with a backslash `\` -- in LaTeX this is the symbol
 
 The following syntax at the endpoints are shorthand for math equations.
 ```
-$$\int x^2 dx$$
 \[\int x^2 dx\]
 ```
-both of these compile math symbols: $\displaystyle \int x^2 dx.$
+these compile math symbols: $\displaystyle \int x^2 dx.$^[Enclosing with `$$` instead of `\[` also has the same effect, so you may see it too. But this is now discouraged due to its inflexibility.]
 
 
 The `align` environment is useful to align your multi-line math, for example. 
@@ -213,13 +212,11 @@ Citation management software (Mendeley or Zotero) automatically generates .bib e
 
 
 
-## Concluding PreFresher
+## Concluding the Prefresher
 
 Keep on learning, trying new techniques to improve your work, and learn from others! 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"> <a href="https://twitter.com/EmilyRiederer/status/898735640031920129">August 18, 2017</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-### please tell us how we can improve the PreFresher
-The PreFresher is a work in progress, with material mainly driven by graduate students. Please tell us how we should change (or not change) each of its elements:
-
-<https://harvard.az1.qualtrics.com/jfe/form/SV_9moFLOtHV7lkNhz>
+### please tell us how we can improve the Prefresher
+The Prefresher is a work in progress, with material mainly driven by graduate students. Please tell us how we should change (or not change) each of its elements:

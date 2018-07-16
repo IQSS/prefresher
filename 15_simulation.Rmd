@@ -20,7 +20,7 @@ Up till now, you should have covered:
 * Wrangling with real data
 * Visualization
 
-In this module, we will start to work with generating data within R, from thin air, as it were. This branch of statistics is grouped as "simulation", and it is becoming increasing relevant and useful for empirical social sciece researchers, not just statisticians.
+In this module, we will start to work with generating data within R, from thin air, as it were. This branch of statistics is grouped as "simulation", and it is becoming increasing relevant for social scientists, not just statisticians.
 
 
 ## Preview!
@@ -29,7 +29,7 @@ Check if you have an idea of how you might code the following tasks:
 
 * Simulate 100 rolls of a die
 * Simulate one random ordering of 25 numbers
-* Simulate 100 valus of white noise (uniform random variables)
+* Simulate 100 values of white noise (uniform random variables)
 * Generate a "bootstrap" sample of an existing dataset
 
 We're going to learn about this today!
@@ -38,15 +38,15 @@ We're going to learn about this today!
 An increasing amount of political science contributions now include a simulation. 
 
 * [Axelrod (1977)](http://www-personal.umich.edu/~axe/research/Dissemination.pdf) demonstrated via simulation how atomized individuals evolve to be grouped in similar clusters or countries, a model of culture^[[Axelrod, Robert. 1997. "The Dissemination of Culture." _Journal of Conflict Resolution_ 41(2): 203–26.](http://www-personal.umich.edu/~axe/research/Dissemination.pdf)].
-* [Chen and Rodden (2013)](http://www-personal.umich.edu/~jowei/florida.pdf) argued in a 2013 article that the vote-seat inequality in U.S. elections that is often attributed to intentional partisan gerrymandering can actually attributed to simply the reality of "human geography" -- Democratic voters tend to be concentrated in smaller area. Put another way, no feasible form of gerrymandering could spread out Democratic voters in such a way to equalize their vote-seat translation effectiveness. After demonstraing the empirical pattern of human geography, they advance their key claim by simulating thousands of redistricting plans and record the vote-seat ratio^[[Chen, Jowei, and Jonathan Rodden.  "Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures. _Quarterly Journal of Political Science_, 8:239-269"](http://www-personal.umich.edu/~jowei/florida.pdf)]. 
+* [Chen and Rodden (2013)](http://www-personal.umich.edu/~jowei/florida.pdf) argued in a 2013 article that the vote-seat inequality in U.S. elections that is often attributed to intentional partisan gerrymandering can actually attributed to simply the reality of "human geography" -- Democratic voters tend to be concentrated in smaller area. Put another way, no feasible form of gerrymandering could spread out Democratic voters in such a way to equalize their vote-seat translation effectiveness. After demonstrating the empirical pattern of human geography, they advance their key claim by simulating thousands of redistricting plans and record the vote-seat ratio^[[Chen, Jowei, and Jonathan Rodden.  "Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures. _Quarterly Journal of Political Science_, 8:239-269"](http://www-personal.umich.edu/~jowei/florida.pdf)]. 
 * [Gary King, James Honaker, and multiple other authors](https://gking.harvard.edu/files/abs/evil-abs.shtml) propose a way to analyze missing data with a method of multiple imputation, which uses a lot of simulation from a researcher's observed dataset^[[King, Gary, et al. "Analyzing Incomplete Political Science Data: An Alternative Algorithm for Multiple Imputation". _American Political Science Review_, 95: 49-69.](https://gking.harvard.edu/files/abs/evil-abs.shtml)]  (Software: Amelia^[[James Honaker, Gary King, Matthew Blackwell (2011). Amelia II: A Program for Missing Data. Journal of
   Statistical Software, 45(7), 1-47.](http://www.jstatsoft.org/v45/i07/)]). 
 
 Statistical methods also incorporate simulation: 
   
-      1. The bootstrap: a statistical method for estimating uncertainty around some parameter by re-sampling observations. 
-      2. Bagging: a method for improving machine learning predictions by re-sampling observations, storing the estimate across many re-samples, and averaging these estimates to form the final estimate. A variance reduction technique. 
-      3. Statistical reasoning: if you are trying to understand a quantitative problem, a wonderful first-step to understand the problem better is to simulate it! The analytical solution is often very hard (or impossible), but the simulation is often much easier :-) 
+1. The bootstrap: a statistical method for estimating uncertainty around some parameter by re-sampling observations. 
+2. Bagging: a method for improving machine learning predictions by re-sampling observations, storing the estimate across many re-samples, and averaging these estimates to form the final estimate. A variance reduction technique. 
+3. Statistical reasoning: if you are trying to understand a quantitative problem, a wonderful first-step to understand the problem better is to simulate it! The analytical solution is often very hard (or impossible), but the simulation is often much easier :-) 
 
 ## Key functions
 The core functions for coding up stochastic data revolves around several key functions, so we will simply review them here.  
@@ -67,7 +67,7 @@ Sampling without replacement (`replace = FALSE`) means once an element of `x` is
 sample(x = 1:10, size = 10, replace = FALSE) ## no number appears more than once
 ```
 
-Sampling with repalcement (`replace = TRUE`) means that even if an element of `x` is chosen, it is put back in the pool and may be chosen again. 
+Sampling with replacement (`replace = TRUE`) means that even if an element of `x` is chosen, it is put back in the pool and may be chosen again. 
 ```{r}
 sample(x = 1:10, size = 10, replace = TRUE) ## any number can appear more than once
 ```
@@ -138,9 +138,9 @@ hist(from_rnorm)
 
 
 ## `set.seed()`
-`R` doesn't have the ability to generate truly random numbers! Random numbers are actually very hard to generate. (Think: flipping a coin --> can be perfectly predicted if I know windspeed, the angle the coin is flipped, etc.). Some people use random noise in the atmosphere or random behavior in quantuum systems to generate "truly" (?) random numbers. Convserely, R uses deterministic algorithms which take as an input a "seed" and which then perform a series of operations to generate a sequence of random-seeming numbers (that is, numbers whose sequence is sufficiently hard to predict).
+`R` doesn't have the ability to generate truly random numbers! Random numbers are actually very hard to generate. (Think: flipping a coin --> can be perfectly predicted if I know windspeed, the angle the coin is flipped, etc.). Some people use random noise in the atmosphere or random behavior in quantum systems to generate "truly" (?) random numbers. Conversely, R uses deterministic algorithms which take as an input a "seed" and which then perform a series of operations to generate a sequence of random-seeming numbers (that is, numbers whose sequence is sufficiently hard to predict).
 
-Let's think about this another way. Sampling is a stochastic process, so every time you run `sample()` or `runif()` you are bound to get a different output (because different random seeds are used). This is intenional in some cases but you might want to avoid it in others. For example, you might want to diagnose a coding discrepancy by setting the random number generator to give the same number each time. To do this, use the function `set.seed()`.
+Let's think about this another way. Sampling is a stochastic process, so every time you run `sample()` or `runif()` you are bound to get a different output (because different random seeds are used). This is intentional in some cases but you might want to avoid it in others. For example, you might want to diagnose a coding discrepancy by setting the random number generator to give the same number each time. To do this, use the function `set.seed()`.
 
 In the function goes any number. When you run a sample function in the same command as a preceding `set.seed()`, the sampling function will always give you the same sequence of numbers. In a sense, the sampler is no longer random (in the sense of unpredictable to use; remember: it never was "truly" random in the first place)
 
@@ -163,7 +163,7 @@ runif(n = 5)
 ## Exercises
 
 ### The Birthday problem
-Write code that will answer the well-known birthday probelm via simulation^[This exercise draws from Imai (2017)]. 
+Write code that will answer the well-known birthday problem via simulation^[This exercise draws from Imai (2017)]. 
 
 The problem is fairly simple: Suppose $k$ people gather together in a room. What is the probability at least two people share the same birthday?
 
@@ -200,7 +200,7 @@ _Step 5_: Generate a table or plot that shows how the probability of sharing a b
 ```
 
 
-_Extra credit_: Give an "analtyical" answer to this problem, that is an answer through deriving the mathematical expressions of the probability.
+_Extra credit_: Give an "analytical" answer to this problem, that is an answer through deriving the mathematical expressions of the probability.
 ```{r}
 # Your equations
 ```
@@ -214,7 +214,7 @@ The original formulation of the problem appeared on a magazine column in 1990
 > "Suppose you're on a game show, and you're given the choice of three doors: Behind one door is a car; behind the others, goats. You pick a door, say No. 1, and the host, who knows what's behind the doors, opens another door, say No. 3, which has a goat. He then says to you, 'Do you want to pick door No. 2?' Is it to your advantage to switch your choice?"
 > [https://en.wikipedia.org/wiki/Monty_Hall_problem](https://en.wikipedia.org/wiki/Monty_Hall_problem)
 
-Give an answer to this question by a  Monte Carlo simulation. As in the previous expample, set a number `sims` for the number of simulations you will run.
+Give an answer to this question by a  Monte Carlo simulation. As in the previous example, set a number `sims` for the number of simulations you will run.
 
 The key difference in this problem is to record the outcome (whether you won or lost) for _two counterfactuals_ at any given simulation. That is, record the result for two cases: when you switched given the host's advice or did not switch. 
 
