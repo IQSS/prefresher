@@ -326,7 +326,7 @@ Let
 \end{array}\right]
 \]
 
-Use R to write a loop that will consecutively multiply $A$ to itself. What is the value of $A^{100}$? $A^{500}$? Store each iteration of $A^n$ where $n = 1, 2....$ and plot how each element of the product changes over $n$ iterations. 
+Use R to write code that will consecutively multiply $A$ to itself 4 times. What is the value of $A^{4}? 
 
 ```{r}
 ## Enter yourself

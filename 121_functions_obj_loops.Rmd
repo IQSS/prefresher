@@ -371,11 +371,32 @@ if (x >0) {
 
 
 ## For-loops
+
 ```{r}
-cen10_copy <- cen10
-cen10_copy$forties <- 0
-cen10_copy[cen10_copy$age > 39 & cen10_copy$age < 51, ]$forties <- 1
-head(cen10_copy[cen10_copy$age > 39 & cen10_copy$age < 51, ])
+
+fruits <- c("apples", "oranges", "grapes")
+for (fruit in fruits) {
+  print(paste("I love", fruit))
+}
+``` 
+```{r}
+
+
+for (i in 1:length(fruits)) {
+  print(paste("I love", fruits[i]))
+}
+``` 
+
+```{r}
+
+states_of_interest <- c("California", "Massachusetts", "New Hampshire", "Washington")
+for( state in states_of_interest) {
+  state_data <- cen10[cen10$state == state,]
+  nmen <- sum(state_data$sex == "Male")
+  nwomen <- sum(state_data$sex == "Female")
+  men_perc <- round(100*(nmen/(nmen + nwomen)), digits=2)
+  print(paste("Percentage of men in",state, "is", men_perc))
+}
 ``` 
 
 
