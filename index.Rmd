@@ -2,12 +2,13 @@
 title: "Math Prefresher for Political Scientists"
 author: ""
 date: "`r Sys.Date()`"
-site: bookdown::bookdown_site
+description: "Text for Harvard Department of Government Math Prefresher"
+github-repo: "kuriwaki/prefresher"
+site: "bookdown::bookdown_site"
 documentclass: book
-bibliography: [book.bib, packages.bib]
+bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
-description: "This is a trial version of Harvard department of Government Math Prefresher Text"
 ---
 
 # About this Booklet {-}
