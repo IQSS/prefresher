@@ -79,7 +79,7 @@ Let $f(x)=(x^3)(2x^4)$, then  $f^\prime(x)=$
 Let \[f(x)=\frac{x^2+1}{x^2-1}\], then $f^\prime(x)=$
 ```
 
-
+<!-- f'(x) = 0 -->
 
 ## Higher-Order Derivatives or, Derivatives of Derivatives of Derivatives {#derivpoly}
 
@@ -122,7 +122,7 @@ Notice that $f\circ g$ and $g\circ f$ are not the same functions.
 Let $f(x)=4+\sin x$ for all real $x$ and $g(x)=\sqrt{1-x^2}$ for $-1 \leq x \le 1$}.
 
 Then 
-\[(f\circ g)(x)=4+\sin \sqrt{1-x^2}, -1 \leq x \leq 1$ \]
+\[(f\circ g)(x)=4+\sin \sqrt{1-x^2}, -1 \leq x \leq 1\]
 
 Also 
 \[(g\circ f)(x)\]
@@ -144,8 +144,7 @@ Find $dy/dx$ for $y=(3x^2+5x-7)^6$.
 Approach: Let $f(z)=z^6$ and $z=g(x)=3x^2+5x-7$.  Then, $y=f[g(x)]$ and
 
 \begin{align*}
-\frac{dy}{dx}&=\\
-\vspace{3cm}
+\frac{dy}{dx}&=
 \end{align*}
 ```
 
