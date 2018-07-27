@@ -52,41 +52,32 @@ __Notation for derivatives:__
 
 \underline{Properties of derivatives:}  Suppose that $f$ and $g$ are differentiable at $x$ and that $\alpha$ is a constant.  Then the functions $f\pm g$, $\alpha f$, $f g$, and $f/g$ (provided $g(x)\ne 0$) are also differentiable at $x$.  Additionally,
 
-\begin{enumerate}
-		\item \parbox[t]{2in}{\bf Power rule:} $[x^k]' = k x^{k-1}$  
-		\item \parbox[t]{2in}{\bf Sum rule:} $[f(x)\pm g(x)]' = f'(x)\pm g'(x)$ 
-		\item \parbox[t]{2in}{\bf Constant rule:} $[\alpha f(x)]' = \alpha f'(x)$ 
-		\item \parbox[t]{2in}{\bf Product rule:} $[f(x)g(x)]' = f'(x)g(x)+f(x)g'(x)$
-		\item \parbox[t]{2in}{\bf Quotient rule:} $[f(x)/g(x)]' = \frac{f'(x)g(x)-f(x)g'(x)}{[g(x)]^2}$, $g(x)\ne 0$\\
-\end{enumerate}	
-	
-\begin{comment}
-	\begin{framed}
-	\item[] Examples:
-	\begin{enumerate}
-		\item $f(x)=c$\\
-			 $f'(x)=$
-		\item \parbox[c]{4in}{$f(x)=x$\\
-			$f'(x)=$}
-			\parbox[c]{1in}{\,  {\includegraphics[width=1in, angle = 270]{derivx.eps}}}
-		\item \parbox[c]{4in}{$f(x)=x^2$\\
-			$f'(x)=$}
-			\parbox[c]{1in}{\,  {\includegraphics[width=1in, angle = 270]{derivx2.eps}}}
-		\item \parbox[c]{4in}{$f(x)=x^3$\\
-			$f'(x) = $}
-			\parbox[c]{1in}{\,  {\includegraphics[width=1in, angle = 270]{derivx3.eps}}}
-		\item $f(x)=3x^2+2x^{1/3}$\\
-			$f'(x)=$\\
-		\item $f(x)=(x^3)(2x^4)$\\
-			$f'(x)=$\\\\ 
-		\item $f(x)=\frac{x^2+1}{x^2-1}$\\
-			$f'(x)=$
-	\end{enumerate}
-	\end{framed}
-\end{comment}
+1. __Power rule:__ $[x^k]' = k x^{k-1}$  
+2. __Sum rule:__ $[f(x)\pm g(x)]' = f'(x)\pm g'(x)$ 
+3. __Constant rule:__ $[\alpha f(x)]' = \alpha f'(x)$ 
+4. __Product rule:__ $[f(x)g(x)]' = f'(x)g(x)+f(x)g'(x)$
+5. __Quotient rule:__ $[f(x)/g(x)]' = \frac{f'(x)g(x)-f(x)g'(x)}{[g(x)]^2}$, $g(x)\ne 0$
 	
 
+```{exercise, name="Derivative of Polynomials"} 
 
+Express the following derivatives. 
+
+
+Let $f(x)=c$, then $f^\prime(x)=$
+
+Let $f(x)=x$, then $f^\prime(x)=$
+  
+Let $f(x)=x^2$, then  $f^\prime(x)=$
+
+Let $f(x)=x^3$, then $f^\prime(x)=$
+
+Let $f(x) = 3x^2 + 2x^{1/3}$, then $f^\prime(x)=$
+  
+Let $f(x)=(x^3)(2x^4)$, then  $f^\prime(x)=$
+
+Let \[f(x)=\frac{x^2+1}{x^2-1}\], then $f^\prime(x)=$
+```
 
 
 
@@ -95,62 +86,68 @@ __Notation for derivatives:__
 
 We can keep applying the differentiation process to functions that are themselves derivatives.  The derivative of $f'(x)$ with respect to $x$, would then be $$f''(x)=\lim\limits_{h\to 0}\frac{f'(x+h)-f'(x)}{h}$$ and so on.  Similarly, the derivative of $f''(x)$ would be denoted $f'''(x)$.
 
-\parbox[t]{2in}{{\bf First derivative}:} $f'(x)$, $y'$, $\frac{df(x)}{dx}$, $\frac{dy}{dx}$
+__First derivative:__ $f'(x)$, $y'$, $\frac{df(x)}{dx}$, $\frac{dy}{dx}$
 
-\parbox[t]{2in}{{\bf Second derivative}:} $f''(x)$, $y''$, $\frac{d^2f(x)}{dx^2}$, $\frac{d^2y}{dx^2}$
+__Second derivative:__ $f''(x)$, $y''$, $\frac{d^2f(x)}{dx^2}$, $\frac{d^2y}{dx^2}$
 
-\parbox[t]{2in}{{\bf $\bf n$th derivative}:}  $\frac{d^nf(x)}{dx^n}$, $\frac{d^ny}{dx^n}$
+__nth derivative: __  $\frac{d^nf(x)}{dx^n}$, $\frac{d^ny}{dx^n}$
 
-
-Example:
+```{example, name="Succession of Derivatives"}
 \begin{align*}
-f(x) &=x^3
-f'(x) &=3x^2
-f''(x) &=6x 
-f'''(x) &=6
-f''''(x) &=0
+f(x) &=x^3\\
+f^{\prime}(x) &=3x^2\\
+f^{\prime\prime}(x) &=6x \\
+f^{\prime\prime\prime}(x) &=6\\
+f^{\prime\prime\prime\prime}(x) &=0\\
 \end{align*}
+```
 
 
 ## Composite Functions and the Chain Rule
-__Composite functions__ are formed by substituting one function into another and are denoted by $$(f\circ g)(x)=f[g(x)]$$  To form $f[g(x)]$, the range of $g$ must be contained (at least in part) within the domain of $f$. The domain of $f\circ g$ consists of all the points in the domain of $g$ for which $g(x)$ is in the domain of $f$.
+__Composite functions__ are formed by substituting one function into another and are denoted by \[(f\circ g)(x)=f[g(x)]\]  To form $f[g(x)]$, the range of $g$ must be contained (at least in part) within the domain of $f$. The domain of $f\circ g$ consists of all the points in the domain of $g$ for which $g(x)$ is in the domain of $f$.
 
-Examples:
+```{example}
+Ket $f(x)=\ln x$ for  $0<x<\infty$ and  $g(x)=x^2$ for $-\infty<x<\infty$.
 
-\begin{enumerate}
-		\item \parbox[t]{2in}{$f(x)=\ln x$,}  \phantom{$0<x<\infty$}\\ 
-			\parbox[t]{2in}{$g(x)=x^2$} \phantom{$-\infty<x<\infty$}\\ 
-			\parbox[t]{2in}{$(f\circ g)(x)=\ln x^2$,} \phantom{$-\infty<x<\infty - \{0\}$}\\ 
-			\parbox[t]{2in}{$(g\circ f)(x)=[\ln x]^2$,} \phantom{$0<x<\infty$}\\ 
-				Notice that $f\circ g$ and $g\circ f$ are not the same functions.		
-		\item \parbox[t]{2in}{$f(x)=4+\sin x$,} \phantom{$-\infty<x<\infty$}\\
-			\parbox[t]{2in}{$g(x)=\sqrt{1-x^2}$,} \phantom{$-1\le x\le 1$}\\
-			\parbox[t]{2in}{$(f\circ g)(x)=4+\sin \sqrt{1-x^2}$,} \phantom{$-1\le x\le 1$}\\ 
-				$(g\circ f)(x)$ does not exist. $\sqrt{1-(4+\sin(x))^2}$ is not a real number because $1-(4+\sin(x))^2$ is always negative.
-\end{enumerate}
+Then 
+\[(f\circ g)(x)=\ln x^2, -\infty<x<\infty - \{0\}\]
 
-\textbf{Chain Rule}:  Let $y=(f\circ g)(x)= f[g(x)]$. The derivative of $y$ with respect to $x$ is $$\frac{d}{dx} \{ f[g(x)] \} = f'[g(x)] g'(x)$$ which can also be written as $$\frac{dy}{dx}=\frac{dy}{dg(x)} \frac{dg(x)}{dx}$$ (Note: the above does not imply that the $dg(x)$'s cancel out, as in fractions.  They are part of the derivative notation and you can't separate them out or cancel them.)
+Also 
+\[(g\circ f)(x)=[\ln x]^2, 0<x<\infty\]
+
+Notice that $f\circ g$ and $g\circ f$ are not the same functions.
+```
+
+```{example}
+Let $f(x)=4+\sin x$ for all real $x$ and $g(x)=\sqrt{1-x^2}$ for $-1 \leq x \le 1$}.
+
+Then 
+\[(f\circ g)(x)=4+\sin \sqrt{1-x^2}, -1 \leq x \leq 1$ \]
+
+Also 
+\[(g\circ f)(x)\]
+does _not_ exist. $\sqrt{1-(4+\sin(x))^2}$ is not a real number because $1-(4+\sin(x))^2$ is always negative.
+```
+
+
+__Chain Rule__:  Let $y=(f\circ g)(x)= f[g(x)]$. The derivative of $y$ with respect to $x$ is \[\frac{d}{dx} \{ f[g(x)] \} = f'[g(x)] g'(x)\] which can also be written as \[\frac{dy}{dx}=\frac{dy}{dg(x)} \frac{dg(x)}{dx}\] (Note: the above does not imply that the $dg(x)$'s cancel out, as in fractions.  They are part of the derivative notation and you can't separate them out or cancel them.)
 
 The chain rule can be thought of as the derivative of the "outside" times the derivative of the "inside", remembering that the derivative of the outside function is evaluated at the value of the inside function.
 	
 	
 
-\textbf{Generalized Power Rule}:  If $y=[g(x)]^k$, then $dy/dx=k[g(x)]^{k-1}g'(x)$.
+__Generalized Power Rule__:  If $y=[g(x)]^k$, then $dy/dx=k[g(x)]^{k-1}g'(x)$.
 
-\begin{framed}
-Examples:
-\begin{enumerate}
-		\item Find $dy/dx$ for $y=(3x^2+5x-7)^6$. Let $f(z)=z^6$ and $z=g(x)=3x^2+5x-7$.  Then, $y=f[g(x)]$ and
-		\begin{eqnarray*}
-			\frac{dy}{dx}&=
-		\end{eqnarray*}
-		
-		\item Find $dy/dx$ for $y=\sin(x^3+4x)$. (Note: the derivative of $\sin x$ is $\cos x$.)  Let $f(z)=\sin z$ and $z=g(x)=x^3+4x$.  Then, $y=f[g(x)]$ and
-		\begin{eqnarray*}
-			\frac{dy}{dx}&=
-		\end{eqnarray*}
-\end{enumerate}
-\end{framed}
+```{example}
+Find $dy/dx$ for $y=(3x^2+5x-7)^6$.
+
+Approach: Let $f(z)=z^6$ and $z=g(x)=3x^2+5x-7$.  Then, $y=f[g(x)]$ and
+
+\begin{align*}
+\frac{dy}{dx}&=\\
+\vspace{3cm}
+\end{align*}
+```
 
 
 
