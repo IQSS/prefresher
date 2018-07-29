@@ -6,6 +6,7 @@ description: "Text for Harvard Department of Government Math Prefresher"
 github-repo: "kuriwaki/prefresher"
 site: "bookdown::bookdown_site"
 documentclass: book
+geometry: "margin=1.5in"
 bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes

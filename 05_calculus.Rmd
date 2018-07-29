@@ -1,16 +1,12 @@
 # Calculus {#derivatives}
 
 __Topics__: 
- Sequences;
- Limit of a Sequence;
- Series;
  Derivatives;
  Higher-Order Derivatives;
  Composite Functions and The Chain Rule;
- Derivatives of Exp and Ln;
- Maxima and Minima;
+ Derivatives of e and log;
  Partial Derivatives;
- L'H\^opital's Rule;
+ L'Hopital's Rule;
  Taylor Approximation;
  Derivative Calculus in 6 Steps;
 The Indefinite Integral: The Antiderivative;
@@ -32,32 +28,34 @@ The derivative of $f$ at $x$ is its rate of change at $x$ --- i.e., how much $f(
 * For a curve, the derivative is the slope of the line tangent to the curve at $x$.
 
 
-\textbf{Derivative}:  Let $f$ be a function whose domain includes an open interval containing the point $x$.  The derivative of $f$ at $x$ is given by
+__Derivative__:  Let $f$ be a function whose domain includes an open interval containing the point $x$.  The derivative of $f$ at $x$ is given by
 
-\begin{eqnarray}
-		f'(x) &=&\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{(x+h)-x}\nonumber\\
-		&=&\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{h}\nonumber
-\end{eqnarray}
+\begin{align*}
+		f'(x) &=\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{(x+h)-x}\nonumber\\
+		&=\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{h}\nonumber
+\end{align*}
 
 
 If $f'(x)$ exists at a point $x$, then $f$ is said to be __differentiable__ at $x$.  Similarly, if $f'(x)$ exists for every point a long an interval, then $f$ is differentiable along that interval.  For $f$ to be differentiable at $x$, $f$ must be both continuous and "smooth'' at $x$.  The process of calculating $f'(x)$ is called __differentiation__.
 
 __Notation for derivatives:__
 
+* Prime or Lagrange Notation: $y'$, $f'(x)$
+* Leibniz's Notation: $\frac{dy}{dx}$, $\frac{df}{dx}(x)$
+* Operator Notation: $Dy$, $Df(x)$
 
-Prime or Lagrange Notation: $y'$, $f'(x)$
-Leibniz's Notation: $\frac{dy}{dx}$, $\frac{df}{dx}(x)$
-Operator Notation: $Dy$, $Df(x)$
 
-
-\underline{Properties of derivatives:}  Suppose that $f$ and $g$ are differentiable at $x$ and that $\alpha$ is a constant.  Then the functions $f\pm g$, $\alpha f$, $f g$, and $f/g$ (provided $g(x)\ne 0$) are also differentiable at $x$.  Additionally,
+__Properties of derivatives:__  Suppose that $f$ and $g$ are differentiable at $x$ and that $\alpha$ is a constant.  Then the functions $f\pm g$, $\alpha f$, $f g$, and $f/g$ (provided $g(x)\ne 0$) are also differentiable at $x$.  Additionally,
 
 1. __Power rule:__ $[x^k]' = k x^{k-1}$  
 2. __Sum rule:__ $[f(x)\pm g(x)]' = f'(x)\pm g'(x)$ 
 3. __Constant rule:__ $[\alpha f(x)]' = \alpha f'(x)$ 
 4. __Product rule:__ $[f(x)g(x)]' = f'(x)g(x)+f(x)g'(x)$
 5. __Quotient rule:__ $[f(x)/g(x)]' = \frac{f'(x)g(x)-f(x)g'(x)}{[g(x)]^2}$, $g(x)\ne 0$
-	
+
+
+These "rules"	become apparent by applying the definition of the derivative above to each of the things to be "derived", but these come up so frequently that it is best to repeat until it is muscle memory. 
+
 
 ```{exercise, name="Derivative of Polynomials"} 
 
@@ -76,10 +74,11 @@ Let $f(x) = 3x^2 + 2x^{1/3}$, then $f^\prime(x)=$
   
 Let $f(x)=(x^3)(2x^4)$, then  $f^\prime(x)=$
 
-Let \[f(x)=\frac{x^2+1}{x^2-1}\], then $f^\prime(x)=$
+Let $f(x)=\frac{x^2+1}{x^2-1}$, then $f^\prime(x)=$
 ```
 
-## Higher-Order Derivatives or, Derivatives of Derivatives of Derivatives {#derivpoly}
+
+## Higher-Order Derivatives (Derivatives of Derivatives of Derivatives) {#derivpoly}
 
 
 We can keep applying the differentiation process to functions that are themselves derivatives.  The derivative of $f'(x)$ with respect to $x$, would then be $$f''(x)=\lim\limits_{h\to 0}\frac{f'(x+h)-f'(x)}{h}$$ and so on.  Similarly, the derivative of $f''(x)$ would be denoted $f'''(x)$.
@@ -102,30 +101,21 @@ f^{\prime\prime\prime\prime}(x) &=0\\
 
 
 ## Composite Functions and the Chain Rule
+
 __Composite functions__ are formed by substituting one function into another and are denoted by \[(f\circ g)(x)=f[g(x)]\]  To form $f[g(x)]$, the range of $g$ must be contained (at least in part) within the domain of $f$. The domain of $f\circ g$ consists of all the points in the domain of $g$ for which $g(x)$ is in the domain of $f$.
 
 ```{example}
-Ket $f(x)=\ln x$ for  $0<x<\infty$ and  $g(x)=x^2$ for $-\infty<x<\infty$.
+Let $f(x)=\log x$ for  $0<x<\infty$ and  $g(x)=x^2$ for $-\infty<x<\infty$.
 
 Then 
-\[(f\circ g)(x)=\ln x^2, -\infty<x<\infty - \{0\}\]
+\[(f\circ g)(x)=\log x^2, -\infty<x<\infty - \{0\}\]
 
 Also 
-\[(g\circ f)(x)=[\ln x]^2, 0<x<\infty\]
+\[(g\circ f)(x)=[\log x]^2, 0<x<\infty\]
 
 Notice that $f\circ g$ and $g\circ f$ are not the same functions.
 ```
 
-```{example}
-Let $f(x)=4+\sin x$ for all real $x$ and $g(x)=\sqrt{1-x^2}$ for $-1 \leq x \le 1$}.
-
-Then 
-\[(f\circ g)(x)=4+\sin \sqrt{1-x^2}, -1 \leq x \leq 1\]
-
-Also 
-\[(g\circ f)(x)\]
-does _not_ exist. $\sqrt{1-(4+\sin(x))^2}$ is not a real number because $1-(4+\sin(x))^2$ is always negative.
-```
 
 
 __Chain Rule__:  Let $y=(f\circ g)(x)= f[g(x)]$. The derivative of $y$ with respect to $x$ is \[\frac{d}{dx} \{ f[g(x)] \} = f'[g(x)] g'(x)\] which can also be written as \[\frac{dy}{dx}=\frac{dy}{dg(x)} \frac{dg(x)}{dx}\] (Note: the above does not imply that the $dg(x)$'s cancel out, as in fractions.  They are part of the derivative notation and you can't separate them out or cancel them.)
@@ -151,7 +141,7 @@ Approach: Let $f(z)=z^6$ and $z=g(x)=3x^2+5x-7$.  Then, $y=f[g(x)]$ and
 
 ## Derivatives of Euler's number and natural logs
 
-__Derivatives of natural exponential function ($e$)__:
+### Derivatives of natural exponential function ($e$) {-}
 
 
 1. Derivative of $e^x$ is itself: $\frac{d}{dx}e^x = e^x$
@@ -165,28 +155,28 @@ Find $dy/dx$ for the following.
 
 1. $y=e^{-3x}$
 
-     Let $u(x)=-3x$.  Then $u^\prime(x)=-3$ and $dy/dx=-3e^{-3x}$. 
+    Let $u(x)=-3x$.  Then $u^\prime(x)=-3$ and $dy/dx=-3e^{-3x}$. 
 
 2. $y=e^{x^2}$
   
-   Let $u(x)=x^2$.  Then $u^\prime(x)=2x$ and $dy/dx=2xe^{x^2}$.
+    Let $u(x)=x^2$.  Then $u^\prime(x)=2x$ and $dy/dx=2xe^{x^2}$.
 
 3. $y=e^{\sin 2x}$
   
-   Let $u(x)=\sin 2x$.  Then $u^\prime(x) = 2\cos 2x$ and $dy/dx=(2\cos 2x) e^{\sin 2x}$
+    Let $u(x)=\sin 2x$.  Then $u^\prime(x) = 2\cos 2x$ and $dy/dx=(2\cos 2x) e^{\sin 2x}$
   
   
 ```
 
 
-__Derivatives of___ $\log$
+### Derivatives of $\log$ {-}
 
 The natural log $\log$ (also written as $\ln$ to distinguish it from logarithms of diffferent bases) is the mirror image of the natural exponent and has mirroring properties.
 
-1. log prime x is one over x: $\frac{d}{dx} \ln x = \frac{1}{x}$
-2. Exponents become multiplicative constants: $\frac{d}{dx} \ln x^k = \frac{d}{dx} k \ln x = \frac{k}{x}$
-3. Chain rule again: $\frac{d}{dx} \ln u(x) = \frac{u'(x)}{u(x)}\quad$
-4. For any positive base $b$, $\frac{d}{dx} b^x = (\ln b)\left(b^x\right)$.
+1. log prime x is one over x: $\frac{d}{dx} \log x = \frac{1}{x}$
+2. Exponents become multiplicative constants: $\frac{d}{dx} \log x^k = \frac{d}{dx} k \log x = \frac{k}{x}$
+3. Chain rule again: $\frac{d}{dx} \log u(x) = \frac{u'(x)}{u(x)}\quad$
+4. For any positive base $b$, $\frac{d}{dx} b^x = (\log b)\left(b^x\right)$.
 
 
 Examples:  Find $dy/dx$ for
@@ -208,7 +198,7 @@ Find $dy/dx$ for the following.
 
 4. $y=\log e^x$ 
 
-We know that $\log e^x=x$ and that $dx/dx=1$, but we can double check.  Let $u(x)=e^x$.  Then $u^\prime(x)=e^x$ and $\frac{dy}{dx} = \frac{u^\prime(x)}{u(x)} = \frac{e^x}{e^x} = 1.$
+    We know that $\log e^x=x$ and that $dx/dx=1$, but we can double check.  Let $u(x)=e^x$.  Then $u^\prime(x)=e^x$ and $\frac{dy}{dx} = \frac{u^\prime(x)}{u(x)} = \frac{e^x}{e^x} = 1.$
 
 
 
@@ -259,7 +249,7 @@ Let $f(x,y)=x^3 y^4 +e^x -\log y$. What are the following partial derivaitves?
 ## L'Hopital's Rule
 
 In studying limits, we saw that 
-\[\lim\limits_{x \to c} f(x)/g(x) = \left(\lim\limits_{x \to c} f(x)\right)/\left(\lim\limits_{x \to c} g(x)\right)\], 
+\[\lim\limits_{x \to c} \frac{f(x)}{g(x)} = \frac{\lim\limits_{x \to c} f(x)}{\lim\limits_{x \to c} g(x)},\]
 
 provided that $\lim\limits_{x \to c} g(x)\ne 0$.
 	
@@ -282,7 +272,7 @@ And if $\lim\limits_{x\to a} \frac{f'(x)}{g'(x)} = 0/0$ or $\pm \infty / \pm \in
 ```{example, name="LHopital"}
 Use L'Hopital's rule to find the following limits:
 
-1. $\lim\limits_{x\to 0^+}\frac{\ln(1+x^2)}{x^3}$
+1. $\lim\limits_{x\to 0^+}\frac{\log(1+x^2)}{x^3}$
 
 2. $\lim\limits_{x\to  0^+} \frac{e^{1/x}}{1/x}$
 		
@@ -322,7 +312,7 @@ giving us:
 Taylor series expansion is easily generalized to multiple dimensions.
 
 __Curvature and The Taylor Polynomial as a Quadratic Form__: 
-The Hessian is used in a Taylor polynomial approximation to $f({\bf x})$ and provides information about the curvature of $f({\bf x})$ at $\bm{x}$ --- e.g., which tells us whether a critical point $\bm{x}^*$ is a min, max, or saddle point.
+The Hessian is used in a Taylor polynomial approximation to $f(\mathbf{x})$ and provides information about the curvature of $f({\bf x})$ at $\mathbf{x}$ --- e.g., which tells us whether a critical point $\mathbf{x}^*$ is a min, max, or saddle point.
 
 
 1.  The second order Taylor polynomial about the critical point
@@ -417,13 +407,24 @@ The procedure to calculate a simple definite integral $\int\limits_a^b f(x)dx$ i
 1. Find the indefinite integral $F(x)$.
 2. Evaluate $F(b)-F(a)$.
 
-```{example}
-$\int\limits_1^3 3x^2 dx=$
+```{example, name="Definite Integral of a monomial"}
+Solve $\int\limits_1^3 3x^2 dx.$
+
+Let $f(x) = 3x^2$. 
+
+What is $F(x)$? From the power rule, recognize $\frac{d}{dx}x^3 = 3x^2$ so 
+  
+\begin{align*}
+F(x) &= x^3\\
+\int\limits_1^3 f(x) dx &= F(x = 3) - F(x  - 1)\\
+&= 3^3 - 1^3\\
+&=26
+\end{align*}
 ```
 
 
 ```{exercise}
-$\int\limits_{-2}^2 e^x e^{e^x} dx =$
+What is the value of $\int\limits_{-2}^2 e^x e^{e^x} dx$?
 ```
 
 
@@ -437,11 +438,12 @@ Properties of Definite Integrals:
 4. Areas can be combined as long as limits are linked: \[\int\limits_a^b f(x) dx +\int\limits_b^c f(x)dx = \int\limits_a^c f(x)dx\]
 
 
-```{example, name="Making integrals definite"}
+```{exercise, name="Definite integral shortcuts"}
+Simplify the following definite intergrals.
 
 1. $\int\limits_1^1 3x^2 dx =$ 
-1. $\int\limits_0^4 (2x+1)dx=$ 
-1. $\int\limits_{-2}^0 e^x e^{e^x} dx + \int\limits_0^2 e^x e^{e^x} dx =$
+2. $\int\limits_0^4 (2x+1)dx=$ 
+3. $\int\limits_{-2}^0 e^x e^{e^x} dx + \int\limits_0^2 e^x e^{e^x} dx =$
   
   
 ```
@@ -452,9 +454,13 @@ Properties of Definite Integrals:
 
 Sometimes the integrand doesn't appear integrable using common rules and antiderivatives.  A method one might try is __integration by substitution__, which is related to the Chain Rule.
 
-Suppose we want to find the indefinite integral $\int g(x)dx$ and assume we can identify a function $u(x)$ such that $g(x)=f[u(x)]u'(x)$. Let's refer to the antiderivative of $f$ as $F$.  Then the chain rule tells us that $\frac{d}{dx} F[u(x)]=f[u(x)]u'(x)$.  So, $F[u(x)]$ is the antiderivative of $g$.  We can then write $$\int g(x) dx= \int f[u(x)]u'(x)dx = \int \frac{d}{dx} F[u(x)]dx = F[u(x)]+c$$
+Suppose we want to find the indefinite integral \[\int g(x)dx\] but $g(x)$ is complex and none of the formulas we have seen so far seem to apply immediately. The trick is to come up with a _new_ function $u(x)$ such that \[g(x)=f[u(x)]u'(x).\] 
 
-__Procedure to determine the indefinite integral $\int g(x)dx$ by the method of substitution:__
+Why does an introduction of yet another function end of simplifying things? Let's refer to the antiderivative of $f$ as $F$.  Then the chain rule tells us that \[\frac{d}{dx} F[u(x)]=f[u(x)]u'(x)\].  So, $F[u(x)]$ is the antiderivative of $g$.  We can then write $$\int g(x) dx= \int f[u(x)]u'(x)dx = \int \frac{d}{dx} F[u(x)]dx = F[u(x)]+c$$
+
+
+
+To summarize, the procedure to determine the indefinite integral $\int g(x)dx$ by the method of substitution:
 
 1. Identify some part of $g(x)$ that might be simplified by substituting in a single variable $u$ (which will then be a function of $x$).
 2. Determine if $g(x)dx$ can be reformulated in terms of $u$ and $du$.
@@ -465,7 +471,11 @@ __Procedure to determine the indefinite integral $\int g(x)dx$ by the method of 
 Substitution can also be used to calculate a definite integral. Using the same procedure as above, \[\int\limits_a^b g(x)dx=\int\limits_c^d f(u)du = F(d)-F(c)\]
 where $c=u(a)$ and $d=u(b)$.
 
-Example: $\int x^2 \sqrt{x+1}dx$
+
+
+```{example, name ="Integration by Substitution I"}
+
+Solve $\int x^2 \sqrt{x+1}dx$.
 
 \vspace{6pt}
 
@@ -477,12 +487,17 @@ The problem here is the $\sqrt{x+1}$ term.  However, if the integrand had $\sqrt
 			&= \int (u^{5/2}-2u^{3/2}+u^{1/2})du
 \end{align*}
 
-We can easily integrate this, since it's just a polynomial.  Doing so and substituting $u=x+1$ back in, we get \[\int x^2\sqrt{x+1}dx=2(x+1)^{3/2}\left[\frac{1}{7}(x+1)^2 -
+We can easily integrate this, since it is just a polynomial.  Doing so and substituting $u=x+1$ back in, we get \[\int x^2\sqrt{x+1}dx=2(x+1)^{3/2}\left[\frac{1}{7}(x+1)^2 -
 \frac{2}{5}(x+1)+\frac{1}{3}\right]+c\]
+
+```
 
 For the above problem, we could have also used the substitution $u=\sqrt{x+1}$.  Then $x=u^2-1$ and $dx=2u du$.  Substituting these in, we get $$\int x^2\sqrt{x+1}dx=\int (u^2-1)^2 u 2u du$$ which when expanded is again a polynomial and gives the same result as above.
 
-```{example}
+
+Another case in which integration by substitution is is useful is with a fraction.
+
+```{example,name="Integration by Substitutiton II"}
 Simplify \[\int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx\]
 
 When an expression is raised to a power, it is often helpful to use this expression as the basis for a substitution.  So, let $u=1+e^{2x}$. Then $du=2e^{2x}dx$ and we can set $5e^{2x}dx=5du/2$.    Additionally, $u=2$ when $x=0$ and $u=1+e^2$ when $x=1$.  Substituting all of this in, we get
@@ -509,11 +524,15 @@ More frequently remembered as $$\int u dv = u v - \int v du$$ where $du=u'(x)dx$
 For definite integrals: $\int\limits_a^b u\frac{dv}{dx}dx = \left. u v \right|_a^b - \int\limits_a^b v \frac{du}{dx}dx$
 
 Our goal here is to find expressions for $u$ and $dv$ that, when substituted into the above equation, yield an expression that's more easily evaluated.
+
+
 	
-```{example}
+```{example,name="Integration by Parts"}
+Simplify the following integrals. These seemingly obscure forms of integrals come up often when integrating distributions.
+
 1. $\int x e^{ax} dx$
-1. $\int x^n e^{ax} dx$
-1. $\int x^3 e^{-x^2} dx$
+2. $\int x^n e^{ax} dx$
+3. $\int x^3 e^{-x^2} dx$
   
   
 ```
