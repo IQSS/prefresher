@@ -28,7 +28,7 @@ The Indefinite Integral: The Antiderivative;
 
 The derivative of $f$ at $x$ is its rate of change at $x$ --- i.e., how much $f(x)$ changes with a change in $x$.
 
-* For a line, the derivative is the slope.\\
+* For a line, the derivative is the slope.
 * For a curve, the derivative is the slope of the line tangent to the curve at $x$.
 
 
@@ -43,11 +43,11 @@ The derivative of $f$ at $x$ is its rate of change at $x$ --- i.e., how much $f(
 If $f'(x)$ exists at a point $x$, then $f$ is said to be __differentiable__ at $x$.  Similarly, if $f'(x)$ exists for every point a long an interval, then $f$ is differentiable along that interval.  For $f$ to be differentiable at $x$, $f$ must be both continuous and "smooth'' at $x$.  The process of calculating $f'(x)$ is called __differentiation__.
 
 __Notation for derivatives:__
-\begin{enumerate}
-		\item \parbox[t]{2in}{$y'$, $f'(x)$} (Prime or Lagrange Notation)
-		\item \parbox[t]{2in}{$Dy$, $Df(x)$} (Operator Notation)
-		\item \parbox[t]{2in}{$\frac{dy}{dx}$, $\frac{df}{dx}(x)$} (Leibniz's Notation)
-\end{enumerate}
+
+
+Prime or Lagrange Notation: $y'$, $f'(x)$
+Leibniz's Notation: $\frac{dy}{dx}$, $\frac{df}{dx}(x)$
+Operator Notation: $Dy$, $Df(x)$
 
 
 \underline{Properties of derivatives:}  Suppose that $f$ and $g$ are differentiable at $x$ and that $\alpha$ is a constant.  Then the functions $f\pm g$, $\alpha f$, $f g$, and $f/g$ (provided $g(x)\ne 0$) are also differentiable at $x$.  Additionally,
@@ -78,8 +78,6 @@ Let $f(x)=(x^3)(2x^4)$, then  $f^\prime(x)=$
 
 Let \[f(x)=\frac{x^2+1}{x^2-1}\], then $f^\prime(x)=$
 ```
-
-<!-- f'(x) = 0 -->
 
 ## Higher-Order Derivatives or, Derivatives of Derivatives of Derivatives {#derivpoly}
 
@@ -136,57 +134,85 @@ The chain rule can be thought of as the derivative of the "outside" times the de
 	
 	
 
-__Generalized Power Rule__:  If $y=[g(x)]^k$, then $dy/dx=k[g(x)]^{k-1}g'(x)$.
+__Generalized Power Rule__:  If $f(x)=[g(x)]^k$, then $f^\prime(x) =k[g(x)]^{k-1}g^\prime(x)$.
+
 
 ```{example}
-Find $dy/dx$ for $y=(3x^2+5x-7)^6$.
+Find $f^\prime(x)$ for $f(x) = (3x^2+5x-7)^6$.
 
 Approach: Let $f(z)=z^6$ and $z=g(x)=3x^2+5x-7$.  Then, $y=f[g(x)]$ and
 
 \begin{align*}
-\frac{dy}{dx}&=
+\frac{dy}{dx}&=\\
 \end{align*}
 ```
 
 
 
-
 ## Derivatives of Euler's number and natural logs
 
-__Derivatives of Exp or $e$__:
+__Derivatives of natural exponential function ($e$)__:
 
-\begin{enumerate}
-		\item $\frac{d}{dx}e^x = e^x$
-		\item $\frac{d}{dx}\alpha e^x = \alpha e^x$
-		\item $\frac{d^n}{dx^n} \alpha e^x = \alpha e^x$
-		\item $\frac{d}{dx}e^{u(x)}= e^{u(x)} u'(x)$
-\end{enumerate}
+
+1. Derivative of $e^x$ is itself: $\frac{d}{dx}e^x = e^x$
+2. Same thing if there were a constant in front: $\frac{d}{dx}\alpha e^x = \alpha e^x$
+3. Same thing no matter how many derivatives there are in front: $\frac{d^n}{dx^n} \alpha e^x = \alpha e^x$
+4. Chain Rule: When the exponent is a function of $x$, remember to take derivative of that function and add to product. $\frac{d}{dx}e^{u(x)}= e^{u(x)} u^\prime(x)$
+
+
+```{example, name="Derivative of exponents"}
+Find $dy/dx$ for the following.
+
+1. $y=e^{-3x}$
+
+     Let $u(x)=-3x$.  Then $u^\prime(x)=-3$ and $dy/dx=-3e^{-3x}$. 
+
+2. $y=e^{x^2}$
+  
+   Let $u(x)=x^2$.  Then $u^\prime(x)=2x$ and $dy/dx=2xe^{x^2}$.
+
+3. $y=e^{\sin 2x}$
+  
+   Let $u(x)=\sin 2x$.  Then $u^\prime(x) = 2\cos 2x$ and $dy/dx=(2\cos 2x) e^{\sin 2x}$
+  
+  
+```
+
+
+__Derivatives of___ $\log$
+
+The natural log $\log$ (also written as $\ln$ to distinguish it from logarithms of diffferent bases) is the mirror image of the natural exponent and has mirroring properties.
+
+1. log prime x is one over x: $\frac{d}{dx} \ln x = \frac{1}{x}$
+2. Exponents become multiplicative constants: $\frac{d}{dx} \ln x^k = \frac{d}{dx} k \ln x = \frac{k}{x}$
+3. Chain rule again: $\frac{d}{dx} \ln u(x) = \frac{u'(x)}{u(x)}\quad$
+4. For any positive base $b$, $\frac{d}{dx} b^x = (\ln b)\left(b^x\right)$.
+
 
 Examples:  Find $dy/dx$ for
-\begin{enumerate}
-		\item \parbox[t]{1.5in}{$y=e^{-3x}$}\parbox[t]{4in}{\phantom{Let $u(x)=-3x$.  Then $u'(x)=-3$ and $dy/dx=-3e^{-3x}$.}} 
-		\item \parbox[t]{1.5in}{$y=e^{x^2}$}\parbox[t]{4in}{\phantom{Let $u(x)=x^2$.  Then $u'(x)=2x$ and $dy/dx=2xe^{x^2}$.}} 
-		\item \parbox[t]{1.5in}{$y=e^{\sin 2x}$}\parbox[t]{4in}{\phantom{Let $u(x)=\sin 2x$.  Then $u'(x)=2\cos 2x$ and $dy/dx=(2\cos 2x) e^{\sin 2x}$.}} 
-\end{enumerate}
 
-\textbf{Derivatives of $\ln$}:
-\begin{enumerate}
-		\item $\frac{d}{dx} \ln x = \frac{1}{x}$
-		\item $\frac{d}{dx} \ln x^k = \frac{d}{dx} k \ln x = \frac{k}{x}$
-		\item $\frac{d}{dx} \ln u(x) = \frac{u'(x)}{u(x)}\quad$  (by the chain rule)
-		\item For any positive base $b$, $\frac{d}{dx} b^x = (\ln b)\left(b^x\right)$.
-\end{enumerate}
+```{example, name="Derivative of logs"}
+Find $dy/dx$ for the following.
 
-Examples:  Find $dy/dx$ for
-\begin{enumerate}
-		\item \parbox[t]{1.5in}{$y=\ln(x^2+9)$}\parbox[t]{4in}{\phantom{Let $u(x)=x^2+9$.  Then $u'(x)=2x$ and $dy/dx=u'(x)/u(x)=2x/(x^2+9)$.}} 
-		\item \parbox[t]{1.5in}{$y=\ln(\ln x)$}\parbox[t]{4in}{\phantom{Let $u(x)=\ln x$.  Then $u'(x)=1/x$ and $dy/dx=1/(x\ln x)$.}} 
-		\item \parbox[t]{1.5in}{$y=(\ln x)^2$}\parbox[t]{4in}{\phantom{Use the generalized power rule. $dy/dx=(2\ln x)/x$.}} 
-		\item \parbox[t]{1.5in}{$y=\ln e^x$}\parbox[t]{4in}{\phantom{(We know that $\ln e^x=x$ and that $dx/dx=1$, but let's double check.)  Let $u(x)=e^x$.  Then $u'(x)=e^x$ and $dy/dx=u'(x)/u(x)=e^x/e^x=1$.}} 
-\end{enumerate}
+1. $y=\log(x^2+9)$
+
+    Let $u(x)=x^2+9$.  Then $u^\prime(x)=2x$ and \[\frac{dy}{dx}= \frac{u^\prime(x)}{u(x)} = \frac{2x}{(x^2+9)}\]
+      
+2. $y=\log(\log x)$
+
+    Let $u(x)=\log x$.  Then $u^\prime(x)=1/x$ and $\frac{dy}{dx} = \frac{1}{(x\log x)}$.
+
+3. $y=(\log x)^2$
+  
+    Use the generalized power rule. \[\frac{dy}{dx} = \frac{(2 \log x)}{x}\]
+
+4. $y=\log e^x$ 
+
+We know that $\log e^x=x$ and that $dx/dx=1$, but we can double check.  Let $u(x)=e^x$.  Then $u^\prime(x)=e^x$ and $\frac{dy}{dx} = \frac{u^\prime(x)}{u(x)} = \frac{e^x}{e^x} = 1.$
 
 
 
+```
 
 
 
@@ -201,63 +227,77 @@ Only the $i$th variable changes --- the others are treated as constants.
 
 We can take higher-order partial derivatives, like we did with functions of a single variable, except now we the higher-order partials can be with respect to multiple variables.
 
-\begin{framed}
-Examples:
-\begin{enumerate}
-		\item $f(x,y)=x^2+y^2$\\
-			$\frac{\partial f}{\partial x}(x,y)=$\\
-			$\frac{\partial f}{\partial y}(x,y)=$\\
-			$\frac{\partial^2 f}{\partial x^2}(x,y)=$\\
-			$\frac{\partial^2 f}{\partial x \partial y}(x,y)=$
-		\item $f(x,y)=x^3 y^4 +e^x -\ln y$\\
-			$\frac{\partial f}{\partial x}(x,y)=$\\
-			$\frac{\partial f}{\partial y}(x,y)=$\\
-			$\frac{\partial^2 f}{\partial x^2}(x,y)=$\\
-			$\frac{\partial^2 f}{\partial x \partial y}(x,y)=$
-	\end{enumerate}
-\end{framed}
+```{example, name = "More than one type of partial"}
+Notice that you can take partials with regard to different variables. 
+
+Suppose $f(x,y)=x^2+y^2$. Then
+
+\begin{align*}
+\frac{\partial f}{\partial x}(x,y) &=\\
+\frac{\partial f}{\partial y}(x,y) &=\\
+\frac{\partial^2 f}{\partial x^2}(x,y) &=\\
+\frac{\partial^2 f}{\partial x \partial y}(x,y) &=
+\end{align*}
+```
+
+
+```{exercise}
+Let $f(x,y)=x^3 y^4 +e^x -\log y$. What are the following partial derivaitves?
+
+\begin{align*}
+\frac{\partial f}{\partial x}(x,y) &=\\
+\frac{\partial f}{\partial y}(x,y) &=\\
+\frac{\partial^2 f}{\partial x^2}(x,y) &=\\
+\frac{\partial^2 f}{\partial x \partial y}(x,y) &= 
+\end{align*}
+  
+
+```
 
 
 
-## L'H\^opital's Rule
+## L'Hopital's Rule
 
-In studying limits, we saw that $\lim\limits_{x \to c} f(x)/g(x) = \left(\lim\limits_{x \to c} f(x)\right)/\left(\lim\limits_{x \to c} g(x)\right)$, provided that $\lim\limits_{x \to c} g(x)\ne 0$.
+In studying limits, we saw that 
+\[\lim\limits_{x \to c} f(x)/g(x) = \left(\lim\limits_{x \to c} f(x)\right)/\left(\lim\limits_{x \to c} g(x)\right)\], 
+
+provided that $\lim\limits_{x \to c} g(x)\ne 0$.
 	
-If both $\lim\limits_{x \to c} f(x)=0$ and $\lim\limits_{x \to c} g(x)=0$, then we get an __indeterminate form__ of the type $0/0$ as $x\to c$.  However, a limit may still exist. We can use L'H\^opital's rule to find the limit.
+If both $\lim\limits_{x \to c} f(x)=0$ and $\lim\limits_{x \to c} g(x)=0$, then we get an __indeterminate form__ of the type $\frac{0}{0}$ as $x\to c$.  However, a limit may still exist. We can use L'Hopital's rule to find the limit.
 	
-__L'H\^opital's Rule__:  Suppose $f$ and $g$ are differentiable on some interval $a<x<b$ and that either
+__L'Hopital's Rule__:  Suppose $f$ and $g$ are differentiable on some interval $a<x<b$ and that either
 
-\begin{enumerate}
-		\item $\lim\limits_{x\to a^+} f(x)=0$ and $\lim\limits_{x\to a^+} g(x)=0$, or
-		\item $\lim\limits_{x\to a^+} f(x)=\pm\infty$ and $\lim\limits_{x\to a^+} g(x)=\pm\infty$\
-\end{enumerate}
+
+1. $\lim\limits_{x\to a^+} f(x)=0$ and $\lim\limits_{x\to a^+} g(x)=0$, or
+2. $\lim\limits_{x\to a^+} f(x)=\pm\infty$ and $\lim\limits_{x\to a^+} g(x)=\pm\infty$
 
 Suppose further that $g'(x)$ is never zero on $a<x<b$ and that 
 \[\lim\limits_{x\to a^+} \frac{f'(x)}{g'(x)}=L\] then
 \[\lim\limits_{x\to a^+} \frac{f(x)}{g(x)}=L\]
 	
-%Put more simply, if $\lim\limits_{x\to a f(x)}$ is of the form $0/0$ or $\pm \infty / \pm \infty$, then $$\lim\limits_{x\to a} f(x) = \lim\limits_{x\to a} f'(x)$$\\
+Put more simply, if $\lim\limits_{x\to a f(x)}$ is of the form $0/0$ or $\pm \infty / \pm \infty$, then $$\lim\limits_{x\to a} f(x) = \lim\limits_{x\to a} f'(x)$$
 	
 And if $\lim\limits_{x\to a} \frac{f'(x)}{g'(x)} = 0/0$ or $\pm \infty / \pm \infty$ then you can apply L'H\^opital's rule a second time, and continue applying it until you have a solution.
 
-\begin{framed}
-Examples:  Use L'H\^opital's rule to find the following limits:
-	\begin{enumerate}
-		\item \parbox[t]{1.5in}{$\lim\limits_{x\to 0^+}\frac{\ln(1+x^2)}{x^3}$ \\[15pt]}
-			\parbox[t]{4in}{}
+```{example, name="LHopital"}
+Use L'Hopital's rule to find the following limits:
 
-		\item \parbox[t]{1.5in}{$\lim\limits_{x\to  0^+} \frac{e^{1/x}}{1/x}$ \\[15pt]}
-			\parbox[t]{4in}{}
+1. $\lim\limits_{x\to 0^+}\frac{\ln(1+x^2)}{x^3}$
+
+2. $\lim\limits_{x\to  0^+} \frac{e^{1/x}}{1/x}$
 		
-		\item \parbox[t]{1.5in}{$\lim\limits_{x\to 2} \frac{x-2}{(x+6)^{1/3}-2}$ \\[15pt]}
-			\parbox[t]{4in}{}
-	\end{enumerate}
-\end{framed} 
+3. $\lim\limits_{x\to 2} \frac{x-2}{(x+6)^{1/3}-2}$
+  
+  
+```
+
+
+
 
 
 ## Taylor Series Approximation
 
-\textbf{Taylor series} (also known as the delta method) are used commonly to represent functions as infinite series of the function's derivatives at some point $a$. For example, Taylor series are very helpful in representing _nonlinear_ functions as linear functions. One can thus _approximate_ functions by using lower-order, finite series known as \textbf{Taylor polynomials}. If $a=0$, the series is called a Maclaurin series.
+__Taylor series__ (also known as the delta method) are used commonly to represent functions as infinite series of the function's derivatives at some point $a$. For example, Taylor series are very helpful in representing _nonlinear_ functions as linear functions. One can thus _approximate_ functions by using lower-order, finite series known as __Taylor polynomials__. If $a=0$, the series is called a Maclaurin series.
   
 
 Specifically, a Taylor series of a real or complex function  $f(x)$ that is infinitely differentiable in the neighborhood of point $a$ is: 
@@ -279,22 +319,23 @@ giving us:
 
 \[f(x) \approx f(a) + f'(a)(x-a) +  \dfrac{f''(a)}{2} (x-a)^2\]
 
-Taylor series expansion is easily generalized to multiple dimensions.\\
+Taylor series expansion is easily generalized to multiple dimensions.
 
-\textbf{Curvature and The Taylor Polynomial as a Quadratic Form}: The Hessian is used in a Taylor polynomial approximation to $\fx$ and provides information about the curvature of $\fx$ at $\bm{x}$ --- e.g., which tells us whether a critical point $\bm{x}^*$ is a min, max, or saddle point.
+__Curvature and The Taylor Polynomial as a Quadratic Form__: 
+The Hessian is used in a Taylor polynomial approximation to $f({\bf x})$ and provides information about the curvature of $f({\bf x})$ at $\bm{x}$ --- e.g., which tells us whether a critical point $\bm{x}^*$ is a min, max, or saddle point.
 
-\begin{enumerate}
-  \item The second order Taylor polynomial about the critical point
+
+1.  The second order Taylor polynomial about the critical point
 ${\bf x}^*$ is
   $$f({\bf x}^*+\bf h)=f({\bf x}^*)+\nabla f({\bf x}^*) \bf h +\frac{1}{2} \bf h^T
 {\bf H(x^*)} \bf h + R(\bf h)$$
-  \item Since we're looking at a critical point, $\nabla f({\bf x}^*)=0$;
+2.  Since we're looking at a critical point, $\nabla f({\bf x}^*)=0$;
 and for small $\bf h$, $R(\bf h)$ is negligible.  Rearranging, we get
 $$f({\bf x}^*+\bf h)-f({\bf x}^*)\approx \frac{1}{2} \bf h^T {\bf H(x^*)}
 \bf h $$
-  \item The RHS is a quadratic form and we can determine the definiteness of $\bf
+3. The Righthand side here is a quadratic form and we can determine the definiteness of $\bf
 H(x^*)$.
-\end{enumerate}
+
 
 ## Summary: Derivative calculus in 6 steps
 
@@ -317,43 +358,42 @@ Let $DF$ be the derivative of $F$.  And let $DF(x)$ be the derivative of $F$ eva
 
 __Indefinite Integral__:  Equivalently, if $F$ is the antiderivative of $f$, then $F$ is also called the indefinite integral of $f$ and written $F(x)=\int\limits f(x)dx$.
 
-\begin{framed}
-Examples:
-	\parbox[c]{3.75in}{
-	\begin{enumerate}
-		\item $\int\limits \frac{1}{x^2}dx=$
-		\item $\int\limits 3e^{3x}dx=$
-		\item $\int\limits (x^2-4) dx=$
-	\end{enumerate}}
+```{example}
+1. $\int\limits \frac{1}{x^2}dx=$
+2. $\int\limits 3e^{3x}dx=$
+3. $\int\limits (x^2-4) dx=$
+  
+```
 \begin{comment}
 \parbox[c]{1in}{\,  {\includegraphics[width=1in, angle = 270]{derinteg.eps}}}
 \end{comment}
-\end{framed}
+
 	
 Notice from these examples that while there is only a single derivative for any function, there are multiple antiderivatives: one for any arbitrary constant $c$.  $c$ just shifts the curve up or down on the $y$-axis.  If more info is present about the antiderivative --- e.g., that it passes through a particular point --- then we can solve for a specific value of $c$.
-\end{itemize}
 
 ## Common Rules of Integration
 
-\begin{itemize}
-\item $\int a f(x)dx = a\int f(x)dx$
-\item $\int [f(x)+g(x)]dx=\int f(x)dx + \int g(x)dx$
-\item $\int x^n dx = \frac{1}{n+1} x^{n+1} + c $
-\item $\int e^x dx = e^x +c$
-\item $\int \frac{1}{x} dx = \ln x + c$
-\item $\int e^{f(x)}f'(x)dx = e^{f(x)}+c$
-\item $\int [f(x)]^n f'(x)dx = \frac{1}{n+1}[f(x)]^{n+1}+c$
-\item $\int \frac{f'(x)}{f(x)}dx=\ln f(x) + c$
-\end{itemize}
 
-\begin{framed}
-Examples:
-\begin{enumerate}
-	\item $\int 3x^2 dx= $
-	\item $\int (2x+1)dx=$
-	\item $\int e^x e^{e^x} dx = $
-\end{enumerate}
-\end{framed}
+1. Constants are allowed to slip out: $\int a f(x)dx = a\int f(x)dx$
+1. Integration of the sum is sum of integrations:  $\int [f(x)+g(x)]dx=\int f(x)dx + \int g(x)dx$
+1. Reverse Power-rule:  $\int x^n dx = \frac{1}{n+1} x^{n+1} + c$
+1. Exponents are still exponents:  $\int e^x dx = e^x +c$
+1. Recall the derivative of $\log(x)$ is one over $x$, and so:   $\int \frac{1}{x} dx = \log x + c$
+1. Reverse chain-rule:  $\int e^{f(x)}f^\prime(x)dx = e^{f(x)}+c$
+1. More generally:  $\int [f(x)]^n f'(x)dx = \frac{1}{n+1}[f(x)]^{n+1}+c$
+1. Remember the derivative of a log of a function:  $\int \frac{f^\prime(x)}{f(x)}dx=\log f(x) + c$
+
+
+```{example, name="Common Integration"}
+Simplify the following indefinite integrals:
+  
+* $\int 3x^2 dx =$
+* $\int (2x+1)dx=$
+* $\int e^x e^{e^x} dx =$
+  
+  
+```
+
 
 
 
@@ -372,36 +412,39 @@ __First Fundamental Theorem of Calculus__:  Let the function $f$ be bounded on $
 
 __Second Fundamental Theorem of Calculus__:  Let the function $f$ be bounded on $[a,b]$ and continuous on $(a,b)$.  Let $F$ be any function that is continuous on $[a,b]$ such that $F'(x)=f(x)$ on $(a,b)$.  Then $$\int\limits_a^bf(x)dx = F(b)-F(a)$$
 
-\textbf{Procedure to calculate a ``simple" definite integral} $\int\limits_a^b f(x)dx$:
+The procedure to calculate a simple definite integral $\int\limits_a^b f(x)dx$ is then
 
 1. Find the indefinite integral $F(x)$.
 2. Evaluate $F(b)-F(a)$.
 
-\begin{framed}
-Examples:
-\begin{enumerate}
-		\item $\int\limits_1^3 3x^2 dx=  $
-		\item $\int\limits_{-2}^2 e^x e^{e^x} dx =$
-\end{enumerate}
-\end{framed}
+```{example}
+$\int\limits_1^3 3x^2 dx=$
+```
+
+
+```{exercise}
+$\int\limits_{-2}^2 e^x e^{e^x} dx =$
+```
+
+
 
 Properties of Definite Integrals:
-\begin{enumerate}
-		\item \parbox[t]{2in}{$\int\limits_a^a f(x)dx=0$}\parbox[t]{4in}{There is no area below a point.}
-		\item \parbox[t]{2in}{$\int\limits_a^b f(x)dx=-\int\limits_b^a f(x)dx$}\parbox[t]{4in}{Reversing the limits changes the sign of the integral.}
-		\item $\int\limits_a^b [\alpha f(x)+\beta g(x)]dx = \alpha \int\limits_a^b f(x)dx + \beta \int\limits_a^b g(x)dx$
-		\item $\int\limits_a^b f(x) dx +\int\limits_b^c f(x)dx = \int\limits_a^c f(x)dx$
-\end{enumerate}
 
-\begin{framed}
-Examples:
-\begin{enumerate}
-		\item $\int\limits_1^1 3x^2 dx = $ 
-		\item $\int\limits_0^4 (2x+1)dx= $ 
-		\item $\int\limits_{-2}^0 e^x e^{e^x} dx + \int\limits_0^2 e^x e^{e^x} dx =$
-	\end{enumerate}
-\end{framed}
 
+1. There is no area below a point: \[\int\limits_a^a f(x)dx=0\]
+2. Reversing the limits changes the sign of the integral: \[\int\limits_a^b f(x)dx=-\int\limits_b^a f(x)dx\]
+3. Sums can be separated into their own integrals: \[\int\limits_a^b [\alpha f(x)+\beta g(x)]dx = \alpha \int\limits_a^b f(x)dx + \beta \int\limits_a^b g(x)dx\]
+4. Areas can be combined as long as limits are linked: \[\int\limits_a^b f(x) dx +\int\limits_b^c f(x)dx = \int\limits_a^c f(x)dx\]
+
+
+```{example, name="Making integrals definite"}
+
+1. $\int\limits_1^1 3x^2 dx =$ 
+1. $\int\limits_0^4 (2x+1)dx=$ 
+1. $\int\limits_{-2}^0 e^x e^{e^x} dx + \int\limits_0^2 e^x e^{e^x} dx =$
+  
+  
+```
 
 
 
@@ -428,36 +471,38 @@ Example: $\int x^2 \sqrt{x+1}dx$
 
 The problem here is the $\sqrt{x+1}$ term.  However, if the integrand had $\sqrt{x}$ times some polynomial, then we'd be in business.  Let's try $u=x+1$.  Then $x=u-1$ and $dx=du$. Substituting these into the above equation, we get 
 
-\begin{eqnarray}
-			\int x^2\sqrt{x+1}dx&=&\int (u-1)^2\sqrt{u}du\nonumber\\
-			&=&\int (u^2-2u+1)u^{1/2}du\nonumber\\
-			&=&\int (u^{5/2}-2u^{3/2}+u^{1/2})du\nonumber
-\end{eqnarray}
+\begin{align*}
+			\int x^2\sqrt{x+1}dx&= \int (u-1)^2\sqrt{u}du\\
+			&= \int (u^2-2u+1)u^{1/2}du\\
+			&= \int (u^{5/2}-2u^{3/2}+u^{1/2})du
+\end{align*}
 
 We can easily integrate this, since it's just a polynomial.  Doing so and substituting $u=x+1$ back in, we get \[\int x^2\sqrt{x+1}dx=2(x+1)^{3/2}\left[\frac{1}{7}(x+1)^2 -
 \frac{2}{5}(x+1)+\frac{1}{3}\right]+c\]
 
 For the above problem, we could have also used the substitution $u=\sqrt{x+1}$.  Then $x=u^2-1$ and $dx=2u du$.  Substituting these in, we get $$\int x^2\sqrt{x+1}dx=\int (u^2-1)^2 u 2u du$$ which when expanded is again a polynomial and gives the same result as above.
 
-Another Example $\int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx$
+```{example}
+Simplify \[\int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx\]
 
-\vspace{6pt}
+When an expression is raised to a power, it is often helpful to use this expression as the basis for a substitution.  So, let $u=1+e^{2x}$. Then $du=2e^{2x}dx$ and we can set $5e^{2x}dx=5du/2$.    Additionally, $u=2$ when $x=0$ and $u=1+e^2$ when $x=1$.  Substituting all of this in, we get
 
-When an expression is raised to a power, it's often helpful to use this expression as the basis for a substitution.  So, let $u=1+e^{2x}$. Then $du=2e^{2x}dx$ and we can set $5e^{2x}dx=5du/2$.    Additionally, $u=2$ when $x=0$ and $u=1+e^2$ when $x=1$.  Substituting all of this in, we get
-\begin{eqnarray}
-			\int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx
-			&=& \frac{5}{2}\int\limits_2^{1+e^2}\frac{du}{u^{1/3}}\nonumber\\
-			&=& \frac{5}{2}\int\limits_2^{1+e^2} u^{-1/3}du\nonumber\\
-			&=& \left. \frac{15}{4} u^{2/3} \right|_2^{1+e^2}\nonumber\\
-			&=& 9.53\nonumber
-\end{eqnarray}
+\begin{align*}
+\int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx
+			&= \frac{5}{2}\int\limits_2^{1+e^2}\frac{du}{u^{1/3}}\\
+			&= \frac{5}{2}\int\limits_2^{1+e^2} u^{-1/3}du\\
+			&= \left. \frac{15}{4} u^{2/3} \right|_2^{1+e^2}\\
+			&= 9.53
+\end{align*}
+
+```
 
 
 
 ## Integration by Parts, or Ultraviolet Voodoo
 
 
-Another useful integration technique is \textbf{integration by parts}, which is related to the Product Rule of differentiation. The product rule states that $$\frac{d}{dx}(uv)=u\frac{dv}{dx}+v\frac{du}{dx}$$  Integrating this and rearranging, we get $$\int u\frac{dv}{dx}dx= u v - \int v \frac{du}{dx}dx$$ or $$\int u(x) v'(x)dx=u(x)v(x) - \int v(x)u'(x)dx$$
+Another useful integration technique is __integration by parts__, which is related to the Product Rule of differentiation. The product rule states that $$\frac{d}{dx}(uv)=u\frac{dv}{dx}+v\frac{du}{dx}$$  Integrating this and rearranging, we get $$\int u\frac{dv}{dx}dx= u v - \int v \frac{du}{dx}dx$$ or $$\int u(x) v'(x)dx=u(x)v(x) - \int v(x)u'(x)dx$$
 More frequently remembered as $$\int u dv = u v - \int v du$$ where $du=u'(x)dx$ and $dv=v'(x)dx$.
 
 
@@ -465,13 +510,10 @@ For definite integrals: $\int\limits_a^b u\frac{dv}{dx}dx = \left. u v \right|_a
 
 Our goal here is to find expressions for $u$ and $dv$ that, when substituted into the above equation, yield an expression that's more easily evaluated.
 	
-Examples:
-
-\begin{framed}
-\begin{enumerate}
-		\item $\int x e^{ax} dx$
-		\item $\int x^n e^{ax} dx$\\
-		\item $\int x^3 e^{-x^2} dx$\\
-\vspace{10pt}
-\end{enumerate}
-\end{framed}
+```{example}
+1. $\int x e^{ax} dx$
+1. $\int x^n e^{ax} dx$
+1. $\int x^3 e^{-x^2} dx$
+  
+  
+```
