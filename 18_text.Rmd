@@ -124,33 +124,29 @@ grepl(my_string, pattern = "Indonesia")
 my_string[ grepl(my_string, pattern = "Indonesia")]
 ```
 
-* Key point: Many R commands use regular expressions. See ```?grepl```. Assume that ```x``` is a character vector and that ```pattern``` is the target pattern. In the earlier example, ```x``` could have been something like ```my_string``` and  ```pattern``` would have been "```Indonesia```". Here are other key uses: 
-      1. DETECT PATTERNS. ```grepl(pattern, x)``` goes through all the entries of ```x``` and returns a string of TRUE and FALSE values of the same size as ```x```. It will return a ```TRUE``` whenever that string entry has the target pattern, and ```FALSE``` whenever it doesn't. 
+Key point: Many R commands use regular expressions. See ```?grepl```. Assume that ```x``` is a character vector and that ```pattern``` is the target pattern. In the earlier example, ```x``` could have been something like ```my_string``` and  ```pattern``` would have been "```Indonesia```". Here are other key uses: 
+
+1. DETECT PATTERNS. ```grepl(pattern, x)``` goes through all the entries of ```x``` and returns a string of TRUE and FALSE values of the same size as ```x```. It will return a ```TRUE``` whenever that string entry has the target pattern, and ```FALSE``` whenever it doesn't. 
       
-      2. REPLACE PATTERNS. ```gsub(pattern, x, replacement)``` goes through all the entries of ```x``` replaces the ```pattern``` with ```replacement```. 
-```
+2. REPLACE PATTERNS. ```gsub(pattern, x, replacement)``` goes through all the entries of ```x``` replaces the ```pattern``` with ```replacement```. 
+
+```{r}
 gsub(x = my_string,
      pattern = "o", 
      replacement = "AAAA")
 ```
-      3. LOCATE PATTERNS. ```regexpr(pattern, text)``` goes through each element of the character string. It returns a vector of the same length, with the entries of the vector corresponding to the location of the first pattern match, or a -1 if no match was obtained. 
-```
-regexpr(pattern = "was", 
-  text = my_string)
-[1] 23 -1
-attr(,"match.length")
-[1]  3 -1
-attr(,"useBytes")
-[1] TRUE
-regexpr(pattern = "was",
-  text = my_string)[1]
-## [1] 23
-regexpr(pattern = "was", 
-  text = my_string)[2]
-## [1] -1
+
+3. LOCATE PATTERNS. ```regexpr(pattern, text)``` goes through each element of the character string. It returns a vector of the same length, with the entries of the vector corresponding to the location of the first pattern match, or a -1 if no match was obtained. 
+
+```{r}
+regex_object <- regexpr(pattern = "was",  text = my_string)
+attr(regex_object, "match.length")
+attr(regex_object, "useBytes")
+regexpr(pattern = "was", text = my_string)[1]
+regexpr(pattern = "was", text = my_string)[2]
 ```
 
-* Seems simple? The problem: the patterns can get pretty complex!
+Seems simple? The problem: the patterns can get pretty complex!
 
 * PATTERN TYPE 1 -- Character classes 
 
@@ -216,12 +212,11 @@ grepl(my_string, pattern = "^(?!presidential1).*\\.png", perl = T)
 #Note that we have to escape the . in .png. (by writing \\. instead of just .)
 ```
 
-NOTE: You will have the chance to try out some regular 
-expressions for yourself at the end! 
+NOTE: You will have the chance to try out some regular  expressions for yourself at the end! 
 
 ## Representing Text 
 
-* In courses and research, we often want to analyze text, to extract meaning out of it. 
+In courses and research, we often want to analyze text, to extract meaning out of it. 
 One of the key decisions we need to make is how to represent the text as numbers. 
 Once the text is represented numerically, we can then apply a host of statistical 
 and machine learning methods to it. Those methods are discussed more in the Gov methods sequence (Gov 2000-2003). Here's a summary of the decisions you must make: 
@@ -230,9 +225,9 @@ and machine learning methods to it. Those methods are discussed more in the Gov 
 2. HOW TO REPRESENT THE TEXT NUMERICALLY? How do I use numbers to represent different things about the text? 
 3. HOW TO ANALYZE THE NUMERICAL REPRESENTATION? How do I extract meaning out of the numerical representation? 
 
-* Representing text numerically.  
+Representing text numerically.  
 
-      1. Document term matrix. The document term matrix (DTM) is a common method for representing text. The DTM is a matrix. Each row of this matrix corresponds to a document; each column corresponds to a word. It is often useful to look at summary statistics such as the percentage of speaches in which a Democratic lawmaker used the word "inequality" compared to a Republican; the DTM would be very helpful for this and other tasks. 
+1. Document term matrix. The document term matrix (DTM) is a common method for representing text. The DTM is a matrix. Each row of this matrix corresponds to a document; each column corresponds to a word. It is often useful to look at summary statistics such as the percentage of speaches in which a Democratic lawmaker used the word "inequality" compared to a Republican; the DTM would be very helpful for this and other tasks. 
 
 
 ```{R}
