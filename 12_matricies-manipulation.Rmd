@@ -188,7 +188,7 @@ What is `ln_export_area`?  Why do you think they do this transformation?
 
 In Table 1 we see "OLS Estimates". These are estimates of OLS coefficients and standard errors. You do not need to know what these are for now, but it doesn't hurt to getting used to seeing them. 
 
-![](nunn_wantchekon_table1.png)
+![](images/nunn_wantchekon_table1.png)
 
 A very crude way to describe regression is through linear combinations. The simplest linear combination is a one-to-one transformation.
 
