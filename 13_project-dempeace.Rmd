@@ -97,7 +97,7 @@ mid_year_by_year <- foreach(i = 1:nrow(mid), .combine = "bind_rows") %do% {
 ## Merging
 We want to combine these two datasets by merging. Base-R has a function called `merge`. `dplyr` has several types of `joins` (the same thing). Those names are based on SQL syntax.
 
-![](dplyr-joins.png)
+![](images/dplyr-joins.png)
 
 Here we can do a `left_join` from `polity` to `mid`. We want to keep the rows in `polity` that do not match in `mid`, and label them as non-disputes.
 ```{r}

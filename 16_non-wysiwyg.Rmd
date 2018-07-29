@@ -74,7 +74,7 @@ RStudio makes it easy to compile your very first markdown file by giving you tem
 
 Rmd is actually a slight modification of real markdown. It is a type of file that R reads and turns into a proper `md` file. Then, it uses a document-conversion called pandoc to compile your `md` into documents like PDF or HTML.
 
-![](RMarkdownFlow.png)
+![](images/RMarkdownFlow.png)
 
 One of the things `Rmds` facilitates is the use of code chunks, which you have all been using. These start and end with three back-ticks. In the beginning, we can add options in curly braces (`{}`). Specifying `r` in the beginning tells the compiler that this is meant to be R code. Options like `echo = TRUE` or `eval = FALSE` switch between not executing the code (i.e., just showing it for display), or executing the code but not showing the code that was executed (if you think it is distracting).
 
@@ -191,14 +191,14 @@ Now, in LaTeX, if you type
       
 as part of your text, then when the `.tex` file is compiled the PDF shows something like 
 
-![](biblatex_inline.png)
+![](images/biblatex_inline.png)
 
 in whatever citation style (APSA, APA, Chicago) you pre-specified! 
 
 
 Also at the end of your paper you will have a bibliography with entries ordered and formatted in the appropriate citation.
 
-![](biblatex_bibliography.png)
+![](images/biblatex_bibliography.png)
 
 This is a much less frustrating way of keeping track of your references -- no need to hand-edit formatting the bibliography to conform to citation rules (which biblatex already knows) and no need to update your bibliography as you add and drop references (biblatex will only show entries that are used in the main text).
 
