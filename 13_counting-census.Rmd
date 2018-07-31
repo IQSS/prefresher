@@ -1,6 +1,4 @@
-# (PART) Programming {-}
-
-# Counting and Visualization
+# More Counting and Visualization
 
 Module originally written by Shiro Kuriwaki
 
