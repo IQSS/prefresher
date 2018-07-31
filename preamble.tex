@@ -20,3 +20,12 @@
 \newcommand{\fx}{f({\bf x})}
 \newcommand\R{{\textsf R~}}
 \newcommand\Rst{\textsf{RStudio}}
+
+% spacing between environments
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=15pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
