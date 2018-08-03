@@ -29,16 +29,31 @@ __Fundamental Theorem of Counting__: If an object has $j$ different characterist
 
 Example: Cards can be either red or black and can take on any of 13 values.
 
-j $= $ \hspace{1.5cm} $n_{color} = $ \hspace{1.5cm} $n_{number} = $ \hspace{1.5cm} \# Outcomes $=$
+j $=$ \hspace{1.5cm} $n_{color} =$ \hspace{1.5cm} $n_{number} =$ \hspace{1.5cm} \# Outcomes $=$
 
 
-We often need to count the number of ways to choose a \textit{subset} from some set of possibilities.  The number of outcomes depends on two characteristics of the process: does the \emph{order} matter and is \emph{replacement} allowed?
+We often need to count the number of ways to choose a subset from some set of possibilities.  The number of outcomes depends on two characteristics of the process: does the order matter and is replacement allowed?
 
 __Sampling Table__: If there are $n$ objects and we select $k < n$ of them, how many different outcomes are possible?
 
+                        Order Matters                                   Order Doesn't Matter
+--------------------   --------------------------------------------   -------------------------
+With Replacement        $n^k$                                           $\binom{n+k-1}{k}$
+Without Replacement     $n(n-1)(n-2)...(n-k+1)=\frac{n!}{(n-k)!}$         $\binom{n}{k}$
+
 
 \begin{table}[h!]
-\begin{center}
+
+& \textbf{Order Matters} & \textbf{Order Doesn't Matter}\\
+
+\textbf{With Replacement} & $n^k$ & $\binom{n+k-1}{k}$\\
+
+\textbf{Without Replacement} & $n(n-1)(n-2)...(n-k+1)=\frac{n!}{(n-k)!}$ & $\binom{n}{k}$\\
+
+\end{table}
+
+
+\begin{table}[h!]
 \caption*{\textbf{Sampling Table}}
 \begin{tabular}{|r|c|c|}
 \hline
@@ -49,7 +64,6 @@ __Sampling Table__: If there are $n$ objects and we select $k < n$ of them, how 
 \textbf{Without Replacement} & $ \frac{n!}{(n-k)!}$ & $\binom{n}{k}$\\
 \hline
 \end{tabular}
-\end{center}
 \end{table}
 
 Where $\binom{x}{y} = \frac{x!}{(x-y)!y!}$ and $0! = 1$
@@ -97,6 +111,13 @@ Properties of set operations:
 * __de Morgan's laws__: $(A \cup B)^C = A^C \cap B^C$; $(A \cap B)^C = A^C \cup B^C$
 * __Disjointness__: Sets are disjoint when they do not intersect, such that $A \cap B = \{\emptyset\}$.  A collection of sets is pairwise disjoint (\textbf{mutually exclusive}) if, for all $i \neq j$, $A_i \cap A_j = \{\emptyset\}$.  A collection of sets form a partition of set $S$ if they are pairwise disjoint and they cover set $S$, such that $\bigcup_{i = 1}^k A_i = S$.
 
+```{exercise, name = "Sample Space"}
+
+
+Suppose you had a pair of four-sided dice. You sum the results from a single toss.
+
+What is the set of possible outcomes?
+```
 
 ## Probability
 
@@ -140,6 +161,22 @@ Then,
   \Pr(A\cup B)&=
 \end{eqnarray}
 \end{framed}
+
+
+```{exercise, name = "Probability"}
+
+Suppose you had a pair of four-sided dice. You sum the results from a single toss. Let us call this sum, or the outcome, X.
+
+
+1. What is Pr($X = 5$)?
+
+  
+2. What is Pr($X=5^C$)? In other words, what is the probability that the outcome will not be 5?
+  
+  
+  
+
+```
 
 
 ## Conditional Probability and Bayes Law
@@ -205,37 +242,45 @@ Bayes' rule  determines the posterior probability of a state  $\Pr(B_j|A)$ by ca
 
 __Prior and Posterior Probabilities__:  Above, $\Pr(B_1)$ is often called the prior probability, since it's the probability of $B_1$ before anything else is known.  $\Pr(B_1|A)$ is called the posterior probability, since it's the probability after other information is taken into account.
 
-\begin{framed}
-Examples:
+Example:
 
-\begin{enumerate}
-\item A test for cancer correctly detects it 90\%  of the time, but incorrectly identifies a person as having cancer 10\% of the time.  If 10\% of all people have cancer at any given time, what is the probability that a person who tests positive actually has cancer?\\[6pt]
-\item In Boston, 30\% of the people are conservatives, 50\% are liberals, and 20\% are independents.  In the last election, 65\% of conservatives, 82\% of liberals, and 50\% of independents voted.  If a person in Boston is selected at random and we learn that s/he did not vote last election, what is the probability s/he is a liberal?\\[6pt]
-\end{enumerate}
-\end{framed}
+In a given town, 40% of the voters are Democrat and 60% are Republican. The president's budget is supported by 50% of the Democrats and 90% of the Republicans. If a randomly (equally likely) selected voter is found to support the president's budget, what is the probability that they are a Democrat?
 
+We are given that
+$$P(D) = .4, P(D^c) = .6, P(S|D) = .5, P(S|D^c) = .9$$
+Using this, Bayes' Law and the Law of Total Probability, we know: 
+
+$$P(D|S) = \frac{P(D)P(S|D)}{P(D)P(S|D) + P(D^c)P(S|D^c)}$$
+
+```{exercise, name = "Conditional Probability"}
+
+
+Assume that 2% of the population of the U.S. are members of some extremist militia group. We develop a survey that positively classifies someone as being a member of a militia group given that they are a member 95% of the time and negatively classifies someone as not being a member of a militia group given that they are not a member 97% of the time. What is the probability that someone positively classified as being a mebmer of a militia group is actually a militia member?
+
+```
 
 ## Random Variables
 
 Most questions in the social sciences involve events, rather than numbers per se. To analyze and reason about events quantiatively, we need a way of mapping events to numbers. A random variable does exactly that.
 
-A \textbf{random variable} is a measurable function $X$ that maps from the sample space $S$ to the set of real numbers $R.$ It assigns a real number to every outcome $s \in S$. 
+A ___random variable___ is a measurable function $X$ that maps from the sample space $S$ to the set of real numbers $R.$ It assigns a real number to every outcome $s \in S$. 
 
 It might seem strange to define a random variable as a function -- which is neither random nor variable. The randomness comes from the realization of an event from the sample space $s$.
 
 
-\textbf{Randomness} means that the outcome of some experiment is not deterministic, i.e. there is some probability ($0 < P(A) < 1$) that the event will occur.
+___Randomness___ means that the outcome of some experiment is not deterministic, i.e. there is some probability ($0 < P(A) < 1$) that the event will occur.
 
-The \textbf{support} of a random variable is all values for which there is a positive probability of occurrence.
+The support of a random variable is all values for which there is a positive probability of occurrence.
 
 \begin{framed}
 
 Example: Flip a fair coin two times.   What is the sample space? 
 
-A random variable must map events to the real line. For example, let a random variable $X$ be the number of heads. The event $(H, H)$ gets mapped to 2 $X(s) = 2$, and the events $\{(H, T), (T, H)\}$ gets mapped to 1 $(X(s) = 1)$, the event $(T, T)$ gets mapped to 0 $(X(s) = 0)$. Notice again that the while the mapping is not deterministic, what $s \in S$ will consist of is random. We often abbreviate the $(s)$ from $X(s)$ to refer to a random variable $X$, but all random variables are functions.
+A random variable must map events to the real line. For example, let a random variable $X$ be the number of heads. The event $(H, H)$ gets mapped to 2 $X(s) = 2$, and the events $\{(H, T), (T, H)\}$ gets mapped to 1 $(X(s) = 1)$, the event $(T, T)$ gets mapped to 0 $(X(s) = 0)$. 
+
 
 What are other possible random variables?
-\end{framed}
+
 
 
 
@@ -263,20 +308,6 @@ No. If A and B are mutually exclusive, then they cannot happen simultaneously. I
 2. $\Pr(B|A \cap C)=\Pr(B|C)$
 3.  $\Pr(A\cap B|C)=\Pr(A|C)\Pr(B|C)$
 
-
-
-## Types of Observed Data
-
-
-In empirical research, data can be classified along several dimensions. We can look at the precision with which the underlying quantities are measured.
-
-\textbf{Nominal} (Categorical): \textit{Discrete} data are nominal if there is no way to put the categories represented by the data into a meaningful order.  Typically, this kind of data represents names (hence `nominal') or attributes. Example: Republican or Democrat, Male or Female.
-
-\textbf{Ordinal}:  \textit{Discrete} data are ordinal if there is a logical order to the categories represented by the data, but there is no common scale for differences between adjacent categories. Example: Party identification, common survey responses.
-
-\textbf{Interval}:  \textit{Discrete or continuous} data are interval if there is an order to the values and there is a common scale, so that differences between two values have substantive meanings. Example: dates, temperature.
-
-\textbf{Ratio}:  Discrete or continuous data are ratio if the data have the characteristics of interval data and zero is a meaningful quantity.  This allows us to consider the ratio of two values as well as difference between them.  Allows direct ratio comparison because of the meaningful baseline of 0. Example: quantities measured in dollars, crime rates.
 
 
 
@@ -363,11 +394,10 @@ We often want to summarize some characteristics of the distribution of a random 
 __Expectation of a Discrete Random Variable__:  The expected value of a discrete random variable $Y$ is \[E(Y)=\sum\limits_{y} y P(Y=y)= \sum\limits_{y} y p(y)\]  
 In words, it is the weighted average of all possible values of $Y$, weighted by the probability that $y$ occurs.  It is not necessarily the number we would expect $Y$ to take on, but the average value of $Y$ after a large number of repetitions of an experiment.
 
-\begin{framed}
-Example: For a fair die, $E(Y)=$  \phantom{We would never expect the
-result of a rolled die to be $7/2$, but that would be the average over a
-large number of rolls of the die.}
-\end{framed}
+
+Example: For a fair die, $E(Y)=7/2$ 
+
+We would never expect the result of a rolled die to be $7/2$, but that would be the average over a large number of rolls of the die.
 
 
 __Expectation of a Continuous Random Variable__:  The expected
@@ -377,69 +407,108 @@ probabilities as weights, we integrate using the density to weight.
 Hence, the expected value of the continuous variable $Y$ is defined by
 \[E(Y)=\int\limits_{y} y f(y) dy\]
 
-\begin{framed}
-Example:  Find $E(Y)$ for $f(y)=\frac{1}{1.5}, \quad 0<y<1.5$.\\
+
+Example:  Find $E(Y)$ for $f(y)=\frac{1}{1.5}, \quad 0<y<1.5$.
+
 $E(Y)=$ 
-\end{framed}
 
 __Expected Value of a Function__
 
-\begin{enumerate}
-  \item \parbox[t]{1.5in}{Discrete:}   $E[g(Y)]=\sum\limits_y g(y)p(y)$
-  \item \parbox[t]{1.5in}{Continuous:} $E[g(Y)]=\int\limits_{-\infty}^\infty g(y)f(y)dy$
-\end{enumerate}
+___Discrete:___  $E[g(Y)]=\sum\limits_y g(y)p(y)$
 
-\underline{Properties of Expected Values}:
+___Continuous:___ $E[g(Y)]=\int\limits_{-\infty}^\infty g(y)f(y)dy$
 
-\begin{enumerate}
-\item $E(c)=c$
-\item $E[E[Y]] = E[Y]$ \phantom{(because the expected value of a random variable is a constant)}
-\item $E[c g(Y)]= c E[g(Y)]$
-\item Linearity: $E[g(Y_1) + \cdots + g(Y_n)]=E[g(Y_1)]+\cdots+E[g(Y_n)]$, \textit{regardless} of independence
-\item $E[XY] = E[X]E[Y]$, if X and Y are independent 
-\end{enumerate}
 
-  
-  
+___Properties of Expected Values:___
+
+1. $E(c)=c$
+
+2. $E[E[Y]] = E[Y]$ (because the expected value of a random variable is a constant)
+
+3. $E[c g(Y)]= c E[g(Y)]$
+
+4. Linearity: $E[g(Y_1) + \cdots + g(Y_n)]=E[g(Y_1)]+\cdots+E[g(Y_n)]$, \textit{regardless} of independence
+
+5. $E[XY] = E[X]E[Y]$, if X and Y are independent 
+
 __Conditional Expectation__: With joint distributions, we are often interested in the expected value of a variable $Y$ if we could hold the other variable $X$ fixed.  This is the conditional expectation of $Y$ given $X = x$:
 
-\begin{enumerate}
-\item $Y$ discrete:  $E(Y|X = x) = \sum_y yp_{Y|X}(y|x)$
-\item $Y$ continuous: $E(Y|X = x) = \int_y yf_{Y|X}(y|x)dy$
-\end{enumerate}
+1. $Y$ discrete:  $E(Y|X = x) = \sum_y yp_{Y|X}(y|x)$
+2. $Y$ continuous: $E(Y|X = x) = \int_y yf_{Y|X}(y|x)dy$
+
 
 The conditional expectation is often used for prediction when one knows the value of $X$ but not $Y$; the realized value of $X$ contains information about the unknown $Y$ so long as $E(Y|X = x) \neq E(Y) \forall x$.
   
 
 __Variance__:  We can also look at other summaries of the distribution, which build on the idea of taking expectations. Variance tells us about the ``spread" of the distribution; it is the expected value of the squared deviations from the mean of the distribution.  The standard deviation is simply the square root of the variance.
 
-\begin{enumerate}
-\item \parbox[t]{1.5in}{Variance:} $\sigma^2= \Var(Y) = E[(Y - E(Y))^2] =  E(Y^2)-[E(Y)]^2$
-\item \parbox[t]{1.5in}{Standard Deviation:} $\sigma= \sqrt{\Var(Y)}$
-\end{enumerate}
+1. Variance: $\sigma^2= V(Y) = E[(Y - E(Y))^2] =  E(Y^2)-[E(Y)]^2$
+2. Standard Deviation: $\sigma= \sqrt{V(Y)}$
 
-\textbf{Covariance and Correlation}: The covariance measures the degree to which two random variables vary together; if the covariance is positive, X tends to be larger than its mean when Y is larger than its mean.  The covariance of a variable with itself is the variance of that variable.
 
-\[\Cov(X,Y) = E[(X - E(X))(Y - E(Y))] = E(XY) - E(X)E(Y)\]
+___Covariance and Correlation:___ The covariance measures the degree to which two random variables vary together; if the covariance is positive, X tends to be larger than its mean when Y is larger than its mean.  The covariance of a variable with itself is the variance of that variable.
+
+\[Cov(X,Y) = E[(X - E(X))(Y - E(Y))] = E(XY) - E(X)E(Y)\]
 
 The correlation coefficient is the covariance divided by the standard deviations of X and Y.  It is a unitless measure and always takes on values in the interval $[-1,1]$.
 
-\[\rho = \frac{\Cov(X,Y)}{\sqrt{\Var(X)\Var(Y)}} = \frac{\Cov(X,Y)}{\SD(X)\SD(Y)}\]
+\[\rho = \frac{Cov(X,Y)}{\sqrt{V(X)V(Y)}} = \frac{Cov(X,Y)}{SD(X)SD(Y)}\]
 
-\underline{Properties of Variance and Covariance}:
+___Properties of Variance and Covariance:___
 
-\begin{enumerate}
-\item $\Var(c) = 0$
-\item $\Var[cY] = c^2\Var[Y]$
-\item $\Cov[Y,Y] = \Var[Y]$
-\item $\Cov[X,Y] = \Cov[Y,X]$
-\item $\Cov[aX,bY] = ab\Cov[X,Y]$
-\item $\Cov[X+a,Y] = \Cov[X,Y]$
-\item $\Cov[X+Z,Y+W] = \Cov[X,Y] + \Cov[X,W] + \Cov[Z,Y] + \Cov[Z,W]$
-\item $\Var[X+Y] = \Var[X] + \Var[Y] + 2\Cov[X,Y]$\\
-\end{enumerate}
+1. $V(c) = 0$
+2. $V[cY] = c^2V[Y]$
+3. $Cov[Y,Y] = V[Y]$
+4. $Cov[X,Y] = Cov[Y,X]$
+5. $Cov[aX,bY] = abCov[X,Y]$
+6. $Cov[X+a,Y] = Cov[X,Y]$
+7. $Cov[X+Z,Y+W] = Cov[X,Y] + Cov[X,W] + Cov[Z,Y] + Cov[Z,W]$
+8. $V[X+Y] = V[X] + V[Y] + 2Cov[X,Y]$
 
-\end{itemize}
+
+Example:
+
+Given the following PMF: 
+\[f(x) =  \begin{cases}
+              \frac{3!}{x!(3-x)!}(\frac{1}{2})^3 \quad x = 0,1,2,3\\
+               0 \quad otherwise
+            \end{cases}
+               \]
+
+Find the expected value of x:
+
+$$E[x] = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 2 \times \frac{3}{8} + 3 \times \frac{1}{8} = \frac{3}{2}$$
+
+Find the variance of x:
+
+Since there is a 1 to 1 mapping from $x$ to $x^2:$ $E[x^2] = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 4 \times \frac{3}{8} + 9 \times \frac{1}{8} = \frac{24}{8} = 3$
+
+$V[x] = E[x^2] - E[x]^2 = 3 - (\frac{3}{2})^2 = \frac{3}{4}$
+
+
+```{exercise, name = "Expectation, Variance, Covariance"}
+
+Suppose we have a PMF with the following characteristics:
+\begin{eqnarray*}
+  P(X = -2) = \frac{1}{5}\\
+  P(X = -1) = \frac{1}{6}\\
+  P(X = 0) = \frac{1}{5}\\
+  P(X = 1) = \frac{1}{15}\\
+  P(X = 2) = \frac{11}{30}
+\end{eqnarray*}
+  
+1. Calculate the expected value of X
+
+Define the random variable Y = X^2. 
+
+2. Calculate the expected value of Y. (Hint: It would help to derive the PMF of Y first in order to calculate the expected value of Y in a straightforward way)
+
+3. Calculate the variance of X.
+
+
+```
+
+
 
 
 
