@@ -66,6 +66,7 @@ mid <- read_csv("input/sample_mid.csv")
 
 What does `polity` look like?
 ```{r}
+unique(polity$country)
 ggplot(polity, aes(x = year, y = polity2)) +
   facet_wrap(~ country) +
   geom_line()
@@ -85,11 +86,15 @@ There are many ways to do this, but one is a loop. We go through one row at a ti
 
 
 ```{r}
-mid_year_by_year <- foreach(i = 1:nrow(mid), .combine = "bind_rows") %do% { 
-  
-  data_frame(ccode = mid$ccode[i], ## row i's country
+mid_year_by_year <- data_frame(ccode = numeric(),
+                               year = numeric(),
+                               dispute = numeric())
+
+for(i in 1:nrow(mid)) {
+  x <- data_frame(ccode = mid$ccode[i], ## row i's country
              year = mid$StYear[i]:mid$EndYear[i],  ## sequence of years for dispute in row i
              dispute = 1) 
+  mid_year_by_year <- rbind(mid_year_by_year, x)
 }
 ```
 
@@ -110,8 +115,8 @@ p_m <- left_join(polity,
 Replace `dispute` = NA rows with a zero.
 
 ```{r}
-p_m <- p_m %>%
-  mutate(dispute = replace(dispute, is.na(dispute), 0))
+p_m[is.na(p_m$dispute),]$dispute <- 0
+
 ```
 
 long to wide

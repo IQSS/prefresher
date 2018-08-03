@@ -62,6 +62,12 @@ __Modulo:__ Tells you the remainder when you divide the first number by the seon
 
 
 
+<<<<<<< HEAD
+* $\epsilon$-interval in ${\bf R}^1$: $\{x : |x-c|<\epsilon \}$. $x$ is in the neighborhood of c if it is in the open interval $(c-\epsilon,c+\epsilon)$.
+* $\epsilon$-disk in ${\bf R}^2$: $\{x : || x-c ||<\epsilon\}$. $x$ is in the neighborhood of c if it is inside the circle or disc with center c and radius $\epsilon$.
+* $\epsilon$-ball in ${\bf R}^n$: $\{x : || x-c ||<\epsilon\}$. $x$ is in the neighborhood of c if it is inside the sphere or ball with center c and radius $\epsilon$.
+=======
+>>>>>>> 647bb136cef89ea28642f7a00ebadb06d437a1d9
 
 
 
@@ -71,11 +77,29 @@ A __function__ (in ${\bf R}^1$) is a mapping, or transformation, that relates me
 
 Examples: Mapping notation 
 
-* Function of one variable: $f:{\bf R}^1\to{\bf R}^1$\\
-    $f(x)=x+1$. For each $x$ in ${\bf R}^1$, $f(x)$ assigns the number $x+1$.
-* Function of two variables: $f: {\bf R}^2\to{\bf R}^1$. $f(x,y)=x^2+y^2$. For each ordered pair $(x,y)$ in ${\bf R}^2$, $f(x,y)$ assigns the number $x^2+y^2$.
+* Function of one variable: $f:{\bf R}^1\to{\bf R}^1$
+
+$f(x)=x+1$. For each $x$ in ${\bf R}^1$, $f(x)$ assigns the number $x+1$.
+    
+* Function of two variables: $f: {\bf R}^2\to{\bf R}^1$. 
+
+$f(x,y)=x^2+y^2$. For each ordered pair $(x,y)$ in ${\bf R}^2$, $f(x,y)$ assigns the number $x^2+y^2$.
+
 
 We often use variable $x$ as input and another $y$ as output, e.g. $y=x+1$
+
+```{exercise, name = "Functions"}
+
+For each of the following, state whether they are one-to-one or many-to-one functions. 
+
+1. For $x \in [0,\infty]$, $f : x \rightarrow x^2$ (this could also be written as $f(x) = x^2$).
+
+2. For $x \in [-\infty, \infty]$, $f: x \rightarrow x^2$.
+
+3. For $x \in [-3, \infty]$, $f: x \rightarrow x^2$.
+
+4. For $x \in [0, \infty]$, $f: x \rightarrow \sqrt{x}$
+```
 
 
 Some functions are defined only on proper subsets of ${\bf R}^n$.
