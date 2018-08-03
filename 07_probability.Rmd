@@ -79,7 +79,7 @@ Example: There are five balls numbered from 1 through 5 in a jar. Three balls ar
 
 
 
-## Sets
+## Sets {#setoper}
 
 
 __Set__ : A set is any well defined collection of elements.  If $x$ is an element of $S$, $x \in S$.
@@ -119,7 +119,7 @@ Suppose you had a pair of four-sided dice. You sum the results from a single tos
 What is the set of possible outcomes?
 ```
 
-## Probability
+## Probability {#probdef}
 
 __Probability__: Many events or outcomes are random. In everyday speech, we say that we are  \emph{uncertain} about the outcome of random events. Probability is a formal model of uncertainty which provides a measure of uncertainty governed by a particular set of rules. A different model of uncertainty would, of course, have a different set of rules and measures. Our focus on probability is justified because it has proven to be a particularly useful model of uncertainty.
 
@@ -261,7 +261,7 @@ Assume that 2% of the population of the U.S. are members of some extremist milit
 
 ## Random Variables
 
-Most questions in the social sciences involve events, rather than numbers per se. To analyze and reason about events quantiatively, we need a way of mapping events to numbers. A random variable does exactly that.
+Most questions in the social sciences involve events, rather than numbers per se. To analyze and reason about events quantitatively, we need a way of mapping events to numbers. A random variable does exactly that.
 
 A ___random variable___ is a measurable function $X$ that maps from the sample space $S$ to the set of real numbers $R.$ It assigns a real number to every outcome $s \in S$. 
 
@@ -315,7 +315,7 @@ No. If A and B are mutually exclusive, then they cannot happen simultaneously. I
 
 The distribution of a random variable $X$ is the probability function it induces on the real line. It is given, roughly speaking, by $p(s) = P(X \in s)$ 
 
-The formal definition of a random variable is easier to given by separating out two cases: discrete random variables when the numeric summaries of the events are discrete,  and continuous random variables whern they are continuous.
+The formal definition of a random variable is easier to given by separating out two cases: discrete random variables when the numeric summaries of the events are discrete,  and continuous random variables when they are continuous.
 
 
 __Discrete Random Variable__: $Y$ is a discrete random variable if it can assume only a finite or countably infinite number of distinct values. Examples:  number of wars per year, heads or tails.

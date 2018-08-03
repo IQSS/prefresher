@@ -1,4 +1,4 @@
-#  command-line, markdown, LaTeX, git
+#  LaTeX and markdown
 
 Module originally written by Shiro Kuriwaki
 
@@ -10,16 +10,22 @@ Up till now, you should have covered:
 
 * Statistical Programming in `R`
 
-This is only the beginning of `R` -- programming is like learning a language, so learn more as we use it.
+This is only the beginning of `R` -- programming is like learning a language, so learn more as we use it. And yet `R` is of likely not the only programming language you will want to use. While we cannot introduce everything, we'll pick out a few that we think are particularly helpful.
 
-Today we will take a quick look at some other software / languages that many of us will end up using.
+Here will cover
 
-* command-line
 * Markdown
 * LaTeX (and BibTeX)
+
+as examples of a non-WYSIWYG editor
+
+and the next chapter (you can read it without reading this LaTeX chapter) covers
+
+* command-line
 * git
 
 command-line are a basic set of tools that you may have to use from time to time. It also clarifies what more complicated programs are doing. Markdown is an example of compiling a plain text file. LaTeX is a typesetting program and git is a version control program -- both are useful for non-quantitative work as well.
+
 
 
 ## Check your understanding
@@ -27,10 +33,6 @@ command-line are a basic set of tools that you may have to use from time to time
 Check if you have an idea of how you might code the following tasks:
 
 * What does "WYSIWYG" stand for? How would a non-WYSIWYG format text?
-* What is a GUI?
-* What do the following commands stand for in shell: `ls` (or `dir` in Windows), `cd`, `rm`, `mv` (or `move` in windows), `cp` (or `copy` in Windows).
-* What is the difference between a relative path and an absolute path?
-* What paths do these refer to in shell/terminal: `~/`, `.`, `..`
 * How do you start a header in markdown?
 * What are some "plain text" editors?
 * How do you start a document in `.tex`?
@@ -40,87 +42,12 @@ Check if you have an idea of how you might code the following tasks:
 * What is a `.bib` file? 
 * Say you came across a interesting journal article. How would you want to maintain this reference so that you can refer to its citation in all your subsequent papers?
 
-* What is a _repository_ in github?
-* What does it mean to "clone" a repository?
+
 
 
 
 ## Motivation
 Statistical programming is a fast-moving field. The beta version of `R` was released in 2000, `ggplot2` was released on 2005, and  `RStudio` started around 2010. Of course, some programming technologies are quite "old": (`C` in 1969, `C++` around 1989, `TeX` in 1978, `Linux` in 1991, Mac OS in 1984). But it is easy to feel you are falling behind in the recent developments of programming. Today we will do a **brief** and rough overview of some fundamental and new tools other than `R`, with the general aim of having you break out of your comfort zone so you won't be shut out from learning these tools in the future.
-
-## `command-line`
-Elementary programming operations are done on the command-line, or by entering commands into your computer. This is different from a UI or GUI -- graphical user-interface -- which are interfaces that allow you to click buttons and enter commands in more readable form. Although there are good enough GUIs for most of your needs, you still might need to go under the hood sometimes and run a command. 
-
-
-
-### command-line commands
-Open up `Terminal` in a Mac. (`Command Prompt` in Windows)
-
-Running this command in a Mac (`dir` in Windows) should show you a list of all files in the directory that you are currently in.
-```{bash}
-ls
-```
-
-`pwd` stands for present working directory (`cd` in Windows)
-```{bash}
-pwd
-```
-
-`cd` means change directory. You need to give it what to change your current directory _to_. You can specify a name of another directory in your directory. 
-
-Or you can go up to your parent directory. The syntax for that are two periods, `..` . One period `.` refers to the current directory.
-
-```{bash}
-cd ..
-pwd
-```
-
-
-`~/` stands for your home directory defined by your computer. 
-```{bash}
-cd ~/
-ls
-```
-
-
-Using `..` and `.` are "relative" to where you are currently at. So are things like `figures/figure1.pdf`, which is implicitly writing `./figures/figure1.pdf`. These are called relative paths. In contrast, `/Users/shirokuriwaki/project1/figures/figure1.pdf` is an "absolute" path because it does not start from your current directory.
-
-Relative paths are nice if you have a shared Dropbox, for example, and I had `/Users/shirokuriwaki/mathcamp` but Connor's path to the same folder is `/Users/connorjerzak/mathcamp`. To run the same code in `mathcamp`, we should be using relative paths that start from "`mathcamp`". Relative paths are also shorter, and they are invariant to higher-level changes in your computer.
-
-
-
-### running things via command-line
-Suppose you have a simple Rscript, call it `hello_world.R`. This is simply a plain text file that contains
-```
-cat("Hello World")
-```
-
-Then in command-line, go to the directory that contains `hello_world.R` and enter
-
-```{bash, eval = FALSE}
-Rscript hello_world.R
-```
-
-This should give you the output `Hello World`, which verifies that you "executed" the file with R via the command-line. 
-
-### why do command-line?
-If you know exactly what you want to do your files and the changes are local, then command-line might be faster and be more sensible than navigating yourself through a GUI. For example, what if you wanted a single command that will run 10 R scripts successively at once (as Gentzkow and Shapiro suggest you should do in your research)? It is tedious to run each of your scripts on Rstudio, especially if running some take more than a few minutes. Instead you could write a "batch" script that you can run on the terminal,
-
-```{bash, eval = FALSE}
-Rscript 01_read_data.R
-Rscript 02_merge_data.R
-Rscript 03_run_regressions.R
-Rscript 04_make_graphs.R
-Rscript 05_maketable.R
-```
-
-Then run this single file, call it `run_all_Rscripts.sh`, on your terminal as
-```{bash, eval = FALSE}
-sh run_all_Rscripts.sh
-```
-
-
-On the other hand, command-line prompts may require more keystrokes, and is also less intuitive than a good GUI. It can also be dangerous for beginners, because it can allow you to make large irreversible changes inadvertently. For example, removing a file (`rm`) has no "Undo" feature. 
 
 
 ## Markdown
@@ -130,13 +57,14 @@ Markdown is known as a "light-weight" editor, which means that it is relatively 
 
 ### markdown commands
 For italic and bold, use either the asterisks or the underlines, 
-```{md}
+
+```{r, eval = FALSE, echo = TRUE}
 *italic*   **bold**
 _italic_   __bold__
 ```
 
 And for headers use the hash symbols, 
-```{md}
+```{r, eval = FALSE, echo = TRUE}
 # Main Header
 ## Sub-headers
 ```
@@ -146,7 +74,7 @@ RStudio makes it easy to compile your very first markdown file by giving you tem
 
 Rmd is actually a slight modification of real markdown. It is a type of file that R reads and turns into a proper `md` file. Then, it uses a document-conversion called pandoc to compile your `md` into documents like PDF or HTML.
 
-![](RMarkdownFlow.png)
+![](images/RMarkdownFlow.png)
 
 One of the things `Rmds` facilitates is the use of code chunks, which you have all been using. These start and end with three back-ticks. In the beginning, we can add options in curly braces (`{}`). Specifying `r` in the beginning tells the compiler that this is meant to be R code. Options like `echo = TRUE` or `eval = FALSE` switch between not executing the code (i.e., just showing it for display), or executing the code but not showing the code that was executed (if you think it is distracting).
 
@@ -202,10 +130,9 @@ Notice that each line starts with a backslash `\` -- in LaTeX this is the symbol
 
 The following syntax at the endpoints are shorthand for math equations.
 ```
-$$\int x^2 dx$$
 \[\int x^2 dx\]
 ```
-both of these compile math symbols: $\displaystyle \int x^2 dx.$
+these compile math symbols: $\displaystyle \int x^2 dx.$^[Enclosing with `$$` instead of `\[` also has the same effect, so you may see it too. But this is now discouraged due to its inflexibility.]
 
 
 The `align` environment is useful to align your multi-line math, for example. 
@@ -264,14 +191,14 @@ Now, in LaTeX, if you type
       
 as part of your text, then when the `.tex` file is compiled the PDF shows something like 
 
-![](biblatex_inline.png)
+![](images/biblatex_inline.png)
 
 in whatever citation style (APSA, APA, Chicago) you pre-specified! 
 
 
 Also at the end of your paper you will have a bibliography with entries ordered and formatted in the appropriate citation.
 
-![](biblatex_bibliography.png)
+![](images/biblatex_bibliography.png)
 
 This is a much less frustrating way of keeping track of your references -- no need to hand-edit formatting the bibliography to conform to citation rules (which biblatex already knows) and no need to update your bibliography as you add and drop references (biblatex will only show entries that are used in the main text).
 
@@ -285,60 +212,11 @@ Citation management software (Mendeley or Zotero) automatically generates .bib e
 
 
 
-## git
-
-Git is a tool for version control. It comes pre-installed on Macs, you will probably need to install it yourself on Windows. 
-
-### why version control?
-All version control software should be built to 
-
-* preserve all snapshots of your work
-* and catalog them in such a way that you can refer back or even revert back your files to the past snapshot. 
-* makes it easy to see exactly which parts of your files you changed between directories.
-
-Further, git is most commonly used for collaborative work.
-
-* maintains "branches", or parallel universes of your files that people can switch back and forth on, doing version control on each one
-* makes it easy to "merge" a sub-branch to a master branch when it is ready.
-
-Note that Dropbox is useful for collaborative work too. But the added value of git's branches is that people can make different changes simultaneously on their computers and merge them to the master branch later. In Dropbox, there is only one copy of each thing so simultaneous editing is not possible. 
-
-### open-source code at your fingertips
-Some links to check out:
-
-* <https://github.com/tidyverse/dplyr>
-* <https://github.com/apple/swift>
-* <https://github.com/kosukeimai/qss>
-
-
-GitHub <https://github.com> is the GUI to git. Making an account there is free. Making an account will allow you to be a part of the collaborative programming community. It will also allow you to "fork" other people's "repositories". "Forking" is making your own copy of the project that forks off from the master project at a point in time. A "repository" is simply the name of your main project directory.
-
-"cloning" someone else's repository is similar to forking -- it gives you your own copy. 
-
-### commands in git
-As you might have noticed from all the quoted terms, git uses a lot of its own terms that are not intuitive and hard to remember at first. The nuts and bolts of maintaining your version control further requires "adding", "committing", and "push"ing, sometimes "pull"ing.
-
-The tutorial <https://try.github.io/> is quite good. You'd want to have familiarity with command-line to fully understand this and use it in your work.
-
-RStudio Projects has a great git GUI as well. 
-
-
-### is git worth it?
-
-While git is a powerful tool, you may choose to not use it for everything because 
-
-* git is mainly for code, not data. It has a fairly strict limit on the size of your dataset that you cover.
-* your collaborators might want to work with Dropbox
-* unless you get a paid account, all your repositories will be public. 
-
-
-## Concluding PreFresher
+## Concluding the Prefresher
 
 Keep on learning, trying new techniques to improve your work, and learn from others! 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"> <a href="https://twitter.com/EmilyRiederer/status/898735640031920129">August 18, 2017</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-### please tell us how we can improve the PreFresher
-The PreFresher is a work in progress, with material mainly driven by graduate students. Please tell us how we should change (or not change) each of its elements:
-
-<https://harvard.az1.qualtrics.com/jfe/form/SV_9moFLOtHV7lkNhz>
+### please tell us how we can improve the Prefresher
+The Prefresher is a work in progress, with material mainly driven by graduate students. Please tell us how we should change (or not change) each of its elements:
