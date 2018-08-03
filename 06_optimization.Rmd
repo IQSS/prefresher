@@ -25,22 +25,22 @@ Operations Research}
 ## Applications of the Derivative: Maxima and Minima
 
 The first derivative, $f'(x)$, identifies whether the function $f(x)$ at the point $x$ is increasing or decreasing at $x$.
-\begin{enumerate}
-		\item \parbox[t]{4in}{\bf Increasing:} $f'(x)>0$
-		\item \parbox[t]{4in}{\bf Decreasing:} $f'(x)<0$
-		\item \parbox[t]{4in}{{\bf Neither increasing nor decreasing}:} $f'(x)=0$\\
+		
+1. __Increasing:__ $f'(x)>0$
+1. __Decreasing:__ $f'(x)<0$
+1. __Neither increasing nor decreasing__: $f'(x)=0$
 			 i.e. a maximum, minimum, or saddle point
-\end{enumerate}
 
-Examples:
-	\begin{comment}
-	\begin{enumerate}
-		\item \parbox[c]{4.75in}{$f(x)=x^2+2$, $f'(x)=2x$}
-			\parbox[c]{1in}{\,  {\includegraphics[width=1in, angle = 270]{deriv1.eps}}}
-		\item \parbox[c]{4.75in}{$f(x)=x^3+2$, $f'(x)=3x^2$}
-			\parbox[c]{1in}{\,  {\includegraphics[width=1in, angle = 270]{deriv2.eps}}}
-	\end{enumerate}
-	\end{comment}
+So  $f(x)=x^2+2$, $f^\prime(x)=2x$
+
+`r include_graphics("images/deriv1-eps-converted-to.pdf")`
+
+
+And $f(x)=x^3+2$, $f^prime(x)=3x^2$
+
+`r include_graphics("images/deriv2-eps-converted-to.pdf")`
+
+
 
 
 The second derivative $f''(x)$ identifies whether the function $f(x)$ at the point $x$ is
