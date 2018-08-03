@@ -38,6 +38,19 @@ __Vector Inner Product__: The inner product (also called the dot product or scal
 __Vector Norm__: The norm of a vector is a measure of its length.  There are many different ways to calculate the norm, but the most common of is the Euclidean norm (which corresponds to our usual conception of distance in three-dimensional space):
 		$$ ||{\bf v}|| = \sqrt{{\bf v}\cdot{\bf v}} = \sqrt{ v_1v_1 + v_2v_2 + \cdots + v_nv_n}$$
 
+```{exercise, name = "Vector Algebra"}
+
+
+Let $u = \begin{pmatrix} 7&1&-5&3\end{pmatrix}$, $v = \begin{pmatrix} 9&-3&2&8 \end{pmatrix}$, $w = \begin{pmatrix} 1&13& -7&2 &15 \end{pmatrix}$, and $c = 2$. Calculate the following: 
+  
+  1. $u-v$
+  
+  2. $cw$
+  
+  3. $u \cdot v$
+  
+  4. $w \cdot v$
+```
 
 ## Linear Independence {#linearindependence}
 
@@ -52,7 +65,16 @@ A set $S$ of vectors is linearly dependent iff at least one of the vectors in $S
 
  Linear independence is only defined for sets of vectors with the same number of elements; any linearly independent set of vectors in $n$-space contains at most $n$ vectors.
 
-Exercises: Are the following sets of vectors linearly independent?
+```{exercise, name = "Linear Independence"}
+
+
+Are the following sets of vectors linearly independent?
+  
+  1. $${\bf v}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} $$ 
+  
+  2. $${\bf v}_1 = \begin{pmatrix} 3 \\ 2 \\ -1 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} -2 \\ 2 \\ 4 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} 2 \\ 3 \\ 1 \end{pmatrix} $$ 
+```
+
 
 \begin{enumerate}
 		\item $${\bf v}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} $$ 
@@ -65,7 +87,7 @@ Exercises: Are the following sets of vectors linearly independent?
 
 ## Basics of Matrix Algebra {#matrixbasics}
 
-__Matrix__: A matrix is an array of real numbers arranged in $m$ rows by $n$ columns. The dimensionality of the matrix is defined as the number of rows by the number of columns, $m x n$.
+__Matrix__: A matrix is an array of real numbers arranged in $m$ rows by $n$ columns. The dimensionality of the matrix is defined as the number of rows by the number of columns, $m \times n$. 
 
 \[{\bf A}=\begin{pmatrix}
 			a_{11} & a_{12} & \cdots & a_{1n} \\
@@ -92,7 +114,7 @@ Note that matrices ${\bf A}$ and ${\bf B}$ must have the same dimensionality, in
 Example:
 		$${\bf A}=\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}, \qquad
 			{\bf B}=\begin{pmatrix} 1 & 2 & 1 \\ 2 & 1 & 2 \end{pmatrix}$$
-		$${\bf A+B}= \phantom{\begin{pmatrix} 2 & 4 & 4 \\ 6 & 6 & 8 \end{pmatrix}}$$
+		$${\bf A+B}= \begin{pmatrix} 2 & 4 & 4 \\ 6 & 6 & 8 \end{pmatrix}$$
 	
 __Scalar Multiplication__:  Given the scalar $s$, the scalar multiplication of $s {\bf A}$ is
 		$$ s {\bf A}=  s \begin{pmatrix}
@@ -110,28 +132,26 @@ __Scalar Multiplication__:  Given the scalar $s$, the scalar multiplication of $
 
 Example:
 		$$s=2, \qquad {\bf A}=\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}$$
-		$$s {\bf A} = \phantom{\begin{pmatrix} 2 & 4 & 6 \\ 8 & 10 & 12 \end{pmatrix}}$$
+		$$s {\bf A} = \begin{pmatrix} 2 & 4 & 6 \\ 8 & 10 & 12 \end{pmatrix}$$
 
 __Matrix Multiplication__:  If ${\bf A}$ is an $m\times k$ matrix and $\bf B$ is a $k\times n$ matrix, then their product $\bf C = A B$ is the $m\times n$ matrix where
 		$$c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{ik}b_{kj}$$
 
 Examples:
 
-\begin{enumerate}
-		\item $\begin{pmatrix} a&b\\c&d\\e&f \end{pmatrix} \begin{pmatrix} A&B\\C&D \end{pmatrix}
-			= \phantom{\begin{pmatrix} aA+bC&aB+bD\\cA+dC&cB+dD\\eA+fC&eB+fD \end{pmatrix}}$ 
+1.  $\begin{pmatrix} a&b\\c&d\\e&f \end{pmatrix} \begin{pmatrix} A&B\\C&D \end{pmatrix}
+			= \begin{pmatrix} aA+bC&aB+bD\\cA+dC&cB+dD\\eA+fC&eB+fD \end{pmatrix}$ 
 		
-		\item $\begin{pmatrix} 1&2&-1\\3&1&4 \end{pmatrix} \begin{pmatrix} -2&5\\4&-3\\2&1\end{pmatrix} = 
-			\phantom{\begin{pmatrix} 1(-2)+2(4)-1(2)&1(5)+2(-3)-1(1)\\
+2. $\begin{pmatrix} 1&2&-1\\3&1&4 \end{pmatrix} \begin{pmatrix} -2&5\\4&-3\\2&1\end{pmatrix} = 
+			\begin{pmatrix} 1(-2)+2(4)-1(2)&1(5)+2(-3)-1(1)\\
 				3(-2)+1(4)+4(2)&3(5)+1(-3)+4(1)\end{pmatrix} =
-			\begin{pmatrix} 4&-2\\6&16\end{pmatrix}}$
-	\end{enumerate}
-	
+			\begin{pmatrix} 4&-2\\6&16\end{pmatrix}$
+
 Note that the number of columns of the first matrix must equal the number of rows of the second matrix, in which case they are __conformable for multiplication__.  The sizes of the matrices (including the resulting product) must be $$(m\times k)(k\times n)=(m\times n)$$
 	
 Also note that if __AB__ exists, __BA__ exists only if $\dim({\bf A}) = m \times n$ and $\dim({\bf B}) = n \times m$.
 	
-This does not mean that __AB__ = __BA__. __AB__ = __BA__ is true only in special circumstances, like when ${\bf A}$ or ${\bf B}$ is an identity matrix, ${\bf A} = {\bf B}^{-1}$, or ${\bf A} = {\bf B}$ and __A__ is idempotent.
+This does not mean that __AB__ = __BA__. __AB__ = __BA__ is true only in special circumstances, like when ${\bf A}$ or ${\bf B}$ is an identity matrix or ${\bf A} = {\bf B}^{-1}$.
 
 __Laws of Matrix Algebra__:
 \begin{enumerate}
@@ -152,10 +172,12 @@ Example:
 __Transpose__: The transpose of the $m\times n$ matrix $\bf A$ is the $n\times m$ matrix ${\bf A}^T$  (also written ${\bf A}'$) obtained by interchanging the rows and columns of $\bf A$.
 
 Examples:
-	\begin{enumerate}
-		\item ${\bf A}=\begin{pmatrix} 4&-2&3\\0&5&-1\end{pmatrix}, \qquad {\bf A}^T=\begin{pmatrix} 4&0\\-2&5\\3&-1 \end{pmatrix}$
-		\item ${\bf B}=\begin{pmatrix} 2\\-1\\3 \end{pmatrix}, \qquad {\bf B}^T=\begin{pmatrix} 2&-1&3\end{pmatrix}$
-	\end{enumerate}
+
+
+${\bf A}=\begin{pmatrix} 4&-2&3\\0&5&-1\end{pmatrix}, \qquad {\bf A}^T=\begin{pmatrix} 4&0\\-2&5\\3&-1 \end{pmatrix}$
+
+${\bf B}=\begin{pmatrix} 2\\-1\\3 \end{pmatrix}, \qquad {\bf B}^T=\begin{pmatrix} 2&-1&3\end{pmatrix}$
+
 
 The following rules apply for transposed matrices:
 	\begin{enumerate}
@@ -173,36 +195,35 @@ Example of $({\bf AB})^T = {\bf B}^T{\bf A}^T$:
 
 
 
-## Square Matrices
-__Square__ matrices have the same number of rows and columns; a $k \times k$ square matrix is referred to as a matrix of order $k$.
+```{exercise, name = "Matrix Multiplication"}
 
-The __diagonal__ of a square matrix is the vector of matrix elements that have the same subscripts.  If __A__  is a square matrix of order $k$, then its diagonal is $[ a_{11}, a_{22}, \dots, a_{kk}]'$.
+
+Let $$A =  \begin{pmatrix} 2&0&-1&1\\1&2&0&1 \end{pmatrix}$$
+
+$$B = \begin{pmatrix} 1&5&-7\\1&1&0\\0&-1&1\\2&0&0\end{pmatrix} $$
+  
+
+  $$C =  \begin{pmatrix} 3&2&-1\\0&4&6 \end{pmatrix}$$
+
+Calculate the following:
+  
+  $$1. AB$$
+  $$2. BA$$
+  $$3. (BC)^T$$
+  $$4. BC^T$$
+
+```
 	
-There are several important types of square matrices:
-	
-1. __Identity Matrix__:  The $n\times n$ identity matrix ${\bf I}_n$ is the matrix whose diagonal elements are 1 and all off-diagonal elements are 0. Examples:
-			$$ {\bf I}_2=\begin{pmatrix} 1&0\\0&1 \end{pmatrix}, \qquad {\bf I}_3=\begin{pmatrix} 1&0&0\\ 0&1&0\\ 
-			0&0&1 \end{pmatrix}$$	
-	
-2. __Symmetric Matrix__: A matrix __A__ is symmetric if ${\bf A} = {\bf A}'$; this implies that $a_{ij} = a_{ji}$ for all $i$ and $j$. Examples:
-			$$ {\bf A} = \begin{pmatrix} 1&2\\2&1 \end{pmatrix} = {\bf A}', \qquad {\bf B} =\begin{pmatrix} 4&2&-1\\ 2&1&3\\
-			-1&3&1 \end{pmatrix} = {\bf B}'$$
-
-3. __Diagonal Matrix__: A matrix __A__ is diagonal if all of its non-diagonal entries are zero; formally, if $a_{ij} = 0$ for all $i \neq j$ Examples:
-$$ {\bf A} = \begin{pmatrix} 1&0\\0&2 \end{pmatrix}, \qquad {\bf B} =\begin{pmatrix} 4&0&0\\ 0&1&0\\
-			0&0&1 \end{pmatrix}$$
-		
-4. __Triangular Matrix__: A matrix is triangular one of two cases.  If all entries below the diagonal are zero ($a_{ij} = 0$ for all $i > j$), it is __upper triangular__.  Conversely, if all entries above the diagonal are zero ($a_{ij} = 0$ for all $i < j$), it is __lower triangular__.
-
-Examples:
-\[ {\bf A}_{LT}= \begin{pmatrix} 1&0 & 0\\4&2&0\\-3 & 2 & 5 \end{pmatrix}, \qquad {\bf A}_{UT}=\begin{pmatrix} 1&7&-4\\ 0&3&9\\
-0&0&-3 \end{pmatrix}\]
 
 
 
 
 
-## Linear Equations
+
+
+
+## Systems of Linear Equations
+
 
 __Linear Equation__:  $a_1 x_1 + a_2 x_2 + \cdots + a_n x_n = b$
 
@@ -210,17 +231,12 @@ $a_i$ are parameters or coefficients.  $x_i$ are variables or unknowns.
 	
 
 Linear because only one variable per term and degree is at most 1.
-	\begin{enumerate} 
-		\item \parbox[t]{1.5in}{${\bf R}^2$: line} $x_2 = \frac{b}{a_2}-\frac{a_1}{a_2} x_1$
-		\item \parbox[t]{1.5in}{${\bf R}^3$: plane} $x_3= \frac{b}{a_3}-\frac{a_1}{a_3} x_1-\frac{a_2}{a_3} x_2 $
-		\item ${\bf R}^n$: hyperplane
-	\end{enumerate}
 
 
 
-## Systems of Linear Equations
+We are often interested in solving linear systems like
 
-We are often interested in solving linear systems like\\
+
 
 \[\begin{matrix}
 			x  & - & 3y & = & -3\\
@@ -241,22 +257,21 @@ More generally, we might have a system of $m$ equations in $n$ unknowns
 			\end{matrix}\]
 
 A __solution__ to a linear system of $m$ equations in $n$ unknowns is a set of $n$ numbers $x_1, x_2, \cdots, x_n$ that satisfy each of the $m$ equations.
-	\begin{enumerate} 
-		\item ${\bf R}^2$: intersection of the lines. 
-		\item ${\bf R}^3$: intersection of the planes.
-		\item ${\bf R}^n$: intersection of the hyperplanes.
-	\end{enumerate}
-
-Example:  $x=3$ and $y=2$ is the solution to the above $2\times 2$ linear system.  Notice from the graph that the two lines intersect at $(3,2)$.
 
 
-Does a linear system have one, no, or multiple solutions? For a system of 2 equations in 2 unknowns (i.e., two lines):
-		
-\begin{enumerate}
-		\item \parbox[t]{1.5in}{One solution:} The lines intersect at exactly one point.
-		\item \parbox[t]{1.5in}{No solution:}  The lines are parallel.
-		\item \parbox[t]{1.5in}{Infinite solutions:} The lines coincide.
-\end{enumerate}
+Example:  $x=3$ and $y=2$ is the solution to the above $2\times 2$ linear system.  If you graph the two lines, you will find that they intersect at $(3,2)$.
+
+
+Does a linear system have one, no, or multiple solutions? For a system of 2 equations with 2 unknowns (i.e., two lines):
+_		
+__One solution:__ The lines intersect at exactly one point.
+
+__No solution:__  The lines are parallel.
+
+__Infinite solutions:__ The lines coincide.
+
+
+
 
 Methods to solve linear systems:
 
@@ -264,7 +279,17 @@ Methods to solve linear systems:
 2.  Elimination of variables
 3.  Matrix methods
 
+```{exercise, name = "Linear Equations"}
 
+
+Provide a system of 2 equations with 2 unknowns that has
+
+1. one solution
+
+2. no solution
+
+3. infinite solution
+```
 
 
 ## Systems of Equations as Matrices
@@ -279,9 +304,7 @@ Matrices provide an easy and efficient way to represent linear systems such as
 
 as $${\bf A x = b}$$ where
 
-\begin{enumerate}
-
-\item The $m \times n$ \textbf{coefficient matrix} ${\bf A}$ is an array of $m n$  real numbers arranged in $m$ rows by $n$ columns:
+ The $m \times n$ \textbf{coefficient matrix} ${\bf A}$ is an array of $m n$  real numbers arranged in $m$ rows by $n$ columns:
 			$${\bf A}=\begin{pmatrix}
 			a_{11} & a_{12} & \cdots & a_{1n} \\
 			a_{21} & a_{22} & \cdots & a_{2n} \\
@@ -289,9 +312,10 @@ as $${\bf A x = b}$$ where
 			a_{m1} & a_{m2} & \cdots & a_{mn}
 			\end{pmatrix}$$
 
-		\item The unknown quantities are represented by the vector ${\bf x}=\begin{pmatrix} x_1\\x_2\\\vdots\\x_n \end{pmatrix}$.
-		\item The right hand side of the linear system is represented by the vector ${\bf b}=\begin{pmatrix} b_1\\b_2\\\vdots\\b_m \end{pmatrix}$.
-	\end{enumerate}
+The unknown quantities are represented by the vector ${\bf x}=\begin{pmatrix} x_1\\x_2\\\vdots\\x_n \end{pmatrix}$.
+
+The right hand side of the linear system is represented by the vector ${\bf b}=\begin{pmatrix} b_1\\b_2\\\vdots\\b_m \end{pmatrix}$.
+
 
 __Augmented Matrix__:  When we append $\bf b$ to the coefficient matrix $\bf A$, we get the augmented matrix $\widehat{\bf A}=[\bf A | b]$
 		$$\begin{pmatrix}
@@ -302,7 +326,15 @@ __Augmented Matrix__:  When we append $\bf b$ to the coefficient matrix $\bf A$,
 			\end{pmatrix}$$
 
 
+```{exercise, name="Augmented Matrix"}
 
+
+Create an augmented matrix that represent the following system of equations:
+  
+  $$2x_1 -7x_2 + 9x_3 -4x_4 = 8$$
+  $$41x_2 + 9x_3 -5x_6 = 11$$
+  $$x_1 -15x_2 -11x_5 = 9$$
+```
 
 ## Finding Solutions to Augmented Matrices and Systems of Equations
 
@@ -365,30 +397,53 @@ __Adding (subtracting) Rows__:  If we add (subtract) the first row of matrix $\w
 			\end{pmatrix}$$
 		which represents a linear system equivalent to that represented by matrix $\widehat{\bf A}$.
 
+Example:
 
-Exercises: Using Gaussian or Gauss-Jordan elimination, solve the following linear systems by putting them into row echelon or reduced row echelon form:
-
-\begin{enumerate}
-		\item  $$\begin{matrix}
+$$\begin{matrix}
 			x  & - & 3y & = & -3\\
 			2x & + &  y & = &  8
-			\end{matrix}$$\\
-			\phantom{$\begin{matrix}
+			\end{matrix}$$
+
+$$\begin{matrix}
 			x  & - & 3y & = & -3\\
 			   &   & 7y & = & 14\\			
-			\end{matrix}$}
-			\phantom{$\begin{matrix}
+			\end{matrix}$$
+
+$$\begin{matrix}
 			x  & - & 3y & = & -3\\
 			   &   & y & = & 2\\			
-			\end{matrix}$}\\
-			\phantom{$\begin{matrix}
+			\end{matrix}$$
+			
+$$\begin{matrix}
 			x & = & 3\\
 			y & = & 2\\			
-			\end{matrix}$}
-		\bigskip
-
+			\end{matrix}$$
 			
-\end{enumerate}
+```{exercise, name = "Solving Systems of Equations"}
+
+
+Put the following system of equations into augmented matrix form. Then, using Gaussian or Gauss-Jordan elimination, solve the system of equations by putting the matrix into row echelon or reduced row echelon form.
+
+
+\[
+  1. \begin{cases}
+               x + y + 2z = 2\\
+               3x - 2y + z = 1\\
+               y - z = 3
+            \end{cases}
+               \]
+
+\[
+  2. \begin{cases}
+               2x + 3y - z = -8\\
+               x + 2y - z = 12\\
+             -x -4y + z = -6
+            \end{cases}
+               \]
+
+
+```
+
 
 
 
@@ -396,100 +451,54 @@ Exercises: Using Gaussian or Gauss-Jordan elimination, solve the following linea
 
 ## Rank --- and Whether a System Has One, Infinite, or No Solutions
 
- We previously noted that a $2\times 2$ system had one,  infinite, or no solutions if the two lines intersected, were the same, or were parallel, respectively.  More generally, to determine how many solutions exist, we can use information about (1) the number of equations $m$, (2) the number of unknowns $n$, and (3) the __rank__ of the matrix representing the linear system.
+To determine how many solutions exist, we can use information about (1) the number of equations $m$, (2) the number of unknowns $n$, and (3) the __rank__ of the matrix representing the linear system.
 	
-__Rank__:  The row rank or column rank of a matrix is the number of nonzero rows or columns in its row echelon form.  The rank also corresponds to the maximum number of linearly independent row or column vectors in the matrix. For any matrix __A__, the row rank always equals column rank, and we refer to this number as the rank of __A__.
+__Rank__:  The maximum number of linearly independent row or column vectors in the matrix. This is equivalent to the number of nonzero rows of a matrix in row echelon form. For any matrix __A__, the row rank always equals column rank, and we refer to this number as the rank of __A__.
 
 Examples:
-\begin{enumerate}
-		\item \parbox[t]{2in}{$\begin{pmatrix} 1 & 2 & 3 \\
+
+$\begin{pmatrix} 1 & 2 & 3 \\
 			0 & 4 & 5 \\
-			0 & 0 & 6 \end{pmatrix}$}
-			  Rank=\phantom{3}
-		\item \parbox[t]{2in}{$\begin{pmatrix} 1 & 2 & 3 \\ 
-			0 & 4 & 5 \\
-			0 & 0 & 0 \end{pmatrix}$}
-			Rank=\phantom{2}
-
-		\item \parbox[t]{2in}{$\begin{pmatrix} 1 & 2 & 3  & | & b_1 \\
-			0 & 4 & 5 & | & b_2 \\
-			0 & 0 & 0 & | & b_3 \end{pmatrix}, \quad b_i\ne 0$}
-			Rank=\phantom{3}
-\end{enumerate}
-
-Let $\bf A$ be the coefficient matrix and $\widehat{\bf A}=[ {\bf A} | {\bf b}]$ be the augmented matrix.  Then
-	
-\begin{enumerate}
-		\item \parbox[t]{1.75in}{$\mbox{rank\,} {\bf A} \le \mbox{rank\,} \widehat{\bf A}$} \parbox[t]{4in}{Augmenting $\bf A$ with $\bf b$ can never result in more zero rows than originally in $\bf A$ itself.  Suppose row $i$ in $\bf A$ is all zeros and that $b_i$ is non-zero.  Augmenting $\bf A$ with $\bf b$ will yield a non-zero row $i$ in $\widehat{\bf A}$.}\\
-		
-		\item \parbox[t]{1.75in}{$\mbox{rank\,} {\bf A} \le \mbox{rows\,} {\bf A}$} 
-			\parbox[t]{4in}{By definition of ``rank."}\\[-6pt]
-		\item \parbox[t]{1.75in}{$\mbox{rank\,} {\bf A} \le \mbox{cols\,} {\bf A}$}
-			\parbox[t]{4in}{Suppose there are more rows than columns (otherwise the previous rule applies).  Each column can contain at most one pivot.  By
-pivoting, all other entries in a column below the pivot are zeroed. Hence, there will only be as many non-zero rows as pivots, which will equal the number of columns.}
-	\end{enumerate}
-
-__Existence of Solutions__:
-\begin{enumerate}
-		\item \parbox[t]{1.75in}{Exactly one solution:}
-			\parbox[t]{4in}{$\mbox{rank\,}{\bf A} = \mbox{rank\,} \widehat{\bf A}=\mbox{rows\,} {\bf A}  = \mbox{cols\,}{\bf A}$ \\
-			[3pt] Necessary condition for a system to have a unique solution: that there be exactly as many equations as unknowns.}\\
-	
-		\item \parbox[t]{1.75in}{Infinite solutions:} \parbox[t]{4in}{$\mbox{rank\,} {\bf A}=\mbox{rank\,} \widehat{\bf A}$ and $\mbox{cols\,} {\bf A} > \mbox{rank\,} {\bf A}$\\
-			[3pt] If a system has a solution and has more unknowns than equations, then it has infinitely many solutions.}
-
-		\item \parbox[t]{1.75in}{No solution:} \parbox[t]{4in}{$\mbox{rank\,} {\bf A} < \mbox{rank\,} \widehat{\bf A}$ \\
-		[3pt] Then there is a zero row $i$ in $\bf A$'s reduced echelon that corresponds to a non-zero row $i$ in $\widehat{\bf A}$'s reduced echelon.  Row $i$ of the $\widehat{\bf A}$ translates to the equation  $$0 x_{i1} + 0 x_{i2} + \cdots + 0 x_{in} = b'_{i}$$ where $b'_{i}\ne 0$.  Hence the system has no solution.}\\
-
-\end{enumerate}
+			0 & 0 & 6 \end{pmatrix}$
+			
+Rank = 3
+			
+$\begin{pmatrix} 1 & 2 & 3 \\ 
+0 & 4 & 5 \\
+0 & 0 & 0 \end{pmatrix}$
+			
+Rank = 2
 
 
-Find the rank and number of solutions for the systems of equations below.:
+```{exercise, name = "Rank of Matrices"}
 
-\begin{enumerate}
-		\item
-			$$\begin{matrix}
-			x  & - & 3y & = & -3\\
-			2x & + &  y & = &  8
-			\end{matrix}$$
-			\phantom{Rank = 2; One solution}\\
 
-		\bigskip
+Find the rank of each matrix below:
 
-		\item
-			$$\begin{matrix}
-			x & + & 2y & + & 3z & = & 6\\
-			2x& - & 3y & + & 2z & = &14\\
-			3x& + & y  & - & z  & = &-2
-			\end{matrix}$$
-			\phantom{Rank = 3; One solution}\\
+(Hint: transform the matrices into row echelon form. Remember that the number of nonzero rows of a matrix in row echelon form is the rank of that matrix)
 
-		\bigskip
+1.$\begin{pmatrix} 1 & 1 & 2 \\ 
+2 & 1 & 3 \\
+1 & 2 & 3 \end{pmatrix}$
 
-		\item
-			$$\begin{matrix}
-			x & + & 2y & - & 3z & = & -4\\
-			2x& + & y  & - & 3z & = & 4\\
-			3x & + & 6y & - & 9z & = & -12 
-			\end{matrix}$$
-			\phantom{Rank = 2; Infinite solutions}\\
 
-		\bigskip
+\bigskip
 
-		\item
-			$$\begin{matrix}
-			x &+& 2y &+& 3z &+& 4w &=& 5\\
-			x &+& 3y &+& 5z &+& 7w &=& 11\\
-			x & &    &-& z  &-& 2w &=&-6
-			\end{matrix}$$
-			\phantom{Rank = 3; Infinite solutions}\\
+2.$\begin{pmatrix} 1 & 3 & 3 & -3 & 3\\ 
+1 & 3 & 1 & 1 & 3 \\
+1 & 3 & 2 & -1 & -2 \\
+1 & 3 & 0 & 3 & -2 \end{pmatrix}$
+```
 
-\end{enumerate}
 
 
 
 ## The Inverse of a Matrix
-
+__Identity Matrix__:  The $n\times n$ identity matrix ${\bf I}_n$ is the matrix whose diagonal elements are 1 and all off-diagonal elements are 0. Examples:
+			$$ {\bf I}_2=\begin{pmatrix} 1&0\\0&1 \end{pmatrix}, \qquad {\bf I}_3=\begin{pmatrix} 1&0&0\\ 0&1&0\\ 
+			0&0&1 \end{pmatrix}$$	
+			
+			
 __Inverse Matrix__:  An $n\times n$ matrix ${\bf A}$ is __nonsingular__ or __invertible__ if there exists an $n\times n$ matrix ${\bf A}^{-1}$ such that $${\bf A} {\bf A}^{-1} = {\bf A}^{-1} {\bf A} = {\bf I}_n$$ where ${\bf A}^{-1}$ is the inverse of ${\bf A}$.  If there is no such ${\bf A}^{-1}$, then ${\bf A}$ is singular or noninvertible.
 
 Example:  Let
@@ -499,79 +508,96 @@ Example:  Let
 
 __Properties of the Inverse__:
 
-\begin{enumerate}
-\item If the inverse exists, it is unique.
-\item \parbox[t]{4in}{${\bf A}$ nonsingular $\quad \Longrightarrow \quad $ ${\bf A}^{-1}$ nonsingular} $({\bf A}^{-1})^{-1} = {\bf A}$
-%\item \parbox[t]{4in}{${\bf A}$ and ${\bf B}$ nonsingular $\quad\lra\quad$ ${\bf A}{\bf B}$ nonsingular} $({\bf A}{\bf B})^{-1} = {\bf B}^{-1}{\bf A}^{-1}$
-\item ${\bf A}$ nonsingular $\quad \Longrightarrow\quad$ $({\bf A}^T)^{-1}=({\bf A}^{-1})^T$
-	\end{enumerate}
+If the inverse exists, it is unique.
+
+If ${\bf A}$ is nonsingular, then ${\bf A}^{-1}$ is nonsingular.
+
+$({\bf A}^{-1})^{-1} = {\bf A}$
+
+If ${\bf A}$ and ${\bf B}$ are nonsingular, then ${\bf A}{\bf B}$ is nonsingular
+
+$({\bf A}{\bf B})^{-1} = {\bf B}^{-1}{\bf A}^{-1}$
+
+If ${\bf A}$ is nonsingular, then $({\bf A}^T)^{-1}=({\bf A}^{-1})^T$
+
  
-\textbf{Procedure to Find ${\bf A}^{-1}$}:  We know that if ${\bf B}$ is the inverse of ${\bf A}$, then $${\bf A} {\bf B} = {\bf B} {\bf A} = {\bf I}_n$$  Looking only at the first and last parts of this $${\bf A} {\bf B} = {\bf I}_n$$  Solving for ${\bf B}$ is equivalent to solving for $n$ linear systems, where each column of ${\bf B}$ is solved for the corresponding column in ${\bf I}_n$.  We can solve the systems simultaneously by augmenting ${\bf A}$ with ${\bf I}_n$ and performing Gauss-Jordan elimination on ${\bf A}$.  If Gauss-Jordan elimination on $[{\bf A} | {\bf I}_n]$ results in $[{\bf I}_n | {\bf B} ]$, then ${\bf B}$ is the inverse of ${\bf A}$.  Otherwise, ${\bf A}$ is singular.\\
-		[12pt] To summarize:  To calculate the inverse of ${\bf A}$ 
+__Procedure to Find__ ${\bf A}^{-1}$:  We know that if ${\bf B}$ is the inverse of ${\bf A}$, then $${\bf A} {\bf B} = {\bf B} {\bf A} = {\bf I}_n$$  Looking only at the first and last parts of this $${\bf A} {\bf B} = {\bf I}_n$$  Solving for ${\bf B}$ is equivalent to solving for $n$ linear systems, where each column of ${\bf B}$ is solved for the corresponding column in ${\bf I}_n$.  We can solve the systems simultaneously by augmenting ${\bf A}$ with ${\bf I}_n$ and performing Gauss-Jordan elimination on ${\bf A}$.  If Gauss-Jordan elimination on $[{\bf A} | {\bf I}_n]$ results in $[{\bf I}_n | {\bf B} ]$, then ${\bf B}$ is the inverse of ${\bf A}$.  Otherwise, ${\bf A}$ is singular.
+
+To summarize:  To calculate the inverse of ${\bf A}$ 
 		
-\begin{enumerate} 
-\item Form the augmented matrix $[ {\bf A} | {\bf I}_n]$
-\item Using elementary row operations, transform the augmented matrix to reduced row echelon form.
-\item The result of step 2 is an augmented matrix $[ {\bf C} | {\bf B} ]$.
-			\begin{enumerate}
-				\item  If ${\bf C}={\bf I}_n$, then ${\bf B}={\bf A}^{-1}$.
-				\item  If ${\bf C}\ne{\bf I}_n$, then $\bf C$ has a row of zeros.
-				${\bf A}$ is singular and ${\bf A}^{-1}$ does not exist.
-			\end{enumerate}
-\end{enumerate}
-		
+1. Form the augmented matrix $[ {\bf A} | {\bf I}_n]$
 
-Exercise:
+2. Using elementary row operations, transform the augmented matrix to reduced row echelon form.
 
-Find the inverse of ${\bf A}=\begin{pmatrix} 1&1&1\\0&2&3\\5&5&1 \end{pmatrix}$
+3. The result of step 2 is an augmented matrix $[ {\bf C} | {\bf B} ]$.
+			
+	a. If ${\bf C}={\bf I}_n$, then ${\bf B}={\bf A}^{-1}$.
+			
+	b. If ${\bf C}\ne{\bf I}_n$, then $\bf C$ has a row of zeros. This means ${\bf A}$ is singular and ${\bf A}^{-1}$ does not exist.
 
-\phantom{$\left(\begin{array}{ccc|ccc}
+
+Example:
+
+
+Find the inverse of the following matricies:
+  
+1. ${\bf A}=\begin{pmatrix} 1&1&1\\0&2&3\\5&5&1 \end{pmatrix}$
+
+
+$\left(\begin{array}{ccc|ccc}
 	1&1&1&1&0&0\\
 	0&2&3&0&1&0\\
 	5&5&1&0&0&1
-\end{array} \right)$\\}
-
-\phantom{$\left(\begin{array}{ccc|ccc}
-	1&1&1&1&0&0\\
-	0&2&3&0&1&0\\
-	5&5&1&0&0&1
-\end{array} \right)$\\}
+\end{array} \right)$
 		
-\phantom{$\left(\begin{array}{ccc|ccc}
+$\left(\begin{array}{ccc|ccc}
 	1&1&1 &1 &0&0\\
 	0&2&3 &0 &1&0\\
 	0&0&-4&-5&0&1
-\end{array} \right)$\\}
+\end{array} \right)$
 
-\phantom{$\left(\begin{array}{ccc|ccc}
+$\left(\begin{array}{ccc|ccc}
 	1&1&1&1  &0&0\\
 	0&2&3&0  &1&0\\
 	0&0&1&5/4&0&-1/4
-\end{array} \right)$\\}
+\end{array} \right)$
 
-\phantom{$\left(\begin{array}{ccc|ccc}
+$\left(\begin{array}{ccc|ccc}
 	1&1&0&-1/4 &0&1/4\\
 	0&2&0&-15/4&1&3/4\\
 	0&0&1&5/4  &0&-1/4
-\end{array} \right)$\\}
+\end{array} \right)$
 
-\phantom{$\left(\begin{array}{ccc|ccc}
+$\left(\begin{array}{ccc|ccc}
 	1&1&0&-1/4 &0  &1/4\\
 	0&1&0&-15/8&1/2&3/8\\
 	0&0&1&5/4  &0 &-1/4
-\end{array} \right)$\\}	
+\end{array} \right)$
 	
-\phantom{$\left(\begin{array}{ccc|ccc}
+$\left(\begin{array}{ccc|ccc}
 	1&0&0&13/8 &-1/2&-1/8\\
 	0&1&0&-15/8&1/2 &3/8\\
 	0&0&1&5/4  &0   &-1/4
-\end{array} \right)$\\}
+\end{array} \right)$
 
-\phantom{${\bf A}^{-1} = \left(\begin{array}{ccc}
+${\bf A}^{-1} = \left(\begin{array}{ccc}
 	13/8 &-1/2&-1/8\\
 	-15/8&1/2 &3/8\\
 	5/4  &0   &-1/4
-\end{array} \right)$\\}
+\end{array} \right)$
+
+
+
+
+```{exercise, name = "Finding the inverse of matrices"}
+
+
+Find the inverse of the following matrix:
+  
+1. ${\bf A}=\begin{pmatrix} 1&0&4\\0&2&0\\0&0&1 \end{pmatrix}$
+
+
+```
 
 
 ## Linear Systems and Inverses
@@ -591,14 +617,29 @@ If $\bf{A}$ is an $n\times n$ matrix,then $\bf{Ax}=\bf{b}$ is a system of $n$ eq
 
 Hence, given $\bf{A}$ and $\bf{b}$ and given that $\bf{A}$ is nonsingular, then $\bf{x} = \bf{A}^{-1} \bf{b}$ is a unique solution to this system.
 
-Notice also that the requirements for $\bf{A}$ to be nonsingular correspond to the requirements for a linear system to have a unique solution:
-\[\text{rank}\bf{A} = \text{rows}\bf{A} = \text{cols}\bf{A}\]
+
+```{exercise, name = "Solve linear system using inverses"}
 
 
+Use the inverse matrix to solve the following linear system:
+
+  
+\begin{eqnarray*} 
+-3x + 4y = 5 \\
+2x - y = -10
+\end{eqnarray*}
+
+
+___Hint: the linear system above can be written in the matrix form___ 
+
+Ax = b given A = \begin{pmatrix} -3&4\\2&-1 \end{pmatrix}, x = \begin{pmatrix} x\\y \end{pmatrix}, and b = \begin{pmatrix} 5\\-10 \end{pmatrix}
+
+
+```
 
 ## Determinants
 
-__Singularity__:  Determinants can be used to \emph{determine} whether a square matrix is nonsingular.
+__Singularity__:  Determinants can be used to determine whether a square matrix is nonsingular.
 	
  A square matrix is nonsingular iff its determinant is not zero.
 	
@@ -646,23 +687,28 @@ Example:  Does the following matrix have an inverse?
 
 
 
-\begin{enumerate}
-		\item $|{\bf A}|=|{\bf A}^T|$\\
-		\item \parbox[t]{2.7in}{If ${\bf B}$ results from ${\bf A}$ by interchanging two rows, then $|{\bf B}|=-|{\bf A}|$.}\
-		\item \parbox[t]{2.7in}{If two rows of ${\bf A}$ are equal, then $|{\bf A}|=0$.}\qquad \parbox[t]{2.7in}{(Notice that in this case $\mbox{rank\,}{\bf A} \ne \mbox{rows\,}{\bf A}$, which was one of the conditions for the existence of a unique solution.)} \\
-		\item \parbox[t]{2.7in}{If a row of ${\bf A}$ consists of all zeros, then $|{\bf A}|=0$.}\qquad \parbox[t]{2.7in}{(Same as 3.)}\\
-		\item \parbox[t]{2.7in}{If ${\bf B}$ is obtained by multiplying a row of ${\bf A}$ by a scalar $s$, then $|{\bf B}|=s|{\bf A}|$.}\\
-		\item \parbox[t]{2.7in}{If ${\bf B}$ is obtained from ${\bf A}$ by adding to the $i$th row of ${\bf A}$ the $j$th row ($i\ne j$) multiplied by a scalar $s$, then $|{\bf B}|=|{\bf A}|$.}\qquad \parbox[t]{2.7in}{(i.e., If the row isn't simply multiplied by a scalar and left,
-then the determinant remains the same.)}\\
-		\item \parbox[t]{2.7in}{If no row interchanges and no scalar multiplications of a single row are used to compute the row echelon form $\bf R$ from the $n\times n$ coefficient matrix ${\bf A}$, then $\bf |A|=|R|$.}\qquad \parbox[t]{2.7in}{(Implied by the previous properties.)}\\
-		\item \parbox[t]{2.7in}{{A square matrix is nonsingular iff its determinant $\ne 0$.}} \qquad \parbox[t]{2.7in}{(Implied by the previous properties.)}\\
-		\item $|{\bf A} {\bf B}|=|{\bf A}| |{\bf B}|$\\
-		\item \parbox[t]{2.7in}{If ${\bf A}$ is nonsingular, then $|{\bf A}|\ne 0$ and $|{\bf A}^{-1}|=\frac{1}{|{\bf A}|}$.}
-\end{enumerate}
+```{exercise, name = "Determinants and Inverses"}
 
 
+Determine whether the following matrices are nonsingular:
+  
+  
+  $$1. \begin{pmatrix}
+			1 & 0 & 1\\
+			2 & 1 & 2\\
+			1 & 0 & -1
+		\end{pmatrix}$$
+			  
+$$2. \begin{pmatrix}
+			2 & 1 & 2\\
+			1 & 0 & 1\\
+			4 & 1 & 4
+		\end{pmatrix}$$
 
-## Getting Inverse of a Matrix using its Determinant and Matrix of Cofactors
+```
+
+
+## Getting Inverse of a Matrix using its Determinant
 
 Thus far, we have a number of algorithms to
 
@@ -672,17 +718,53 @@ Thus far, we have a number of algorithms to
 but these remain just that --- algorithms.  At this point, we have no way of telling how the solutions $x_j$ change as the parameters $a_{ij}$ and $b_i$ change, except by changing the values and "rerunning" the algorithms.
 
 
-With determinants, we can 
-1. Provide an explicit formula for the inverse, and
-2. Provide an explicit formula for the solution of an $n\times n$ linear system.
+With determinants, we can provide an explicit formula for the inverse and
+therefore provide an explicit formula for the solution of an $n\times n$ linear system.
 
 Hence, we can examine how changes in the parameters and $b_i$ affect the solutions $x_j$.
 
-__Determinant Formula for the Inverse of a $2 \times 2$__: The determinant of a $2 \times 2$ matrix __A__ $\begin{pmatrix} a & b\\ c & d\\ \end{pmatrix}$ is defined as:
+__Determinant Formula for the Inverse of a $2 \times 2$__: 
+
+The determinant of a $2 \times 2$ matrix __A__ $\begin{pmatrix} a & b\\ c & d\\ \end{pmatrix}$ is defined as:
 \[\frac{1}{\det({\bf A})} \begin{pmatrix}
 			d & -b\\
 			-c & a\\
 		\end{pmatrix}\]
+		
+		
+Example:
+
+Let's calculate the inverse of matrix A from Exercise 2.9 using the determinant formula. 
+
+Recall, A = \begin{pmatrix}
+			-3 & 4\\
+			2 & -1\\
+		\end{pmatrix}
+		
+$\det({\bf A})$ = (-3)(-1) - (4)(2) = 3 - 8  = -5
+
+\[\frac{1}{\det({\bf A})} \begin{pmatrix}
+			-1 & -4\\
+			-2 & -3\\
+		\end{pmatrix}\]
+		
+\[\frac{1}{-5} \begin{pmatrix}
+			-1 & -4\\
+			-2 & -3\\
+		\end{pmatrix}\]
+		
+\[ \begin{pmatrix}
+			\frac{1}{5} & \frac{4}{5}\\
+			\frac{2}{5} & \frac{3}{5}\\
+		\end{pmatrix}\]
+		
+```{exercise, name = "Calculate Inverse using Determinant Formula"}
 
 
+Caculate the inverse of A
 
+$$A = \begin{pmatrix}
+			3 & 5\\
+			-7 & 2\\
+		\end{pmatrix}$$
+```
