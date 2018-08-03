@@ -259,30 +259,6 @@ Assume that 2% of the population of the U.S. are members of some extremist milit
 
 ```
 
-## Random Variables
-
-Most questions in the social sciences involve events, rather than numbers per se. To analyze and reason about events quantitatively, we need a way of mapping events to numbers. A random variable does exactly that.
-
-A ___random variable___ is a measurable function $X$ that maps from the sample space $S$ to the set of real numbers $R.$ It assigns a real number to every outcome $s \in S$. 
-
-It might seem strange to define a random variable as a function -- which is neither random nor variable. The randomness comes from the realization of an event from the sample space $s$.
-
-
-___Randomness___ means that the outcome of some experiment is not deterministic, i.e. there is some probability ($0 < P(A) < 1$) that the event will occur.
-
-The support of a random variable is all values for which there is a positive probability of occurrence.
-
-\begin{framed}
-
-Example: Flip a fair coin two times.   What is the sample space? 
-
-A random variable must map events to the real line. For example, let a random variable $X$ be the number of heads. The event $(H, H)$ gets mapped to 2 $X(s) = 2$, and the events $\{(H, T), (T, H)\}$ gets mapped to 1 $(X(s) = 1)$, the event $(T, T)$ gets mapped to 0 $(X(s) = 0)$. 
-
-
-What are other possible random variables?
-
-
-
 
 ## Independence
 
@@ -307,6 +283,32 @@ No. If A and B are mutually exclusive, then they cannot happen simultaneously. I
 1.  $\Pr(A|B \cap C)=\Pr(A|C)$
 2. $\Pr(B|A \cap C)=\Pr(B|C)$
 3.  $\Pr(A\cap B|C)=\Pr(A|C)\Pr(B|C)$
+
+
+
+## Random Variables
+
+Most questions in the social sciences involve events, rather than numbers per se. To analyze and reason about events quantitatively, we need a way of mapping events to numbers. A random variable does exactly that.
+
+A ___random variable___ is a measurable function $X$ that maps from the sample space $S$ to the set of real numbers $R.$ It assigns a real number to every outcome $s \in S$. 
+
+It might seem strange to define a random variable as a function -- which is neither random nor variable. The randomness comes from the realization of an event from the sample space $s$.
+
+
+___Randomness___ means that the outcome of some experiment is not deterministic, i.e. there is some probability ($0 < P(A) < 1$) that the event will occur.
+
+The support of a random variable is all values for which there is a positive probability of occurrence.
+
+\begin{framed}
+
+Example: Flip a fair coin two times.   What is the sample space? 
+
+A random variable must map events to the real line. For example, let a random variable $X$ be the number of heads. The event $(H, H)$ gets mapped to 2 $X(s) = 2$, and the events $\{(H, T), (T, H)\}$ gets mapped to 1 $(X(s) = 1)$, the event $(T, T)$ gets mapped to 0 $(X(s) = 0)$. 
+
+
+What are other possible random variables?
+
+
 
 
 
@@ -383,6 +385,55 @@ $\Pr(.5<y<.75)=$ }
 \begin{comment}
 \parbox{1.5in}{\hfill \epsffile{contcdf.eps}}
 \end{comment}
+\end{framed}
+
+
+## Joint Distributions
+
+Often, we are interested in two or more random variables defined on the same sample space.  The distribution of these variables is called a joint distribution.  Joint distributions can be made up of any combination of discrete and continuous random variables.
+
+__Joint Probability Distribution__: If both $X$ and $Y$ are random variable, their joint probability mass/density function assigns probabilities to each pair of outcomes
+
+Discrete: 
+
+\[p(x, y) = \Pr(X = x, Y = y)\]
+
+such that  $p(x,y) \in [0,1]$ and \[\sum\sum p(x,y) = 1\]
+
+
+Continuous: 
+
+\[f(x,y);\Pr((X,Y) \in A) = \int\!\!\!\int_A f(x,y)dx dy \]
+
+s.t. $f(x,y)\ge 0$ and 
+
+\[\int_{-\infty}^\infty\int_{-\infty}^\infty f(x,y)dxdy = 1\]
+
+If X and Y are independent, then $P(X=x,Y=y) = P(X=x)P(Y=y)$ and $f(x,y) = f(x)f(y)$
+
+
+__Marginal Probability Distribution__: probability distribution of only one of the two variables (ignoring information about the other variable), we can obtain the marginal distribution by summing/integrating across the variable that we don't care about:
+
+* Discrete: $p_X(x) = \sum_i p(x, y_i)$
+* Continuous: $f_X(x) = \int_{-\infty}^\infty f(x,y)dy$
+
+__Conditional Probability Distribution__: probability distribution for one variable, holding the other variable fixed.  Recalling from the previous lecture that $\Pr(A|B)=\frac{\Pr(A\cap B)}{\Pr(B)}$, we can write the conditional distribution as
+
+* Discrete: $p_{Y|X}(y|x) = \frac{p(x,y)}{p_X(x)}, \quad p_X(x) > 0$
+* Continuous: $f_{Y|X}(y|x) = \frac{f(x,y)}{f_X(x)},\quad f_X(x) > 0$
+
+\begin{framed}
+
+Example:  Suppose we are interested in the outcomes of flipping a coin and rolling a 6-sided die at the same time.  The sample space for this process contains 12 elements: $$\{(H, 1), (H, 2), (H, 3), (H, 4), (H. 5), (H, 6), (T, 1), (T, 2), (T, 3), (T, 4), (T, 5), (T, 6)\}$$  We can define two random variables $X$ and $Y$ such that $X = 1$ if heads and $X = 0$ if tails, while $Y$ equals the number on the die.  We can then make statements about the joint distribution of $X$ and $Y$.
+
+\begin{enumerate}
+\item $P(X=x) =$
+\item $P(Y=y) =$
+\item $P(X=x, Y=y) = $
+\item $P(X=x|Y=y) = $
+\item Are X and Y independent? 
+\end{enumerate}
+
 \end{framed}
 
 
@@ -517,7 +568,9 @@ Define the random variable Y = X^2.
 Two _discrete_ distributions used often are:  
 
 
-__Binomial Distribution__: $Y$ is distributed binomial if it represents the number of ``successes" observed in $n$ independent, identical ``trials," where the probability of success in any trial is $p$ and the probability of failure is $q=1-p$.\\[6pt]
+__Binomial Distribution__: $Y$ is distributed binomial if it represents the number of "successes" observed in $n$ independent, identical "trials," where the probability of success in any trial is $p$ and the probability of failure is $q=1-p$.
+
+
 For any particular sequence of $y$ successes and $n-y$ failures, the probability of obtaining that sequence is $p^y q^{n-y}$ (by the multiplicative law and independence).  However, there are $\binom{n}{y}=\frac{n!}{(n-y)!y!}$ ways of obtaining a sequence with $y$ successes and $n-y$ failures.  So the binomial distribution is given by $$p(y)=\binom{n}{y}p^y q^{n-y}, \quad y=0,1,2,\ldots,n$$ with mean $\mu=E(Y)=np$ and variance $\sigma^2=V(Y)=npq$.
 
 \begin{framed}
@@ -568,7 +621,7 @@ Example: $Y$ uniformly distributed over $(1,3)$.\\
 \end{comment}
 \end{framed}
 
-\textbf{Normal Distribution}:  A random variable $Y$ is normally distributed with mean $E(Y)=\mu$ and variance $V(Y)=\sigma^2$ if its density is 
+__Normal Distribution__:  A random variable $Y$ is normally distributed with mean $E(Y)=\mu$ and variance $V(Y)=\sigma^2$ if its density is 
 
 \[f(y)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(y-\mu)^2}{2\sigma^2}}\]
 
@@ -576,55 +629,6 @@ Example: $Y$ uniformly distributed over $(1,3)$.\\
 \parbox[c]{4.25in}{Example: $Y$ normally distributed with mean $\mu=0$ and variance $\sigma^2=.1$}
 \parbox{1.5in}{\hfill \epsffile{normpdf.eps}}
 \end{comment}
-
-
-## Joint Distributions
-
-Often, we are interested in two or more random variables defined on the same sample space.  The distribution of these variables is called a joint distribution.  Joint distributions can be made up of any combination of discrete and continuous random variables.
-
-__Joint Probability Distribution__: If both $X$ and $Y$ are random variable, their joint probability mass/density function assigns probabilities to each pair of outcomes
-
-Discrete: 
-
-\[p(x, y) = \Pr(X = x, Y = y)\]
-
-such that  $p(x,y) \in [0,1]$ and \[\sum\sum p(x,y) = 1\]
-
-
-Continuous: 
-
-\[f(x,y);\Pr((X,Y) \in A) = \int\!\!\!\int_A f(x,y)dx dy \]
-
-s.t. $f(x,y)\ge 0$ and 
-
-\[\int_{-\infty}^\infty\int_{-\infty}^\infty f(x,y)dxdy = 1\]
-
-If X and Y are independent, then $P(X=x,Y=y) = P(X=x)P(Y=y)$ and $f(x,y) = f(x)f(y)$
-
-
-__Marginal Probability Distribution__: probability distribution of only one of the two variables (ignoring information about the other variable), we can obtain the marginal distribution by summing/integrating across the variable that we don't care about:
-
-* Discrete: $p_X(x) = \sum_i p(x, y_i)$
-* Continuous: $f_X(x) = \int_{-\infty}^\infty f(x,y)dy$
-
-__Conditional Probability Distribution__: probability distribution for one variable, holding the other variable fixed.  Recalling from the previous lecture that $\Pr(A|B)=\frac{\Pr(A\cap B)}{\Pr(B)}$, we can write the conditional distribution as
-
-* Discrete: $p_{Y|X}(y|x) = \frac{p(x,y)}{p_X(x)}, \quad p_X(x) > 0$
-* Continuous: $f_{Y|X}(y|x) = \frac{f(x,y)}{f_X(x)},\quad f_X(x) > 0$
-
-\begin{framed}
-
-Example:  Suppose we are interested in the outcomes of flipping a coin and rolling a 6-sided die at the same time.  The sample space for this process contains 12 elements: $$\{(H, 1), (H, 2), (H, 3), (H, 4), (H. 5), (H, 6), (T, 1), (T, 2), (T, 3), (T, 4), (T, 5), (T, 6)\}$$  We can define two random variables $X$ and $Y$ such that $X = 1$ if heads and $X = 0$ if tails, while $Y$ equals the number on the die.  We can then make statements about the joint distribution of $X$ and $Y$.
-
-\begin{enumerate}
-\item $P(X=x) =$
-\item $P(Y=y) =$
-\item $P(X=x, Y=y) = $
-\item $P(X=x|Y=y) = $
-\item Are X and Y independent? 
-\end{enumerate}
-
-\end{framed}
 
 
 
@@ -635,18 +639,11 @@ Example:  Suppose we are interested in the outcomes of flipping a coin and rolli
 
 So far, we've talked about distributions in a theoretical sense, looking at different properties of random variables.  We don't observe random variables; we observe realizations of the random variable. These realizations of events are roughly equivalent to what we mean by "data".
 
-__Central tendency__: The central tendency describes the location of the "middle" of the observed data along some scale.  There are several measures of central tendency.
-
 
 __Sample mean__:  This is the most common measure of central tendency, calculated by summing across the observations and dividing by the number of observations.
 \[\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i\]
 The sample mean is an \textit{estimate} of the expected value of a distribution.
 
-__Sample median__: The median is the value of the ``middle'' observation.  It is obtained by ordering $n$ data points from smallest to largest and taking the value of the $n+1/2$th observation (if $n$ is odd) or the mean of the $n/2$th and $(n+1)/2$th observations (if $n$ is even).
-
-__Sample mode__: The mode is the most frequently observed value in the data:
-\[m_x = X_i : n(X_i) > n(X_j) \forall j\neq i\]
-When the data are realizations of a continuous random variable, it often makes sense to group the data into bins, either by rounding or some other process, in order to get a reasonable estimate of the mode.
 
 \begin{framed}
 Example:  
@@ -678,16 +675,12 @@ Again, this is an \textit{estimate} of the variance of a random variable; we div
 __Standard deviation__:  The sample standard deviation is the square root of the sample variance.
 $$ \SD(X) = \sqrt{\Var(X)} = \sqrt{\frac{1}{n-1}\sum_{i = 1}^n (x_i - \bar{x})^2}$$
 
-__Median absolute deviation (MAD)__:  The MAD is a different measure of dispersion, based on deviations from the median rather than deviations from the mean.
-\[\mathrm{MAD}(X) = \mathrm{median}\left(|x_i - \mathrm{median}(x)|\right)\]
-
 
 \begin{framed}
 Example: Using table above, calculate: 
 \begin{enumerate}
-\item $\Var(X) = $ \hspace{1.5cm} $\Var(Y) = $
-\item $\SD(X) = $ \hspace{1.65cm} $\SD(Y) = $
-\item $MAD(X) = $ \hspace{1.1cm} $MAD(Y) = $
+\item $\Var(X) = $ \hspace{1.5cm} $\Var(Y) =$
+\item $\SD(X) = $ \hspace{1.65cm} $\SD(Y) =$
 \end{enumerate}
 \end{framed}
 
