@@ -167,5 +167,5 @@ If you are stuck, please try sketching out a picture of each of the functions.
 4. If we roll two fair dice, what is the probability that their sum would be 12?
 
 
-For a review, please see Sections \@ref(setoper) - \@ref(probdef)
+For a review, please see Sections \@ref(setoper) - \@ref(probdef).
 
