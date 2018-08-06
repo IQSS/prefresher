@@ -16,6 +16,11 @@ this lecture are taken from Simon \& Blume (1994) \emph{Mathematics for
 Economists} and Ecker \& Kupferschmid (1988) \emph{Introduction to
 Operations Research}
 
+```{r, include = FALSE}
+library(ggplot2)
+library(patchwork)
+```
+
 
 ## The Meltzer and Richards Model
 
@@ -31,16 +36,41 @@ The first derivative, $f'(x)$, identifies whether the function $f(x)$ at the poi
 1. __Neither increasing nor decreasing__: $f'(x)=0$
 			 i.e. a maximum, minimum, or saddle point
 
-So  $f(x)=x^2+2$, $f^\prime(x)=2x$
 
-`r include_graphics("images/deriv1-eps-converted-to.pdf")`
+So for example, $f(x) = x^2 + 2$ and $f^\prime(x) = 2x$ 
+```{r, echo = FALSE}
+range <- tibble::tibble(x = c(-3, 3))
+fx0 <- ggplot(range, aes(x = x)) +
+  labs(x = expression(x), y = expression(f(x))) +
+  theme_bw()
 
+fx <- fx0 +  
+  stat_function(fun = function(x) x^2 + 2, size = 0.5) +
+  expand_limits(y = 0)
 
-And $f(x)=x^3+2$, $f^prime(x)=3x^2$
+fprimex <- fx0 + stat_function(fun = function(x) 2*x, size = 0.5, linetype = "dashed") +
+  labs(x = expression(x), y = expression(f~plain("'")~(x)))
 
-`r include_graphics("images/deriv2-eps-converted-to.pdf")`
+fx + fprimex + plot_annotation(expression(f(x)==x^2+2))
+```
 
+And for $f(x)=x^3+ x^2 + 2$
 
+```{r, echo = FALSE}
+range <- tibble::tibble(x = c(-3, 3))
+fx0 <- ggplot(range, aes(x = x)) +
+  labs(x = expression(x), y = expression(f(x))) +
+  theme_bw()
+
+fx <- fx0 +  
+  stat_function(fun = function(x) x^3 + x^2 + 2, size = 0.5) +
+  expand_limits(y = 0)
+
+fprimex <- fx0 + stat_function(fun = function(x) 3*x^2, size = 0.5, linetype = "dashed") +
+  labs(x = expression(x), y = expression(f~plain("'")~(x)))
+
+fx + fprimex + plot_annotation(expression(f(x)==x^3+2))
+```
 
 
 The second derivative $f''(x)$ identifies whether the function $f(x)$ at the point $x$ is
