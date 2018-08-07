@@ -34,47 +34,43 @@ j $=$ \hspace{1.5cm} $n_{color} =$ \hspace{1.5cm} $n_{number} =$ \hspace{1.5cm} 
 
 We often need to count the number of ways to choose a subset from some set of possibilities.  The number of outcomes depends on two characteristics of the process: does the order matter and is replacement allowed?
 
-__Sampling Table__: If there are $n$ objects and we select $k < n$ of them, how many different outcomes are possible?
+__Sampling Table__: If there are $n$ objects which are numbered 1 to $n$ and we select $k < n$ of them, how many different outcomes are possible?
 
-                        Order Matters                                   Order Doesn't Matter
---------------------   --------------------------------------------   -------------------------
-With Replacement        $n^k$                                           $\binom{n+k-1}{k}$
-Without Replacement     $n(n-1)(n-2)...(n-k+1)=\frac{n!}{(n-k)!}$         $\binom{n}{k}$
+If the order in which a given object is selected matters, selecting 4 numbered objects in the following order (1, 3, 7, 2) and selecting the same four objects but in a different order such as (7, 2, 1, 3) will be counted as different outcomes. 
 
+If replacement is allowed, there are always the same $n$ objects to select from. However, if replacement is not allowed, there is always one less option than the previous round when making a selection. For example, if replacement is not allowed and I am selecting 3 elements from the following set {1, 2, 3, 4, 5, 6}, I will have 6 options at first, 5 options as I make my second selection, and 4 options as I make my third. 
 
-\begin{table}[h!]
+So in counting how many different outcomes are possible, if ___order matters___ AND we are sampling ___with replacement___, the number of different outcomes is $n^k$.
 
-& \textbf{Order Matters} & \textbf{Order Doesn't Matter}\\
-
-\textbf{With Replacement} & $n^k$ & $\binom{n+k-1}{k}$\\
-
-\textbf{Without Replacement} & $n(n-1)(n-2)...(n-k+1)=\frac{n!}{(n-k)!}$ & $\binom{n}{k}$\\
-
-\end{table}
+If  ___order matters___ AND we are sampling ___without replacement___, the number of different outcomes is $n(n-1)(n-2)...(n-k+1)=\frac{n!}{(n-k)!}$.
 
 
-\begin{table}[h!]
-\caption*{\textbf{Sampling Table}}
-\begin{tabular}{|r|c|c|}
-\hline
-& \textbf{Order Matters} & \textbf{Order Doesn't Matter}\\
-\hline
-\textbf{With Replacement} & $n^k$ & $\binom{n+k-1}{k}$\\
-\hline
-\textbf{Without Replacement} & $ \frac{n!}{(n-k)!}$ & $\binom{n}{k}$\\
-\hline
-\end{tabular}
-\end{table}
-
-Where $\binom{x}{y} = \frac{x!}{(x-y)!y!}$ and $0! = 1$
+If  ___order doesn't matter___ AND we are sampling ___without replacement___, the number of different outcomes is $\binom{n}{k} = \frac{n!}{(n-k)!k!}$.
 
 
-Example: There are five balls numbered from 1 through 5 in a jar. Three balls are chosen. How many possible choices are there?
+Expression $\binom{n}{k}$ is read as "n choose k" and denotes $\frac{n!}{(n-k)!k!}$. Also, note that $0! = 1$.
 
-1. Ordered, with replacement $=$
-2. Ordered, without replacement $=$
-3. Unordered, with replacement $=$
-4. Unordered, without replacement $=$
+```{example}
+
+There are five balls numbered from 1 through 5 in a jar. Three balls are chosen. How many possible choices are there?
+
+1. Ordered, with replacement $=$ $5 \times 5 \times 5 = 125$
+
+2. Ordered, without replacement $=$ $5 \times 4 \times 3 = 60$
+
+3. Unordered, without replacement $=$ $\binom{5}{3} = \frac{5!}{(5-3)!3!} = \frac{5 \times 4}{2 \times 1} = 10$
+
+
+```
+
+```{exercise, name = "Counting"}
+
+Four cards are selected from a deck of 52 cards. Once a card has been drawn, it is not reshuffled back into the deck. Moreover, we care only about the complete hand that we get (i.e. we care about the set of selected cards, not the sequence in which it was drawn). How many possible outcomes are there?
+
+```
+
+
+
 
 
 
@@ -88,7 +84,7 @@ __Sample Space (S)__:  A set or collection of all possible outcomes from some pr
 
 Examples:
 
-1. Discrete:  the numbers on a die, the number of possible wars that could occur each year, whether a vote cast is republican or democrat.
+1. Discrete:  the numbers on a die, whether a vote cast is republican or democrat.
 2. Continuous: GNP, arms spending, age.
 
 __Event__: Any collection of possible outcomes of an experiment. Any subset of the full set of possibilities, including the full set itself. Event A $\subset$ S.
@@ -107,16 +103,38 @@ Properties of set operations:
 
 * __Commutative__: $A \cup B = B \cup A$; $A \cap B = B \cap A$
 * __Associative__: $A \cup (B \cup C) = (A \cup B) \cup C$; $A \cap (B \cap C) = (A \cap B) \cap C$
-\item \textbf{Distributive: }$A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$; $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+* __Distributive__: $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$; $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
 * __de Morgan's laws__: $(A \cup B)^C = A^C \cap B^C$; $(A \cap B)^C = A^C \cup B^C$
 * __Disjointness__: Sets are disjoint when they do not intersect, such that $A \cap B = \{\emptyset\}$.  A collection of sets is pairwise disjoint (\textbf{mutually exclusive}) if, for all $i \neq j$, $A_i \cap A_j = \{\emptyset\}$.  A collection of sets form a partition of set $S$ if they are pairwise disjoint and they cover set $S$, such that $\bigcup_{i = 1}^k A_i = S$.
 
-```{exercise, name = "Sample Space"}
+```{example, name = "Sets"}
+
+Let set $A$ be {1, 2, 3, 4}, $B$ be {3, 4, 5, 6}, and $C$ be {5, 6, 7, 8}. Sets $A$, $B$, and $C$ are all subsets of the sample space $S$ which is {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+
+Write out the following sets:
+
+  1. $A \cup B$
+  2. $C \cap B$
+  3. $B^c$
+  4. $A \cap (B \cup C)$
+  
+
+```
+
+```{exercise, name = "Sets"}
 
 
 Suppose you had a pair of four-sided dice. You sum the results from a single toss.
 
-What is the set of possible outcomes?
+What is the set of possible outcomes (i.e. the sample space)?
+
+  
+Consider subsets A {2, 8} and B {2,3,7} of the sample space you found. What is
+
+  1. $A^c$
+  2. $(A \cup B)^c$
+    
+    
 ```
 
 ## Probability {#probdef}
@@ -144,23 +162,24 @@ B)=\Pr(A)+\Pr(B)-\Pr(A\cap B)$
 6. Boole's Inequality: For any sequence of $n$ events (which need not be disjoint) $A_1,A_2,\ldots,A_n$,  then $\Pr\left( \bigcup\limits_{i=1}^n
 A_i\right) \leq \sum\limits_{i=1}^n \Pr(A_i)$.
 
-\begin{framed}
-Examples:  Let's assume we have an evenly-balanced, six-sided die.
+```{example, name = "Probability"}
+
+Let's assume we have an evenly-balanced, six-sided die.
 
 Then,
 
-1. Sample space $S=$ %%
+1. Sample space S = 
 2. $\Pr(1)=\cdots=\Pr(6)=$
 3. $\Pr(\emptyset)=\Pr(7)=$
 4.  $\Pr\left( \{ 1, 3, 5 \} \right)=$
 5. $\Pr\left( \{ 1, 2 \}^C \right)= \Pr\left( \{ 3, 4, 5, 6 \}\right)=$
 6. Let $A=\{ 1,2,3,4,5 \}\subset S$.  Then $\Pr(A)=5/6<\Pr(S)=$ 
-7.  Let $A=\{ 1, 2, 3 \}$ and $B=\{ 2, 4, 6 \}$.  Then $A\cup B=\{
-1, 2, 3, 4, 6\}$, $A\cap B=\{2\}$, and
-\begin{eqnarray}
-  \Pr(A\cup B)&=
-\end{eqnarray}
-\end{framed}
+7.  Let $A=\{ 1, 2, 3 \}$ and $B=\{ 2, 4, 6 \}$.  Then $A\cup B$? $A\cap B$? $\Pr(A \cup B)$?
+
+
+
+
+```
 
 
 ```{exercise, name = "Probability"}
@@ -168,16 +187,33 @@ Then,
 Suppose you had a pair of four-sided dice. You sum the results from a single toss. Let us call this sum, or the outcome, X.
 
 
-1. What is Pr($X = 5$)?
+1. What is $\Pr(X = 5)$, $\Pr(X = 3)$, $\Pr(X = 6)$?
 
   
-2. What is Pr($X=5^C$)? In other words, what is the probability that the outcome will not be 5?
+2. What is $\Pr(X=5 \cup X = 3)^C$? 
   
   
   
 
 ```
 
+
+___Answers to Example 6.3___:
+
+
+1. ${1, 2, 3, 4, 5, 6}$
+
+2. $\frac{1}{6}$
+
+3. $0$
+
+4. $\frac{1}{2}$
+
+5. $\frac{4}{6} = \frac{2}{3}$
+
+6. $1$
+
+7. $A\cup B=\{1, 2, 3, 4, 6\}$, $A\cap B=\{2\}$, $\frac{5}{6}$
 
 ## Conditional Probability and Bayes Law
 
@@ -187,39 +223,60 @@ __Conditional Probability__:  The conditional probability $\Pr(A|B)$ of an event
 
 Note that conditional probabilities are probabilities and must also follow the Kolmagorov axioms of probability.
 
-\begin{framed}
-Example:  Assume $A$ and $B$ occur with the following frequencies: $\quad$
+```{example, name = "Conditional Probability 1"}
 
-\begin{tabular}{lcc}
-         & $A$          & $A^C$ \\\hline
-$B$      & $n_{ab}$     & $n_{a^Cb}$ \\
-$B^C$ & $n_{ab^C}$ & $n_{(ab)^C}$
-\end{tabular}
+Assume $A$ and $B$ occur with the following frequencies: $\quad$
 
+
+                        $A$             $A^c$
+--------------- ----------------    ------------------
+        $B$         $n_{ab}$            $n_{a^cb}$
+        $B^C$      $n_{ab^c}$           $n_{(ab)^c}$
+    
 
 and let $n_{ab}+n_{a^Cb}+n_{ab^C}+n_{(ab)^C}=N$.  Then
 
-1. $\Pr(A)= $ 
-2.  $\Pr(B)= $ 
-3.  $\Pr(A\cap B)= $ 
-4.  $\Pr(A|B)= \frac{\Pr(A\cap B)}{\Pr(B)}=  $ 
-5.  $\Pr(B|A)= \frac{\Pr(A\cap B)}{\Pr(A)}= $ 
-\end{framed}
+1.  $\Pr(A)=$ 
+2.  $\Pr(B)=$ 
+3.  $\Pr(A\cap B)=$ 
+4.  $\Pr(A|B)= \frac{\Pr(A\cap B)}{\Pr(B)}=$ 
+5.  $\Pr(B|A)= \frac{\Pr(A\cap B)}{\Pr(A)}=$ 
 
-\begin{framed}
-Example:  A six-sided die is rolled.  What is the probability of a 1, given the outcome is an odd number? 
+```
 
-\end{framed}
+
+
+```{example, name = "Conditional Probability 2"}
+
+ A six-sided die is rolled.  What is the probability of a 1, given the outcome is an odd number? 
+  
+  
+```
+
+
+Answers to __Example 6.4__
+
+1. $\frac{n_{ab} + n_{ab^c}}{N}$
+
+2. $\frac{n_{ab} + n_{a^cb}}{N}$
+
+3. $\frac{n_{ab}}{N}$
+
+4. $\frac{\frac{n_{ab}}{N}}{\frac{n_{ab} + n_{a^cb}}{N}} = \frac{n_{ab}}{n_{ab} + n_{a^cb}}$
+
+5. $\frac{\frac{n_{ab}}{N}}{\frac{n_{ab} + n_{ab^c}}{N}} = \frac{n_{ab}}{n_{ab} + n_{ab^c}}$
+
+Answer to __Example 6.5__
+
+$\Pr(1|Odd) = \frac{\Pr(1 \cap Odd)}{\Pr(Odd)} = \frac{\frac{1}{6}}{\frac{1}{2}} = \frac{1}{3}$
+
+
 
 
 __Multiplicative Law of Probability__: The probability of the intersection of two events $A$ and $B$ is $\Pr(A\cap B)=\Pr(A)\Pr(B|A)=\Pr(B)\Pr(A|B)$ which follows directly from the definition of conditional probability. More generally,\\ $P(A_1\cap ...\cap A_k) = P(A_k| A_{k-1}\cap... \cap A_1)\times P(A_{k-1}|A_{k-2}\cap ...A_1)...\times P(A_2|A_1)\times P(A_1)$
 
 
 __Law of Total Probability__:  Let $S$ be the sample space of some experiment and let the disjoint $k$ events $B_1,\ldots,B_k$ partition $S$, such that $P(B_1\cup ... \cup B_k) = P(S) = 1$.  If $A$ is some other event in $S$, then the events $A\cap B_1, A\cap B_2, \ldots, A\cap B_k$ will form a partition of $A$ and we can write $A$ as $A=(A\cap B_1)\cup\cdots\cup (A\cap B_k)$.  
-
-\begin{comment}
-\begin{center}\includegraphics[scale=.45]{lotp.pdf}\end{center}
-\end{comment}
 
 Since the $k$ events are disjoint,
 
@@ -242,7 +299,7 @@ Bayes' rule  determines the posterior probability of a state  $\Pr(B_j|A)$ by ca
 
 __Prior and Posterior Probabilities__:  Above, $\Pr(B_1)$ is often called the prior probability, since it's the probability of $B_1$ before anything else is known.  $\Pr(B_1|A)$ is called the posterior probability, since it's the probability after other information is taken into account.
 
-Example:
+```{example, name = "Bayes' Rule"}
 
 In a given town, 40% of the voters are Democrat and 60% are Republican. The president's budget is supported by 50% of the Democrats and 90% of the Republicans. If a randomly (equally likely) selected voter is found to support the president's budget, what is the probability that they are a Democrat?
 
@@ -251,6 +308,7 @@ $$P(D) = .4, P(D^c) = .6, P(S|D) = .5, P(S|D^c) = .9$$
 Using this, Bayes' Law and the Law of Total Probability, we know: 
 
 $$P(D|S) = \frac{P(D)P(S|D)}{P(D)P(S|D) + P(D^c)P(S|D^c)}$$
+```
 
 ```{exercise, name = "Conditional Probability"}
 
@@ -387,17 +445,23 @@ $\Pr(.5<y<.75)=$ }
 
 
 
-## Expectation and Other Moments
+## Expectation 
 
 We often want to summarize some characteristics of the distribution of a random variable.  The most important summary is the expectation (or expected value, or mean), in which the possible values of a random variable are weighted by their probabilities.
 
 __Expectation of a Discrete Random Variable__:  The expected value of a discrete random variable $Y$ is \[E(Y)=\sum\limits_{y} y P(Y=y)= \sum\limits_{y} y p(y)\]  
 In words, it is the weighted average of all possible values of $Y$, weighted by the probability that $y$ occurs.  It is not necessarily the number we would expect $Y$ to take on, but the average value of $Y$ after a large number of repetitions of an experiment.
 
+```{example, name = "Expectation of a Discrete Random Variable"}
 
-Example: For a fair die, $E(Y)=7/2$ 
+What is the expectation of a fair, six-sided die?
+  
+Answer: $E(Y)=7/2$ 
 
 We would never expect the result of a rolled die to be $7/2$, but that would be the average over a large number of rolls of the die.
+
+
+```
 
 
 __Expectation of a Continuous Random Variable__:  The expected
@@ -408,9 +472,15 @@ Hence, the expected value of the continuous variable $Y$ is defined by
 \[E(Y)=\int\limits_{y} y f(y) dy\]
 
 
-Example:  Find $E(Y)$ for $f(y)=\frac{1}{1.5}, \quad 0<y<1.5$.
+```{example, name = "Expectation of a Continuous Random Variable"}
+
+Find $E(Y)$ for $f(y)=\frac{1}{1.5}, \quad 0<y<1.5$.
 
 $E(Y)=$ 
+
+
+```
+
 
 __Expected Value of a Function__
 
@@ -439,6 +509,9 @@ __Conditional Expectation__: With joint distributions, we are often interested i
 
 The conditional expectation is often used for prediction when one knows the value of $X$ but not $Y$; the realized value of $X$ contains information about the unknown $Y$ so long as $E(Y|X = x) \neq E(Y) \forall x$.
   
+
+
+## Variance and Covariance
 
 __Variance__:  We can also look at other summaries of the distribution, which build on the idea of taking expectations. Variance tells us about the ``spread" of the distribution; it is the expected value of the squared deviations from the mean of the distribution.  The standard deviation is simply the square root of the variance.
 
