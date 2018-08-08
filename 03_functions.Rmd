@@ -42,11 +42,10 @@ $$\prod\limits_{i=1}^n x_i = x_1 x_2 x_3 \cdots x_n$$
 
 Properties:
 
-\begin{itemize}
-\item $\prod\limits_{i=1}^n c x_i = c^n \prod\limits_{i=1}^n x_i $
-\item $\prod\limits_{i=1}^n (x_i + y_i) =$ a total mess
-\item $\prod\limits_{i=1}^n c = c^n $
-\end{itemize}
+* $\prod\limits_{i=1}^n c x_i = c^n \prod\limits_{i=1}^n x_i$
+* $\prod\limits_{i=1}^n (x_i + y_i) =$ a total mess
+* $\prod\limits_{i=1}^n c = c^n$
+
 
 
 Other Useful Functions
@@ -62,6 +61,40 @@ __Modulo:__ Tells you the remainder when you divide the first number by the seon
 
 
 
+```{example, name = "Operators"}
+
+
+1. $\sum\limits_{i=1}^{5} i =$
+  
+2. $\prod\limits_{i=1}^{5} i =$ 
+  
+3. $14 \mod 4 =$
+  
+4. $4! =$
+
+```
+
+```{exercise, name = "Operators"}
+Let $x_1 = 4, x_2 = 3, x_3 = 7, x_4 = 11, x_5 = 2$
+
+1. $\sum\limits_{i=1}^{3} (7)x_i$
+
+2. $\sum\limits_{i=1}^{5} 2$
+
+3. $\prod\limits_{i=3}^{5} (2)x_i$
+  
+  
+```
+
+Answers to __Example 2.1__:
+
+1. 1 + 2 + 3 + 4 + 5 = 15
+
+2. 1 * 2 * 3 * 4 * 5 = 120
+
+3. 2
+
+4. 4 * 3 * 2 * 1 = 24
 
 
 
@@ -71,18 +104,19 @@ A __function__ (in ${\bf R}^1$) is a mapping, or transformation, that relates me
 
 Examples: Mapping notation 
 
-* Function of one variable: $f:{\bf R}^1\to{\bf R}^1$
+Function of one variable: $f:{\bf R}^1\to{\bf R}^1$
 
-$f(x)=x+1$. For each $x$ in ${\bf R}^1$, $f(x)$ assigns the number $x+1$.
+* $f(x)=x+1$. For each $x$ in ${\bf R}^1$, $f(x)$ assigns the number $x+1$.
     
-* Function of two variables: $f: {\bf R}^2\to{\bf R}^1$. 
+Function of two variables: $f: {\bf R}^2\to{\bf R}^1$. 
 
-$f(x,y)=x^2+y^2$. For each ordered pair $(x,y)$ in ${\bf R}^2$, $f(x,y)$ assigns the number $x^2+y^2$.
+* $f(x,y)=x^2+y^2$. For each ordered pair $(x,y)$ in ${\bf R}^2$, $f(x,y)$ assigns the number $x^2+y^2$.
 
 
 We often use variable $x$ as input and another $y$ as output, e.g. $y=x+1$
 
-```{exercise, name = "Functions"}
+
+```{example, name = "Functions"}
 
 For each of the following, state whether they are one-to-one or many-to-one functions. 
 
@@ -90,10 +124,27 @@ For each of the following, state whether they are one-to-one or many-to-one func
 
 2. For $x \in [-\infty, \infty]$, $f: x \rightarrow x^2$.
 
-3. For $x \in [-3, \infty]$, $f: x \rightarrow x^2$.
-
-4. For $x \in [0, \infty]$, $f: x \rightarrow \sqrt{x}$
 ```
+
+
+```{exercise, name = "Functions"}
+
+For each of the following, state whether they are one-to-one or many-to-one functions. 
+
+
+1. For $x \in [-3, \infty]$, $f: x \rightarrow x^2$.
+
+2. For $x \in [0, \infty]$, $f: x \rightarrow \sqrt{x}$
+  
+  
+```
+
+
+Answers to __Example 2.2__:
+
+1. one-to-one
+
+2. many-to-one
 
 
 Some functions are defined only on proper subsets of ${\bf R}^n$.
@@ -103,53 +154,19 @@ Some functions are defined only on proper subsets of ${\bf R}^n$.
 	Most often used when talking about a function $f:{\bf R}^1\to{\bf R}^1$.
 * __Image__: same as range, but more often used when talking about a function $f:{\bf R}^n\to{\bf R}^1$.
 	
-<!-- \begin{samepage}	 -->
-<!-- \begin{framed} -->
-<!-- \item[] Examples: -->
-<!-- 	\begin{enumerate} -->
-<!-- 		\item \parbox[c]{3.75in}{$f(x)=\frac{3}{1+x^2}\quad$ \\[6pt] -->
-<!-- %								Domain $X={\bf R}^1$\\ -->
-<!-- 								%Range $f(X)=(0,3]$ -->
-<!-- 								} -->
-<!-- \parbox{1in}{\,  {\includegraphics[width=1in, angle = 270]{3ovr1x2.eps}}}\\[12pt] --> 
-
-<!-- 		\item $f(x)=\left\{ -->
-<!-- 			\begin{array}{lcl} -->
-<!-- 				x+1, &\quad & 1\le x\le 2\\ -->
-<!-- 				0,   &      & x=0\\ -->
-<!-- 				1-x,  &      & -2\le x\le -1 -->
-<!-- 			\end{array} -->
-<!-- 			\right.$\\[6pt] -->
-<!-- 			%Domain $X=$	$[-2,-1]\cup\{0\}\cup[1,2] -->
-<!-- 			%Range $f(X)=$ $[2,3]\cup\{0\}$\\ -->
-
-<!-- 		\item \parbox[c]{3.75in}{$f(x)=1/x$\\[6pt] -->
-<!-- 			%Domain $X=(-\infty, 0)\cup (0,\infty)$\\ -->
-<!-- 			%Range $f(X)=(-\infty, 0)\cup (0,\infty)$ -->
-<!-- 			} -->
-<!-- 		<!-- \parbox{1in}{\, {\includegraphics[width=1in, angle = 270]{1ovrx.eps}}}\\ -->
-
-<!-- 		\item \parbox[c]{3.75in}{$f(x,y)=x^2+y^2$\\[6pt] -->
-<!-- 			%Domain $X,Y={\bf R}^2$\\ -->
-<!-- 			%Image $f(X,Y)={\bf R}^1_+$ -->
-<!-- 			} -->
-<!-- 		\epsfxsize=2.5in -->
-<!-- 		<!-- \parbox{1in}{\,  {\includegraphics[width=1.5in, angle = 270]{x2y2.eps}}} --> 
-<!-- 	\end{enumerate} -->
-<!-- \end{framed} -->
-<!-- \end{samepage} -->
-<!-- \item[] -->
-<!-- \end{itemize} -->
-
 
 Some General Types of Functions
 
 
-__Monomials__:  $f(x)=a x^k$\\
-		$a$ is the coefficient.  $k$ is the degree.\\
-		Examples: $y=x^2$, $y=-\frac{1}{2}x^3$
+__Monomials__:  $f(x)=a x^k$
+
+$a$ is the coefficient.  $k$ is the degree.
+		
+Examples: $y=x^2$, $y=-\frac{1}{2}x^3$
 	
-__Polynomials__: sum of monomials. Examples: $y=-\frac{1}{2}x^3+x^2$, $y=3x+5$
+__Polynomials__: sum of monomials. 
+
+Examples: $y=-\frac{1}{2}x^3+x^2$, $y=3x+5$
 
 The degree of a polynomial is the highest degree of its monomial terms.  Also, it's often a good idea to write polynomials with terms in decreasing degree.
 	
@@ -157,15 +174,6 @@ The degree of a polynomial is the highest degree of its monomial terms.  Also, i
 
 __Exponential Functions__: Example: $y=2^x$
 
-
-\begin{comment}
-	\parbox[c]{4.75in}{{\bf Linear}: polynomial of degree 1.\\
-		Example: $y=m x + b$, where $m$ is the slope and $b$ is the $y$-intercept.}\epsfxsize=1in \parbox{1in}{\, {\includegraphics[width=.9in, angle = 270]{linear.eps}}}
-	
-	\item \parbox[c]{4.75in}{{\bf Nonlinear}: anything that isn't constant or polynomial of degree 1.\\
-		Examples:  $y=x^2+2x+1$, $y=\sin(x)$, $y=\ln(x)$, $y=e^x$}
-		\parbox{1in}{\,  {\includegraphics[width=.9in, angle = 270]{nonlin.eps}}}
-\end{comment}
 
 ## $\log$  and $\exp$ {#logexponents}
 
@@ -241,6 +249,26 @@ Therefore, you can see that the log of a product is equal to the sum of the logs
 			&=& \log(c^n) + \log(x_1) + \log(x_2) + \cdots + \log(x_n)\\\\
 			&=& n \log(c) +  \sum\limits_{i=1}^n \log (x_i)\\
 \end{eqnarray*}	
+
+
+
+```{example, name = "Logarithmic Functions"}
+
+Evaluate each of the following logarithms
+
+1. $\log_4(16)$
+
+2. $\log_2(16)$
+             
+3. $\log_\frac{3}{2}(\frac{27}{8})$
+
+Simplify each of the following logarithms. By "simplify", we actually really mean - use as many of the logarithmic properties as you can.
+
+
+
+```
+
+Answers to __Example 2.3__
 
 
 ## Graphing Functions
