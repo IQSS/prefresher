@@ -54,11 +54,11 @@ Expression $\binom{n}{k}$ is read as "n choose k" and denotes $\frac{n!}{(n-k)!k
 
 There are five balls numbered from 1 through 5 in a jar. Three balls are chosen. How many possible choices are there?
 
-1. Ordered, with replacement $=$ $5 \times 5 \times 5 = 125$
+1. Ordered, with replacement $=$ 
 
-2. Ordered, without replacement $=$ $5 \times 4 \times 3 = 60$
+2. Ordered, without replacement $=$ 
 
-3. Unordered, without replacement $=$ $\binom{5}{3} = \frac{5!}{(5-3)!3!} = \frac{5 \times 4}{2 \times 1} = 10$
+3. Unordered, without replacement $=$ 
 
 
 ```
@@ -69,6 +69,14 @@ Four cards are selected from a deck of 52 cards. Once a card has been drawn, it 
 
 ```
 
+
+Answers to __Example 6.1__
+
+1. $5 \times 5 \times 5 = 125$
+
+2. $5 \times 4 \times 3 = 60$
+
+3. $\binom{5}{3} = \frac{5!}{(5-3)!3!} = \frac{5 \times 4}{2 \times 1} = 10$
 
 
 
@@ -136,6 +144,15 @@ Consider subsets A {2, 8} and B {2,3,7} of the sample space you found. What is
     
     
 ```
+
+
+Answers to __Example 6.2__
+
+1. {1, 2, 3, 4, 5, 6}
+2. {5, 6}
+3. {1, 2, 7, 8, 9, 10}
+4. {3, 4}
+
 
 ## Probability {#probdef}
 
@@ -303,19 +320,23 @@ __Prior and Posterior Probabilities__:  Above, $\Pr(B_1)$ is often called the pr
 
 In a given town, 40% of the voters are Democrat and 60% are Republican. The president's budget is supported by 50% of the Democrats and 90% of the Republicans. If a randomly (equally likely) selected voter is found to support the president's budget, what is the probability that they are a Democrat?
 
-We are given that
-$$P(D) = .4, P(D^c) = .6, P(S|D) = .5, P(S|D^c) = .9$$
-Using this, Bayes' Law and the Law of Total Probability, we know: 
-
-$$P(D|S) = \frac{P(D)P(S|D)}{P(D)P(S|D) + P(D^c)P(S|D^c)}$$
 ```
 
 ```{exercise, name = "Conditional Probability"}
 
 
-Assume that 2% of the population of the U.S. are members of some extremist militia group. We develop a survey that positively classifies someone as being a member of a militia group given that they are a member 95% of the time and negatively classifies someone as not being a member of a militia group given that they are not a member 97% of the time. What is the probability that someone positively classified as being a mebmer of a militia group is actually a militia member?
+Assume that 2% of the population of the U.S. are members of some extremist militia group. We develop a survey that positively classifies someone as being a member of a militia group given that they are a member 95% of the time and negatively classifies someone as not being a member of a militia group given that they are not a member 97% of the time. What is the probability that someone positively classified as being a member of a militia group is actually a militia member?
 
 ```
+
+Answer to __Example 6.6__
+
+We are given that
+$$P(D) = .4, P(D^c) = .6, P(S|D) = .5, P(S|D^c) = .9$$
+Using this, Bayes' Law and the Law of Total Probability, we know: 
+
+$$P(D|S) = \frac{P(D)P(S|D)}{P(D)P(S|D) + P(D^c)P(S|D^c)}$$
+
 
 ## Random Variables
 
@@ -456,9 +477,6 @@ In words, it is the weighted average of all possible values of $Y$, weighted by 
 
 What is the expectation of a fair, six-sided die?
   
-Answer: $E(Y)=7/2$ 
-
-We would never expect the result of a rolled die to be $7/2$, but that would be the average over a large number of rolls of the die.
 
 
 ```
@@ -482,6 +500,18 @@ $E(Y)=$
 ```
 
 
+Answer to __Example 6.7__
+
+$E(Y)=7/2$ 
+
+We would never expect the result of a rolled die to be $7/2$, but that would be the average over a large number of rolls of the die.
+
+
+Answer to __Example 6.8__
+
+$E(Y)=$ $\frac{1}{1.5}\times 1.5 - \frac{1}{1.5} \times 0 = 1
+
+
 __Expected Value of a Function__
 
 ___Discrete:___  $E[g(Y)]=\sum\limits_y g(y)p(y)$
@@ -497,7 +527,7 @@ ___Properties of Expected Values:___
 
 3. $E[c g(Y)]= c E[g(Y)]$
 
-4. Linearity: $E[g(Y_1) + \cdots + g(Y_n)]=E[g(Y_1)]+\cdots+E[g(Y_n)]$, \textit{regardless} of independence
+4. Linearity: $E[g(Y_1) + \cdots + g(Y_n)]=E[g(Y_1)]+\cdots+E[g(Y_n)]$, regardless of independence
 
 5. $E[XY] = E[X]E[Y]$, if X and Y are independent 
 
@@ -513,15 +543,31 @@ The conditional expectation is often used for prediction when one knows the valu
 
 ## Variance and Covariance
 
-__Variance__:  We can also look at other summaries of the distribution, which build on the idea of taking expectations. Variance tells us about the ``spread" of the distribution; it is the expected value of the squared deviations from the mean of the distribution.  The standard deviation is simply the square root of the variance.
+__Variance__:  We can also look at other summaries of the distribution, which build on the idea of taking expectations. Variance tells us about the "spread" of the distribution; it is the expected value of the squared deviations from the mean of the distribution.  The standard deviation is simply the square root of the variance.
 
 1. Variance: $\sigma^2= V(Y) = E[(Y - E(Y))^2] =  E(Y^2)-[E(Y)]^2$
 2. Standard Deviation: $\sigma= \sqrt{V(Y)}$
 
+```{example, name = "Variance"}
+Given the following PMF: 
+\[f(x) =  \begin{cases}
+              \frac{3!}{x!(3-x)!}(\frac{1}{2})^3 \quad x = 0,1,2,3\\
+               0 \quad otherwise
+            \end{cases}
+               \]
 
-___Covariance and Correlation:___ The covariance measures the degree to which two random variables vary together; if the covariance is positive, X tends to be larger than its mean when Y is larger than its mean.  The covariance of a variable with itself is the variance of that variable.
+What is $V[x]$?
+  
+  
+__Hint:__ First calculate $E[x]$ and $E[x^2]$
 
-\[Cov(X,Y) = E[(X - E(X))(Y - E(Y))] = E(XY) - E(X)E(Y)\]
+```
+___Covariance and Correlation:___ The covariance measures the degree to which two random variables vary together; if the covariance between X and Y is positive, X tends to be larger than its mean when Y is larger than its mean.  The covariance of a variable with itself is the variance of that variable.
+
+\[Cov(X,Y) = E[(X - E(X))(Y - E(Y))] \]
+\[= E[XY - XE[Y] - E[X]Y + E[X]E[Y]] \]
+\[= E[XY] - E[X]E[Y] - E[X]E[Y] + E[X]E[Y]\]
+\[=  E(XY) - E(X)E(Y)\]
 
 The correlation coefficient is the covariance divided by the standard deviations of X and Y.  It is a unitless measure and always takes on values in the interval $[-1,1]$.
 
@@ -539,20 +585,9 @@ ___Properties of Variance and Covariance:___
 8. $V[X+Y] = V[X] + V[Y] + 2Cov[X,Y]$
 
 
-Example:
+Answer to __Example 6.9__:
 
-Given the following PMF: 
-\[f(x) =  \begin{cases}
-              \frac{3!}{x!(3-x)!}(\frac{1}{2})^3 \quad x = 0,1,2,3\\
-               0 \quad otherwise
-            \end{cases}
-               \]
-
-Find the expected value of x:
-
-$$E[x] = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 2 \times \frac{3}{8} + 3 \times \frac{1}{8} = \frac{3}{2}$$
-
-Find the variance of x:
+$E[x] = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 2 \times \frac{3}{8} + 3 \times \frac{1}{8} = \frac{3}{2}$
 
 Since there is a 1 to 1 mapping from $x$ to $x^2:$ $E[x^2] = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 4 \times \frac{3}{8} + 9 \times \frac{1}{8} = \frac{24}{8} = 3$
 
@@ -572,7 +607,7 @@ Suppose we have a PMF with the following characteristics:
   
 1. Calculate the expected value of X
 
-Define the random variable Y = X^2. 
+Define the random variable $Y = X^2$. 
 
 2. Calculate the expected value of Y. (Hint: It would help to derive the PMF of Y first in order to calculate the expected value of Y in a straightforward way)
 
