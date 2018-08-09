@@ -14,7 +14,7 @@ Define the vectors $u = \begin{pmatrix} 1 \\2 \\3 \end{pmatrix}$, $v = \begin{pm
 
 1. $u + v$
 2. $cv$
-3. $uv$
+3. $u \cdot v$
 
 If you are having trouble with these problems, please review Section \@ref(vectors) "Working with Vectors" in Chapter \@ref(linearalgebra). 
 

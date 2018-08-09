@@ -12,7 +12,7 @@ Define the vectors $u = \begin{pmatrix} 1 \\2 \\3 \end{pmatrix}$, $v = \begin{pm
 
 1. $u + v = \begin{pmatrix}5\\7\\9\end{pmatrix}$
 2. $cv = \begin{pmatrix}8\\10\\12\end{pmatrix}$
-3. $uv = \begin{pmatrix}4\\10\\18\end{pmatrix}$
+3. $u \cdot v = 1(4) + 2(5) + 3(6) = 32$
 
 
 
@@ -36,10 +36,10 @@ $\leadsto$ Yes: we cannot find  linear combination of these two vectors that wou
 3. $a = \begin{pmatrix} 2\\ -1\\ 1 \end{pmatrix}$, $b = \begin{pmatrix} 3\\ -4\\ -2 \end{pmatrix}$, $c = \begin{pmatrix} 5\\ -10\\ -8 \end{pmatrix}$ 
 
 $\leadsto$ No: After playing around with some numbers, we can find that 
-\[-2a = \begin{pmatrix} -4\\ 2\\ -2 \end{pmatrix}, 3b = \begin{pmatrix} 9\\ -12\\ -6 \end{pmatrix}, 1c = \begin{pmatrix} 5\\ -10\\ -8 \end{pmatrix}\]
+\[-2a = \begin{pmatrix} -4\\ 2\\ -2 \end{pmatrix}, 3b = \begin{pmatrix} 9\\ -12\\ -6 \end{pmatrix}, -1c = \begin{pmatrix} -5\\ 10\\ 8 \end{pmatrix}\]
 
 So 
-\[-2a + 3b + c = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}\]
+\[-2a + 3b - c = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}\]
 
 i.e., a linear combination of these three vectors that would amount to zero exists.
 
@@ -57,9 +57,9 @@ If you are having trouble with these problems, please review Section \@ref(linea
 		\end{pmatrix}\]
 		
 		
-What is the dimensionality of matrix ${\bf A}$?
+What is the dimensionality of matrix ${\bf A}$?  4 $\times$ 3
 
-What is the element $a_{23}$ of ${\bf A}$?
+What is the element $a_{23}$ of ${\bf A}$? 3
 
 Given that 
 		
@@ -115,7 +115,7 @@ Simplify the following
 
 2. \(\sum\limits_{k = 1}^3(3k + 2) = 3\sum\limits_{k=1}^3k + \sum\limits_{k=1}^3 2= 3\times 6 + 3\times 2 = 24\)
 
-3. \(\sum\limits_{i= 1}^4 (3k + i + 2) = \sum\limits_{i= 1}^4(3k + 2) + \sum\limits_{i= 1}^4i = (12k + 8) + 10 = 12k + 18\)
+3. \(\sum\limits_{i= 1}^4 (3k + i + 2) = 3\sum\limits_{i= 1}^4k + \sum\limits_{i= 1}^4i + \sum\limits_{i= 1}^42 = 12k + 10 + 8 = 12k + 18\)
 
 
 ### Products {-}
@@ -184,7 +184,7 @@ If you are stuck, please try sketching out a picture of each of the functions.
 
 ## Probability {-}
 
-1. If there are 12 cards, numbered 1 to 12, and 4 cards are chosen, $ _{12}\text{C}_4 = \frac{12\cdot 11\cdot 10\cdot 9}{4!} = 495$ possible hands exist (unordered, without replacement) .
+1. If there are 12 cards, numbered 1 to 12, and 4 cards are chosen, $\binom{12}{4} = \frac{12\cdot 11\cdot 10\cdot 9}{4!} = 495$ possible hands exist (unordered, without replacement) .
 2. Let $A = \{1,3,5,7,8\}$ and $B = \{2,4,7,8,12,13\}$. Then $A \cup B = \{1, 2, 3, 4, 5, 7, 8, 12, 13\}$,  $A \cap B = \{7, 8\}$? If $A$ is a subset of the Sample Space $S = \{1,2,3,4,5,6,7,8,9,10\}$, then the complement $A^C = \{2, 4, 6, 9, 10\}$
 
 3. If we roll two fair dice, what is the probability that their sum would be 11? $\leadsto \frac{1}{18}$ 
