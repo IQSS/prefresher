@@ -46,7 +46,7 @@ If the order in which a given object is selected matters, selecting 4 numbered o
 
 If replacement is allowed, there are always the same $n$ objects to select from. However, if replacement is not allowed, there is always one less option than the previous round when making a selection. For example, if replacement is not allowed and I am selecting 3 elements from the following set {1, 2, 3, 4, 5, 6}, I will have 6 options at first, 5 options as I make my second selection, and 4 options as I make my third. 
 
-<<<<<<< HEAD
+
 So in counting how many different outcomes are possible, if ___order matters___ AND we are sampling ___with replacement___, the number of different outcomes is $n^k$.
 
 If  ___order matters___ AND we are sampling ___without replacement___, the number of different outcomes is $n(n-1)(n-2)...(n-k+1)=\frac{n!}{(n-k)!}$.
@@ -78,12 +78,6 @@ Four cards are selected from a deck of 52 cards. Once a card has been drawn, it 
 
 
 Answers to __Example 6.1__
-=======
-
-Where $\binom{x}{y}$, read as "x choose y", is defined as \[\binom{x}{y} = \frac{x!}{(x-y)!y!}\] 
-
-while recalling that  $0! = 1$
->>>>>>> 8bbbf456924d0dbb51b0f97fa66dbe3a9406b60b
 
 1. $5 \times 5 \times 5 = 125$
 
