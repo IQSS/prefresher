@@ -628,20 +628,24 @@ Hence, given $\bf{A}$ and $\bf{b}$ and given that $\bf{A}$ is nonsingular, then 
 
 
 ```{exercise, name = "Solve linear system using inverses"}
-
-
 Use the inverse matrix to solve the following linear system:
 
   
-\begin{eqnarray*} 
--3x + 4y = 5 \\
-2x - y = -10
-\end{eqnarray*}
+\begin{align*} 
+-3x + 4y &= 5 \\
+2x - y &= -10
+\end{align*}
 
 
 ___Hint: the linear system above can be written in the matrix form___ 
 
-Ax = b given A = \begin{pmatrix} -3&4\\2&-1 \end{pmatrix}, x = \begin{pmatrix} x\\y \end{pmatrix}, and b = \begin{pmatrix} 5\\-10 \end{pmatrix}
+$\textbf{A}\textbf{z} = \textbf{b}$ 
+  
+given \[\textbf{A} = \begin{pmatrix} -3&4\\2&-1 \end{pmatrix},\] 
+
+\[\textbf{z} = \begin{pmatrix} x\\y \end{pmatrix},\] 
+and 
+\[\textbf{b} = \begin{pmatrix} 5\\-10 \end{pmatrix}\]
 
 
 ```
