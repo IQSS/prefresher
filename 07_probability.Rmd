@@ -29,7 +29,10 @@ __Fundamental Theorem of Counting__: If an object has $j$ different characterist
 
 Example: Cards can be either red or black and can take on any of 13 values.
 
-j $=$ \hspace{1.5cm} $n_{color} =$ \hspace{1.5cm} $n_{number} =$ \hspace{1.5cm} \# Outcomes $=$
+j $=$ \hspace{1.5cm} 
+$n_{color} =$ \hspace{1.5cm} 
+$n_{number} =$ 
+Nuber of Outcomes $=$
 
 
 We often need to count the number of ways to choose a subset from some set of possibilities.  The number of outcomes depends on two characteristics of the process: does the order matter and is replacement allowed?
@@ -42,31 +45,10 @@ With Replacement        $n^k$                                           $\binom{
 Without Replacement     $n(n-1)(n-2)...(n-k+1)=\frac{n!}{(n-k)!}$         $\binom{n}{k}$
 
 
-\begin{table}[h!]
 
-& \textbf{Order Matters} & \textbf{Order Doesn't Matter}\\
+Where $\binom{x}{y}$, read as "x choose y", is defined as \[\binom{x}{y} = \frac{x!}{(x-y)!y!}\] 
 
-\textbf{With Replacement} & $n^k$ & $\binom{n+k-1}{k}$\\
-
-\textbf{Without Replacement} & $n(n-1)(n-2)...(n-k+1)=\frac{n!}{(n-k)!}$ & $\binom{n}{k}$\\
-
-\end{table}
-
-
-\begin{table}[h!]
-\caption*{\textbf{Sampling Table}}
-\begin{tabular}{|r|c|c|}
-\hline
-& \textbf{Order Matters} & \textbf{Order Doesn't Matter}\\
-\hline
-\textbf{With Replacement} & $n^k$ & $\binom{n+k-1}{k}$\\
-\hline
-\textbf{Without Replacement} & $ \frac{n!}{(n-k)!}$ & $\binom{n}{k}$\\
-\hline
-\end{tabular}
-\end{table}
-
-Where $\binom{x}{y} = \frac{x!}{(x-y)!y!}$ and $0! = 1$
+while recalling that  $0! = 1$
 
 
 Example: There are five balls numbered from 1 through 5 in a jar. Three balls are chosen. How many possible choices are there?
