@@ -134,6 +134,7 @@ For each of the following, state whether they are one-to-one or many-to-one func
 
 1. For $x \in [-3, \infty]$, $f: x \rightarrow x^2$.
 
+
 2. For $x \in [0, \infty]$, $f: x \rightarrow \sqrt{x}$
   
   
