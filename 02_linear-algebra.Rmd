@@ -627,7 +627,7 @@ If $\bf{A}$ is an $n\times n$ matrix,then $\bf{Ax}=\bf{b}$ is a system of $n$ eq
 Hence, given $\bf{A}$ and $\bf{b}$ and given that $\bf{A}$ is nonsingular, then $\bf{x} = \bf{A}^{-1} \bf{b}$ is a unique solution to this system.
 
 
-```{exercise, name = "Solve linear system using inverses"}
+```{exercise, inv_linsys, name = "Solve linear system using inverses"}
 Use the inverse matrix to solve the following linear system:
 
   
@@ -747,14 +747,16 @@ The determinant of a $2 \times 2$ matrix __A__ $\begin{pmatrix} a & b\\ c & d\\ 
 		
 Example:
 
-Let's calculate the inverse of matrix A from Exercise 2.9 using the determinant formula. 
+Let's calculate the inverse of matrix A from Exercise \@ref(exr:inv_linsys) using the determinant formula. 
 
-Recall, A = \begin{pmatrix}
+Recall, 
+
+\[A = \begin{pmatrix}
 			-3 & 4\\
 			2 & -1\\
-		\end{pmatrix}
+		\end{pmatrix}\]
 		
-$\det({\bf A})$ = (-3)(-1) - (4)(2) = 3 - 8  = -5
+\[\det({\bf A}) = (-3)(-1) - (4)(2) = 3 - 8  = -5\]
 
 \[\frac{1}{\det({\bf A})} \begin{pmatrix}
 			-1 & -4\\
