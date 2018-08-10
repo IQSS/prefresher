@@ -179,6 +179,7 @@ ggplot(data = grp_race_ordered, aes(x = race, y = count)) +
 ```
 
 
+The data ink ratio was popularized by Ed Tufte (originally a political economy scholar who has recently become well known for his data visualization work). See Tufte (2001),  _The Visual Display of Quantitative Information_ and his website <https://www.edwardtufte.com/tufte/>.  For a R and ggplot focused example using social science examples, check out Healy  (2018). _Data Visualization: A Practical Introduction_ with a draft at <https://socviz.co/>  There are a growing number of excellent books on data visulization.
 
 
 ### Cross-tabs
