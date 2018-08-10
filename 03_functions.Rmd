@@ -63,6 +63,7 @@ __Modulo:__ Tells you the remainder when you divide the first number by the seon
 
 
 
+
 ## Introduction to Functions
 
 A __function__ (in ${\bf R}^1$) is a mapping, or transformation, that relates members of one set to members of another set. For instance, if you have two sets: set $A$ and set $B$, a function from $A$ to $B$ maps every value $a$ in set $A$ such that $f(a) \in  B$. Functions can be "many-to-one", where many values or combinations of values from set $A$ produce a single output in set $B$, or they can be "one-to-one", where each value in set $A$ corresponds to a single value in set $B$.
