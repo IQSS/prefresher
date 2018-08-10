@@ -33,13 +33,21 @@ library(scales)
 
 ## Motivation
 
-In this module, let's jump into using the basic functions of R from an actual Census.
+In this module, let's visualize some cross-sectional stats with an actual Census. Then, we'll do an example on time trends with Supreme Court ideal points. 
 
-Why care about the Census? The Census is one of the fundamental acts of a government. See the Law Review article by [Persily (2011)](http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf), "The Law of the Census"^[[Persily, Nathaniel. 2011. "The Law of the Census: How to Count, What to Count, Whom to Count, and Where to Count Them.” _Cardozo Law Review_ 32(3): 755–91.](http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf)]. The Census is government's primary tool for apportionment (allocating seats to districts), appropriations (allocating federal funding), and tracking demographic change.  See^[[Hochschild, Jennifer L., and Brenna Marea Powell. 2008. "Racial Reorganization and the United States Census 1850–1930: Mulattoes, Half-Breeds, Mixed Parentage, Hindoos, and the Mexican Race." _Studies in American Political Development_ 22(1): 59–96.](https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2)] for example [Hochschild and Powell (2008)](https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2) on how the categorizations of race in the Census during 1850-1930.
+
+Why care about the Census? The Census is one of the fundamental acts of a government. See the Law Review article by [Persily (2011)](http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf), "The Law of the Census"^[[Persily, Nathaniel. 2011. "The Law of the Census: How to Count, What to Count, Whom to Count, and Where to Count Them.”](http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf). _Cardozo Law Review_ 32(3): 755–91.]. The Census is government's primary tool for apportionment (allocating seats to districts), appropriations (allocating federal funding), and tracking demographic change.  See^[[Hochschild, Jennifer L., and Brenna Marea Powell. 2008. "Racial Reorganization and the United States Census 1850–1930: Mulattoes, Half-Breeds, Mixed Parentage, Hindoos, and the Mexican Race."](https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2). _Studies in American Political Development_ 22(1): 59–96.] for example [Hochschild and Powell (2008)](https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2) on how the categorizations of race in the Census during 1850-1930.
+
+
+Time series data is a common form of data in social science data, and there is growing methodological work on making causal inferences with time series^[[Blackwell, Matthew,  and Adam Glynn. 2018. "How to Make Causal Inferences with Time-Series Cross-Sectional Data under Selection on Observables."](https://doi.org/10.1017/S0003055418000357)  _American Political Science Review_]. 
 
 
 
 ## Read data
+
+First, the census.
+
+
 The first of line code you will write is often to read in data. Here, let's read in a subset of the 2010 Census. This is a 0.01 percent random sample of the entire U.S. Census. 
 
 
@@ -105,7 +113,7 @@ These `tidyverse` commands from the `dplyr` package are newer and not built-in, 
 
 
 ## base R and ggplot
-Visualizing data is the key part of communication; good data viz gets the point across^[[Kastellec, Jonathan P., and Eduardo L. Leoni. 2007. "Using Graphs Instead of Tables in Political Science."" _Perspectives on Politics_ 5 (4): 755–71.](http://www.princeton.edu/~jkastell/Tables2Graphs/graphs.pdf)]. 
+Visualizing data is the key part of communication; good data viz gets the point across^[[Kastellec, Jonathan P., and Eduardo L. Leoni. 2007. "Using Graphs Instead of Tables in Political Science."](http://www.princeton.edu/~jkastell/Tables2Graphs/graphs.pdf).  _Perspectives on Politics_ 5 (4): 755–71.]. 
 
 Two prevalent ways of making graphing are referred to as "base-R" and "ggplot".
 
@@ -250,11 +258,11 @@ ggplot(data = cen10, aes(x = age)) +
 
 ## Line graphs
 
-Line graphs are useful for plotting time trends.  Time series data is a common form of data in social science data, and there is growing methodological work on making causal inferences with time series^[Blackwell, Matthew,  and Adam Glynn (2018). "How to Make Causal Inferences with Time-Series Cross-Sectional Data under Selection on Observables." _American Political Science Review_]. 
+Line graphs are useful for plotting time trends.  
 
 The Census does not track individuals over time. So let's take up another example: The U.S. Supreme Court. Take the dataset `justices_median.csv`.
 
-This data is adapted from the estimates of Martin and Quinn. 
+This data is adapted from the estimates of Martin and Quinn on their website <http://mqscores.lsa.umich.edu/>  
 
 
 ```{r, message=FALSE}
@@ -262,7 +270,6 @@ justice <- read_csv("input/justices_court-median.csv")
 ```
 
 What does the data look like? How do you think it is organized? What does each row represent?
-
 
 ```{r}
 justice
@@ -283,11 +290,12 @@ This seems to "work" off the shelf. But take a moment to see why the code was wr
 Now, this graphic already indicates a lot, but let's improve the graphics so people can actually read it.  This is left for Exercise 3. 
 
 
+As social scientists, we should also not forget to ask ourselves whether these numerical measures are fit for what we care about, or actually succeeds in measuring what we'd like to measure. The estimation of these "ideal points" is a subfield of political methodology beyond this prefresher. For more reading, skim through the original paper by Martin and Quinn (2002)^[[Martin, Andrew D. and Kevin M. Quinn. 2002. "Dynamic Ideal Point Estimation via Markov Chain Monte Carlo for the U.S. Supreme Court, 1953-1999"](http://mqscores.lsa.umich.edu/media/pa02.pdf). _Political Analysis._ 10(2): 134-153.]. Also for a methodological discussion on the difficulty of measuring time series of preferences, check out Bailey (2013)^[[Bailey, Michael A. 2013. "Is Today’s Court the Most Conservative in Sixty Years? Challenges and Opportunities in Measuring Judicial Preferences." ](https://michaelbailey.georgetown.domains/wp-content/uploads/2018/05/JOP_proofs_June2013.pdf). _Journal of Politics_ 75(3): 821-834]
 
 
 
 
-## Review Exercises
+## Exercises
 In the time remaining, try the following exercises. Order doesn't matter. 
 
 ### Exercise 1: Make your own graphic
@@ -298,18 +306,7 @@ Make a graphic from the census data that tells us something interesting about th
 ```
 
 
-### Exercise 2: Counting CVAP
-A issue raised in Persily's article is that the full-count U.S. Census does not record  whether the residents are citizens of the United States^[Here is that argument of his again, more recently in the popular press. ["The Mysterious Number of American Citizens". June 2, 2015.  _POLITICO_](http://www.politico.com/magazine/story/2015/06/the-supreme-courts-big-data-problem-118568)]. Instead, this question is asked in a survey, the American Community Survey. The two are fundamentally different exercises: the Census counts everyone by definition, a survey samples its data. 
-
-Load the 1 percent sample of the 2015 ACS (`acs2015_1percent.csv`, in the `input` folder) and give an estimate of the proportion of a state's ACS respondents that are reportedly U.S. citizens. 
-
-```{r}
-# Enter yourself
-
-```
-
-
-### Exercise 3: The Swing Justice
+### Exercise 2: The Swing Justice
 
 Using the `justice` dataset and building off of the plot that was given, make an improved plot that has the following features. 
 
@@ -330,3 +327,15 @@ Using the `justice` dataset and building off of the plot that was given, make an
 # Enter yourself
 
 ``` 
+
+
+### Exercise 3: Back to Census and Counting CVAP
+
+A issue raised in Persily's article is that the full-count U.S. Census does not record  whether the residents are citizens of the United States^[Here is that argument of his again, more recently in the popular press. ["The Mysterious Number of American Citizens". June 2, 2015.  _POLITICO_](http://www.politico.com/magazine/story/2015/06/the-supreme-courts-big-data-problem-118568)]. Instead, this question is asked in a survey, the American Community Survey. The two are fundamentally different exercises: the Census counts everyone by definition, a survey samples its data. 
+
+Load the 1 percent sample of the 2015 ACS (`acs2015_1percent.csv`, in the `input` folder) and give an estimate of the proportion of a state's ACS respondents that are reportedly U.S. citizens. 
+
+```{r}
+# Enter yourself
+
+```
