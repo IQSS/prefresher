@@ -229,7 +229,9 @@ colnames(X)
 What is `ln_exports`? The article describes this as the natural log of one plus the `exports`. This is a transformation of one column by a particular function
 
 ```{r}
-log(1 + X[, "exports"])
+log(1 + X[, "exports"]) 
+log((1 + X[, "exports"])/X[,"export_area"])
+X
 ```
 Question for you: why add the 1? 
 
@@ -327,7 +329,7 @@ Let
 \end{array}\right]
 \]
 
-Use R to write code that will consecutively multiply $A$ to itself 4 times. What is the value of $A^{4}? 
+Use R to write code that will consecutively multiply $A$ to itself 4 times. What is the value of $A^{4}$? 
 
 ```{r}
 ## Enter yourself
