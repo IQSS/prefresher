@@ -251,7 +251,7 @@ ggplot(data = grp_race_state, aes(x =  state, y = count,  fill = race)) +
 ## Histograms
 When our data is continuous rather than categorical, our first graphics will probably be a histogram.
 
-```{r}
+```{r, eval = FALSE}
 hist(cen10$age, main = "Age Distribution", xlab = "Age")
 ```
 

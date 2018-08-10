@@ -125,7 +125,7 @@ library(ggmap)
 ```
 
 First get a map of the Greek world.
-```{r, message=FALSE}
+```{r, message=FALSE, warning=FALSE}
 greece <- get_map(location = c(lat = 39.543287, lon = 22.6382849),
                   zoom = 5, 
                   source = "stamen",
