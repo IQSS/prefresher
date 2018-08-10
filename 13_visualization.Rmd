@@ -190,7 +190,7 @@ ggplot(data = grp_race_ordered, aes(x = race, y = count)) +
 ```
 
 
-The data ink ratio was popularized by Ed Tufte (originally a political economy scholar who has recently become well known for his data visualization work). See Tufte (2001),  _The Visual Display of Quantitative Information_ and his website <https://www.edwardtufte.com/tufte/>.  For a R and ggplot focused example using social science examples, check out Healy  (2018). _Data Visualization: A Practical Introduction_ with a draft at <https://socviz.co/>  There are a growing number of excellent books on data visulization.
+The data ink ratio was popularized by Ed Tufte (originally a political economy scholar who has recently become well known for his data visualization work). See Tufte (2001),  _The Visual Display of Quantitative Information_ and his website <https://www.edwardtufte.com/tufte/>.  For a R and ggplot focused example using social science examples, check out Healy  (2018). _Data Visualization: A Practical Introduction_ with a draft at <https://socviz.co/>  There are a growing number of excellent books on data visualization.
 
 
 ## Cross-tabs
@@ -323,10 +323,10 @@ Using the `justice` dataset and building off of the plot that was given, make an
 * Change the breaks of the x-axis to print numbers for every decade, not just every two decades.
 * Limit the scale of the y-axis to [-5, 5] so that the outlier justice in the 60s is trimmed and the rest of the data can be seen more easily (also, who is that justice?)
 * Plot the ideal point of the justice who holds the "median" ideal point in a given term. To distinguish this with the others, plot this line separately in a very light red _below_ the individual justice's lines.
-* Highlight the trendline of only the nine justices who are _currently_ sitting on SCOTUS. Make sure this is clearer than the other past justices. 
+* Highlight the trend-line of only the nine justices who are _currently_ sitting on SCOTUS. Make sure this is clearer than the other past justices. 
 * Add the current nine justice's names to the right of the endpoint of the 2016 figure, alongside their ideal point. 
 * Make sure the text labels do not overlap with each other for readability using the `ggrepel` package. 
-* Extend the x-axis label to about 2020 so the text labels of justices are to the right of the trendlines.
+* Extend the x-axis label to about 2020 so the text labels of justices are to the right of the trend-lines.
 * Add a caption to your text describing the data briefly, as well as any features relevant for the reader (such as the median line and the trimming of the y-axis)
 
 

@@ -42,9 +42,9 @@ Before we start -- many things in R and other open source packages have competin
 
 ## A is for Athens
 
-For our first dataset, let's try reading in a dataset on the Ancient Greek world. Political Thoerists and Political Historians study the domestic systems, international wars, culutures and writing of this era to understand the first instance of democracy, the rise and overtunring of tyranny, and the legacies of political institutions. 
+For our first dataset, let's try reading in a dataset on the Ancient Greek world. Political Theorists and Political Historians study the domestic systems, international wars, cultures and writing of this era to understand the first instance of democracy, the rise and overturning of tyranny, and the legacies of political institutions. 
 
-This POLIS dataset was generously provided by Professor Josiah Ober of Stanford University. This dataset includes information on city states in the Ancient Greek world, parts of it collected by careful work by historians and archeologists. It is part of his recent books on Greece (Ober 2015), "The Rise and Fall of lassical Greece"^[[Ober, Josiah (2015). _The Rise and Fall of lassical Greece_. Princeton University Press.](https://press.princeton.edu/titles/10423.html)] and Institutions in Ancient Athens (Ober 2010) , "Democracy and Knowledge: Innovation and Learning in Classical Athens"^[[Ober, Josiah (2010). _Democracy and Knowledge: Innovation and Learning in Classical Athens_. Princeton University Press.](https://press.princeton.edu/titles/8742.html)]
+This POLIS dataset was generously provided by Professor Josiah Ober of Stanford University. This dataset includes information on city states in the Ancient Greek world, parts of it collected by careful work by historians and archaeologists. It is part of his recent books on Greece (Ober 2015), "The Rise and Fall of Classical Greece"^[[Ober, Josiah (2015). _The Rise and Fall of lassical Greece_. Princeton University Press.](https://press.princeton.edu/titles/10423.html)] and Institutions in Ancient Athens (Ober 2010) , "Democracy and Knowledge: Innovation and Learning in Classical Athens"^[[Ober, Josiah (2010). _Democracy and Knowledge: Innovation and Learning in Classical Athens_. Princeton University Press.](https://press.princeton.edu/titles/8742.html)]
 
 ### Preliminaries 
 What files do we have in the `input` folder?
@@ -98,7 +98,7 @@ ober_raw
 dim(ober_raw)
 ```
 
-From your tutorials, you also know how to do graphics! Graphics are useful for grasping your data, but we will cover them more depply in Chapter \@ref(dataviz).
+From your tutorials, you also know how to do graphics! Graphics are useful for grasping your data, but we will cover them more deeply in Chapter \@ref(dataviz).
 
 
 ```{r}
@@ -132,10 +132,10 @@ greece <- get_map(location = c(lat = 39.543287, lon = 22.6382849),
                   maptype = "toner")
 ggmap(greece)
 ```
-I chose the specifications for arguments `zoom` and `maptype` by looking at the webpage and Gooling some examples/ 
+I chose the specifications for arguments `zoom` and `maptype` by looking at the webpage and Googling some examples/ 
 
 
-Ober's data has the latitutde and longitude of each polis. Because the map of greece has the same coordinates, we can add the polei on the same map. 
+Ober's data has the latitude and longitude of each polis. Because the map of Greece has the same coordinates, we can add the polei on the same map. 
 
 ```{r}
 gg_ober <- ggmap(greece) +
