@@ -1,4 +1,4 @@
-# More Counting and Visualization
+# Visualization {#dataviz}
 
 Module originally written by Shiro Kuriwaki
 
@@ -12,31 +12,14 @@ Up till now, you should have covered:
 
 Today we'll cover:
 
-* Counting. 
 * Visualization. 
 * Data Wrangling
-* Objects and Classes. 
-* Function and Packages
 
 ## Check your understanding 
 
 * What does `:` mean in R? What about `==`? `,`?, `!=` , `&`, `|`, `%in% `
 * What does `%>%` do
-* What is the difference between the console and script? What happens if you "clear" the Console? What happens if you "clear" the script? Your "environment"
-* How do you read in a spreadsheet (`csv`) into R?
-* How do you count the number of observations for a given category?
 * How do you make a barplot, in base-R and in ggplot?
-* What is the difference between a data frame and a matrix?
-* What are three ways to extract a single variable from a data frame?
-* How would you identify a class or type of an object?
-* How do you define a new function?
-
-
-## Motivation
-
-In this module, let's jump into using the basic functions of R from an actual Census.
-
-Why care about the Census? The Census is one of the fundamental acts of a government. See the Law Review article by [Persily (2011)](http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf), "The Law of the Census"^[[Persily, Nathaniel. 2011. "The Law of the Census: How to Count, What to Count, Whom to Count, and Where to Count Them.” _Cardozo Law Review_ 32(3): 755–91.](http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf)]. The Census is government's primary tool for apportionment (allocating seats to districts), appropriations (allocating federal funding), and tracking demographic change.  See^[[Hochschild, Jennifer L., and Brenna Marea Powell. 2008. "Racial Reorganization and the United States Census 1850–1930: Mulattoes, Half-Breeds, Mixed Parentage, Hindoos, and the Mexican Race." _Studies in American Political Development_ 22(1): 59–96.](https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2)] for example [Hochschild and Powell (2008)](https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2) on how the categorizations of race in the Census during 1850-1930.
 
 
 ```{r libraries, message=FALSE, warning=FALSE}
@@ -46,6 +29,16 @@ library(scales)
 library(forcats)
 library(ggplot2)
 ```
+
+
+
+## Motivation
+
+In this module, let's jump into using the basic functions of R from an actual Census.
+
+Why care about the Census? The Census is one of the fundamental acts of a government. See the Law Review article by [Persily (2011)](http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf), "The Law of the Census"^[[Persily, Nathaniel. 2011. "The Law of the Census: How to Count, What to Count, Whom to Count, and Where to Count Them.” _Cardozo Law Review_ 32(3): 755–91.](http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf)]. The Census is government's primary tool for apportionment (allocating seats to districts), appropriations (allocating federal funding), and tracking demographic change.  See^[[Hochschild, Jennifer L., and Brenna Marea Powell. 2008. "Racial Reorganization and the United States Census 1850–1930: Mulattoes, Half-Breeds, Mixed Parentage, Hindoos, and the Mexican Race." _Studies in American Political Development_ 22(1): 59–96.](https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2)] for example [Hochschild and Powell (2008)](https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2) on how the categorizations of race in the Census during 1850-1930.
+
+
 
 ## Read data
 The first of line code you will write is often to read in data. Here, let's read in a subset of the 2010 Census. This is a 0.01 percent random sample of the entire U.S. Census. 
