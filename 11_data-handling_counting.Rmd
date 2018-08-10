@@ -24,6 +24,10 @@ Before we start -- many things in R and other open source packages have competin
 
 ## A is for Athens
 
+For our first dataset, let's try reading in a dataset on the Ancient Greek world. Political Thoerists and Political Historians study the domestic systems, international wars, culutures and writing of this era to understand the first instance of democracy, the rise and overtunring of tyranny, and the legacies of political institutions. 
+
+This POLIS dataset was generously provided by Professor Josiah Ober of Stanford University. This dataset includes information on city states in the Ancient Greek world, parts of it collected by careful work by historians and archeologists. It is part of his recent books on Greece (Ober 2015), "The Rise and Fall of lassical Greece"^[[Ober, Josiah (2015). _The Rise and Fall of lassical Greece_. Princeton University Press.](https://press.princeton.edu/titles/10423.html)] and Institutions in Ancient Athens (Ober 2010) , "Democracy and Knowledge: Innovation and Learning in Classical Athens"^[[Ober, Josiah (2010). _Democracy and Knowledge: Innovation and Learning in Classical Athens_. Princeton University Press.](https://press.princeton.edu/titles/8742.html)]
+
 ### Preliminaries 
 What files do we have in the `input` folder?
 
