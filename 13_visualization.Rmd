@@ -1,5 +1,11 @@
 # Visualization {#dataviz}
 
+
+```{r, include=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(scales)
+```
+
 Module originally written by Shiro Kuriwaki
 
 
@@ -22,12 +28,12 @@ Today we'll cover:
 * What does `:` mean in R? What about `==`? `,`?, `!=` , `&`, `|`, `%in% `
 * What does `%>%` do
 * How do you make a barplot, in base-R and in ggplot?
+* How do you add layers to a ggplot?
+* How do you change the axes of a ggplot? 
+* How do you make a histogram? 
+* How do you make a graph that looks like this?
 
-
-```{r libraries, message=FALSE, warning=FALSE}
-library(tidyverse)
-library(scales)
-```
+![By Randy Schutt - Own work, CC BY-SA 3.0, [Wikimedia.]( https://commons.wikimedia.org/w/index.php?curid=29585342)](images/Martin-Quinn_Wikipedia.png)
 
 
 
@@ -36,10 +42,10 @@ library(scales)
 In this module, let's visualize some cross-sectional stats with an actual Census. Then, we'll do an example on time trends with Supreme Court ideal points. 
 
 
-Why care about the Census? The Census is one of the fundamental acts of a government. See the Law Review article by [Persily (2011)](http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf), "The Law of the Census"^[[Persily, Nathaniel. 2011. "The Law of the Census: How to Count, What to Count, Whom to Count, and Where to Count Them.”](http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf). _Cardozo Law Review_ 32(3): 755–91.]. The Census is government's primary tool for apportionment (allocating seats to districts), appropriations (allocating federal funding), and tracking demographic change.  See^[[Hochschild, Jennifer L., and Brenna Marea Powell. 2008. "Racial Reorganization and the United States Census 1850–1930: Mulattoes, Half-Breeds, Mixed Parentage, Hindoos, and the Mexican Race."](https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2). _Studies in American Political Development_ 22(1): 59–96.] for example [Hochschild and Powell (2008)](https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2) on how the categorizations of race in the Census during 1850-1930.
+Why care about the Census? The Census is one of the fundamental acts of a government. See the Law Review article by [Persily (2011)](http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf), "The Law of the Census"^[[Persily, Nathaniel. 2011. "The Law of the Census: How to Count, What to Count, Whom to Count, and Where to Count Them.”](http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf). _Cardozo Law Review_ 32(3): 755–91.]. The Census is government's primary tool for apportionment (allocating seats to districts), appropriations (allocating federal funding), and tracking demographic change.  See^[[Hochschild, Jennifer L., and Brenna Marea Powell. 2008. "Racial Reorganization and the United States Census 1850–1930: Mulattoes, Half-Breeds, Mixed Parentage, Hindoos, and the Mexican Race."](https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2). _Studies in American Political Development_ 22(1): 59–96.] for example [Hochschild and Powell (2008)](https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2) on how the categorizations of race in the Census during 1850-1930. Notice also that both of these pieces are not inherently "quantitative" --- the Persily article is a Law Review and the Hochschild and Powell article is on American Historical Development --- but data analysis would be certainly relevant.
 
 
-Time series data is a common form of data in social science data, and there is growing methodological work on making causal inferences with time series^[[Blackwell, Matthew,  and Adam Glynn. 2018. "How to Make Causal Inferences with Time-Series Cross-Sectional Data under Selection on Observables."](https://doi.org/10.1017/S0003055418000357)  _American Political Science Review_]. 
+Time series data is a common form of data in social science data, and there is growing methodological work on making causal inferences with time series^[[Blackwell, Matthew,  and Adam Glynn. 2018. "How to Make Causal Inferences with Time-Series Cross-Sectional Data under Selection on Observables."](https://doi.org/10.1017/S0003055418000357)  _American Political Science Review_].  We will use the the ideological estimates of the Supreme court, which has been in the news with Brett Kavanaugh's nomination. s
 
 
 
@@ -230,14 +236,15 @@ grp_race_state
 
 Now, we want to tell `ggplot2` something like the following: I want bars by state, where heights indicate racial groups. Each bar should be colored by the race. With some googling, you will get something like this 
 ```{r, fig.height = 8}
-ggplot(data = grp_race_state, aes(x = state, y = count,  fill = race)) +
+ggplot(data = grp_race_state, aes(x =  state, y = count,  fill = race)) +
   geom_col(position = "fill") + # the position is dertemined by the fill ae
-  scale_fill_brewer(palette = "OrRd", direction = -1) + # choose palette
+  scale_fill_brewer(name = "Census Race", palette = "OrRd", direction = -1) + # choose palette
   coord_flip() + # flip axes
   scale_y_continuous(labels = percent) + # label numbers as percentage
   labs(y = "Proportion of Racial Group within State",
        x = "",
-       source = "Source: 2010 Census  sample")
+       source = "Source: 2010 Census  sample") +
+  theme_minimal()
 ```
 
 
@@ -287,7 +294,7 @@ ggplot(justice, aes(x = term, y = idealpt, group = justice)) +
 
 This seems to "work" off the shelf. But take a moment to see why the code was written as it is and how that maps on to the graphics. In particular, what is the `group` aesthetic doing for you? What would happen if that was not specified?
 
-Now, this graphic already indicates a lot, but let's improve the graphics so people can actually read it.  This is left for Exercise 3. 
+Now, this graphic already indicates a lot, but let's improve the graphics so people can actually read it.  This is left for a Exercise. 
 
 
 As social scientists, we should also not forget to ask ourselves whether these numerical measures are fit for what we care about, or actually succeeds in measuring what we'd like to measure. The estimation of these "ideal points" is a subfield of political methodology beyond this prefresher. For more reading, skim through the original paper by Martin and Quinn (2002)^[[Martin, Andrew D. and Kevin M. Quinn. 2002. "Dynamic Ideal Point Estimation via Markov Chain Monte Carlo for the U.S. Supreme Court, 1953-1999"](http://mqscores.lsa.umich.edu/media/pa02.pdf). _Political Analysis._ 10(2): 134-153.]. Also for a methodological discussion on the difficulty of measuring time series of preferences, check out Bailey (2013)^[[Bailey, Michael A. 2013. "Is Today’s Court the Most Conservative in Sixty Years? Challenges and Opportunities in Measuring Judicial Preferences." ](https://michaelbailey.georgetown.domains/wp-content/uploads/2018/05/JOP_proofs_June2013.pdf). _Journal of Politics_ 75(3): 821-834]
@@ -339,3 +346,16 @@ Load the 1 percent sample of the 2015 ACS (`acs2015_1percent.csv`, in the `input
 # Enter yourself
 
 ```
+
+### Exercise 4 
+
+The Figure we made that shows racial composition by state has one notable shortcoming: it orders the states alphabetically, which is not particularly useful if you want see an overall pattern, without having particular states in mind. 
+
+
+Find a way to modify the figures so that the states are ordered by the _proportion_ of White residents in the sample. 
+
+
+```{r}
+# Enter yourself
+```
+
