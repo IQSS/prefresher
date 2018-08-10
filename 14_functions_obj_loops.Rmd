@@ -6,7 +6,8 @@
 
 Now that we have covered some hands-on ways to use graphics, let's go into some fundamentals of the R language. 
 
-## Setup
+Let's first set up 
+
 ```{r, message=FALSE, warning=FALSE}
 library(dplyr)
 library(readr)
