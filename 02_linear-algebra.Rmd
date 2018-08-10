@@ -40,7 +40,6 @@ __Vector Norm__: The norm of a vector is a measure of its length.  There are man
 
 ```{exercise, name = "Vector Algebra"}
 
-
 Let $u = \begin{pmatrix} 7&1&-5&3\end{pmatrix}$, $v = \begin{pmatrix} 9&-3&2&8 \end{pmatrix}$, $w = \begin{pmatrix} 1&13& -7&2 &15 \end{pmatrix}$, and $c = 2$. Calculate the following: 
   
   1. $u-v$
@@ -50,6 +49,8 @@ Let $u = \begin{pmatrix} 7&1&-5&3\end{pmatrix}$, $v = \begin{pmatrix} 9&-3&2&8 \
   3. $u \cdot v$
   
   4. $w \cdot v$
+  
+
 ```
 
 ## Linear Independence {#linearindependence}
@@ -67,12 +68,13 @@ A set $S$ of vectors is linearly dependent iff at least one of the vectors in $S
 
 ```{exercise, name = "Linear Independence"}
 
-
 Are the following sets of vectors linearly independent?
   
   1. $${\bf v}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} $$ 
   
-  2. $${\bf v}_1 = \begin{pmatrix} 3 \\ 2 \\ -1 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} -2 \\ 2 \\ 4 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} 2 \\ 3 \\ 1 \end{pmatrix} $$ 
+  2. $${\bf v}_1 = \begin{pmatrix} 3 \\ 2 \\ -1 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} -2 \\ 2 \\ 4 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} 2 \\ 3 \\ 1 \end{pmatrix} $$
+
+
 ```
 
 
@@ -207,11 +209,12 @@ $$B = \begin{pmatrix} 1&5&-7\\1&1&0\\0&-1&1\\2&0&0\end{pmatrix} $$
 
 Calculate the following:
   
-  $$1. AB$$
-  $$2. BA$$
-  $$3. (BC)^T$$
-  $$4. BC^T$$
+1. $$AB$$
+2. $$BA$$
+3. $$(BC)^T$$
+4. $$BC^T$$
 
+  
 ```
 	
 
@@ -289,6 +292,8 @@ Provide a system of 2 equations with 2 unknowns that has
 2. no solution
 
 3. infinite solution
+
+
 ```
 
 
@@ -334,6 +339,8 @@ Create an augmented matrix that represent the following system of equations:
   $$2x_1 -7x_2 + 9x_3 -4x_4 = 8$$
   $$41x_2 + 9x_3 -5x_6 = 11$$
   $$x_1 -15x_2 -11x_5 = 9$$
+
+
 ```
 
 ## Finding Solutions to Augmented Matrices and Systems of Equations
@@ -488,6 +495,8 @@ Find the rank of each matrix below:
 1 & 3 & 1 & 1 & 3 \\
 1 & 3 & 2 & -1 & -2 \\
 1 & 3 & 0 & 3 & -2 \end{pmatrix}$
+  
+
 ```
 
 
@@ -618,22 +627,24 @@ If $\bf{A}$ is an $n\times n$ matrix,then $\bf{Ax}=\bf{b}$ is a system of $n$ eq
 Hence, given $\bf{A}$ and $\bf{b}$ and given that $\bf{A}$ is nonsingular, then $\bf{x} = \bf{A}^{-1} \bf{b}$ is a unique solution to this system.
 
 
-```{exercise, name = "Solve linear system using inverses"}
-
-
+```{exercise, ils, name = "Solve linear system using inverses"}
 Use the inverse matrix to solve the following linear system:
 
-  
-\begin{eqnarray*} 
--3x + 4y = 5 \\
-2x - y = -10
-\end{eqnarray*}
+\begin{align*} 
+-3x + 4y &= 5 \\
+2x - y &= -10
+\end{align*}
 
 
 ___Hint: the linear system above can be written in the matrix form___ 
 
-Ax = b given A = \begin{pmatrix} -3&4\\2&-1 \end{pmatrix}, x = \begin{pmatrix} x\\y \end{pmatrix}, and b = \begin{pmatrix} 5\\-10 \end{pmatrix}
+$\textbf{A}\textbf{z} = \textbf{b}$ 
+  
+given \[\textbf{A} = \begin{pmatrix} -3&4\\2&-1 \end{pmatrix},\] 
 
+\[\textbf{z} = \begin{pmatrix} x\\y \end{pmatrix},\] 
+and 
+\[\textbf{b} = \begin{pmatrix} 5\\-10 \end{pmatrix}\]
 
 ```
 
@@ -734,14 +745,16 @@ The determinant of a $2 \times 2$ matrix __A__ $\begin{pmatrix} a & b\\ c & d\\ 
 		
 Example:
 
-Let's calculate the inverse of matrix A from Exercise 2.9 using the determinant formula. 
+Let's calculate the inverse of matrix $\textbf{A}$ from Exercise \@ref(exr:ils) using the determinant formula. 
 
-Recall, A = \begin{pmatrix}
+Recall, 
+
+\[A = \begin{pmatrix}
 			-3 & 4\\
 			2 & -1\\
-		\end{pmatrix}
+		\end{pmatrix}\]
 		
-$\det({\bf A})$ = (-3)(-1) - (4)(2) = 3 - 8  = -5
+\[\det({\bf A}) = (-3)(-1) - (4)(2) = 3 - 8  = -5\]
 
 \[\frac{1}{\det({\bf A})} \begin{pmatrix}
 			-1 & -4\\
@@ -767,4 +780,6 @@ $$A = \begin{pmatrix}
 			3 & 5\\
 			-7 & 2\\
 		\end{pmatrix}$$
+
+
 ```
