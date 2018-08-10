@@ -176,3 +176,8 @@ Read Ober's codebook and find a variable that you think is interesting. Check th
 ```{r}
 # Enter here
 ```
+
+
+
+## Tell us about this session. 
+This is day 1 and we covered a lot of material. Some of you might have found this completely new; others not so. Please click through this survey before you leave so we can adjust accordingly on the next few days.
