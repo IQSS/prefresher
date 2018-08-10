@@ -8,6 +8,8 @@ Module originally written by Shiro Kuriwaki
 Up till now, you should have covered:
 
 * The R Visualization and Programming primers at  <https://rstudio.cloud/primers/>
+* Reading and handling data
+* Matrices and Vectors
 
 
 Today we'll cover:

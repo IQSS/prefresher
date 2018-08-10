@@ -1,8 +1,26 @@
 # (PART) Programming {-}
 
+Module originally written by Shiro Kuriwaki
+
 # Data Import and Handling
 
-Module originally written by Shiro Kuriwaki
+Up till now, you should have covered:
+
+* The R Visualization and Programming primers at  <https://rstudio.cloud/primers/>
+
+
+Today we'll cover:
+
+* Reading in Data 
+* Starting to do things with data in R
+
+## Check your understanding 
+
+* What is the difference between a file and a folder?
+* How would you read in a spreadsheet in R?
+* How would you figure out what variables are in the data? size of the data?
+* How would you read in a `csv` file, a `dta` file, a `sav` file?
+
 
 ```{r, include = FALSE, message = FALSE}
 library(tidyverse)
@@ -158,8 +176,3 @@ Read Ober's codebook and find a variable that you think is interesting. Check th
 ```{r}
 # Enter here
 ```
-
-
-
-
-
