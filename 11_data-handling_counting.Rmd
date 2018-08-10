@@ -1,0 +1,161 @@
+# (PART) Programming {-}
+
+# Data Import and Handling
+
+Module originally written by Shiro Kuriwaki
+
+```{r, include = FALSE, message = FALSE}
+library(tidyverse)
+library(fs)
+```
+
+## Motivation: Data and You 
+
+The modal social science project starts by importing existing datasets. Datasets come in all shapes and sizes. As you search for new data you may encounter dozens of file extensions -- csv, xlsx, dta, sav, por, Rdata, Rds, txt, xml, json, shp ... the list continues. Although these files can often be cumbersome, its a good to be able to find a way to encounter any file that your research may call for. 
+
+Reviewing data import will allow us to get on the same page on how computer systems work.
+
+
+
+Before we start -- many things in R and other open source packages have competing standards. A lecture on a technique inevitably biases one standard over another. We try our best to choose the one that is most relevant and useful, but feel free to suggest changes to us or to the booklet. 
+
+![](images/xkcd_927_standards.png)
+
+
+## A is for Athens
+
+### Preliminaries 
+What files do we have in the `input` folder?
+
+```{r, echo = FALSE}
+dir_ls("input")
+```
+
+A typical file format is Microsoft Excel. Although this is not usually the best format for R because of its highly formatted structure as opposed to plain text (more on this in Section \ref@(wysiwyg)), recent packages have made this fairly easy. 
+
+For the first time using an outside package, you first need to install it. 
+```{r, eval = FALSE}
+install.packages("readxl")
+```
+
+After that, you don't need to install it again. But you do need to load it. 
+
+```{r}
+library(readxl)
+```
+
+The package `readxl` has a website: https://readxl.tidyverse.org/. Others are not as user-friendly, but they have a help page with a table of contents of all their functions. 
+
+```{r}
+help(package = readxl)
+```
+
+
+### Reading in
+
+From the help page, we see that `read_excel()` is the function that we want to use. Let's try it. 
+
+```{r}
+ober_raw <- read_excel("input/complete_greek_data 5 DISTRIBUTION 2018.xlsx")
+```
+
+What does the `/` mean?  Why do we need the `input` term first? Does the argument need to be in quotes?
+
+
+### Inspecting 
+
+For almost any dataset, you usually want to do a couple of standard checks first to understand what you loaded.
+
+
+```{r}
+ober_raw
+```
+
+
+```{r}
+dim(ober_raw)
+```
+
+From your tutorials, you also know how to do graphics! Graphics are useful for grasping your data, but we will cover them more depply in Chapter \@ref(dataviz).
+
+
+```{r}
+ggplot(ober_raw, aes(x = Fame)) + geom_histogram()
+```
+
+What about the distribution of fame by regime?
+```{r}
+ggplot(ober_raw, aes(y = Fame, x = factor(Regime), group = factor(Regime))) +
+  geom_boxplot()
+```
+
+What do the 1's, 2's, and 3's stand for? 
+
+
+### Extra: A sneak peak at Ober's data
+
+
+Although this is a bit beyond our current stage, it's hard to resist the temptation to see what you can do with data like this.  For example, you can map it. 
+
+Using the `ggmap` package
+```{r}
+library(ggmap)
+```
+
+First get a map of the Greek world.
+```{r, message=FALSE}
+greece <- get_map(location = c(lat = 39.543287, lon = 22.6382849),
+                  zoom = 5, 
+                  source = "stamen",
+                  maptype = "toner")
+ggmap(greece)
+```
+I chose the specifications for arguments `zoom` and `maptype` by looking at the webpage and Gooling some examples/ 
+
+
+Ober's data has the latitutde and longitude of each polis. Because the map of greece has the same coordinates, we can add the polei on the same map. 
+
+```{r}
+gg_ober <- ggmap(greece) +
+  geom_point(data = ober_raw, 
+             aes(y = Latitude, x = Longitude), 
+             size = 0.5,
+             alpha = 0.5,
+             color = "gray")
+gg_ober
+```
+
+We can also color the points by another variable, like Fame. 
+
+```{r}
+gg_ober_fame <- ggmap(greece) +
+  geom_point(data = ober_raw, 
+             aes(y = Latitude, x = Longitude, color = Fame)) +
+  scale_color_gradient(low = "white", high = "indianred")
+gg_ober_fame
+```
+
+
+## Exercises
+
+### 1 {-}
+Find the right function to read the following datasets into your R window. 
+
+```{r, echo = FALSE}
+dir_ls("input", regexp = "(Wantchekon_sample|usc2010|sav)")
+```
+
+
+
+
+### 2 {-}
+Read Ober's codebook and find a variable that you think is interesting. Check the distribution of that variable in your data, get a couple of statistics, and summarize it in English.
+
+```{r}
+# Enter here
+```
+
+
+
+
+
