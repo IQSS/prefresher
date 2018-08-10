@@ -25,11 +25,8 @@ Today we'll cover:
 
 
 ```{r libraries, message=FALSE, warning=FALSE}
-library(dplyr)
-library(readr)
+library(tidyverse)
 library(scales)
-library(forcats)
-library(ggplot2)
 ```
 
 
@@ -107,7 +104,7 @@ These `tidyverse` commands from the `dplyr` package are newer and not built-in, 
 * The `%>%` symbol is a pipe. It takes the thing on the left side and pipes it down to the function on the right side. `cen10 %>% group_by(race)` means take `cen10` and pass it on to the function `group_by`, which will group observations by race. Passing that (`%>%`) to `summarize(count = n())` means to then summarize the grouped output by the variable `count`, which we define by the number of rows `n()`. 
 
 
-## Visualization
+## base R and ggplot
 Visualizing data is the key part of communication; good data viz gets the point across^[[Kastellec, Jonathan P., and Eduardo L. Leoni. 2007. "Using Graphs Instead of Tables in Political Science."" _Perspectives on Politics_ 5 (4): 755–71.](http://www.princeton.edu/~jkastell/Tables2Graphs/graphs.pdf)]. 
 
 Two prevalent ways of making graphing are referred to as "base-R" and "ggplot".
@@ -148,7 +145,7 @@ ggplot(data = grp_race, aes(x = race, y = count)) + geom_col()
 ```
 
 
-### Improving your graphics
+## Improving your graphics
 Adjusting your graphics to make the point clear is an important skill. Here is an example of showing the same numbers but with a different design, in a way that aims to maximize the "data-to-ink ratio".
 
 
@@ -182,18 +179,16 @@ ggplot(data = grp_race_ordered, aes(x = race, y = count)) +
 The data ink ratio was popularized by Ed Tufte (originally a political economy scholar who has recently become well known for his data visualization work). See Tufte (2001),  _The Visual Display of Quantitative Information_ and his website <https://www.edwardtufte.com/tufte/>.  For a R and ggplot focused example using social science examples, check out Healy  (2018). _Data Visualization: A Practical Introduction_ with a draft at <https://socviz.co/>  There are a growing number of excellent books on data visulization.
 
 
-### Cross-tabs
+## Cross-tabs
+
+Visualizations and Tables each have their states. A rule of thumb is that more than a dozen numbers on a table is too much to digest, but less than a dozen is too few for a figure to be worth it. Let's look at a table first. 
+
+
 A cross-tab is counting with two types of variables, and is a simple and powerful tool to show the relationship between multiple variables.
 
 ```{r}
 xtab_race_state <- table(cen10$race, cen10$state)
 dim(xtab_race_state)
-```
-
-The `barplot` function kindly takes cross-tabs and figures out how to plot them:
-```{r}
-par(oma = c(2,2,2,2))
-barplot(xtab_race_state)
 ```
 
 What if we care about proportions within states, rather than counts. We want to compare the racial composition of a small state (like Delaware) and a large state (like California). 
@@ -205,11 +200,8 @@ ptab_race_state <- prop.table(xtab_race_state, margin = 2)
 dim(ptab_race_state)
 ```
 
-Now we can plot these numbers. Let's orient them horizontally:
-```{r, fig.fullwidth = TRUE, fig.height = 8}
-barplot(ptab_race_state, horiz = TRUE, las = 1)
-```
 
+## Composition Plots
 
 To make the same figure with `ggplot()`. 
 
@@ -241,7 +233,7 @@ ggplot(data = grp_race_state, aes(x = state, y = count,  fill = race)) +
 ```
 
 
-### Histograms
+## Histograms
 When our data is continuous rather than categorical, our first graphics will probably be a histogram.
 
 ```{r}
@@ -253,6 +245,44 @@ hist(cen10$age, main = "Age Distribution", xlab = "Age")
 ggplot(data = cen10, aes(x = age)) +
   geom_histogram()
 ```
+
+
+
+## Line graphs
+
+Line graphs are useful for plotting time trends.  Time series data is a common form of data in social science data, and there is growing methodological work on making causal inferences with time series^[Blackwell, Matthew,  and Adam Glynn (2018). "How to Make Causal Inferences with Time-Series Cross-Sectional Data under Selection on Observables." _American Political Science Review_]. 
+
+The Census does not track individuals over time. So let's take up another example: The U.S. Supreme Court. Take the dataset `justices_median.csv`.
+
+This data is adapted from the estimates of Martin and Quinn. 
+
+
+```{r, message=FALSE}
+justice <- read_csv("input/justices_court-median.csv")
+```
+
+What does the data look like? How do you think it is organized? What does each row represent?
+
+
+```{r}
+justice
+```
+
+
+
+As you might have guessed, these data can be shown in a time trend from the range of the `term` variable. As there are only nine justices at any given time and justices have life tenure, there times on the court are staggered. With a common measure of "preference", we can plot time trends of these justices ideal points on the same y-axis scale. 
+
+
+```{r}
+ggplot(justice, aes(x = term, y = idealpt, group = justice)) +
+  geom_line()
+```
+
+This seems to "work" off the shelf. But take a moment to see why the code was written as it is and how that maps on to the graphics. In particular, what is the `group` aesthetic doing for you? What would happen if that was not specified?
+
+Now, this graphic already indicates a lot, but let's improve the graphics so people can actually read it.  This is left for Exercise 3. 
+
+
 
 
 
@@ -269,21 +299,34 @@ Make a graphic from the census data that tells us something interesting about th
 
 
 ### Exercise 2: Counting CVAP
-A issue raised in Persily's article is that the full-count U.S. Census does not record  whether the residents are citizens of the United States^[Here is that argument of his again, more recently in the popular press. ["The Mysterious Number of American Citizens". June 2, 2015.  _POLITICO_](http://www.politico.com/magazine/story/2015/06/the-supreme-courts-big-data-problem-118568)]. Instead, this question is asked in a survey, the American Community Survey. The two are fundamentally different exercises: the Census counts everyone by definition, a survey samples its data. Load the 1 percent sample of the 2015 ACS (`acs2015_1percent.csv`, in the `input` folder) and give an estimate of the proportion of a state's ACS respondents that are reportedly U.S. citizens. 
+A issue raised in Persily's article is that the full-count U.S. Census does not record  whether the residents are citizens of the United States^[Here is that argument of his again, more recently in the popular press. ["The Mysterious Number of American Citizens". June 2, 2015.  _POLITICO_](http://www.politico.com/magazine/story/2015/06/the-supreme-courts-big-data-problem-118568)]. Instead, this question is asked in a survey, the American Community Survey. The two are fundamentally different exercises: the Census counts everyone by definition, a survey samples its data. 
+
+Load the 1 percent sample of the 2015 ACS (`acs2015_1percent.csv`, in the `input` folder) and give an estimate of the proportion of a state's ACS respondents that are reportedly U.S. citizens. 
 
 ```{r}
 # Enter yourself
 
 ```
 
-### Exercise 3: Write your own function
-Write your own function that makes some task of data analysis simpler. Ideally, it would be a function that helps you do either of the previous tasks in fewer lines of code. 
+
+### Exercise 3: The Swing Justice
+
+Using the `justice` dataset and building off of the plot that was given, make an improved plot that has the following features. 
+
+* Plots each line in translucent gray, so the overlapping lines can be visualized clearly.
+* Use a black-white background.
+* Label axes
+* Change the breaks of the x-axis to print numbers for every decade, not just every two decades.
+* Limit the scale of the y-axis to [-5, 5] so that the outlier justice in the 60s is trimmed and the rest of the data can be seen more easily (also, who is that justice?)
+* Plot the ideal point of the justice who holds the "median" ideal point in a given term. To distinguish this with the others, plot this line separately in a very light red _below_ the individual justice's lines.
+* Highlight the trendline of only the nine justices who are _currently_ sitting on SCOTUS. Make sure this is clearer than the other past justices. 
+* Add the current nine justice's names to the right of the endpoint of the 2016 figure, alongside their ideal point. 
+* Make sure the text labels do not overlap with each other for readability using the `ggrepel` package. 
+* Extend the x-axis label to about 2020 so the text labels of justices are to the right of the trendlines.
+* Add a caption to your text describing the data briefly, as well as any features relevant for the reader (such as the median line and the trimming of the y-axis)
+
+
 ```{r}
 # Enter yourself
 
 ``` 
-
-
-
-## Tell us about this session. 
-This is day 1 and we covered a lot of material. Some of you might have found this completely new; others not so. Please click through this survey before you leave so we can adjust accordingly on the next few days.
