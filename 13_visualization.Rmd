@@ -104,18 +104,25 @@ table(cen10$race)
 ```
 
 
-With tidyverse, use `group_by` to group by a variable, and then `summarize` to count. 
+With tidyverse, a quick convenience function is `count`, with the variable to count on included.
 ```{r}
-cen10 %>% 
-  group_by(race) %>%
-  summarize(count = n())
+cen10 %>% count(race)
 ```
 
 These `tidyverse` commands from the `dplyr` package are newer and not built-in, but they are one of the increasingly more popular ways to wrangle data. 
 
 * 80 percent of your data wrangling needs might be doable with these basic `dplyr` functions: `select`, `mutate`, `group_by`, `summarize`, and `arrange`.
 * These verbs roughly correspond to the same commands in SQL, another important language in data science. 
-* The `%>%` symbol is a pipe. It takes the thing on the left side and pipes it down to the function on the right side. `cen10 %>% group_by(race)` means take `cen10` and pass it on to the function `group_by`, which will group observations by race. Passing that (`%>%`) to `summarize(count = n())` means to then summarize the grouped output by the variable `count`, which we define by the number of rows `n()`. 
+* The `%>%` symbol is a pipe. It takes the thing on the left side and pipes it down to the function on the right side. `cen10 %>% count(race)` means take `cen10` and pass it on to the function `count`, which will count observations by race and return a collapsed dataset with the categories in its own variable and their respective counts in `n`,
+* `count` is a kind of shorthand for `group_by()` and `summarize`. This code would have done the same. 
+
+```{r}
+cen10 %>% 
+  group_by(race) %>% 
+  summarize(n = n())
+```
+
+where `n()` is a function that counts rows.
 
 
 ## base R and ggplot
@@ -140,11 +147,10 @@ barplot(tab_race)
 ### ggplot
 A popular alternative a `ggplot` graphics. `gg` stands for grammar of graphics by Hadley Wickham, and it has a new semantics of explaining graphics in R. Again, first let's set up the data. 
 
-Let's group and count first, like we just did.
+Let's group and count first, like we just did before.
 
 ```{r, fig.fullwidth = TRUE}
-grp_race <- group_by(cen10, race) %>%
-  summarize(count = n())
+grp_race <- count(cen10, race)
 ```
 
 We will now plot this grouped set of numbers. The `ggplot()` function takes two main arguments, `data` and `aes`. 
