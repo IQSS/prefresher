@@ -22,7 +22,7 @@ library(patchwork)
 ```
 
 
-## The Meltzer and Richards Model
+## The Meltzer and Richards Model {-}
 
 
 
