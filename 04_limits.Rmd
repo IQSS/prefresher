@@ -1,4 +1,6 @@
-# Limits
+# Limits {#limits}
+
+## Example: The Central Limit Theorem {-}
 
 ## Dimensionality
 
@@ -7,9 +9,8 @@ ${\bf R}^1$ is the set of all real numbers extending from $-\infty$ to $+\infty$
 * ${\bf R}^1$ is a one dimensional line.
 * ${\bf R}^2$ is a two dimensional plane.
 * ${\bf R}^3$ is a three dimensional space.
-* ${\bf R}^4$ could be 3-D plus time (or temperature, etc).
 
-Points in ${\bf R}^n$ are ordered $n$-tuples, where each element of the $n$-tuple represents the coordinate along that dimension.
+Points in ${\bf R}^n$ are ordered $n$-tuples (just means an combination of $n$ elements where order matters), where each element of the $n$-tuple represents the coordinate along that dimension.
 
 * ${\bf R}^1$: (3)
 * ${\bf R}^2$: (-15, 5)
