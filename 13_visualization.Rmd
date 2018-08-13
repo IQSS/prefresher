@@ -20,7 +20,7 @@ Up till now, you should have covered:
 
 Today we'll cover:
 
-* Visualization^
+* Visualization
 * A bit of data wrangling
 
 ## Check your understanding 
@@ -201,7 +201,7 @@ ggplot(data = grp_race_ordered, aes(x = race, y = n)) +
 ```
 
 
-The data ink ratio was popularized by Ed Tufte (originally a political economy scholar who has recently become well known for his data visualization work). See Tufte (2001),  _The Visual Display of Quantitative Information_ and his website <https://www.edwardtufte.com/tufte/>.  For a R and ggplot focused example using social science examples, check out Healy  (2018). _Data Visualization: A Practical Introduction_ with a draft at <https://socviz.co/>  There are a growing number of excellent books on data visualization.
+The data ink ratio was popularized by Ed Tufte (originally a political economy scholar who has recently become well known for his data visualization work). See Tufte (2001),  _The Visual Display of Quantitative Information_ and his website <https://www.edwardtufte.com/tufte/>.  For a R and ggplot focused example using social science examples, check out Healy (2018),  _Data Visualization: A Practical Introduction_ with a draft at <https://socviz.co/>^[Healy, Kieran. forthcoming. _Data Visualization:  A Practical Introduction_. Princeton University Press].  There are a growing number of excellent books on data visualization.
 
 
 ## Cross-tabs
