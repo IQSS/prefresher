@@ -20,8 +20,8 @@ Up till now, you should have covered:
 
 Today we'll cover:
 
-* Visualization. 
-* Data Wrangling
+* Visualization^
+* A bit of data wrangling
 
 ## Check your understanding 
 
@@ -57,8 +57,8 @@ First, the census.
 The first of line code you will write is often to read in data. Here, let's read in a subset of the 2010 Census. This is a 0.01 percent random sample of the entire U.S. Census. 
 
 
-```{r}
-cen10 <- read_csv("input/usc2010_001percent.csv", col_types = cols())
+```{r, message=FALSE}
+cen10 <- read_csv("input/usc2010_001percent.csv")
 ```
 
 The data comes from IPUMS^[[Ruggles, Steven, Katie Genadek, Ronald Goeken, Josiah Grover, and Matthew Sobek. 2015. Integrated Public Use Microdata Series: Version 6.0 dataset](http://doi.org/10.18128/D010.V6.0)], a great source to extract and analyze Census and Census-conducted survey (ACS, CPS) data.
@@ -72,28 +72,21 @@ cen10
 
 
 ## Counting
-How many people are in your sample. Three ways to count:
+How many people are in your sample. 
+
 ```{r}
 nrow(cen10)
 ```
 
-
-```{r}
-dim(cen10)
-```
-
-
-```{r}
-length(cen10$year)
-```
-
+What are other ways (fuunctions) to get the same number?
 
 Multiply this number by the inverse of the sample proportion. Does it equal the total population of the U.S. in 2010^[The 2010 Census reported 308,745,539. [Wikipedia](https://en.wikipedia.org/wiki/2010_United_States_Census)]? 
 ```{r}
 nrow(cen10)*100*100
 ```
 
-This and all subsequent  tasks involve manipulating and summarizing data, sometimes called "wrangling". There are at least two approaches, "base-R" and "tidyverse functions". The tidyverse functions are add-ons that programmers have built, and appears to be popular.
+This and all subsequent  tasks involve manipulating and summarizing data, sometimes called "wrangling". There are at least two approaches, "base-R" and "tidyverse functions". The tidyverse functions are add-ons that programmers have built, and are increasingly popular. We will mainly focus on tidyverse, while starting off breiefly by R. 
+
 
 ## Tabulating
 Here are two ways to count by group, or to tabulate.
@@ -106,15 +99,27 @@ table(cen10$race)
 
 With tidyverse, a quick convenience function is `count`, with the variable to count on included.
 ```{r}
-cen10 %>% count(race)
+count(cen10, race)
 ```
 
 These `tidyverse` commands from the `dplyr` package are newer and not built-in, but they are one of the increasingly more popular ways to wrangle data. 
 
 * 80 percent of your data wrangling needs might be doable with these basic `dplyr` functions: `select`, `mutate`, `group_by`, `summarize`, and `arrange`.
 * These verbs roughly correspond to the same commands in SQL, another important language in data science. 
-* The `%>%` symbol is a pipe. It takes the thing on the left side and pipes it down to the function on the right side. `cen10 %>% count(race)` means take `cen10` and pass it on to the function `count`, which will count observations by race and return a collapsed dataset with the categories in its own variable and their respective counts in `n`,
-* `count` is a kind of shorthand for `group_by()` and `summarize`. This code would have done the same. 
+* The `%>%` symbol is a pipe. It takes the thing on the left side and pipes it down to the function on the right side. We could have done `count(cen10, race)` as `cen10 %>% count(race)`. That means take `cen10` and pass it on to the function `count`, which will count observations by race and return a collapsed dataset with the categories in its own variable and their respective counts in `n`.
+
+```{r}
+cen10 %>% count(race)
+```
+
+We can check out the arguments of `count` and see that there is a `sort` option. What does this do?
+```{r}
+count(cen10, race, sort = TRUE)
+```
+
+
+
+`count` is a kind of shorthand for `group_by()` and `summarize`. This code would have done the same. 
 
 ```{r}
 cen10 %>% 
@@ -161,7 +166,7 @@ We will now plot this grouped set of numbers. The `ggplot()` function takes two 
 
 
 ```{r, fig.fullwidth = TRUE}
-ggplot(data = grp_race, aes(x = race, y = count)) + geom_col()
+ggplot(data = grp_race, aes(x = race, y = n)) + geom_col()
 ```
 
 
@@ -183,10 +188,10 @@ Notice that we applied the `sort()` function to order the bars in terms of their
 
 In ggplot you might do this by:
 ```{r}
-grp_race_ordered <- arrange(grp_race, count) %>% 
+grp_race_ordered <- arrange(grp_race, n) %>% 
   mutate(race = forcats::as_factor(race))
 
-ggplot(data = grp_race_ordered, aes(x = race, y = count)) +
+ggplot(data = grp_race_ordered, aes(x = race, y = n)) +
   geom_col() +
   coord_flip() +
   labs(y = "Number in Race Category",
@@ -228,8 +233,7 @@ To make the same figure with `ggplot()`.
 First, we want a count for each state $\times$ race combination.  So group by those two factors and count how many observations are in each two-way categorization.
 ```{r}
 grp_race_state <- cen10 %>% 
-  group_by(race, state) %>% 
-  summarize(count = n())
+  count(race, state)
 ```
 
 Can you tell from the code what `grp_race_state` will look like?
@@ -242,7 +246,7 @@ grp_race_state
 
 Now, we want to tell `ggplot2` something like the following: I want bars by state, where heights indicate racial groups. Each bar should be colored by the race. With some googling, you will get something like this 
 ```{r, fig.height = 8}
-ggplot(data = grp_race_state, aes(x =  state, y = count,  fill = race)) +
+ggplot(data = grp_race_state, aes(x =  state, y = n,  fill = race)) +
   geom_col(position = "fill") + # the position is dertemined by the fill ae
   scale_fill_brewer(name = "Census Race", palette = "OrRd", direction = -1) + # choose palette
   coord_flip() + # flip axes
@@ -311,15 +315,16 @@ As social scientists, we should also not forget to ask ourselves whether these n
 ## Exercises
 In the time remaining, try the following exercises. Order doesn't matter. 
 
-### Exercise 1: Make your own graphic
+### Exercise: Make your own graphic
 Make a graphic from the census data that tells us something interesting about the U.S. 2010 population.
+
 ```{r}
 # Enter yourself
 
 ```
 
 
-### Exercise 2: The Swing Justice
+### Exercise: The swing justice
 
 Using the `justice` dataset and building off of the plot that was given, make an improved plot that has the following features. 
 
@@ -342,18 +347,7 @@ Using the `justice` dataset and building off of the plot that was given, make an
 ``` 
 
 
-### Exercise 3: Back to Census and Counting CVAP
-
-A issue raised in Persily's article is that the full-count U.S. Census does not record  whether the residents are citizens of the United States^[Here is that argument of his again, more recently in the popular press. ["The Mysterious Number of American Citizens". June 2, 2015.  _POLITICO_](http://www.politico.com/magazine/story/2015/06/the-supreme-courts-big-data-problem-118568)]. Instead, this question is asked in a survey, the American Community Survey. The two are fundamentally different exercises: the Census counts everyone by definition, a survey samples its data. 
-
-Load the 1 percent sample of the 2015 ACS (`acs2015_1percent.csv`, in the `input` folder) and give an estimate of the proportion of a state's ACS respondents that are reportedly U.S. citizens. 
-
-```{r}
-# Enter yourself
-
-```
-
-### Exercise 4 
+### Exercise: Don't sort by the alphabet
 
 The Figure we made that shows racial composition by state has one notable shortcoming: it orders the states alphabetically, which is not particularly useful if you want see an overall pattern, without having particular states in mind. 
 
@@ -365,3 +359,13 @@ Find a way to modify the figures so that the states are ordered by the _proporti
 # Enter yourself
 ```
 
+### Exercise: Back to census and counting CVAP
+
+A issue raised in Persily's article is that the full-count U.S. Census does not record  whether the residents are citizens of the United States^[Here is that argument of his again, more recently in the popular press. ["The Mysterious Number of American Citizens". June 2, 2015.  _POLITICO_](http://www.politico.com/magazine/story/2015/06/the-supreme-courts-big-data-problem-118568)]. Instead, this question is asked in a survey, the American Community Survey. The two are fundamentally different exercises: the Census counts everyone by definition, a survey samples its data. 
+
+Load the 1 percent sample of the 2015 ACS (`acs2015_1percent.csv`, in the `input` folder) and give an estimate of the proportion of a state's ACS respondents that are reportedly U.S. citizens. 
+
+```{r}
+# Enter yourself
+
+```
