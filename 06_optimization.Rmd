@@ -4,6 +4,7 @@
 ```{r, include = FALSE}
 library(ggplot2)
 library(patchwork)
+library(tibble)
 ```
 
 To optimize, we use derivatives and calculus. Optimization is to find the maximum or minimum of a functon, and to find what value of an input gives that extremum. This has obvious uses in engineering. Many tools in the statistical toolkit use optimization. One of the most common ways of estimating a model is through "Maximum Likelihood Estimation", done via optimizing a function (the likelihood). 
@@ -101,9 +102,7 @@ So for example, $f(x) = x^2 + 2$ and $f^\prime(x) = 2x$
 ```{r, echo = FALSE, fig.cap="Maxima and Minima"}
 range <- tibble::tibble(x = c(-3, 3))
 fx0 <- ggplot(range, aes(x = x)) +
-  labs(x = expression(x), y = expression(f(x))) +
-  theme_bw()
-
+  labs(x = expression(x), y = expression(f(x))) 
 fx <- fx0 +  
   stat_function(fun = function(x) x^2 + 2, size = 0.5) +
   expand_limits(y = 0)
@@ -115,7 +114,7 @@ fx + fprimex + plot_annotation(expression(f(x)==x^2+2))
 ```
 
 
-```{exercise. }
+```{exercise, name = "Plotting a mazimum and minimum"}
 Plot $f(x)=x^3+ x^2 + 2$, plot its derivative, and identifiy where the derivative is zero. Is there a maximum or minimum?
 
 ```
@@ -140,8 +139,8 @@ fx + fprimex + plot_annotation(expression(f(x)==x^3+2))
 
 The second derivative $f''(x)$ identifies whether the function $f(x)$ at the point $x$ is
 
-1. Concave down:} $f''(x)<0$
-1. Concave up:} $f''(x)>0$
+1. Concave down: $f''(x)<0$
+1. Concave up: $f''(x)>0$
 
 __Maximum (Minimum)__: $x_0$ is a __local maximum (minimum)__ if $f(x_0)>f(x)$ ($f(x_0)<f(x))$ for all $x$ within some open interval containing $x_0$.  $x_0$ is a __ global maximum (minimum)__ if $f(x_0)>f(x)$ ($f(x_0)<f(x))$ for all $x$ in the domain of $f$.
 
@@ -162,11 +161,9 @@ __Second Derivative Test of Maxima/Minima__:  We can use the second derivative t
 
 __Global Maxima and Minima__ Sometimes no global max or min exists --- e.g., $f(x)$ not bounded above or below.  However, there are three situations where we can fairly easily identify global max or min.
 
-\begin{enumerate}
-\item {\bf Functions with only one critical point.} If $x_0$ is a local max or min of $f$ and it is the only critical point, then it is the global max or min.
-\item {\bf Globally concave up or concave down functions.}  If $f''(x)$ is never zero, then there is at most one critical point. That critical point is a global maximum if $f''<0$ and a global minimum if $f''>0$.
-\item {\bf Functions over closed and bounded intervals} must have both a global maximum and a global minimum.
-\end{enumerate}
+1. __Functions with only one critical point.__ If $x_0$ is a local max or min of $f$ and it is the only critical point, then it is the global max or min.
+2. __Globally concave up or concave down functions.__  If $f''(x)$ is never zero, then there is at most one critical point. That critical point is a global maximum if $f''<0$ and a global minimum if $f''>0$.
+3. __Functions over closed and bounded intervals__ must have both a global maximum and a global minimum.
 
 
 
@@ -184,12 +181,85 @@ Find any critical points and identify whether they are a max, min, or saddle poi
 
 
 
-## Quadratic Forms
+## Concavity of a Function
 
-Quadratic forms important because
+Concavity helps identify the curvature of a function, $f(x)$, in 2 dimensional space.
+
+```{definition, name = "Concave Function"}
+A function $f$ is strictly concave over the set S \underline{if} $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) > af(x_1) + (1-a)f(x_2)$$
+\textit{Any} line connecting two points on a concave function will lie \textit{below} the function.
+```
+
+
+```{r, echo = FALSE}
+range1 <- tibble(x = c(-4, 4))
+fx1 <- ggplot(range1, aes(x = x)) +
+  stat_function(fun = function(x) -x^2, size = 0.5) +
+  labs(y = expression(f(x)), title  = "Concave")
+fx2 <- ggplot(range1, aes(x = x)) +
+  stat_function(fun = function(x) x^2, size = 0.5) +
+  labs(y = expression(f(x)), title = "Convex")
+
+fx1 + fx2
+```
+
+
+```{definition, name = "Convex Function"}
+Convex: A function f is strictly convex over the set S \underline{if} $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) < af(x_1) + (1-a)f(x_2)$$
+
+  Any line connecting two points on a convex function will lie above the function.
+```
+
+
+\begin{comment}
+  \parbox{2in}{\includegraphics[scale=.4]{Convex.pdf}}
+\end{comment}
+
+Sometimes, concavity and convexity are strict of a requirement. For most purposes of getting solutions, what we call quasi-concavity is enough.
+
+```{definition, name = "Quasiconcave Function"}
+A function f is quasiconcave over the set S if $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) \ge \min(f(x_1),f(x_2))$$
+```
+
+
+No matter what two points you select, the \textit{lowest} valued point will always be an end point.}
+
+\begin{comment}
+  \parbox{2in}{\includegraphics[scale=.4]{Quasiconcave.pdf}}
+\end{comment}
+
+```{definition, name = "Quasiconvex"}
+A function f is quasiconcave over the set $S$ if $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) \le \max(f(x_1),f(x_2))$$
+No matter what two points you select, the \textit{highest} valued point will always be an end point.
+```
+
+
+\begin{comment}
+  \parbox{1.8in}{\includegraphics[scale=.4]{Quasiconvex.pdf}}
+\end{comment}
+  
+Quasilinear: A function that is both quasiconvex and quasiconcave is quasilinear.
+
+\begin{comment}
+  \parbox{1.8in}{\includegraphics[scale=.4]{Quasilinear.pdf}}\\
+\end{comment}
+
+**Second Derivative Test of Concavity**: The second derivative can be used to understand concavity. 
+
+If
+\[\begin{array}{lll}
+f''(x) < 0 & \Rightarrow & \text{Concave}\\
+f''(x) > 0 & \Rightarrow & \text{Convex}
+\end{array}\]
+
+
+### Quadratic Forms {-}
+
+Quadratic forms is shorthand for a way to summarize a function. This is important for finding concavity because
+
 1. Approximates local curvature around a point --- e.g., used to
 identify max vs min vs saddle point.
-2. Simple, so easy to deal with.
+2. They are simple to express even in $n$ dimensions:
 3. Have a matrix representation.
 
 __Quadratic Form__:  A polynomial where each term is a monomial
@@ -220,77 +290,14 @@ a_{11}&\frac{1}{2}a_{12}&\cdots&\frac{1}{2}a_{1n}\\
 &= \mathbf{x}^T\mathbf{Ax}
 \end{align*}
 
-Examples:
-  \begin{enumerate}
-  \item Quadratic on $\mathbf{R}^2$:
-  \begin{eqnarray*}
-  Q(x_1,x_2)&=&\begin{pmatrix} x_1& x_2 \end{pmatrix} \begin{pmatrix} a_{11}&\frac{1}{2} a_{12}\\
+For example, the  Quadratic on $\mathbf{R}^2$:
+\begin{align*}
+  Q(x_1,x_2)&=\begin{pmatrix} x_1& x_2 \end{pmatrix} \begin{pmatrix} a_{11}&\frac{1}{2} a_{12}\\
   \frac{1}{2}a_{12}&a_{22}\end{pmatrix} \begin{pmatrix} x_1\\x_2 \end{pmatrix} \\
-  &=& a_{11}x_1^2 + a_{12}x_1x_2 + a_{22}x_2^2
-  \end{eqnarray*}
-  
-  \item Quadratic on $\mathbf{R}^3$:
-  $Q(x_1,x_2,x_3)= 
-  \phantom{
-  \begin{pmatrix} x_1& x_2&x_3 \end{pmatrix}
-  \begin{pmatrix} a_{11}&\frac{1}{2} a_{12}&\frac{1}{2} a_{13}\\
-  \frac{1}{2}a_{12}&a_{22}&\frac{1}{2} a_{23}\\
-  \frac{1}{2}a_{13}&\frac{1}{2}a_{23}& a_{33}\end{pmatrix}
-  \begin{pmatrix} x_1\\x_2\\x_3 \end{pmatrix} \\
-  = a_{11}x_1^2 + a_{22}x_2^2 + a_{33}x_3^2 + a_{12}x_1x_2 +
-      a_{13}x_1x_3 + a_{23}x_2x_3}$
-  \vspace{2cm}
-\end{enumerate}
+  &= a_{11}x_1^2 + a_{12}x_1x_2 + a_{22}x_2^2
+\end{align*}
 
 
-
-
-### Concavity of Quadratic Forms
-
-Concavity helps identify the curvature of a function, $f(x)$, in 2 dimensional space.
-
-\parbox[c]{5in}{Concave: A function f is strictly concave over the set S \underline{if} $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) > af(x_1) + (1-a)f(x_2)$$
-\textit{Any} line connecting two points on a concave function will lie \textit{below} the function.}
-
-\begin{comment}
-  \parbox{2in}{\includegraphics[scale=.4]{Concave.pdf}}
-\end{comment}
-
-
-\parbox[c]{5in}{Convex: A function f is strictly convex over the set S \underline{if} $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) < af(x_1) + (1-a)f(x_2)$$
-
-\textit{Any} line connecting two points on a convex function will lie \textit{above} the function.}
-
-\begin{comment}
-  \parbox{2in}{\includegraphics[scale=.4]{Convex.pdf}}
-\end{comment}
-  
-\parbox[c]{5in}{Quasiconcave: A function f is quasiconcave over the set S \underline{if} $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) \ge \min(f(x_1),f(x_2))$$
-No matter what two points you select, the \textit{lowest} valued point will always be an end point.}
-
-\begin{comment}
-  \parbox{2in}{\includegraphics[scale=.4]{Quasiconcave.pdf}}
-\end{comment}
-
-\parbox[c]{5in}{Quasiconvex: A function f is quasiconcave over the set S \underline{if} $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) \le \max(f(x_1),f(x_2))$$
-No matter what two points you select, the \textit{highest} valued point will always be an end point.}
-
-\begin{comment}
-  \parbox{1.8in}{\includegraphics[scale=.4]{Quasiconvex.pdf}}
-\end{comment}
-  
-\parbox[c]{5in}{Quasilinear: A function that is both quasiconvex and quasiconcave is quasilinear.}
-\begin{comment}
-  \parbox{1.8in}{\includegraphics[scale=.4]{Quasilinear.pdf}}\\
-\end{comment}
-
-\textbf{Second Derivative Test of Concavity}: The second derivative can be used to understand concavity. 
-
-If
-\[\begin{array}{lll}
-f''(x) < 0 & \Rightarrow & \text{Concave}\\
-f''(x) > 0 & \Rightarrow & \text{Convex}
-\end{array}\]
 
 
 ### Definiteness of Quadratic Forms {-}
@@ -324,7 +331,7 @@ Given a function $f(\textbf{x})$ in $n$ variables, the gradient $\nabla f(\mathb
 
 ```
 
-Before we know whehter a point is a maxima or minima, if it meets the FOC it is a "Critical Point".
+Before we know whether a point is a maxima or minima, if it meets the FOC it is a "Critical Point".
 
 ```{definition, name = "Critical Point"}
 
@@ -356,7 +363,7 @@ Critical Point $\mathbf{x}^* =$
 \begin{align*}
 &\frac{\partial f(\mathbf{x})}{\partial x_1} = 2(x_1-1) = 0\\
 &\Rightarrow x_1^* = 1\\
-&\frac{\partial f(\mathbf{x})}{\partial x_2} &= 2x_2 = 0\\
+&\frac{\partial f(\mathbf{x})}{\partial x_2} = 2x_2 = 0\\
 &\Rightarrow   x_2^* = 0\\
 \end{align*}
 
@@ -651,7 +658,7 @@ $$L(x_1, x_2, \lambda) =  -(x_1^2 + 2x_2^2) - \lambda(x_1 + x_2 - 4)$$
 
 ```
 
-Notice that when we take the partial derivative of L with respect to the lagranigian multiplier and set it equal to 0, we return exactly our constraint! This is why signs matter.
+Notice that when we take the partial derivative of L with respect to the Lagrangian multiplier and set it equal to 0, we return exactly our constraint! This is why signs matter.
 
 
 ## Inequality Constraints
@@ -828,14 +835,14 @@ $$ L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k) = f(x_1, \dots, x_n) - \sum_{
 
 **Kuhn-Tucker Conditions**
 
-\begin{eqnarray*}
-\frac{\partial L}{\partial x_1} \leq 0, & \dots, & \frac{\partial L}{\partial x_n} \leq 0\\
-\frac{\partial L}{\partial \lambda_1} \geq 0, & \dots, & \frac{\partial L}{\partial \lambda_m} \geq 0
-\end{eqnarray*}
+\begin{align*}
+\frac{\partial L}{\partial x_1} \leq 0, & \dots, \frac{\partial L}{\partial x_n} \leq 0\\
+\frac{\partial L}{\partial \lambda_1} \geq 0, & \dots, \frac{\partial L}{\partial \lambda_m} \geq 0
+\end{align*}
 
 **Complementary Slackness Conditions**
 
-\begin{eqnarray*}
+\begin{a*}
 x_1\frac{\partial L}{\partial x_1} = 0, & \dots, & x_n\frac{\partial L}{\partial x_n} = 0\\
 \lambda_1\frac{\partial L}{\partial \lambda_1} = 0, & \dots, & \lambda_m \frac{\partial L}{\partial \lambda_m} = 0
 \end{eqnarray*}
