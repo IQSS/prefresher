@@ -1,5 +1,11 @@
 # Calculus {#derivatives}
 
+```{r, include = FALSE}
+library(ggplot2)
+library(patchwork)
+```
+
+
 Calculus is a fundamental part of any type of statistics exercise. Although you may not be taking derivatives and integral in your daily work as an analyst, calculus undergirds many concepts we use: maximization, expectation, etc
 
 ## Example: The Mean is a Type of Integral {-}
@@ -99,12 +105,14 @@ f^{\prime\prime\prime\prime}(x) &=0\\
 \end{align*}
 ```
 
-Earlier, in Section \ref@(derivintro), we said that if a function differentiable at a given point, then it must be continuous. Further, if $f'(x)$ is itself continuous, then $f(x)$ is called continuously differentiable. All of this matters because many of our findings about optimization (Section \@ref(optim)) rely on differentiation, and so we want our function to be differentiable in as many layers.  A function that is continuously differentiable infinitly is called "smooth". Some examples: $f(x) = x^2$, $f(x) = e^x$. 
+Earlier, in Section \@ref(derivintro), we said that if a function differentiable at a given point, then it must be continuous. Further, if $f'(x)$ is itself continuous, then $f(x)$ is called continuously differentiable. All of this matters because many of our findings about optimization (Section \@ref(optim)) rely on differentiation, and so we want our function to be differentiable in as many layers.  A function that is continuously differentiable infinitly is called "smooth". Some examples: $f(x) = x^2$, $f(x) = e^x$. 
 
 
 ## Composite Functions and the Chain Rule
 
-__Composite functions__ are formed by substituting one function into another and are denoted by \[(f\circ g)(x)=f[g(x)]\]  To form $f[g(x)]$, the range of $g$ must be contained (at least in part) within the domain of $f$. The domain of $f\circ g$ consists of all the points in the domain of $g$ for which $g(x)$ is in the domain of $f$.
+As useful as the above rules are, many functions you'll see won't fit neatly in each case immediately. Instead, they will be functions of functions. For example, the difference between $x^2 + 1^2$ and $(x^2 + 1)^2$  may look trivial, but the sum rule can be easily applied to hte former, while it's actually not obvious what do with the latter. 
+
+__Composite functions__ are formed by substituting one function into another and are denoted by \[(f\circ g)(x)=f[g(x)].\]  To form $f[g(x)]$, the range of $g$ must be contained (at least in part) within the domain of $f$. The domain of $f\circ g$ consists of all the points in the domain of $g$ for which $g(x)$ is in the domain of $f$.
 
 ```{example}
 Let $f(x)=\log x$ for  $0<x<\infty$ and  $g(x)=x^2$ for $-\infty<x<\infty$.
@@ -118,93 +126,199 @@ Also
 Notice that $f\circ g$ and $g\circ f$ are not the same functions.
 ```
 
+With the notation of composite functions in place, now we can introduce a helpful additional rule that will deal with a derivative of composite functions as a chain of concentric derivatives. 
 
+__Chain Rule__:  
 
-__Chain Rule__:  Let $y=(f\circ g)(x)= f[g(x)]$. The derivative of $y$ with respect to $x$ is \[\frac{d}{dx} \{ f[g(x)] \} = f'[g(x)] g'(x)\] which can also be written as \[\frac{dy}{dx}=\frac{dy}{dg(x)} \frac{dg(x)}{dx}\] (Note: the above does not imply that the $dg(x)$'s cancel out, as in fractions.  They are part of the derivative notation and you can't separate them out or cancel them.)
+Let $y=(f\circ g)(x)= f[g(x)]$. The derivative of $y$ with respect to $x$ is \[\frac{d}{dx} \{ f[g(x)] \} = f'[g(x)] g'(x)\] 
+
+We can read this as: "the derivative of the composite function $y$ is the derivative of $f$ evaluated at $g(x)$, times the derivative of $g$. "
 
 The chain rule can be thought of as the derivative of the "outside" times the derivative of the "inside", remembering that the derivative of the outside function is evaluated at the value of the inside function.
-	
-	
 
-__Generalized Power Rule__:  If $f(x)=[g(x)]^k$, then $f^\prime(x) =k[g(x)]^{k-1}g^\prime(x)$.
 
+* The chain rule can also be written as \[\frac{dy}{dx}=\frac{dy}{dg(x)} \frac{dg(x)}{dx}\] This expression does not imply that the $dg(x)$'s cancel out, as in fractions.  They are part of the derivative notation and you can't separate them out or cancel them.)	
+	
 
 ```{example}
 Find $f^\prime(x)$ for $f(x) = (3x^2+5x-7)^6$.
+```
 
-Approach: Let $f(z)=z^6$ and $z=g(x)=3x^2+5x-7$.  Then, $y=f[g(x)]$ and
+
+```{solution}
+For convenience, define $f(z) = z^6$ and $z = g(x) = 3x^2+5x-7$.  Then, $y=f[g(x)]$ and
 
 \begin{align*}
-\frac{dy}{dx}&=\\
+\frac{d}{dx}y&= f^\prime(z) g^\prime(x) \\
+&= 6(3x^2+5x-7)^5 (6x + 5)
 \end{align*}
 ```
 
 
+The direct use of a chain rule is when the exponent of is itself a function, so the power rule could not have applied generaly:
 
-## Derivatives of Euler's number and natural logs
+__Generalized Power Rule__:  
+
+If $f(x)=[g(x)]^p$ for any rational number $p$, \[f^\prime(x) =p[g(x)]^{p-1}g^\prime(x)\]
+
+
+
+
+
+## Derivatives of  natural logs and the exponent
+
+Natural logs and exponents (they are inverses of each other; see Section \@ref(logexponents)) crop up everywhere in statistics. Their derivative is a special case from the above, but quite elegant. 
+
+```{theorem, derivexplog}
+
+The functions $e^x$ and the natural logarithm $\log(x)$ are continuous and differentiable in their domains, and their first derivate is
+  \[(e^x)^\prime = e^x\]
+  \[\log(x)^\prime = \frac{1}{x}\]
+
+Also, when these are composite functions, it follows by the generalized power rule that
+
+\[\left(e^{g(x)}\right)^\prime = e^{g(x)} \cdot g^\prime(x)\]
+\[\left(\log g(x)\right)^\prime = \frac{g^\prime(x)}{g(x)}, ~~\text{if}~~ g(x) > 0\]
+
+
+```
+
+
+
+
+We will relegate the proofs to small excerpts. 
+
+
+
 
 ### Derivatives of natural exponential function ($e$) {-}
 
+To repeat the main rule in Theorem \@ref(derivexplog), the intuition is that  
 
-1. Derivative of $e^x$ is itself: $\frac{d}{dx}e^x = e^x$
+1. Derivative of $e^x$ is itself: $\frac{d}{dx}e^x = e^x$ (See Figure \@ref(fig:fig-derivexponent))
 2. Same thing if there were a constant in front: $\frac{d}{dx}\alpha e^x = \alpha e^x$
 3. Same thing no matter how many derivatives there are in front: $\frac{d^n}{dx^n} \alpha e^x = \alpha e^x$
-4. Chain Rule: When the exponent is a function of $x$, remember to take derivative of that function and add to product. $\frac{d}{dx}e^{u(x)}= e^{u(x)} u^\prime(x)$
+4. Chain Rule: When the exponent is a function of $x$, remember to take derivative of that function and add to product. $\frac{d}{dx}e^{g(x)}= e^{g(x)} g^\prime(x)$
 
+
+```{r fig-derivexponent, echo = FALSE, fig.cap = "Derivative of the Exponential Function"}
+range <- tibble::tibble(x = c(-3, 3))
+
+fx0 <- ggplot(range, aes(x = x)) +
+  labs(x = expression(x), y = expression(f(x)))
+
+fx <- fx0 +  
+  stat_function(fun = function(x) exp(x), size = 0.5) +
+  expand_limits(y = 0)
+
+fprimex <- fx0 + stat_function(fun = function(x) exp(x), size = 0.5) +
+  labs(x = expression(x), y = expression(f~plain("'")~(x)))
+
+fx + fprimex + plot_annotation(expression(f(x)==e^x))
+```
 
 ```{example, name="Derivative of exponents"}
-Find $dy/dx$ for the following.
+Find the derivative for the following.
 
-1. $y=e^{-3x}$
+1. $f(x)=e^{-3x}$
+2. $f(x)=e^{x^2}$
+3. $f(x)=(x-1)e^x$
 
-    Let $u(x)=-3x$.  Then $u^\prime(x)=-3$ and $dy/dx=-3e^{-3x}$. 
-
-2. $y=e^{x^2}$
-  
-    Let $u(x)=x^2$.  Then $u^\prime(x)=2x$ and $dy/dx=2xe^{x^2}$.
-
-3. $y=e^{\sin 2x}$
-  
-    Let $u(x)=\sin 2x$.  Then $u^\prime(x) = 2\cos 2x$ and $dy/dx=(2\cos 2x) e^{\sin 2x}$
-  
-  
 ```
+
+
+
+```{solution}
+
+
+ 1. Let $u(x)=-3x$.  Then $u^\prime(x)=-3$ and $f^\prime(x)=-3e^{-3x}$. 
+ 2. Let $u(x)=x^2$.  Then $u^\prime(x)=2x$ and $f^\prime(x)=2xe^{x^2}$.
+ 3. 
+ 
+ 
+```
+
 
 
 ### Derivatives of $\log$ {-}
 
-The natural log $\log$ (also written as $\ln$ to distinguish it from logarithms of diffferent bases) is the mirror image of the natural exponent and has mirroring properties.
+The natural log  is the mirror image of the natural exponent and has mirroring properties, again, to repeat the theorem, 
 
-1. log prime x is one over x: $\frac{d}{dx} \log x = \frac{1}{x}$
+1. log prime x is one over x: $\frac{d}{dx} \log x = \frac{1}{x}$ (Figure \@ref(fig:fig-derivlog))
 2. Exponents become multiplicative constants: $\frac{d}{dx} \log x^k = \frac{d}{dx} k \log x = \frac{k}{x}$
 3. Chain rule again: $\frac{d}{dx} \log u(x) = \frac{u'(x)}{u(x)}\quad$
 4. For any positive base $b$, $\frac{d}{dx} b^x = (\log b)\left(b^x\right)$.
 
 
-Examples:  Find $dy/dx$ for
+
+```{r fig-derivlog, echo = FALSE, fig.cap = "Derivative of the Natural Log"}
+range <- tibble::tibble(x = c(-0.1, 3))
+
+fx0 <- ggplot(range, aes(x = x)) +
+  labs(x = expression(x), y = expression(f(x)))
+
+fx <- fx0 +  
+  stat_function(fun = function(x) log(x), size = 0.5) +
+  expand_limits(y = 0)
+
+fprimex <- fx0 + stat_function(fun = function(x) ifelse(x < 0, NA, 1/x), size = 0.5) +
+  labs(x = expression(x), y = expression(f~plain("'")~(x)))
+
+fx + fprimex + plot_annotation(expression(f(x)==log(x)))
+```
 
 ```{example, name="Derivative of logs"}
 Find $dy/dx$ for the following.
 
-1. $y=\log(x^2+9)$
-
-    Let $u(x)=x^2+9$.  Then $u^\prime(x)=2x$ and \[\frac{dy}{dx}= \frac{u^\prime(x)}{u(x)} = \frac{2x}{(x^2+9)}\]
-      
-2. $y=\log(\log x)$
-
-    Let $u(x)=\log x$.  Then $u^\prime(x)=1/x$ and $\frac{dy}{dx} = \frac{1}{(x\log x)}$.
-
-3. $y=(\log x)^2$
-  
-    Use the generalized power rule. \[\frac{dy}{dx} = \frac{(2 \log x)}{x}\]
-
-4. $y=\log e^x$ 
-
-    We know that $\log e^x=x$ and that $dx/dx=1$, but we can double check.  Let $u(x)=e^x$.  Then $u^\prime(x)=e^x$ and $\frac{dy}{dx} = \frac{u^\prime(x)}{u(x)} = \frac{e^x}{e^x} = 1.$
-
-
+1. $f(x)=\log(x^2+9)$
+2. $f(x)=\log(\log x)$
+3. $f(x)=(\log x)^2$
+4. $f(x)=\log e^x$ 
 
 ```
+
+
+
+```{solution}
+
+1. Let $u(x)=x^2+9$.  Then $u^\prime(x)=2x$ and \[\frac{dy}{dx}= \frac{u^\prime(x)}{u(x)} = \frac{2x}{(x^2+9)}\]
+2. Let $u(x)=\log x$.  Then $u^\prime(x)=1/x$ and $\frac{dy}{dx} = \frac{1}{(x\log x)}$.
+3. Use the generalized power rule. \[\frac{dy}{dx} = \frac{(2 \log x)}{x}\]
+4. We know that $\log e^x=x$ and that $dx/dx=1$, but we can double check.  Let $u(x)=e^x$.  Then $u^\prime(x)=e^x$ and $\frac{dy}{dx} = \frac{u^\prime(x)}{u(x)} = \frac{e^x}{e^x} = 1.$
+
+```
+
+### Outline of Proof {-}
+
+We actually show the derivative of the log first, and then the derivative of the exponential naturally follows. 
+
+The general derivative of the log at any base $a$ is solvable by the definition of derivatives.
+
+\begin{align*}
+(\log_a x)^\prime = \lim\limits_{h\to 0} \frac{1}{h}\log_{a}\left(1 + \frac{h}{x}\right)
+\end{align*}
+
+Re-express $g = \frac{h}{x}$ and get 
+\begin{align*}
+(\log_a x)^\prime &= \frac{1}{x}\lim_{g\to 0}\log_{a} (1 + g)^{\frac{1}{h}}\\
+&= \frac{1}{x}\log_a e
+\end{align*}
+
+By definition of $e$. As a special case, when $a = e$, then $(\log x)^\prime = \frac{1}{x}$. 
+
+Now let's think about the inverse, taking the derivative of $y = a^x$.
+
+\begin{align*}
+y &= a^x \\
+\Rightarrow \log y &= x \log a\\
+\Rightarrow \frac{y^\prime}{y} &= \log a\\
+\Rightarrow  y^\prime = y \log a\\
+\end{align*}
+
+Then  in the special case where $a = e$, 
+
+\[(e^x)^\prime = (e^x)\]
+
 
 
 
