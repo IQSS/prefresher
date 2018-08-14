@@ -1,4 +1,6 @@
-# Probability Theory
+# Probability Theory {#probability}
+
+Probability and Inferences are mirror images of each other, and both are integral to social science. Probability quantifies uncertainty, which is important because many things in the social world are at first uncertain. Inference is then the study of how to learn about facts you don't observe from facts you do  observe.
 
 Topics:
  Counting rules;
@@ -15,13 +17,6 @@ Topics:
  Summarizing Observed Data;
  Asymptotics
  
- Much of the material and examples for
-this lecture are taken from Gill (2006) \emph{Essential Mathematics for Political and Social Research}, Wackerly, Mendenhall, \& Scheaffer (1996)
-\emph{Mathematical Statistics with Applications}, Degroot (1985)
-\emph{Probability and Statistics}, Morrow (1994) \emph{Game Theory for
-Political Scientists}, King (1989) \emph{Unifying Political Methodology},
- and Ross (1987) \emph{Introduction to Probability
-and Statistics for Scientists and Engineers}.
 
 ## Counting rules
 
@@ -111,7 +106,7 @@ Properties of set operations:
 * __Associative__: $A \cup (B \cup C) = (A \cup B) \cup C$; $A \cap (B \cap C) = (A \cap B) \cap C$
 * __Distributive__: $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$; $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
 * __de Morgan's laws__: $(A \cup B)^C = A^C \cap B^C$; $(A \cap B)^C = A^C \cup B^C$
-* __Disjointness__: Sets are disjoint when they do not intersect, such that $A \cap B = \{\emptyset\}$.  A collection of sets is pairwise disjoint (\textbf{mutually exclusive}) if, for all $i \neq j$, $A_i \cap A_j = \{\emptyset\}$.  A collection of sets form a partition of set $S$ if they are pairwise disjoint and they cover set $S$, such that $\bigcup_{i = 1}^k A_i = S$.
+* __Disjointness__: Sets are disjoint when they do not intersect, such that $A \cap B = \{\emptyset\}$.  A collection of sets is pairwise disjoint (**mutually exclusive**) if, for all $i \neq j$, $A_i \cap A_j = \{\emptyset\}$.  A collection of sets form a partition of set $S$ if they are pairwise disjoint and they cover set $S$, such that $\bigcup_{i = 1}^k A_i = S$.
 
 
 ```{example, name = "Sets", sets}
@@ -155,28 +150,50 @@ Consider subsets A {2, 8} and B {2,3,7} of the sample space you found. What is
 
 ## Probability {#probdef}
 
-__Probability__: Many events or outcomes are random. In everyday speech, we say that we are  \emph{uncertain} about the outcome of random events. Probability is a formal model of uncertainty which provides a measure of uncertainty governed by a particular set of rules. A different model of uncertainty would, of course, have a different set of rules and measures. Our focus on probability is justified because it has proven to be a particularly useful model of uncertainty.
+__Probability__: Many events or outcomes are random. In everyday speech, we say that we are  _uncertain_ about the outcome of random events. Probability is a formal model of uncertainty which provides a measure of uncertainty governed by a particular set of rules. A different model of uncertainty would, of course, have a different set of rules and measures. Our focus on probability is justified because it has proven to be a particularly useful model of uncertainty.
 
-__Probability Distribution Function__ (Pr(A)): a mapping of each event in the sample space $S$ to the real numbers that satisfy the following three axioms (also called Kolmogorov's Axioms).
 
-__Axioms of Probability__:  Define $\Pr(A)$ as the probability of event $A$ occurring in sample space $S$, such that:
+__Probability Distribution Function__: a mapping of each event in the sample space $S$ to the real numbers that satisfy the following three axioms (also called Kolmogorov's Axioms).
 
-1. For any event $A$, $\Pr(A)\ge 0$.
-2. $\Pr(S)=1$
-3.  For any sequence of \textit{disjoint} (mutually exclusive) events $A_1,A_2,\ldots$ (of which there may be infinitely many), \[\Pr\left( \bigcup\limits_{i=1}^k
-A_i\right)=\sum\limits_{i=1}^k \Pr(A_i)\]
+Formally, 
+
+```{definition, name = "Probability"}
+
+Probability is a function that maps events to a real number, obeying the axioms of probability.
+
+```
+
+The axioms of probability make sure that the separate events add up in terms of probability, and -- for standardization purposes -- that they add up to 1.
+
+```{definition, name = "Axioms of Probability"}
+
+1. For any event $A$, $P(A)\ge 0$.
+2. $P(S)=1$
+3. The Countable Additivity Axiom: For any sequence of _disjoint_ (mutually exclusive) events $A_1,A_2,\ldots$ (of which there may be infinitely many), \[P\left( \bigcup\limits_{i=1}^k
+A_i\right)=\sum\limits_{i=1}^k P(A_i)\]
+
+The last axiom is an extension of a union to infinite sets. When there are only two events in the space, it boils down to:
+  
+\begin{align*}
+P(A_1 \cup A_2) = P(A_1) + P(B_2) \text{~for disjoint} A, B
+\end{align*}
+
+
+```
+
+
 
 
 __Probability Operations__:  Using these three axioms, we can define all of the common rules of probability.
 
-1.  $\Pr(\emptyset)=0$
-2.  For any event $A$, $0\le \Pr(A) \le 1$.
-3. $\Pr({A}^C)=1-\Pr(A)$
-4. If $A\subset B$ ($A$ is a subset of $B$), then $\Pr(A)\le \Pr(B)$.
-5. For \textit{any} two events $A$ and $B$, $\Pr(A\cup
-B)=\Pr(A)+\Pr(B)-\Pr(A\cap B)$
-6. Boole's Inequality: For any sequence of $n$ events (which need not be disjoint) $A_1,A_2,\ldots,A_n$,  then $\Pr\left( \bigcup\limits_{i=1}^n
-A_i\right) \leq \sum\limits_{i=1}^n \Pr(A_i)$.
+1.  $P(\emptyset)=0$
+2.  For any event $A$, $0\le P(A) \le 1$.
+3. $P({A}^C)=1-P(A)$
+4. If $A\subset B$ ($A$ is a subset of $B$), then $P(A)\le P(B)$.
+5. For _any_ two events $A$ and $B$, $P(A\cup
+B)=P(A)+P(B)-P(A\cap B)$
+6. Boole's Inequality: For any sequence of $n$ events (which need not be disjoint) $A_1,A_2,\ldots,A_n$,  then $P\left( \bigcup\limits_{i=1}^n
+A_i\right) \leq \sum\limits_{i=1}^n P(A_i)$.
 
 ```{example, name = "Probability", prob}
 
@@ -185,12 +202,12 @@ Let's assume we have an evenly-balanced, six-sided die.
 Then,
 
 1. Sample space S = 
-2. $\Pr(1)=\cdots=\Pr(6)=$
-3. $\Pr(\emptyset)=\Pr(7)=$
-4.  $\Pr\left( \{ 1, 3, 5 \} \right)=$
-5. $\Pr\left( \{ 1, 2 \}^C \right)= \Pr\left( \{ 3, 4, 5, 6 \}\right)=$
-6. Let $A=\{ 1,2,3,4,5 \}\subset S$.  Then $\Pr(A)=5/6<\Pr(S)=$ 
-7.  Let $A=\{ 1, 2, 3 \}$ and $B=\{ 2, 4, 6 \}$.  Then $A\cup B$? $A\cap B$? $\Pr(A \cup B)$?
+2. $P(1)=\cdots=P(6)=$
+3. $P(\emptyset)=P(7)=$
+4.  $P\left( \{ 1, 3, 5 \} \right)=$
+5. $P\left( \{ 1, 2 \}^C \right)= P\left( \{ 3, 4, 5, 6 \}\right)=$
+6. Let $A=\{ 1,2,3,4,5 \}\subset S$.  Then $P(A)=5/6<P(S)=$ 
+7.  Let $A=\{ 1, 2, 3 \}$ and $B=\{ 2, 4, 6 \}$.  Then $A\cup B$? $A\cap B$? $P(A \cup B)$?
 
 
 
@@ -203,10 +220,10 @@ Then,
 Suppose you had a pair of four-sided dice. You sum the results from a single toss. Let us call this sum, or the outcome, X.
 
 
-1. What is $\Pr(X = 5)$, $\Pr(X = 3)$, $\Pr(X = 6)$?
+1. What is $P(X = 5)$, $P(X = 3)$, $P(X = 6)$?
 
   
-2. What is $\Pr(X=5 \cup X = 3)^C$? 
+2. What is $P(X=5 \cup X = 3)^C$? 
   
   
   
@@ -218,9 +235,9 @@ Suppose you had a pair of four-sided dice. You sum the results from a single tos
 
 ## Conditional Probability and Bayes Law
 
-__Conditional Probability__:  The conditional probability $\Pr(A|B)$ of an event $A$ is the probability of $A$, given that another event $B$ has occurred. Conditional probability allows for the inclusion of other information into the calculation of the probability of an event.  It is calculated as
+__Conditional Probability__:  The conditional probability $P(A|B)$ of an event $A$ is the probability of $A$, given that another event $B$ has occurred. Conditional probability allows for the inclusion of other information into the calculation of the probability of an event.  It is calculated as
 
-\[\Pr(A|B)=\frac{\Pr(A\cap B)}{\Pr(B)}\]
+\[P(A|B)=\frac{P(A\cap B)}{P(B)}\]
 
 Note that conditional probabilities are probabilities and must also follow the Kolmagorov axioms of probability.
 
@@ -237,11 +254,11 @@ Assume $A$ and $B$ occur with the following frequencies: $\quad$
 
 and let $n_{ab}+n_{a^Cb}+n_{ab^C}+n_{(ab)^C}=N$.  Then
 
-1.  $\Pr(A)=$ 
-2.  $\Pr(B)=$ 
-3.  $\Pr(A\cap B)=$ 
-4.  $\Pr(A|B)= \frac{\Pr(A\cap B)}{\Pr(B)}=$ 
-5.  $\Pr(B|A)= \frac{\Pr(A\cap B)}{\Pr(A)}=$ 
+1.  $P(A)=$ 
+2.  $P(B)=$ 
+3.  $P(A\cap B)=$ 
+4.  $P(A|B)= \frac{P(A\cap B)}{P(B)}=$ 
+5.  $P(B|A)= \frac{P(A\cap B)}{P(A)}=$ 
 
   
 
@@ -262,7 +279,7 @@ and let $n_{ab}+n_{a^Cb}+n_{ab^C}+n_{(ab)^C}=N$.  Then
 
 
 
-__Multiplicative Law of Probability__: The probability of the intersection of two events $A$ and $B$ is $\Pr(A\cap B)=\Pr(A)\Pr(B|A)=\Pr(B)\Pr(A|B)$ which follows directly from the definition of conditional probability. More generally,\\ $P(A_1\cap ...\cap A_k) = P(A_k| A_{k-1}\cap... \cap A_1)\times P(A_{k-1}|A_{k-2}\cap ...A_1)...\times P(A_2|A_1)\times P(A_1)$
+__Multiplicative Law of Probability__: The probability of the intersection of two events $A$ and $B$ is $P(A\cap B)=P(A)P(B|A)=P(B)P(A|B)$ which follows directly from the definition of conditional probability. More generally,\\ $P(A_1\cap ...\cap A_k) = P(A_k| A_{k-1}\cap... \cap A_1)\times P(A_{k-1}|A_{k-2}\cap ...A_1)...\times P(A_2|A_1)\times P(A_1)$
 
 
 __Law of Total Probability__:  Let $S$ be the sample space of some experiment and let the disjoint $k$ events $B_1,\ldots,B_k$ partition $S$, such that $P(B_1\cup ... \cup B_k) = P(S) = 1$.  If $A$ is some other event in $S$, then the events $A\cap B_1, A\cap B_2, \ldots, A\cap B_k$ will form a partition of $A$ and we can write $A$ as $A=(A\cap B_1)\cup\cdots\cup (A\cap B_k)$.  
@@ -270,23 +287,23 @@ __Law of Total Probability__:  Let $S$ be the sample space of some experiment an
 Since the $k$ events are disjoint,
 
 \begin{eqnarray*}
-\Pr(A)&=&\sum\limits_{i=1}^k \Pr(A \cap B_i)\\
-      &=&\sum\limits_{i=1}^k \Pr(B_i)\Pr(A|B_i)
+P(A)&=&\sum\limits_{i=1}^k P(A \cap B_i)\\
+      &=&\sum\limits_{i=1}^k P(B_i)P(A|B_i)
 \end{eqnarray*}
 
-Sometimes it is easier to calculate these conditional probabilities and sum them than it is to calculate $\Pr(A)$ directly.
+Sometimes it is easier to calculate these conditional probabilities and sum them than it is to calculate $P(A)$ directly.
 
 __Bayes Rule__: Assume that events $B_1,\ldots,B_k$ form a partition of the space $S$.  Then by the Law of Total Probability 
 
-\[\Pr(B_j|A)= \frac{\Pr(A \cap B_j)} {\Pr(A)} = \frac{\Pr(B_j) \Pr(A|B_j)}{\sum\limits_{i=1}^k \Pr(B_i)\Pr(A|B_i)}\]
+\[P(B_j|A)= \frac{P(A \cap B_j)} {P(A)} = \frac{P(B_j) P(A|B_j)}{\sum\limits_{i=1}^k P(B_i)P(A|B_i)}\]
 
 If there are only two states of $B$, then this is just 
-\[\Pr(B_1|A)=\frac{\Pr(B_1)\Pr(A|B_1)} {\Pr(B_1)\Pr(A|B_1)+\Pr(B_2)\Pr(A|B_2)}\]
+\[P(B_1|A)=\frac{P(B_1)P(A|B_1)} {P(B_1)P(A|B_1)+P(B_2)P(A|B_2)}\]
 
 
-Bayes' rule  determines the posterior probability of a state  $\Pr(B_j|A)$ by calculating the probability $\Pr(A \cap B_j)$ that both the event $A$ and the state $B_j$ will occur and dividing it by the probability that the event will occur regardless of the state (by summing across all $B_i$). The states could be something like Normal/Defective, Healthy/Diseased, Republican/Democrat/Independent, etc.  The event on which one conditions could be something like a sampling from a batch of components, a test for a disease, or a question about a policy position.
+Bayes' rule  determines the posterior probability of a state  $P(B_j|A)$ by calculating the probability $P(A \cap B_j)$ that both the event $A$ and the state $B_j$ will occur and dividing it by the probability that the event will occur regardless of the state (by summing across all $B_i$). The states could be something like Normal/Defective, Healthy/Diseased, Republican/Democrat/Independent, etc.  The event on which one conditions could be something like a sampling from a batch of components, a test for a disease, or a question about a policy position.
 
-__Prior and Posterior Probabilities__:  Above, $\Pr(B_1)$ is often called the prior probability, since it's the probability of $B_1$ before anything else is known.  $\Pr(B_1|A)$ is called the posterior probability, since it's the probability after other information is taken into account.
+__Prior and Posterior Probabilities__:  Above, $P(B_1)$ is often called the prior probability, since it's the probability of $B_1$ before anything else is known.  $P(B_1|A)$ is called the posterior probability, since it's the probability after other information is taken into account.
 
 ```{example, name = "Bayes' Rule", bayesrule}
 
@@ -308,15 +325,20 @@ Assume that 2% of the population of the U.S. are members of some extremist milit
 
 
 
-## Independence
+## Independence 
+
+```{definition, name = "Independence"}
+ If the occurrence or nonoccurrence of either events $A$ and $B$ have no effect on the occurrence or nonoccurrence of the other, then $A$ and $B$ are independent. 
+
+```
+
+ If $A$ and $B$ are independent, then
 
 
-__Independence__:  If the occurrence or nonoccurrence of either events $A$ and $B$ have no effect on the occurrence or nonoccurrence of the other, then $A$ and $B$ are independent.  If $A$ and $B$ are independent, then
-
-1. $\Pr(A|B)=\Pr(A)$
-2. $\Pr(B|A)=\Pr(B)$
-3.  $\Pr(A\cap B)=\Pr(A)\Pr(B)$
-4.  More generally than the above, $\Pr(\bigcap_{i=1}^k A_i) = \prod_{i = 1}^K \Pr(A_i)$
+1. $P(A|B)=P(A)$
+2. $P(B|A)=P(B)$
+3.  $P(A\cap B)=P(A)P(B)$
+4.  More generally than the above, $P(\bigcap_{i=1}^k A_i) = \prod_{i = 1}^K P(A_i)$
 
 
 Are mutually exclusive events independent of each other?
@@ -324,13 +346,13 @@ Are mutually exclusive events independent of each other?
 
 No. If A and B are mutually exclusive, then they cannot happen simultaneously. If we know that A occurred, then we know that B couldn't have occurred. Because of this, A and B aren't independent.
 
-\textbf{Pairwise Independence}: A set of more than two events $A_1, A_2, \dots, A_k$ is pairwise independent if  $\Pr(A_i\cap A_j)=\Pr(A_i)\Pr(A_j)$, $\forall i\neq j$.  Note that this does \emph{not} necessarily imply independence.
+**Pairwise Independence**: A set of more than two events $A_1, A_2, \dots, A_k$ is pairwise independent if  $P(A_i\cap A_j)=P(A_i)P(A_j)$, $\forall i\neq j$.  Note that this does __not__ necessarily imply independence.
 
-\textbf{Conditional Independence}: If $A$ and $B$ are independent once you know the occurrence of a third event $C$, then $A$ and $B$ are conditionally independent (conditional on $C$):
+**Conditional Independence**: If $A$ and $B$ are independent once you know the occurrence of a third event $C$, then $A$ and $B$ are conditionally independent (conditional on $C$):
 
-1.  $\Pr(A|B \cap C)=\Pr(A|C)$
-2. $\Pr(B|A \cap C)=\Pr(B|C)$
-3.  $\Pr(A\cap B|C)=\Pr(A|C)\Pr(B|C)$
+1.  $P(A|B \cap C)=P(A|C)$
+2. $P(B|A \cap C)=P(B|C)$
+3.  $P(A\cap B|C)=P(A|C)P(B|C)$
 
 
 
@@ -338,12 +360,17 @@ No. If A and B are mutually exclusive, then they cannot happen simultaneously. I
 
 Most questions in the social sciences involve events, rather than numbers per se. To analyze and reason about events quantitatively, we need a way of mapping events to numbers. A random variable does exactly that.
 
-A ___random variable___ is a measurable function $X$ that maps from the sample space $S$ to the set of real numbers $R.$ It assigns a real number to every outcome $s \in S$. 
+
+```{definition, name = "Random Variable"}
+
+A random variable is a measurable function $X$ that maps from the sample space $S$ to the set of real numbers $R.$ It assigns a real number to every outcome $s \in S$. 
+
+```
 
 It might seem strange to define a random variable as a function -- which is neither random nor variable. The randomness comes from the realization of an event from the sample space $s$.
 
 
-___Randomness___ means that the outcome of some experiment is not deterministic, i.e. there is some probability ($0 < P(A) < 1$) that the event will occur.
+__Randomness__  means that the outcome of some experiment is not deterministic, i.e. there is some probability ($0 < P(A) < 1$) that the event will occur.
 
 The support of a random variable is all values for which there is a positive probability of occurrence.
 
@@ -363,52 +390,85 @@ What are other possible random variables?
 
 ## Distributions
 
-The distribution of a random variable $X$ is the probability function it induces on the real line. It is given, roughly speaking, by $p(s) = P(X \in s)$ 
+We now have two main concepts in this section -- probability and random variables. Given a sample space $S$ and the same experiment, both probability and random variables take events as their inputs. But they output different things (probabilities measure the ``size'' of events, random variables give a number in a way that the analyst chose to define the random variable). How do the two concepts relate?
+
+The concept of distributions is the natural bridge between these two concepts.
+
+```{definition, name = "Distribution of a random variable"}
+A distribution of a random variable is a function that specifies the probabilities of all events associated with that random variable. There are several types of distributions: A probability mass function for a discrete random variable and probability density function for a continuous random variable.
+```
+
+Notice how the definition of distributions combines two ideas of random variables and probabilities of events. First, the distribution considers a random variable, call it $X$. $X$ can take a number of possible numeric values. Recall that with each of these numerical values there is a class of *events*. In the previous example, for $X = 3$ there is one outcome ($R_1, R_2, R_3$) and for $X = 1$ there are multiple ($\{(R_1, R_2^c, R_3^c), (R_1^c, R_2, R_3^c), (R_1^c, R_2^c, R_3), \}$). Now, the thing to notice here is that each of these events naturally come with a probability associated with them. That is, $P(R_1, R_2, R_3)$ is a number from 0 to 1, as is $P(R_1, R_2^c, R_3^c)$. These all have probabilities because they are in the sample space $S$. The function that tells us these probabilities that are associated with a numerical value of a random variable is called a distribution.
+
+In other words, a random variable $X$ *induces a probability distribution* $P$ (sometimes written $P_X$ to emphasize that the probability density is about the r.v. $X$)
+
+### Discrete Random Varibales {-}
 
 The formal definition of a random variable is easier to given by separating out two cases: discrete random variables when the numeric summaries of the events are discrete,  and continuous random variables when they are continuous.
 
+```{definition, name ="Discrete Random Variable"}
+$X$ is a discrete random variable if it can assume only a finite or countably infinite number of distinct values. Examples:  number of wars per year, heads or tails.
 
-__Discrete Random Variable__: $Y$ is a discrete random variable if it can assume only a finite or countably infinite number of distinct values. Examples:  number of wars per year, heads or tails.
+```
 
-__Probability Mass Function__ (p(y)): For a discrete random variable $Y$, the probability mass function (Also referred to simply as the "probability distribution.") (pmf), $p(y)=\Pr(Y=y)$, assigns probabilities to a countable number of distinct $y$ values such that
 
-1. $0\le p(y)\le 1$
-2.  $\sum\limits_y p(y)=1$
+The distribution of a discrete r.v. is a PMF:
 
-\parbox[t]{5in}{Example: For a fair six-sided die, there is an equal probability of rolling any number.  Since there are six sides, the probability mass function is then $p(y)=1/6$ for $y=1,\ldots,6$, 0 otherwise.}
+```{definition, name = "Probability Mass Function"}
+
+For a discrete random variable $X$, the probability mass function (Also referred to simply as the "probability distribution.") (PMF), $p(x)=P(X=x)$, assigns probabilities to a countable number of distinct $x$ values such that
+
+1. $0\le p(x)\le 1$
+2.  $\sum\limits_y p(x)=1$
+```
+
+
+Example: For a fair six-sided die, there is an equal probability of rolling any number.  Since there are six sides, the probability mass function is then $p(y)=1/6$ for $y=1,\ldots,6$, 0 otherwise.}
 
 \begin{comment}
 \parbox[t]{1in}{\, \epsffile{diepmf.eps}}
 \end{comment}
 
-__Cumulative Density Function__:  The cumulative density function (Also referred to simply as the "cumulative distribution."), $F(y)$ or $\Pr(Y\le y)$, is the probability that $Y$ is less than or equal to some value $y$, or \[\Pr(Y\le y)=\sum\limits_{i\le y} p(i)\]
 
 
-\underline{Properties a CDF \textit{must} satisfy:}
-
-1. $F(y)$ is non-decreasing in $y$.
-2. $\lim\limits_{y \to -\infty} F(y) = 0$ and $\lim\limits_{y \to \infty} F(y) = 1$
-3. $F(y)$ is right-continuous.
+In a discrete random variable,  __cumulative density function__ (Also referred to simply as the "cumulative distribution" or previously as the "density function"), $F(x)$ or $P(X\le x)$, is the probability that $X$ is less than or equal to some value $x$, or \[P(X\le x)=\sum\limits_{i\le x} p(i)\]
 
 
-Note that $P(Y > y) = 1 - P(Y \le y)$.
+Properties a CDF must satisfy:
+
+1. $F(x)$ is non-decreasing in $x$.
+2. $\lim\limits_{x \to -\infty} F(x) = 0$ and $\lim\limits_{x \to \infty} F(x) = 1$
+3. $F(x)$ is right-continuous.
+
+
+Note that $P(X > x) = 1 - P(X \le x)$.
 
 \begin{framed}
-\parbox[c]{4.55in}{Example:  For a fair die,\\ $\Pr(Y\le 1)=$\\ $\Pr(Y\le 3)=$\\ $\Pr(Y\le 6)=$} % \parbox{1.5in}{\includegraphics[width=1.25in]{diecmf.eps}}
+\parbox[c]{4.55in}{Example:  For a fair die,\\ $P(Y\le 1)=$\\ $P(Y\le 3)=$\\ $P(Y\le 6)=$} % \parbox{1.5in}{\includegraphics[width=1.25in]{diecmf.eps}}
 \end{framed}
 
 
-We also have a similar definition for \emph{continuous} random variables. 
+### Continuous Random Variables {-}
+
+We also have a similar definition for _continuous_ random variables. 
 
 
-__Continuous Random Variable__:  $Y$ is a continuous random variable if there exists a non-negative function $f(y)$ defined for all real $y\in (-\infty,\infty)$, such that for any interval $A$, $\Pr(Y\in A)=\int\limits_A f(y)dy$. Examples: age, income, GNP, temperature.
+```{definition, name = "Continuous Random Variable"}
 
-__Probability Density Function__:  The function $f$ above is called the probability density function (pdf) of $Y$ and must satisfy
-  \begin{enumerate}
-  \item $f(y)\ge 0$
-  \item $\int\limits_{-\infty}^\infty f(y)dy=1$
-  \end{enumerate}
-Note also that $\Pr(Y=y)=0$ --- i.e., the probability of any point $y$ is zero.
+$X$ is a continuous random variable if there exists a nonnegative function $f(x)$ defined for all real $x\in (-\infty,\infty)$, such that for any interval $A$, $P(X\in A)=\int\limits_A f(x)dx$. Examples: age, income, GNP, temperature.
+
+```
+
+
+```{definition, name = "Probability Density Function"}
+
+The function $f$ above is called the probability density function (pdf) of $X$ and must satisfy
+\[f(x)\ge 0\]
+\[\int\limits_{-\infty}^\infty f(x)dx=1\]
+
+  Note also that $P(X = x)=0$ --- i.e., the probability of any point $y$ is zero.
+```
+
 
 \begin{comment}
 \item[] \parbox[t]{4.5in}{Example: $f(y)=1, \quad 0\le y \le1$}\parbox{1.5in}{\hfill
@@ -418,18 +478,22 @@ Note also that $\Pr(Y=y)=0$ --- i.e., the probability of any point $y$ is zero.
 
 For both discrete and continuous random variables, we have a unifying concept of another measure: the cumulative distribution: 
 
-__Cumulative Density Function__:  Because the probability that a continuous random variable will assume any particular value is zero, we can only make statements about the probability of a continuous random variable being within an interval.  The cumulative distribution gives the probability that $Y$ lies on the interval $(-\infty,y)$ and is defined as $$F(y)=\Pr(Y\le y)=\int\limits_{-\infty}^y f(s)ds$$  Note that $F(y)$ has similar  properties with continuous distributions as it does with discrete - non-decreasing, continuous (not just right-continuous), and $\lim\limits_{y \to -\infty} F(y) = 0$ and $\lim\limits_{y \to \infty} F(y) = 1$.\\
+```{definition, name = "Cumulative Density Function"}
+Because the probability that a continuous random variable will assume any particular value is zero, we can only make statements about the probability of a continuous random variable being within an interval.  The cumulative distribution gives the probability that $Y$ lies on the interval $(-\infty,y)$ and is defined as $$F(x)=P(X\le x)=\int\limits_{-\infty}^x f(s)ds$$  Note that $F(x)$ has similar  properties with continuous distributions as it does with discrete - non-decreasing, continuous (not just right-continuous), and $\lim\limits_{x \to -\infty} F(x) = 0$ and $\lim\limits_{x \to \infty} F(x) = 1$.
+
+```
 
 We can also make statements about the probability of $Y$ falling in an interval $a\le y\le b$. 
-\[\Pr(a\le y\le b)=\int\limits_a^b f(y)dy\]
+\[P(a\le x\le b)=\int\limits_a^b f(x)dx\]
 
-\textbf{Link between PDF and CDF:} \[f(y) = F'(y)=\frac{dF(y)}{dy}\]
+The PDF and CDF are linked by the integral: The CDF of the integral of the PDF: \[f(x) = F'(x)=\frac{dF(x)}{dx}\]
+
 
 
 \begin{framed}
 \parbox[c]{4.25in}{Example: $f(y)=1, \quad 0<y<1$.\\ 
 $F(y)=$\\
-$\Pr(.5<y<.75)=$ }
+$P(.5<y<.75)=$ }
 \begin{comment}
 \parbox{1.5in}{\hfill \epsffile{contcdf.eps}}
 \end{comment}
@@ -444,14 +508,14 @@ __Joint Probability Distribution__: If both $X$ and $Y$ are random variable, the
 
 Discrete: 
 
-\[p(x, y) = \Pr(X = x, Y = y)\]
+\[p(x, y) = P(X = x, Y = y)\]
 
 such that  $p(x,y) \in [0,1]$ and \[\sum\sum p(x,y) = 1\]
 
 
 Continuous: 
 
-\[f(x,y);\Pr((X,Y) \in A) = \int\!\!\!\int_A f(x,y)dx dy \]
+\[f(x,y);P((X,Y) \in A) = \int\!\!\!\int_A f(x,y)dx dy \]
 
 s.t. $f(x,y)\ge 0$ and 
 
@@ -465,7 +529,7 @@ __Marginal Probability Distribution__: probability distribution of only one of t
 * Discrete: $p_X(x) = \sum_i p(x, y_i)$
 * Continuous: $f_X(x) = \int_{-\infty}^\infty f(x,y)dy$
 
-__Conditional Probability Distribution__: probability distribution for one variable, holding the other variable fixed.  Recalling from the previous lecture that $\Pr(A|B)=\frac{\Pr(A\cap B)}{\Pr(B)}$, we can write the conditional distribution as
+__Conditional Probability Distribution__: probability distribution for one variable, holding the other variable fixed.  Recalling from the previous lecture that $P(A|B)=\frac{P(A\cap B)}{P(B)}$, we can write the conditional distribution as
 
 * Discrete: $p_{Y|X}(y|x) = \frac{p(x,y)}{p_X(x)}, \quad p_X(x) > 0$
 * Continuous: $f_{Y|X}(y|x) = \frac{f(x,y)}{f_X(x)},\quad f_X(x) > 0$
@@ -591,14 +655,14 @@ The correlation coefficient is the covariance divided by the standard deviations
 
 ___Properties of Variance and Covariance:___
 
-1. $V(c) = 0$
-2. $V[cY] = c^2V[Y]$
-3. $Cov[Y,Y] = V[Y]$
-4. $Cov[X,Y] = Cov[Y,X]$
-5. $Cov[aX,bY] = abCov[X,Y]$
-6. $Cov[X+a,Y] = Cov[X,Y]$
-7. $Cov[X+Z,Y+W] = Cov[X,Y] + Cov[X,W] + Cov[Z,Y] + Cov[Z,W]$
-8. $V[X+Y] = V[X] + V[Y] + 2Cov[X,Y]$
+1. $\text{Var}(c) = 0$
+2. $\text{Var}(cY) = c^2 \text{Var}(Y)$
+3. $\text{Cov}(Y,Y) = \text{Var}(Y)$
+4. $\text{Cov}(X,Y) = \text{Cov}(Y,X)$
+5. $\text{Cov}(aX,bY) = ab Cov[X,Y]$
+6. $\text{Cov}X+a,Y) =  Cov[X,Y]$
+7. $\text{Cov}(X+Z,Y+W) = \text{Cov}(X,Y) + \text{Cov}(X,W) + \text{Cov}(Z,Y) + \text{Cov}(Z,W)$
+8. $\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y) + 2\text{Cov}(X,Y)$
 
 
 
@@ -660,7 +724,7 @@ Example: Border disputes occur between two countries at a rate of 2 per month.  
   \begin{enumerate}
   \item $P(Y=0)=$ 
   \item $P(Y=2)=$ 
-  \item $\Pr(Y<5)=$ 
+  \item $P(Y<5)=$ 
   \end{enumerate}}
  \begin{comment}
  \parbox{1.5in}{\hfill \epsffile{poispmf.eps}}
@@ -668,7 +732,7 @@ Example: Border disputes occur between two countries at a rate of 2 per month.  
 \end{framed}
 
 
-Two \emph{continuous} distributions used often are: 
+Two _continuous_  distributions used often are: 
 
 
 __Uniform Distribution__:  A random variable $Y$ has a continuous uniform distribution on the interval $(\alpha,\beta)$ if its density is given by $$f(y)=\frac{1}{\beta-\alpha}, \quad \alpha\le y\le \beta$$  The mean and variance of $Y$ are $E(Y)=\frac{\alpha+\beta}{2}$ and $V(Y)=\frac{(\beta-\alpha)^2}{12}$.
@@ -708,7 +772,7 @@ So far, we've talked about distributions in a theoretical sense, looking at diff
 
 __Sample mean__:  This is the most common measure of central tendency, calculated by summing across the observations and dividing by the number of observations.
 \[\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i\]
-The sample mean is an \textit{estimate} of the expected value of a distribution.
+The sample mean is an _estimate_ of the expected value of a distribution.
 
 
 \begin{framed}
@@ -734,18 +798,18 @@ Y & 1 & 2 & 1 & 2 & 2 & 1 & 2 & 0 & 2 & 0\\
 __Dispersion__: We also typically want to know how spread out the data are relative to the center of the observed distribution.  There are several ways to measure dispersion.
 
 __Sample variance__: The sample variance is the sum of the squared deviations from the sample mean, divided by the number of observations minus 1.
-$$ \Var(X) = \frac{1}{n-1}\sum_{i = 1}^n (x_i - \bar{x})^2$$
+$$ \text{Var}(X) = \frac{1}{n-1}\sum_{i = 1}^n (x_i - \bar{x})^2$$
 
-Again, this is an \textit{estimate} of the variance of a random variable; we divide by $n - 1$ instead of $n$ in order to get an unbiased estimate.
+Again, this is an _estimate_ of the variance of a random variable; we divide by $n - 1$ instead of $n$ in order to get an unbiased estimate.
 
 __Standard deviation__:  The sample standard deviation is the square root of the sample variance.
-$$ \SD(X) = \sqrt{\Var(X)} = \sqrt{\frac{1}{n-1}\sum_{i = 1}^n (x_i - \bar{x})^2}$$
+$$ \SD(X) = \sqrt{\text{Var}(X)} = \sqrt{\frac{1}{n-1}\sum_{i = 1}^n (x_i - \bar{x})^2}$$
 
 
 \begin{framed}
 Example: Using table above, calculate: 
 \begin{enumerate}
-\item $\Var(X) = $ \hspace{1.5cm} $\Var(Y) =$
+\item $\text{Var}(X) = $ \hspace{1.5cm} $\text{Var}(Y) =$
 \item $\SD(X) = $ \hspace{1.65cm} $\SD(Y) =$
 \end{enumerate}
 \end{framed}
@@ -754,17 +818,18 @@ Example: Using table above, calculate:
 __Covariance and Correlation__: Both of these quantities measure the degree to which two variables vary together, and are estimates of the covariance and correlation of two random variables as defined above.
 
 
-1. \textbf{Sample covariance}: $\Cov(X,Y) = \frac{1}{n-1}\sum_{i = 1}^n(x_i - \bar{x})(y_i - \bar{y})$
-2. \textbf{Sample correlation}: $\rho = \frac{\Cov(X,Y)}{\sqrt{\Var(X)\Var(Y)}}$
+1. **Sample covariance**: $\text{Cov}(X,Y) = \frac{1}{n-1}\sum_{i = 1}^n(x_i - \bar{x})(y_i - \bar{y})$
+2. **Sample correlation**: $\rho = \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}}$
 
 
-\begin{framed}
-Example:  Using above table, calculate:
-\begin{enumerate}
-\item $\Cov(X,Y) = $
-\item $r = $
-\end{enumerate}
-\end{framed}
+```{example}
+Example:  Using the above table, calculate:
+  
+1. $\text{Cov}(X,Y) = $
+2. $\text{Corr}(X, Y) = $
+
+```
+
 
 
 
@@ -781,9 +846,11 @@ Why is this important?  We rarely know the true process governing the events we 
 Examples. 
 
 __Central Limit Theorem__. Let $\{X_n\} = \{X_1, X_2, ..., X_n\}$ be a sequence of i.i.d. random variables with finite mean ($\mu$) and variance ($\sigma^2$). Then, 
+
 \begin{align*} 
 \bar{X}_n = \frac{x_1 + x_2 + ... + x_n}{n} \to \mathcal{N}\bigg(\mu, \frac{\sigma^2}{n}\bigg) 
 \end{align*} 
+
 as $n\to \infty$. This result, known as the Central Limit Theorem, is an important motivation for many quantitative methods, as well as for the widespread use of the Normal distribution. 
 
 Intuitively, whenever a lot of small, independent processes somehow combine together to form the realized observations, practitioners often feel comfortable assuming Normality. 
@@ -795,7 +862,7 @@ __Law of Large Numbers__. Let $\{X_n\} = \{X_1, X_2, ..., X_n\}$ be a sequence o
 \bar{X}_n = \frac{x_1 + x_2 + ... + x_n}{n} \stackrel{\textrm{a.s.}}{\to} \mu
 \end{align*}
 
-as $n\to \infty$. In other words, $\Pr( \lim_{n\to\infty}\bar{X}_n = \mu) = 1$. This theorem, known as the Strong Law of Large Numbers, is an important motivation for the widespread use of the sample mean, as well as the intuition link between averages and expected values. 
+as $n\to \infty$. In other words, $P( \lim_{n\to\infty}\bar{X}_n = \mu) = 1$. This theorem, known as the Strong Law of Large Numbers, is an important motivation for the widespread use of the sample mean, as well as the intuition link between averages and expected values. 
 
 _Important note_: The Strong Law of Large Numbers holds so long as the expected value exists; no other assumptions are needed. However, the rate of convergence will differ greatly depending on the distribution underlying the observed data. When extreme observations occur often (i.e. kurtosis is large), the rate of convergence is much slower. Cf. The distribution of financial returns. 
 
@@ -869,10 +936,10 @@ Answer to Example \@ref(exm:prob):
 
 Answer to Exercise \@ref(exr:prob1):
 
-1. $\Pr(X = 5) = \frac{4}{16}$, $\Pr(X = 3) = \frac{2}{16}$, $\Pr(X = 6) = \frac{3}{16}$
+1. $P(X = 5) = \frac{4}{16}$, $P(X = 3) = \frac{2}{16}$, $P(X = 6) = \frac{3}{16}$
 
   
-2. What is $\Pr(X=5 \cup X = 3)^C = \frac{10}{16}$? 
+2. What is $P(X=5 \cup X = 3)^C = \frac{10}{16}$? 
 
 Answer to Example \@ref(exm:condprobexm1):
 
@@ -888,7 +955,7 @@ Answer to Example \@ref(exm:condprobexm1):
 
 Answer to Example \@ref(exm:condprobexm2):
 
-$\Pr(1|Odd) = \frac{\Pr(1 \cap Odd)}{\Pr(Odd)} = \frac{\frac{1}{6}}{\frac{1}{2}} = \frac{1}{3}$
+$P(1|Odd) = \frac{P(1 \cap Odd)}{P(Odd)} = \frac{\frac{1}{6}}{\frac{1}{2}} = \frac{1}{3}$
 
 
 Answer to Example \@ref(exm:bayesrule):
