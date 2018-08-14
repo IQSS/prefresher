@@ -891,7 +891,7 @@ There are many answers to this. Some possible simple ones are as follows:
 			x & - &  y & = &  2
 			\end{matrix}\]
 
-3. Infinite solutiond: \[\begin{matrix}
+3. Infinite solutions: \[\begin{matrix}
 			-x  & + & y & = & 0\\
 			2x & - &  2y & = &  0
 			\end{matrix}\]
@@ -1000,9 +1000,9 @@ Answer to Exercise \@ref(exr:determinants):
 
 Answer to Exercise \@ref(exr:calcinverse):
 
-\begin{pmatrix}
+$\begin{pmatrix}
 			\frac{2}{41} & \frac{-5}{41}\\
 			\frac{7}{41} & \frac{3}{41}\\
-		\end{pmatrix}
+		\end{pmatrix}$
 
 
