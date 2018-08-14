@@ -15,13 +15,6 @@ Topics:
  Summarizing Observed Data;
  Asymptotics
  
- Much of the material and examples for
-this lecture are taken from Gill (2006) \emph{Essential Mathematics for Political and Social Research}, Wackerly, Mendenhall, \& Scheaffer (1996)
-\emph{Mathematical Statistics with Applications}, Degroot (1985)
-\emph{Probability and Statistics}, Morrow (1994) \emph{Game Theory for
-Political Scientists}, King (1989) \emph{Unifying Political Methodology},
- and Ross (1987) \emph{Introduction to Probability
-and Statistics for Scientists and Engineers}.
 
 ## Counting rules
 
