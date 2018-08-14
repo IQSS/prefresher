@@ -15,7 +15,7 @@ $\bullet$ Rank
 $\bullet$ The Inverse of a Matrix
 $\bullet$ Inverse of Larger Matrices
 
-Much of the material and examples for this lecture are taken from Gill (2006) \emph{Essential Mathematics for Political and Social Scientists}, Simon \& Blume (1994) \emph{Mathematics for Economists} and Kolman (1993) \emph{Introductory Linear Algebra with Applications}.
+
 
 
 ## Working with Vectors {#vectors}
@@ -823,7 +823,7 @@ $$A = \begin{pmatrix}
 
 
 
-## Answers to Examples and Exercises
+## Answers to Examples and Exercises {-}
 
 
 

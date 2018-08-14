@@ -13,8 +13,6 @@ __Topics__
  Finding Roots;
  Limit of a Function;
  Continuity; Sets, Sets, and More Sets.
- 
-Much of the material and examples for this lecture are taken from Simon \& Blume (1994) \emph{Mathematics for Economists}, Boyce \& Diprima (1988) \emph{Calculus}, and Protter \& Morrey (1991) \emph{A First Course in Real Analysis}
 
 
 ## Summation Operators $\sum$ and $\prod$  {#summation}
@@ -376,7 +374,7 @@ __Empty__: The empty (or null) set is a unique set that has no elements, denoted
 * Examples: The set of squares with 5 sides; the set of countries south of the South Pole.
 
 
-## Answers to Examples and Exercises
+## Answers to Examples and Exercises  {-}
 
 Answer to Example \@ref(exm:operators):
   
