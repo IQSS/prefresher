@@ -1,4 +1,4 @@
-# Optimization
+# Optimization {#optim}
 
 
 ```{r, include = FALSE}
@@ -95,7 +95,9 @@ The first derivative, $f'(x)$, identifies whether the function $f(x)$ at the poi
 
 
 So for example, $f(x) = x^2 + 2$ and $f^\prime(x) = 2x$ 
-```{r, echo = FALSE}
+
+
+```{r, echo = FALSE, fig.cap="Maxima and Minima"}
 range <- tibble::tibble(x = c(-3, 3))
 fx0 <- ggplot(range, aes(x = x)) +
   labs(x = expression(x), y = expression(f(x))) +
@@ -111,9 +113,14 @@ fprimex <- fx0 + stat_function(fun = function(x) 2*x, size = 0.5, linetype = "da
 fx + fprimex + plot_annotation(expression(f(x)==x^2+2))
 ```
 
-And for $f(x)=x^3+ x^2 + 2$
 
-```{r, echo = FALSE}
+```{exercise. }
+Plot $f(x)=x^3+ x^2 + 2$, plot its derivative, and identifiy where the derivative is zero. Is there a maximum or minimum?
+
+```
+
+
+```{r, echo = FALSE, eval = FALSE}
 range <- tibble::tibble(x = c(-3, 3))
 fx0 <- ggplot(range, aes(x = x)) +
   labs(x = expression(x), y = expression(f(x))) +

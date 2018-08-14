@@ -327,3 +327,13 @@ Some properties of continuous functions:
 3. Max/Min: If $f$ is continuous on the closed bounded interval $[a,b]$, then $f$ has a maximum and a minimum on $[a,b]$. They may be located at the end points.
 
 
+
+```{exercise}
+
+Let \[f(x) = \frac{x^2 + 2x}{x}.\]
+
+1. Graph the function. Is it defined everywhere?
+2. What is the functions limit at $x \rightarrow 0$? 
+
+
+```
