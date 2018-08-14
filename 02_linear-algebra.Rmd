@@ -31,7 +31,7 @@ __Vector Addition and Subtraction__:  If two vectors, ${\bf u}$ and ${\bf v}$, h
 __Scalar Multiplication__:  The product of a scalar $c$ (i.e. a constant) and vector ${\bf v}$ is: \
 		$$ c{\bf v} =  \begin{pmatrix} cv_1 & cv_2 & \dots & cv_n \end{pmatrix} $$
 
-__Vector Inner Product__: The inner product (also called the dot product or scalar product) of two vectors  ${\bf u}$ and ${\bf v}$ is again defined iff they have the same number of elements 
+__Vector Inner Product__: The inner product (also called the dot product or scalar product) of two vectors  ${\bf u}$ and ${\bf v}$ is again defined if and only if they have the same number of elements 
 		$$ {\bf u} \cdot {\bf v} = u_1v_1 + u_2v_2 + \cdots + u_nv_n = \sum_{i = 1}^n u_iv_i$$
 		If ${\bf u} \cdot {\bf v} = 0$, the two vectors are orthogonal (or perpendicular).
 
@@ -81,12 +81,12 @@ __Linear independence__:  A set of vectors ${\bf v}_1, {\bf v}_2,  \cdots , {\bf
 		$$c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k = 0$$
 		is $c_1 = c_2 = \cdots = c_k = 0$.  If another solution exists, the set of vectors is linearly dependent.
 	
-A set $S$ of vectors is linearly dependent iff at least one of the vectors in $S$ can be written as a linear combination of the other vectors in $S$.
+A set $S$ of vectors is linearly dependent if and only if at least one of the vectors in $S$ can be written as a linear combination of the other vectors in $S$.
 
  Linear independence is only defined for sets of vectors with the same number of elements; any linearly independent set of vectors in $n$-space contains at most $n$ vectors.
  
  
- Since $\begin{pmatrix}9 & 13 & 17 \end{pmatrix}$ is a linear combination of $\begin{pmatrix}1 & 2 & 3 \end{pmatrix}$, $\begin{pmatrix} 2 & 3& 4\end{pmatrix}$, and $\begin{pmatrix} 3 & 4 & 5 \end{pmatrix}$, these 4 vectors consitute a linearly depedent set. 
+ Since $\begin{pmatrix}9 & 13 & 17 \end{pmatrix}$ is a linear combination of $\begin{pmatrix}1 & 2 & 3 \end{pmatrix}$, $\begin{pmatrix} 2 & 3& 4\end{pmatrix}$, and $\begin{pmatrix} 3 & 4 & 5 \end{pmatrix}$, these 4 vectors constitute a linearly dependent set. 
 
 ```{example, name = "Linear Indepdence", linearindep} 
 
@@ -554,7 +554,7 @@ __Identity Matrix__:  The $n\times n$ identity matrix ${\bf I}_n$ is the matrix 
 			0&0&1 \end{pmatrix}$$	
 			
 			
-__Inverse Matrix__:  An $n\times n$ matrix ${\bf A}$ is __nonsingular__ or __invertible__ if there exists an $n\times n$ matrix ${\bf A}^{-1}$ such that $${\bf A} {\bf A}^{-1} = {\bf A}^{-1} {\bf A} = {\bf I}_n$$ where ${\bf A}^{-1}$ is the inverse of ${\bf A}$.  If there is no such ${\bf A}^{-1}$, then ${\bf A}$ is singular or noninvertible.
+__Inverse Matrix__:  An $n\times n$ matrix ${\bf A}$ is __nonsingular__ or __invertible__ if there exists an $n\times n$ matrix ${\bf A}^{-1}$ such that $${\bf A} {\bf A}^{-1} = {\bf A}^{-1} {\bf A} = {\bf I}_n$$ where ${\bf A}^{-1}$ is the inverse of ${\bf A}$.  If there is no such ${\bf A}^{-1}$, then ${\bf A}$ is singular or not invertible.
 
 Example:  Let
 		$${\bf A} = \begin{pmatrix} 2&3\\2&2 \end{pmatrix}, \qquad {\bf B}=\begin{pmatrix} -1&\frac{3}{2}\\ 1&-1
@@ -625,7 +625,7 @@ Let's return to the matrix representation of a linear system
 		
 \[\bf{Ax} = \bf{b}\]
 
-If $\bf{A}$ is an $n\times n$ matrix,then $\bf{Ax}=\bf{b}$ is a system of $n$ equations in $n$ unknowns.  Suppose $\bf{A}$ is nonsingular. Then $\bf{A}^{-1}$ exists.  To solve this system, we can premultiply each side by $\bf{A}^{-1}$ and reduce it as follows:
+If $\bf{A}$ is an $n\times n$ matrix,then $\bf{Ax}=\bf{b}$ is a system of $n$ equations in $n$ unknowns.  Suppose $\bf{A}$ is nonsingular. Then $\bf{A}^{-1}$ exists.  To solve this system, we can multiply each side by $\bf{A}^{-1}$ and reduce it as follows:
 		
 \begin{eqnarray*} 
 \bf{A}^{-1} (\bf{A} \bf{x}) & = & \bf{A}^{-1} \bf{b} \\
@@ -685,7 +685,7 @@ $\textbf{z} = \bf{A}^{-1} \bf{b} = \begin{pmatrix}
 
 __Singularity__:  Determinants can be used to determine whether a square matrix is nonsingular.
 	
- A square matrix is nonsingular iff its determinant is not zero.
+ A square matrix is nonsingular if and only if its determinant is not zero.
 	
 
 Determinant of a $1 \times 1$ matrix, __A__, equals $a_{11}$

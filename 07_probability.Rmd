@@ -476,7 +476,7 @@ The function $f$ above is called the probability density function (pdf) of $X$ a
 \end{comment}
 
 
-For both discrete and continous random variables, we have a unifying concept of another measure: the cumulative distribution: 
+For both discrete and continuous random variables, we have a unifying concept of another measure: the cumulative distribution: 
 
 ```{definition, name = "Cumulative Density Function"}
 Because the probability that a continuous random variable will assume any particular value is zero, we can only make statements about the probability of a continuous random variable being within an interval.  The cumulative distribution gives the probability that $Y$ lies on the interval $(-\infty,y)$ and is defined as $$F(x)=P(X\le x)=\int\limits_{-\infty}^x f(s)ds$$  Note that $F(x)$ has similar  properties with continuous distributions as it does with discrete - non-decreasing, continuous (not just right-continuous), and $\lim\limits_{x \to -\infty} F(x) = 0$ and $\lim\limits_{x \to \infty} F(x) = 1$.
