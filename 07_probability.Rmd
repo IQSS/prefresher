@@ -401,7 +401,7 @@ Note that $P(Y > y) = 1 - P(Y \le y)$.
 We also have a similar definition for \emph{continuous} random variables. 
 
 
-__Continuous Random Variable__:  $Y$ is a continuous random variable if there exists a nonnegative function $f(y)$ defined for all real $y\in (-\infty,\infty)$, such that for any interval $A$, $\Pr(Y\in A)=\int\limits_A f(y)dy$. Examples: age, income, GNP, temperature.
+__Continuous Random Variable__:  $Y$ is a continuous random variable if there exists a non-negative function $f(y)$ defined for all real $y\in (-\infty,\infty)$, such that for any interval $A$, $\Pr(Y\in A)=\int\limits_A f(y)dy$. Examples: age, income, GNP, temperature.
 
 __Probability Density Function__:  The function $f$ above is called the probability density function (pdf) of $Y$ and must satisfy
   \begin{enumerate}
@@ -416,7 +416,7 @@ Note also that $\Pr(Y=y)=0$ --- i.e., the probability of any point $y$ is zero.
 \end{comment}
 
 
-For both discrete and continous random variables, we have a unifying concept of another measure: the cumulative distribution: 
+For both discrete and continuous random variables, we have a unifying concept of another measure: the cumulative distribution: 
 
 __Cumulative Density Function__:  Because the probability that a continuous random variable will assume any particular value is zero, we can only make statements about the probability of a continuous random variable being within an interval.  The cumulative distribution gives the probability that $Y$ lies on the interval $(-\infty,y)$ and is defined as $$F(y)=\Pr(Y\le y)=\int\limits_{-\infty}^y f(s)ds$$  Note that $F(y)$ has similar  properties with continuous distributions as it does with discrete - non-decreasing, continuous (not just right-continuous), and $\lim\limits_{y \to -\infty} F(y) = 0$ and $\lim\limits_{y \to \infty} F(y) = 1$.\\
 

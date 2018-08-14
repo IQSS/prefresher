@@ -19,7 +19,7 @@ Much of the material and examples for this lecture are taken from Simon \& Blume
 
 ## Summation Operators $\sum$ and $\prod$  {#summation}
 
-Addition (+), Substraction (-), multiplication and division are basic operations of arithmetic -- combining numbers. In statistics and calculus, we want to add a _sequence_ of numbers that can be expressed as a pattern without needing to write down all its components. For example, how would we express the sum of all numbers from 1 to 100 without writing a hundred numbers?
+Addition (+), Subtraction (-), multiplication and division are basic operations of arithmetic -- combining numbers. In statistics and calculus, we want to add a _sequence_ of numbers that can be expressed as a pattern without needing to write down all its components. For example, how would we express the sum of all numbers from 1 to 100 without writing a hundred numbers?
 
 For this we use the summation operator $\sum$ and the product operator $\prod$. 
 
@@ -52,7 +52,7 @@ __Factorials!:__
 
 $$x! = x\cdot (x-1) \cdot (x-2) \cdots (1)$$
 
-__Modulo:__ Tells you the remainder when you divide the first number by the seond. 
+__Modulo:__ Tells you the remainder when you divide the first number by the second. 
 
 * $17 \mod 3 = 2$
 * $100 \ \% \ 30 = 10$
