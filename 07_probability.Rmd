@@ -554,8 +554,12 @@ Example:  Suppose we are interested in the outcomes of flipping a coin and rolli
 
 We often want to summarize some characteristics of the distribution of a random variable.  The most important summary is the expectation (or expected value, or mean), in which the possible values of a random variable are weighted by their probabilities.
 
-__Expectation of a Discrete Random Variable__:  The expected value of a discrete random variable $Y$ is \[E(Y)=\sum\limits_{y} y P(Y=y)= \sum\limits_{y} y p(y)\]  
+```{definition, name = "Expectation of a Discrete Random Variable"}
+The expected value of a discrete random variable $Y$ is \[E(Y)=\sum\limits_{y} y P(Y=y)= \sum\limits_{y} y p(y)\]  
 In words, it is the weighted average of all possible values of $Y$, weighted by the probability that $y$ occurs.  It is not necessarily the number we would expect $Y$ to take on, but the average value of $Y$ after a large number of repetitions of an experiment.
+
+```
+
 
 ```{example, name = "Expectation of a Discrete Random Variable", expectdiscrete}
 
@@ -618,10 +622,19 @@ The conditional expectation is often used for prediction when one knows the valu
 
 ## Variance and Covariance
 
-__Variance__:  We can also look at other summaries of the distribution, which build on the idea of taking expectations. Variance tells us about the "spread" of the distribution; it is the expected value of the squared deviations from the mean of the distribution.  The standard deviation is simply the square root of the variance.
+We can also look at other summaries of the distribution, which build on the idea of taking expectations. Variance tells us about the "spread" of the distribution; it is the expected value of the squared deviations from the mean of the distribution.  The standard deviation is simply the square root of the variance.
 
-1. Variance: $\sigma^2= V(Y) = E[(Y - E(Y))^2] =  E(Y^2)-[E(Y)]^2$
-2. Standard Deviation: $\sigma= \sqrt{V(Y)}$
+```{definition, name = "Variance"}
+The Variance of a Random Variable $Y$ is
+  
+  \[\text{Var}(Y) = E[(Y - E(Y))^2] =  E(Y^2)-[E(Y)]^2\]
+
+  
+  The Standard Deviation is the square root of the variance : $\sigma= \sqrt{V(Y)}$
+
+```
+
+
 
 ```{example, name = "Variance", var}
 
@@ -642,16 +655,28 @@ __Hint:__ First calculate $E[x]$ and $E[x^2]$
   
 
 ```
-___Covariance and Correlation:___ The covariance measures the degree to which two random variables vary together; if the covariance between X and Y is positive, X tends to be larger than its mean when Y is larger than its mean.  The covariance of a variable with itself is the variance of that variable.
+
+```{definition, name = "Covariance and Correlation"}
+
+The covariance measures the degree to which two random variables vary together; if the covariance between $X$ and $Y$ is positive, X tends to be larger than its mean when Y is larger than its mean.  
 
 \[Cov(X,Y) = E[(X - E(X))(Y - E(Y))] \]
 \[= E[XY - XE[Y] - E[X]Y + E[X]E[Y]] \]
 \[= E[XY] - E[X]E[Y] - E[X]E[Y] + E[X]E[Y]\]
 \[=  E(XY) - E(X)E(Y)\]
+```
 
-The correlation coefficient is the covariance divided by the standard deviations of X and Y.  It is a unitless measure and always takes on values in the interval $[-1,1]$.
+The covariance of a variable with itself is the variance of that variable.
 
-\[\rho = \frac{Cov(X,Y)}{\sqrt{V(X)V(Y)}} = \frac{Cov(X,Y)}{SD(X)SD(Y)}\]
+The Covariance is unfortunately hard to intepret in magnitude. The correlation is a standardized version of the covariance, and always ranges from -1 to 1. 
+
+```{definition, name = "Correlation"}
+The correlation coefficient is the covariance divided by the standard deviations of $X$ and $Y$.  It is a unitless measure and always takes on values in the interval $[-1,1]$.
+
+\[\text{Corr}(X, Y) = \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}} = \frac{\text{Cov}(X,Y)}{SD(X)SD(Y)}\]
+
+
+```
 
 ___Properties of Variance and Covariance:___
 
