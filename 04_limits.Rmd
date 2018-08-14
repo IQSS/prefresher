@@ -237,31 +237,90 @@ So there are a few more alternatives about what a limit of a function could be:
 3. Infinity: The value approached by $f(x)$ as x grows infinitely large. Sometimes this may be a number; sometimes it might be $\infty$ or $-\infty$.
 4. Negative infinity: The value approached by $f(x)$ as x grows infinitely negative. Sometimes this may be a number; sometimes it might be $\infty$ or $-\infty$.
 
-\begin{comment}
-		\parbox[t]{2in}{Example:  $\lim\limits_{x\to 0^+} \sqrt{x} = 0$}\parbox[t]{1in}{\,  {\includegraphics[width=1in, angle = 270]{sqrt.eps}}}
-		\end{comment}
+The distinction between left and right becomes important when the function is not determined for some values of $x$. What are those cases in the examples below?
 
-\begin{comment}
-\parbox[t]{2in}{Example:  $\lim\limits_{x\to \infty} 1/x = \lim\limits_{x\to -\infty} 1/x= 0$}\parbox[t]{1in}{\,  {\includegraphics[width=1in, angle = 270]{1ovrx.eps}}}\\ 
-\end{comment}
+```{r, echo=FALSE,fig.cap="Functions which are not defined in some areas", warning = FALSE}
+range1 <- tibble::tibble(x = c(-2, 16))
+range2 <- tibble::tibble(x = c(-2, 2))
+
+
+fx1 <- ggplot(range1, aes(x = x)) +
+  stat_function(fun = function(x) sqrt(x), size = 0.5) +
+  labs(x = expression(x), y = expression(f(x)), title = expression(f(x)==sqrt(x))) +
+  expand_limits(y = max(range1$x))
+
+fx2 <- 
+  ggplot(range2, aes(x = x)) +
+  stat_function(fun = function(x) ifelse(x == 0, NA, 1/x), size = 0.5) +
+  labs(x = expression(x), y = expression(f(x)), title = expression(f(x)==frac(1,x)))
+
+fx1+fx2
+```
+
 
 
 ## Continuity
 
-__Continuity__: Suppose that the domain of the function $f$ includes an open interval containing the point $c$.  Then $f$ is continuous at $c$ if $\lim\limits_{x \to c} f(x)$ exists and if $\lim\limits_{x \to c} f(x)=f(c)$. Further, $f$ is continuous on an open interval $(a,b)$ if it is continuous at each point in the interval.
+To repeat a finding from the limits of functions: $f(x)$ does not necessarily have to be defined at $c$ for $\lim\limits_{x \to c}$ to exist. Functions that have breaks in their lines are called discontinuous. Functions that have no breaks are called continuous. Continuity is a concept that is more fundamental to, but related to that of "differentiability", which we will cover next in calculus.  
+
+```{definition, name = "Continuity"}
+Suppose that the domain of the function $f$ includes an open interval containing the point $c$.  Then $f$ is continuous at $c$ if $\lim\limits_{x \to c} f(x)$ exists and if $\lim\limits_{x \to c} f(x)=f(c)$. Further, $f$ is continuous on an open interval $(a,b)$ if it is continuous at each point in the interval.
+```
+
+To prove that a function is continuous for all points is beyond this practical introduction to math, but the general intuition can be grasped by graphing.
+
+```{example, contdiscont, name = "Continuous and Discontinuous Functions"}
+
+For each function, determine if it is continuous or discontinuous. 
+
+ 1. $f(x) = \sqrt{x}$
+ 2. $f(x) = e^x$
+ 3. $f(x) = 1 + \frac{1}{x^2}$ 
+ 4. $f(x) = \text{floor}(x)$. 
+ 
+ 
+The floor is the smaller of the two integers bounding a number. So $\text{floor}(x = 2.999) =  2$, $\text{floor}(x = 2.0001) =  2$, and $\text{floor}(x = 2) =  2.$ 
+```
+
+```{solution}
+In Figure \@ref(fig:fig-contdiscont), we can see that the first two functions are continuous, and the next two are discontinuous. $f(x) = 1 + \frac{1}{x^2}$  is discontinuous at $x= 0$, and $f(x) = \text{floor}(x)$ is discontinuous at each whole number.
+```
 
 
-Examples: Continuous functions.
+```{r, fig-contdiscont, echo=FALSE,fig.cap="Continuous and Discontinuous Functions", warning = FALSE}
+range1 <- tibble(x = c(0, 10))
+range2 <- tibble(x = c(-2, 2))
+range3 <- tibble(x = c(-4, -4))
+range4 <- tibble(x = c(0, 5))
 
-\begin{comment}
-	\parbox[t]{1.5in}{\hfill$f(x)=\sqrt{x}\quad$}\parbox[t]{1in}{\,  {\includegraphics[width=1in, angle = 270]{sqrt.eps}}}
-	\parbox[t]{1.5in}{\hfill$f(x)=e^x\quad$}\parbox[t]{1in}{\,  {\includegraphics[width=1in, angle = 270]{exp.eps}}}
-	\item[] Examples: Discontinuous functions.\\
-	\parbox[t]{1.5in}{\hfill$f(x)=\mbox{floor}(x)\quad$}\parbox[t]{1in}{\,  {\includegraphics[width=1in, angle = 270]{floor.eps}}}
-	\parbox[t]{1.5in}{\hfill$f(x)=1+\frac{1}{x^2}\quad$}\parbox[t]{1in}{\,  {\includegraphics[width=1in, angle = 270]{1p1ovrx2.eps}}}
-\end{comment}
 
-Properties:
+fx1 <- ggplot(range1, aes(x = x)) +
+  stat_function(fun = function(x) sqrt(x), size = 0.5) +
+  labs(y = expression(f(x)), title = expression(f(x)==sqrt(x)))
+
+fx2 <- ggplot(range2, aes(x = x)) +
+  stat_function(fun = function(x) exp(x), size = 0.5) +
+  labs(y = expression(f(x)), title = expression(f(x)==e^x))
+
+fx3 <- ggplot(range3, aes(x = x)) +
+  stat_function(fun = function(x) 1 + 1/(x^2), size = 0.5) +
+  labs(y = expression(f(x)), title = expression(f(x)==1+frac(1,x^2)))
+
+fx4 <- ggplot(range4, aes(x = x)) +
+  stat_function(fun = function(x) ifelse(1 - (x %% 1) < 9e-2, NA, floor(x)), size = 0.5) +
+  geom_point(data = tibble(x = 0:5, y = 0:5), aes(y = y), pch = 19) +
+  geom_point(data = tibble(x = 1:5, y = (1:5) - 1), aes(y = y), pch = 21, fill = "white") +
+  labs(y = expression(f(x)), title = expression(f(x)==plain("floor(x)")))
+
+
+
+fx1 + fx2 + fx3 + fx4 + plot_layout(ncol = 2)
+```
+
+
+
+
+Some Properties of continuous functions:
 
 1. If $f$ and $g$ are continuous at point $c$, then $f+g$, $f-g$, $f \cdot g$, $|f|$, and $\alpha f$ are continuous at point $c$ also. $f/g$ is continuous, provided $g(c)\ne 0$.
 2. Boundedness: If $f$ is continuous on the closed bounded interval $[a,b]$, then there is a number $K$ such that $|f(x)|\le K$ for each $x$ in $[a,b]$.
