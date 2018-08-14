@@ -1,4 +1,6 @@
-# Limits
+# Limits {#limits}
+
+## Example: The Central Limit Theorem {-}
 
 ## Dimensionality
 
@@ -7,9 +9,8 @@ ${\bf R}^1$ is the set of all real numbers extending from $-\infty$ to $+\infty$
 * ${\bf R}^1$ is a one dimensional line.
 * ${\bf R}^2$ is a two dimensional plane.
 * ${\bf R}^3$ is a three dimensional space.
-* ${\bf R}^4$ could be 3-D plus time (or temperature, etc).
 
-Points in ${\bf R}^n$ are ordered $n$-tuples, where each element of the $n$-tuple represents the coordinate along that dimension.
+Points in ${\bf R}^n$ are ordered $n$-tuples (just means an combination of $n$ elements where order matters), where each element of the $n$-tuple represents the coordinate along that dimension.
 
 * ${\bf R}^1$: (3)
 * ${\bf R}^2$: (-15, 5)
@@ -200,32 +201,5 @@ Examples:
 		\item The sequence $\{ y_n \}$ where $y_n=\left( \frac{1}{n}, (-1)^n \right)$ does not converge, since $\left\{ (-1)^n \right\}$ does not converge.
 \end{enumerate}
 
-\textbf{Bolzano-Weierstrass Theorem}: Any sequence contained in a compact (i.e., closed and bounded) subset of ${\bf R}^n$ contains a convergent subsequence.\\
-		\parbox[t]{4in}{Example: Take the sequence $\{ y_n \} =\left\{ (-1)^n \right\}$, which has two accumulating points, but no limit.  However, it is both closed and bounded.}			
-\begin{comment}
-		\parbox{1.5in}{\,  {\includegraphics[width=1.5in]{bolzwei.eps}}}\\[12pt]
-		\end{comment}
-		\begin{comment}
-		\parbox[t]{4in}{The subsequence of $\{ y_n \}$ defined by taking $n=1,3,5,\ldots$ does have a limit: $-1$.}\parbox{1.5in}{\,  {\includegraphics[width=1.5in]{bolzwei1.eps}}}\\[12pt]
-
-\parbox[t]{4in}{As does the subsequence defined by taking $n=2,4,6,\ldots$, whose limit is $1$.}\parbox{1.5in}{\,  {\includegraphics[width=1.5in]{bolzwei2.eps}}}
-\end{comment}
 
 
-
-## Series
-
-The sum of the terms of a sequence is a \textbf{series}. As there are both finite and infinite sequences, there are   \textbf{finite} and \textbf{infinite series}.
-
-The series associated with the sequence $\{y_n\}=\{y_1, y_2,   y_3, \ldots, y_n\} = \{y_n\}_{n=1}^{\infty}$ is $\sum_{n=1}^{\infty} y_n$. The $n$th partial sum $S_n$ is defined as $S_n=\sum_{k=1}^n y_k$,the sum of the first $n$ terms of the sequence.
-
-\textbf{Convergence:} A series $\sum y_n$ converges if the sequence of partial sums $\{S_1, S_2, S_3, ...\}$ converges, i.e has a finite limit. 
-
-A \textbf{geometric series} is a series that can be written as $\sum_{n=0}^{\infty} r^n$, where $r$ is called the ratio. A geometric series converges to $\frac{1}{1-r}$ if $|r|< 1$ and diverges otherwise. For example, $\sum_{n=0}^{\infty} \frac{1}{2^n} = 2$.
-	
-Examples of other series:
-\begin{enumerate}
-		\item  $\sum_{n=0}^{\infty} \frac{1}{n!} = 1 + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \cdots = e$.\\
-		This one is especially useful in statistics and probability.
-		\item $\sum_{n=1}^{\infty} \frac{1}{n} = \frac{1}{1} + \frac{1}{2}  + \frac{1}{3} + \cdots = \infty$ (harmonic series)
-\end{enumerate}

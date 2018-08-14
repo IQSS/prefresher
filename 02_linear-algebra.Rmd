@@ -256,10 +256,10 @@ $$B = \begin{pmatrix} 1&5&-7\\1&1&0\\0&-1&1\\2&0&0\end{pmatrix} $$
 
 Calculate the following:
   
-  $$1. AB$$
-  $$2. BA$$
-  $$3. (BC)^T$$
-  $$4. BC^T$$
+1. $$AB$$
+2. $$BA$$
+3. $$(BC)^T$$
+4. $$BC^T$$
 
 
 
@@ -637,11 +637,14 @@ If $\bf{A}$ is an $n\times n$ matrix,then $\bf{Ax}=\bf{b}$ is a system of $n$ eq
 Hence, given $\bf{A}$ and $\bf{b}$ and given that $\bf{A}$ is nonsingular, then $\bf{x} = \bf{A}^{-1} \bf{b}$ is a unique solution to this system.
 
 
+<<<<<<< HEAD
 ```{exercise, invlinsys, name = "Solve linear system using inverses"}
 
+=======
+```{exercise, ils, name = "Solve linear system using inverses"}
+>>>>>>> b8bd6d5fbc5d0e7b49f8c02ea70777f5e79e690b
 Use the inverse matrix to solve the following linear system:
 
-  
 \begin{align*} 
 -3x + 4y &= 5 \\
 2x - y &= -10
@@ -658,9 +661,12 @@ given \[\textbf{A} = \begin{pmatrix} -3&4\\2&-1 \end{pmatrix},\]
 and 
 \[\textbf{b} = \begin{pmatrix} 5\\-10 \end{pmatrix}\]
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> b8bd6d5fbc5d0e7b49f8c02ea70777f5e79e690b
 ```
 
 Answer to Exercise \@ref(exr:invlinsys):
@@ -777,7 +783,13 @@ The determinant of a $2 \times 2$ matrix __A__ $\begin{pmatrix} a & b\\ c & d\\ 
 		\end{pmatrix}\]
 		
 		
+<<<<<<< HEAD
 For example, Let's calculate the inverse of matrix A from Exercise \@ref(exr:invlinsys) using the determinant formula. 
+=======
+Example:
+
+Let's calculate the inverse of matrix $\textbf{A}$ from Exercise \@ref(exr:ils) using the determinant formula. 
+>>>>>>> b8bd6d5fbc5d0e7b49f8c02ea70777f5e79e690b
 
 Recall, 
 

@@ -113,22 +113,26 @@ Properties of set operations:
 * __de Morgan's laws__: $(A \cup B)^C = A^C \cap B^C$; $(A \cap B)^C = A^C \cup B^C$
 * __Disjointness__: Sets are disjoint when they do not intersect, such that $A \cap B = \{\emptyset\}$.  A collection of sets is pairwise disjoint (\textbf{mutually exclusive}) if, for all $i \neq j$, $A_i \cap A_j = \{\emptyset\}$.  A collection of sets form a partition of set $S$ if they are pairwise disjoint and they cover set $S$, such that $\bigcup_{i = 1}^k A_i = S$.
 
+
 ```{example, name = "Sets", sets}
 
 Let set $A$ be {1, 2, 3, 4}, $B$ be {3, 4, 5, 6}, and $C$ be {5, 6, 7, 8}. Sets $A$, $B$, and $C$ are all subsets of the sample space $S$ which is {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 
 Write out the following sets:
 
-  1. $A \cup B$
-  2. $C \cap B$
-  3. $B^c$
-  4. $A \cap (B \cup C)$
+1. $A \cup B$
+2. $C \cap B$
+3. $B^c$
+4. $A \cap (B \cup C)$
   
+  
+
 
 
 ```
 
 ```{exercise, name = "Sets", sets1}
+
 
 
 Suppose you had a pair of four-sided dice. You sum the results from a single toss.
@@ -144,6 +148,7 @@ Consider subsets A {2, 8} and B {2,3,7} of the sample space you found. What is
   
  
 ```
+
 
 
 

@@ -1,4 +1,4 @@
-#  LaTeX and markdown
+#  LaTeX and markdown {#nonwysiwyg}
 
 Module originally written by Shiro Kuriwaki
 

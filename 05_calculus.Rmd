@@ -22,27 +22,26 @@ The Indefinite Integral: The Antiderivative;
 
 ## Derivatives {#derivintro}
 
-The derivative of $f$ at $x$ is its rate of change at $x$ --- i.e., how much $f(x)$ changes with a change in $x$.
-
-* For a line, the derivative is the slope.
-* For a curve, the derivative is the slope of the line tangent to the curve at $x$.
+The derivative of $f$ at $x$ is its rate of change at $x$: how much $f(x)$ changes with a change in $x$. The rate of change is a fraction --- rise over run --- but because not all lines are straight and the rise over run formula will give us different values depending on the range we examine, we need to take a limit (Section \@ref(limits)).
 
 
-__Derivative__:  Let $f$ be a function whose domain includes an open interval containing the point $x$.  The derivative of $f$ at $x$ is given by
+```{definition, name = "Derivative"}
+Let $f$ be a function whose domain includes an open interval containing the point $x$.  The derivative of $f$ at $x$ is given by
 
-\begin{align*}
-		f'(x) &=\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{(x+h)-x}\nonumber\\
-		&=\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{h}\nonumber
-\end{align*}
+\[\frac{d}{dx}f(x) =\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{(x+h)-x} = \lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{h}
+\]
 
+There are a two main ways to denote a derivate:
+* Leibniz Notation: $\frac{d}{dx}(f(x)$
+* Prime or Lagrange Notation: $f'(x)$
+```
+
+If $f(x)$ is a straight line, the derivative is the slope. For a curve, the slope changes by the values of $x$, so the derivative is the slope of the line tangent to the curve at $x$.
 
 If $f'(x)$ exists at a point $x$, then $f$ is said to be __differentiable__ at $x$.  Similarly, if $f'(x)$ exists for every point a long an interval, then $f$ is differentiable along that interval.  For $f$ to be differentiable at $x$, $f$ must be both continuous and "smooth'' at $x$.  The process of calculating $f'(x)$ is called __differentiation__.
 
-__Notation for derivatives:__
 
-* Prime or Lagrange Notation: $y'$, $f'(x)$
-* Leibniz's Notation: $\frac{dy}{dx}$, $\frac{df}{dx}(x)$
-* Operator Notation: $Dy$, $Df(x)$
+
 
 
 __Properties of derivatives:__  Suppose that $f$ and $g$ are differentiable at $x$ and that $\alpha$ is a constant.  Then the functions $f\pm g$, $\alpha f$, $f g$, and $f/g$ (provided $g(x)\ne 0$) are also differentiable at $x$.  Additionally,
