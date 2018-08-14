@@ -38,7 +38,20 @@ __Vector Inner Product__: The inner product (also called the dot product or scal
 __Vector Norm__: The norm of a vector is a measure of its length.  There are many different ways to calculate the norm, but the most common of is the Euclidean norm (which corresponds to our usual conception of distance in three-dimensional space):
 		$$ ||{\bf v}|| = \sqrt{{\bf v}\cdot{\bf v}} = \sqrt{ v_1v_1 + v_2v_2 + \cdots + v_nv_n}$$
 
-```{exercise, name = "Vector Algebra"}
+```{example, name = "Vector Algebra", vectors}
+
+Let  $a = \begin{pmatrix} 2&1&2\end{pmatrix}$, $b = \begin{pmatrix} 3&4&5 \end{pmatrix}$. Calculate the following:
+
+1. $a - b$
+
+2. $a \cdot b$
+
+  
+
+```
+
+
+```{exercise, name = "Vector Algebra", vectors1}
 
 Let $u = \begin{pmatrix} 7&1&-5&3\end{pmatrix}$, $v = \begin{pmatrix} 9&-3&2&8 \end{pmatrix}$, $w = \begin{pmatrix} 1&13& -7&2 &15 \end{pmatrix}$, and $c = 2$. Calculate the following: 
   
@@ -51,12 +64,18 @@ Let $u = \begin{pmatrix} 7&1&-5&3\end{pmatrix}$, $v = \begin{pmatrix} 9&-3&2&8 \
   4. $w \cdot v$
   
 
+
 ```
+
 
 ## Linear Independence {#linearindependence}
 
 __Linear combinations__: The vector ${\bf u}$ is a linear combination of the vectors ${\bf v}_1, {\bf v}_2,  \cdots , {\bf v}_k$ if
 		$${\bf u} = c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k$$
+
+
+For example,  $\begin{pmatrix}9 & 13 & 17 \end{pmatrix}$ is a linear combination of the following three vectors: $\begin{pmatrix}1 & 2 & 3 \end{pmatrix}$, $\begin{pmatrix} 2 & 3& 4\end{pmatrix}$, and $\begin{pmatrix} 3 & 4 & 5 \end{pmatrix}$. This is because  $\begin{pmatrix}9 & 13 & 17 \end{pmatrix}$ = $(2)\begin{pmatrix}1 & 2 & 3 \end{pmatrix}$ $+ (-1)\begin{pmatrix} 2 & 3& 4\end{pmatrix}$ + $3\begin{pmatrix} 3 & 4 & 5 \end{pmatrix}$
+
 
 __Linear independence__:  A set of vectors ${\bf v}_1, {\bf v}_2,  \cdots , {\bf v}_k$ is linearly independent if the only solution to the equation
 		$$c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k = 0$$
@@ -65,25 +84,35 @@ __Linear independence__:  A set of vectors ${\bf v}_1, {\bf v}_2,  \cdots , {\bf
 A set $S$ of vectors is linearly dependent iff at least one of the vectors in $S$ can be written as a linear combination of the other vectors in $S$.
 
  Linear independence is only defined for sets of vectors with the same number of elements; any linearly independent set of vectors in $n$-space contains at most $n$ vectors.
+ 
+ 
+ Since $\begin{pmatrix}9 & 13 & 17 \end{pmatrix}$ is a linear combination of $\begin{pmatrix}1 & 2 & 3 \end{pmatrix}$, $\begin{pmatrix} 2 & 3& 4\end{pmatrix}$, and $\begin{pmatrix} 3 & 4 & 5 \end{pmatrix}$, these 4 vectors consitute a linearly depedent set. 
 
-```{exercise, name = "Linear Independence"}
+```{example, name = "Linear Indepdence", linearindep} 
+
+Are the following sets of vectors linearly independent?
+  
+  1. $\begin{pmatrix}2 & 3 & 1 \end{pmatrix}$ and $\begin{pmatrix}4 & 6 & 1 \end{pmatrix}$
+  2. $\begin{pmatrix}1 & 0 & 0 \end{pmatrix}$, $\begin{pmatrix}0 & 5 & 0 \end{pmatrix}$, and $\begin{pmatrix}10 & 10 & 0 \end{pmatrix}$
+
+
+  
+```
+
+
+
+```{exercise, name = "Linear Independence", linearindep1}
 
 Are the following sets of vectors linearly independent?
   
   1. $${\bf v}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} $$ 
   
-  2. $${\bf v}_1 = \begin{pmatrix} 3 \\ 2 \\ -1 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} -2 \\ 2 \\ 4 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} 2 \\ 3 \\ 1 \end{pmatrix} $$
+  2. $${\bf v}_1 = \begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} -4 \\ 6 \\ 5 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} -2 \\ 8 \\ 6 \end{pmatrix} $$
+
 
 
 ```
 
-
-\begin{enumerate}
-		\item $${\bf v}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} $$ 
-			\phantom{Yes}
-		\item $${\bf v}_1 = \begin{pmatrix} 3 \\ 2 \\ -1 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} -2 \\ 2 \\ 4 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} 2 \\ 3 \\ 1 \end{pmatrix} $$ 
-			\phantom{No. $-{\bf v}_1 - .5\cdot {\bf v}_2 + {\bf v}_3 = 0$}
-\end{enumerate}
 
 
 
@@ -113,11 +142,16 @@ __Matrix Addition__: Let $\bf A$ and $\bf B$ be two $m\times n$ matrices.
 
 Note that matrices ${\bf A}$ and ${\bf B}$ must have the same dimensionality, in which case they are __conformable for addition__.
 	
-Example:
-		$${\bf A}=\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}, \qquad
+```{example, matrixaddition}
+$${\bf A}=\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}, \qquad
 			{\bf B}=\begin{pmatrix} 1 & 2 & 1 \\ 2 & 1 & 2 \end{pmatrix}$$
-		$${\bf A+B}= \begin{pmatrix} 2 & 4 & 4 \\ 6 & 6 & 8 \end{pmatrix}$$
-	
+		${\bf A+B}=$
+
+  
+
+```
+
+
 __Scalar Multiplication__:  Given the scalar $s$, the scalar multiplication of $s {\bf A}$ is
 		$$ s {\bf A}=  s \begin{pmatrix}
 			a_{11} & a_{12} & \cdots & a_{1n} \\
@@ -132,22 +166,35 @@ __Scalar Multiplication__:  Given the scalar $s$, the scalar multiplication of $
 			s a_{m1} & s a_{m2} & \cdots & s a_{mn}
 		\end{pmatrix}$$
 
-Example:
-		$$s=2, \qquad {\bf A}=\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}$$
-		$$s {\bf A} = \begin{pmatrix} 2 & 4 & 6 \\ 8 & 10 & 12 \end{pmatrix}$$
+```{example, scalarmulti}
+
+
+$s=2, \qquad {\bf A}=\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}$
+  
+$s {\bf A} =$
+
+  
+
+```
+
 
 __Matrix Multiplication__:  If ${\bf A}$ is an $m\times k$ matrix and $\bf B$ is a $k\times n$ matrix, then their product $\bf C = A B$ is the $m\times n$ matrix where
 		$$c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{ik}b_{kj}$$
 
-Examples:
+```{example, matrixmulti}
+
 
 1.  $\begin{pmatrix} a&b\\c&d\\e&f \end{pmatrix} \begin{pmatrix} A&B\\C&D \end{pmatrix}
-			= \begin{pmatrix} aA+bC&aB+bD\\cA+dC&cB+dD\\eA+fC&eB+fD \end{pmatrix}$ 
+			=$
 		
-2. $\begin{pmatrix} 1&2&-1\\3&1&4 \end{pmatrix} \begin{pmatrix} -2&5\\4&-3\\2&1\end{pmatrix} = 
-			\begin{pmatrix} 1(-2)+2(4)-1(2)&1(5)+2(-3)-1(1)\\
-				3(-2)+1(4)+4(2)&3(5)+1(-3)+4(1)\end{pmatrix} =
-			\begin{pmatrix} 4&-2\\6&16\end{pmatrix}$
+2. $\begin{pmatrix} 1&2&-1\\3&1&4 \end{pmatrix} \begin{pmatrix} -2&5\\4&-3\\2&1\end{pmatrix} =$
+
+
+
+```
+
+
+
 
 Note that the number of columns of the first matrix must equal the number of rows of the second matrix, in which case they are __conformable for multiplication__.  The sizes of the matrices (including the resulting product) must be $$(m\times k)(k\times n)=(m\times n)$$
 	
@@ -167,13 +214,13 @@ __Laws of Matrix Algebra__:
 Commutative law for multiplication does not hold -- the order of multiplication matters:
 		$$\bf AB\ne BA$$
 
-Example:
+For example,
 		$${\bf A}=\begin{pmatrix} 1&2\\-1&3\end{pmatrix}, \qquad {\bf B}=\begin{pmatrix} 2&1\\0&1\end{pmatrix}$$
 		$${\bf AB}=\begin{pmatrix} 2&3\\-2&2\end{pmatrix}, \qquad {\bf BA}=\begin{pmatrix} 1&7\\-1&3\end{pmatrix}$$
 
 __Transpose__: The transpose of the $m\times n$ matrix $\bf A$ is the $n\times m$ matrix ${\bf A}^T$  (also written ${\bf A}'$) obtained by interchanging the rows and columns of $\bf A$.
 
-Examples:
+For example,
 
 
 ${\bf A}=\begin{pmatrix} 4&-2&3\\0&5&-1\end{pmatrix}, \qquad {\bf A}^T=\begin{pmatrix} 4&0\\-2&5\\3&-1 \end{pmatrix}$
@@ -197,7 +244,7 @@ Example of $({\bf AB})^T = {\bf B}^T{\bf A}^T$:
 
 
 
-```{exercise, name = "Matrix Multiplication"}
+```{exercise, name = "Matrix Multiplication", matrixmulti1}
 
 
 Let $$A =  \begin{pmatrix} 2&0&-1&1\\1&2&0&1 \end{pmatrix}$$
@@ -214,13 +261,10 @@ Calculate the following:
 3. $$(BC)^T$$
 4. $$BC^T$$
 
-  
+
+
 ```
 	
-
-
-
-
 
 
 
@@ -282,7 +326,7 @@ Methods to solve linear systems:
 2.  Elimination of variables
 3.  Matrix methods
 
-```{exercise, name = "Linear Equations"}
+```{exercise, name = "Linear Equations", lineareq}
 
 
 Provide a system of 2 equations with 2 unknowns that has
@@ -291,7 +335,9 @@ Provide a system of 2 equations with 2 unknowns that has
 
 2. no solution
 
-3. infinite solution
+3. infinite solutions
+
+
 
 
 ```
@@ -331,7 +377,7 @@ __Augmented Matrix__:  When we append $\bf b$ to the coefficient matrix $\bf A$,
 			\end{pmatrix}$$
 
 
-```{exercise, name="Augmented Matrix"}
+```{exercise, name="Augmented Matrix", augmatrix}
 
 
 Create an augmented matrix that represent the following system of equations:
@@ -341,8 +387,11 @@ Create an augmented matrix that represent the following system of equations:
   $$x_1 -15x_2 -11x_5 = 9$$
 
 
+
 ```
 
+
+			
 ## Finding Solutions to Augmented Matrices and Systems of Equations
 
 
@@ -373,11 +422,6 @@ __Gaussian and Gauss-Jordan elimination__:  We can conduct elementary row operat
 		
 __Elementary Row Operations__: To do Gaussian and Gauss-Jordan elimination, we use three basic operations to transform the augmented matrix into another augmented matrix that represents an equivalent linear system -- equivalent in the sense that the same values of $x_j$ solve both the original and transformed matrix/system:
 
-\begin{enumerate}
-		\item \parbox[t]{2.5in}{Interchanging two rows.}$\Longrightarrow\qquad$ \parbox[t]{2.5in}{Interchanging two equations.}
-		\item \parbox[t]{2.5in}{Multiplying a row by a constant.}$\Longrightarrow\qquad$ \parbox[t]{2.5in}{Multiplying both sides of an equation by a constant.}
-		\item \parbox[t]{2.5in}{Adding two rows to each other.}$\Longrightarrow\qquad$ \parbox[t]{2.5in}{Adding two equations to each other.}
-	\end{enumerate}
 
 __Interchanging Rows__:  Suppose we have the augmented matrix 
 		$${\widehat{\bf A}}=\begin{pmatrix} a_{11} & a_{12} & | & b_1\\
@@ -404,29 +448,24 @@ __Adding (subtracting) Rows__:  If we add (subtract) the first row of matrix $\w
 			\end{pmatrix}$$
 		which represents a linear system equivalent to that represented by matrix $\widehat{\bf A}$.
 
-Example:
+```{example, solvesys}
 
-$$\begin{matrix}
+
+Solve the following system of equations by using elementary row operations:
+
+$\begin{matrix}
 			x  & - & 3y & = & -3\\
 			2x & + &  y & = &  8
-			\end{matrix}$$
+			\end{matrix}$
+			  
 
-$$\begin{matrix}
-			x  & - & 3y & = & -3\\
-			   &   & 7y & = & 14\\			
-			\end{matrix}$$
 
-$$\begin{matrix}
-			x  & - & 3y & = & -3\\
-			   &   & y & = & 2\\			
-			\end{matrix}$$
+```
+
+
+
 			
-$$\begin{matrix}
-			x & = & 3\\
-			y & = & 2\\			
-			\end{matrix}$$
-			
-```{exercise, name = "Solving Systems of Equations"}
+```{exercise, name = "Solving Systems of Equations", solvesys1}
 
 
 Put the following system of equations into augmented matrix form. Then, using Gaussian or Gauss-Jordan elimination, solve the system of equations by putting the matrix into row echelon or reduced row echelon form.
@@ -449,8 +488,8 @@ Put the following system of equations into augmented matrix form. Then, using Ga
                \]
 
 
-```
 
+```
 
 
 
@@ -462,7 +501,7 @@ To determine how many solutions exist, we can use information about (1) the numb
 	
 __Rank__:  The maximum number of linearly independent row or column vectors in the matrix. This is equivalent to the number of nonzero rows of a matrix in row echelon form. For any matrix __A__, the row rank always equals column rank, and we refer to this number as the rank of __A__.
 
-Examples:
+For example
 
 $\begin{pmatrix} 1 & 2 & 3 \\
 			0 & 4 & 5 \\
@@ -477,7 +516,7 @@ $\begin{pmatrix} 1 & 2 & 3 \\
 Rank = 2
 
 
-```{exercise, name = "Rank of Matrices"}
+```{exercise, name = "Rank of Matrices", rank}
 
 
 Find the rank of each matrix below:
@@ -497,9 +536,16 @@ Find the rank of each matrix below:
 1 & 3 & 0 & 3 & -2 \end{pmatrix}$
   
 
+
 ```
 
 
+
+Answer to Exercise \@ref(exr:rank):
+
+1. rank is 2
+
+2. rank is 3
 
 
 ## The Inverse of a Matrix
@@ -545,13 +591,361 @@ To summarize:  To calculate the inverse of ${\bf A}$
 	b. If ${\bf C}\ne{\bf I}_n$, then $\bf C$ has a row of zeros. This means ${\bf A}$ is singular and ${\bf A}^{-1}$ does not exist.
 
 
-Example:
-
+```{example, inverse}
 
 Find the inverse of the following matricies:
   
 1. ${\bf A}=\begin{pmatrix} 1&1&1\\0&2&3\\5&5&1 \end{pmatrix}$
 
+
+
+```
+
+
+
+
+
+```{exercise, name = "Finding the inverse of matrices", inverse1}
+
+
+Find the inverse of the following matrix:
+  
+1. ${\bf A}=\begin{pmatrix} 1&0&4\\0&2&0\\0&0&1 \end{pmatrix}$
+
+
+
+```
+
+
+
+
+## Linear Systems and Inverses
+
+Let's return to the matrix representation of a linear system 
+		
+\[\bf{Ax} = \bf{b}\]
+
+If $\bf{A}$ is an $n\times n$ matrix,then $\bf{Ax}=\bf{b}$ is a system of $n$ equations in $n$ unknowns.  Suppose $\bf{A}$ is nonsingular. Then $\bf{A}^{-1}$ exists.  To solve this system, we can premultiply each side by $\bf{A}^{-1}$ and reduce it as follows:
+		
+\begin{eqnarray*} 
+\bf{A}^{-1} (\bf{A} \bf{x}) & = & \bf{A}^{-1} \bf{b} \\
+(\bf{A}^{-1} \bf{A})\bf{x} & = & \bf{A}^{-1} \bf{b}\\
+\bf{I}_n \bf{x}     & = & \bf{A}^{-1} \bf{b}\\
+\bf{x} & = & \bf{A}^{-1} \bf{b}
+\end{eqnarray*}
+
+Hence, given $\bf{A}$ and $\bf{b}$ and given that $\bf{A}$ is nonsingular, then $\bf{x} = \bf{A}^{-1} \bf{b}$ is a unique solution to this system.
+
+
+
+```{exercise, invlinsys, name = "Solve linear system using inverses"}
+
+Use the inverse matrix to solve the following linear system:
+
+\begin{align*} 
+-3x + 4y &= 5 \\
+2x - y &= -10
+\end{align*}
+
+
+___Hint: the linear system above can be written in the matrix form___ 
+
+$\textbf{A}\textbf{z} = \textbf{b}$ 
+  
+given \[\textbf{A} = \begin{pmatrix} -3&4\\2&-1 \end{pmatrix},\] 
+
+\[\textbf{z} = \begin{pmatrix} x\\y \end{pmatrix},\] 
+and 
+\[\textbf{b} = \begin{pmatrix} 5\\-10 \end{pmatrix}\]
+
+
+
+
+
+```
+
+Answer to Exercise \@ref(exr:invlinsys):
+
+$\textbf{z} = \bf{A}^{-1} \bf{b} = \begin{pmatrix}
+	1/5 &4/5\\
+	2/5&3/5 
+\end{pmatrix} \begin{pmatrix}
+	5 \\
+	-10
+\end{pmatrix}= \begin{pmatrix}
+	-7 \\
+	-4
+\end{pmatrix} = \begin{pmatrix}
+	x \\
+	y
+\end{pmatrix}$
+
+
+## Determinants
+
+__Singularity__:  Determinants can be used to determine whether a square matrix is nonsingular.
+	
+ A square matrix is nonsingular iff its determinant is not zero.
+	
+
+Determinant of a $1 \times 1$ matrix, __A__, equals $a_{11}$
+
+Determinant of a $2 \times 2$ matrix, __A__, 
+		$\begin{vmatrix} a_{11}&a_{12}\\ 
+			a_{21}&a_{22} \end{vmatrix}$:
+
+\begin{eqnarray*}
+\det({\bf A}) &=& |{\bf A}|\\
+			&=& a_{11}|a_{22}| - a_{12}|a_{21}|\\
+			&=& a_{11}a_{22} - a_{12}a_{21}
+\end{eqnarray*}
+
+We can extend the second to last equation above to get the definition of the determinant of a $3 \times 3$ matrix:
+
+\begin{eqnarray*}
+			\begin{vmatrix} a_{11}&a_{12}&a_{13}\\  a_{21} & a_{22}&a_{23}\\ a_{31}&a_{32}&a_{33} \end{vmatrix} 
+				&=& 
+				a_{11} \begin{vmatrix} a_{22}&a_{23}\\ a_{32}&a_{33} \end{vmatrix}
+				- a_{12} \begin{vmatrix} a_{21}&a_{23}\\ a_{31}&a_{33} \end{vmatrix}
+				+ a_{13} \begin{vmatrix} a_{21}&a_{22}\\ a_{31}&a_{32} 
+				\end{vmatrix}\\
+				&=& a_{11}(a_{22}a_{33} - a_{23}a_{32}) - a_{12}(a_{21}a_{33} - a_{23}a_{31}) + a_{13}(a_{21}a_{32} - a_{22}a_{31})
+\end{eqnarray*}
+
+Let's extend this now to any $n\times n$ matrix. Let's define ${\bf A}_{ij}$ as the $(n-1)\times (n-1)$ submatrix of ${\bf A}$ obtained by deleting row $i$ and column $j$.  Let the $(i,j)$th __minor__ of ${\bf A}$ be  the determinant of ${\bf A}_{ij}$:
+			$$M_{ij}=|{\bf A}_{ij}|$$
+			Then for any $n\times n$ matrix ${\bf A}$
+			$$|{\bf A}|= a_{11}M_{11} - a_{12}M_{12} + \cdots + (-1)^{n+1} a_{1n} M_{1n}$$
+
+
+	
+For example, in figuring out whether the following matrix has an inverse? 
+		$${\bf A}=\begin{pmatrix} 1&1&1\\0&2&3\\5&5&1 \end{pmatrix}$$
+1. Calculate its determinant.
+\begin{eqnarray}
+				&=& 1(2-15) - 1(0-15) + 1(0-10) \nonumber\\
+				&=& -13+15-10 \nonumber\\
+				&=& -8\nonumber
+\end{eqnarray}
+2. Since $|{\bf A}|\ne 0$, we conclude that ${\bf A}$ has an inverse.
+
+
+
+```{exercise, name = "Determinants and Inverses", determinants}
+
+
+Determine whether the following matrices are nonsingular:
+  
+  
+  $$1. \begin{pmatrix}
+			1 & 0 & 1\\
+			2 & 1 & 2\\
+			1 & 0 & -1
+		\end{pmatrix}$$
+			  
+$$2. \begin{pmatrix}
+			2 & 1 & 2\\
+			1 & 0 & 1\\
+			4 & 1 & 4
+		\end{pmatrix}$$
+
+			  
+
+```
+
+
+## Getting Inverse of a Matrix using its Determinant
+
+Thus far, we have a number of algorithms to
+
+1. Find the solution of a linear system,
+2. Find the inverse of a matrix
+
+but these remain just that --- algorithms.  At this point, we have no way of telling how the solutions $x_j$ change as the parameters $a_{ij}$ and $b_i$ change, except by changing the values and "rerunning" the algorithms.
+
+
+With determinants, we can provide an explicit formula for the inverse and
+therefore provide an explicit formula for the solution of an $n\times n$ linear system.
+
+Hence, we can examine how changes in the parameters and $b_i$ affect the solutions $x_j$.
+
+__Determinant Formula for the Inverse of a $2 \times 2$__: 
+
+The determinant of a $2 \times 2$ matrix __A__ $\begin{pmatrix} a & b\\ c & d\\ \end{pmatrix}$ is defined as:
+\[\frac{1}{\det({\bf A})} \begin{pmatrix}
+			d & -b\\
+			-c & a\\
+		\end{pmatrix}\]
+		
+
+For example, Let's calculate the inverse of matrix A from Exercise \@ref(exr:invlinsys) using the determinant formula. 
+
+
+Recall, 
+
+\[A = \begin{pmatrix}
+			-3 & 4\\
+			2 & -1\\
+		\end{pmatrix}\]
+		
+\[\det({\bf A}) = (-3)(-1) - (4)(2) = 3 - 8  = -5\]
+
+\[\frac{1}{\det({\bf A})} \begin{pmatrix}
+			-1 & -4\\
+			-2 & -3\\
+		\end{pmatrix}\]
+		
+\[\frac{1}{-5} \begin{pmatrix}
+			-1 & -4\\
+			-2 & -3\\
+		\end{pmatrix}\]
+		
+\[ \begin{pmatrix}
+			\frac{1}{5} & \frac{4}{5}\\
+			\frac{2}{5} & \frac{3}{5}\\
+		\end{pmatrix}\]
+
+
+```{exercise, name = "Calculate Inverse using Determinant Formula", calcinverse}
+
+
+Caculate the inverse of A
+
+$$A = \begin{pmatrix}
+			3 & 5\\
+			-7 & 2\\
+		\end{pmatrix}$$
+
+
+			  
+
+```
+
+
+
+## Answers to Examples and Exercises
+
+
+
+Answer to Example \@ref(exm:vectors):
+
+  1. $\begin{pmatrix} -1 &-3&-3 \end{pmatrix}$
+  2. 6 + 4 + 10 = 20
+
+Answer to Exercise \@ref(exr:vectors1):
+
+  1. $\begin{pmatrix} -2 &4&-7&-5 \end{pmatrix}$
+  2. $\begin{pmatrix} 2 &26&-14&4&30 \end{pmatrix}$
+  3. 63 -3 -10 + 24 = 74
+  4. undefined
+
+Answer to Example \@ref(exm:linearindep):
+
+  1. yes
+  2. no
+
+Answer to Exercise \@ref(exr:linearindep1):
+
+  1. yes
+  2. no ($-v_1 -v_2 + v_3  = 0$)
+  
+
+Answer to Example \@ref(exm:matrixaddition):
+
+${\bf A+B}=\begin{pmatrix} 2 & 4 & 4 \\ 6 & 6 & 8 \end{pmatrix}$
+	
+Answer to Example \@ref(exm:scalarmulti):
+
+$s {\bf A} = \begin{pmatrix} 2 & 4 & 6 \\ 8 & 10 & 12 \end{pmatrix}$
+
+
+
+Answer to Example \@ref(exm:matrixmulti):
+
+1. $\begin{pmatrix} aA+bC&aB+bD\\cA+dC&cB+dD\\eA+fC&eB+fD \end{pmatrix}$
+
+2. $\begin{pmatrix} 1(-2)+2(4)-1(2)&1(5)+2(-3)-1(1)\\
+				3(-2)+1(4)+4(2)&3(5)+1(-3)+4(1)\end{pmatrix} =
+			\begin{pmatrix} 4&-2\\6&16\end{pmatrix}$
+
+Answer to Exercise \@ref(exr:matrixmulti1):
+  
+1. $AB = \begin{pmatrix} 4 & 11 & -15 \\ 5 & 7 & -7 \end{pmatrix}$
+  
+2. $BA =$ undefined
+  
+3. $(BC)^T =$ undefined
+  
+4. $BC^T = \begin{pmatrix} 1&5&-7\\1&1&0\\0&-1&1\\2&0&0\end{pmatrix}\begin{pmatrix} 3&0\\2&4\\-1&6 \end{pmatrix} =\begin{pmatrix}20 & -22 \\ 5 & 4 \\ -3 &2 \\6 & 0\end{pmatrix}$
+
+
+Answer to Exercise \@ref(exr:lineareq):
+
+There are many answers to this. Some possible simple ones are as follows:
+
+1. One solution: \[\begin{matrix}
+			-x  & + & y & = & 0\\
+			x & + &  y & = &  2
+			\end{matrix}\]
+
+2.  No solution: \[\begin{matrix}
+			-x  & + & y & = & 0\\
+			x & - &  y & = &  2
+			\end{matrix}\]
+
+3. Infinite solutions: \[\begin{matrix}
+			-x  & + & y & = & 0\\
+			2x & - &  2y & = &  0
+			\end{matrix}\]
+
+
+
+Answer to Exercise \@ref(exr:augmatrix):
+
+$\begin{pmatrix}
+			2 & -7 & 9 & -4 & 0 & 0| & 8\\
+			0 & 41 & 9 & 0 & 0 & 5 | & 11\\
+			1 & -15 & 0 & 0 & -11 & 0 | & 9
+			\end{pmatrix}$
+
+Answer to Example \@ref(exm:solvesys):
+
+
+$$\begin{matrix}
+			x  & - & 3y & = & -3\\
+			2x & + &  y & = &  8
+			\end{matrix}$$
+
+$$\begin{matrix}
+			x  & - & 3y & = & -3\\
+			   &   & 7y & = & 14\\			
+			\end{matrix}$$
+
+$$\begin{matrix}
+			x  & - & 3y & = & -3\\
+			   &   & y & = & 2\\			
+			\end{matrix}$$
+			
+$$\begin{matrix}
+			x & = & 3\\
+			y & = & 2\\			
+			\end{matrix}$$
+			
+Answer to Exercise \@ref(exr:solvesys1):
+
+1. x = 2, y = 2, z = -1
+
+2. x = -17, y = -3, z = -35
+
+
+
+Answer to Exercise \@ref(exr:rank):
+
+1. rank is 2
+
+2. rank is 3
+
+Answer to Example \@ref(exm:inverse):
 
 $\left(\begin{array}{ccc|ccc}
 	1&1&1&1&0&0\\
@@ -596,190 +990,21 @@ ${\bf A}^{-1} = \left(\begin{array}{ccc}
 \end{array} \right)$
 
 
+Answer to Exercise \@ref(exr:inverse1):
+
+1. ${\bf A}^{-1}=\begin{pmatrix} 1&0&-4\\0&\frac{1}{2}&0\\0&0&1 \end{pmatrix}$
+
+Answer to Exercise \@ref(exr:determinants):
+
+1. nonsingular
+
+2. singular
+
+Answer to Exercise \@ref(exr:calcinverse):
+
+$\begin{pmatrix}
+			\frac{2}{41} & \frac{-5}{41}\\
+			\frac{7}{41} & \frac{3}{41}\\
+		\end{pmatrix}$
 
 
-```{exercise, name = "Finding the inverse of matrices"}
-
-
-Find the inverse of the following matrix:
-  
-1. ${\bf A}=\begin{pmatrix} 1&0&4\\0&2&0\\0&0&1 \end{pmatrix}$
-
-
-```
-
-
-## Linear Systems and Inverses
-
-Let's return to the matrix representation of a linear system 
-		
-\[\bf{Ax} = \bf{b}\]
-
-If $\bf{A}$ is an $n\times n$ matrix,then $\bf{Ax}=\bf{b}$ is a system of $n$ equations in $n$ unknowns.  Suppose $\bf{A}$ is nonsingular. Then $\bf{A}^{-1}$ exists.  To solve this system, we can premultiply each side by $\bf{A}^{-1}$ and reduce it as follows:
-		
-\begin{eqnarray*} 
-\bf{A}^{-1} (\bf{A} \bf{x}) & = & \bf{A}^{-1} \bf{b} \\
-(\bf{A}^{-1} \bf{A})\bf{x} & = & \bf{A}^{-1} \bf{b}\\
-\bf{I}_n \bf{x}     & = & \bf{A}^{-1} \bf{b}\\
-\bf{x} & = & \bf{A}^{-1} \bf{b}
-\end{eqnarray*}
-
-Hence, given $\bf{A}$ and $\bf{b}$ and given that $\bf{A}$ is nonsingular, then $\bf{x} = \bf{A}^{-1} \bf{b}$ is a unique solution to this system.
-
-
-```{exercise, ils, name = "Solve linear system using inverses"}
-Use the inverse matrix to solve the following linear system:
-
-\begin{align*} 
--3x + 4y &= 5 \\
-2x - y &= -10
-\end{align*}
-
-
-___Hint: the linear system above can be written in the matrix form___ 
-
-$\textbf{A}\textbf{z} = \textbf{b}$ 
-  
-given \[\textbf{A} = \begin{pmatrix} -3&4\\2&-1 \end{pmatrix},\] 
-
-\[\textbf{z} = \begin{pmatrix} x\\y \end{pmatrix},\] 
-and 
-\[\textbf{b} = \begin{pmatrix} 5\\-10 \end{pmatrix}\]
-
-```
-
-## Determinants
-
-__Singularity__:  Determinants can be used to determine whether a square matrix is nonsingular.
-	
- A square matrix is nonsingular iff its determinant is not zero.
-	
-
-Determinant of a $1 \times 1$ matrix, __A__, equals $a_{11}$
-
-Determinant of a $2 \times 2$ matrix, __A__, 
-		$\begin{vmatrix} a_{11}&a_{12}\\ 
-			a_{21}&a_{22} \end{vmatrix}$:
-
-\begin{eqnarray*}
-\det({\bf A}) &=& |{\bf A}|\\
-			&=& a_{11}|a_{22}| - a_{12}|a_{21}|\\
-			&=& a_{11}a_{22} - a_{12}a_{21}
-\end{eqnarray*}
-
-We can extend the second to last equation above to get the definition of the determinant of a $3 \times 3$ matrix:
-
-\begin{eqnarray*}
-			\begin{vmatrix} a_{11}&a_{12}&a_{13}\\  a_{21} & a_{22}&a_{23}\\ a_{31}&a_{32}&a_{33} \end{vmatrix} 
-				&=& 
-				a_{11} \begin{vmatrix} a_{22}&a_{23}\\ a_{32}&a_{33} \end{vmatrix}
-				- a_{12} \begin{vmatrix} a_{21}&a_{23}\\ a_{31}&a_{33} \end{vmatrix}
-				+ a_{13} \begin{vmatrix} a_{21}&a_{22}\\ a_{31}&a_{32} 
-				\end{vmatrix}\\
-				&=& a_{11}(a_{22}a_{33} - a_{23}a_{32}) - a_{12}(a_{21}a_{33} - a_{23}a_{31}) + a_{13}(a_{21}a_{32} - a_{22}a_{31})
-\end{eqnarray*}
-
-Let's extend this now to any $n\times n$ matrix. Let's define ${\bf A}_{ij}$ as the $(n-1)\times (n-1)$ submatrix of ${\bf A}$ obtained by deleting row $i$ and column $j$.  Let the $(i,j)$th __minor__ of ${\bf A}$ be  the determinant of ${\bf A}_{ij}$:
-			$$M_{ij}=|{\bf A}_{ij}|$$
-			Then for any $n\times n$ matrix ${\bf A}$
-			$$|{\bf A}|= a_{11}M_{11} - a_{12}M_{12} + \cdots + (-1)^{n+1} a_{1n} M_{1n}$$
-
-
-	
-Example:  Does the following matrix have an inverse? 
-		$${\bf A}=\begin{pmatrix} 1&1&1\\0&2&3\\5&5&1 \end{pmatrix}$$
-1. Calculate its determinant.
-\begin{eqnarray}
-				&=& 1(2-15) - 1(0-15) + 1(0-10) \nonumber\\
-				&=& -13+15-10 \nonumber\\
-				&=& -8\nonumber
-\end{eqnarray}
-2. Since $|{\bf A}|\ne 0$, we conclude that ${\bf A}$ has an inverse.
-
-
-
-```{exercise, name = "Determinants and Inverses"}
-
-
-Determine whether the following matrices are nonsingular:
-  
-  
-  $$1. \begin{pmatrix}
-			1 & 0 & 1\\
-			2 & 1 & 2\\
-			1 & 0 & -1
-		\end{pmatrix}$$
-			  
-$$2. \begin{pmatrix}
-			2 & 1 & 2\\
-			1 & 0 & 1\\
-			4 & 1 & 4
-		\end{pmatrix}$$
-
-```
-
-
-## Getting Inverse of a Matrix using its Determinant
-
-Thus far, we have a number of algorithms to
-
-1. Find the solution of a linear system,
-2. Find the inverse of a matrix
-
-but these remain just that --- algorithms.  At this point, we have no way of telling how the solutions $x_j$ change as the parameters $a_{ij}$ and $b_i$ change, except by changing the values and "rerunning" the algorithms.
-
-
-With determinants, we can provide an explicit formula for the inverse and
-therefore provide an explicit formula for the solution of an $n\times n$ linear system.
-
-Hence, we can examine how changes in the parameters and $b_i$ affect the solutions $x_j$.
-
-__Determinant Formula for the Inverse of a $2 \times 2$__: 
-
-The determinant of a $2 \times 2$ matrix __A__ $\begin{pmatrix} a & b\\ c & d\\ \end{pmatrix}$ is defined as:
-\[\frac{1}{\det({\bf A})} \begin{pmatrix}
-			d & -b\\
-			-c & a\\
-		\end{pmatrix}\]
-		
-		
-Example:
-
-Let's calculate the inverse of matrix $\textbf{A}$ from Exercise \@ref(exr:ils) using the determinant formula. 
-
-Recall, 
-
-\[A = \begin{pmatrix}
-			-3 & 4\\
-			2 & -1\\
-		\end{pmatrix}\]
-		
-\[\det({\bf A}) = (-3)(-1) - (4)(2) = 3 - 8  = -5\]
-
-\[\frac{1}{\det({\bf A})} \begin{pmatrix}
-			-1 & -4\\
-			-2 & -3\\
-		\end{pmatrix}\]
-		
-\[\frac{1}{-5} \begin{pmatrix}
-			-1 & -4\\
-			-2 & -3\\
-		\end{pmatrix}\]
-		
-\[ \begin{pmatrix}
-			\frac{1}{5} & \frac{4}{5}\\
-			\frac{2}{5} & \frac{3}{5}\\
-		\end{pmatrix}\]
-		
-```{exercise, name = "Calculate Inverse using Determinant Formula"}
-
-
-Caculate the inverse of A
-
-$$A = \begin{pmatrix}
-			3 & 5\\
-			-7 & 2\\
-		\end{pmatrix}$$
-
-
-```

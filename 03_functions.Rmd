@@ -1,5 +1,3 @@
-
-
 # Functions and Operations
 
 __Topics__
@@ -61,7 +59,7 @@ __Modulo:__ Tells you the remainder when you divide the first number by the seon
 
 
 
-```{example, name = "Operators"}
+```{example, name = "Operators", operators}
 
 
 1. $\sum\limits_{i=1}^{5} i =$
@@ -72,9 +70,11 @@ __Modulo:__ Tells you the remainder when you divide the first number by the seon
   
 4. $4! =$
 
+  
+
 ```
 
-```{exercise, name = "Operators"}
+```{exercise, name = "Operators", operators1}
 Let $x_1 = 4, x_2 = 3, x_3 = 7, x_4 = 11, x_5 = 2$
 
 1. $\sum\limits_{i=1}^{3} (7)x_i$
@@ -82,28 +82,33 @@ Let $x_1 = 4, x_2 = 3, x_3 = 7, x_4 = 11, x_5 = 2$
 2. $\sum\limits_{i=1}^{5} 2$
 
 3. $\prod\limits_{i=3}^{5} (2)x_i$
-  
-  
+
+    
+
 ```
-
-Answers to __Example 2.1__:
-
-1. 1 + 2 + 3 + 4 + 5 = 15
-
-2. 1 * 2 * 3 * 4 * 5 = 120
-
-3. 2
-
-4. 4 * 3 * 2 * 1 = 24
-
-
 
 
 ## Introduction to Functions
 
 A __function__ (in ${\bf R}^1$) is a mapping, or transformation, that relates members of one set to members of another set. For instance, if you have two sets: set $A$ and set $B$, a function from $A$ to $B$ maps every value $a$ in set $A$ such that $f(a) \in  B$. Functions can be "many-to-one", where many values or combinations of values from set $A$ produce a single output in set $B$, or they can be "one-to-one", where each value in set $A$ corresponds to a single value in set $B$. A function by definition has a single function value for each element of its domain. This means, there cannot be "one-to-many" mapping.
 
-Examples: Mapping notation 
+
+__Dimensionality__: ${\bf R}^1$ is the set of all real numbers extending from $-\infty$ to $+\infty$ --- i.e., the real number line. ${\bf R}^n$ is an $n$-dimensional space, where each of the $n$ axes extends from $-\infty$ to $+\infty$.
+
+* ${\bf R}^1$ is a one dimensional line.
+* ${\bf R}^2$ is a two dimensional plane.
+* ${\bf R}^3$ is a three dimensional space.
+
+Points in ${\bf R}^n$ are ordered $n$-tuples (just means an combination of $n$ elements where order matters), where each element of the $n$-tuple represents the coordinate along that dimension.
+
+
+For example:
+
+* ${\bf R}^1$: (3)
+* ${\bf R}^2$: (-15, 5)
+* ${\bf R}^3$: (86, 4, 0)
+
+Examples of mapping notation: 
 
 Function of one variable: $f:{\bf R}^1\to{\bf R}^1$
 
@@ -117,7 +122,7 @@ Function of two variables: $f: {\bf R}^2\to{\bf R}^1$.
 We often use variable $x$ as input and another $y$ as output, e.g. $y=x+1$
 
 
-```{example, name = "Functions"}
+```{example, name = "Functions", functions}
 
 For each of the following, state whether they are one-to-one or many-to-one functions. 
 
@@ -125,10 +130,12 @@ For each of the following, state whether they are one-to-one or many-to-one func
 
 2. For $x \in [-\infty, \infty]$, $f: x \rightarrow x^2$.
 
+
+
 ```
 
 
-```{exercise, name = "Functions"}
+```{exercise, name = "Functions", functions1}
 
 For each of the following, state whether they are one-to-one or many-to-one functions. 
 
@@ -138,15 +145,11 @@ For each of the following, state whether they are one-to-one or many-to-one func
 
 2. For $x \in [0, \infty]$, $f: x \rightarrow \sqrt{x}$
   
-  
+
+
 ```
 
 
-Answers to __Example 2.2__:
-
-1. one-to-one
-
-2. many-to-one
 
 
 Some functions are defined only on proper subsets of ${\bf R}^n$.
@@ -221,17 +224,6 @@ $$\log_b(x) = \frac{\log_a(x)}{\log_a(b)}$$
 
 Example: $$\log_{10}(x) = \frac{\ln(x)}{\ln(10)}$$
 
-\begin{itemize}
-\item $\log_{10}(\sqrt{10})=\log_{10}(10^{1/2}) = $
-\item $\log_{10}(1)=\log_{10}(10^{0}) = $
-\item $\log_{10}(10)=\log_{10}(10^{1}) = $
-\item $\log_{10}(100)=\log_{10}(10^{2}) = $
-\item $\ln(1)=\ln(e^{0}) = $
-\item $\ln(e)=\ln(e^{1}) = $
-\end{itemize}
-
-
-
 
 
 
@@ -254,7 +246,7 @@ Therefore, you can see that the log of a product is equal to the sum of the logs
 
 
 
-```{example, logexamples, name = "Logarithmic Functions"}
+```{example, name = "Logarithmic Functions", log}
 
 Evaluate each of the following logarithms
 
@@ -267,12 +259,13 @@ Simplify the following logarithm. By "simplify", we actually really mean - use a
 3. $\log_4(x^3y^5)$
 
 
+
+
 ```
 
 
+```{exercise, name = "Logarithmic Functions", log1}
 
-
-```{exercise, name = "log"}
 
 Evaluate each of the following logarithms
 
@@ -283,19 +276,13 @@ Simplify each of the following logarithms. By "simplify", we actually really mea
 
 2. $\log(\frac{x^9y^5}{z^3})$
 
-3. $\log{\sqrt{xy}}$
 
+3. $\ln{\sqrt{xy}}$
   
+
+
 ```
 
-
-Answers to Example \@ref(exm:logexamples):
-
-1. 2
-
-2. 4
-
-3. $3\log_4(x) + 5\log_4(y)$
 
 ## Graphing Functions
 What can a graph tell you about a function?
@@ -310,30 +297,24 @@ What can a graph tell you about a function?
 * Other questions related to the substance of the problem at hand.
 
 
-## Solving for Variables and Finding Inverses
+## Solving for Variables and Finding Roots
 	
-Sometimes we're given a function $y=f(x)$ and we want to find how $x$ varies as a function of $y$. If $f$ is a one-to-one mapping, then it has an inverse.
+Sometimes we're given a function $y=f(x)$ and we want to find how $x$ varies as a function of $y$. Use algebra to move $x$ to the left hand side (LHS) of the equation and so that the right hand side (RHS) is only a function of $y$.
 
-Use algebra to move $x$ to the left hand side (LHS) of the equation and so that the right hand side (RHS) is only a function of $y$.
+```{example, name = "Solving for Variables", solvevar} 
 
-Sometimes (often?) the inverse does not exist. For example, we're given the function $y=x^2$ (a parabola).  Solving for $x$, we get $x=\pm\sqrt{y}$. For each value of $y$, there are two values of $x$. Remember, by definition
-
-```{example, varsolve, name = "Solving for Variables"} 
 
 Solve for x:
 
 1. $y=3x+2$ 
   
   
-2. $y=3x-4z+2$
+2. $y=e^x$
+
+  
 
 ```
 
-
-
-
-
-## Finding the Roots or Zeroes of a Function
 
 Solving for variables is especially important when we want to find the __roots__ of an equation: those values of variables that cause an equation to equal zero. Especially important in finding equilibria and in doing maximum likelihood estimation.
 
@@ -346,7 +327,7 @@ __Quadratic Formula:__ For quadratic equations $ax^2+bx+c=0$, use the quadratic 
 	
 
 
-```{exercise, name = "Solving for Variable"}
+```{exercise, name = "Finding Roots", solvevar1}
 
 Solve for x:
   
@@ -357,16 +338,8 @@ Solve for x:
 3. $f(x)=e^{-x}-10 = 0$
   
 
+
 ```
-
-
-
-Answers to Example \@ref(exm:varsolve)
-
-1. $y=3x+2 \quad\Longrightarrow\quad -3x=2-y \quad\Longrightarrow\quad 3x=y-2 \quad\Longrightarrow\quad x=\frac{1}{3}(y-2)$
-
-2. $y=3x-4z+2 \quad \Longrightarrow\quad y+4z-2=3x \quad\Longrightarrow\quad x=\frac{1}{3}(y+4z-2)$
-
 
 
 ## Sets
@@ -401,3 +374,72 @@ __Complement__: The complement of set $S$ is everything outside of $S$.
 __Empty__: The empty (or null) set is a unique set that has no elements, denoted by \{\} or $\emptyset$. 
 
 * Examples: The set of squares with 5 sides; the set of countries south of the South Pole.
+
+
+## Answers to Examples and Exercises
+
+Answer to Example \@ref(exm:operators):
+  
+  1. 1 + 2 + 3 + 4 + 5 = 15
+  
+  2. 1 * 2 * 3 * 4 * 5 = 120
+  
+  3. 2
+  
+  4. 4 * 3 * 2 * 1 = 24
+  
+Answer to Exercise \@ref(exr:operators1):
+    
+  1. 7(4 + 3 + 7) = 98
+  
+  2. 2 + 2 + 2 + 2 + 2 = 10
+  
+  3. $2^3(7)(11)(2)$ = 1232
+  
+  
+Answer to Example \@ref(exm:functions):
+
+1. one-to-one
+
+2. many-to-one
+
+Answer to Exercise \@ref(exr:functions1):
+
+1. many-to-one
+
+2. one-to-one
+
+Answer to Example \@ref(exm:log):
+
+1. 2
+
+2. 4
+
+3. $3\log_4(x) + 5\log_4(y)$
+
+
+Answer to Exercise \@ref(exr:log1):
+
+1. 3
+
+2. $9\log(x) + 5\log(y) + 3\log(z)$
+
+3. $\frac{1}{2}(\ln{x} + \ln{y})$
+
+Answer to Example \@ref(exm:solvevar):
+
+1. $y=3x+2 \quad\Longrightarrow\quad -3x=2-y \quad\Longrightarrow\quad 3x=y-2 \quad\Longrightarrow\quad x=\frac{1}{3}(y-2)$
+
+2. $x = \ln{y}$
+
+
+Answer to Exercise \@ref(exr:solvevar1):
+
+1. $\frac{-2}{3}$
+
+2. x = {1, -4}
+
+3. x = = $\ln10$
+
+
+
