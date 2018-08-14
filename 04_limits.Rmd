@@ -9,7 +9,7 @@ library(patchwork)
 ```
 
 
-Solving limits, i.e. finding out the value of functions as its input moves  closer to some value, is important for the social scientist's mathematical toolkit for two related tasks. The first is for the study of calculus, which will be in turn useful to show where certain functions are maximized or minimzed. The second is for the study of statistical inference, which is the study of inferring things about things you cannot see by using things you can see. 
+Solving limits, i.e. finding out the value of functions as its input moves  closer to some value, is important for the social scientist's mathematical toolkit for two related tasks. The first is for the study of calculus, which will be in turn useful to show where certain functions are maximized or minimized. The second is for the study of statistical inference, which is the study of inferring things about things you cannot see by using things you can see. 
 
 ## Example: The Central Limit Theorem {-}
 
@@ -25,7 +25,7 @@ where $\mu$ is the mean of $X$ and $\sigma$ is the standard deviation of $X$. Th
 That is,  the limit of the distribution of the lefthand side is the distribution of the righthand side. 
 ```
 
-The sign of a limit is the arrow "$\rightarrow$". Although we have not yet covered probability (in Section \@ref(probability)) so we have not described what distributions and random variables are, it is worth forshadowing the Central Limit Theorem. The Central Limit Theorem is powerful because it gives us a _guarantee_ of what would happen if $n \rightarrow \infty$, which in this case means we collected more data.
+The sign of a limit is the arrow "$\rightarrow$". Although we have not yet covered probability (in Section \@ref(probability)) so we have not described what distributions and random variables are, it is worth foreshadowing the Central Limit Theorem. The Central Limit Theorem is powerful because it gives us a _guarantee_ of what would happen if $n \rightarrow \infty$, which in this case means we collected more data.
 
 
 ## Example: The Law of Large Numbers {-}
@@ -42,7 +42,7 @@ A shorthand of which is  \(\bar{X}_n \xrightarrow{p} \mu\), where the arrow is r
 ```
 
 
-Intuitively, the more data, the more accurate is your guess.  For example, the Figure \@ref(fig:llnsim) shows how the sample average from may coin tosses converges to the tre value : 0.5.
+Intuitively, the more data, the more accurate is your guess.  For example, the Figure \@ref(fig:llnsim) shows how the sample average from may coin tosses converges to the true value : 0.5.
 
 ```{r, llnsim, fig.cap="As the number of coin tosses goes to infinity, the average probabiity of heads converges to 0.5", echo= FALSE}
 set.seed(02138)
@@ -138,11 +138,11 @@ If a sequence converges, then the sum of such sequences also converges.   Let $\
 
 1. $\lim\limits_{n \to \infty} [k y_n + \ell z_n]= k y + \ell z$
 1. $\lim\limits_{n \to \infty} y_n z_n = yz$
-1. $\lim\limits_{n \to \infty} \frac{y_n}{z_n} = \frac{y}{z}$, provided $ z\neq 0$
+1. $\lim\limits_{n \to \infty} \frac{y_n}{z_n} = \frac{y}{z}$, provided $z\neq 0$
 
 This looks reasonable enough. The harder question, obviously is when the parts of the fraction _don't_ converge. If $\lim_{n\to\infty} y_n = \infty$ and $\lim_{n\to\infty} z_n = \infty$, What is $\lim_{n\to\infty} y_n - z_n$? What is $\lim_{n\to\infty} \frac{y_n}{z_n}$? 
 
-It is nice for a sequence to converge in limit. We want to know if complex-looking sequences converge or not. The name of the game here is to break that complex sequenceup into sums of simple fractions where $n$ only appears in the denominator: $\frac{1}{n}, \frac{1}{n^2}$, and so on. Each of these will converge to 0, because the denominator gets larger and larger. Then, because of the properties above, we can then find the final sequence.
+It is nice for a sequence to converge in limit. We want to know if complex-looking sequences converge or not. The name of the game here is to break that complex sequence up into sums of simple fractions where $n$ only appears in the denominator: $\frac{1}{n}, \frac{1}{n^2}$, and so on. Each of these will converge to 0, because the denominator gets larger and larger. Then, because of the properties above, we can then find the final sequence.
 
 ```{example, name = "Simplifying a Fraction into Sums"}
 Find the limit of 
@@ -290,7 +290,7 @@ In Figure \@ref(fig:fig-contdiscont), we can see that the first two functions ar
 ```{r, fig-contdiscont, echo=FALSE,fig.cap="Continuous and Discontinuous Functions", warning = FALSE}
 range1 <- tibble(x = c(0, 10))
 range2 <- tibble(x = c(-2, 2))
-range3 <- tibble(x = c(-4, -4))
+range3 <- tibble(x = c(-4, 4))
 range4 <- tibble(x = c(0, 5))
 
 
@@ -303,7 +303,7 @@ fx2 <- ggplot(range2, aes(x = x)) +
   labs(y = expression(f(x)), title = expression(f(x)==e^x))
 
 fx3 <- ggplot(range3, aes(x = x)) +
-  stat_function(fun = function(x) 1 + 1/(x^2), size = 0.5) +
+  stat_function(fun = function(x) ifelse(x == 0, NA, 1 + 1/(x^2)), size = 0.5) +
   labs(y = expression(f(x)), title = expression(f(x)==1+frac(1,x^2)))
 
 fx4 <- ggplot(range4, aes(x = x)) +
@@ -320,7 +320,7 @@ fx1 + fx2 + fx3 + fx4 + plot_layout(ncol = 2)
 
 
 
-Some Properties of continuous functions:
+Some properties of continuous functions:
 
 1. If $f$ and $g$ are continuous at point $c$, then $f+g$, $f-g$, $f \cdot g$, $|f|$, and $\alpha f$ are continuous at point $c$ also. $f/g$ is continuous, provided $g(c)\ne 0$.
 2. Boundedness: If $f$ is continuous on the closed bounded interval $[a,b]$, then there is a number $K$ such that $|f(x)|\le K$ for each $x$ in $[a,b]$.
