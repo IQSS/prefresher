@@ -324,12 +324,18 @@ Then  in the special case where $a = e$,
 
 ## Partial Derivatives
 
+What happens when there's more than variable that is changing?
+
+> If you can do ordinary derivatives, you can do partial derivatives: just hold all the other input variables constant except for theone you're differentiang with respect to. (Blitzstein Math Notes)
+
 Suppose we have a function $f$ now of two (or more) variables and we want to determine the rate of change relative to one of the variables. To do so, we would find it's partial derivative, which is defined similar to the derivative of a function of one variable. 
 
 __Partial Derivative__:  Let $f$ be a function of the variables $(x_1,\ldots,x_n)$.  The partial derivative of $f$ with respect to $x_i$ is 
 
 \[\frac{\partial f}{\partial x_i} (x_1,\ldots,x_n) = \lim\limits_{h\to 0} \frac{f(x_1,\ldots,x_i+h,\ldots,x_n)-f(x_1,\ldots,x_i,\ldots,x_n)}{h}\]
+
 Only the $i$th variable changes --- the others are treated as constants.
+
 
 We can take higher-order partial derivatives, like we did with functions of a single variable, except now we the higher-order partials can be with respect to multiple variables.
 
@@ -364,9 +370,11 @@ Let $f(x,y)=x^3 y^4 +e^x -\log y$. What are the following partial derivaitves?
 
 
 
-## Taylor Series Approximation
+## Taylor Series Approximation {#taylorapprox}
 
-__Taylor series__ (also known as the delta method) are used commonly to represent functions as infinite series of the function's derivatives at some point $a$. For example, Taylor series are very helpful in representing _nonlinear_ functions as linear functions. One can thus _approximate_ functions by using lower-order, finite series known as __Taylor polynomials__. If $a=0$, the series is called a Maclaurin series.
+A common form of appromximation used in statistics involves derivatives. A Taylor series is a way to represent common functions as infinite series (a sum of infinite elements) of the function's derivatives at some point $a$. 
+
+For example, Taylor series are very helpful in representing nonlinear (read: difficult) functions as linear (read: manageable) functions. One can thus __approximate__ functions by using lower-order, finite series known as __Taylor polynomials__. If $a=0$, the series is called a Maclaurin series.
   
 
 Specifically, a Taylor series of a real or complex function  $f(x)$ that is infinitely differentiable in the neighborhood of point $a$ is: 
@@ -383,54 +391,53 @@ __Taylor Approximation__: We can often approximate the curvature of a function $
 + R_2\]
 
 
-$R_2$ is the Lagrange remainder and often treated as negligible,
+$R_2$ is the remainder (R for remainder, 2 for the fact that we took two derivatives) and often treated as negligible,
 giving us:
 
 \[f(x) \approx f(a) + f'(a)(x-a) +  \dfrac{f''(a)}{2} (x-a)^2\]
 
-Taylor series expansion is easily generalized to multiple dimensions.
-
-__Curvature and The Taylor Polynomial as a Quadratic Form__: 
-The Hessian is used in a Taylor polynomial approximation to $f(\mathbf{x})$ and provides information about the curvature of $f({\bf x})$ at $\mathbf{x}$ --- e.g., which tells us whether a critical point $\mathbf{x}^*$ is a min, max, or saddle point.
-
-
-1.  The second order Taylor polynomial about the critical point
-${\bf x}^*$ is
-  $$f({\bf x}^*+\bf h)=f({\bf x}^*)+\nabla f({\bf x}^*) \bf h +\frac{1}{2} \bf h^T
-{\bf H(x^*)} \bf h + R(\bf h)$$
-2.  Since we're looking at a critical point, $\nabla f({\bf x}^*)=0$;
-and for small $\bf h$, $R(\bf h)$ is negligible.  Rearranging, we get
-$$f({\bf x}^*+\bf h)-f({\bf x}^*)\approx \frac{1}{2} \bf h^T {\bf H(x^*)}
-\bf h $$
-3. The Righthand side here is a quadratic form and we can determine the definiteness of $\bf
-H(x^*)$.
-
-
-## Summary: Derivative calculus in 6 steps
-
-With these six rules (and decent algebra and trigonometry skills) you can figure out the derivative of anything.
-
-1. Sum rule: \[[f(x)\pm g(x)]' = f'(x)\pm g'(x)\]
-2. Product rule: \[[f(x)g(x)]' = f'(x)g(x)+f(x)g'(x)\]
-3. Power rule: \[[x^k]' = k x^{k-1}\]
-4. Chain rule: \[\frac{d}{dx} \{ f[g(x)] \} = f'[g(x)] g'(x)\]
-5. $e^x$: \[\frac{d}{dx} e^x = e^x\]
-6. Trig identity: \[\frac{d}{dx} \sin(x) = \cos(x)\]
+The more derivatives that are added, the smaller the remainder $R$ and the more accurate the approximation. Proofs involving limits guarantee that the remainder converges to 0 as the order of derivation increases.  
 
 
 
-## The Indefinite Integral: The Antiderivative
 
-So far, we've been interested in finding the derivative $g=f'$ of a function $f$.  However, sometimes we're interested in exactly the reverse:  finding the function $f$ for which $g$ is its derivative.  We refer to $f$ as the __antiderivative__ of $g$.
 
-Let $DF$ be the derivative of $F$.  And let $DF(x)$ be the derivative of $F$ evaluated at $x$.  Then the antiderivative is denoted by $D^{-1}$ (i.e., the inverse derivative).  If $DF=f$, then $F=D^{-1}f$.
+## Integration
 
-__Indefinite Integral__:  Equivalently, if $F$ is the antiderivative of $f$, then $F$ is also called the indefinite integral of $f$ and written $F(x)=\int\limits f(x)dx$.
+So far, we've been interested in finding the derivative $f=F'$ of a function $F$.  However, sometimes we're interested in exactly the reverse:  finding the function $F$ for which $f$ is its derivative.  We refer to $F$ as the antiderivative of $f$.
+
+```{definition, name ="Antiderivative"}
+The antiverivative of a function $f(x)$ is a differentiable function $F$ whose derivative is $f$. 
+
+\[F^\prime = f.\]
+
+```
+
+
+Another way to describe is thorugh the inverse formula. Let $DF$ be the derivative of $F$.  And let $DF(x)$ be the derivative of $F$ evaluated at $x$.  Then the antiderivative is denoted by $D^{-1}$ (i.e., the inverse derivative).  If $DF=f$, then $F=D^{-1}f$.
+
+This definition bolsters the main takeaway about integrals and derivatives: They are inverses of each other. 
+
+We know from derivatives how to manipulate $F$ to get $f$. But how do you express the procedure to manipulate $f$ to get $F$? For that, we need a new symbol, which we will call indefinite integration.
+
+```{definition, name = "Indefinite Integral"}
+The indefinite integral of $f(x)$ is written 
+
+\[\int f(x) dx \]
+
+and is equal to the antiderivative of $f$. 
+
+```
+
 
 ```{example}
+
+
 1. $\int\limits \frac{1}{x^2}dx=$
 2. $\int\limits 3e^{3x}dx=$
 3. $\int\limits (x^2-4) dx=$
+  
+
   
 ```
 \begin{comment}
