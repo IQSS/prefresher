@@ -598,9 +598,6 @@ Find the inverse of the following matrix:
 ```
 
 
-Answer to Exercise \@ref(exr:inverse1):
-
-1. ${\bf A}^{-1}=\begin{pmatrix} 1&0&-\frac{4}{3}\\0&3&0\\0&0&2 \end{pmatrix}$
 
 
 ## Linear Systems and Inverses
@@ -621,7 +618,8 @@ If $\bf{A}$ is an $n\times n$ matrix,then $\bf{Ax}=\bf{b}$ is a system of $n$ eq
 Hence, given $\bf{A}$ and $\bf{b}$ and given that $\bf{A}$ is nonsingular, then $\bf{x} = \bf{A}^{-1} \bf{b}$ is a unique solution to this system.
 
 
-```{exercise, inv_linsys, name = "Solve linear system using inverses"}
+```{exercise, invlinsys, name = "Solve linear system using inverses"}
+
 Use the inverse matrix to solve the following linear system:
 
   
@@ -643,6 +641,23 @@ and
 
 
 ```
+
+Answer to Exercise \@ref(exr:invlinsys):
+
+$\textbf{z} = \bf{A}^{-1} \bf{b} = \begin{pmatrix}
+	1/5 &4/5\\
+	2/5&3/5 
+\end{pmatrix} \begin{pmatrix}
+	5 \\
+	-10
+\end{pmatrix}= \begin{pmatrix}
+	-7 \\
+	-4
+\end{pmatrix} = \begin{pmatrix}
+	x \\
+	y
+\end{pmatrix}$
+
 
 ## Determinants
 
@@ -682,7 +697,7 @@ Let's extend this now to any $n\times n$ matrix. Let's define ${\bf A}_{ij}$ as 
 
 
 	
-Example:  Does the following matrix have an inverse? 
+For example, in figuring out whether the following matrix has an inverse? 
 		$${\bf A}=\begin{pmatrix} 1&1&1\\0&2&3\\5&5&1 \end{pmatrix}$$
 1. Calculate its determinant.
 \begin{eqnarray}
@@ -694,7 +709,7 @@ Example:  Does the following matrix have an inverse?
 
 
 
-```{exercise, name = "Determinants and Inverses"}
+```{exercise, name = "Determinants and Inverses", determinants}
 
 
 Determine whether the following matrices are nonsingular:
@@ -739,9 +754,7 @@ The determinant of a $2 \times 2$ matrix __A__ $\begin{pmatrix} a & b\\ c & d\\ 
 		\end{pmatrix}\]
 		
 		
-Example:
-
-Let's calculate the inverse of matrix A from Exercise \@ref(exr:inv_linsys) using the determinant formula. 
+For example, Let's calculate the inverse of matrix A from Exercise \@ref(exr:invlinsys) using the determinant formula. 
 
 Recall, 
 
@@ -766,8 +779,9 @@ Recall,
 			\frac{1}{5} & \frac{4}{5}\\
 			\frac{2}{5} & \frac{3}{5}\\
 		\end{pmatrix}\]
-		
-```{exercise, name = "Calculate Inverse using Determinant Formula"}
+
+
+```{exercise, name = "Calculate Inverse using Determinant Formula", calcinverse}
 
 
 Caculate the inverse of A
@@ -779,3 +793,191 @@ $$A = \begin{pmatrix}
 
 
 ```
+
+
+
+## Answers to Examples and Exercises
+
+
+
+Answer to Example \@ref(exm:vectors):
+
+  1. $\begin{pmatrix} -1 &-3&-3 \end{pmatrix}$
+  2. 6 + 4 + 10 = 20
+
+Answer to Exercise \@ref(exr:vectors1):
+
+  1. $\begin{pmatrix} -2 &4&-7&-5 \end{pmatrix}$
+  2. $\begin{pmatrix} 2 &26&-14&4&30 \end{pmatrix}$
+  3. 63 -3 -10 + 24 = 74
+  4. undefined
+
+Answer to Example \@ref(exm:linearindep):
+
+  1. yes
+  2. no
+
+Answer to Exercise \@ref(exr:linearindep1):
+
+  1. yes
+  2. no ($-v_1 -v_2 + v_3  = 0$)
+  
+
+Answer to Example \@ref(exm:matrixaddition):
+
+${\bf A+B}=\begin{pmatrix} 2 & 4 & 4 \\ 6 & 6 & 8 \end{pmatrix}$
+	
+Answer to Example \@ref(exm:scalarmulti):
+
+$s {\bf A} = \begin{pmatrix} 2 & 4 & 6 \\ 8 & 10 & 12 \end{pmatrix}$
+
+
+
+Answer to Example \@ref(exm:matrixmulti):
+
+1. $\begin{pmatrix} aA+bC&aB+bD\\cA+dC&cB+dD\\eA+fC&eB+fD \end{pmatrix}$
+
+2. $\begin{pmatrix} 1(-2)+2(4)-1(2)&1(5)+2(-3)-1(1)\\
+				3(-2)+1(4)+4(2)&3(5)+1(-3)+4(1)\end{pmatrix} =
+			\begin{pmatrix} 4&-2\\6&16\end{pmatrix}$
+
+Answer to Exercise \@ref(exr:matrixmulti1):
+  
+1. $AB = \begin{pmatrix} 4 & 11 & -15 \\ 5 & 7 & -7 \end{pmatrix}$
+  
+2. $BA =$ undefined
+  
+3. $(BC)^T =$ undefined
+  
+4. $BC^T = \begin{pmatrix} 1&5&-7\\1&1&0\\0&-1&1\\2&0&0\end{pmatrix}\begin{pmatrix} 3&0\\2&4\\-1&6 \end{pmatrix} =\begin{pmatrix}20 & -22 \\ 5 & 4 \\ -3 &2 \\6 & 0\end{pmatrix}$
+
+
+Answer to Exercise \@ref(exr:lineareq):
+
+There are many answers to this. Some possible simple ones are as follows:
+
+1. One solution: \[\begin{matrix}
+			-x  & + & y & = & 0\\
+			x & + &  y & = &  2
+			\end{matrix}\]
+
+2.  No solution: \[\begin{matrix}
+			-x  & + & y & = & 0\\
+			x & - &  y & = &  2
+			\end{matrix}\]
+
+3. Infinite solutiond: \[\begin{matrix}
+			-x  & + & y & = & 0\\
+			2x & - &  2y & = &  0
+			\end{matrix}\]
+
+
+
+Answer to Exercise \@ref(exr:augmatrix):
+
+$\begin{pmatrix}
+			2 & -7 & 9 & -4 & 0 & 0| & 8\\
+			0 & 41 & 9 & 0 & 0 & 5 | & 11\\
+			1 & -15 & 0 & 0 & -11 & 0 | & 9
+			\end{pmatrix}$
+
+Answer to Example \@ref(exm:solvesys):
+
+
+$$\begin{matrix}
+			x  & - & 3y & = & -3\\
+			2x & + &  y & = &  8
+			\end{matrix}$$
+
+$$\begin{matrix}
+			x  & - & 3y & = & -3\\
+			   &   & 7y & = & 14\\			
+			\end{matrix}$$
+
+$$\begin{matrix}
+			x  & - & 3y & = & -3\\
+			   &   & y & = & 2\\			
+			\end{matrix}$$
+			
+$$\begin{matrix}
+			x & = & 3\\
+			y & = & 2\\			
+			\end{matrix}$$
+			
+Answer to Exercise \@ref(exr:solvesys1):
+
+1. x = 2, y = 2, z = -1
+
+2. x = -17, y = -3, z = -35
+
+
+
+Answer to Exercise \@ref(exr:rank):
+
+1. rank is 2
+
+2. rank is 3
+
+Answer to Example \@ref(exm:inverse):
+
+$\left(\begin{array}{ccc|ccc}
+	1&1&1&1&0&0\\
+	0&2&3&0&1&0\\
+	5&5&1&0&0&1
+\end{array} \right)$
+		
+$\left(\begin{array}{ccc|ccc}
+	1&1&1 &1 &0&0\\
+	0&2&3 &0 &1&0\\
+	0&0&-4&-5&0&1
+\end{array} \right)$
+
+$\left(\begin{array}{ccc|ccc}
+	1&1&1&1  &0&0\\
+	0&2&3&0  &1&0\\
+	0&0&1&5/4&0&-1/4
+\end{array} \right)$
+
+$\left(\begin{array}{ccc|ccc}
+	1&1&0&-1/4 &0&1/4\\
+	0&2&0&-15/4&1&3/4\\
+	0&0&1&5/4  &0&-1/4
+\end{array} \right)$
+
+$\left(\begin{array}{ccc|ccc}
+	1&1&0&-1/4 &0  &1/4\\
+	0&1&0&-15/8&1/2&3/8\\
+	0&0&1&5/4  &0 &-1/4
+\end{array} \right)$
+	
+$\left(\begin{array}{ccc|ccc}
+	1&0&0&13/8 &-1/2&-1/8\\
+	0&1&0&-15/8&1/2 &3/8\\
+	0&0&1&5/4  &0   &-1/4
+\end{array} \right)$
+
+${\bf A}^{-1} = \left(\begin{array}{ccc}
+	13/8 &-1/2&-1/8\\
+	-15/8&1/2 &3/8\\
+	5/4  &0   &-1/4
+\end{array} \right)$
+
+
+Answer to Exercise \@ref(exr:inverse1):
+
+1. ${\bf A}^{-1}=\begin{pmatrix} 1&0&-4\\0&\frac{1}{2}&0\\0&0&1 \end{pmatrix}$
+
+Answer to Exercise \@ref(exr:determinants):
+
+1. nonsingular
+
+2. singular
+
+Answer to Exercise \@ref(exr:calcinverse):
+
+\begin{pmatrix}
+			\frac{2}{41} & \frac{-5}{41}\\
+			\frac{7}{41} & \frac{3}{41}\\
+		\end{pmatrix}
+
+
