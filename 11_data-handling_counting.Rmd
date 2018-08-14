@@ -1,8 +1,9 @@
 # (PART) Programming {-}
 
-Module originally written by Shiro Kuriwaki
 
 # Data Import and Handling {#dataimport}
+
+Module originally written by Shiro Kuriwaki
 
 Up till now, you should have covered:
 
