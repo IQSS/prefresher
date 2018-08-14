@@ -836,10 +836,10 @@ $$ L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k) = f(x_1, \dots, x_n) - \sum_{
 
 **Complementary Slackness Conditions**
 
-\begin{a*}
-x_1\frac{\partial L}{\partial x_1} = 0, & \dots, & x_n\frac{\partial L}{\partial x_n} = 0\\
-\lambda_1\frac{\partial L}{\partial \lambda_1} = 0, & \dots, & \lambda_m \frac{\partial L}{\partial \lambda_m} = 0
-\end{eqnarray*}
+\begin{align*}
+x_1\frac{\partial L}{\partial x_1} = 0, & \dots, x_n\frac{\partial L}{\partial x_n} = 0\\
+\lambda_1\frac{\partial L}{\partial \lambda_1} = 0, & \dots, \lambda_m \frac{\partial L}{\partial \lambda_m} = 0
+\end{align*}
 
 **Non-negativity Conditions**
 \begin{eqnarray*}
@@ -866,13 +866,15 @@ In a two-dimensional set-up, this means we must check the following cases:
 
 
 ```{example, name = "Kuhn-Tucker with two variables"}
-\[\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } \]
+Solve the following optimization problem with inequality constraints
+\[\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2)\]
 
 \begin{align*}
+\text{ s.t. } 
 \begin{cases}
-x_1 + x_2 *\le 4\\
-x_1 *\ge 0\\
-x_2 *\ge 0
+&x_1 + x_2 *\le 4\\
+&x_1 *\ge 0\\
+&x_2 *\ge 0
 \end{cases}
 \end{align*}
 
