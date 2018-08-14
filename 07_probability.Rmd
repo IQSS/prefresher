@@ -420,6 +420,8 @@ For a discrete random variable $X$, the probability mass function (Also referred
 
 1. $0\le p(x)\le 1$
 2.  $\sum\limits_y p(x)=1$
+
+
 ```
 
 
