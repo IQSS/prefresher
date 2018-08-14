@@ -584,14 +584,14 @@ The correlation coefficient is the covariance divided by the standard deviations
 
 ___Properties of Variance and Covariance:___
 
-1. $V(c) = 0$
-2. $V[cY] = c^2V[Y]$
-3. $Cov[Y,Y] = V[Y]$
-4. $Cov[X,Y] = Cov[Y,X]$
-5. $Cov[aX,bY] = abCov[X,Y]$
-6. $Cov[X+a,Y] = Cov[X,Y]$
-7. $Cov[X+Z,Y+W] = Cov[X,Y] + Cov[X,W] + Cov[Z,Y] + Cov[Z,W]$
-8. $V[X+Y] = V[X] + V[Y] + 2Cov[X,Y]$
+1. $\text{Var}(c) = 0$
+2. $\text{Var}(cY) = c^2 \text{Var}(Y)$
+3. $\text{Cov}(Y,Y) = \text{Var}(Y)$
+4. $\text{Cov}(X,Y) = \text{Cov}(Y,X)$
+5. $\text{Cov}(aX,bY) = ab Cov[X,Y]$
+6. $\text{Cov}X+a,Y) =  Cov[X,Y]$
+7. $\text{Cov}(X+Z,Y+W) = \text{Cov}(X,Y) + \text{Cov}(X,W) + \text{Cov}(Z,Y) + \text{Cov}(Z,W)$
+8. $\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y) + 2\text{Cov}(X,Y)$
 
 
 
