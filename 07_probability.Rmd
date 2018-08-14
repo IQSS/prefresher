@@ -50,7 +50,7 @@ If  ___order doesn't matter___ AND we are sampling ___without replacement___, th
 
 Expression $\binom{n}{k}$ is read as "n choose k" and denotes $\frac{n!}{(n-k)!k!}$. Also, note that $0! = 1$.
 
-```{example}
+```{example, name = "Counting", counting}
 
 There are five balls numbered from 1 through 5 in a jar. Three balls are chosen. How many possible choices are there?
 
@@ -61,25 +61,16 @@ There are five balls numbered from 1 through 5 in a jar. Three balls are chosen.
 3. Unordered, without replacement $=$ 
 
 
+
 ```
 
-```{exercise, name = "Counting"}
+```{exercise, name = "Counting", counting1}
 
 Four cards are selected from a deck of 52 cards. Once a card has been drawn, it is not reshuffled back into the deck. Moreover, we care only about the complete hand that we get (i.e. we care about the set of selected cards, not the sequence in which it was drawn). How many possible outcomes are there?
 
+  
+
 ```
-
-
-Answers to __Example 6.1__
-
-1. $5 \times 5 \times 5 = 125$
-
-2. $5 \times 4 \times 3 = 60$
-
-3. $\binom{5}{3} = \frac{5!}{(5-3)!3!} = \frac{5 \times 4}{2 \times 1} = 10$
-
-
-
 
 
 
@@ -115,7 +106,8 @@ Properties of set operations:
 * __de Morgan's laws__: $(A \cup B)^C = A^C \cap B^C$; $(A \cap B)^C = A^C \cup B^C$
 * __Disjointness__: Sets are disjoint when they do not intersect, such that $A \cap B = \{\emptyset\}$.  A collection of sets is pairwise disjoint (\textbf{mutually exclusive}) if, for all $i \neq j$, $A_i \cap A_j = \{\emptyset\}$.  A collection of sets form a partition of set $S$ if they are pairwise disjoint and they cover set $S$, such that $\bigcup_{i = 1}^k A_i = S$.
 
-```{example, setexmp, name = "Sets"}
+
+```{example, name = "Sets", sets}
 
 Let set $A$ be {1, 2, 3, 4}, $B$ be {3, 4, 5, 6}, and $C$ be {5, 6, 7, 8}. Sets $A$, $B$, and $C$ are all subsets of the sample space $S$ which is {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 
@@ -127,9 +119,15 @@ Write out the following sets:
 4. $A \cap (B \cup C)$
   
   
+
+
+
 ```
 
-```{exercise, name = "Sets"}
+```{exercise, name = "Sets", sets1}
+
+
+
 Suppose you had a pair of four-sided dice. You sum the results from a single toss.
 
 What is the set of possible outcomes (i.e. the sample space)?
@@ -137,19 +135,15 @@ What is the set of possible outcomes (i.e. the sample space)?
   
 Consider subsets A {2, 8} and B {2,3,7} of the sample space you found. What is
 
-1. $A^c$
-2. $(A \cup B)^c$
-
-
+  1. $A^c$
+  2. $(A \cup B)^c$
+    
+  
+ 
 ```
 
 
-Answers to Example \@ref(exm:setexmp)
 
-1. {1, 2, 3, 4, 5, 6}
-2. {5, 6}
-3. {1, 2, 7, 8, 9, 10}
-4. {3, 4}
 
 
 ## Probability {#probdef}
@@ -177,7 +171,7 @@ B)=\Pr(A)+\Pr(B)-\Pr(A\cap B)$
 6. Boole's Inequality: For any sequence of $n$ events (which need not be disjoint) $A_1,A_2,\ldots,A_n$,  then $\Pr\left( \bigcup\limits_{i=1}^n
 A_i\right) \leq \sum\limits_{i=1}^n \Pr(A_i)$.
 
-```{example, name = "Probability"}
+```{example, name = "Probability", prob}
 
 Let's assume we have an evenly-balanced, six-sided die.
 
@@ -197,7 +191,7 @@ Then,
 ```
 
 
-```{exercise, name = "Probability"}
+```{exercise, name = "Probability", prob1}
 
 Suppose you had a pair of four-sided dice. You sum the results from a single toss. Let us call this sum, or the outcome, X.
 
@@ -213,22 +207,7 @@ Suppose you had a pair of four-sided dice. You sum the results from a single tos
 ```
 
 
-___Answers to Example 6.3___:
 
-
-1. ${1, 2, 3, 4, 5, 6}$
-
-2. $\frac{1}{6}$
-
-3. $0$
-
-4. $\frac{1}{2}$
-
-5. $\frac{4}{6} = \frac{2}{3}$
-
-6. $1$
-
-7. $A\cup B=\{1, 2, 3, 4, 6\}$, $A\cap B=\{2\}$, $\frac{5}{6}$
 
 ## Conditional Probability and Bayes Law
 
@@ -238,7 +217,7 @@ __Conditional Probability__:  The conditional probability $\Pr(A|B)$ of an event
 
 Note that conditional probabilities are probabilities and must also follow the Kolmagorov axioms of probability.
 
-```{example, name = "Conditional Probability 1"}
+```{example, name = "Conditional Probability 1", condprobexm1}
 
 Assume $A$ and $B$ occur with the following frequencies: $\quad$
 
@@ -257,33 +236,21 @@ and let $n_{ab}+n_{a^Cb}+n_{ab^C}+n_{(ab)^C}=N$.  Then
 4.  $\Pr(A|B)= \frac{\Pr(A\cap B)}{\Pr(B)}=$ 
 5.  $\Pr(B|A)= \frac{\Pr(A\cap B)}{\Pr(A)}=$ 
 
+  
+
 ```
 
 
 
-```{example, name = "Conditional Probability 2"}
+```{example, name = "Conditional Probability 2", condprobexm2}
 
  A six-sided die is rolled.  What is the probability of a 1, given the outcome is an odd number? 
   
-  
+
+
 ```
 
 
-Answers to __Example 6.4__
-
-1. $\frac{n_{ab} + n_{ab^c}}{N}$
-
-2. $\frac{n_{ab} + n_{a^cb}}{N}$
-
-3. $\frac{n_{ab}}{N}$
-
-4. $\frac{\frac{n_{ab}}{N}}{\frac{n_{ab} + n_{a^cb}}{N}} = \frac{n_{ab}}{n_{ab} + n_{a^cb}}$
-
-5. $\frac{\frac{n_{ab}}{N}}{\frac{n_{ab} + n_{ab^c}}{N}} = \frac{n_{ab}}{n_{ab} + n_{ab^c}}$
-
-Answer to __Example 6.5__
-
-$\Pr(1|Odd) = \frac{\Pr(1 \cap Odd)}{\Pr(Odd)} = \frac{\frac{1}{6}}{\frac{1}{2}} = \frac{1}{3}$
 
 
 
@@ -314,26 +281,23 @@ Bayes' rule  determines the posterior probability of a state  $\Pr(B_j|A)$ by ca
 
 __Prior and Posterior Probabilities__:  Above, $\Pr(B_1)$ is often called the prior probability, since it's the probability of $B_1$ before anything else is known.  $\Pr(B_1|A)$ is called the posterior probability, since it's the probability after other information is taken into account.
 
-```{example, name = "Bayes' Rule"}
+```{example, name = "Bayes' Rule", bayesrule}
 
 In a given town, 40% of the voters are Democrat and 60% are Republican. The president's budget is supported by 50% of the Democrats and 90% of the Republicans. If a randomly (equally likely) selected voter is found to support the president's budget, what is the probability that they are a Democrat?
 
+  
+
 ```
 
-```{exercise, name = "Conditional Probability"}
+```{exercise, name = "Conditional Probability", condprobexr}
 
 
 Assume that 2% of the population of the U.S. are members of some extremist militia group. We develop a survey that positively classifies someone as being a member of a militia group given that they are a member 95% of the time and negatively classifies someone as not being a member of a militia group given that they are not a member 97% of the time. What is the probability that someone positively classified as being a member of a militia group is actually a militia member?
 
+  
+
 ```
 
-Answer to __Example 6.6__
-
-We are given that
-$$P(D) = .4, P(D^c) = .6, P(S|D) = .5, P(S|D^c) = .9$$
-Using this, Bayes' Law and the Law of Total Probability, we know: 
-
-$$P(D|S) = \frac{P(D)P(S|D)}{P(D)P(S|D) + P(D^c)P(S|D^c)}$$
 
 
 
@@ -522,7 +486,8 @@ We often want to summarize some characteristics of the distribution of a random 
 __Expectation of a Discrete Random Variable__:  The expected value of a discrete random variable $Y$ is \[E(Y)=\sum\limits_{y} y P(Y=y)= \sum\limits_{y} y p(y)\]  
 In words, it is the weighted average of all possible values of $Y$, weighted by the probability that $y$ occurs.  It is not necessarily the number we would expect $Y$ to take on, but the average value of $Y$ after a large number of repetitions of an experiment.
 
-```{example, name = "Expectation of a Discrete Random Variable"}
+```{example, name = "Expectation of a Discrete Random Variable", expectdiscrete}
+
 
 What is the expectation of a fair, six-sided die?
   
@@ -539,7 +504,8 @@ Hence, the expected value of the continuous variable $Y$ is defined by
 \[E(Y)=\int\limits_{y} y f(y) dy\]
 
 
-```{example, name = "Expectation of a Continuous Random Variable"}
+```{example, name = "Expectation of a Continuous Random Variable", expectconti}
+
 
 Find $E(Y)$ for $f(y)=\frac{1}{1.5}, \quad 0<y<1.5$.
 
@@ -549,16 +515,6 @@ $E(Y)=$
 ```
 
 
-Answer to __Example 6.7__
-
-$E(Y)=7/2$ 
-
-We would never expect the result of a rolled die to be $7/2$, but that would be the average over a large number of rolls of the die.
-
-
-Answer to __Example 6.8__
-
-\[E(Y) = \frac{1}{1.5}\times 1.5 - \frac{1}{1.5} \times 0 = 1\]
 
 
 __Expected Value of a Function__
@@ -586,8 +542,7 @@ __Conditional Expectation__: With joint distributions, we are often interested i
 2. $Y$ continuous: $E(Y|X = x) = \int_y yf_{Y|X}(y|x)dy$
 
 
-The conditional expectation is often used for prediction when one knows the value of $X$ but not $Y$; the realized value of $X$ contains information about the unknown $Y$ so long as $E(Y|X = x) \neq E(Y) \forall x$.
-  
+The conditional expectation is often used for prediction when one knows the value of $X$ but not $Y$
 
 
 ## Variance and Covariance
@@ -597,7 +552,9 @@ __Variance__:  We can also look at other summaries of the distribution, which bu
 1. Variance: $\sigma^2= V(Y) = E[(Y - E(Y))^2] =  E(Y^2)-[E(Y)]^2$
 2. Standard Deviation: $\sigma= \sqrt{V(Y)}$
 
-```{example, name = "Variance"}
+```{example, name = "Variance", var}
+
+
 Given the following PMF: 
 \[f(x) =  \begin{cases}
               \frac{3!}{x!(3-x)!}(\frac{1}{2})^3 \quad x = 0,1,2,3\\
@@ -609,6 +566,9 @@ What is $V[x]$?
   
   
 __Hint:__ First calculate $E[x]$ and $E[x^2]$
+
+  
+  
 
 ```
 ___Covariance and Correlation:___ The covariance measures the degree to which two random variables vary together; if the covariance between X and Y is positive, X tends to be larger than its mean when Y is larger than its mean.  The covariance of a variable with itself is the variance of that variable.
@@ -634,16 +594,9 @@ ___Properties of Variance and Covariance:___
 8. $V[X+Y] = V[X] + V[Y] + 2Cov[X,Y]$
 
 
-Answer to __Example 6.9__:
-
-$E[x] = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 2 \times \frac{3}{8} + 3 \times \frac{1}{8} = \frac{3}{2}$
-
-Since there is a 1 to 1 mapping from $x$ to $x^2:$ $E[x^2] = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 4 \times \frac{3}{8} + 9 \times \frac{1}{8} = \frac{24}{8} = 3$
-
-$V[x] = E[x^2] - E[x]^2 = 3 - (\frac{3}{2})^2 = \frac{3}{4}$
 
 
-```{exercise, name = "Expectation, Variance, Covariance"}
+```{exercise, name = "Expectation and Variance", expvar}
 
 Suppose we have a PMF with the following characteristics:
 \begin{eqnarray*}
@@ -663,9 +616,9 @@ Define the random variable $Y = X^2$.
 3. Calculate the variance of X.
 
 
+
+
 ```
-
-
 
 
 
@@ -856,3 +809,136 @@ n_seq <- 1:100; numerator <- (5 * exp(0.5 * n_seq) + n_seq^2 + n_seq / 2)
 denominator <- exp(n_seq)
 numerator / denominator <= (1 * denominator) / denominator
 \end{comment}
+
+## Answers to Examples and Exercises
+
+Answer to Example \@ref(exm:counting):
+
+1. $5 \times 5 \times 5 = 125$
+
+2. $5 \times 4 \times 3 = 60$
+
+3. $\binom{5}{3} = \frac{5!}{(5-3)!3!} = \frac{5 \times 4}{2 \times 1} = 10$
+
+
+Answer to Exercise \@ref(exr:counting1):
+
+1. $\binom{52}{4} = \frac{52!}{(52-4)!4!} = 270725$
+
+
+
+Answer to Example \@ref(exm:sets):
+
+1. {1, 2, 3, 4, 5, 6}
+2. {5, 6}
+3. {1, 2, 7, 8, 9, 10}
+4. {3, 4}
+
+Answer to Exercise \@ref(exr:sets1):
+
+Sample Space: {2, 3, 4, 5, 6, 7, 8}
+
+1. {3, 4, 5, 6, 7}
+2. {4, 5, 6}
+
+
+Answer to Example \@ref(exm:prob):
+
+
+1. ${1, 2, 3, 4, 5, 6}$
+
+2. $\frac{1}{6}$
+
+3. $0$
+
+4. $\frac{1}{2}$
+
+5. $\frac{4}{6} = \frac{2}{3}$
+
+6. $1$
+
+7. $A\cup B=\{1, 2, 3, 4, 6\}$, $A\cap B=\{2\}$, $\frac{5}{6}$
+
+
+Answer to Exercise \@ref(exr:prob1):
+
+1. $\Pr(X = 5) = \frac{4}{16}$, $\Pr(X = 3) = \frac{2}{16}$, $\Pr(X = 6) = \frac{3}{16}$
+
+  
+2. What is $\Pr(X=5 \cup X = 3)^C = \frac{10}{16}$? 
+
+Answer to Example \@ref(exm:condprobexm1):
+
+1. $\frac{n_{ab} + n_{ab^c}}{N}$
+
+2. $\frac{n_{ab} + n_{a^cb}}{N}$
+
+3. $\frac{n_{ab}}{N}$
+
+4. $\frac{\frac{n_{ab}}{N}}{\frac{n_{ab} + n_{a^cb}}{N}} = \frac{n_{ab}}{n_{ab} + n_{a^cb}}$
+
+5. $\frac{\frac{n_{ab}}{N}}{\frac{n_{ab} + n_{ab^c}}{N}} = \frac{n_{ab}}{n_{ab} + n_{ab^c}}$
+
+Answer to Example \@ref(exm:condprobexm2):
+
+$\Pr(1|Odd) = \frac{\Pr(1 \cap Odd)}{\Pr(Odd)} = \frac{\frac{1}{6}}{\frac{1}{2}} = \frac{1}{3}$
+
+
+Answer to Example \@ref(exm:bayesrule):
+
+We are given that
+$$P(D) = .4, P(D^c) = .6, P(S|D) = .5, P(S|D^c) = .9$$
+Using this, Bayes' Law and the Law of Total Probability, we know: 
+
+$$P(D|S) = \frac{P(D)P(S|D)}{P(D)P(S|D) + P(D^c)P(S|D^c)}$$
+$$P(D|S) = \frac{.4 \times .5}{.4 \times .5 + .6 \times .9 } = .27$$
+
+Answer to Exercise \@ref(exr:condprobexr):
+
+
+We are given that
+
+$$P(M) = .02, P(C|M) = .95, P(C^c|M^c) = .97$$
+
+
+$$P(M|C) = \frac{P(C|M)P(M)}{P(C)}$$
+
+$$= \frac{P(C|M)P(M)}{P(C|M)P(M) + P(C|M^c)P(M^c)}$$
+
+$$= \frac{P(C|M)P(M)}{P(C|M)P(M) + [1-P(C^c|M^c)]P(M^c)}$$
+$$ = \frac{.95 \times .02}{.95 \times .02 + .03 \times .98} = .38$$
+
+
+Answer to Example \@ref(exm:expectdiscrete):
+
+$E(Y)=7/2$ 
+
+We would never expect the result of a rolled die to be $7/2$, but that would be the average over a large number of rolls of the die.
+
+
+Answer to Example \@ref(exm:expectconti)
+
+$E(Y)=$ $\frac{1}{1.5} \times 1.5 - \frac{1}{1.5} \times 0 = 1$
+
+
+
+Answer to Example \@ref(exm:var):
+
+
+$E[x] = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 2 \times \frac{3}{8} + 3 \times \frac{1}{8} = \frac{3}{2}$
+
+Since there is a 1 to 1 mapping from $x$ to $x^2:$ $E[x^2] = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 4 \times \frac{3}{8} + 9 \times \frac{1}{8} = \frac{24}{8} = 3$
+
+$V[x] = E[x^2] - E[x]^2 = 3 - (\frac{3}{2})^2 = \frac{3}{4}$
+
+
+
+Answer to Exercise \@ref(exr:expvar):
+
+1. $E[X] = -2(\frac{1}{5}) + -1(\frac{1}{6}) + 0(\frac{1}{5}) + 1(\frac{1}{15}) + 2(\frac{11}{30}) = \frac{7}{30}$
+
+2. $E[Y] = 0(\frac{1}{5}) + 1(\frac{7}{30}) + 4(\frac{17}{30}) = \frac{5}{2}$
+
+3. $V[X] = E[X^2] - E[X]^2 = E[Y] - E[X]^2 = \frac{5}{2} - \frac{7}{30}^2 \approx 2.45$
+
+
