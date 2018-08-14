@@ -1,28 +1,85 @@
 # Optimization
 
 
-Topics:
-
-$\bullet$ Quadratic Forms $\bullet$ Definiteness of Quadratic Forms $\bullet$
-Maxima and Minima in $\mathbf{R}^n$ $\bullet$ First Order Conditions $\bullet$ Second
-Order Conditions $\bullet$ Global Maxima and Minima
-$\bullet$ Constrained Optimization
-$\bullet$ Equality Constraints
-$\bullet$ Inequality Constraints
-$\bullet$ Kuhn-Tucker Conditions
-
-Much of the material and examples for
-this lecture are taken from Simon \& Blume (1994) \emph{Mathematics for
-Economists} and Ecker \& Kupferschmid (1988) \emph{Introduction to
-Operations Research}
-
 ```{r, include = FALSE}
 library(ggplot2)
 library(patchwork)
 ```
 
+To optimize, we use derivatives and calculus. Optimization is to find the maximum or minimum of a functon, and to find what value of an input gives that extremum. This has obvious uses in engineering. Many tools in the statistical toolkit use optimization. One of the most common ways of estimating a model is through "Maximum Likelihood Estimation", done via optimizing a function (the likelihood). 
 
-## The Meltzer and Richards Model {-}
+Optimization also comes up in Economics, Formal Theory, and Political Economy all the time. A go-to model of human behavior is that they optimize a certain utility function. Humans are not pure utility maximizers, of course, but nuanced models of optimization -- for example, adding constraints and adding uncertainty -- will prove to be quite useful.
+
+
+## Example: Meltzer-Richards {-}
+
+A standard backdrop in comprative political economy, the Meltzer-Richards model states that redistribution of wealth should be higher in societies where the median income is much smaller than the average income. Why is that the case? Here is a simplified example that is not the exact model by Meltzer and Richard's, but adapted from Persson and Tabellini^[Adapted from Torsten Persson and Guido Tabellini, _Political Economics: Explaining Economic Policy_. MIT Press. ]
+
+
+We will set the following things about our model human and model democracy.
+
+- Individuals are indexed by $i$, and the total population is normalized to unity ("1") without loss of generality.
+- $U(\cdot)$, u for "utility", is a function that is concave and increasing, and expresses the utility gained from public goods. This tells us that its derivative of is _positive_, and its second derivative is __negative__. 
+- $y_i$ is the income of person $i$
+- $W_i$, w for "welfare", is the welfare of person $i$
+- $c_i$, c for "consumption", is the consumption utility of person $i$
+
+Also, the government is democratically elected and sets the following redistribution output:
+
+- $\tau$, t for "tax", is a flat tax rate between 0 and 1 that is applied to everyone's income.
+- $g$, "g" for "goods", is the amount of public goods that the government provides. 
+
+Suppose an individual's welfare is given by:
+\[W_i = c_i + U(g)\]
+
+The consumption good is the person's post-tax income. 
+
+\[c_i = (1 - \tau) y_i\]
+
+Income varies by person (In the next section we will cover probability, by then we will know that we can express this by saying that $y$ is a random variable with the cumulative distribution function $F$, i.e. $y \sim F$.). Every distribution has a mean and an median.
+
+- $E(y)$ is the average income of the society.
+- $\text{med}(y)$ is the __median income__ of the society. 
+
+
+What will happen in this economy? What will the tax rate be set too? How much public goods will be provided? 
+
+
+We've skipped ahead of some formal theory results of demoracy, but hopefully these are conceptually intuitive. First, if a democracy is competitive, there is no slack in the government's goods, and all tax revenue becomes a public good. So we can go ahead and set the constraint:
+
+\[g = \sum_{i} \tau y_i P(y_i) = \tau E(y)\]
+
+We can do this trick because of the "normalizes to unity" setting, but this is a general property of the average. 
+
+
+Now given this constraint we can re-write an individual's welfare as
+
+\begin{align*}
+W_i &= \left(1 - \frac{g}{E(y)}\right)y_i + U(g)\\
+&= \left(E(y) - g\right) \frac{1}{E(y)} y_i + U(g)\\
+&= \left(E(y) - g\right) \frac{y_i}{E(y)} + U(g)\\
+\end{align*}
+
+When is the individual's welfare maximized, __as a function of the public good__? 
+\begin{align*}
+\frac{d}{dg}W_i &=  - \frac{y_i}{E(y)} + \frac{d}{dg}U(g)\\
+\end{align*}
+
+$\frac{d}{dg}W_i = 0$ when $\frac{d}{dg}U(g) = \frac{y_i}{E(y)}$, and so after expressing the derivative as $U_g = \frac{d}{dg}U(g)$ for simplicity,
+
+\[g_i^\star = {U_g}^{-1}\left(\frac{y_i}{E(y)}\right)\]
+
+Now recall that because we assumed concavity, $U_g$ is a negative sloping function whose value is positive. It can be shown that the inverse of such a function is also decreasing. Thus an individual's preferred level of government is determined by a single continuum, the person's income divided by the average income, and the function is __decreasing__ in $y_i$. This is consistent with our intuition that richer people prefer less redistribution.
+
+
+That was the amount for any given person. The government has to set one value of $g$, however. So what will that be? Now we will use another result, the median voter theorem. This says that under certain general electoral conditions (single-peaked preferences, two parties, majority rule), the policy winner will be that preferred by the median person in the population. Because the only thing that determines a person's preferred level of government is $y_i / E(y)$, we can presume that the median voter, whose income is $\text{med}(y)$ will prevail in their preferred choice of government. Therefore, we wil see
+
+
+\[g^\star = {U_g}^{-1}\left(\frac{\text{med}(y)}{E(y)}\right)\]
+
+What does this say about the level of redistribution we observe in an economy? The higher the average income is than the median income, which often (but not always) means _more_ inequality, there should be __more__ redistribution.
+
+
 
 
 
