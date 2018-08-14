@@ -171,57 +171,75 @@ Find the following limits, then explain in English the intuition for why that is
 
 ## Limits of a Function {#limitsfun}
 
-We're often interested in determining if a function $f$ approaches some number $L$ as its independent variable $x$ moves to some number $c$ (usually 0 or $\pm\infty$).  If it does, we say that the limit of $f(x)$, as $x$ approaches $c$, is $L$: $\lim\limits_{x \to c} f(x)=L$.
+We've now covered functions and just covered limits of sequences, so now is the time to combine the two.
+
+
+A function $f$ is a compact representation of some behavior we care about. Like for sequences, we often want to know if $f(x)$ approaches some number $L$ as its independent variable $x$ moves to some number $c$ (which is usually 0 or $\pm\infty$).  If it does, we say that the limit of $f(x)$, as $x$ approaches $c$, is $L$: $\lim\limits_{x \to c} f(x)=L$. Unlike a sequence, $x$ is a continuous number, and we can move in decreasing order as well as increasing. 
 	
-For a limit $L$ to exist, the function $f(x)$ must approach $L$ from both the left and right.
+For a limit $L$ to exist, the function $f(x)$ must approach $L$ from both the left (increasing) and the right (decreasing).
 	
-__Limit of a function__.  Let $f(x)$ be defined at each point in some open interval containing the point $c$.  Then $L$ equals $\lim\limits_{x \to c} f(x)$ if for any (small positive) number $\epsilon$, there exists a corresponding number $\delta>0$ such that if $0<|x-c|<\delta$, then $|f(x)-L|<\epsilon$.
+```{definition, name = "Limit of a function"}
+Let $f(x)$ be defined at each point in some open interval containing the point $c$.  Then $L$ equals $\lim\limits_{x \to c} f(x)$ if for any (small positive) number $\epsilon$, there exists a corresponding number $\delta>0$ such that if $0<|x-c|<\delta$, then $|f(x)-L|<\epsilon$.
+```
 
-Note: f(x) does not necessarily have to be defined at $c$ for $\lim\limits_{x \to c}$ to exist.
-
-__Uniqueness__: $\lim\limits_{x \to c} f(x)=L$ and $\lim\limits_{x \to c} f(x)=M \Longrightarrow L=M$
-
-Properties: Let $f$ and $g$ be functions with $\lim\limits_{x \to c} f(x)=A$ and $\lim\limits_{x \to c} g(x)=B$.
+A neat, if subtle result is that $f(x)$ does not necessarily have to be defined at $c$ for $\lim\limits_{x \to c}$ to exist.
 
 
-* $\lim\limits_{x \to c}[f(x)+g(x)]=\lim\limits_{x \to c} f(x)+ \lim\limits_{x \to c} g(x)$
-* $\lim\limits_{x \to c} \alpha f(x) = \alpha \lim\limits_{x \to c} f(x)$
-* $\lim\limits_{x \to c} f(x) g(x) = [\lim\limits_{x \to c} f(x)][\lim\limits_{x \to c} g(x)]$
-* $\lim\limits_{x \to c} \frac{f(x)}{g(x)} = \frac{\lim\limits_{x \to c} f(x)}{\lim\limits_{x \to c} g(x)}$, provided $\lim\limits_{x \to c} g(x)\ne 0$.
+Properties: Let $f$ and $g$ be functions with $\lim\limits_{x \to c} f(x)=k$ and $\lim\limits_{x \to c} g(x)=\ell$.
 
-Note: In a couple days we'll talk about L'H\^opital's Rule, which uses simple calculus to help find the limits of functions like this.
+1. $\lim\limits_{x \to c}[f(x)+g(x)]=\lim\limits_{x \to c} f(x)+ \lim\limits_{x \to c} g(x)$
+2. $\lim\limits_{x \to c} kf(x) = k\lim\limits_{x \to c} f(x)$
+3. $\lim\limits_{x \to c} f(x) g(x) = \left[\lim\limits_{x \to c} f(x)\right]\cdot \left[\lim\limits_{x \to c} g(x)\right]$
+4. $\lim\limits_{x \to c} \frac{f(x)}{g(x)} = \frac{\lim\limits_{x \to c} f(x)}{\lim\limits_{x \to c} g(x)}$, provided $\lim\limits_{x \to c} g(x)\ne 0$.
 
-Examples:
+Simple limits of functions can be solved as we did limits of sequences. Just be careful which part of the function is changing.
 
-\begin{align*}
-& \lim_{x \to c} k = \\
-& \lim_{x \to c} x = \\
-& \lim_{x\to 2} (2x-3) =\\
-& \lim_{x \to c} x^n = 
-\end{align*}
+```{example}
+Find the limit of the following functions. 
 
-\begin{comment}
-%= 2\lim\limits_{x\to 2} x- 3\lim\limits_{x\to 2} 1 = 2\times 2 - 3\times 1 = 1 
-%[\lim\limits_{x \to c} x]\cdots[\lim\limits_{x \to c} x] = c\cdots c =c^n 
-\end{comment}
+1. \(\lim_{x \to c} k\)
+1. \(\lim_{x \to c} x\)
+1. \(\lim_{x\to 2} (2x-3)\)
+1. \(\lim_{x \to c} x^n\)
+
+```
 
 
-\begin{comment}
-		\item \parbox[t]{3.75in}{$\lim\limits_{x\to 0} |x| =$} \parbox[t]{1in}{\,{\includegraphics[width=1in, angle = 270]{abs.eps}}} % = 0
-		\item \parbox[t]{3.75in}{$\lim\limits_{x\to 0} \left(1+\frac{1}{x^2}\right)=$} \parbox[t]{1in}{\,  {\includegraphics[width=1in, angle = 270]{1p1ovrx2.eps}}} %\infty
-\end{comment}
+```{solution}
+
+
+ 1. $k$
+ 2. $c$
+ 3. \(\lim_{x\to 2} (2x-3) = 2\lim\limits_{x\to 2} x - 3\lim\limits_{x\to 2} 1 = 1\)
+ 4. \(\lim_{x \to c} x^n = \lim\limits_{x \to c} x \cdots[\lim\limits_{x \to c} x] = c\cdots c =c^n\)
+
+
+```
+
+
+Now, the functions will become a bit more complex:
+
+```{exercise}
+Solve the following limits of functions
+
+1. $\lim\limits_{x\to 0} |x|$
+2. $\lim\limits_{x\to 0} \left(1+\frac{1}{x^2}\right)$
+
+```
+
 		
 
 
-Types of limits:
+So there are a few more alternatives about what a limit of a function could be:
 
 1. Right-hand limit: The value approached by $f(x)$ when you move from right to left.
-\begin{comment}
-		\parbox[t]{2in}{Example:  $\lim\limits_{x\to 0^+} \sqrt{x} = 0$}\parbox[t]{1in}{\,  {\includegraphics[width=1in, angle = 270]{sqrt.eps}}}
-		\end{comment}
 2. Left-hand limit: The value approached by $f(x)$ when you move from left to right.
 3. Infinity: The value approached by $f(x)$ as x grows infinitely large. Sometimes this may be a number; sometimes it might be $\infty$ or $-\infty$.
 4. Negative infinity: The value approached by $f(x)$ as x grows infinitely negative. Sometimes this may be a number; sometimes it might be $\infty$ or $-\infty$.
+
+\begin{comment}
+		\parbox[t]{2in}{Example:  $\lim\limits_{x\to 0^+} \sqrt{x} = 0$}\parbox[t]{1in}{\,  {\includegraphics[width=1in, angle = 270]{sqrt.eps}}}
+		\end{comment}
 
 \begin{comment}
 \parbox[t]{2in}{Example:  $\lim\limits_{x\to \infty} 1/x = \lim\limits_{x\to -\infty} 1/x= 0$}\parbox[t]{1in}{\,  {\includegraphics[width=1in, angle = 270]{1ovrx.eps}}}\\ 
