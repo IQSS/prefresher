@@ -144,11 +144,10 @@ gg_tab
 
 You can change the orientation
 ```{r}
-gg_tab + coord_flip()
+gg_tab<- gg_tab + coord_flip()
 ```
 
 
-Or even change the variables altogether, while still maintaining the same format. 
 
 
 ### Parsing an object by `str()s`
@@ -297,7 +296,7 @@ count_men(cen10)
 The point of a function is that you can use it again and again without typing up the set of constituent manipulations. So, what if we wanted to figure out the number of men in California?
 
 ```{r}
-count_men(filter(cen10, state == "California"))
+count_men(cen10[cen10$state == "California",])
 ```
 
 
@@ -305,8 +304,7 @@ Let's go one step further. What if we want to know the proportion of non-whites 
 
 ```{r}
 nw_in_state <- function(data, state) {
-  s.subset <- filter(data, state == state)
-  
+  s.subset <- data[data$state == state,]
   total.s <- nrow(s.subset)
   nw.s <- sum(s.subset$race != "White")
   
@@ -318,7 +316,7 @@ The last line is what gets generated from the function. To be more explicit you 
 
 Try it on your favorite state!
 ```{r}
-nw_in_state(cen10, "Alabama")
+nw_in_state(cen10, "New York")
 ```
 
 
