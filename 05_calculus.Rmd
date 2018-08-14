@@ -1,23 +1,8 @@
 # Calculus {#derivatives}
 
-__Topics__: 
- Derivatives;
- Higher-Order Derivatives;
- Composite Functions and The Chain Rule;
- Derivatives of e and log;
- Partial Derivatives;
- L'Hopital's Rule;
- Taylor Approximation;
- Derivative Calculus in 6 Steps;
-The Indefinite Integral: The Antiderivative;
- Common Rules of Integration;
- The Definite Integral: The Area under the Curve;
- Integration by Substitution;
- Integration by Parts
- 
+Calculus is a fundamental part of any type of statistics exercise. Although you may not be taking derivatives and integral in your daily work as an analyst, calculus undergirds many concepts we use: maximization, expectation, etc
 
- Much of the material and examples for this lecture are taken from Simon \& Blume (1994) \emph{Mathematics for Economists} and from Boyce \& Diprima (1988) \emph{Calculus}
-
+## Example: The Mean is a Type of Integral {-}
 
 
 ## Derivatives {#derivintro}
