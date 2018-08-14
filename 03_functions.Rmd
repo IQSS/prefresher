@@ -70,6 +70,8 @@ __Modulo:__ Tells you the remainder when you divide the first number by the seon
   
 4. $4! =$
 
+  
+
 ```
 
 ```{exercise, name = "Operators", operators1}
@@ -80,8 +82,9 @@ Let $x_1 = 4, x_2 = 3, x_3 = 7, x_4 = 11, x_5 = 2$
 2. $\sum\limits_{i=1}^{5} 2$
 
 3. $\prod\limits_{i=3}^{5} (2)x_i$
-  
-  
+
+    
+
 ```
 
 
@@ -89,7 +92,23 @@ Let $x_1 = 4, x_2 = 3, x_3 = 7, x_4 = 11, x_5 = 2$
 
 A __function__ (in ${\bf R}^1$) is a mapping, or transformation, that relates members of one set to members of another set. For instance, if you have two sets: set $A$ and set $B$, a function from $A$ to $B$ maps every value $a$ in set $A$ such that $f(a) \in  B$. Functions can be "many-to-one", where many values or combinations of values from set $A$ produce a single output in set $B$, or they can be "one-to-one", where each value in set $A$ corresponds to a single value in set $B$. A function by definition has a single function value for each element of its domain. This means, there cannot be "one-to-many" mapping.
 
-Examples: Mapping notation 
+
+__Dimensionality__: ${\bf R}^1$ is the set of all real numbers extending from $-\infty$ to $+\infty$ --- i.e., the real number line. ${\bf R}^n$ is an $n$-dimensional space, where each of the $n$ axes extends from $-\infty$ to $+\infty$.
+
+* ${\bf R}^1$ is a one dimensional line.
+* ${\bf R}^2$ is a two dimensional plane.
+* ${\bf R}^3$ is a three dimensional space.
+
+Points in ${\bf R}^n$ are ordered $n$-tuples (just means an combination of $n$ elements where order matters), where each element of the $n$-tuple represents the coordinate along that dimension.
+
+For example:
+
+* ${\bf R}^1$: (3)
+* ${\bf R}^2$: (-15, 5)
+* ${\bf R}^3$: (86, 4, 0)
+
+
+Examples of mapping notation: 
 
 Function of one variable: $f:{\bf R}^1\to{\bf R}^1$
 
@@ -111,6 +130,8 @@ For each of the following, state whether they are one-to-one or many-to-one func
 
 2. For $x \in [-\infty, \infty]$, $f: x \rightarrow x^2$.
 
+
+
 ```
 
 
@@ -124,8 +145,10 @@ For each of the following, state whether they are one-to-one or many-to-one func
 
 2. For $x \in [0, \infty]$, $f: x \rightarrow \sqrt{x}$
   
-  
+
+
 ```
+
 
 
 
@@ -237,6 +260,8 @@ Simplify the following logarithm. By "simplify", we actually really mean - use a
 3. $\log_4(x^3y^5)$
 
 
+
+
 ```
 
 ```{exercise, name = "Logarithmic Functions", log1}
@@ -251,6 +276,9 @@ Simplify each of the following logarithms. By "simplify", we actually really mea
 2. $\log(\frac{x^9y^5}{z^3})$
 
 3. $\ln{\sqrt{xy}}$
+  
+  
+
 ```
 
 
@@ -286,6 +314,8 @@ Solve for x:
   
 2. $y=3x-4z+2$
 
+  
+
 ```
 
 
@@ -315,6 +345,7 @@ Solve for x:
 
 3. $f(x)=e^{-x}-10 = 0$
   
+
 
 ```
 

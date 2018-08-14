@@ -68,11 +68,14 @@ There are five balls numbered from 1 through 5 in a jar. Three balls are chosen.
 3. Unordered, without replacement $=$ 
 
 
+
 ```
 
 ```{exercise, name = "Counting", counting1}
 
 Four cards are selected from a deck of 52 cards. Once a card has been drawn, it is not reshuffled back into the deck. Moreover, we care only about the complete hand that we get (i.e. we care about the set of selected cards, not the sequence in which it was drawn). How many possible outcomes are there?
+
+  
 
 ```
 
@@ -122,6 +125,7 @@ Write out the following sets:
   4. $A \cap (B \cup C)$
   
 
+
 ```
 
 ```{exercise, name = "Sets", sets1}
@@ -137,7 +141,8 @@ Consider subsets A {2, 8} and B {2,3,7} of the sample space you found. What is
   1. $A^c$
   2. $(A \cup B)^c$
     
-    
+  
+ 
 ```
 
 
@@ -233,6 +238,8 @@ and let $n_{ab}+n_{a^Cb}+n_{ab^C}+n_{(ab)^C}=N$.  Then
 4.  $\Pr(A|B)= \frac{\Pr(A\cap B)}{\Pr(B)}=$ 
 5.  $\Pr(B|A)= \frac{\Pr(A\cap B)}{\Pr(A)}=$ 
 
+  
+
 ```
 
 
@@ -241,7 +248,8 @@ and let $n_{ab}+n_{a^Cb}+n_{ab^C}+n_{(ab)^C}=N$.  Then
 
  A six-sided die is rolled.  What is the probability of a 1, given the outcome is an odd number? 
   
-  
+
+
 ```
 
 
@@ -279,12 +287,16 @@ __Prior and Posterior Probabilities__:  Above, $\Pr(B_1)$ is often called the pr
 
 In a given town, 40% of the voters are Democrat and 60% are Republican. The president's budget is supported by 50% of the Democrats and 90% of the Republicans. If a randomly (equally likely) selected voter is found to support the president's budget, what is the probability that they are a Democrat?
 
+  
+
 ```
 
 ```{exercise, name = "Conditional Probability", condprobexr}
 
 
 Assume that 2% of the population of the U.S. are members of some extremist militia group. We develop a survey that positively classifies someone as being a member of a militia group given that they are a member 95% of the time and negatively classifies someone as not being a member of a militia group given that they are not a member 97% of the time. What is the probability that someone positively classified as being a member of a militia group is actually a militia member?
+
+  
 
 ```
 
@@ -557,6 +569,9 @@ What is $V[x]$?
   
 __Hint:__ First calculate $E[x]$ and $E[x^2]$
 
+  
+  
+
 ```
 ___Covariance and Correlation:___ The covariance measures the degree to which two random variables vary together; if the covariance between X and Y is positive, X tends to be larger than its mean when Y is larger than its mean.  The covariance of a variable with itself is the variance of that variable.
 
@@ -601,6 +616,8 @@ Define the random variable $Y = X^2$.
 2. Calculate the expected value of Y. (Hint: It would help to derive the PMF of Y first in order to calculate the expected value of Y in a straightforward way)
 
 3. Calculate the variance of X.
+
+
 
 
 ```
