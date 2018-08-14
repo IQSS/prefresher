@@ -82,19 +82,10 @@ How does these sequence behave?
   
 ```
 
-```{solution}
 
+We find the sequence by simply "plugging in" the integers into each $n$. The important thing is to get a sense of how these numbers are going to change. Example 1's numbers seem to come closer and closer to 2, but will it ever surpass 2? Example 2's numbers are also increasing each time, but will it hit a limit? What is the pattern in Example 3? Graphing helps you make this point more clearly.  See the sequence of $n = 1, ...20$ for each of the three examples in Figure \@ref(fig:seqabc).
 
- 1. $\{A_n\}=\left\{ 2-\frac{1}{n^2} \right\} = \left\{1, \frac{7}{4}, \frac{17}{9},  \frac{31}{16}, \frac{49}{25},  \ldots\right\} = 2$
- 2. $\{B_n\}=\left\{\frac{n^2+1}{n} \right\} = \left\{2, \frac{5}{2}, \frac{10}{3},  \frac{17}{4}..., \right\}$
- 3. $\{C_n\}=\left\{(-1)^n \left(1-\frac{1}{n}\right) \right\} = \left\{0, \frac{1}{2}, -\frac{2}{3}, \frac{3}{4}, -\frac{4}{5}\right\}$
-  
-  
-```
-
-We find the sequence by simply "plugging in" the integers into each $n$. The important thing is to get a sense of how these numbers are going to change. Example 1's numbers seem to come closer and closer to 2, but will it ever surpass 2? Example 2's numbers are also increasing each time, but will it hit a limit? What is the pattern in Example 3? Graphing helps you make this point more clearly.  See the sequence of $n = 1, ...20$ for each of the three examples
-
-```{r, echo = FALSE}
+```{r, seqabc, fig.cap = "Behavior of Some Sequences", echo = FALSE}
 seq <- 1:20
 df <- tibble(n = seq, A = 2 - 1/(seq^2), B = (seq^2 + 1)/(seq), C = (-1)^seq * (1 - 1/seq))
 
@@ -114,7 +105,7 @@ gA + gB + gC
 ## The Limit of a Sequence
 
 
-The notion of "converging to a limit" is the behavior of the points in Example \@ref{exm:seqbehav}. In some sense, that's the counterfactual we want to know. What happens as $n\rightarrow \infty$? 
+The notion of "converging to a limit" is the behavior of the points in Example \@ref(exm:seqbehav). In some sense, that's the counterfactual we want to know. What happens as $n\rightarrow \infty$? 
 
 1. Sequences like 1 above that converge to a limit.
 2. Sequences like 2 above that increase without bound.
@@ -194,7 +185,7 @@ Properties: Let $f$ and $g$ be functions with $\lim\limits_{x \to c} f(x)=k$ and
 
 Simple limits of functions can be solved as we did limits of sequences. Just be careful which part of the function is changing.
 
-```{example}
+```{example, limfun1, name ="Limits of Functions"}
 Find the limit of the following functions. 
 
 1. \(\lim_{x \to c} k\)
@@ -204,17 +195,6 @@ Find the limit of the following functions.
 
 ```
 
-
-```{solution}
-
-
- 1. $k$
- 2. $c$
- 3. \(\lim_{x\to 2} (2x-3) = 2\lim\limits_{x\to 2} x - 3\lim\limits_{x\to 2} 1 = 1\)
- 4. \(\lim_{x \to c} x^n = \lim\limits_{x \to c} x \cdots[\lim\limits_{x \to c} x] = c\cdots c =c^n\)
-
-
-```
 
 
 Now, the functions will become a bit more complex:
@@ -334,6 +314,36 @@ Let \[f(x) = \frac{x^2 + 2x}{x}.\]
 
 1. Graph the function. Is it defined everywhere?
 2. What is the functions limit at $x \rightarrow 0$? 
+
+
+```
+
+
+
+## Answers to Examples {-}
+
+Example \@ref(exm:seqbehav)
+
+
+```{solution}
+
+
+ 1. $\{A_n\}=\left\{ 2-\frac{1}{n^2} \right\} = \left\{1, \frac{7}{4}, \frac{17}{9},  \frac{31}{16}, \frac{49}{25},  \ldots\right\} = 2$
+ 2. $\{B_n\}=\left\{\frac{n^2+1}{n} \right\} = \left\{2, \frac{5}{2}, \frac{10}{3},  \frac{17}{4}..., \right\}$
+ 3. $\{C_n\}=\left\{(-1)^n \left(1-\frac{1}{n}\right) \right\} = \left\{0, \frac{1}{2}, -\frac{2}{3}, \frac{3}{4}, -\frac{4}{5}\right\}$
+  
+  
+```
+
+Example \@ref(exm:limfun1)
+
+```{solution}
+
+
+ 1. $k$
+ 2. $c$
+ 3. \(\lim_{x\to 2} (2x-3) = 2\lim\limits_{x\to 2} x - 3\lim\limits_{x\to 2} 1 = 1\)
+ 4. \(\lim_{x \to c} x^n = \lim\limits_{x \to c} x \cdots[\lim\limits_{x \to c} x] = c\cdots c =c^n\)
 
 
 ```

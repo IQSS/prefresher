@@ -128,7 +128,7 @@ Earlier, in Section \@ref(derivintro), we said that if a function differentiable
 
 ## Composite Functions and the Chain Rule
 
-As useful as the above rules are, many functions you'll see won't fit neatly in each case immediately. Instead, they will be functions of functions. For example, the difference between $x^2 + 1^2$ and $(x^2 + 1)^2$  may look trivial, but the sum rule can be easily applied to hte former, while it's actually not obvious what do with the latter. 
+As useful as the above rules are, many functions you'll see won't fit neatly in each case immediately. Instead, they will be functions of functions. For example, the difference between $x^2 + 1^2$ and $(x^2 + 1)^2$  may look trivial, but the sum rule can be easily applied to the former, while it's actually not obvious what do with the latter. 
 
 __Composite functions__ are formed by substituting one function into another and are denoted by \[(f\circ g)(x)=f[g(x)].\]  To form $f[g(x)]$, the range of $g$ must be contained (at least in part) within the domain of $f$. The domain of $f\circ g$ consists of all the points in the domain of $g$ for which $g(x)$ is in the domain of $f$.
 
@@ -158,19 +158,11 @@ The chain rule can be thought of as the derivative of the "outside" times the de
 * The chain rule can also be written as \[\frac{dy}{dx}=\frac{dy}{dg(x)} \frac{dg(x)}{dx}\] This expression does not imply that the $dg(x)$'s cancel out, as in fractions.  They are part of the derivative notation and you can't separate them out or cancel them.)	
 	
 
-```{example}
+```{example,tothesix, name = "Composite Exponent"}
 Find $f^\prime(x)$ for $f(x) = (3x^2+5x-7)^6$.
 ```
 
 
-```{solution}
-For convenience, define $f(z) = z^6$ and $z = g(x) = 3x^2+5x-7$.  Then, $y=f[g(x)]$ and
-
-\begin{align*}
-\frac{d}{dx}y&= f^\prime(z) g^\prime(x) \\
-&= 6(3x^2+5x-7)^5 (6x + 5)
-\end{align*}
-```
 
 
 The direct use of a chain rule is when the exponent of is itself a function, so the power rule could not have applied generaly:
@@ -235,25 +227,13 @@ fprimex <- fx0 + stat_function(fun = function(x) exp(x), size = 0.5) +
 fx + fprimex + plot_annotation(expression(f(x)==e^x))
 ```
 
-```{example, name="Derivative of exponents"}
+```{example, exmderivexp, name="Derivative of exponents"}
 Find the derivative for the following.
 
 1. $f(x)=e^{-3x}$
 2. $f(x)=e^{x^2}$
 3. $f(x)=(x-1)e^x$
 
-```
-
-
-
-```{solution}
-
-
- 1. Let $u(x)=-3x$.  Then $u^\prime(x)=-3$ and $f^\prime(x)=-3e^{-3x}$. 
- 2. Let $u(x)=x^2$.  Then $u^\prime(x)=2x$ and $f^\prime(x)=2xe^{x^2}$.
- 3. 
- 
- 
 ```
 
 
@@ -285,7 +265,7 @@ fprimex <- fx0 + stat_function(fun = function(x) ifelse(x <= 0, NA, 1/x), size =
 fx + fprimex + plot_annotation(expression(f(x)==log(x)))
 ```
 
-```{example, name="Derivative of logs"}
+```{example, exmderivlog, name="Derivative of logs"}
 Find $dy/dx$ for the following.
 
 1. $f(x)=\log(x^2+9)$
@@ -297,14 +277,6 @@ Find $dy/dx$ for the following.
 
 
 
-```{solution}
-
-1. Let $u(x)=x^2+9$.  Then $u^\prime(x)=2x$ and \[\frac{dy}{dx}= \frac{u^\prime(x)}{u(x)} = \frac{2x}{(x^2+9)}\]
-2. Let $u(x)=\log x$.  Then $u^\prime(x)=1/x$ and $\frac{dy}{dx} = \frac{1}{(x\log x)}$.
-3. Use the generalized power rule. \[\frac{dy}{dx} = \frac{(2 \log x)}{x}\]
-4. We know that $\log e^x=x$ and that $dx/dx=1$, but we can double check.  Let $u(x)=e^x$.  Then $u^\prime(x)=e^x$ and $\frac{dy}{dx} = \frac{u^\prime(x)}{u(x)} = \frac{e^x}{e^x} = 1.$
-
-```
 
 ### Outline of Proof {-}
 
@@ -476,7 +448,8 @@ The Indefinite Integral of the function $f(x) = (x^2-4)$ can, for example, be $F
 
 Some of these functions are plotted in the right panel of Figure \@ref(fig:integralc) as dotted lines.
 
-```{r, integralc, fig.caption="The Many Indefinite Integrals of a Function", echo = FALSE}
+
+```{r, integralc, fig.cap="The Many Indefinite Integrals of a Function", echo = FALSE}
 range1 <- tibble(x = c(-4, 4))
 
 
@@ -525,7 +498,7 @@ Simplify the following indefinite integrals:
 
 ## The Definite Integral: The Area under the Curve
 
-If there is a indefinite integral, there _must_ be a definite integral. Indeed there is, but the notion of definte integrals comes from a different objective: finding the are a under a function. We will find, perhaps remarkmably, that the formula we find to get the sum turns out to be expressable by the anti-derivative. 
+If there is a indefinite integral, there _must_ be a definite integral. Indeed there is, but the notion of definite integrals comes from a different objective: finding the are a under a function. We will find, perhaps remarkably, that the formula we find to get the sum turns out to be expressible by the anti-derivative. 
 
 Suppose we want to determine the area $A(R)$ of a region $R$ defined by a curve $f(x)$ and some interval $a\le x \le b$.  
 
@@ -543,7 +516,7 @@ The most straightforward of a definite integral is the definite integral. That i
 \[\int\limits_a^b f(x) dx\] as the definite integral of $f$ from $a$ to $b$ and we defined as the  area under the "curve" $f(x)$ from point $x=a$ to $x=b$.
 ```
 
-The fundamental theorem of caluclus shows us that this sum is, in fact, the antiderivative.
+The fundamental theorem of calculus shows us that this sum is, in fact, the antiderivative.
 
 ```{theorem, name = "First Fundamental Theorem of Calculus"}
 Let the function $f$ be bounded on $[a,b]$ and continuous on $(a,b)$.  Then, suggestively, use the symbol $F(x)$ to denote the definite integral from $a$ to $x$: 
@@ -567,24 +540,13 @@ So the procedure to calculate a simple definite integral $\int\limits_a^b f(x)dx
 1. Find the indefinite integral $F(x)$.
 2. Evaluate $F(b)-F(a)$.
 
-```{example, name="Definite Integral of a monomial"}
+```{example, defintmon, name="Definite Integral of a monomial"}
 Solve $\int\limits_1^3 3x^2 dx.$
 
 Let $f(x) = 3x^2$. 
 
 ```
 
-
-```{solution}
-What is $F(x)$? From the power rule, recognize $\frac{d}{dx}x^3 = 3x^2$ so 
-  
-\begin{align*}
-F(x) &= x^3\\
-\int\limits_1^3 f(x) dx &= F(x = 3) - F(x  - 1)\\
-&= 3^3 - 1^3\\
-&=26
-\end{align*}
-```
 
 
 
@@ -642,27 +604,14 @@ where $c=u(a)$ and $d=u(b)$.
 
 
 
-```{example, name ="Integration by Substitution I"}
+```{example, intsub1, name ="Integration by Substitution I"}
 
 Solve the indefinite integral \[\int x^2 \sqrt{x+1}dx.\]
 
 
 ```
 
-```{solution}
-The problem here is the $\sqrt{x+1}$ term.  However, if the integrand had $\sqrt{x}$ times some polynomial, then we'd be in business.  Let's try $u=x+1$.  Then $x=u-1$ and $dx=du$. Substituting these into the above equation, we get 
 
-\begin{align*}
-			\int x^2\sqrt{x+1}dx&= \int (u-1)^2\sqrt{u}du\\
-			&= \int (u^2-2u+1)u^{1/2}du\\
-			&= \int (u^{5/2}-2u^{3/2}+u^{1/2})du
-\end{align*}
-
-We can easily integrate this, since it is just a polynomial.  Doing so and substituting $u=x+1$ back in, we get \[\int x^2\sqrt{x+1}dx=2(x+1)^{3/2}\left[\frac{1}{7}(x+1)^2 -
-\frac{2}{5}(x+1)+\frac{1}{3}\right]+c\]
-
-
-```
 
 
 For the above problem, we could have also used the substitution $u=\sqrt{x+1}$.  Then $x=u^2-1$ and $dx=2u du$.  Substituting these in, we get $$\int x^2\sqrt{x+1}dx=\int (u^2-1)^2 u 2u du$$ which when expanded is again a polynomial and gives the same result as above.
@@ -670,23 +619,11 @@ For the above problem, we could have also used the substitution $u=\sqrt{x+1}$. 
 
 Another case in which integration by substitution is is useful is with a fraction.
 
-```{example,name="Integration by Substitutiton II"}
+```{example, intsub2, name="Integration by Substitutiton II"}
 Simplify \[\int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx.\]
 ```
 
 
-```{solution}
-When an expression is raised to a power, it is often helpful to use this expression as the basis for a substitution.  So, let $u=1+e^{2x}$. Then $du=2e^{2x}dx$ and we can set $5e^{2x}dx=5du/2$.    Additionally, $u=2$ when $x=0$ and $u=1+e^2$ when $x=1$.  Substituting all of this in, we get
-
-\begin{align*}
-\int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx
-			&= \frac{5}{2}\int\limits_2^{1+e^2}\frac{du}{u^{1/3}}\\
-			&= \frac{5}{2}\int\limits_2^{1+e^2} u^{-1/3}du\\
-			&= \left. \frac{15}{4} u^{2/3} \right|_2^{1+e^2}\\
-			&= 9.53
-\end{align*}
-
-```
 
 
 
@@ -713,4 +650,87 @@ Simplify the following integrals. These seemingly obscure forms of integrals com
 3. $\int x^3 e^{-x^2} dx$
   
   
+```
+
+## Answers to Examples and Exercises  {-}
+
+
+Example \@ref(exm:tothesix)
+
+```{solution}
+For convenience, define $f(z) = z^6$ and $z = g(x) = 3x^2+5x-7$.  Then, $y=f[g(x)]$ and
+
+\begin{align*}
+\frac{d}{dx}y&= f^\prime(z) g^\prime(x) \\
+&= 6(3x^2+5x-7)^5 (6x + 5)
+\end{align*}
+```
+
+
+Example \@ref(exm:exmderivexp)
+
+```{solution}
+
+
+ 1. Let $u(x)=-3x$.  Then $u^\prime(x)=-3$ and $f^\prime(x)=-3e^{-3x}$. 
+ 2. Let $u(x)=x^2$.  Then $u^\prime(x)=2x$ and $f^\prime(x)=2xe^{x^2}$.
+ 
+ 
+```
+
+Example \@ref(exm:exmderivlog)
+
+
+```{solution}
+
+1. Let $u(x)=x^2+9$.  Then $u^\prime(x)=2x$ and \[\frac{dy}{dx}= \frac{u^\prime(x)}{u(x)} = \frac{2x}{(x^2+9)}\]
+2. Let $u(x)=\log x$.  Then $u^\prime(x)=1/x$ and $\frac{dy}{dx} = \frac{1}{(x\log x)}$.
+3. Use the generalized power rule. \[\frac{dy}{dx} = \frac{(2 \log x)}{x}\]
+4. We know that $\log e^x=x$ and that $dx/dx=1$, but we can double check.  Let $u(x)=e^x$.  Then $u^\prime(x)=e^x$ and $\frac{dy}{dx} = \frac{u^\prime(x)}{u(x)} = \frac{e^x}{e^x} = 1.$
+
+```
+
+Example \@ref(exm:intdefmon)
+
+
+```{solution}
+What is $F(x)$? From the power rule, recognize $\frac{d}{dx}x^3 = 3x^2$ so 
+  
+\begin{align*}
+F(x) &= x^3\\
+\int\limits_1^3 f(x) dx &= F(x = 3) - F(x  - 1)\\
+&= 3^3 - 1^3\\
+&=26
+\end{align*}
+```
+
+Example \@ref(exm:intsub1)
+```{solution}
+The problem here is the $\sqrt{x+1}$ term.  However, if the integrand had $\sqrt{x}$ times some polynomial, then we'd be in business.  Let's try $u=x+1$.  Then $x=u-1$ and $dx=du$. Substituting these into the above equation, we get 
+
+\begin{align*}
+			\int x^2\sqrt{x+1}dx&= \int (u-1)^2\sqrt{u}du\\
+			&= \int (u^2-2u+1)u^{1/2}du\\
+			&= \int (u^{5/2}-2u^{3/2}+u^{1/2})du
+\end{align*}
+
+We can easily integrate this, since it is just a polynomial.  Doing so and substituting $u=x+1$ back in, we get \[\int x^2\sqrt{x+1}dx=2(x+1)^{3/2}\left[\frac{1}{7}(x+1)^2 -
+\frac{2}{5}(x+1)+\frac{1}{3}\right]+c\]
+
+
+```
+
+
+Example \@ref(exm:intsub2)
+```{solution}
+When an expression is raised to a power, it is often helpful to use this expression as the basis for a substitution.  So, let $u=1+e^{2x}$. Then $du=2e^{2x}dx$ and we can set $5e^{2x}dx=5du/2$.    Additionally, $u=2$ when $x=0$ and $u=1+e^2$ when $x=1$.  Substituting all of this in, we get
+
+\begin{align*}
+\int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx
+			&= \frac{5}{2}\int\limits_2^{1+e^2}\frac{du}{u^{1/3}}\\
+			&= \frac{5}{2}\int\limits_2^{1+e^2} u^{-1/3}du\\
+			&= \left. \frac{15}{4} u^{2/3} \right|_2^{1+e^2}\\
+			&= 9.53
+\end{align*}
+
 ```
