@@ -48,7 +48,35 @@ There are a two main ways to denote a derivate:
 
 ```
 
-If $f(x)$ is a straight line, the derivative is the slope. For a curve, the slope changes by the values of $x$, so the derivative is the slope of the line tangent to the curve at $x$.
+If $f(x)$ is a straight line, the derivative is the slope. For a curve, the slope changes by the values of $x$, so the derivative is the slope of the line tangent to the curve at $x$. See, For example, Figure \@ref(fig:derivsimple).
+
+
+```{r, derivsimple, echo = FALSE, fig.cap="The Derivative as a Slope"}
+range <- tibble::tibble(x = c(-3, 3))
+
+fx0 <- ggplot(range, aes(x = x)) +
+  labs(x = expression(x), y = expression(f(x)))
+
+fx <- fx0 +  
+  stat_function(fun = function(x) 2*x, size = 0.5) +
+  labs(title = "f(x) = 2x") +
+  expand_limits(y = 0)
+
+fprimex <- fx0 + stat_function(fun = function(x) 2, size = 0.5, linetype = "dashed") +
+  labs(x = expression(x), y = expression(f~plain("'")~(x)))
+
+gx <- fx0 +  
+  stat_function(fun = function(x) x^3, size = 0.5) +
+  labs(y = expression(g(x)), title = expression(g(x)==x^3)) +
+  expand_limits(y = 0)
+  
+gprimex <- fx0 + stat_function(fun = function(x) 3*(x^2), size = 0.5, linetype = "dashed") +
+  labs(x = expression(x), y = expression(g~plain("'")~(x)))
+
+fx + fprimex + gx + gprimex + plot_layout(ncol = 2)
+```
+
+
 
 If $f'(x)$ exists at a point $x_0$, then $f$ is said to be __differentiable__ at $x_0$. That also implies that $f(x)$ is continuous at $x_0$. 
 
@@ -690,7 +718,7 @@ Example \@ref(exm:exmderivlog)
 
 ```
 
-Example \@ref(exm:intdefmon)
+Example \@ref(exm:defintmon)
 
 
 ```{solution}
