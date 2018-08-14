@@ -300,7 +300,7 @@ The general derivative of the log at any base $a$ is solvable by the definition 
 
 Re-express $g = \frac{h}{x}$ and get 
 \begin{align*}
-(\log_a x)^\prime &= \frac{1}{x}\lim_{g\to 0}\log_{a} (1 + g)^{\frac{1}{h}}\\
+(\log_a x)^\prime &= \frac{1}{x}\lim_{g\to 0}\log_{a} (1 + g)^{\frac{1}{g}}\\
 &= \frac{1}{x}\log_a e
 \end{align*}
 
@@ -358,43 +358,6 @@ Let $f(x,y)=x^3 y^4 +e^x -\log y$. What are the following partial derivaitves?
 \end{align*}
   
 
-```
-
-
-
-## L'Hopital's Rule
-
-In studying limits, we saw that 
-\[\lim\limits_{x \to c} \frac{f(x)}{g(x)} = \frac{\lim\limits_{x \to c} f(x)}{\lim\limits_{x \to c} g(x)},\]
-
-provided that $\lim\limits_{x \to c} g(x)\ne 0$.
-	
-If both $\lim\limits_{x \to c} f(x)=0$ and $\lim\limits_{x \to c} g(x)=0$, then we get an __indeterminate form__ of the type $\frac{0}{0}$ as $x\to c$.  However, a limit may still exist. We can use L'Hopital's rule to find the limit.
-	
-__L'Hopital's Rule__:  Suppose $f$ and $g$ are differentiable on some interval $a<x<b$ and that either
-
-
-1. $\lim\limits_{x\to a^+} f(x)=0$ and $\lim\limits_{x\to a^+} g(x)=0$, or
-2. $\lim\limits_{x\to a^+} f(x)=\pm\infty$ and $\lim\limits_{x\to a^+} g(x)=\pm\infty$
-
-Suppose further that $g'(x)$ is never zero on $a<x<b$ and that 
-\[\lim\limits_{x\to a^+} \frac{f'(x)}{g'(x)}=L\] then
-\[\lim\limits_{x\to a^+} \frac{f(x)}{g(x)}=L\]
-	
-Put more simply, if $\lim\limits_{x\to a f(x)}$ is of the form $0/0$ or $\pm \infty / \pm \infty$, then $$\lim\limits_{x\to a} f(x) = \lim\limits_{x\to a} f'(x)$$
-	
-And if $\lim\limits_{x\to a} \frac{f'(x)}{g'(x)} = 0/0$ or $\pm \infty / \pm \infty$ then you can apply L'H\^opital's rule a second time, and continue applying it until you have a solution.
-
-```{example, name="LHopital"}
-Use L'Hopital's rule to find the following limits:
-
-1. $\lim\limits_{x\to 0^+}\frac{\log(1+x^2)}{x^3}$
-
-2. $\lim\limits_{x\to  0^+} \frac{e^{1/x}}{1/x}$
-		
-3. $\lim\limits_{x\to 2} \frac{x-2}{(x+6)^{1/3}-2}$
-  
-  
 ```
 
 
