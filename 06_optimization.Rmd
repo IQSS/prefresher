@@ -777,12 +777,6 @@ $\frac{\partial L}{\partial \lambda_3} = -(-x_2 + s_3^2)  =  0$\\
 $\frac{\partial L}{\partial s_1} = 2s_1\lambda_1  =  0$\\
 $\frac{\partial L}{\partial s_2} = 2s_2\lambda_2  =  0$\\
 $\frac{\partial L}{\partial s_3} = 2s_3\lambda_3  =  0$}
-\item[]
-\item[]
-\item[]
-\item[]
-\item[]
-\item[]
 
 4. Consider all ways that the complementary slackness conditions are solved:
 \begin{center}
