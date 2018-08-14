@@ -1,7 +1,7 @@
 --- 
 title: "Math Prefresher for Political Scientists"
 author: ""
-date: "`r Sys.Date()`"
+date: "August 2018"
 description: "Text for Harvard Department of Government Math Prefresher"
 github-repo: "kuriwaki/prefresher"
 site: "bookdown::bookdown_site"

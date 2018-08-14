@@ -17,6 +17,11 @@ Topics:
  Summarizing Observed Data;
  Asymptotics
  
+```{r, include = FALSE}
+library(ggplot2)
+```
+ 
+ 
 
 ## Counting rules
 
@@ -420,6 +425,8 @@ For a discrete random variable $X$, the probability mass function (Also referred
 
 1. $0\le p(x)\le 1$
 2.  $\sum\limits_y p(x)=1$
+
+
 ```
 
 
@@ -443,9 +450,16 @@ Properties a CDF must satisfy:
 
 Note that $P(X > x) = 1 - P(X \le x)$.
 
-\begin{framed}
-\parbox[c]{4.55in}{Example:  For a fair die,\\ $P(Y\le 1)=$\\ $P(Y\le 3)=$\\ $P(Y\le 6)=$} % \parbox{1.5in}{\includegraphics[width=1.25in]{diecmf.eps}}
-\end{framed}
+```{example}
+For a fair die with its value as $Y$, What are the following?
+  
+1. $P(Y\le 1)=$
+2. $P(Y\le 3)=$
+3. $P(Y\le 6)=$
+
+  
+```
+
 
 
 ### Continuous Random Variables {-}
@@ -489,15 +503,13 @@ We can also make statements about the probability of $Y$ falling in an interval 
 The PDF and CDF are linked by the integral: The CDF of the integral of the PDF: \[f(x) = F'(x)=\frac{dF(x)}{dx}\]
 
 
+```{example}
 
-\begin{framed}
-\parbox[c]{4.25in}{Example: $f(y)=1, \quad 0<y<1$.\\ 
-$F(y)=$\\
-$P(.5<y<.75)=$ }
-\begin{comment}
-\parbox{1.5in}{\hfill \epsffile{contcdf.eps}}
-\end{comment}
-\end{framed}
+For $f(y)=1, \quad 0<y<1$, find: (1) The CDF $F(y)$ and  (2) The probability $P(0.5<y<0.75)$.
+
+
+```
+
 
 
 ## Joint Distributions
@@ -554,8 +566,12 @@ Example:  Suppose we are interested in the outcomes of flipping a coin and rolli
 
 We often want to summarize some characteristics of the distribution of a random variable.  The most important summary is the expectation (or expected value, or mean), in which the possible values of a random variable are weighted by their probabilities.
 
-__Expectation of a Discrete Random Variable__:  The expected value of a discrete random variable $Y$ is \[E(Y)=\sum\limits_{y} y P(Y=y)= \sum\limits_{y} y p(y)\]  
+```{definition, name = "Expectation of a Discrete Random Variable"}
+The expected value of a discrete random variable $Y$ is \[E(Y)=\sum\limits_{y} y P(Y=y)= \sum\limits_{y} y p(y)\]  
 In words, it is the weighted average of all possible values of $Y$, weighted by the probability that $y$ occurs.  It is not necessarily the number we would expect $Y$ to take on, but the average value of $Y$ after a large number of repetitions of an experiment.
+
+```
+
 
 ```{example, name = "Expectation of a Discrete Random Variable", expectdiscrete}
 
@@ -580,32 +596,40 @@ Hence, the expected value of the continuous variable $Y$ is defined by
 
 Find $E(Y)$ for $f(y)=\frac{1}{1.5}, \quad 0<y<1.5$.
 
-$E(Y)=$ 
-
 
 ```
 
 
 
 
-__Expected Value of a Function__
+### Expected Value of a Function {-}
 
-___Discrete:___  $E[g(Y)]=\sum\limits_y g(y)p(y)$
+Remember: An Expected Value is a type of weighted average. We can extend this to composite functions. For random variable $Y$,
 
-___Continuous:___ $E[g(Y)]=\int\limits_{-\infty}^\infty g(y)f(y)dy$
+If $Y$ is Discrete wiht PMF $p(y)$,  
+
+\[E[g(Y)]=\sum\limits_y g(y)p(y)\]
+
+If $Y$ is Continuous with PDF $f(y)$,
+
+\[E[g(Y)]=\int\limits_{-\infty}^\infty g(y)f(y)dy\]
 
 
-___Properties of Expected Values:___
+### Properties of Expected Values {-}
 
-1. $E(c)=c$
+Dealing with Expecations is easier when the thing inside is a sum. The intuition behind this that Expectation is an integral, which is a type of sum. 
 
-2. $E[E[Y]] = E[Y]$ (because the expected value of a random variable is a constant)
+1. Expectation of a constant is a constant \[E(c)=c\]
+2. Constants come out \[E(c g(Y))= c E(g(Y))\]
+4. Expectation is Linear \[E(g(Y_1) + \cdots + g(Y_n))=E(g(Y_1)) +\cdots+E(g(Y_n)),\] regardless of independence
+2. Expected Value of Expected Values: \[E(E(Y)) = E(Y)\] (because the expected value of a random variable is a constant)
 
-3. $E[c g(Y)]= c E[g(Y)]$
+Finally, if $X$ and $Y$ are independent, even products are easy:
 
-4. Linearity: $E[g(Y_1) + \cdots + g(Y_n)]=E[g(Y_1)]+\cdots+E[g(Y_n)]$, regardless of independence
+\[E(XY) = E(X)E(Y)\]
 
-5. $E[XY] = E[X]E[Y]$, if X and Y are independent 
+
+
 
 __Conditional Expectation__: With joint distributions, we are often interested in the expected value of a variable $Y$ if we could hold the other variable $X$ fixed.  This is the conditional expectation of $Y$ given $X = x$:
 
@@ -618,10 +642,19 @@ The conditional expectation is often used for prediction when one knows the valu
 
 ## Variance and Covariance
 
-__Variance__:  We can also look at other summaries of the distribution, which build on the idea of taking expectations. Variance tells us about the "spread" of the distribution; it is the expected value of the squared deviations from the mean of the distribution.  The standard deviation is simply the square root of the variance.
+We can also look at other summaries of the distribution, which build on the idea of taking expectations. Variance tells us about the "spread" of the distribution; it is the expected value of the squared deviations from the mean of the distribution.  The standard deviation is simply the square root of the variance.
 
-1. Variance: $\sigma^2= V(Y) = E[(Y - E(Y))^2] =  E(Y^2)-[E(Y)]^2$
-2. Standard Deviation: $\sigma= \sqrt{V(Y)}$
+```{definition, name = "Variance"}
+The Variance of a Random Variable $Y$ is
+  
+  \[\text{Var}(Y) = E[(Y - E(Y))^2] =  E(Y^2)-[E(Y)]^2\]
+
+  
+The Standard Deviation is the square root of the variance : \[SD(Y) = \sigma_Y= \sqrt{\text{Var}(Y)}\]
+
+```
+
+
 
 ```{example, name = "Variance", var}
 
@@ -633,25 +666,44 @@ Given the following PMF:
             \end{cases}
                \]
 
-What is $V[x]$?
+What is $\text{Var}(x)$?
   
   
-__Hint:__ First calculate $E[x]$ and $E[x^2]$
+__Hint:__ First calculate $E(X)$ and $E(X^2)$
 
   
   
 
 ```
-___Covariance and Correlation:___ The covariance measures the degree to which two random variables vary together; if the covariance between X and Y is positive, X tends to be larger than its mean when Y is larger than its mean.  The covariance of a variable with itself is the variance of that variable.
 
-\[Cov(X,Y) = E[(X - E(X))(Y - E(Y))] \]
-\[= E[XY - XE[Y] - E[X]Y + E[X]E[Y]] \]
-\[= E[XY] - E[X]E[Y] - E[X]E[Y] + E[X]E[Y]\]
-\[=  E(XY) - E(X)E(Y)\]
+```{definition, name = "Covariance and Correlation"}
 
-The correlation coefficient is the covariance divided by the standard deviations of X and Y.  It is a unitless measure and always takes on values in the interval $[-1,1]$.
+The covariance measures the degree to which two random variables vary together; if the covariance between $X$ and $Y$ is positive, X tends to be larger than its mean when Y is larger than its mean.  
 
-\[\rho = \frac{Cov(X,Y)}{\sqrt{V(X)V(Y)}} = \frac{Cov(X,Y)}{SD(X)SD(Y)}\]
+
+\[\text{Cov}(X,Y) = E[(X - E(X))(Y - E(Y))] \]
+We can also write this as 
+
+\begin{align*}
+\text{Cov}(X,Y) &= E\left(XY - XE(Y) - E(X)Y + E(X)E(Y)\right)\\
+&= E(XY) - E(X)E(Y) - E(X)E(Y) + E(X)E(Y)\\
+&= E(XY) - E(X)E(Y)
+\end{align*}
+
+
+```
+
+The covariance of a variable with itself is the variance of that variable.
+
+The Covariance is unfortunately hard to interpret in magnitude. The correlation is a standardized version of the covariance, and always ranges from -1 to 1. 
+
+```{definition, name = "Correlation"}
+The correlation coefficient is the covariance divided by the standard deviations of $X$ and $Y$.  It is a unitless measure and always takes on values in the interval $[-1,1]$.
+
+\[\text{Corr}(X, Y) = \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}} = \frac{\text{Cov}(X,Y)}{SD(X)SD(Y)}\]
+
+
+```
 
 ___Properties of Variance and Covariance:___
 
@@ -659,8 +711,8 @@ ___Properties of Variance and Covariance:___
 2. $\text{Var}(cY) = c^2 \text{Var}(Y)$
 3. $\text{Cov}(Y,Y) = \text{Var}(Y)$
 4. $\text{Cov}(X,Y) = \text{Cov}(Y,X)$
-5. $\text{Cov}(aX,bY) = ab Cov[X,Y]$
-6. $\text{Cov}X+a,Y) =  Cov[X,Y]$
+5. $\text{Cov}(aX,bY) = ab \text{Cov}(X,Y)$
+6. $\text{Cov}(X+a,Y) =  \text{Cov}(X,Y)$
 7. $\text{Cov}(X+Z,Y+W) = \text{Cov}(X,Y) + \text{Cov}(X,W) + \text{Cov}(Z,Y) + \text{Cov}(Z,W)$
 8. $\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y) + 2\text{Cov}(X,Y)$
 
@@ -698,69 +750,91 @@ Define the random variable $Y = X^2$.
 Two _discrete_ distributions used often are:  
 
 
-__Binomial Distribution__: $Y$ is distributed binomial if it represents the number of "successes" observed in $n$ independent, identical "trials," where the probability of success in any trial is $p$ and the probability of failure is $q=1-p$.
+```{definition, name = "Binomial Distribution"}
+$Y$ is distributed binomial if it represents the number of "successes" observed in $n$ independent, identical "trials," where the probability of success in any trial is $p$ and the probability of failure is $q=1-p$.
+```
 
 
-For any particular sequence of $y$ successes and $n-y$ failures, the probability of obtaining that sequence is $p^y q^{n-y}$ (by the multiplicative law and independence).  However, there are $\binom{n}{y}=\frac{n!}{(n-y)!y!}$ ways of obtaining a sequence with $y$ successes and $n-y$ failures.  So the binomial distribution is given by $$p(y)=\binom{n}{y}p^y q^{n-y}, \quad y=0,1,2,\ldots,n$$ with mean $\mu=E(Y)=np$ and variance $\sigma^2=V(Y)=npq$.
 
-\begin{framed}
-Example: Republicans vote for Democrat-sponsored bills 2\% of the time. What is the probability that out of 10 Republicans questioned, half voted for a particular Democrat-sponsored bill?  What is the mean number of Republicans voting for Democrat-sponsored bills?  The variance?\\
-  \parbox[c]{4.25in}{
-  \begin{enumerate}
-  \item $P(Y=5)=$
-  \item $E(Y)=$ 
-  \item $V(Y)=6$
-  \end{enumerate}}
+For any particular sequence of $y$ successes and $n-y$ failures, the probability of obtaining that sequence is $p^y q^{n-y}$ (by the multiplicative law and independence).  However, there are $\binom{n}{y}=\frac{n!}{(n-y)!y!}$ ways of obtaining a sequence with $y$ successes and $n-y$ failures.  So the binomial distribution is given by $$p(y)=\binom{n}{y}p^y q^{n-y}, \quad y=0,1,2,\ldots,n$$ with mean $\mu=E(Y)=np$ and variance $\sigma^2=\text{Var}(Y)=npq$.
+
+```{example}
+Republicans vote for Democrat-sponsored bills 2\% of the time. What is the probability that out of 10 Republicans questioned, half voted for a particular Democrat-sponsored bill?  What is the mean number of Republicans voting for Democrat-sponsored bills?  The variance?
+1. $P(Y=5)=$
+1. $E(Y)=$ 
+1. $\text{Var}(Y)=6$
+```
+
   \begin{comment}
   \parbox{1.5in}{\hfill \epsffile{binopmf.eps}}
   \end{comment}
-\end{framed}
-   
-__Poisson Distribution__:  A random variable $Y$ has a Poisson distribution if $$p(y)=\frac{\lambda^y}{y!}e^{-\lambda}, \quad y=0,1,2,\ldots, \quad \lambda>0$$  The Poisson has the unusual feature that its expectation equals its variance: $E(Y)=V(Y)=\lambda$. The Poisson distribution is often used to model rare event counts:  counts of the number of events that occur during some unit of time.  $\lambda$ is often called the "arrival rate."
 
-\begin{framed}
-Example: Border disputes occur between two countries at a rate of 2 per month.  What is the probability of 0, 2, and less than 5 disputes occurring in a month?\\
-\parbox[c]{4.25in}{
-  \begin{enumerate}
-  \item $P(Y=0)=$ 
-  \item $P(Y=2)=$ 
-  \item $P(Y<5)=$ 
-  \end{enumerate}}
+```{definition, name ="Poisson Distribution"}
+A random variable $Y$ has a Poisson distribution if $$p(y)=\frac{\lambda^y}{y!}e^{-\lambda}, \quad y=0,1,2,\ldots, \quad \lambda>0$$  The Poisson has the unusual feature that its expectation equals its variance: $E(Y)=\text{Var}(Y)=\lambda$. The Poisson distribution is often used to model rare event counts:  counts of the number of events that occur during some unit of time.  $\lambda$ is often called the "arrival rate."
+
+```
+   
+
+```{example}
+Border disputes occur between two countries through a Poisson Distribution, at a rate of 2 per month.  What is the probability of 0, 2, and less than 5 disputes occurring in a month?
+```
+
  \begin{comment}
  \parbox{1.5in}{\hfill \epsffile{poispmf.eps}}
  \end{comment}
-\end{framed}
 
 
 Two _continuous_  distributions used often are: 
 
 
-__Uniform Distribution__:  A random variable $Y$ has a continuous uniform distribution on the interval $(\alpha,\beta)$ if its density is given by $$f(y)=\frac{1}{\beta-\alpha}, \quad \alpha\le y\le \beta$$  The mean and variance of $Y$ are $E(Y)=\frac{\alpha+\beta}{2}$ and $V(Y)=\frac{(\beta-\alpha)^2}{12}$.
+```{definition, name = "Uniform Distribution"}
+A random variable $Y$ has a continuous uniform distribution on the interval $(\alpha,\beta)$ if its density is given by $$f(y)=\frac{1}{\beta-\alpha}, \quad \alpha\le y\le \beta$$  The mean and variance of $Y$ are $E(Y)=\frac{\alpha+\beta}{2}$ and $\text{Var}(Y)=\frac{(\beta-\alpha)^2}{12}$.
+```
 
-\begin{framed}
-Example: $Y$ uniformly distributed over $(1,3)$.\\
- \parbox[c]{4.25in}{
- \begin{enumerate}
- \item $P(Y=2) = $
- \item $f(2) = $
- \item $P(Y\le 2) = $
- \item $P(Y > 2) =$
-\end{enumerate}}
+
+```{example}
+For $Y$ uniformly distributed over $(1,3)$, what are the following probabilities?
+
+1. $P(Y=2)$
+1. Its density $f(2)$
+1. $P(Y \le 2)$
+1. $P(Y > 2)$
+
+
+```
+
+
 \begin{comment}
 \parbox{1.5in}{\hfill \epsffile{unifpdf.eps}}
 \end{comment}
-\end{framed}
 
-__Normal Distribution__:  A random variable $Y$ is normally distributed with mean $E(Y)=\mu$ and variance $V(Y)=\sigma^2$ if its density is 
+```{definition, name = "Normal Distribution"}
+
+A random variable $Y$ is normally distributed with mean $E(Y)=\mu$ and variance $\text{Var}(Y)=\sigma^2$ if its density is 
 
 \[f(y)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(y-\mu)^2}{2\sigma^2}}\]
 
-\begin{comment}
-\parbox[c]{4.25in}{Example: $Y$ normally distributed with mean $\mu=0$ and variance $\sigma^2=.1$}
-\parbox{1.5in}{\hfill \epsffile{normpdf.eps}}
-\end{comment}
+
+```
+
+See Figure \@ref(fig:normaldens) are various Normal Distributions with the same $\mu = 1$ and two versions of the variance. 
 
 
+```{r normaldens, echo = FALSE, fig.cap = "Normal Distribution Density"}
+range <- tibble::tibble(x = c(-5, 5))
+
+fx0 <- ggplot(range, aes(x = x)) +
+  labs(x = expression(x), y = expression(f(x)))
+
+fx <- fx0 +  
+  stat_function(fun = function(x) dnorm(x, mean = 0, sd = 1), size = 0.5) +
+  stat_function(fun = function(x) dnorm(x, mean = 0, sd = sqrt(2)), size = 1.5) +
+  expand_limits(y = 0) +
+  labs(caption = "Thick line: variance = 2, Normal line: variance = 1")
+
+fx
+
+```
 
 
 
@@ -798,12 +872,12 @@ Y & 1 & 2 & 1 & 2 & 2 & 1 & 2 & 0 & 2 & 0\\
 __Dispersion__: We also typically want to know how spread out the data are relative to the center of the observed distribution.  There are several ways to measure dispersion.
 
 __Sample variance__: The sample variance is the sum of the squared deviations from the sample mean, divided by the number of observations minus 1.
-$$ \text{Var}(X) = \frac{1}{n-1}\sum_{i = 1}^n (x_i - \bar{x})^2$$
+$$ \hat{\text{Var}}(X) = \frac{1}{n-1}\sum_{i = 1}^n (x_i - \bar{x})^2$$
 
 Again, this is an _estimate_ of the variance of a random variable; we divide by $n - 1$ instead of $n$ in order to get an unbiased estimate.
 
 __Standard deviation__:  The sample standard deviation is the square root of the sample variance.
-$$ \SD(X) = \sqrt{\text{Var}(X)} = \sqrt{\frac{1}{n-1}\sum_{i = 1}^n (x_i - \bar{x})^2}$$
+$$ \hat{SD}(X) = \sqrt{\hat{\text{Var}}(X)} = \sqrt{\frac{1}{n-1}\sum_{i = 1}^n (x_i - \bar{x})^2}$$
 
 
 \begin{framed}
@@ -818,15 +892,16 @@ Example: Using table above, calculate:
 __Covariance and Correlation__: Both of these quantities measure the degree to which two variables vary together, and are estimates of the covariance and correlation of two random variables as defined above.
 
 
-1. **Sample covariance**: $\text{Cov}(X,Y) = \frac{1}{n-1}\sum_{i = 1}^n(x_i - \bar{x})(y_i - \bar{y})$
-2. **Sample correlation**: $\rho = \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}}$
+1. **Sample covariance**: $\hat{\text{Cov}}(X,Y) = \frac{1}{n-1}\sum_{i = 1}^n(x_i - \bar{x})(y_i - \bar{y})$
+2. **Sample correlation**: $\hat{\text{Corr}} = \frac{\hat{\text{Cov}}(X,Y)}{\sqrt{\hat{\text{Var}}(X)\hat{\text{Var}}(Y)}}$
 
 
 ```{example}
-Example:  Using the above table, calculate:
+Example:  Using the above table, calculate the sample versions of:
   
-1. $\text{Cov}(X,Y) = $
-2. $\text{Corr}(X, Y) = $
+1. $\text{Cov}(X,Y)$
+2. $\text{Corr}(X, Y) =$
+
 
 ```
 
@@ -843,7 +918,6 @@ What are asymptotics?  In probability theory, asymptotic analysis is the study o
 Why is this important?  We rarely know the true process governing the events we see in the social world. It is helpful to understand how such unknown processes theoretically must behave and asymptotic theory helps us do this. 
 
 
-Examples. 
 
 __Central Limit Theorem__. Let $\{X_n\} = \{X_1, X_2, ..., X_n\}$ be a sequence of i.i.d. random variables with finite mean ($\mu$) and variance ($\sigma^2$). Then, 
 
@@ -856,7 +930,7 @@ as $n\to \infty$. This result, known as the Central Limit Theorem, is an importa
 Intuitively, whenever a lot of small, independent processes somehow combine together to form the realized observations, practitioners often feel comfortable assuming Normality. 
 
 
-__Law of Large Numbers__. Let $\{X_n\} = \{X_1, X_2, ..., X_n\}$ be a sequence of i.i.d. random variables with a finite expected value of $\mu$. Then, 
+__Strong Law of Large Numbers__. Let $\{X_n\} = \{X_1, X_2, ..., X_n\}$ be a sequence of i.i.d. random variables with a finite expected value of $\mu$. Then, 
 
 \begin{align*} 
 \bar{X}_n = \frac{x_1 + x_2 + ... + x_n}{n} \stackrel{\textrm{a.s.}}{\to} \mu
@@ -884,7 +958,7 @@ denominator <- exp(n_seq)
 numerator / denominator <= (1 * denominator) / denominator
 \end{comment}
 
-## Answers to Examples and Exercises
+## Answers to Examples and Exercises  {-}
 
 Answer to Example \@ref(exm:counting):
 
