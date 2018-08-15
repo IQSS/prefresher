@@ -157,8 +157,6 @@ A true random number generator would give you the exact same sequence of output 
 runif(n = 5)
 ```
 
-## Anything else? Specific questions? General questions? 
-:-) 
 
 ## Exercises
 

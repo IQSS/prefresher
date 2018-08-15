@@ -58,13 +58,13 @@ Markdown is known as a "light-weight" editor, which means that it is relatively 
 ### markdown commands
 For italic and bold, use either the asterisks or the underlines, 
 
-```{r, eval = FALSE, echo = TRUE}
+```{txt, eval = FALSE, echo = TRUE}
 *italic*   **bold**
 _italic_   __bold__
 ```
 
 And for headers use the hash symbols, 
-```{r, eval = FALSE, echo = TRUE}
+```{txt, eval = FALSE, echo = TRUE}
 # Main Header
 ## Sub-headers
 ```
@@ -76,7 +76,7 @@ Rmd is actually a slight modification of real markdown. It is a type of file tha
 
 ![](images/RMarkdownFlow.png)
 
-One of the things `Rmds` facilitates is the use of code chunks, which you have all been using. These start and end with three back-ticks. In the beginning, we can add options in curly braces (`{}`). Specifying `r` in the beginning tells the compiler that this is meant to be R code. Options like `echo = TRUE` or `eval = FALSE` switch between not executing the code (i.e., just showing it for display), or executing the code but not showing the code that was executed (if you think it is distracting).
+One of the things `Rmd`s facilitates is the use of code chunks, which you have all been using. These start and end with three back-ticks. In the beginning, we can add options in curly braces (`{}`). Specifying `r` in the beginning tells the compiler that this is meant to be R code. Options like `echo = TRUE` or `eval = FALSE` switch between not executing the code (i.e., just showing it for display), or executing the code but not showing the code that was executed (if you think it is distracting).
 
 
 ### A note on plain-text editors
@@ -147,7 +147,7 @@ P(A \mid B) &= \frac{P(A \cap B)}{P(B)}\\
 &= \frac{P(B \mid A)P(A)}{P(B)}
 \end{align}
 
-Regression tables should be outputted as `.tex` files with packages like `xtable` and `stargzer`, and then called into LaTeX by `\input{regression_table.tex}` where `regression_table.tex` is the path to your regression output.
+Regression tables should be outputted as `.tex` files with packages like `xtable` and `stargazer`, and then called into LaTeX by `\input{regression_table.tex}` where `regression_table.tex` is the path to your regression output.
 
 Figures and equations should be labelled with the tag (e.g. `label{tab:regression}` so that you can refer to them later with their tag `Table \ref{tab:regression}`, instead of hard-coding `Table 2`).
 

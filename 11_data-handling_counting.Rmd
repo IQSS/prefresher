@@ -54,7 +54,7 @@ What files do we have in the `input` folder?
 dir_ls("input")
 ```
 
-A typical file format is Microsoft Excel. Although this is not usually the best format for R because of its highly formatted structure as opposed to plain text (more on this in Section \ref@(wysiwyg)), recent packages have made this fairly easy. 
+A typical file format is Microsoft Excel. Although this is not usually the best format for R because of its highly formatted structure as opposed to plain text (more on this in Section \ref@(sec:wysiwyg)), recent packages have made this fairly easy. 
 
 For the first time using an outside package, you first need to install it. 
 ```{r, eval = FALSE}
