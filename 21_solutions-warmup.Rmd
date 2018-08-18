@@ -188,7 +188,7 @@ If you are stuck, please try sketching out a picture of each of the functions.
 2. Let $A = \{1,3,5,7,8\}$ and $B = \{2,4,7,8,12,13\}$. Then $A \cup B = \{1, 2, 3, 4, 5, 7, 8, 12, 13\}$,  $A \cap B = \{7, 8\}$? If $A$ is a subset of the Sample Space $S = \{1,2,3,4,5,6,7,8,9,10\}$, then the complement $A^C = \{2, 4, 6, 9, 10\}$
 
 3. If we roll two fair dice, what is the probability that their sum would be 11? $\leadsto \frac{1}{18}$ 
-4. If we roll two fair dice, what is the probability that their sum would be 12? $\leadsto \text{also } \frac{1}{18}$ 
+4. If we roll two fair dice, what is the probability that their sum would be 12? $\leadsto \frac{1}{36}$. There are two independent dice, so $6^2 = 36$ options in total. While the previous question had two possibilities for a sum of 11 (5,6 and 6,5), there is only one possibility out of 36 for a sum of 12 (6,6).
 
 
 For a review, please see Sections \@ref(setoper) - \@ref(probdef)
