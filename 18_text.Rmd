@@ -1,9 +1,8 @@
-# Text
+# Text^[Module originally written by Connor Jerzak] {#rtext}
 
 
-Module originally written by Connor Jerzak
 
-```{r, message=FALSE, warning=FALSE}
+```{r, include=FALSE}
 library(dplyr)
 library(readr)
 library(data.table)
@@ -12,7 +11,7 @@ library(forcats)
 library(ggplot2)
 ```
 
-## Where are we? Where are we headed?
+## Where are we? Where are we headed? {-}
 
 Up till now, you should have covered: 
 
@@ -22,16 +21,12 @@ Up till now, you should have covered:
 
 ## Review
 * `"` and `'` are usually equivalent.
-* `<-` and `=` are interchangeable. (`x <- 3` is equivalent to `x = 3`). 
-* Use `;` to separate commands on the same line: 
-```{r}
-x <- 3; y <- 4
-print(x); print( y ) 
-```
+* `<-` and `=` are usually interchangeable^[Only equal signs are allowed to define the values of a functions' argument]. (`x <- 3` is equivalent to `x = 3`, although the former is more preferred because it explicitly states the assignment). 
 * Use `(` `)` when you are giving input to a function: 
 ```{r}
-#my_results <- FunctionName(FunctionInputs)
+# my_results <- FunctionName(FunctionInputs)
 ```
+    note  `c(1,2,3)` is inputting three numbers in the function `c`
 * Use `{` `}` when you are defining a function or writing a `for` loop: 
 ```{r}
 #function 
@@ -45,7 +40,7 @@ MyFunction <- function(InputMatrix){
 myMat <- matrix(rnorm(100*5), nrow = 100, ncol = 5)
 print( MyFunction(myMat) ) 
 
-#loop 
+# loop 
 x <- c() 
 for(i in 1:20){
   x[i] <- i 
@@ -77,13 +72,12 @@ readLines("~/Downloads/Carboxylic acid - Wikipedia.html")
 write.table(my_string_vector, "~/mydata.txt", sep="\t") 
 ````
 
-## paste and sprintf
+## `paste()` and `sprintf()`
 
-* paste and sprintf are useful commands in text processing, 
-such as for automatically naming files or automatically performing a series of commands
-over a subset of your data. Table making also will often need these commands. 
+paste and sprintf are useful commands in text processing,  such as for automatically naming files or automatically performing a series of command over a subset of your data. Table making also will often need these commands. 
 
-* Paste concatenates vectors together. 
+
+Paste concatenates vectors together. 
 ````{R}
 #use collapse for inputs of length > 1 
 my_string <- c("Not", "one", "could", "equal")
@@ -93,8 +87,8 @@ paste(my_string, collapse = " ")
 paste("Not", "one", "could", "equal", sep = " ")
 ````
 
-* For more sophisticated concatenation, use sprintf. 
-This is very useful for automatically making tables. 
+For more sophisticated concatenation, use sprintf.  This is very useful for automatically making tables. 
+
 ````{R}
 sprintf("Coefficient for %s: %.3f (%.2f)", "Gender", 1.52324, 0.03143)
 
@@ -106,16 +100,17 @@ sprintf("Coefficient for %s: %.3f (%.2f)", "Gender", 1.52324, 0.03143)
 
 ## Regular expressions 
 
-* Definition. Regular expression --- a special text string for describing a search pattern.
+A regular expression is a special text string for describing a search pattern.
 They are most often used in functions for detecting, locating, and replacing desired text in a corpus. 
 
-* Use cases.
-       1. TEXT PARSING. E.g. I have 10000 congressional speaches. Find all those which mention Iran. 
-       2. WEB SCRAPING. E.g. Parse html code in order to extract research information from an online table. 
-       3. CLEANING DATA. E.g. After loading in a dataset, we might need to remove mistakes from the dataset, or 
-       subset the data using regular expression tools. 
+Use cases:
 
-* Example in ```R```. Extract the tweet mentioning Indonesia. 
+1. TEXT PARSING. E.g. I have 10000 congressional speaches. Find all those which mention Iran. 
+2. WEB SCRAPING. E.g. Parse html code in order to extract research information from an online table. 
+3. CLEANING DATA. E.g. After loading in a dataset, we might need to remove mistakes from the dataset, orsubset the data using regular expression tools. 
+
+
+Example in ```R```. Extract the tweet mentioning Indonesia. 
 ```{r}
 s1 <- "If only Bradley's arm was longer. RT"
 s2 <- "Share our love in Indonesia and in the World. RT if you agree." 
@@ -148,7 +143,10 @@ regexpr(pattern = "was", text = my_string)[2]
 
 Seems simple? The problem: the patterns can get pretty complex!
 
-* PATTERN TYPE 1 -- Character classes 
+
+### Character classes 
+
+Some types of symbols are stand in for some more complex thing, rather than taken literally.
 
 ```[[:digit:]]``` Matches with all digits. 
 
@@ -168,7 +166,9 @@ gsub(my_string, pattern = "[[:digit:]]", replace ="DIGIT")
 gsub(my_string, pattern = "[[:alpha:]]", replace ="")
 ```
         
-* PATTERN TYPE 2 -- Special Characters. Certain characters (such as ```., *, \```) have special meaning in the regular expressions framework (they are used to form conditional patterns as discussed below). Thus, when we want our pattern to explicitly include those characters as characters, we must "escape" them by using \\ or encoding them in \\Q...\\E. 
+### Special Characters. 
+
+Certain characters (such as ```., *, \```) have special meaning in the regular expressions framework (they are used to form conditional patterns as discussed below). Thus, when we want our pattern to explicitly include those characters as characters, we must "escape" them by using \\ or encoding them in \\Q...\\E. 
 
 Example in ```R```: 
 
@@ -182,9 +182,9 @@ my_string <- "Now be brave! \n Dread what comrades say of you here in combat! "
 gsub(my_string, pattern = "\\\n", replace ="") 
 ```
 
-* PATTERN TYPE 3 -- Conditional patterns 
+### Conditional patterns 
 
-```[...]``` The target characters to match are located between the brackets. For example, ```[aAbB]``` will match with the characters ```a, A, b, B```. 
+```[]``` The target characters to match are located between the brackets. For example, ```[aAbB]``` will match with the characters ```a, A, b, B```. 
 
 ```[^...]``` Matches with everything except the material between the brackets. For example, ```[^aAbB]``` will match with everything but the characters ```a, A, b, B```. 
 
@@ -196,23 +196,31 @@ gsub(my_string, pattern = "\\\n", replace ="")
 
 ```{r}
 my_string <- "Do you think that 34%of the 23%of apples are red?"
-gsub(my_string, pattern = "(?<=%)", replace =" ", perl = T)
-
-my_string <- c("legislative1_term1.png", "legislative1_term1.pdf",
-               "legislative1_term2.png", "legislative1_term2.pdf",
-               "term2_presidential1.png", 
-               "presidential1.png", "presidential1_term2.png",
-               "presidential1_term1.pdf", "presidential1_term2.pdf")
-grepl(my_string, pattern = "^(?!presidential1).*\\.png", perl = T)
-#Indicates which file names don't start with presidential1 but do end in .png
-#^ indicates that the pattern should start at the beginning of the string. 
-#?! indicates negative lookahead -- we're looking for any pattern NOT following presidential1 which meets the subsequent conditions. (see below)
-#The first . indicates that, following the negative lookahead, 
-#there can be any characters and the * says that it doesn't matter how many. 
-#Note that we have to escape the . in .png. (by writing \\. instead of just .)
+gsub(my_string, pattern = "(?<=%)", replace = " ", perl = TRUE)
 ```
 
-NOTE: You will have the chance to try out some regular  expressions for yourself at the end! 
+```{r}
+my_string <- c("legislative1_term1.png", 
+               "legislative1_term1.pdf",
+               "legislative1_term2.png",
+               "legislative1_term2.pdf",
+               "term2_presidential1.png", 
+               "presidential1.png", 
+               "presidential1_term2.png",
+               "presidential1_term1.pdf", 
+               "presidential1_term2.pdf")
+
+grepl(my_string, pattern = "^(?!presidential1).*\\.png", perl = TRUE)
+
+```
+
+
+* Indicates which file names don't start with `presidential1` but do end in `.png`
+* `^` indicates that the pattern should start at the beginning of the string. 
+* `?!` indicates negative lookahead -- we're looking for any pattern NOT following presidential1 which meets the subsequent conditions. (see below)
+* The first `.` indicates that, following the negative lookahead,  there can be any characters and the * says that it doesn't matter how many.  Note that we have to escape the . in `.png`. (by writing `\\.` instead of just `.`)
+
+You will have the chance to try out some regular  expressions for yourself at the end! 
 
 ## Representing Text 
 
@@ -232,15 +240,18 @@ Representing text numerically.
 
 ```{R}
 doc1 <- "Rage---Goddess, sing the rage of Peleus’ son Achilles,
-    murderous, doomed, that cost the Achaeans countless losses,
-    hurling down to the House of Death so many sturdy souls,
-    great fighters’ souls."
+         murderous, doomed, that cost the Achaeans countless losses,
+         hurling down to the House of Death so many sturdy souls,
+         great fighters’ souls."
 doc2 <- "And fate? No one alive has ever escaped it,
-  neither brave man nor coward, I tell you, 
-it's born with us the day that we are born."
+         neither brave man nor coward, I tell you, 
+         it's born with us the day that we are born."
 doc3 <- "Many cities of men he saw and learned their minds,
-          many pains he suffered, heartsick on the open sea,
-          fighting to save his life and bring his comrades home."
+         many pains he suffered, heartsick on the open sea,
+         fighting to save his life and bring his comrades home."
+```
+
+```{r}
 DocVec <- c(doc1, doc2, doc3)
 ```
 
@@ -250,8 +261,10 @@ Now we can use utility functions in the `tm` package:
 library(tm)
 DocCorpus <- Corpus(VectorSource(DocVec) ) 
 DTM1 <-  inspect( DocumentTermMatrix(DocCorpus) ) 
+```
 
-# Consider the effect of different "pre-processing" choices on the resulting DTM!
+Consider the effect of different "pre-processing" choices on the resulting DTM!
+```{r, eval = FALSE}
 DocVec <- tolower(DocVec)
 DocVec <- gsub(DocVec, pattern ="[[:punct:]]", replace = " ")
 DocVec <- gsub(DocVec, pattern ="[[:cntrl:]]", replace = " ")
@@ -286,7 +299,7 @@ Why does this command not work?
 
 ```{R}
 try(sprintf("%s of spontaneous events are %s in the mind. Really, %.2f?",
-            "15.03322123", "puzzles", "15.03322123" ), T)  
+            "15.03322123", "puzzles", "15.03322123" ), TRUE)  
 ```
 
 ### 3 
@@ -294,8 +307,8 @@ try(sprintf("%s of spontaneous events are %s in the mind. Really, %.2f?",
 Using `grepl`, these materials, Google, and your friends,  describe what the following command does. What changes when `value = FALSE`?
 
 ```{r}
-grep('\'',c("To dare is to lose one's footing momentarily.", 
-            "To not dare is to lose oneself."), value = TRUE)
+grep('\'', 
+     c("To dare is to lose one's footing momentarily.",  "To not dare is to lose oneself."), value = TRUE)
 ```
 
 
@@ -305,11 +318,15 @@ grep('\'',c("To dare is to lose one's footing momentarily.",
 Write code to automatically extract the file names that DO end start with presidential and DO end in .pdf
 
 ```{r}
-my_string <- c("legislative1_term1.png", "legislative1_term1.pdf",
-               "legislative1_term2.png", "legislative1_term2.pdf",
+my_string <- c("legislative1_term1.png", 
+               "legislative1_term1.pdf",
+               "legislative1_term2.png", 
+               "legislative1_term2.pdf",
                "term2_presidential1.png", 
-               "presidential1.png", "presidential1_term2.png",
-               "presidential1_term1.pdf", "presidential1_term2.pdf")
+               "presidential1.png", 
+               "presidential1_term2.png",
+               "presidential1_term1.pdf",
+               "presidential1_term2.pdf")
 ```
 
 ### 5 
@@ -326,7 +343,7 @@ Combine these two strings into a single string separated by a "-".  Desired outp
 
 ```{r}
 string1 <- "The carbonyl group in aldehydes and ketones 
-          is an oxygen analog of the carbon" 
+            is an oxygen analog of the carbon" 
 string2 <-  "–carbon double bond."
 ```
 
