@@ -1,9 +1,13 @@
-#  Manipulating Vectors and  Matrices
+#  Manipulating Vectors and  Matrices^[Module originally written by Shiro Kuriwaki and Yon Soo Park] {#rmatrices}
 
-Module originally written by Shiro Kuriwaki
+```{r, incldue=FALSE}
+library(dplyr)
+library(readr)
+library(haven)
+library(ggplot2)
+```
 
-
-## Where are we? Where are we headed?
+### Where are we? Where are we headed? {-}
 
 Up till now, you should have covered:
 
@@ -16,18 +20,11 @@ Today we'll cover
 
 * Matrices & Dataframes in R
 * Manipulating variables 
-* And other `R` tips!
+* And other `R` tips
 
 
 ## Basics - Matrices
 
-## Setup
-```{r, message=FALSE, warning=FALSE}
-library(dplyr)
-library(readr)
-library(haven)
-library(ggplot2)
-```
 
 Let's take a look at Matrices in the context of R
 
@@ -40,7 +37,6 @@ Matrices are rectangular structures of numbers (they have to be numbers, and the
 A cross-tab can be considered a matrix:
 ```{r}
 table(cen10$race, cen10$sex)
-
 ```
 
 

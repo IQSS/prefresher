@@ -8,7 +8,7 @@ Up till now, you should have covered:
 
 * The R Visualization and Programming primers at  <https://rstudio.cloud/primers/>
 
-## Where are we? Where are we headed?
+### Where are we? Where are we headed? {-}
 
 Today we'll cover:
 
@@ -16,7 +16,7 @@ Today we'll cover:
 * Starting to do things with data in R
 * Comment on coding style on the way
 
-## Check your understanding 
+### Check your understanding  {-}
 
 * What is the difference between a file and a folder?
 * In the RStudio Pane, what is the difference between the "Source" Pane and the "Console"? What is a "code chunk"?
@@ -61,7 +61,7 @@ Reviewing data import will allow us to get on the same page on how computer syst
 
 4.   In R, there are two main types of scripts. A classic `.R` file and a `.Rmd` file (for Rmarkdown). A .R file is just lines and lines of R code that is meant to be inserted right into the Console. A .Rmd tries to weave code and English together, to make it easier for users to create reports that interact with data and intersperse R code with explanation. For example, we built this book in Rmds. 
 
-The Rmarkdown facilitates is the use of __code chunks__, which are used here. These start and end with three back-ticks. In the beginning, we can add options in curly braces (`{}`). Specifying `r` in the beginning tells to render it as R code. Options like `echo = TRUE` switch between showing the code that was executed or not; `eval = TRUE` switch between evaluating the code.
+The Rmarkdown facilitates is the use of __code chunks__, which are used here. These start and end with three back-ticks. In the beginning, we can add options in curly braces (`{}`). Specifying `r` in the beginning tells to render it as R code. Options like `echo = TRUE` switch between showing the code that was executed or not; `eval = TRUE` switch between evaluating the code. More about Rmarkdown in Section \@ref(nonwysiwyg).
   
 For example:
 

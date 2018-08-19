@@ -1,4 +1,4 @@
-# Visualization {#dataviz}
+# Visualization^[Module originally written by Shiro Kuriwaki] {#dataviz}
 
 
 ```{r, include=FALSE, message=FALSE, warning=FALSE}
@@ -6,10 +6,8 @@ library(tidyverse)
 library(scales)
 ```
 
-Module originally written by Shiro Kuriwaki
 
-
-## Where are we? Where are we headed?
+## Where are we? Where are we headed? {-}
 
 Up till now, you should have covered:
 
@@ -23,10 +21,8 @@ Today we'll cover:
 * Visualization
 * A bit of data wrangling
 
-## Check your understanding 
+### Check your understanding  {-}
 
-* What does `:` mean in R? What about `==`? `,`?, `!=` , `&`, `|`, `%in% `
-* What does `%>%` do
 * How do you make a barplot, in base-R and in ggplot?
 * How do you add layers to a ggplot?
 * How do you change the axes of a ggplot? 
@@ -36,8 +32,14 @@ Today we'll cover:
 ![By Randy Schutt - Own work, CC BY-SA 3.0, [Wikimedia.]( https://commons.wikimedia.org/w/index.php?curid=29585342)](images/Martin-Quinn_Wikipedia.png)
 
 
+Other review
 
-## Motivation
+* What does `:` mean in R? What about `==`? `,`?, `!=` , `&`, `|`, `%in% `
+* What does `%>%` do
+
+
+
+## Motivation: The Law of the Census
 
 In this module, let's visualize some cross-sectional stats with an actual Census. Then, we'll do an example on time trends with Supreme Court ideal points. 
 
@@ -51,10 +53,7 @@ Time series data is a common form of data in social science data, and there is g
 
 ## Read data
 
-First, the census.
-
-
-The first of line code you will write is often to read in data. Here, let's read in a subset of the 2010 Census. This is a 0.01 percent random sample of the entire U.S. Census. 
+First, the census. Read in a subset of the 2010 Census. This is a 0.01 percent random sample of the entire U.S. Census. 
 
 
 ```{r, message=FALSE}
@@ -228,9 +227,8 @@ dim(ptab_race_state)
 
 ## Composition Plots
 
-To make the same figure with `ggplot()`. 
+How would you make the same figure with `ggplot()`? First, we want a count for each state $\times$ race combination.  So group by those two factors and count how many observations are in each two-way categorization.
 
-First, we want a count for each state $\times$ race combination.  So group by those two factors and count how many observations are in each two-way categorization.
 ```{r}
 grp_race_state <- cen10 %>% 
   count(race, state)
@@ -266,7 +264,7 @@ hist(cen10$age, main = "Age Distribution", xlab = "Age")
 ```
 
 
-```{r}
+```{r, message=FALSE}
 ggplot(data = cen10, aes(x = age)) +
   geom_histogram()
 ```
@@ -312,10 +310,10 @@ As social scientists, we should also not forget to ask ourselves whether these n
 
 
 
-## Exercises
+## Exercises {-}
 In the time remaining, try the following exercises. Order doesn't matter. 
 
-### Exercise: Make your own graphic
+### Exercise: Make your own graphic {-}
 Make a graphic from the census data that tells us something interesting about the U.S. 2010 population.
 
 ```{r}
@@ -324,7 +322,7 @@ Make a graphic from the census data that tells us something interesting about th
 ```
 
 
-### Exercise: The swing justice
+### Exercise: The swing justice {-}
 
 Using the `justice` dataset and building off of the plot that was given, make an improved plot that has the following features. 
 
@@ -347,7 +345,7 @@ Using the `justice` dataset and building off of the plot that was given, make an
 ``` 
 
 
-### Exercise: Don't sort by the alphabet
+### Exercise: Don't sort by the alphabet {-}
 
 The Figure we made that shows racial composition by state has one notable shortcoming: it orders the states alphabetically, which is not particularly useful if you want see an overall pattern, without having particular states in mind. 
 
@@ -359,7 +357,7 @@ Find a way to modify the figures so that the states are ordered by the _proporti
 # Enter yourself
 ```
 
-### Exercise: Back to census and counting CVAP
+### Exercise: Back to census and counting CVAP {-}
 
 A issue raised in Persily's article is that the full-count U.S. Census does not record  whether the residents are citizens of the United States^[Here is that argument of his again, more recently in the popular press. ["The Mysterious Number of American Citizens". June 2, 2015.  _POLITICO_](http://www.politico.com/magazine/story/2015/06/the-supreme-courts-big-data-problem-118568)]. Instead, this question is asked in a survey, the American Community Survey. The two are fundamentally different exercises: the Census counts everyone by definition, a survey samples its data. 
 

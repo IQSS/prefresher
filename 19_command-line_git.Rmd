@@ -1,6 +1,5 @@
-#  Command-line, git
+#  Command-line, git^[Module originally written by Shiro Kuriwaki] {#commandline-git}
 
-Module originally written by Shiro Kuriwaki
 
 
 ## Where are we? Where are we headed?
