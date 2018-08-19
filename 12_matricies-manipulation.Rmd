@@ -1,9 +1,13 @@
-#  Manipulating Vectors and  Matrices
+#  Manipulating Vectors and  Matrices^[Module originally written by Shiro Kuriwaki and Yon Soo Park] {#rmatrices}
 
-Module originally written by Shiro Kuriwaki
+```{r, incldue=FALSE}
+library(dplyr)
+library(readr)
+library(haven)
+library(ggplot2)
+```
 
-
-## Where are we? Where are we headed?
+### Where are we? Where are we headed? {-}
 
 Up till now, you should have covered:
 
@@ -16,18 +20,11 @@ Today we'll cover
 
 * Matrices & Dataframes in R
 * Manipulating variables 
-* And other `R` tips!
+* And other `R` tips
 
 
 ## Basics - Matrices
 
-## Setup
-```{r, message=FALSE, warning=FALSE}
-library(dplyr)
-library(readr)
-library(haven)
-library(ggplot2)
-```
 
 Let's take a look at Matrices in the context of R
 
@@ -40,7 +37,6 @@ Matrices are rectangular structures of numbers (they have to be numbers, and the
 A cross-tab can be considered a matrix:
 ```{r}
 table(cen10$race, cen10$sex)
-
 ```
 
 
@@ -319,8 +315,9 @@ tapply(nunn_full$trust_neighbors, INDEX = nunn_full$isocode, FUN = function (x) 
 
 
 
+## Exercises
 
-#### Exercise 1: Matrix powers
+### Exercise 1: Matrix powers {-}
 Let
 \[\mathbf{A} = \left[\begin{array}
 {rrr}
@@ -340,5 +337,6 @@ Use R to write code that will consecutively multiply $A$ to itself 4 times. What
 Note that R notation of matrices is different from the math notation. Simply trying `X^n` where `X` is a matrix will only take the power of each element to `n`. Instead, this problem asks you to perform matrix multiplication.
 
 
-#### Exercise 2: Challenge problem!
+### Exercise 2 {-}
+
 Write an `R` function that takes two inputs (A and B). A and B can both either be matrices or data frames. Write code that checks to make sure whether A and B are either matrices or dateframe. Print an error message if one of them is not a matrix or data frame. Convert any data frames to matrices. Check whether the A and B have compatible dimensions. If they don't, print an error message. If they do, perform the matrix multiplication A * B.

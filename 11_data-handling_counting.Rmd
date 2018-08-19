@@ -1,23 +1,26 @@
 # (PART) Programming {-}
 
 
-# Data Import and Handling {#dataimport}
+# Orientation and Reading in Data^[Module originally written by Shiro Kuriwaki] {#dataimport}
 
-Module originally written by Shiro Kuriwaki
 
 Up till now, you should have covered:
 
 * The R Visualization and Programming primers at  <https://rstudio.cloud/primers/>
 
+### Where are we? Where are we headed? {-}
 
 Today we'll cover:
 
+* What's what in RStudio
 * Reading in Data 
-* Starting to do things with data in R
+* Comment on coding style on the way
 
-## Check your understanding 
+### Check your understanding  {-}
 
 * What is the difference between a file and a folder?
+* In the RStudio windows, what is the difference between the "Source" Pane and the "Console"? What is a "code chunk"?
+* What use is the "Environment" Pane?
 * How would you read in a spreadsheet in R?
 * How would you figure out what variables are in the data? size of the data?
 * How would you read in a `csv` file, a `dta` file, a `sav` file?
@@ -35,10 +38,48 @@ The modal social science project starts by importing existing datasets. Datasets
 Reviewing data import will allow us to get on the same page on how computer systems work.
 
 
+## Orienting
 
-Before we start -- many things in R and other open source packages have competing standards. A lecture on a technique inevitably biases one standard over another. We try our best to choose the one that is most relevant and useful, but feel free to suggest changes to us or to the booklet. 
+1. We will be using a cloud version of RStudio at <https://rstudio.cloud>. You should join the Math Prefresher Space 2018 from the link that was emailed to you. Each day, click on the project with the day's date on it.
 
-![](images/xkcd_927_standards.png)
+    Although most of you will probably doing your work on RStudio local rather than cloud, we are trying to use cloud because it makes it easier to standardize people's settings.  
+
+2.  RStudio (either cloud or desktop) is a GUI and an IDE for the programming language R. A Graphical User Interface allows users to interface with the software (in this case R) using graphical aids like buttons and tabs. Often we don't think of GUIs because to most computer users, everything is a GUI (like Microsoft Word or your "Control Panel"), but it's always there!
+
+    A Integrated Development Environment just says that the software to interface with R comes with useful useful bells and whistles to give you shortcuts. 
+
+    The __Console__ is kind of a the core window through which you see your GUI actually operating through R. It's not graphical so might not be as intuitive. But all your results, commands, errors, warnings.. you see them in here. A console tells you what's going on now. 
+
+![A Typical RStudio Window at Startup](images/11_1_rstudio-startup.png)
+
+3.  Theoretically, one could do all their work in a Console. But that would be a lot of work, because you'd have to give instructions each time you start your data analysis. Moreover, you'll have no record of what you did. That's why you need a __script__. This is a type of __code__. It can be referred to as a __source__ because that is the source of your commands. Source is also used as a verb; "source the script" just means execute it. 
+
+    RStudio doesn't start out with a script, so you can make one from "File > New" or the New file icon.
+
+![Opening New Script (as opposed to the Console)](images/11_2_rstudio-script.png)
+
+
+4.  You can also open scripts that are in your folder. A script is a type of File. Find your Files in the bottom-right "Files" pane. 
+
+![Opening an Existing Script from Files](images/11_3_rstudio-files.png)
+
+5.   In R, there are two main types of scripts. A classic `.R` file and a `.Rmd` file (for Rmarkdown). A .R file is just lines and lines of R code that is meant to be inserted right into the Console. A .Rmd tries to weave code and English together, to make it easier for users to create reports that interact with data and intersperse R code with explanation. For example, we built this book in Rmds. 
+
+The Rmarkdown facilitates is the use of __code chunks__, which are used here. These start and end with three back-ticks. In the beginning, we can add options in curly braces (`{}`). Specifying `r` in the beginning tells to render it as R code. Options like `echo = TRUE` switch between showing the code that was executed or not; `eval = TRUE` switch between evaluating the code. More about Rmarkdown in Section \@ref(nonwysiwyg).
+  
+For example:
+
+![A code chunk in Rmarkdown (before rendering)](images/11_4_codechunk.png)
+
+
+This code chunk would evaluate `1 + 1` and show its output when compiled, but not display the code that was executed.
+
+
+## The Computer and You: Giving Instructions
+
+We'll do the Peanut Butter and Jelly Exercise in class as an introduction to programming for those who are new.^[This Exercise is taken from Harvard's Introductory Undergraduate Class, CS50 (<https://www.youtube.com/watch?v=kcbT3hrEi9s>), and many other writeups.]
+
+
 
 
 ## A is for Athens
@@ -54,7 +95,7 @@ What files do we have in the `input` folder?
 dir_ls("input")
 ```
 
-A typical file format is Microsoft Excel. Although this is not usually the best format for R because of its highly formatted structure as opposed to plain text (more on this in Section \ref@(wysiwyg)), recent packages have made this fairly easy. 
+A typical file format is Microsoft Excel. Although this is not usually the best format for R because of its highly formatted structure as opposed to plain text (more on this in Section \ref@(sec:wysiwyg)), recent packages have made this fairly easy. 
 
 For the first time using an outside package, you first need to install it. 
 ```{r, eval = FALSE}
@@ -67,19 +108,24 @@ After that, you don't need to install it again. But you do need to load it.
 library(readxl)
 ```
 
-The package `readxl` has a website: https://readxl.tidyverse.org/. Others are not as user-friendly, but they have a help page with a table of contents of all their functions. 
+The package `readxl` has a website: https://readxl.tidyverse.org/. Other packages are not as user-friendly, but they have a help page with a table of contents of all their functions. 
 
-```{r}
+```{r, eval = FALSE}
 help(package = readxl)
 ```
 
+Many things in R and other open source packages have competing standards. A lecture on a technique inevitably biases one standard over another. We try our best to choose the one that is most relevant and useful, but feel free to suggest changes to us or to the booklet. 
 
-### Reading in
+![](images/xkcd_927_standards.png)
 
-From the help page, we see that `read_excel()` is the function that we want to use. Let's try it. 
+### Reading in Data
+
+From the help page, we see that `read_excel()` is the function that we want to use.  Look at the help page. How do you read a help page?
+
+Let's try it. 
 
 ```{r}
-ober_raw <- read_excel("input/complete_greek_data 5 DISTRIBUTION 2018.xlsx")
+ober <- read_excel("input/complete_greek_data 5 DISTRIBUTION 2018.xlsx")
 ```
 
 What does the `/` mean?  Why do we need the `input` term first? Does the argument need to be in quotes?
@@ -91,24 +137,23 @@ For almost any dataset, you usually want to do a couple of standard checks first
 
 
 ```{r}
-ober_raw
+ober
 ```
 
 
 ```{r}
-dim(ober_raw)
+dim(ober)
 ```
 
 From your tutorials, you also know how to do graphics! Graphics are useful for grasping your data, but we will cover them more deeply in Chapter \@ref(dataviz).
 
-
 ```{r}
-ggplot(ober_raw, aes(x = Fame)) + geom_histogram()
+ggplot(ober, aes(x = Fame)) + geom_histogram()
 ```
 
 What about the distribution of fame by regime?
 ```{r}
-ggplot(ober_raw, aes(y = Fame, x = factor(Regime), group = factor(Regime))) +
+ggplot(ober, aes(y = Fame, x = factor(Regime), group = factor(Regime))) +
   geom_boxplot()
 ```
 
@@ -139,9 +184,9 @@ I chose the specifications for arguments `zoom` and `maptype` by looking at the 
 
 Ober's data has the latitude and longitude of each polis. Because the map of Greece has the same coordinates, we can add the polei on the same map. 
 
-```{r}
+```{r, warning=FALSE}
 gg_ober <- ggmap(greece) +
-  geom_point(data = ober_raw, 
+  geom_point(data = ober, 
              aes(y = Latitude, x = Longitude), 
              size = 0.5,
              alpha = 0.5,
@@ -151,25 +196,33 @@ gg_ober
 
 We can also color the points by another variable, like Fame. 
 
-```{r}
+```{r, warning=FALSE}
 gg_ober_fame <- ggmap(greece) +
-  geom_point(data = ober_raw, 
+  geom_point(data = ober, 
              aes(y = Latitude, x = Longitude, color = Fame)) +
   scale_color_gradient(low = "white", high = "indianred")
 gg_ober_fame
 ```
 
 
-## Exercises
+## Exercises {-}
 
 ### 1 {-}
 Find the right function to read the following datasets into your R window. 
 
-```{r, echo = FALSE}
-dir_ls("input", regexp = "(Wantchekon_sample|usc2010|sav)")
+
+* `input/acs2016_1percent.csv`: A one percent sample of the American Community Survey
+* `input/gapminder_wide.tab`: Country-level wealth and health from Gapminder^[Formatted and taken from <https://doi.org/10.7910/DVN/GJQNEQ>]
+* `input/gapminder_wide.Rds`: A Rds version of the Gapminder (What is a Rds file? What's the difference?)
+* `input/Nunn_Wantchekon_sample.dta`: A sample from the Afrobarometer survey (which we'll explore tomorrow). `.dta` is a Stata format. 
+* `input/german_credit.sav`: A hypothetical dataset on consumer credit. `.sav` is a SPSS format. 
+
+Our Recommendations: Look at the packages `haven` and `readr`
+
+
+```{r}
+# Enter here, perhaps making a chunk for each file.
 ```
-
-
 
 
 ### 2 {-}
@@ -180,8 +233,7 @@ Read Ober's codebook and find a variable that you think is interesting. Check th
 ```
 
 
-
-## Tell us about this session. 
+### 3 {-}
 This is day 1 and we covered a lot of material. Some of you might have found this completely new; others not so. Please click through this survey before you leave so we can adjust accordingly on the next few days.
 
 <https://harvard.az1.qualtrics.com/jfe/form/SV_8As7Y7C83iBiQzH>
