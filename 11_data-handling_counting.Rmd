@@ -46,18 +46,18 @@ Reviewing data import will allow us to get on the same page on how computer syst
 
     The __Console__ is kind of a the core window through which you see your GUI actually operating through R. It's not graphical so might not be as intuitive. But all your results, commands, errors, warnings.. you see them in here. A console tells you what's going on now. 
 
-![A Typical RStudio Window at Startup](images/1_rstudio_startup.png)
+![A Typical RStudio Window at Startup](images/11_1_rstudio-startup.png)
 
 2.  Theoretically, one could do all their work in a Console. But that would be a lot of work, because you'd have to give instructions each time you start your data analysis. Moreover, you'll have no record of what you did. That's why you need a __script__. This is a type of __code__. It can be referred to as a __source__ because that is the source of your commands. Source is also used as a verb; "source the script" just means execute it. 
 
     RStudio doesn't start out with a script, so you can make one from "File > New" or the New file icon.
 
-![Opening New Script (as opposed to the Console)](images/2_rstudio_script.png)
+![Opening New Script (as opposed to the Console)](images/11_2_rstudio-script.png)
 
 
 3.  You can also open scripts that are in your folder. A script is a type of File. Find your Files in the bottom-right "Files" pane. 
 
-![Opening an Existing Script from Files](images/3_rstudio_files.png)
+![Opening an Existing Script from Files](images/11_3_rstudio-files.png)
 
 4.   In R, there are two main types of scripts. A classic `.R` file and a `.Rmd` file (for Rmarkdown). A .R file is just lines and lines of R code that is meant to be inserted right into the Console. A .Rmd tries to weave code and English together, to make it easier for users to create reports that interact with data and intersperse R code with explanation. For example, we built this book in Rmds. 
 
@@ -104,7 +104,7 @@ After that, you don't need to install it again. But you do need to load it.
 library(readxl)
 ```
 
-The package `readxl` has a website: https://readxl.tidyverse.org/. Others are not as user-friendly, but they have a help page with a table of contents of all their functions. 
+The package `readxl` has a website: https://readxl.tidyverse.org/. Other packages are not as user-friendly, but they have a help page with a table of contents of all their functions. 
 
 ```{r, eval = FALSE}
 help(package = readxl)
@@ -179,7 +179,7 @@ I chose the specifications for arguments `zoom` and `maptype` by looking at the 
 
 Ober's data has the latitude and longitude of each polis. Because the map of Greece has the same coordinates, we can add the polei on the same map. 
 
-```{r}
+```{r, warning=FALSE}
 gg_ober <- ggmap(greece) +
   geom_point(data = ober_raw, 
              aes(y = Latitude, x = Longitude), 
@@ -191,7 +191,7 @@ gg_ober
 
 We can also color the points by another variable, like Fame. 
 
-```{r}
+```{r, warning=FALSE}
 gg_ober_fame <- ggmap(greece) +
   geom_point(data = ober_raw, 
              aes(y = Latitude, x = Longitude, color = Fame)) +
