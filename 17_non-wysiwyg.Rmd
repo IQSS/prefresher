@@ -74,9 +74,8 @@ RStudio makes it easy to compile your very first markdown file by giving you tem
 
 Rmd is actually a slight modification of real markdown. It is a type of file that R reads and turns into a proper `md` file. Then, it uses a document-conversion called pandoc to compile your `md` into documents like PDF or HTML.
 
-![](images/RMarkdownFlow.png)
+![How Rmds become PDFs or HTMLs](images/RMarkdownFlow.png)
 
-One of the things `Rmd`s facilitates is the use of code chunks, which you have all been using. These start and end with three back-ticks. In the beginning, we can add options in curly braces (`{}`). Specifying `r` in the beginning tells the compiler that this is meant to be R code. Options like `echo = TRUE` or `eval = FALSE` switch between not executing the code (i.e., just showing it for display), or executing the code but not showing the code that was executed (if you think it is distracting).
 
 
 ### A note on plain-text editors
