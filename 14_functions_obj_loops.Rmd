@@ -1,6 +1,23 @@
 # Objects, Functions, Loops
 
 
+### Where are we? Where are we headed? {-}
+
+Up till now, you should have covered:
+
+* R basic programming
+* Data Import
+* Statistical Summaries
+* Visualization
+
+
+Today we'll cover
+
+* Objects
+* Functions
+* Loops
+
+
 
 ## What is an object?
 
@@ -399,11 +416,10 @@ for( state in states_of_interest) {
 ``` 
 
 
-## Review Exercises
-In the time remaining, try the following exercises. Order doesn't matter. 
+## Exercises {-}
 
-
-### Exercise 1: Counting CVAP
+ 
+### Exercise 1: Counting CVAP {-}
 A issue raised in Persily's article is that the full-count U.S. Census does not record  whether the residents are citizens of the United States^[Here is that argument of his again, more recently in the popular press. ["The Mysterious Number of American Citizens". June 2, 2015.  _POLITICO_](http://www.politico.com/magazine/story/2015/06/the-supreme-courts-big-data-problem-118568)]. Instead, this question is asked in a survey, the American Community Survey. The two are fundamentally different exercises: the Census counts everyone by definition, a survey samples its data. Load the 1 percent sample of the 2015 ACS (`acs2015_1percent.csv`, in the `input` folder) and give an estimate of the proportion of a state's ACS respondents that are reportedly U.S. citizens. 
 
 ```{r}
@@ -416,7 +432,7 @@ unique(sample_acs$citizen)
 mean(sample_acs$citizen != "Not a citizen of the US")
 ```
 
-### Exercise 2: Write your own function
+### Exercise 2: Write your own function {-}
 Write your own function that makes some task of data analysis simpler. Ideally, it would be a function that helps you do either of the previous tasks in fewer lines of code. 
 ```{r}
 # Enter yourself

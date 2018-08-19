@@ -1,9 +1,7 @@
-# Joins and Merges, Wide and Long
-
-Module originally written by Shiro Kuriwaki
+# Joins and Merges, Wide and Long^[Module originally written by Shiro Kuriwaki]
 
 
-## Where are we? Where are we headed?
+## Where are we? Where are we headed? {-}
 
 Up till now, you should have covered:
 
@@ -11,8 +9,8 @@ Up till now, you should have covered:
 * Counting. 
 * Visualization. 
 * Objects and Classes. 
-* Functions.
 * Matrix algebra in R
+* Functions.
 
 Today you will work on your own, but feel free to ask a fellow classmate nearby or the instructor. The objective for this session is to get more experience using R, but in the process (a) test a prominent theory in the political science literature and (b) explore related ideas of interest to you. 
 
@@ -131,7 +129,7 @@ p_m_w <- dcast(data = as.data.table(p_m),
 
 Try building a panel that would be useful in answering the Democratic Peace Question, perhaps in these steps.
 
-### Task 1: Data Input and Standardization
+### Task 1: Data Input and Standardization {-}
 
 Often, files we need are saved in the `.xls` or `xlsx` format. It is possible to read these files directly into `R`, but experience suggests that this process is slower than converting them first to `.csv` format and reading them in as `.csv` files. The `rio` package^[<https://github.com/leeper/rio>] has functions to convert between file types. 
 
@@ -143,7 +141,7 @@ Often, files we need are saved in the `.xls` or `xlsx` format. It is possible to
 
 
 
-### Task 2: Data Merging
+### Task 2: Data Merging {-}
 We will use data to test a version of the Democratic Peace Thesis (DPS): are democracies less likely to engage in militarized interstate disputes with one another? 
 
 To start, let's download and merge some data. 
@@ -157,7 +155,7 @@ To start, let's download and merge some data.
 ```
 
 
-### Task 3: Tabulations and Visualization
+### Task 3: Tabulations and Visualization {-}
 
 * Calculate the mean Polity2 score by year. Plot the result. Use graphical indicators of your choosing to show where key events fall in this timeline (such as 1914, 1929, 1939, 1989, 2008). Speculate on why the behavior from 1800 to 1920 seems to be qualitatively different than behavior afterwards.
 * Once you have merged the datasets, what fraction of all MIDs in the time period we have data for involve 2 countries both with Polity2 scores greater than 5? Greater than 8? If there are any of the latter, find out what MIDs those are and research them for a bit. 

@@ -282,9 +282,9 @@ Stemming is the process of reducing inflected/derived words to their word stem o
 3. stringr -- Useful for string parsing. 
 
 
-##  Exercises to check your understanding! 
+##  Exercises {-}
 
-### 1
+### 1 {-}
 
 Figure out why this command does what it does: 
 
@@ -294,15 +294,15 @@ sprintf("%s of spontaneous events are %s in the mind.
         "15.03322123", "puzzles", 15.03322123)
 ```
 
-### 2 
+### 2 {-}
 Why does this command not work? 
 
-```{R}
+```{r}
 try(sprintf("%s of spontaneous events are %s in the mind. Really, %.2f?",
             "15.03322123", "puzzles", "15.03322123" ), TRUE)  
 ```
 
-### 3 
+### 3 {-}
 
 Using `grepl`, these materials, Google, and your friends,  describe what the following command does. What changes when `value = FALSE`?
 
@@ -313,7 +313,7 @@ grep('\'',
 
 
 
-### 4 
+### 4 {-}
 
 Write code to automatically extract the file names that DO end start with presidential and DO end in .pdf
 
@@ -329,7 +329,7 @@ my_string <- c("legislative1_term1.png",
                "presidential1_term2.pdf")
 ```
 
-### 5 
+### 5 {-}
 Using the same string as in the above, write code to automatically  extract the file names that end in .pdf and that contain the text `term2`. 
 
 ```{r}
@@ -337,7 +337,7 @@ Using the same string as in the above, write code to automatically  extract the 
 ```
 
 
-### 6 
+### 6 {-}
 
 Combine these two strings into a single string separated by a "-".  Desired output: "The carbonyl group in aldehydes and ketones is an oxygen analog of the carbon–carbon double bond."
 
@@ -348,7 +348,7 @@ string2 <-  "–carbon double bond."
 ```
 
 
-### 7 
+### 7 {-}
 
 Challenge problem! Download this webpage  <https://en.wikipedia.org/wiki/Odyssey>
  

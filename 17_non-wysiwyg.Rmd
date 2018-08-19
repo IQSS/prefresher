@@ -1,10 +1,7 @@
-#  LaTeX and markdown {#nonwysiwyg}
-
-Module originally written by Shiro Kuriwaki
+#  LaTeX and markdown^[Module originally written by Shiro Kuriwaki] {#nonwysiwyg}
 
 
-
-## Where are we? Where are we headed?
+### Where are we? Where are we headed? {-}
 
 Up till now, you should have covered:
 
@@ -28,7 +25,7 @@ command-line are a basic set of tools that you may have to use from time to time
 
 
 
-## Check your understanding
+### Check your understanding {-}
 
 Check if you have an idea of how you might code the following tasks:
 
@@ -45,12 +42,13 @@ Check if you have an idea of how you might code the following tasks:
 
 
 
-
 ## Motivation
+
 Statistical programming is a fast-moving field. The beta version of `R` was released in 2000, `ggplot2` was released on 2005, and  `RStudio` started around 2010. Of course, some programming technologies are quite "old": (`C` in 1969, `C++` around 1989, `TeX` in 1978, `Linux` in 1991, Mac OS in 1984). But it is easy to feel you are falling behind in the recent developments of programming. Today we will do a **brief** and rough overview of some fundamental and new tools other than `R`, with the general aim of having you break out of your comfort zone so you won't be shut out from learning these tools in the future.
 
 
 ## Markdown
+
 Markdown is the text we have been using throughout this course! At its core markdown is just plain text. Plain text does not have any formatting embedded in it. Instead, the formatting is coded up as text. Markdown is _not_ a WYSIWYG (What you see is what you get) text editor like Microsoft Word or Google Docs. This will mean that you need to explicitly code for `bold{text}` rather than hitting Command+B and making your text look __bold__ on your own computer. 
 
 Markdown is known as a "light-weight" editor, which means that it is relatively easy to write code that will compile. It is quick and easy and satisfies most presentation purposes; you might want to try `LaTeX` for more involved papers.
@@ -70,6 +68,7 @@ And for headers use the hash symbols,
 ```
 
 ### your own markdown 
+
 RStudio makes it easy to compile your very first markdown file by giving you templates. Got to `New > R Markdown`, pick a document and click Ok. This will give you a skeleton of a document you can compile -- or "knit".
 
 Rmd is actually a slight modification of real markdown. It is a type of file that R reads and turns into a proper `md` file. Then, it uses a document-conversion called pandoc to compile your `md` into documents like PDF or HTML.
@@ -79,6 +78,7 @@ Rmd is actually a slight modification of real markdown. It is a type of file tha
 
 
 ### A note on plain-text editors
+
 Multiple software exist where you can edit plain-text (roughly speaking, text that is not WYSIWYG). 
 
 * RStudio (especially for R-related links)
@@ -94,7 +94,15 @@ Each has their own keyboard shortcuts and special features. You can browse a cou
 
 LaTeX is a typesetting program. You'd engage with LaTeX much like you engage with your `R` code. You will interact with LaTeX in a text editor, and will writing code which will be interpreted by the LaTeX compiler and which will finally be parsed to form your final PDF.
 
-### compile your first LaTeX document.
+### compile online
+
+1. Go to <https://www.overleaf.com>
+2. Scroll down and go to "CREATE A NEW PAPER" if you don't have an account.
+
+
+
+
+### compile your first LaTeX document locally
 LaTeX is a very stable system, and few changes to it have been made since the 1990s. The main benefit: better control over how your papers will look; better methods for writing equations or making tables; overall pleasing aesthetic. 
 
 1. Open a plain text editor. Then type in this.
@@ -156,8 +164,10 @@ For some LaTeX commands you might need to load a separate package that someone e
 ```
 where `package` is the name of the package and `options` are options specific to the package. 
 
-### more Commands
-For a more comprehensive listing of LaTeX commands, Mayya Komisarchik (prefresher instructor from 2015-2016) has a great tutorial set of folders that you can download from your website: <https://scholar.harvard.edu/mkomisarchik/tutorials-0>
+
+### Further Guides {-}
+
+For a more comprehensive listing of LaTeX commands, Mayya Komisarchik has a great tutorial set of folders: <https://scholar.harvard.edu/mkomisarchik/tutorials-0>
 
 There is a version of LaTeX called Beamer, which is a popular way of making a slideshow. Slides in markdown is also a competitor. The language of Beamer is the same as LaTeX but has some special functions for slides.
 
