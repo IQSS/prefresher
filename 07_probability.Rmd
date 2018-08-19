@@ -2,25 +2,10 @@
 
 Probability and Inferences are mirror images of each other, and both are integral to social science. Probability quantifies uncertainty, which is important because many things in the social world are at first uncertain. Inference is then the study of how to learn about facts you don't observe from facts you do  observe.
 
-Topics:
- Counting rules;
- Sets;
- Probability;
- Conditional Probability and  Bayes' Rule;
- Random Variables;
- Independence;
- Levels of Measurement;
- Distributions;
- Expectation and Moments;
- Special Distributions;
- Joint Distributions;
- Summarizing Observed Data;
- Asymptotics
  
 ```{r, include = FALSE}
 library(ggplot2)
 ```
- 
  
 
 ## Counting rules
@@ -159,7 +144,7 @@ Consider subsets A {2, 8} and B {2,3,7} of the sample space you found. What is
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
-### Probability Definitions: Formal and Informal
+### Probability Definitions: Formal and Informal {-}
 
 Many events or outcomes are random. In everyday speech, we say that we are  _uncertain_ about the outcome of random events. Probability is a formal model of uncertainty which provides a measure of uncertainty governed by a particular set of rules. A different model of uncertainty would, of course, have a different set of rules and measures. Our focus on probability is justified because it has proven to be a particularly useful model of uncertainty.
 
