@@ -155,7 +155,13 @@ Consider subsets A {2, 8} and B {2,3,7} of the sample space you found. What is
 
 ## Probability {#probdef}
 
-__Probability__: Many events or outcomes are random. In everyday speech, we say that we are  _uncertain_ about the outcome of random events. Probability is a formal model of uncertainty which provides a measure of uncertainty governed by a particular set of rules. A different model of uncertainty would, of course, have a different set of rules and measures. Our focus on probability is justified because it has proven to be a particularly useful model of uncertainty.
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Historians think this totally meaningless and nonsensical statistic is the product of an early-modern epistemological shift in which numbers and quantifiable data became revered above other kinds of knowledge as the most useful and credible form of truth <a href="https://t.co/wVFyAQGxEv">https://t.co/wVFyAQGxEv</a></p>&mdash; Gina Anne Tam 譚吉娜 (@DGTam86) <a href="https://twitter.com/DGTam86/status/1001279033638727680?ref_src=twsrc%5Etfw">May 29, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+### Probability Definitions: Formal and Informal
+
+Many events or outcomes are random. In everyday speech, we say that we are  _uncertain_ about the outcome of random events. Probability is a formal model of uncertainty which provides a measure of uncertainty governed by a particular set of rules. A different model of uncertainty would, of course, have a different set of rules and measures. Our focus on probability is justified because it has proven to be a particularly useful model of uncertainty.
 
 
 __Probability Distribution Function__: a mapping of each event in the sample space $S$ to the real numbers that satisfy the following three axioms (also called Kolmogorov's Axioms).
@@ -172,10 +178,12 @@ The axioms of probability make sure that the separate events add up in terms of 
 
 ```{definition, name = "Axioms of Probability"}
 
+
 1. For any event $A$, $P(A)\ge 0$.
 2. $P(S)=1$
 3. The Countable Additivity Axiom: For any sequence of _disjoint_ (mutually exclusive) events $A_1,A_2,\ldots$ (of which there may be infinitely many), \[P\left( \bigcup\limits_{i=1}^k
 A_i\right)=\sum\limits_{i=1}^k P(A_i)\]
+
 
 The last axiom is an extension of a union to infinite sets. When there are only two events in the space, it boils down to:
   
@@ -189,7 +197,9 @@ P(A_1 \cup A_2) = P(A_1) + P(B_2) \text{~for disjoint} A, B
 
 
 
-__Probability Operations__:  Using these three axioms, we can define all of the common rules of probability.
+### Probability Operations  {-}
+
+Using these three axioms, we can define all of the common rules of probability.
 
 1.  $P(\emptyset)=0$
 2.  For any event $A$, $0\le P(A) \le 1$.
@@ -280,14 +290,22 @@ and let $n_{ab}+n_{a^Cb}+n_{ab^C}+n_{(ab)^C}=N$.  Then
 ```
 
 
+You could rearrange the fraction to highlight how a joint probability could be expressed as the product of a conditional probability. 
+
+```{definition, name = "Multiplicative Law of Probability"}
+
+The probability of the intersection of two events $A$ and $B$ is $P(A\cap B)=P(A)P(B|A)=P(B)P(A|B)$ which follows directly from the definition of conditional probability. More generally,
+
+\[P(A_1\cap ...\cap A_k) = P(A_k| A_{k-1}\cap... \cap A_1)\times P(A_{k-1}|A_{k-2}\cap ...A_1)...\times P(A_2|A_1)\times P(A_1)\]
+
+Sometimes it is easier to calculate these conditional probabilities and sum them than it is to calculate $P(A)$ directly.
+
+```
 
 
 
-
-__Multiplicative Law of Probability__: The probability of the intersection of two events $A$ and $B$ is $P(A\cap B)=P(A)P(B|A)=P(B)P(A|B)$ which follows directly from the definition of conditional probability. More generally,\\ $P(A_1\cap ...\cap A_k) = P(A_k| A_{k-1}\cap... \cap A_1)\times P(A_{k-1}|A_{k-2}\cap ...A_1)...\times P(A_2|A_1)\times P(A_1)$
-
-
-__Law of Total Probability__:  Let $S$ be the sample space of some experiment and let the disjoint $k$ events $B_1,\ldots,B_k$ partition $S$, such that $P(B_1\cup ... \cup B_k) = P(S) = 1$.  If $A$ is some other event in $S$, then the events $A\cap B_1, A\cap B_2, \ldots, A\cap B_k$ will form a partition of $A$ and we can write $A$ as $A=(A\cap B_1)\cup\cdots\cup (A\cap B_k)$.  
+```{definition, name = "Law of Total Probability"}
+Let $S$ be the sample space of some experiment and let the disjoint $k$ events $B_1,\ldots,B_k$ partition $S$, such that $P(B_1\cup ... \cup B_k) = P(S) = 1$.  If $A$ is some other event in $S$, then the events $A\cap B_1, A\cap B_2, \ldots, A\cap B_k$ will form a partition of $A$ and we can write $A$ as \[A=(A\cap B_1)\cup\cdots\cup (A\cap B_k)\].  
 
 Since the $k$ events are disjoint,
 
@@ -296,7 +314,9 @@ P(A)&=&\sum\limits_{i=1}^k P(A \cap B_i)\\
       &=&\sum\limits_{i=1}^k P(B_i)P(A|B_i)
 \end{eqnarray*}
 
-Sometimes it is easier to calculate these conditional probabilities and sum them than it is to calculate $P(A)$ directly.
+
+```
+
 
 __Bayes Rule__: Assume that events $B_1,\ldots,B_k$ form a partition of the space $S$.  Then by the Law of Total Probability 
 

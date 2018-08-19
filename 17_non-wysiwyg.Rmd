@@ -210,12 +210,12 @@ For example, Gary's BibTeX file is here: <https://github.com/iqss-research/gkbib
 Citation management software (Mendeley or Zotero) automatically generates .bib entries from your library of PDFs for you, provided you have the bibliography attributes right. 
 
 
-
-## Concluding the Prefresher
+## Concluding the Prefresher {-}
 
 Keep on learning, trying new techniques to improve your work, and learn from others! 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"> <a href="https://twitter.com/EmilyRiederer/status/898735640031920129">August 18, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-### please tell us how we can improve the Prefresher
-The Prefresher is a work in progress, with material mainly driven by graduate students. Please tell us how we should change (or not change) each of its elements:
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">What <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> tricks did it take you way too long to learn? One of mine is using readRDS and saveRDS instead of repeatedly loading from CSV</p>&mdash; Emily Riederer (@EmilyRiederer) <a href="https://twitter.com/EmilyRiederer/status/898735640031920129?ref_src=twsrc%5Etfw">August 19, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+_Please tell us how we can improve the Prefresher_: The Prefresher is a work in progress, with material mainly driven by graduate students. Please tell us how we should change (or not change) each of its elements:
