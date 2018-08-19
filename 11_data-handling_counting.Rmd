@@ -1,7 +1,7 @@
 # (PART) Programming {-}
 
 
-# Data Import (and Orientation)^[Module originally written by Shiro Kuriwaki] {#dataimport}
+# Orientation and Reading in Data^[Module originally written by Shiro Kuriwaki] {#dataimport}
 
 
 Up till now, you should have covered:
@@ -12,15 +12,15 @@ Up till now, you should have covered:
 
 Today we'll cover:
 
+* What's what in RStudio
 * Reading in Data 
-* Starting to do things with data in R
 * Comment on coding style on the way
 
 ### Check your understanding  {-}
 
 * What is the difference between a file and a folder?
-* In the RStudio Pane, what is the difference between the "Source" Pane and the "Console"? What is a "code chunk"?
-* What use is the "Environment Pane"?
+* In the RStudio windows, what is the difference between the "Source" Pane and the "Console"? What is a "code chunk"?
+* What use is the "Environment" Pane?
 * How would you read in a spreadsheet in R?
 * How would you figure out what variables are in the data? size of the data?
 * How would you read in a `csv` file, a `dta` file, a `sav` file?
@@ -40,7 +40,11 @@ Reviewing data import will allow us to get on the same page on how computer syst
 
 ## Orienting
 
-1.  RStudio (either cloud or desktop) is a GUI and an IDE for the programming language R. A Graphical User Interface allows users to interface with the software (in this case R) using graphical aids like buttons and tabs. Often we don't think of GUIs because to most computer users, everything is a GUI (like Microsoft Word or your "Control Panel"), but it's always there!
+1. We will be using a cloud version of RStudio at <https://rstudio.cloud>. You should join the Math Prefresher Space 2018 from the link that was emailed to you. Each day, click on the project with the day's date on it.
+
+    Although most of you will probably doing your work on RStudio local rather than cloud, we are trying to use cloud because it makes it easier to standardize people's settings.  
+
+2.  RStudio (either cloud or desktop) is a GUI and an IDE for the programming language R. A Graphical User Interface allows users to interface with the software (in this case R) using graphical aids like buttons and tabs. Often we don't think of GUIs because to most computer users, everything is a GUI (like Microsoft Word or your "Control Panel"), but it's always there!
 
     A Integrated Development Environment just says that the software to interface with R comes with useful useful bells and whistles to give you shortcuts. 
 
@@ -48,18 +52,18 @@ Reviewing data import will allow us to get on the same page on how computer syst
 
 ![A Typical RStudio Window at Startup](images/11_1_rstudio-startup.png)
 
-2.  Theoretically, one could do all their work in a Console. But that would be a lot of work, because you'd have to give instructions each time you start your data analysis. Moreover, you'll have no record of what you did. That's why you need a __script__. This is a type of __code__. It can be referred to as a __source__ because that is the source of your commands. Source is also used as a verb; "source the script" just means execute it. 
+3.  Theoretically, one could do all their work in a Console. But that would be a lot of work, because you'd have to give instructions each time you start your data analysis. Moreover, you'll have no record of what you did. That's why you need a __script__. This is a type of __code__. It can be referred to as a __source__ because that is the source of your commands. Source is also used as a verb; "source the script" just means execute it. 
 
     RStudio doesn't start out with a script, so you can make one from "File > New" or the New file icon.
 
 ![Opening New Script (as opposed to the Console)](images/11_2_rstudio-script.png)
 
 
-3.  You can also open scripts that are in your folder. A script is a type of File. Find your Files in the bottom-right "Files" pane. 
+4.  You can also open scripts that are in your folder. A script is a type of File. Find your Files in the bottom-right "Files" pane. 
 
 ![Opening an Existing Script from Files](images/11_3_rstudio-files.png)
 
-4.   In R, there are two main types of scripts. A classic `.R` file and a `.Rmd` file (for Rmarkdown). A .R file is just lines and lines of R code that is meant to be inserted right into the Console. A .Rmd tries to weave code and English together, to make it easier for users to create reports that interact with data and intersperse R code with explanation. For example, we built this book in Rmds. 
+5.   In R, there are two main types of scripts. A classic `.R` file and a `.Rmd` file (for Rmarkdown). A .R file is just lines and lines of R code that is meant to be inserted right into the Console. A .Rmd tries to weave code and English together, to make it easier for users to create reports that interact with data and intersperse R code with explanation. For example, we built this book in Rmds. 
 
 The Rmarkdown facilitates is the use of __code chunks__, which are used here. These start and end with three back-ticks. In the beginning, we can add options in curly braces (`{}`). Specifying `r` in the beginning tells to render it as R code. Options like `echo = TRUE` switch between showing the code that was executed or not; `eval = TRUE` switch between evaluating the code. More about Rmarkdown in Section \@ref(nonwysiwyg).
   
@@ -73,7 +77,7 @@ This code chunk would evaluate `1 + 1` and show its output when compiled, but no
 
 ## The Computer and You: Giving Instructions
 
-We'll do the Peanut Butter and Jelly Exercise in Class as an introduction to programming for those who are new.^[This Exercise taken from Harvard's Introductory Undergraduate Class, CS50 (<https://www.youtube.com/watch?v=kcbT3hrEi9s>), and many other writeups.]
+We'll do the Peanut Butter and Jelly Exercise in class as an introduction to programming for those who are new.^[This Exercise is taken from Harvard's Introductory Undergraduate Class, CS50 (<https://www.youtube.com/watch?v=kcbT3hrEi9s>), and many other writeups.]
 
 
 
@@ -114,12 +118,14 @@ Many things in R and other open source packages have competing standards. A lect
 
 ![](images/xkcd_927_standards.png)
 
-### Reading in
+### Reading in Data
 
-From the help page, we see that `read_excel()` is the function that we want to use. Let's try it. 
+From the help page, we see that `read_excel()` is the function that we want to use.  Look at the help page. How do you read a help page?
+
+Let's try it. 
 
 ```{r}
-ober_raw <- read_excel("input/complete_greek_data 5 DISTRIBUTION 2018.xlsx")
+ober <- read_excel("input/complete_greek_data 5 DISTRIBUTION 2018.xlsx")
 ```
 
 What does the `/` mean?  Why do we need the `input` term first? Does the argument need to be in quotes?
@@ -131,24 +137,23 @@ For almost any dataset, you usually want to do a couple of standard checks first
 
 
 ```{r}
-ober_raw
+ober
 ```
 
 
 ```{r}
-dim(ober_raw)
+dim(ober)
 ```
 
 From your tutorials, you also know how to do graphics! Graphics are useful for grasping your data, but we will cover them more deeply in Chapter \@ref(dataviz).
 
-
 ```{r}
-ggplot(ober_raw, aes(x = Fame)) + geom_histogram()
+ggplot(ober, aes(x = Fame)) + geom_histogram()
 ```
 
 What about the distribution of fame by regime?
 ```{r}
-ggplot(ober_raw, aes(y = Fame, x = factor(Regime), group = factor(Regime))) +
+ggplot(ober, aes(y = Fame, x = factor(Regime), group = factor(Regime))) +
   geom_boxplot()
 ```
 
@@ -181,7 +186,7 @@ Ober's data has the latitude and longitude of each polis. Because the map of Gre
 
 ```{r, warning=FALSE}
 gg_ober <- ggmap(greece) +
-  geom_point(data = ober_raw, 
+  geom_point(data = ober, 
              aes(y = Latitude, x = Longitude), 
              size = 0.5,
              alpha = 0.5,
@@ -193,14 +198,14 @@ We can also color the points by another variable, like Fame.
 
 ```{r, warning=FALSE}
 gg_ober_fame <- ggmap(greece) +
-  geom_point(data = ober_raw, 
+  geom_point(data = ober, 
              aes(y = Latitude, x = Longitude, color = Fame)) +
   scale_color_gradient(low = "white", high = "indianred")
 gg_ober_fame
 ```
 
 
-## Exercises
+## Exercises {-}
 
 ### 1 {-}
 Find the right function to read the following datasets into your R window. 
