@@ -88,7 +88,7 @@ A set $S$ of vectors is linearly dependent if and only if at least one of the ve
  
  Since $\begin{pmatrix}9 & 13 & 17 \end{pmatrix}$ is a linear combination of $\begin{pmatrix}1 & 2 & 3 \end{pmatrix}$, $\begin{pmatrix} 2 & 3& 4\end{pmatrix}$, and $\begin{pmatrix} 3 & 4 & 5 \end{pmatrix}$, these 4 vectors constitute a linearly dependent set. 
 
-```{example, name = "Linear Indepdence", linearindep} 
+```{example, name = "Linear Independence", linearindep} 
 
 Are the following sets of vectors linearly independent?
   
