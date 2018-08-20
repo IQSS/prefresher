@@ -228,7 +228,7 @@ Find the polis with the top 10 Fame values.
 
 ### 3 {-}
 
-Make a scatterplot with land area on the x-axis and Fame on the y-axis.
+Make a scatterplot with the number of colonies on the x-axis and Fame on the y-axis.
 
 ```{r}
 # Enter here
