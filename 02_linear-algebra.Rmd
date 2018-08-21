@@ -664,23 +664,6 @@ and
 
 ```
 
-Answer to Exercise \@ref(exr:invlinsys):
-
-$\textbf{z} = \bf{A}^{-1} \bf{b} = \begin{pmatrix}
-	1/5 &4/5\\
-	2/5&3/5 
-\end{pmatrix} \begin{pmatrix}
-	5 \\
-	-10
-\end{pmatrix}= \begin{pmatrix}
-	-7 \\
-	-4
-\end{pmatrix} = \begin{pmatrix}
-	x \\
-	y
-\end{pmatrix}$
-
-
 ## Determinants
 
 __Singularity__:  Determinants can be used to determine whether a square matrix is nonsingular.
@@ -993,6 +976,22 @@ ${\bf A}^{-1} = \left(\begin{array}{ccc}
 Answer to Exercise \@ref(exr:inverse1):
 
 1. ${\bf A}^{-1}=\begin{pmatrix} 1&0&-4\\0&\frac{1}{2}&0\\0&0&1 \end{pmatrix}$
+
+Answer to Exercise \@ref(exr:invlinsys):
+
+$\textbf{z} = \bf{A}^{-1} \bf{b} = \begin{pmatrix}
+	1/5 &4/5\\
+	2/5&3/5 
+\end{pmatrix} \begin{pmatrix}
+	5 \\
+	-10
+\end{pmatrix}= \begin{pmatrix}
+	-7 \\
+	-4
+\end{pmatrix} = \begin{pmatrix}
+	x \\
+	y
+\end{pmatrix}$
 
 Answer to Exercise \@ref(exr:determinants):
 
