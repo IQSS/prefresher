@@ -1,6 +1,6 @@
 #  Manipulating Vectors and  Matrices^[Module originally written by Shiro Kuriwaki and Yon Soo Park] {#rmatrices}
 
-```{r, incldue=FALSE}
+```{r, incldue=FALSE, message = FALSE, warning = FALSE}
 library(dplyr)
 library(readr)
 library(haven)
@@ -28,8 +28,45 @@ Today we'll cover
 
 Let's take a look at Matrices in the context of R
 
-```{r}
-cen10 <- read_csv("input/usc2010_001percent.csv", col_types = cols())
+```{r, message = FALSE}
+cen10 <- read_csv("input/usc2010_001percent.csv")
+head(cen10)
+```
+
+What is the dimension of this dataframe? What does the number of rows represent? What does the number of columns represent?
+```{r, message = FALSE}
+dim(cen10)
+nrow(cen10)
+ncol(cen10)
+```
+
+
+What variables does this dataset hold? What kind of information does it have?
+
+```{r, message = FALSE}
+colnames(cen10)
+```
+
+We can access column vectors, or vectors that contain values of variables by using the $ sign
+
+```{r, message = FALSE}
+head(cen10$state)
+
+head(cen10$city)
+
+```
+
+We can look at a unique set of variable values by calling the unique function
+
+
+```{r, message = FALSE}
+unique(cen10$state)
+```
+
+How many different states are represented (this dataset includes DC as a state)? 
+
+```{r, message = FALSE}
+length(unique(cen10$state))
 ```
 
 Matrices are rectangular structures of numbers (they have to be numbers, and they can't be characters).
@@ -50,17 +87,103 @@ cross_tab[6,2]
 But a subset of your data -- individual values-- can be considered a matrix too. 
 
 
-```{r}
+```{r, warning = FALSE}
+#First 20 rows of the entire data
+#Below two lines of code do the same thing
+cen10[1:20,]
+
+cen10 %>% slice(1:20) 
+
+#Of the first 20 rows of the entire data, look at values of just year and age
+#Below two lines of code do the same thing
 cen10[1:20, c("year", "age")]
+
+cen10 %>% slice(1:20) %>% select(c("year", "age"))
 ```
 
 A vector is a special type of matrix with only one column or only one row 
 ```{r}
+
+#One column
 cen10[1:10, c("age")]
-cen10[1,]
+
+cen10 %>% slice(1:10) %>% select(c("age"))
+
+#One row
+cen10[2,]
+
+cen10 %>% slice(2)
 
 ```
 
+What if we want a special subset of the data? For example, what if I only want the records of individuals in California? What if I just want the age and race of individuals in California?
+```{r}
+#subset for CA rows
+ca_subset <- cen10[cen10$state == "California",]
+
+ca_subset_tidy <- cen10 %>% filter(state == "California") 
+
+all_equal(ca_subset, ca_subset_tidy)
+
+#subset for CA rows and select age and race
+ca_subset_age_race <- cen10[cen10$state == "California", c("age", "race")]
+
+ca_subset_age_race_tidy <- cen10 %>% filter(state == "California") %>% select(age, race) 
+
+all_equal(ca_subset_age_race, ca_subset_age_race_tidy)
+
+```
+
+Some common operaters that can be used to filter or to use as a condition. Remember, you can use the unique function to look at the set of all values a variable holds in the dataset. 
+```{r}
+#all individuals older than 30 and younger than 70
+s1 <- cen10[cen10$age > 30 & cen10$age < 70, ]
+s2 <- cen10 %>% filter(age > 30 & age < 70)
+all_equal(s1,s2)
+
+#all individuals in either New York or California
+s3 <- cen10[cen10$state == "New York" | cen10$state == "California", ]
+s4 <- cen10 %>% filter(state == "New York" | state == "California")
+all_equal(s3,s4)
+
+#all individuals NOT in the Pacific Division region
+s5 <- cen10[cen10$region != "Pacific Division", ]
+s6 <- cen10 %>% filter(region != "Pacific Division")
+all_equal(s5,s6)
+
+
+#all individuals in any of the following states: California, Ohio, Nevada, Michigan
+s7 <- cen10[cen10$state %in% c("California", "Ohio", "Nevada", "Michigan"), ]
+s8 <- cen10 %>% filter(state %in% c("California", "Ohio", "Nevada", "Michigan"))
+all_equal(s7,s8)
+
+#all individuals NOT in any of the following states: California, Ohio, Nevada, Michigan
+s9 <- cen10[!(cen10$state %in% c("California", "Ohio", "Nevada", "Michigan")), ]
+s10 <- cen10 %>% filter(!state %in% c("California", "Ohio", "Nevada", "Michigan"))
+all_equal(s9,s10)
+```
+
+## Checkpoint {-}
+
+
+### 1 {-}
+Get the subset of cen10 for non-white individuals (Hint: look at the set of values for the race variable by using the unique function)
+```{r}
+# Enter here
+```
+
+### 2 {-}
+Get the subset of cen10 for females over the age of 40
+```{r}
+# Enter here
+```
+
+
+### 3 {-}
+Get all the serial numbers for black, male individuals who don't live in Ohio or Nevada.
+```{r}
+# Enter here
+```
 
 
 ### data frames
@@ -94,7 +217,7 @@ nunn_full <- read_dta("./input/Nunn_Wantchekon_AER_2011.dta")
 Nunn and Wantchekon's main dataset has more than 20,000 observations. Each observation is a respondent from the Afrobarometer survey.
 ```{r}
 head(nunn_full)
-names(nunn_full)
+colnames(nunn_full)
 ```
 
 
@@ -226,15 +349,10 @@ What is `ln_exports`? The article describes this as the natural log of one plus 
 
 ```{r}
 log(1 + X[, "exports"]) 
-log((1 + X[, "exports"])/X[,"export_area"])
-X
 ```
 Question for you: why add the 1? 
 
 Verify that this is the same as `X[, "ln_exports"]`
-
-
-What is `ln_export_area`?  Why do you think they do this transformation?
 
 
 ## Linear Combinations
@@ -303,21 +421,13 @@ summary(lm_1_1)
 ```
 
 
-## Functions in functions
-
-```{r}
-tapply(nunn_full$trust_neighbors, INDEX = nunn_full$isocode, FUN = mean)
-```
-
-```{r}
-tapply(nunn_full$trust_neighbors, INDEX = nunn_full$isocode, FUN = function (x) mean(x, na.rm = TRUE))
-```
 
 
 
-## Exercises
+## Exercises {-}
 
-### Exercise 1: Matrix powers {-}
+### 1 {-}
+
 Let
 \[\mathbf{A} = \left[\begin{array}
 {rrr}
@@ -337,6 +447,52 @@ Use R to write code that will consecutively multiply $A$ to itself 4 times. What
 Note that R notation of matrices is different from the math notation. Simply trying `X^n` where `X` is a matrix will only take the power of each element to `n`. Instead, this problem asks you to perform matrix multiplication.
 
 
-### Exercise 2 {-}
+### 2 {-}
+Let's apply what we learned about subsetting or filtering/selecting. Use the nunn_full dataset you have already loaded
 
-Write an `R` function that takes two inputs (A and B). A and B can both either be matrices or data frames. Write code that checks to make sure whether A and B are either matrices or dateframe. Print an error message if one of them is not a matrix or data frame. Convert any data frames to matrices. Check whether the A and B have compatible dimensions. If they don't, print an error message. If they do, perform the matrix multiplication A * B.
+First, show all observations (rows) that have the "male" variable value that is higher than 0.5
+
+
+```{r}
+## Enter yourself
+```
+
+Next, show all values of "trust_neighbors" and "age"
+
+```{r}
+## Enter yourself
+```
+
+Lastly, show all values of "trust_neighbors" and "age" for observations (rows) that have the "male" variable value that is higher than 0.5
+
+```{r}
+## Enter yourself
+```
+
+### 3 {-}
+
+Consider the regression that was run to generate Table 1
+```{r}
+form <- "trust_neighbors ~ exports + age + age2 +  male + urban_dum + factor(education) + factor(occupation) + factor(religion) + factor(living_conditions) + district_ethnic_frac + frac_ethnicity_in_district + isocode"
+lm_1_1 <- lm(as.formula(form), nunn_full)
+
+#The below coef function returns a vector of OLS coefficiants 
+coef(lm_1_1)
+
+```
+First, get a small subset of the nunn_full dataset. This time, sample 20 rows and select for variables exports, age, age2, male, and urban_dum. To this small subset, add (cbind) a column of 1's; this represents the intercept. If you need some guidance, look at how we sampled 10 rows selected for a different set of variables above in the lecture portion. 
+```{r}
+# Enter here
+```
+
+Next let's try calculating predicted values of levels of trust in neighbors by multiplying coefficients for the intercept, exports, age, age2, male, and urban_dum to the actual observed values for those variables in the small subset you've just created. 
+```{r}
+#Hint: You can get just selected elements from the vector returned by coef(lm_1_1)
+
+#For example, the below code gives you the first 3 elements of the original vector
+coef(lm_1_1)[1:3]
+
+#Also, the below code gives you the coefficient elements for intercept and male
+coef(lm_1_1)[c("(Intercept)", "male")]
+
+```
