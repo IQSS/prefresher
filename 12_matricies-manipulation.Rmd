@@ -432,7 +432,7 @@ Let
 \end{array}\right]
 \]
 
-Use R to write code that will consecutively multiply $A$ to itself 4 times. What is the value of $A^{4}$? 
+Use R to write code that will create the matrix $A$, and then  consecutively multiply $A$ to itself 4 times. What is the value of $A^{4}$? 
 
 ```{r}
 ## Enter yourself
@@ -445,26 +445,36 @@ Note that R notation of matrices is different from the math notation. Simply try
 ### 2 {-}
 Let's apply what we learned about subsetting or filtering/selecting. Use the `nunn_full` dataset you have already loaded
 
-First, show all observations (rows) that have the "male" variable value that is higher than 0.5
-
-
-```{r}
-## Enter yourself
-```
-
-Next, show all values of `"trust_neighbors"` and `"age"`
+a) First, show all observations (rows) that have a `"male"` variable higher than 0.5
 
 ```{r}
 ## Enter yourself
 ```
 
-Lastly, show all values of `"trust_neighbors"` and `"age"` for observations (rows) that have the "male" variable value that is higher than 0.5
+b) Next, create a matrix / dataframe with only two columns: `"trust_neighbors"` and `"age"`
+
+```{r}
+## Enter yourself
+```
+
+c) Lastly, show all values of `"trust_neighbors"` and `"age"` for observations (rows) that have the "male" variable value that is higher than 0.5
 
 ```{r}
 ## Enter yourself
 ```
 
 ### 3 {-}
+
+Find a way to generate a vector of "column averages" of the matrix `X` from the Nunn and Wantchekon data in one line of code. Each entry in the vector should contain the sample average of the values in the column. So a 100 by 4 matrix should generate a length-4 matrix.
+
+
+
+### 4 {-}
+
+Similarly, generate a vector of "column medians". 
+
+
+### 5 {-}
 
 Consider the regression that was run to generate Table 1:
 ```{r}
