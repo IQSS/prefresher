@@ -239,7 +239,7 @@ Make a scatterplot with the number of colonies on the x-axis and Fame on the y-a
 Find the right function to read the following datasets into your R window. 
 
 
-* `input/acs2016_1percent.csv`: A one percent sample of the American Community Survey
+* `input/acs2015_1percent.csv`: A one percent sample of the American Community Survey
 * `input/gapminder_wide.tab`: Country-level wealth and health from Gapminder^[Formatted and taken from <https://doi.org/10.7910/DVN/GJQNEQ>]
 * `input/gapminder_wide.Rds`: A Rds version of the Gapminder (What is a Rds file? What's the difference?)
 * `input/Nunn_Wantchekon_sample.dta`: A sample from the Afrobarometer survey (which we'll explore tomorrow). `.dta` is a Stata format. 

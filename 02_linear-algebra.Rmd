@@ -35,7 +35,7 @@ __Vector Inner Product__: The inner product (also called the dot product or scal
 		$$ {\bf u} \cdot {\bf v} = u_1v_1 + u_2v_2 + \cdots + u_nv_n = \sum_{i = 1}^n u_iv_i$$
 		If ${\bf u} \cdot {\bf v} = 0$, the two vectors are orthogonal (or perpendicular).
 
-__Vector Norm__: The norm of a vector is a measure of its length.  There are many different ways to calculate the norm, but the most common of is the Euclidean norm (which corresponds to our usual conception of distance in three-dimensional space):
+__Vector Norm__: The norm of a vector is a measure of its length.  There are many different ways to calculate the norm, but the most common is the Euclidean norm (which corresponds to our usual conception of distance in three-dimensional space):
 		$$ ||{\bf v}|| = \sqrt{{\bf v}\cdot{\bf v}} = \sqrt{ v_1v_1 + v_2v_2 + \cdots + v_nv_n}$$
 
 ```{example, name = "Vector Algebra", vectors}
@@ -88,7 +88,7 @@ A set $S$ of vectors is linearly dependent if and only if at least one of the ve
  
  Since $\begin{pmatrix}9 & 13 & 17 \end{pmatrix}$ is a linear combination of $\begin{pmatrix}1 & 2 & 3 \end{pmatrix}$, $\begin{pmatrix} 2 & 3& 4\end{pmatrix}$, and $\begin{pmatrix} 3 & 4 & 5 \end{pmatrix}$, these 4 vectors constitute a linearly dependent set. 
 
-```{example, name = "Linear Indepdence", linearindep} 
+```{example, name = "Linear Independence", linearindep} 
 
 Are the following sets of vectors linearly independent?
   
