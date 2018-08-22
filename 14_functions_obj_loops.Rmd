@@ -370,7 +370,9 @@ In `rstudio.cloud`, we already installed a set of packages for you. But when you
 
 ## Conditionals
 
-Sometimes, you want to execute a command only under certain conditions.
+Sometimes, you want to execute a command only under certain conditions. This is done through the almost universal function, `if()`. Inside the `if` function we enter a logical statement. The line that is adjacent to, or follows, the `if()` statement only gets executed if the statement returns `TRUE`. 
+
+For example, 
 
 For example, 
 
@@ -388,15 +390,25 @@ if (x >0) {
 
 ## For-loops
 
-```{r}
+Loops repeat the same statement, although the statement can be "the same" only in an abstract sense.  Use the `for(x in X)` syntax to repeat the subsequent command as many times as there are elements in the right-hand object `X`. Each of these elements will be referred to the left-hand index `x`
 
+First, come up with a vector. 
+```{r}
 fruits <- c("apples", "oranges", "grapes")
+```
+
+Now we use the `fruits` vector in a `for` loop.
+
+```{r}
 for (fruit in fruits) {
   print(paste("I love", fruit))
 }
 ``` 
-```{r}
 
+Here `for()` and `in` must be part of any for loop. The right hand side `fruits` must be a thing that exists. Finally the `left-hand` side object is "Pick your favor name." It is analogous to how we can index a sum with any letter. $\sum_{i=1}^{10}i$ and `sum_{j = 1}^{10}j` are in fact the same thing.
+
+
+```{r}
 
 for (i in 1:length(fruits)) {
   print(paste("I love", fruits[i]))
@@ -410,8 +422,8 @@ for( state in states_of_interest) {
   state_data <- cen10[cen10$state == state,]
   nmen <- sum(state_data$sex == "Male")
   nwomen <- sum(state_data$sex == "Female")
-  men_perc <- round(100*(nmen/(nmen + nwomen)), digits=2)
-  print(paste("Percentage of men in",state, "is", men_perc))
+  men_perc <- round(100*(nmen/(nmen + nwomen)), digits = 2)
+  print(paste("Percentage of men in", state, "is", men_perc))
 }
 ``` 
 
