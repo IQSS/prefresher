@@ -360,9 +360,11 @@ __Open__: A set $S$ is open if for each point $\bf x$ in $S$, there exists an op
 	
 __Closed__: A set $S$ is closed if it contains all of its boundary points.
 
+* Alternatively: A set is closed if its complement is open.
 * If the set $S$ is circular and closed, the set contains all points within the rim as well as the rim itself.
 * Example: $\{ (x,y) : x^2+y^2\le 4 \}$
 * Note: a set may be neither open nor closed. Example: $\{ (x,y) : 2 < x^2+y^2\le 4 \}$
+
 	
 __Complement__: The complement of set $S$ is everything outside of $S$.
 
