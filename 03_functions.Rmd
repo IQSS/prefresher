@@ -438,7 +438,7 @@ Answer to Exercise \@ref(exr:solvevar1):
 
 2. x = {1, -4}
 
-3. x = = $\ln10$
+3. x = - $\ln10$
 
 
 
