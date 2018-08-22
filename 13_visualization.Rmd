@@ -53,11 +53,11 @@ Time series data is a common form of data in social science data, and there is g
 
 ## Read data
 
-First, the census. Read in a subset of the 2010 Census. This is a 0.01 percent random sample of the entire U.S. Census. 
+First, the census. Read in a subset of the 2010 Census. This is a 1 percent  sample of the entire U.S. Census (100 times larger than the previous version). 
 
 
 ```{r, message=FALSE}
-cen10 <- read_csv("input/usc2010_001percent.csv")
+cen10 <- readRDS("input/usc2010_1percent.Rds")
 ```
 
 The data comes from IPUMS^[[Ruggles, Steven, Katie Genadek, Ronald Goeken, Josiah Grover, and Matthew Sobek. 2015. Integrated Public Use Microdata Series: Version 6.0 dataset](http://doi.org/10.18128/D010.V6.0)], a great source to extract and analyze Census and Census-conducted survey (ACS, CPS) data.
