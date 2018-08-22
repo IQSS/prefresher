@@ -56,13 +56,13 @@ Markdown is known as a "light-weight" editor, which means that it is relatively 
 ### markdown commands
 For italic and bold, use either the asterisks or the underlines, 
 
-```{txt, eval = FALSE, echo = TRUE}
+```
 *italic*   **bold**
 _italic_   __bold__
 ```
 
 And for headers use the hash symbols, 
-```{txt, eval = FALSE, echo = TRUE}
+```
 # Main Header
 ## Sub-headers
 ```

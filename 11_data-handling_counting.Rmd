@@ -159,6 +159,15 @@ ggplot(ober, aes(y = Fame, x = factor(Regime), group = factor(Regime))) +
 
 What do the 1's, 2's, and 3's stand for? 
 
+### Finding observations
+
+
+These `tidyverse` commands from the `dplyr` package are newer and not built-in, but they are one of the increasingly more popular ways to wrangle data. 
+
+* 80 percent of your data wrangling needs might be doable with these basic `dplyr` functions: `select`, `mutate`, `group_by`, `summarize`, and `arrange`.
+* These verbs roughly correspond to the same commands in SQL, another important language in data science. 
+* The `%>%` symbol is a pipe. It takes the thing on the left side and pipes it down to the function on the right side. We could have done `count(cen10, race)` as `cen10 %>% count(race)`. That means take `cen10` and pass it on to the function `count`, which will count observations by race and return a collapsed dataset with the categories in its own variable and their respective counts in `n`.
+
 
 ### Extra: A sneak peak at Ober's data
 
@@ -239,7 +248,7 @@ Make a scatterplot with the number of colonies on the x-axis and Fame on the y-a
 Find the right function to read the following datasets into your R window. 
 
 
-* `input/acs2016_1percent.csv`: A one percent sample of the American Community Survey
+* `input/acs2015_1percent.csv`: A one percent sample of the American Community Survey
 * `input/gapminder_wide.tab`: Country-level wealth and health from Gapminder^[Formatted and taken from <https://doi.org/10.7910/DVN/GJQNEQ>]
 * `input/gapminder_wide.Rds`: A Rds version of the Gapminder (What is a Rds file? What's the difference?)
 * `input/Nunn_Wantchekon_sample.dta`: A sample from the Afrobarometer survey (which we'll explore tomorrow). `.dta` is a Stata format. 

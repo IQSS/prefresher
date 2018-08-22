@@ -7,13 +7,15 @@ library(scales)
 ```
 
 
-## Where are we? Where are we headed? {-}
+### Where are we? Where are we headed? {-}
 
 Up till now, you should have covered:
 
 * The R Visualization and Programming primers at  <https://rstudio.cloud/primers/>
 * Reading and handling data
 * Matrices and Vectors
+   * What does `:` mean in R? What about `==`? `,`?, `!=` , `&`, `|`, `%in% `
+   * What does `%>%` do?
 
 
 Today we'll cover:
@@ -34,8 +36,7 @@ Today we'll cover:
 
 Other review
 
-* What does `:` mean in R? What about `==`? `,`?, `!=` , `&`, `|`, `%in% `
-* What does `%>%` do
+
 
 
 
@@ -47,7 +48,7 @@ In this module, let's visualize some cross-sectional stats with an actual Census
 Why care about the Census? The Census is one of the fundamental acts of a government. See the Law Review article by [Persily (2011)](http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf), "The Law of the Census"^[[Persily, Nathaniel. 2011. "The Law of the Census: How to Count, What to Count, Whom to Count, and Where to Count Them.”](http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf). _Cardozo Law Review_ 32(3): 755–91.]. The Census is government's primary tool for apportionment (allocating seats to districts), appropriations (allocating federal funding), and tracking demographic change.  See^[[Hochschild, Jennifer L., and Brenna Marea Powell. 2008. "Racial Reorganization and the United States Census 1850–1930: Mulattoes, Half-Breeds, Mixed Parentage, Hindoos, and the Mexican Race."](https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2). _Studies in American Political Development_ 22(1): 59–96.] for example [Hochschild and Powell (2008)](https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2) on how the categorizations of race in the Census during 1850-1930. Notice also that both of these pieces are not inherently "quantitative" --- the Persily article is a Law Review and the Hochschild and Powell article is on American Historical Development --- but data analysis would be certainly relevant.
 
 
-Time series data is a common form of data in social science data, and there is growing methodological work on making causal inferences with time series^[[Blackwell, Matthew,  and Adam Glynn. 2018. "How to Make Causal Inferences with Time-Series Cross-Sectional Data under Selection on Observables."](https://doi.org/10.1017/S0003055418000357)  _American Political Science Review_].  We will use the the ideological estimates of the Supreme court, which has been in the news with Brett Kavanaugh's nomination. s
+Time series data is a common form of data in social science data, and there is growing methodological work on making causal inferences with time series^[[Blackwell, Matthew,  and Adam Glynn. 2018. "How to Make Causal Inferences with Time-Series Cross-Sectional Data under Selection on Observables."](https://doi.org/10.1017/S0003055418000357)  _American Political Science Review_].  We will use the the ideological estimates of the Supreme court, which has been in the news with Brett Kavanaugh's nomination. 
 
 
 
@@ -63,34 +64,33 @@ cen10 <- readRDS("input/usc2010_1percent.Rds")
 The data comes from IPUMS^[[Ruggles, Steven, Katie Genadek, Ronald Goeken, Josiah Grover, and Matthew Sobek. 2015. Integrated Public Use Microdata Series: Version 6.0 dataset](http://doi.org/10.18128/D010.V6.0)], a great source to extract and analyze Census and Census-conducted survey (ACS, CPS) data.
 
 
-What does this data look like?
-```{r}
-cen10
-```
-
-
-
 ## Counting
-How many people are in your sample. 
+How many people are in your sample?
 
 ```{r}
 nrow(cen10)
 ```
 
-What are other ways (fuunctions) to get the same number?
 
-Multiply this number by the inverse of the sample proportion. Does it equal the total population of the U.S. in 2010^[The 2010 Census reported 308,745,539. [Wikipedia](https://en.wikipedia.org/wiki/2010_United_States_Census)]? 
-```{r}
-nrow(cen10)*100*100
-```
+This and all subsequent  tasks involve manipulating and summarizing data, sometimes called "wrangling". As per last time, there are both "base-R" and "tidyverse" approaches. 
 
-This and all subsequent  tasks involve manipulating and summarizing data, sometimes called "wrangling". There are at least two approaches, "base-R" and "tidyverse functions". The tidyverse functions are add-ons that programmers have built, and are increasingly popular. We will mainly focus on tidyverse, while starting off breiefly by R. 
+Yesterday we saw several functions from the tidyverse:
+
+* `select` selects columns
+* `filter` selects rows based on a logical (boolean) statement
+* `slice` selects rows based on the row number
+* `arrange` reordered the rows in descending order.
+
+In this visualization section, we'll make use of the pair of functions `group_by()` and `summarize()`. 
 
 
 ## Tabulating
+
+Summarizing data is the key part of communication; good data viz gets the point across^[[Kastellec, Jonathan P., and Eduardo L. Leoni. 2007. "Using Graphs Instead of Tables in Political Science."](http://www.princeton.edu/~jkastell/Tables2Graphs/graphs.pdf).  _Perspectives on Politics_ 5 (4): 755–71.].  Summaries of data come in two forms: tables and figures.
+
 Here are two ways to count by group, or to tabulate.
 
-Use the `table` function
+In base-R Use the `table` function, that provides how many rows exist for an unique value of the vector (remember `unique` from yesterday?)
 ```{r}
 table(cen10$race)
 ```
@@ -101,22 +101,12 @@ With tidyverse, a quick convenience function is `count`, with the variable to co
 count(cen10, race)
 ```
 
-These `tidyverse` commands from the `dplyr` package are newer and not built-in, but they are one of the increasingly more popular ways to wrangle data. 
 
-* 80 percent of your data wrangling needs might be doable with these basic `dplyr` functions: `select`, `mutate`, `group_by`, `summarize`, and `arrange`.
-* These verbs roughly correspond to the same commands in SQL, another important language in data science. 
-* The `%>%` symbol is a pipe. It takes the thing on the left side and pipes it down to the function on the right side. We could have done `count(cen10, race)` as `cen10 %>% count(race)`. That means take `cen10` and pass it on to the function `count`, which will count observations by race and return a collapsed dataset with the categories in its own variable and their respective counts in `n`.
-
-```{r}
-cen10 %>% count(race)
-```
 
 We can check out the arguments of `count` and see that there is a `sort` option. What does this do?
 ```{r}
 count(cen10, race, sort = TRUE)
 ```
-
-
 
 `count` is a kind of shorthand for `group_by()` and `summarize`. This code would have done the same. 
 
@@ -126,43 +116,48 @@ cen10 %>%
   summarize(n = n())
 ```
 
+If you are new to tidyverse, what would you _think_ each row did? Reading the function help page, verify if your intuition was correct. 
+
 where `n()` is a function that counts rows.
 
 
-## base R and ggplot
-Visualizing data is the key part of communication; good data viz gets the point across^[[Kastellec, Jonathan P., and Eduardo L. Leoni. 2007. "Using Graphs Instead of Tables in Political Science."](http://www.princeton.edu/~jkastell/Tables2Graphs/graphs.pdf).  _Perspectives on Politics_ 5 (4): 755–71.]. 
+## base R graphics and ggplot
 
 Two prevalent ways of making graphing are referred to as "base-R" and "ggplot".
 
+
 ### base R
 
-"Base-R"  graphics are graphics that are made with R's default graphics commands. First, let's assign our tabulation to an object, call it `tab_race`
+"Base-R"  graphics are graphics that are made with R's default graphics commands. First, let's assign our tabulation to an object, 
+then put it in the `barplot()` function.
+
 
 ```{r}
-tab_race <- table(cen10$race)
+barplot(table(cen10$race))
 ``` 
 
-Then put it in the `barplot()` function
-```{r, fig.fullwidth = TRUE}
-barplot(tab_race)
-```
 
 
 ### ggplot
-A popular alternative a `ggplot` graphics. `gg` stands for grammar of graphics by Hadley Wickham, and it has a new semantics of explaining graphics in R. Again, first let's set up the data. 
+A popular alternative a `ggplot` graphics, that you were introduced to in the tutorial. `gg` stands for grammar of graphics by Hadley Wickham, and it has a new semantics of explaining graphics in R. Again, first let's set up the data. 
 
-Let's group and count first, like we just did before.
+Although the tutorial covered making scatter plots as the first cut, often data requires summaries before they made into graphs.
+
+For this example, let's group and count first like we just did. But assign it to a new object.
 
 ```{r, fig.fullwidth = TRUE}
 grp_race <- count(cen10, race)
 ```
 
-We will now plot this grouped set of numbers. The `ggplot()` function takes two main arguments, `data` and `aes`. 
+We will now plot this grouped set of numbers. Recall that the `ggplot()` function takes two main arguments, `data` and `aes`. 
 
 1. First enter a single dataframe from which you will draw a plot.
 2. Then enter the `aes`, or aesthetics. This defines which variable in the data the plotting functions should take for pre-set dimensions in graphics. The dimensions `x` and `y` are the most important. We will assign `race` and `count` to them, respectively,
 3. After you close `ggplot()` .. add __layers__ by the plus sign. A `geom` is a layer of graphical representation, for example `geom_histogram` renders a histogram, `geom_point` renders a scatter plot. For a barplot, we can use `geom_col()`
 
+
+
+What is the right geometry layer to make a barplot? Turns out: 
 
 ```{r, fig.fullwidth = TRUE}
 ggplot(data = grp_race, aes(x = race, y = n)) + geom_col()
@@ -170,12 +165,13 @@ ggplot(data = grp_race, aes(x = race, y = n)) + geom_col()
 
 
 ## Improving your graphics
-Adjusting your graphics to make the point clear is an important skill. Here is an example of showing the same numbers but with a different design, in a way that aims to maximize the "data-to-ink ratio".
+
+Adjusting your graphics to make the point clear is an important skill. Here is a base-R example of showing the same numbers but with a different design, in a way that aims to maximize the "data-to-ink ratio".
 
 
 ```{r, fig.fullwidth = TRUE}
-par(oma = c(1, 10, 1, 1))
-barplot(sort(tab_race), # sort numbers
+par(oma = c(1, 11, 1, 1))
+barplot(sort(table(cen10$race)), # sort numbers
         horiz = TRUE, # flip
         border = NA, # border is extraneous
         xlab = "Number in Race Category", 
@@ -205,29 +201,29 @@ The data ink ratio was popularized by Ed Tufte (originally a political economy s
 
 ## Cross-tabs
 
-Visualizations and Tables each have their states. A rule of thumb is that more than a dozen numbers on a table is too much to digest, but less than a dozen is too few for a figure to be worth it. Let's look at a table first. 
-
+Visualizations and Tables each have their strengths. A rule of thumb is that more than a dozen numbers on a table is too much to digest, but less than a dozen is too few for a figure to be worth it. Let's look at a table first. 
 
 A cross-tab is counting with two types of variables, and is a simple and powerful tool to show the relationship between multiple variables.
 
 ```{r}
-xtab_race_state <- table(cen10$race, cen10$state)
-dim(xtab_race_state)
+xtab_race_state <- table(cen10$state, cen10$race)
 ```
+
+What would the dimensions of this table be?
 
 What if we care about proportions within states, rather than counts. We want to compare the racial composition of a small state (like Delaware) and a large state (like California). 
 
-One way to transform a table of counts to a table of proportions is the function `prop.table`. Be careful what you want to take proportions of -- this is set by the `margin` argument. In R, the first margin (1) is _rows_ and the second margin (2) is columns.
+One way to transform a table of counts to a table of proportions is the function `prop.table`. Be careful what you want to take proportions of -- this is set by the `margin` argument. In R, the first margin (`margin = 1`) is _rows_ and the second (`margin = 2`) is _columns_.
+
 
 ```{r}
 ptab_race_state <- prop.table(xtab_race_state, margin = 2)
-dim(ptab_race_state)
 ```
 
 
 ## Composition Plots
 
-How would you make the same figure with `ggplot()`? First, we want a count for each state $\times$ race combination.  So group by those two factors and count how many observations are in each two-way categorization.
+How would you make the same figure with `ggplot()`? First, we want a count for each state $\times$ race combination.  So group by those two factors and count how many observations are in each two-way categorization. `group_by()` can take any number of variables, separated by commas. 
 
 ```{r}
 grp_race_state <- cen10 %>% 
@@ -242,7 +238,8 @@ grp_race_state
 ```
 
 
-Now, we want to tell `ggplot2` something like the following: I want bars by state, where heights indicate racial groups. Each bar should be colored by the race. With some googling, you will get something like this 
+Now, we want to tell `ggplot2` something like the following: I want bars by state, where heights indicate racial groups. Each bar should be colored by the race. With some googling, you will get something like this:
+
 ```{r, fig.height = 8}
 ggplot(data = grp_race_state, aes(x =  state, y = n,  fill = race)) +
   geom_col(position = "fill") + # the position is dertemined by the fill ae
@@ -254,21 +251,6 @@ ggplot(data = grp_race_state, aes(x =  state, y = n,  fill = race)) +
        source = "Source: 2010 Census  sample") +
   theme_minimal()
 ```
-
-
-## Histograms
-When our data is continuous rather than categorical, our first graphics will probably be a histogram.
-
-```{r, eval = FALSE}
-hist(cen10$age, main = "Age Distribution", xlab = "Age")
-```
-
-
-```{r, message=FALSE}
-ggplot(data = cen10, aes(x = age)) +
-  geom_histogram()
-```
-
 
 
 ## Line graphs
@@ -296,13 +278,19 @@ As you might have guessed, these data can be shown in a time trend from the rang
 
 
 ```{r}
-ggplot(justice, aes(x = term, y = idealpt, group = justice)) +
+ggplot(justice, aes(x = term, y = idealpt)) +
   geom_line()
 ```
+Why does the above graph not look like the the put in the beginning? Fix it by adding just one aesthetic to the graph.
 
-This seems to "work" off the shelf. But take a moment to see why the code was written as it is and how that maps on to the graphics. In particular, what is the `group` aesthetic doing for you? What would happen if that was not specified?
+```{r}
+# enter a correction that draws separate lines by group.
+```
+
+If you got the right aesthetic, this seems to "work" off the shelf. But take a moment to see why the code was written as it is and how that maps on to the graphics. What is the `group` aesthetic doing for you? 
 
 Now, this graphic already indicates a lot, but let's improve the graphics so people can actually read it.  This is left for a Exercise. 
+
 
 
 As social scientists, we should also not forget to ask ourselves whether these numerical measures are fit for what we care about, or actually succeeds in measuring what we'd like to measure. The estimation of these "ideal points" is a subfield of political methodology beyond this prefresher. For more reading, skim through the original paper by Martin and Quinn (2002)^[[Martin, Andrew D. and Kevin M. Quinn. 2002. "Dynamic Ideal Point Estimation via Markov Chain Monte Carlo for the U.S. Supreme Court, 1953-1999"](http://mqscores.lsa.umich.edu/media/pa02.pdf). _Political Analysis._ 10(2): 134-153.]. Also for a methodological discussion on the difficulty of measuring time series of preferences, check out Bailey (2013)^[[Bailey, Michael A. 2013. "Is Today’s Court the Most Conservative in Sixty Years? Challenges and Opportunities in Measuring Judicial Preferences." ](https://michaelbailey.georgetown.domains/wp-content/uploads/2018/05/JOP_proofs_June2013.pdf). _Journal of Politics_ 75(3): 821-834]
@@ -313,8 +301,9 @@ As social scientists, we should also not forget to ask ourselves whether these n
 ## Exercises {-}
 In the time remaining, try the following exercises. Order doesn't matter. 
 
-### Exercise: Make your own graphic {-}
-Make a graphic from the census data that tells us something interesting about the U.S. 2010 population.
+### 1: Rural states {-}
+
+Make a well-labelled figure that plots the proportion of the state's population (as per the census) that do not reside in a city large enough to be identified by name in the Census dataset. Each state should be labelled as a point, rather than a bar, and there should be 51 points, ordered by their size.  All labels should be readable.
 
 ```{r}
 # Enter yourself
@@ -322,7 +311,7 @@ Make a graphic from the census data that tells us something interesting about th
 ```
 
 
-### Exercise: The swing justice {-}
+### 2: The swing justice {-}
 
 Using the `justice` dataset and building off of the plot that was given, make an improved plot that has the following features. 
 
@@ -345,7 +334,7 @@ Using the `justice` dataset and building off of the plot that was given, make an
 ``` 
 
 
-### Exercise: Don't sort by the alphabet {-}
+### 3: Don't sort by the alphabet {-}
 
 The Figure we made that shows racial composition by state has one notable shortcoming: it orders the states alphabetically, which is not particularly useful if you want see an overall pattern, without having particular states in mind. 
 
@@ -357,13 +346,7 @@ Find a way to modify the figures so that the states are ordered by the _proporti
 # Enter yourself
 ```
 
-### Exercise: Back to census and counting CVAP {-}
 
-A issue raised in Persily's article is that the full-count U.S. Census does not record  whether the residents are citizens of the United States^[Here is that argument of his again, more recently in the popular press. ["The Mysterious Number of American Citizens". June 2, 2015.  _POLITICO_](http://www.politico.com/magazine/story/2015/06/the-supreme-courts-big-data-problem-118568)]. Instead, this question is asked in a survey, the American Community Survey. The two are fundamentally different exercises: the Census counts everyone by definition, a survey samples its data. 
+### 4 What to show and how to show it {-}
 
-Load the 1 percent sample of the 2015 ACS (`acs2015_1percent.csv`, in the `input` folder) and give an estimate of the proportion of a state's ACS respondents that are reportedly U.S. citizens. 
-
-```{r}
-# Enter yourself
-
-```
+As a student of politics our goal is not necessarily to make pretty pictures, but rather make pictures that tell us something about politics, government, or society. If you could augment either the census dataset or the justices dataset in some way, what would be an substantively significant thing to show as a graphic? 
