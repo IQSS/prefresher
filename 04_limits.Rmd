@@ -38,11 +38,11 @@ For any draw of identically distributed independent variables with mean $\mu$, t
 \[\lim\limits_{n\to \infty} P(|\bar{X}_n - \mu | > \varepsilon) = 0\]
   
   
-A shorthand of which is  \(\bar{X}_n \xrightarrow{p} \mu\), where the arrow is read as "converges in probability to"."
+A shorthand of which is  \(\bar{X}_n \xrightarrow{p} \mu\), where the arrow is read as "converges in probability to".
 ```
 
 
-Intuitively, the more data, the more accurate is your guess.  For example, the Figure \@ref(fig:llnsim) shows how the sample average from may coin tosses converges to the true value : 0.5.
+Intuitively, the more data, the more accurate is your guess.  For example, the Figure \@ref(fig:llnsim) shows how the sample average from many coin tosses converges to the true value : 0.5.
 
 ```{r, llnsim, fig.cap="As the number of coin tosses goes to infinity, the average probabiity of heads converges to 0.5", echo= FALSE}
 set.seed(02138)
