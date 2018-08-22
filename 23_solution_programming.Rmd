@@ -1,0 +1,88 @@
+# Suggested Programming Solutions {-}
+
+```{r, message = FALSE}
+library(tidyverse)
+library(ggrepel)
+library(forcats)
+library(scales)
+```
+
+
+
+## Section \@ref(dataviz): Visualization
+
+
+
+### 1 State Proportions {-}
+
+```{r}
+cen10 <- readRDS("input/usc2010_1percent.Rds")
+```
+
+
+Group by state, noting that the mean of a set of logicals is a mean of 1s (`TRUE`) and 0s (`FALSE`).
+
+```{r}
+grp_st <- cen10 %>% 
+  group_by(state) %>% 
+  summarize(prop = mean(ownership == "Rented")) %>% 
+  arrange(prop) %>% 
+  mutate(state = as_factor(state))
+```
+
+
+Plot points
+```{r}
+ggplot(grp_st, aes(x = state, y = prop)) + 
+  geom_point() +
+  coord_flip() +
+  scale_y_continuous(labels = percent) + # use the scales package to format percentages
+  labs(y = "Proportion of Renters",
+       x = "", 
+       caption = "Source: 2010 Census (1 percent)")
+```
+
+
+
+
+
+### 2 Swing Justice {-}
+
+
+```{r, message = FALSE}
+justices <- read_csv("input/justices_court-median.csv")
+```
+
+Keep justices who are in the dataset in 2016, 
+```{r}
+in_2017 <- justices %>% 
+  filter(term == 2016) %>% 
+  distinct(justice) %>%  # unique values
+  mutate(present_2016 = 1) # keep an indicator to distinguish from rest after merge
+
+df_indicator <- justices %>% 
+  left_join(in_2017)
+
+```
+
+All together 
+```{r}
+df_indicator %>% 
+  ggplot(aes(x = term, y = idealpt, group = justice_id)) +
+  geom_line(aes(y = median_idealpt), color = "red", size = 2, alpha = 0.1) +
+  geom_line(alpha = 0.5) +
+  geom_line(data = filter(df_indicator, !is.na(present_2016))) +
+  geom_point(data = filter(df_indicator, !is.na(present_2016), term == 2016)) +
+  geom_text_repel(data = filter(df_indicator, term == 2016), aes(label = justice),
+                  nudge_x = 10,
+                  direction = "y") +
+  scale_x_continuous(breaks = seq(1940, 2020, 10), limits = c(1937, 2020)) +
+  scale_y_continuous(limits = c(-5, 5)) +
+  labs(
+    x = "SCOTUS Term",
+    y = "Estimated Martin-Quinn Ideal Point",
+    caption = "Outliers capped at -5 to 5. Red lines indicate median justice. Current justices of the 2017 Court in black."
+  ) +
+  theme_bw()
+```
+
