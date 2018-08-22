@@ -421,7 +421,7 @@ Answer to Exercise \@ref(exr:log1):
 
 1. 3
 
-2. $9\log(x) + 5\log(y) + 3\log(z)$
+2. $9\log(x) + 5\log(y) - 3\log(z)$
 
 3. $\frac{1}{2}(\ln{x} + \ln{y})$
 
