@@ -303,7 +303,8 @@ In the time remaining, try the following exercises. Order doesn't matter.
 
 ### 1: Rural states {-}
 
-Make a well-labelled figure that plots the proportion of the state's population (as per the census) that do not reside in a city large enough to be identified by name in the Census dataset. Each state should be labelled as a point, rather than a bar, and there should be 51 points, ordered by their size.  All labels should be readable.
+Make a well-labelled figure that plots the proportion of the state's population (as per the census) that reside in their file as a renter. Each state should be labelled as a point, rather than a bar, and there should be 51 points, ordered by their value.  All labels should be readable.
+
 
 ```{r}
 # Enter yourself
