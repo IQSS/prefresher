@@ -150,8 +150,8 @@ so, the limit is actually 1.
 
 After some practice, the key to intuition is whether one part of the fraction grows "faster" than another. If the denominator grows faster to infinity than the numerator, then the fraction will converge to 0, even if the numerator will also increase to infinity. In a sense, limits show how not all infinities are the same.
 
-```{exercise}
-Find the following limits, then explain in English the intuition for why that is the case. 
+```{exercise, limseq2}
+Find the following limits of sequences, then explain in English the intuition for why that is the case. 
 
  1.  \(\lim\limits_{n\to\infty} \frac{2n}{n^2 + 1}\)
  2.  \(\lim\limits_{n\to\infty} (n^3 - 100n^2)\)
@@ -195,11 +195,23 @@ Find the limit of the following functions.
 
 ```
 
+Limits can get more complex in roughly two ways. First, the functions may become large polynomials with many moving pieces. Second,the functions may become discontinuous. 
+
+The function can be thought of as a more general or "smooth" version of sequences.  For example, 
+
+```{exercise, limfunmax, name = "Limits of a Fraction of Functions"}
+
+Find the limit of
+
+\[\lim_{x\to\infty} \frac{(x^4 +3x−99)(2−x^5)}{(18x^7 +9x^6 −3x^2 −1)(x+1)}\]
+```
+
+
 
 
 Now, the functions will become a bit more complex:
 
-```{exercise}
+```{exercise, discontlim}
 Solve the following limits of functions
 
 1. $\lim\limits_{x\to 0} |x|$
@@ -308,7 +320,7 @@ Some properties of continuous functions:
 
 
 
-```{exercise}
+```{exercise, discontdraw, name = "Limit when Denominator converges to 0"}
 
 Let \[f(x) = \frac{x^2 + 2x}{x}.\]
 
@@ -335,6 +347,14 @@ Example \@ref(exm:seqbehav)
   
 ```
 
+
+Exercise \@ref(exr:limseq2)
+
+```{r}
+
+```
+
+
 Example \@ref(exm:limfun1)
 
 ```{solution}
@@ -347,3 +367,42 @@ Example \@ref(exm:limfun1)
 
 
 ```
+
+
+Exercise \@ref(exr:limfunmax)
+
+
+
+```{solution}
+Although this function seems large, the thing our eyes should focus on is where the highest order polynomial remains. That will grow the fastest, so if the highest order term is on the denominator, the fraction will converge to 0, if it is on the numerator it will converge to negative infinity. Previewing the multiplication by hand, we can see that the $-x^9$ on the numerator will be the largest power. So the answer will be $-\infty$. We can also confirm this by writing out fractions:
+
+\begin{align*}  
+& \lim_{x\to\infty}\frac{\left(1 + \frac{3}{x^3} - \frac{99}{4x^4}\right)\left(-\frac{2}{x^5} + 1\right)}{\left(1 + \frac{9}{18x} - \frac{3}{18x^5} - \frac{1}{18x^7} \right)\left(1 + \frac{1}{x}\right)} \\
+&\times \frac{x^4}{1} \times -\frac{x^5}{1} \times \frac{1}{18x^7}\times \frac{1}{x}\\
+=& 1 \times \lim_{-x\to\infty} \frac{x}{18}
+\end{align*}
+
+```
+
+
+
+Exercise \@ref(exr:discontdraw)
+
+```{solution}
+
+See Figure \@ref(fig:fig-hole-0).
+
+Divide each part by $x$, and we get $x + \frac{2}{x}$ on the numerator, $1$ on the denominator. So, without worrying about a function being not defined, we can say $\lim_{x\to 0}f(x) = 0$.
+
+```
+
+
+```{r, fig-hole-0, fig.cap = "A function undedefined at x = 0", echo=FALSE}
+range0 <- tibble(x = c(-4, 2))
+
+ggplot(range0, aes(x = x)) +
+  stat_function(fun = function(x) ifelse(x == 0, NA, (x^2 + 2*x)/(x)), size = 0.5) +
+  labs(y = expression(f(x)), title = expression(f(x)==frac(x^2+2*x, x^2))) +
+    geom_point(data = tibble(x = 0, y = 2), aes(y = y), pch = 21, fill = "white")
+```
+
