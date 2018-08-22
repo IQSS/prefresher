@@ -20,7 +20,7 @@ For any series of independent and identically distributed random variables $X_1,
 
 \[\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \xrightarrow{d} \text{Normal}(0, 1),\]
 
-where $\mu$ is the mean of $X$ and $\sigma$ is the standard deviation of $X$. The arrow is read as  "convergens in distribution to". $\text{Normal}(0, 1)$ indicates a Normal Distribution with mean 0 and variance 1. 
+where $\mu$ is the mean of $X$ and $\sigma$ is the standard deviation of $X$. The arrow is read as  "converges in distribution to". $\text{Normal}(0, 1)$ indicates a Normal Distribution with mean 0 and variance 1. 
 
 That is,  the limit of the distribution of the lefthand side is the distribution of the righthand side. 
 ```
