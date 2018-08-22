@@ -922,10 +922,10 @@ Why is this important?  We rarely know the true process governing the events we 
 
 
 
-__Central Limit Theorem__. Let $\{X_n\} = \{X_1, X_2, \ldots\}$ be a sequence of i.i.d. random variables with finite mean ($\mu$) and variance ($\sigma^2$). Then, if $\bar{X}_n = \frac{X_1 + X_2 + \cdots + X_n}{n}$, for all real numbers $a$ and $b$,
+__Central Limit Theorem__. Let $\{X_n\} = \{X_1, X_2, \ldots\}$ be a sequence of i.i.d. random variables with finite mean ($\mu$) and variance ($\sigma^2$). Then, if $\bar{X}_n = \frac{X_1 + X_2 + \cdots + X_n}{n}$, for all real numbers $a$ and $b$
 
-$$P\left(a \le \sqrt{n}\frac{\bar{X}_n - \mu}{\sigma} \le b\right) \to \int_a^b \frac{1}{\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2}} \, dx$$
-as $n\to \infty$. This result, known as the Central Limit Theorem, is an important motivation for many quantitative methods, as well as for the widespread use of the Normal distribution.
+$$P\left(a \le \sqrt{n}\frac{\bar{X}_n - \mu}{\sigma} \le b\right) \to \Phi(b) - \Phi(a)$$
+as $n\to \infty$, where $\Phi(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} \, dx$ is the probability that a random variable with a standard normal distribution (i.e., normal with mean zero and unit variance) is less than $x$. This result, known as the Central Limit Theorem, is an important motivation for many quantitative methods, as well as for the widespread use of the Normal distribution.
 
 <!--
 \begin{align*} 
@@ -933,12 +933,10 @@ as $n\to \infty$. This result, known as the Central Limit Theorem, is an importa
 \end{align*} 
 --> 
 
-This means that, as $n$ grows, the distribution of the mean $\bar X_n$ is approximately normal, i.e.,
-$$\bar{X}_n \approx \mathcal{N}\bigg(\mu, \frac{\sigma^2}{n}\bigg).$$
-
+This result means that, as $n$ grows, the distribution of the sample mean $\bar X_n$ is approximately normal with mean $\mu$ and standard deviation $\frac{\sigma}{\sqrt n}$, i.e.,
+$$\bar{X}_n \approx \mathcal{N}\bigg(\mu, \frac{\sigma^2}{n}\bigg).$$ The standard deviation of $\bar X_n$ (which is roughly a measure of the precision of $\bar X_n$ as an estimator of $\mu$) decreases at the rate $1/\sqrt{n}$, so, for example, to increase its precision by $10$ (i.e., to get one more digit right), one needs to collect $10^2=100$ times more units of data.
  
-
-Intuitively, whenever a lot of small, independent processes somehow combine together to form the realized observations, practitioners often feel comfortable assuming Normality. 
+Intuitively, this result also justifies that whenever a lot of small, independent processes somehow combine together to form the realized observations, practitioners often feel comfortable assuming Normality. 
 
 
 __Strong Law of Large Numbers__. Let $\{X_n\} = \{X_1, X_2, \ldots\}$ be a sequence of i.i.d. random variables with a finite expected value of $\mu$. Then, 
