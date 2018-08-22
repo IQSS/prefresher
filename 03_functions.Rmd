@@ -374,6 +374,7 @@ __Complement__: The complement of set $S$ is everything outside of $S$.
 	
 __Empty__: The empty (or null) set is a unique set that has no elements, denoted by \{\} or $\emptyset$. 
 
+* The empty set is an example of a set that is open and closed, or a "clopen" set.
 * Examples: The set of squares with 5 sides; the set of countries south of the South Pole.
 
 
