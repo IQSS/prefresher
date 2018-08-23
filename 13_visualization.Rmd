@@ -183,8 +183,10 @@ Notice that we applied the `sort()` function to order the bars in terms of their
 
 In ggplot you might do this by:
 ```{r}
+library(forcats)
+
 grp_race_ordered <- arrange(grp_race, n) %>% 
-  mutate(race = forcats::as_factor(race))
+  mutate(race = as_factor(race))
 
 ggplot(data = grp_race_ordered, aes(x = race, y = n)) +
   geom_col() +
@@ -192,7 +194,6 @@ ggplot(data = grp_race_ordered, aes(x = race, y = n)) +
   labs(y = "Number in Race Category",
        x = "",
        caption = "Source: 2010 U.S. Census sample")
-
 ```
 
 
@@ -259,7 +260,7 @@ Line graphs are useful for plotting time trends.
 
 The Census does not track individuals over time. So let's take up another example: The U.S. Supreme Court. Take the dataset `justices_median.csv`.
 
-This data is adapted from the estimates of Martin and Quinn on their website <http://mqscores.lsa.umich.edu/>  
+This data is adapted from the estimates of Martin and Quinn on their website <http://mqscores.lsa.umich.edu/>.^[This exercise inspired from Princeton's R Camp Assignment.]  
 
 
 ```{r, message=FALSE}
@@ -303,22 +304,25 @@ In the time remaining, try the following exercises. Order doesn't matter.
 
 ### 1: Rural states {-}
 
-Make a well-labelled figure that plots the proportion of the state's population (as per the census) that do not reside in a city large enough to be identified by name in the Census dataset. Each state should be labelled as a point, rather than a bar, and there should be 51 points, ordered by their size.  All labels should be readable.
+Make a well-labelled figure that plots the proportion of the state's population (as per the census) that reside in their file as a renter. Each state should be visualized as a point, rather than a bar, and there should be 51 points, ordered by their value.  All labels should be readable. 
+
 
 ```{r}
 # Enter yourself
 
 ```
 
+* Alternatively, you can for instead plot the proportion of residents who do not reisde in a specified city.
+
 
 ### 2: The swing justice {-}
 
-Using the `justice` dataset and building off of the plot that was given, make an improved plot that has the following features. 
+Using the `justice` dataset and building off of the plot that was given, make an improved plot by implementing as many of the following changes (which hopefully improves the graph): 
 
-* Plots each line in translucent gray, so the overlapping lines can be visualized clearly.
+* Label axes 
 * Use a black-white background.
-* Label axes
 * Change the breaks of the x-axis to print numbers for every decade, not just every two decades.
+* Plots each line in translucent gray, so the overlapping lines can be visualized clearly. (Hint: in ggplot the `alpha` argument controls the degree of transparency)
 * Limit the scale of the y-axis to [-5, 5] so that the outlier justice in the 60s is trimmed and the rest of the data can be seen more easily (also, who is that justice?)
 * Plot the ideal point of the justice who holds the "median" ideal point in a given term. To distinguish this with the others, plot this line separately in a very light red _below_ the individual justice's lines.
 * Highlight the trend-line of only the nine justices who are _currently_ sitting on SCOTUS. Make sure this is clearer than the other past justices. 
