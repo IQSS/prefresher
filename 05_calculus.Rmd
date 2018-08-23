@@ -673,12 +673,33 @@ Our goal here is to find expressions for $u$ and $dv$ that, when substituted int
 ```{example,name="Integration by Parts"}
 Simplify the following integrals. These seemingly obscure forms of integrals come up often when integrating distributions.
 
-1. $\int x e^{ax} dx$
-2. $\int x^n e^{ax} dx$
-3. $\int x^3 e^{-x^2} dx$
-  
+\[\int x e^{ax} dx\]
   
 ```
+
+```{solution}
+
+Let $u=x$ and $\frac{dv}{dx} = e^{ax}$.  Then $du=dx$ and $v=(1/a)e^{ax}$. Substituting this into the integration by parts formula, we obtain 	
+\begin{eqnarray}
+\int x e^{ax} dx &=& u v - \int v du\nonumber\\
+				&=&x\left( \frac{1}{a}e^{ax}\right) -\int\frac{1}{a}e^{ax}dx\nonumber\\
+				&=&\frac{1}{a}xe^{ax}-\frac{1}{a^2}e^{ax}+c\nonumber
+\end{eqnarray}
+```
+
+
+```{exercise, intparts-adv, name = "Integration by Parts II"}
+
+1. Integrate
+\[\int x^n e^{ax} dx\]
+
+
+2. Integrate 
+\[\int x^3 e^{-x^2} dx\]
+
+
+```
+
 
 ## Answers to Examples and Exercises  {-}
 
@@ -762,3 +783,40 @@ When an expression is raised to a power, it is often helpful to use this express
 \end{align*}
 
 ```
+
+Exercise \@ref(exr:intparts-adv)
+
+1\. \[\int x^n e^{ax} dx\]
+```{solution}
+
+As in the first problem, let 
+\[u=x^n, dv=e^{ax}dx\]
+Then $du=n x^{n-1}dx$ and $v=(1/a)e^{ax}$.
+
+Substituting these into the integration by parts formula gives
+\begin{eqnarray}
+			\int x^n e^{ax} dx &=& u v - \int v du\nonumber\\
+			&=&x^n\left( \frac{1}{a}e^{ax}\right) - \int\frac{1}{a}e^{ax} n x^{n-1} dx\nonumber\\
+			&=&\frac{1}{a}x^n e^{ax} - \frac{n}{a}\int x^{n-1}e^{ax}dx\nonumber
+\end{eqnarray}	
+
+Notice that we now have an integral similar to the previous one, but with $x^{n-1}$ instead of $x^n$. 
+
+For a given $n$, we would repeat the integration by parts procedure until the integrand was  directly integratable --- e.g., when the integral became $\int e^{ax}dx$.
+```
+
+2\. \[\int x^3 e^{-x^2} dx\]
+
+```{solution}
+We could, as before, choose $u=x^3$ and $dv=e^{-x^2}dx$. But we can't then find $v$ --- i.e., integrating $e^{-x^2}dx$ isn't possible. Instead, notice that \[\frac{d}{dx}e^{-x^2} = -2xe^{-x^2},\] which can be factored out of the original integrand \[\int x^3 e^{-x^2} dx = \int x^2 (xe^{-x^2})dx.\] 
+  
+We can then let $u=x^2$ and $dv=x e^{-x^2}dx$. The$du=2x dx$ and $v=-\frac{1}{2}e^{-x^2}$.  Substituting these in, we have
+\begin{eqnarray}
+				\int x^3 e^{-x^2} dx &=& u v - \int v du\nonumber\\
+				&=& x^2 \left( -\frac{1}{2}e^{-x^2}\right) -\int \left(-\frac{1}{2}e^{-x^2}\right)2x dx\nonumber\\
+				&=& -\frac{1}{2}x^2 e^{-x^2}+\int x e^{-x^2}dx\nonumber\\
+				&=& -\frac{1}{2}x^2 e^{-x^2}-\frac{1}{2}e^{-x^2}+c\nonumber
+\end{eqnarray}
+
+```
+
