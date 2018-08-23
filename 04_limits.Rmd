@@ -20,7 +20,7 @@ For any series of independent and identically distributed random variables $X_1,
 
 \[\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \xrightarrow{d} \text{Normal}(0, 1),\]
 
-where $\mu$ is the mean of $X$ and $\sigma$ is the standard deviation of $X$. The arrow is read as  "convergens in distribution to". $\text{Normal}(0, 1)$ indicates a Normal Distribution with mean 0 and variance 1. 
+where $\mu$ is the mean of $X$ and $\sigma$ is the standard deviation of $X$. The arrow is read as  "converges in distribution to". $\text{Normal}(0, 1)$ indicates a Normal Distribution with mean 0 and variance 1. 
 
 That is,  the limit of the distribution of the lefthand side is the distribution of the righthand side. 
 ```
@@ -38,11 +38,11 @@ For any draw of identically distributed independent variables with mean $\mu$, t
 \[\lim\limits_{n\to \infty} P(|\bar{X}_n - \mu | > \varepsilon) = 0\]
   
   
-A shorthand of which is  \(\bar{X}_n \xrightarrow{p} \mu\), where the arrow is read as "converges in probability to"."
+A shorthand of which is  \(\bar{X}_n \xrightarrow{p} \mu\), where the arrow is read as "converges in probability to".
 ```
 
 
-Intuitively, the more data, the more accurate is your guess.  For example, the Figure \@ref(fig:llnsim) shows how the sample average from may coin tosses converges to the true value : 0.5.
+Intuitively, the more data, the more accurate is your guess.  For example, the Figure \@ref(fig:llnsim) shows how the sample average from many coin tosses converges to the true value : 0.5.
 
 ```{r, llnsim, fig.cap="As the number of coin tosses goes to infinity, the average probabiity of heads converges to 0.5", echo= FALSE}
 set.seed(02138)

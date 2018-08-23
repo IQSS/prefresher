@@ -395,7 +395,7 @@ Create an augmented matrix that represent the following system of equations:
 ## Finding Solutions to Augmented Matrices and Systems of Equations
 
 
-__Row Echelon Form__: Our goal is to translate our augmented matrix or system of equations into row echelon form. This will provide us with the values of the vector __x__ which solve the system. We use the row operations to change coefficients in lower triangle of the augmented matrix to 0.  An augmented matrix of the form
+__Row Echelon Form__: Our goal is to translate our augmented matrix or system of equations into row echelon form. This will provide us with the values of the vector __x__ which solve the system. We use the row operations to change coefficients in the lower triangle of the augmented matrix to 0.  An augmented matrix of the form
 
 $$\begin{pmatrix}
 			\fbox{$a'_{11}$}& a'_{12} & a'_{13}& \cdots & a'_{1n} & | & b'_1\\
@@ -563,17 +563,17 @@ Example:  Let
 
 __Properties of the Inverse__:
 
-If the inverse exists, it is unique.
+- If the inverse exists, it is unique.
 
-If ${\bf A}$ is nonsingular, then ${\bf A}^{-1}$ is nonsingular.
+- If ${\bf A}$ is nonsingular, then ${\bf A}^{-1}$ is nonsingular.
 
-$({\bf A}^{-1})^{-1} = {\bf A}$
+- $({\bf A}^{-1})^{-1} = {\bf A}$
 
-If ${\bf A}$ and ${\bf B}$ are nonsingular, then ${\bf A}{\bf B}$ is nonsingular
+- If ${\bf A}$ and ${\bf B}$ are nonsingular, then ${\bf A}{\bf B}$ is nonsingular
 
-$({\bf A}{\bf B})^{-1} = {\bf B}^{-1}{\bf A}^{-1}$
+- $({\bf A}{\bf B})^{-1} = {\bf B}^{-1}{\bf A}^{-1}$
 
-If ${\bf A}$ is nonsingular, then $({\bf A}^T)^{-1}=({\bf A}^{-1})^T$
+- If ${\bf A}$ is nonsingular, then $({\bf A}^T)^{-1}=({\bf A}^{-1})^T$
 
  
 __Procedure to Find__ ${\bf A}^{-1}$:  We know that if ${\bf B}$ is the inverse of ${\bf A}$, then $${\bf A} {\bf B} = {\bf B} {\bf A} = {\bf I}_n$$  Looking only at the first and last parts of this $${\bf A} {\bf B} = {\bf I}_n$$  Solving for ${\bf B}$ is equivalent to solving for $n$ linear systems, where each column of ${\bf B}$ is solved for the corresponding column in ${\bf I}_n$.  We can solve the systems simultaneously by augmenting ${\bf A}$ with ${\bf I}_n$ and performing Gauss-Jordan elimination on ${\bf A}$.  If Gauss-Jordan elimination on $[{\bf A} | {\bf I}_n]$ results in $[{\bf I}_n | {\bf B} ]$, then ${\bf B}$ is the inverse of ${\bf A}$.  Otherwise, ${\bf A}$ is singular.
@@ -663,23 +663,6 @@ and
 
 
 ```
-
-Answer to Exercise \@ref(exr:invlinsys):
-
-$\textbf{z} = \bf{A}^{-1} \bf{b} = \begin{pmatrix}
-	1/5 &4/5\\
-	2/5&3/5 
-\end{pmatrix} \begin{pmatrix}
-	5 \\
-	-10
-\end{pmatrix}= \begin{pmatrix}
-	-7 \\
-	-4
-\end{pmatrix} = \begin{pmatrix}
-	x \\
-	y
-\end{pmatrix}$
-
 
 ## Determinants
 
@@ -993,6 +976,22 @@ ${\bf A}^{-1} = \left(\begin{array}{ccc}
 Answer to Exercise \@ref(exr:inverse1):
 
 1. ${\bf A}^{-1}=\begin{pmatrix} 1&0&-4\\0&\frac{1}{2}&0\\0&0&1 \end{pmatrix}$
+
+Answer to Exercise \@ref(exr:invlinsys):
+
+$\textbf{z} = \bf{A}^{-1} \bf{b} = \begin{pmatrix}
+	1/5 &4/5\\
+	2/5&3/5 
+\end{pmatrix} \begin{pmatrix}
+	5 \\
+	-10
+\end{pmatrix}= \begin{pmatrix}
+	-7 \\
+	-4
+\end{pmatrix} = \begin{pmatrix}
+	x \\
+	y
+\end{pmatrix}$
 
 Answer to Exercise \@ref(exr:determinants):
 
