@@ -20,3 +20,4 @@ This booklet is the "text" for the Prefresher, and it is the product of generati
 
 
 We transitioned the booklet into a Rmarkdown (bookdown) document and into a public github [repo](https://github.com/kuriwaki/prefresher) in 2018. As we update this version, any bug reports or fixes would be greatly appreciated. 
+Thanks to Juan Dodyk ([juandodyk](https://github.com/juandodyk)), Hunter Rendleman ([hrendleman](https://github.com/hrendleman)), and Tyler Simko ([tylersimko](https://github.com/tylersimko)) for contributing to the booklet for corrections and improvements as students.
