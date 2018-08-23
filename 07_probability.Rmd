@@ -903,7 +903,7 @@ __Covariance and Correlation__: Both of these quantities measure the degree to w
 Example:  Using the above table, calculate the sample versions of:
   
 1. $\text{Cov}(X,Y)$
-2. $\text{Corr}(X, Y) =$
+2. $\text{Corr}(X, Y)$
 
 
 ```
@@ -924,17 +924,12 @@ Why is this important?  We rarely know the true process governing the events we 
 
 __Central Limit Theorem__. Let $\{X_n\} = \{X_1, X_2, \ldots\}$ be a sequence of i.i.d. random variables with finite mean ($\mu$) and variance ($\sigma^2$). Then, if $\bar{X}_n = \frac{X_1 + X_2 + \cdots + X_n}{n}$, for all real numbers $a$ and $b$
 
-$$P\left(a \le \sqrt{n}\frac{\bar{X}_n - \mu}{\sigma} \le b\right) \to \Phi(b) - \Phi(a)$$
-as $n\to \infty$, where $\Phi(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} \, dx$ is the probability that a random variable with a standard normal distribution (i.e., normal with mean zero and unit variance) is less than $x$. This result, known as the Central Limit Theorem, is an important motivation for many quantitative methods, as well as for the widespread use of the Normal distribution.
+$$P\left(a \leq \frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \le b\right) \to \Phi(b) - \Phi(a)$$
+as $n\to \infty$, where \[\Phi(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} \, dx\] is the CDF of a Normal(0, 1): i.e., the probability that a random variable with a standard normal distribution (i.e., normal with mean zero and unit variance) is less than $x$. This result, known as the Central Limit Theorem, is an important motivation for many quantitative methods, as well as for the widespread use of the Normal distribution.
 
-<!--
-\begin{align*} 
-\bar{X}_n = \frac{X_1 + X_2 + \cdots + X_n}{n} \to \mathcal{N}\bigg(\mu, \frac{\sigma^2}{n}\bigg) 
-\end{align*} 
---> 
 
-This result means that, as $n$ grows, the distribution of the sample mean $\bar X_n$ is approximately normal with mean $\mu$ and standard deviation $\frac{\sigma}{\sqrt n}$, i.e.,
-$$\bar{X}_n \approx \mathcal{N}\bigg(\mu, \frac{\sigma^2}{n}\bigg).$$ The standard deviation of $\bar X_n$ (which is roughly a measure of the precision of $\bar X_n$ as an estimator of $\mu$) decreases at the rate $1/\sqrt{n}$, so, for example, to increase its precision by $10$ (i.e., to get one more digit right), one needs to collect $10^2=100$ times more units of data.
+This result means that, as $n$ grows, the distribution of the sample mean $\bar X_n = \frac{1}{n} (X_1 + X_2 + \cdots + X_n)$ is approximately normal with mean $\mu$ and standard deviation $\frac{\sigma}{\sqrt n}$, i.e.,
+\[\bar{X}_n \approx \mathcal{N}\bigg(\mu, \frac{\sigma^2}{n}\bigg).\] The standard deviation of $\bar X_n$ (which is roughly a measure of the precision of $\bar X_n$ as an estimator of $\mu$) decreases at the rate $1/\sqrt{n}$, so, for example, to increase its precision by $10$ (i.e., to get one more digit right), one needs to collect $10^2=100$ times more units of data.
  
 Intuitively, this result also justifies that whenever a lot of small, independent processes somehow combine together to form the realized observations, practitioners often feel comfortable assuming Normality. 
 
@@ -1082,20 +1077,29 @@ $E(Y)=$ $\frac{1}{1.5} \times 1.5 - \frac{1}{1.5} \times 0 = 1$
 Answer to Example \@ref(exm:var):
 
 
-$E[x] = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 2 \times \frac{3}{8} + 3 \times \frac{1}{8} = \frac{3}{2}$
+$E(X) = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 2 \times \frac{3}{8} + 3 \times \frac{1}{8} = \frac{3}{2}$
 
-Since there is a 1 to 1 mapping from $x$ to $x^2:$ $E[x^2] = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 4 \times \frac{3}{8} + 9 \times \frac{1}{8} = \frac{24}{8} = 3$
+Since there is a 1 to 1 mapping from $X$ to $X^2:$ $E(X^2) = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 4 \times \frac{3}{8} + 9 \times \frac{1}{8} = \frac{24}{8} = 3$
 
-$V[x] = E[x^2] - E[x]^2 = 3 - (\frac{3}{2})^2 = \frac{3}{4}$
+\begin{align*}
+\text{Var}(x) &= E(X^2) - E(x)^2\\
+&= 3 - (\frac{3}{2})^2\\
+&= \frac{3}{4}
+\end{align*}
 
 
 
 Answer to Exercise \@ref(exr:expvar):
 
-1. $E[X] = -2(\frac{1}{5}) + -1(\frac{1}{6}) + 0(\frac{1}{5}) + 1(\frac{1}{15}) + 2(\frac{11}{30}) = \frac{7}{30}$
+1. $E(X) = -2(\frac{1}{5}) + -1(\frac{1}{6}) + 0(\frac{1}{5}) + 1(\frac{1}{15}) + 2(\frac{11}{30}) = \frac{7}{30}$
 
-2. $E[Y] = 0(\frac{1}{5}) + 1(\frac{7}{30}) + 4(\frac{17}{30}) = \frac{5}{2}$
+2. $E(Y) = 0(\frac{1}{5}) + 1(\frac{7}{30}) + 4(\frac{17}{30}) = \frac{5}{2}$
 
-3. $V[X] = E[X^2] - E[X]^2 = E[Y] - E[X]^2 = \frac{5}{2} - \frac{7}{30}^2 \approx 2.45$
+3. 
 
+\begin{align*}
+\text{Var}(X) &= E[X^2] - E[X]^2\\
+&= E(Y) - E(X)^2\\
+&= \frac{5}{2} - \frac{7}{30}^2 \approx 2.45
+\end{align*}
 
