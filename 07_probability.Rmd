@@ -10,7 +10,7 @@ library(ggplot2)
 
 ## Counting rules
 
-__Fundamental Theorem of Counting__: If an object has $j$ different characteristics and each characteristic has $n_j$ ways of being expressed, then there are $\prod_{i = 1}^j n_j$ possible  unique objects.
+__Fundamental Theorem of Counting__: If an object has $j$ different characteristics that are independent of each other, and each characteristic $i$ has $n_i$ ways of being expressed, then there are $\prod_{i = 1}^j n_i$ possible unique objects.
 
 Example: Cards can be either red or black and can take on any of 13 values.
 
@@ -80,13 +80,13 @@ Examples:
 
 __Event__: Any collection of possible outcomes of an experiment. Any subset of the full set of possibilities, including the full set itself. Event A $\subset$ S.
 
-__Empty Set__: a set with no elements.  $S = \{\emptyset\}$
+__Empty Set__: a set with no elements.  $S = \{\}$. It is denoted by the symbol $\emptyset$.
 
 
 Set operations:
 
-1. __Union__: The union of two sets $A$ and $B$, $A \cup B$, is the set containing all of the elements in $A$ or $B$. \[A_1 \cup A_2  \cup... A_n = \bigcup_{i=1}^n A_i\]
-2. __Intersection__: The intersection of sets $A$ and $B$, $A \cap B$, is the set containing all of the elements in both $A$ and $B$. \[A_1 \cap A_2  \cap... A_n = \bigcap_{i=1}^n A_i\]
+1. __Union__: The union of two sets $A$ and $B$, $A \cup B$, is the set containing all of the elements in $A$ or $B$. \[A_1 \cup A_2  \cup \cdots \cup A_n = \bigcup_{i=1}^n A_i\]
+2. __Intersection__: The intersection of sets $A$ and $B$, $A \cap B$, is the set containing all of the elements in both $A$ and $B$. \[A_1 \cap A_2  \cap \cdots \cap A_n = \bigcap_{i=1}^n A_i\]
 3. __Complement__: If set $A$ is a subset of $S$, then the complement of $A$, denoted $A^C$, is the set containing all of the elements in $S$ that are not in $A$.
 
 
@@ -96,7 +96,7 @@ Properties of set operations:
 * __Associative__: $A \cup (B \cup C) = (A \cup B) \cup C$; $A \cap (B \cap C) = (A \cap B) \cap C$
 * __Distributive__: $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$; $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
 * __de Morgan's laws__: $(A \cup B)^C = A^C \cap B^C$; $(A \cap B)^C = A^C \cup B^C$
-* __Disjointness__: Sets are disjoint when they do not intersect, such that $A \cap B = \{\emptyset\}$.  A collection of sets is pairwise disjoint (**mutually exclusive**) if, for all $i \neq j$, $A_i \cap A_j = \{\emptyset\}$.  A collection of sets form a partition of set $S$ if they are pairwise disjoint and they cover set $S$, such that $\bigcup_{i = 1}^k A_i = S$.
+* __Disjointness__: Sets are disjoint when they do not intersect, such that $A \cap B = \emptyset$.  A collection of sets is pairwise disjoint (**mutually exclusive**) if, for all $i \neq j$, $A_i \cap A_j = \emptyset$.  A collection of sets form a partition of set $S$ if they are pairwise disjoint and they cover set $S$, such that $\bigcup_{i = 1}^k A_i = S$.
 
 
 ```{example, name = "Sets", sets}
@@ -173,7 +173,7 @@ A_i\right)=\sum\limits_{i=1}^k P(A_i)\]
 The last axiom is an extension of a union to infinite sets. When there are only two events in the space, it boils down to:
   
 \begin{align*}
-P(A_1 \cup A_2) = P(A_1) + P(B_2) \text{~for disjoint} A, B
+P(A_1 \cup A_2) = P(A_1) + P(A_2) \quad\text{for disjoint } A_1, A_2
 \end{align*}
 
 
@@ -281,7 +281,7 @@ You could rearrange the fraction to highlight how a joint probability could be e
 
 The probability of the intersection of two events $A$ and $B$ is $P(A\cap B)=P(A)P(B|A)=P(B)P(A|B)$ which follows directly from the definition of conditional probability. More generally,
 
-\[P(A_1\cap ...\cap A_k) = P(A_k| A_{k-1}\cap... \cap A_1)\times P(A_{k-1}|A_{k-2}\cap ...A_1)...\times P(A_2|A_1)\times P(A_1)\]
+\[P(A_1\cap \cdots\cap A_k) = P(A_k| A_{k-1}\cap \cdots \cap A_1)\times P(A_{k-1}|A_{k-2}\cap \cdots A_1) \times \ldots \times P(A_2|A_1)\times P(A_1)\]
 
 Sometimes it is easier to calculate these conditional probabilities and sum them than it is to calculate $P(A)$ directly.
 
@@ -383,8 +383,6 @@ It might seem strange to define a random variable as a function -- which is neit
 __Randomness__  means that the outcome of some experiment is not deterministic, i.e. there is some probability ($0 < P(A) < 1$) that the event will occur.
 
 The support of a random variable is all values for which there is a positive probability of occurrence.
-
-\begin{framed}
 
 Example: Flip a fair coin two times.   What is the sample space? 
 
@@ -905,7 +903,7 @@ __Covariance and Correlation__: Both of these quantities measure the degree to w
 Example:  Using the above table, calculate the sample versions of:
   
 1. $\text{Cov}(X,Y)$
-2. $\text{Corr}(X, Y) =$
+2. $\text{Corr}(X, Y)$
 
 
 ```
@@ -924,21 +922,22 @@ Why is this important?  We rarely know the true process governing the events we 
 
 
 
-__Central Limit Theorem__. Let $\{X_n\} = \{X_1, X_2, ..., X_n\}$ be a sequence of i.i.d. random variables with finite mean ($\mu$) and variance ($\sigma^2$). Then, 
+__Central Limit Theorem__. Let $\{X_n\} = \{X_1, X_2, \ldots\}$ be a sequence of i.i.d. random variables with finite mean ($\mu$) and variance ($\sigma^2$). Then, if $\bar{X}_n = \frac{X_1 + X_2 + \cdots + X_n}{n}$, for all real numbers $a$ and $b$
+
+$$P\left(a \leq \frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \le b\right) \to \Phi(b) - \Phi(a)$$
+as $n\to \infty$, where \[\Phi(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} \, dx\] is the CDF of a Normal(0, 1): i.e., the probability that a random variable with a standard normal distribution (i.e., normal with mean zero and unit variance) is less than $x$. This result, known as the Central Limit Theorem, is an important motivation for many quantitative methods, as well as for the widespread use of the Normal distribution.
+
+
+This result means that, as $n$ grows, the distribution of the sample mean $\bar X_n = \frac{1}{n} (X_1 + X_2 + \cdots + X_n)$ is approximately normal with mean $\mu$ and standard deviation $\frac{\sigma}{\sqrt n}$, i.e.,
+\[\bar{X}_n \approx \mathcal{N}\bigg(\mu, \frac{\sigma^2}{n}\bigg).\] The standard deviation of $\bar X_n$ (which is roughly a measure of the precision of $\bar X_n$ as an estimator of $\mu$) decreases at the rate $1/\sqrt{n}$, so, for example, to increase its precision by $10$ (i.e., to get one more digit right), one needs to collect $10^2=100$ times more units of data.
+ 
+Intuitively, this result also justifies that whenever a lot of small, independent processes somehow combine together to form the realized observations, practitioners often feel comfortable assuming Normality. 
+
+
+__Strong Law of Large Numbers__. Let $\{X_n\} = \{X_1, X_2, \ldots\}$ be a sequence of i.i.d. random variables with a finite expected value of $\mu$. Then, 
 
 \begin{align*} 
-\bar{X}_n = \frac{x_1 + x_2 + ... + x_n}{n} \to \mathcal{N}\bigg(\mu, \frac{\sigma^2}{n}\bigg) 
-\end{align*} 
-
-as $n\to \infty$. This result, known as the Central Limit Theorem, is an important motivation for many quantitative methods, as well as for the widespread use of the Normal distribution. 
-
-Intuitively, whenever a lot of small, independent processes somehow combine together to form the realized observations, practitioners often feel comfortable assuming Normality. 
-
-
-__Strong Law of Large Numbers__. Let $\{X_n\} = \{X_1, X_2, ..., X_n\}$ be a sequence of i.i.d. random variables with a finite expected value of $\mu$. Then, 
-
-\begin{align*} 
-\bar{X}_n = \frac{x_1 + x_2 + ... + x_n}{n} \stackrel{\textrm{a.s.}}{\to} \mu
+\bar{X}_n = \frac{X_1 + X_2 + \cdots + X_n}{n} \stackrel{\textrm{a.s.}}{\to} \mu
 \end{align*}
 
 as $n\to \infty$. In other words, $P( \lim_{n\to\infty}\bar{X}_n = \mu) = 1$. This theorem, known as the Strong Law of Large Numbers, is an important motivation for the widespread use of the sample mean, as well as the intuition link between averages and expected values. 
@@ -1078,20 +1077,29 @@ $E(Y)=$ $\frac{1}{1.5} \times 1.5 - \frac{1}{1.5} \times 0 = 1$
 Answer to Example \@ref(exm:var):
 
 
-$E[x] = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 2 \times \frac{3}{8} + 3 \times \frac{1}{8} = \frac{3}{2}$
+$E(X) = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 2 \times \frac{3}{8} + 3 \times \frac{1}{8} = \frac{3}{2}$
 
-Since there is a 1 to 1 mapping from $x$ to $x^2:$ $E[x^2] = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 4 \times \frac{3}{8} + 9 \times \frac{1}{8} = \frac{24}{8} = 3$
+Since there is a 1 to 1 mapping from $X$ to $X^2:$ $E(X^2) = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 4 \times \frac{3}{8} + 9 \times \frac{1}{8} = \frac{24}{8} = 3$
 
-$V[x] = E[x^2] - E[x]^2 = 3 - (\frac{3}{2})^2 = \frac{3}{4}$
+\begin{align*}
+\text{Var}(x) &= E(X^2) - E(x)^2\\
+&= 3 - (\frac{3}{2})^2\\
+&= \frac{3}{4}
+\end{align*}
 
 
 
 Answer to Exercise \@ref(exr:expvar):
 
-1. $E[X] = -2(\frac{1}{5}) + -1(\frac{1}{6}) + 0(\frac{1}{5}) + 1(\frac{1}{15}) + 2(\frac{11}{30}) = \frac{7}{30}$
+1. $E(X) = -2(\frac{1}{5}) + -1(\frac{1}{6}) + 0(\frac{1}{5}) + 1(\frac{1}{15}) + 2(\frac{11}{30}) = \frac{7}{30}$
 
-2. $E[Y] = 0(\frac{1}{5}) + 1(\frac{7}{30}) + 4(\frac{17}{30}) = \frac{5}{2}$
+2. $E(Y) = 0(\frac{1}{5}) + 1(\frac{7}{30}) + 4(\frac{17}{30}) = \frac{5}{2}$
 
-3. $V[X] = E[X^2] - E[X]^2 = E[Y] - E[X]^2 = \frac{5}{2} - \frac{7}{30}^2 \approx 2.45$
+3. 
 
+\begin{align*}
+\text{Var}(X) &= E[X^2] - E[X]^2\\
+&= E(Y) - E(X)^2\\
+&= \frac{5}{2} - \frac{7}{30}^2 \approx 2.45
+\end{align*}
 

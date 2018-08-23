@@ -39,6 +39,7 @@ $$\prod\limits_{i=1}^n x_i = x_1 x_2 x_3 \cdots x_n$$
 Properties:
 
 * $\prod\limits_{i=1}^n c x_i = c^n \prod\limits_{i=1}^n x_i$
+* $\prod\limits_{i=k}^n c x_k = c^{n-k} \prod\limits_{i=k}^n x_i$
 * $\prod\limits_{i=1}^n (x_i + y_i) =$ a total mess
 * $\prod\limits_{i=1}^n c = c^n$
 
@@ -359,9 +360,11 @@ __Open__: A set $S$ is open if for each point $\bf x$ in $S$, there exists an op
 	
 __Closed__: A set $S$ is closed if it contains all of its boundary points.
 
+* Alternatively: A set is closed if its complement is open.
 * If the set $S$ is circular and closed, the set contains all points within the rim as well as the rim itself.
 * Example: $\{ (x,y) : x^2+y^2\le 4 \}$
 * Note: a set may be neither open nor closed. Example: $\{ (x,y) : 2 < x^2+y^2\le 4 \}$
+
 	
 __Complement__: The complement of set $S$ is everything outside of $S$.
 
@@ -371,6 +374,7 @@ __Complement__: The complement of set $S$ is everything outside of $S$.
 	
 __Empty__: The empty (or null) set is a unique set that has no elements, denoted by \{\} or $\emptyset$. 
 
+* The empty set is an example of a set that is open and closed, or a "clopen" set.
 * Examples: The set of squares with 5 sides; the set of countries south of the South Pole.
 
 
@@ -420,7 +424,7 @@ Answer to Exercise \@ref(exr:log1):
 
 1. 3
 
-2. $9\log(x) + 5\log(y) + 3\log(z)$
+2. $9\log(x) + 5\log(y) - 3\log(z)$
 
 3. $\frac{1}{2}(\ln{x} + \ln{y})$
 
@@ -437,7 +441,7 @@ Answer to Exercise \@ref(exr:solvevar1):
 
 2. x = {1, -4}
 
-3. x = = $\ln10$
+3. x = - $\ln10$
 
 
 
