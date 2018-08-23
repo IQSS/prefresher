@@ -83,6 +83,7 @@ my_list
 each slot can be anything. What are we doing here? We are defining the 1st slot of the list `my_list` to be a vector `c(1, 2, 3, 4, 5)`
 ```{r}
 my_list[[1]] <- c(1, 2, 3, 4, 5)
+my_list
 ```
 
 
@@ -103,7 +104,20 @@ We've covered one type of object, which is a list. You saw it was quite flexible
 
 There are an infinite number of objects, because people make their own class of object. You can detect the type of the object (the class) by the function `class`
 
-What is type of object is `cen10`?
+Object can be said to be an instance of a class.
+
+___Analogies___: 
+
+__class__ - Pokemon, __object__ - Pikachu
+
+__class__ - Book, __object__ - To Kill a Mockingbird
+
+__class__ - DataFrame, __object__ - 2010 census data
+
+__class__ - Character, __object__ - "Programming is Fun"
+           
+
+What is type (class) of object is `cen10`?
 ```{r}
 class(cen10)
 ```
@@ -130,6 +144,9 @@ pikachu <- list(name = "Pikachu",
 and we can give it any class name we want. 
 ```{r}
 class(pikachu) <- "Pokemon"
+str(pikachu)
+pikachu$type
+
 ```
 
 
@@ -143,7 +160,7 @@ class(ols)
 
 Anything can be an object! Even graphs (in `ggplot`) can be assigned, re-assigned, and edited. 
 
-```{r}
+```{r, warning=FALSE}
 
 grp_race <- group_by(cen10, race)%>%
   summarize(count = n())
@@ -155,6 +172,7 @@ gg_tab <- ggplot(data = grp_race_ordered) +
   aes(x = race, y = count) +
   geom_col() +
   labs(caption = "Source: U.S. Census 2010")
+
 gg_tab
 ```
 
@@ -172,6 +190,7 @@ It can be hard to understand an `R` object because it's contents are unknown. Th
 
 ```{r}
 str(my_list)
+class(my_list)
 ```
 
 Same for the object we just made
@@ -229,7 +248,7 @@ head(cen10$age)
 
 This can be just one stretch of characters 
 ```{r}
-my_name <- "Shiro"
+my_name <- "Yon Soo"
 my_name
 class(my_name)
 ```
@@ -248,25 +267,6 @@ my_name == my_name2
 ```
 
 
-
-### Extracting variables from lists
-Often you want to inspect one variable of you r dataset. There are multiple ways to do this.
-
-1. with the single-square bracket, as in a matrix:
-```{r}
-cen10[, "race"]
-```
-
-2. which you can also refer to by the number of the column
-```{r}
-cen10[, 11]
-```
-
-
-3. and with the dollar-sign `$`
-```{r}
-head(cen10$race)
-```
 
 
 ## What is a function?
@@ -321,6 +321,7 @@ Let's go one step further. What if we want to know the proportion of non-whites 
 
 ```{r}
 nw_in_state <- function(data, state) {
+  
   s.subset <- data[data$state == state,]
   total.s <- nrow(s.subset)
   nw.s <- sum(s.subset$race != "White")
@@ -333,16 +334,39 @@ The last line is what gets generated from the function. To be more explicit you 
 
 Try it on your favorite state!
 ```{r}
-nw_in_state(cen10, "New York")
+nw_in_state(cen10, "Massachusetts")
+
 ```
 
 
-Exercise. Try making your own function, `asians_in_state`, that will give you the number of `Chinese`, `Japanese`, and `Other Asian or Pacific Islander` people in a given state.
+## Checkpoint {-}
+
+
+### 1 {-}
+
+Try making your own function, `average_age_in_state`, that will give you the average age of people in a given state.
+```{r}
+# Enter on your own
+
+```
+
+
+
+
+### 2 {-}
+
+Try making your own function, `asians_in_state`, that will give you the number of `Chinese`, `Japanese`, and `Other Asian or Pacific Islander` people in a given state.
 ```{r}
 # Enter on your own
 ```
 
+### 3 {-}
 
+Try making your own function, 'top_10_oldest_cities', that will give you the names of cities whose population's average age is top 10 oldest. 
+
+```{r}
+# Enter on your own
+```
 
 
 ## What is a package?
@@ -387,7 +411,22 @@ if (x >0) {
 }
 ```
 
+You can wrap that whole things in a function 
 
+```{r, warning = FALSE}
+is_positive <- function(number) {
+  if (number >0) {
+    print("positive number")
+  } else if (number == 0)  {
+    print ("zero")
+  } else {
+    print("negative number")
+  }
+}
+
+is_positive(5)
+is_positive(-3)
+```
 ## For-loops
 
 Loops repeat the same statement, although the statement can be "the same" only in an abstract sense.  Use the `for(x in X)` syntax to repeat the subsequent command as many times as there are elements in the right-hand object `X`. Each of these elements will be referred to the left-hand index `x`
@@ -409,25 +448,64 @@ Here `for()` and `in` must be part of any for loop. The right hand side `fruits`
 
 
 ```{r}
-
 for (i in 1:length(fruits)) {
   print(paste("I love", fruits[i]))
 }
 ``` 
 
 ```{r}
-
 states_of_interest <- c("California", "Massachusetts", "New Hampshire", "Washington")
-for( state in states_of_interest) {
+
+for( state in states_of_interest){
   state_data <- cen10[cen10$state == state,]
   nmen <- sum(state_data$sex == "Male")
-  nwomen <- sum(state_data$sex == "Female")
-  men_perc <- round(100*(nmen/(nmen + nwomen)), digits = 2)
-  print(paste("Percentage of men in", state, "is", men_perc))
+
+  n <- nrow(state_data)
+  men_perc <- round(100*(nmen/n), digits=2)
+  print(paste("Percentage of men in",state, "is", men_perc))
+
 }
+
 ``` 
 
+Instead of printing, you can store the information in a vector
+```{r}
+states_of_interest <- c("California", "Massachusetts", "New Hampshire", "Washington")
+male_percentages <- c()
+iter <-1 
 
+for( state in states_of_interest){
+  state_data <- cen10[cen10$state == state,]
+  nmen <- sum(state_data$sex == "Male")
+  n <- nrow(state_data)
+  men_perc <- round(100*(nmen/n), digits=2)
+  
+  male_percentages <- c(male_percentages, men_perc)
+  names(male_percentages)[iter] <- state
+  iter <- iter + 1
+}
+
+male_percentages
+
+```
+
+## Nested Loops
+
+What if I want to calculate the population percentage of a race group for all race groups in states of interest?
+You could probably use tidyverse functions to do this, but let's try using loops!
+
+```{r}
+
+states_of_interest <- c("California", "Massachusetts", "New Hampshire", "Washington")
+for (state in states_of_interest) {
+  for (race in unique(cen10$race)) {
+    race_state_num <- nrow(cen10[cen10$race == race & cen10$state == state, ])
+    state_pop <- nrow(cen10[cen10$state == state, ])
+    race_perc <- round(100*(race_state_num/(state_pop)), digits=2)
+    print(paste("Percentage of ", race , "in", state, "is", race_perc))
+  }
+}
+```
 ## Exercises {-}
 
  
@@ -435,21 +513,54 @@ for( state in states_of_interest) {
 A issue raised in Persily's article is that the full-count U.S. Census does not record  whether the residents are citizens of the United States^[Here is that argument of his again, more recently in the popular press. ["The Mysterious Number of American Citizens". June 2, 2015.  _POLITICO_](http://www.politico.com/magazine/story/2015/06/the-supreme-courts-big-data-problem-118568)]. Instead, this question is asked in a survey, the American Community Survey. The two are fundamentally different exercises: the Census counts everyone by definition, a survey samples its data. Load the 1 percent sample of the 2015 ACS (`acs2015_1percent.csv`, in the `input` folder) and give an estimate of the proportion of a state's ACS respondents that are reportedly U.S. citizens. 
 
 ```{r}
-# Enter yourself
 acs<- read_csv("input/acs2015_1percent.csv", col_types = cols())
 set.seed(02138)
 sample_acs <- sample_frac(acs, 0.01)
-colnames(sample_acs)
-unique(sample_acs$citizen)
-mean(sample_acs$citizen != "Not a citizen of the US")
+
+# Enter yourself
 ```
 
 ### Exercise 2: Write your own function {-}
-Write your own function that makes some task of data analysis simpler. Ideally, it would be a function that helps you do either of the previous tasks in fewer lines of code. 
+Write your own function that makes some task of data analysis simpler. Ideally, it would be a function that helps you do either of the previous tasks in fewer lines of code. You can use the three lines of code that was provided in exercise 1 to wrap that into another function too!
 ```{r}
 # Enter yourself
 
 ``` 
 
 
+
+### Exercise 3: Using Loops {-}
+
+
+Using a loop, create a crosstab of sex and race for each state in the set "states_of_interest"
+```{r}
+states_of_interest <- c("California", "Massachusetts", "New Hampshire", "Washington")
+# Enter yourself
+
+``` 
+
+
+
+### Exercise 4: Storing information derived within loops in a global dataframe {-}
+
+Recall the following nested loop
+```{r}
+states_of_interest <- c("California", "Massachusetts", "New Hampshire", "Washington")
+for (state in states_of_interest) {
+  for (race in unique(cen10$race)) {
+    race_state_num <- nrow(cen10[cen10$race == race & cen10$state == state, ])
+    state_pop <- nrow(cen10[cen10$state == state, ])
+    race_perc <- round(100*(race_state_num/(state_pop)), digits=2)
+    print(paste("Percentage of ", race , "in", state, "is", race_perc))
+  }
+}
+```
+
+Instead of printing the percentage of each race in each state, create a dataframe, and store all that information in that dataframe. (Hint: look at how I stored information about male percentage in each state of interest in a vector.)
+
+
+```{r}
+
+
+```
 
