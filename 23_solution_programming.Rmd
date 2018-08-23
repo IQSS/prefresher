@@ -9,8 +9,7 @@ library(scales)
 
 
 
-## Section \@ref(dataviz): Visualization
-
+## Chapter \@ref(dataviz): Visualization
 
 
 ### 1 State Proportions {-}
@@ -23,23 +22,25 @@ cen10 <- readRDS("input/usc2010_1percent.Rds")
 Group by state, noting that the mean of a set of logicals is a mean of 1s (`TRUE`) and 0s (`FALSE`).
 
 ```{r}
-grp_st <- cen10 %>% 
-  group_by(state) %>% 
-  summarize(prop = mean(ownership == "Rented")) %>% 
-  arrange(prop) %>% 
+grp_st <- cen10 %>%
+  group_by(state) %>%
+  summarize(prop = mean(ownership == "Rented")) %>%
+  arrange(prop) %>%
   mutate(state = as_factor(state))
 ```
 
 
 Plot points
 ```{r}
-ggplot(grp_st, aes(x = state, y = prop)) + 
+ggplot(grp_st, aes(x = state, y = prop)) +
   geom_point() +
   coord_flip() +
   scale_y_continuous(labels = percent) + # use the scales package to format percentages
-  labs(y = "Proportion of Renters",
-       x = "", 
-       caption = "Source: 2010 Census (1 percent)")
+  labs(
+    y = "Proportion of Renters",
+    x = "",
+    caption = "Source: 2010 Census (1 percent)"
+  )
 ```
 
 
@@ -55,29 +56,29 @@ justices <- read_csv("input/justices_court-median.csv")
 
 Keep justices who are in the dataset in 2016, 
 ```{r}
-in_2017 <- justices %>% 
-  filter(term == 2016) %>% 
-  distinct(justice) %>%  # unique values
+in_2017 <- justices %>%
+  filter(term == 2016) %>%
+  distinct(justice) %>% # unique values
   mutate(present_2016 = 1) # keep an indicator to distinguish from rest after merge
 
-df_indicator <- justices %>% 
+df_indicator <- justices %>%
   left_join(in_2017)
-
 ```
 
 All together 
 ```{r}
-df_indicator %>% 
-  ggplot(aes(x = term, y = idealpt, group = justice_id)) +
+ggplot(df_indicator, aes(x = term, y = idealpt, group = justice_id)) +
   geom_line(aes(y = median_idealpt), color = "red", size = 2, alpha = 0.1) +
   geom_line(alpha = 0.5) +
   geom_line(data = filter(df_indicator, !is.na(present_2016))) +
   geom_point(data = filter(df_indicator, !is.na(present_2016), term == 2016)) +
-  geom_text_repel(data = filter(df_indicator, term == 2016), aes(label = justice),
-                  nudge_x = 10,
-                  direction = "y") +
-  scale_x_continuous(breaks = seq(1940, 2020, 10), limits = c(1937, 2020)) +
-  scale_y_continuous(limits = c(-5, 5)) +
+  geom_text_repel(
+    data = filter(df_indicator, term == 2016), aes(label = justice),
+    nudge_x = 10,
+    direction = "y"
+  ) + # labels nudged and vertical
+  scale_x_continuous(breaks = seq(1940, 2020, 10), limits = c(1937, 2020)) + # axis breaks
+  scale_y_continuous(limits = c(-5, 5)) + # axis limits
   labs(
     x = "SCOTUS Term",
     y = "Estimated Martin-Quinn Ideal Point",
@@ -85,4 +86,82 @@ df_indicator %>%
   ) +
   theme_bw()
 ```
+
+
+## Chapter \@ref(robjloops): Objects and Loops
+
+
+```{r, message=FALSE}
+cen10 <- read_csv("input/usc2010_001percent.csv")
+sample_acs <- read_csv("input/acs2015_1percent.csv")
+```
+
+
+### Checkpoint #3 {-}
+
+
+```{r}
+cen10 %>%
+  group_by(city) %>%
+  summarise(avg_age = mean(age)) %>%
+  arrange(desc(avg_age)) %>%
+  slice(1:10)
+```
+
+
+
+
+
+
+### Exercise 1 {-}
+
+```{r}
+colnames(sample_acs)
+
+unique(sample_acs$citizen)
+
+mean(sample_acs$citizen != "Not a citizen of the US")
+```
+
+### Exercise 3 {-}
+
+
+```{r}
+states_of_interest <- c("California", "Massachusetts", "New Hampshire", "Washington")
+
+for (state_i in states_of_interest) {
+  state_subset <- cen10 %>% filter(state == state_i)
+
+  print(state_i)
+
+  print(table(state_subset$race, state_subset$sex))
+}
+```
+
+
+
+### Exercise 4 {-}
+
+
+```{r}
+race_d <- c()
+state_d <- c()
+proportion_d <- c()
+answer <- data.frame(race_d, state_d, proportion_d)
+```
+
+Then 
+
+```{r}
+for (state in states_of_interest) {
+  for (race in unique(cen10$race)) {
+    race_state_num <- nrow(cen10[cen10$race == race & cen10$state == state, ])
+    state_pop <- nrow(cen10[cen10$state == state, ])
+    race_perc <- round(100 * (race_state_num / (state_pop)), digits = 2)
+    line <- data.frame(race_d = race, state_d = state, proportion_d = race_perc)
+    answer <- rbind(answer, line)
+  }
+}
+```
+
 
