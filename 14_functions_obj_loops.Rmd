@@ -413,9 +413,13 @@ for( state in states_of_interest) {
   men_perc <- round(100*(nmen/(nmen + nwomen)), digits=2)
   print(paste("Percentage of men in",state, "is", men_perc))
 }
+
 ``` 
 
 
+#nested loops
+```{r}
+```
 ## Exercises {-}
 
  
