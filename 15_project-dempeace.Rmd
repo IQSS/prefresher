@@ -1,4 +1,4 @@
-# Joins and Merges, Wide and Long^[Module originally written by Shiro Kuriwaki]
+# Joins and Merges, Wide and Long^[Module originally written by Shiro Kuriwaki and Yon Soo Park]
 
 
 ## Where are we? Where are we headed? {-}
@@ -117,18 +117,25 @@ head(p_m)
 ```
 
 
+```{r}
+p_m %>% 
+  group_by(dispute) %>% 
+  summarize(mean_polity = mean(polity2, na.rm =))
+```
+
+
+
 Replace `dispute` = NA rows with a zero.
 
 ```{r}
-p_m[is.na(p_m$dispute),]$dispute <- 0
-
+p_m$dispute[is.na(p_m$dispute)] <- 0
 ```
 
 long to wide
 ```{r}
-p_m_w <- dcast(data = p_m,
-               formula = ccode ~ year,
-               value.var = "polity2")
+p_m_wide <- dcast(data = p_m,
+                  formula = ccode ~ year,
+                  value.var = "polity2")
 ```
 
 ## Main Project
@@ -137,7 +144,7 @@ Try building a panel that would be useful in answering the Democratic Peace Ques
 
 ### Task 1: Data Input and Standardization {-}
 
-Often, files we need are saved in the `.xls` or `xlsx` format. It is possible to read these files directly into `R`, but experience suggests that this process is slower than converting them first to `.csv` format and reading them in as `.csv` files. The `rio` package^[<https://github.com/leeper/rio>] has functions to convert between file types. 
+Often, files we need are saved in the `.xls` or `xlsx` format. It is possible to read these files directly into `R`, but experience suggests that this process is slower than converting them first to `.csv` format and reading them in as `.csv` files. 
 
 `readxl`/`readr`/`haven` packages(<https://github.com/tidyverse/tidyverse>) is constantly expanding to capture more file types. `read_xl` is new but quite good.
 
@@ -163,16 +170,17 @@ To start, let's download and merge some data.
 
 ### Task 3: Tabulations and Visualization {-}
 
-* Calculate the mean Polity2 score by year. Plot the result. Use graphical indicators of your choosing to show where key events fall in this timeline (such as 1914, 1929, 1939, 1989, 2008). Speculate on why the behavior from 1800 to 1920 seems to be qualitatively different than behavior afterwards.
-* Once you have merged the datasets, what fraction of all MIDs in the time period we have data for involve 2 countries both with Polity2 scores greater than 5? Greater than 8? If there are any of the latter, find out what MIDs those are and research them for a bit. 
-* What is the mean difference in Polity2 score for countries involved in a MID? How has this quantity changed over time? How do you interpret this? 
-* Arrive at a tentative conclusion for how well the Democratic Peace argument seems to hold up in this dataset. Visualize this conclusion. 
+1.  Calculate the mean Polity2 score by year. Plot the result. Use graphical indicators of your choosing to show where key events fall in this timeline (such as 1914, 1929, 1939, 1989, 2008). Speculate on why the behavior from 1800 to 1920 seems to be qualitatively different than behavior afterwards.
+2. Do the same but only among state-years that were invovled in a MID. Plot this line together with your results from 1. 
+3. Do the same but only among state years that were  _not_ involved in a MID.
+3. Arrive at a tentative conclusion for how well the Democratic Peace argument seems to hold up in this dataset. Visualize this conclusion. 
 
 ```{r}
-
 ```
 
 
+### Task 4 {-}
 
+* Once you have merged the datasets, what fraction of all MIDs in the time period we have data for involve 2 countries both with Polity2 scores greater than 5? Greater than 8? If there are any of the latter, find out what MIDs those are and research them for a bit. 
 
 
