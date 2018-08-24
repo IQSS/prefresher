@@ -12,15 +12,15 @@ To optimize, we use derivatives and calculus. Optimization is to find the maximu
 Optimization also comes up in Economics, Formal Theory, and Political Economy all the time. A go-to model of human behavior is that they optimize a certain utility function. Humans are not pure utility maximizers, of course, but nuanced models of optimization -- for example, adding constraints and adding uncertainty -- will prove to be quite useful.
 
 
-## Example: Meltzer-Richards {-}
+## Example: Meltzer-Richard {-}
 
-A standard backdrop in comprative political economy, the Meltzer-Richards model states that redistribution of wealth should be higher in societies where the median income is much smaller than the average income. Why is that the case? Here is a simplified example that is not the exact model by Meltzer and Richard's, but adapted from Persson and Tabellini^[Adapted from Torsten Persson and Guido Tabellini, _Political Economics: Explaining Economic Policy_. MIT Press. ]
+A standard backdrop in comprative political economy, the Meltzer-Richard (1981) model states that redistribution of wealth should be higher in societies where the median income is much smaller than the average income. Why is that the case? Here is a simplified example that is not the exact model by Meltzer and Richard, but adapted from Persson and Tabellini^[Adapted from Torsten Persson and Guido Tabellini, _Political Economics: Explaining Economic Policy_. MIT Press. ]
 
 
 We will set the following things about our model human and model democracy.
 
 - Individuals are indexed by $i$, and the total population is normalized to unity ("1") without loss of generality.
-- $U(\cdot)$, u for "utility", is a function that is concave and increasing, and expresses the utility gained from public goods. This tells us that its derivative of is _positive_, and its second derivative is __negative__. 
+- $U(\cdot)$, u for "utility", is a function that is concave and increasing, and expresses the utility gained from public goods. This tells us that its first derivative is _positive_, and its second derivative is __negative__. 
 - $y_i$ is the income of person $i$
 - $W_i$, w for "welfare", is the welfare of person $i$
 - $c_i$, c for "consumption", is the consumption utility of person $i$
@@ -78,7 +78,7 @@ That was the amount for any given person. The government has to set one value of
 
 \[g^\star = {U_g}^{-1}\left(\frac{\text{med}(y)}{E(y)}\right)\]
 
-What does this say about the level of redistribution we observe in an economy? The higher the average income is than the median income, which often (but not always) means _more_ inequality, there should be __more__ redistribution.
+What does this say about the level of redistribution we observe in an economy? The higher the average income is than the median income, which often (but not always) means _more_ inequality, there should be _more_ redistribution.
 
 
 
@@ -142,9 +142,9 @@ The second derivative $f''(x)$ identifies whether the function $f(x)$ at the poi
 1. Concave down: $f''(x)<0$
 1. Concave up: $f''(x)>0$
 
-__Maximum (Minimum)__: $x_0$ is a __local maximum (minimum)__ if $f(x_0)>f(x)$ ($f(x_0)<f(x))$ for all $x$ within some open interval containing $x_0$.  $x_0$ is a __ global maximum (minimum)__ if $f(x_0)>f(x)$ ($f(x_0)<f(x))$ for all $x$ in the domain of $f$.
+__Maximum (Minimum)__: $x_0$ is a __local maximum (minimum)__ if $f(x_0)>f(x)$ ($f(x_0)<f(x))$ for all $x$ within some open interval containing $x_0$.  $x_0$ is a __global maximum (minimum)__ if $f(x_0)>f(x)$ ($f(x_0)<f(x))$ for all $x$ in the domain of $f$.
 
-__Critical points__: Given the function $f$ defined over domain $D$, all of the following are defined as __critical points__:
+Given the function $f$ defined over domain $D$, all of the following are defined as __critical points__:
 
 1. Any interior point of $D$ where $f'(x)=0$.
 2. Any interior point of $D$ where $f'(x)$ does not exist.
@@ -154,9 +154,9 @@ The maxima and minima will be a subset of the critical points.
 
 __Second Derivative Test of Maxima/Minima__:  We can use the second derivative to tell us whether a point is a maximum or minimum of $f(x)$. 
 
-1. Local Maximum:} $f'(x)=0$ and $f''(x)<0$
-1. Local Minimum:} $f'(x)=0$ and $f''(x)>0$
-1. Need more info:} $f'(x)=0$ and $f''(x)=0$
+1. Local Maximum: $f'(x)=0$ and $f''(x)<0$
+1. Local Minimum: $f'(x)=0$ and $f''(x)>0$
+1. Need more info: $f'(x)=0$ and $f''(x)=0$
 		
 
 __Global Maxima and Minima__ Sometimes no global max or min exists --- e.g., $f(x)$ not bounded above or below.  However, there are three situations where we can fairly easily identify global max or min.
@@ -219,30 +219,24 @@ Sometimes, concavity and convexity are strict of a requirement. For most purpose
 
 ```{definition, name = "Quasiconcave Function"}
 A function f is quasiconcave over the set S if $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) \ge \min(f(x_1),f(x_2))$$
+
+  No matter what two points you select, the \textit{lowest} valued point will always be an end point.
+
 ```
-
-
-No matter what two points you select, the \textit{lowest} valued point will always be an end point.}
 
 \begin{comment}
   \parbox{2in}{\includegraphics[scale=.4]{Quasiconcave.pdf}}
 \end{comment}
 
 ```{definition, name = "Quasiconvex"}
-A function f is quasiconcave over the set $S$ if $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) \le \max(f(x_1),f(x_2))$$
+A function f is quasiconvex over the set $S$ if $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) \le \max(f(x_1),f(x_2))$$
 No matter what two points you select, the \textit{highest} valued point will always be an end point.
 ```
-
 
 \begin{comment}
   \parbox{1.8in}{\includegraphics[scale=.4]{Quasiconvex.pdf}}
 \end{comment}
-  
-Quasilinear: A function that is both quasiconvex and quasiconcave is quasilinear.
 
-\begin{comment}
-  \parbox{1.8in}{\includegraphics[scale=.4]{Quasilinear.pdf}}\\
-\end{comment}
 
 **Second Derivative Test of Concavity**: The second derivative can be used to understand concavity. 
 
@@ -275,19 +269,18 @@ which can be written in matrix terms:
 
 One variable
 
-\[Q(\mathbf{x}) = x_1^T a_{11} x_1\]
+\[Q(\mathbf{x}) = x_1^\top a_{11} x_1\]
 
 N variables: 
 \begin{align*}
-Q(\mathbf{x}) &=\begin{pmatrix} x1&x2&\cdots&x_n\end{pmatrix}\\
-& = \begin{pmatrix}
+Q(\mathbf{x}) &=\begin{pmatrix} x_1 & x_2 & \cdots & x_n \end{pmatrix}\begin{pmatrix}
 a_{11}&\frac{1}{2}a_{12}&\cdots&\frac{1}{2}a_{1n}\\
 \frac{1}{2}a_{12}&a_{22}&\cdots&\frac{1}{2}a_{2n}\\
 \vdots&\vdots&\ddots&\vdots\\
 \frac{1}{2}a_{1n}&\frac{1}{2}a_{2n}&\cdots&a_{nn}
 \end{pmatrix}
 \begin{pmatrix} x_1\\x_2\\\vdots\\x_n\end{pmatrix}\\
-&= \mathbf{x}^T\mathbf{Ax}
+&= \mathbf{x}^\top\mathbf{Ax}
 \end{align*}
 
 For example, the  Quadratic on $\mathbf{R}^2$:
@@ -306,7 +299,7 @@ For example, the  Quadratic on $\mathbf{R}^2$:
 When the function $f(\mathbf{x})$ has more than two inputs, determining whether it has a maxima and minima (remember, functions may have many inputs but they have only one output) is a bit more tedious.  Definiteness helps identify the curvature of a function, $Q(\textbf{x})$, in n dimensional space.
 
 __Definiteness__:  By definition, a quadratic form always takes on the value of zero when $x = 0$, $Q(\textbf{x})=0$ at $\textbf{x}=0$. The definiteness of the matrix $\textbf{A}$ is  determined by whether the
-quadratic form $Q(\textbf{x})=\textbf{x}^T\textbf{A}\textbf{x}$ is greater than zero, less than
+quadratic form $Q(\textbf{x})=\textbf{x}^\top\textbf{A}\textbf{x}$ is greater than zero, less than
 zero, or sometimes both over all $\mathbf{x}\ne 0$.
 
 
@@ -440,7 +433,7 @@ Note: Alternate check of definiteness. Is $\mathbf{H(x^*)} \geq \leq 0 \quad \fo
   
     
 \begin{align*}
-\mathbf{x}^T H(\mathbf{x}^*) \mathbf{x} &= \begin{pmatrix} x_1 & x_2 \end{pmatrix}\\
+\mathbf{x}^\top H(\mathbf{x}^*) \mathbf{x} &= \begin{pmatrix} x_1 & x_2 \end{pmatrix}\\
 &= \begin{pmatrix} 2&0\\0&2 \end{pmatrix}\\
 \begin{pmatrix} x_1\\x_2\end{pmatrix} &= 2x_1^2+2x_2^2
 \end{align*}
@@ -619,7 +612,7 @@ Here we add the lagrangian term _and_ we subtract the constraining function from
 \begin{align*}
 \frac{\partial L}{\partial x_1} &= \frac{\partial f}{\partial x_1} - \sum_{i = 1}^k\lambda_i\frac{\partial c_i}{\partial x_1} = 0\\
  \vdots &= \vdots \nonumber \\ 
-\frac{\partial L}{\partial x_n}  = \frac{\partial f}{\partial x_n} - \sum_{i = 1}^k\lambda_i\frac{\partial c_i}{\partial x_n} = 0\\
+\frac{\partial L}{\partial x_n}  &= \frac{\partial f}{\partial x_n} - \sum_{i = 1}^k\lambda_i\frac{\partial c_i}{\partial x_n} = 0\\
 \frac{\partial L}{\partial \lambda_1} &= c_1(x_i, \dots, x_n) - r_1 =  0\\
  \vdots &= \vdots \nonumber \\
 \frac{\partial L}{\partial \lambda_k} &= c_k(x_i, \dots, x_n) - r_k = 0
@@ -1013,11 +1006,11 @@ The Hessian is used in a Taylor polynomial approximation to $f(\mathbf{x})$ and 
 
 1.  The second order Taylor polynomial about the critical point
 ${\bf x}^*$ is
-  $$f({\bf x}^*+\bf h)=f({\bf x}^*)+\nabla f({\bf x}^*) \bf h +\frac{1}{2} \bf h^T
+  $$f({\bf x}^*+\bf h)=f({\bf x}^*)+\nabla f({\bf x}^*) \bf h +\frac{1}{2} \bf h^\top
 {\bf H(x^*)} \bf h + R(\bf h)$$
 2.  Since we're looking at a critical point, $\nabla f({\bf x}^*)=0$;
 and for small $\bf h$, $R(\bf h)$ is negligible.  Rearranging, we get
-$$f({\bf x}^*+\bf h)-f({\bf x}^*)\approx \frac{1}{2} \bf h^T {\bf H(x^*)}
+$$f({\bf x}^*+\bf h)-f({\bf x}^*)\approx \frac{1}{2} \bf h^\top {\bf H(x^*)}
 \bf h $$
 3. The Righthand side here is a quadratic form and we can determine the definiteness of $\bf
 H(x^*)$.
