@@ -26,6 +26,7 @@ An empirical demonstration of the democratic peace is also a good example of a _
 
 ```{r, message=FALSE, warning=FALSE}
 library(dplyr)
+library(tidyr)
 library(readr)
 library(data.table)
 library(foreach)
@@ -56,7 +57,7 @@ Most projects you do will start with downloading data from elsewhere. For this t
 ## Example with 2 Datasets
 
 Let's read in a sample dataset. 
-```{r}
+```{r, warning = FALSE, message = FALSE}
 polity <- read_csv("input/sample_polity.csv")
 mid <- read_csv("input/sample_mid.csv")
 ```
@@ -68,6 +69,8 @@ unique(polity$country)
 ggplot(polity, aes(x = year, y = polity2)) +
   facet_wrap(~ country) +
   geom_line()
+
+head(polity)
 ```
 
 
@@ -94,6 +97,8 @@ for(i in 1:nrow(mid)) {
              dispute = 1) 
   mid_year_by_year <- rbind(mid_year_by_year, x)
 }
+
+head(mid_year_by_year)
 ```
 
 
@@ -102,11 +107,13 @@ We want to combine these two datasets by merging. Base-R has a function called `
 
 ![](images/dplyr-joins.png)
 
-Here we can do a `left_join` from `polity` to `mid`. We want to keep the rows in `polity` that do not match in `mid`, and label them as non-disputes.
+Here we can do a `left_join` matching rows from `mid` to `polity`. We want to keep the rows in `polity` that do not match in `mid`, and label them as non-disputes.
 ```{r}
 p_m <- left_join(polity,
                  distinct(mid_year_by_year),
                  by = c("ccode", "year"))
+
+head(p_m)
 ```
 
 
@@ -119,11 +126,10 @@ p_m[is.na(p_m$dispute),]$dispute <- 0
 
 long to wide
 ```{r}
-p_m_w <- dcast(data = as.data.table(p_m),
+p_m_w <- dcast(data = p_m,
                formula = ccode ~ year,
                value.var = "polity2")
 ```
-
 
 ## Main Project
 
