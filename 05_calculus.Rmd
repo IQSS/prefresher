@@ -42,7 +42,7 @@ Let $f$ be a function whose domain includes an open interval containing the poin
 
 There are a two main ways to denote a derivate:
   
-* Leibniz Notation: $\frac{d}{dx}(f(x)$
+* Leibniz Notation: $\frac{d}{dx}(f(x))$
 * Prime or Lagrange Notation: $f'(x)$
 
 
