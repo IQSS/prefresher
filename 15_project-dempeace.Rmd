@@ -1,4 +1,4 @@
-# Joins and Merges, Wide and Long^[Module originally written by Shiro Kuriwaki and Yon Soo Park]
+# Joins and Merges, Wide and Long^[Module originally written by Shiro Kuriwaki and Yon Soo Park]{#dempeace}
 
 
 ## Where are we? Where are we headed? {-}
@@ -150,6 +150,7 @@ Often, files we need are saved in the `.xls` or `xlsx` format. It is possible to
 
 ```{r}
 
+
 ```
 
 
@@ -165,6 +166,7 @@ To start, let's download and merge some data.
 
 ```{r}
 
+
 ```
 
 
@@ -176,6 +178,9 @@ To start, let's download and merge some data.
 3. Arrive at a tentative conclusion for how well the Democratic Peace argument seems to hold up in this dataset. Visualize this conclusion. 
 
 ```{r}
+
+
+
 ```
 
 
