@@ -184,8 +184,5 @@ To start, let's download and merge some data.
 ```
 
 
-### Task 4 {-}
-
-* Once you have merged the datasets, what fraction of all MIDs in the time period we have data for involve 2 countries both with Polity2 scores greater than 5? Greater than 8? If there are any of the latter, find out what MIDs those are and research them for a bit. 
 
 
