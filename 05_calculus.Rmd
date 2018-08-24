@@ -355,7 +355,7 @@ __Partial Derivative__:  Let $f$ be a function of the variables $(x_1,\ldots,x_n
 Only the $i$th variable changes --- the others are treated as constants.
 
 
-We can take higher-order partial derivatives, like we did with functions of a single variable, except now we the higher-order partials can be with respect to multiple variables.
+We can take higher-order partial derivatives, like we did with functions of a single variable, except now the higher-order partials can be with respect to multiple variables.
 
 ```{example, name = "More than one type of partial"}
 Notice that you can take partials with regard to different variables. 
