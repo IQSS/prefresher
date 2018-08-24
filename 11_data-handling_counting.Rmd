@@ -88,7 +88,7 @@ For our first dataset, let's try reading in a dataset on the Ancient Greek world
 
 This POLIS dataset was generously provided by Professor Josiah Ober of Stanford University. This dataset includes information on city states in the Ancient Greek world, parts of it collected by careful work by historians and archaeologists. It is part of his recent books on Greece (Ober 2015), "The Rise and Fall of Classical Greece"^[[Ober, Josiah (2015). _The Rise and Fall of Classical Greece_. Princeton University Press.](https://press.princeton.edu/titles/10423.html)] and Institutions in Ancient Athens (Ober 2010) , "Democracy and Knowledge: Innovation and Learning in Classical Athens"^[[Ober, Josiah (2010). _Democracy and Knowledge: Innovation and Learning in Classical Athens_. Princeton University Press.](https://press.princeton.edu/titles/8742.html)]
 
-### Preliminaries 
+### Locating the Data 
 What files do we have in the `input` folder?
 
 ```{r, echo = FALSE}
@@ -114,7 +114,18 @@ The package `readxl` has a website: https://readxl.tidyverse.org/. Other package
 help(package = readxl)
 ```
 
-Many things in R and other open source packages have competing standards. A lecture on a technique inevitably biases one standard over another. We try our best to choose the one that is most relevant and useful, but feel free to suggest changes to us or to the booklet. 
+
+### Base-R vs. tidyverse 
+
+(A R Instructor's headache?)
+
+Many things in R and other open source packages have competing standards. A lecture on a technique inevitably biases one standard over another. Right now among R users in this , there are two families of functions  We try our best to choose the one that is most relevant and useful, but feel free to suggest changes to us or to the booklet. 
+
+
+| To ...        | in tidyverse: | in base-R:  |
+|---------------|:--------------|:------------|
+| Count each category | `count(df, var)` | `table(df$var)`|
+| Filter rows by condition | `filter(df, var == "Female") ` | `df[df$var == "Female", ]` or `subset(df, var == "Female")` |
 
 ![](images/xkcd_927_standards.png)
 
