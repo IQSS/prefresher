@@ -356,14 +356,19 @@ Are mutually exclusive events independent of each other?
 
 No. If A and B are mutually exclusive, then they cannot happen simultaneously. If we know that A occurred, then we know that B couldn't have occurred. Because of this, A and B aren't independent.
 
-**Pairwise Independence**: A set of more than two events $A_1, A_2, \dots, A_k$ is pairwise independent if  $P(A_i\cap A_j)=P(A_i)P(A_j)$, $\forall i\neq j$.  Note that this does __not__ necessarily imply independence.
+**Pairwise Independence**: A set of more than two events $A_1, A_2, \dots, A_k$ is pairwise independent if  $P(A_i\cap A_j)=P(A_i)P(A_j)$, $\forall i\neq j$.  Note that this does __not__ necessarily imply joint independence.
 
 **Conditional Independence**: If $A$ and $B$ are independent once you know the occurrence of a third event $C$, then $A$ and $B$ are conditionally independent (conditional on $C$):
 
-1.  $P(A|B \cap C)=P(A|C)$
+1. $P(A|B \cap C)=P(A|C)$
 2. $P(B|A \cap C)=P(B|C)$
-3.  $P(A\cap B|C)=P(A|C)P(B|C)$
+3. $P(A\cap B|C)=P(A|C)P(B|C)$
 
+
+Just because two events are conditionally independent does not mean that they are independent. Actually it is hard to think of real-world things that are "unconditionally" independent. That's why it's always important to ask about a finding: What was it conditioned on?  For example, suppose that a graduate school admission decisions are done by only one professor, who picks a group of 50 bright students and flips a coin for each student to generate a class of about 25 students. Then the the probability that two students get accepted are conditionally independent, because they are determined by two separate coin tosses. However, this does not mean that their admittance is not completely independent. Knowing that student $A$ got in gives us information about whether student $B$ got in, if we think that the professor originally picked her pool of 50 students by merit. 
+
+Perhaps more counterintuitively: If two events are already independent, then it might seem that no amount of "conditioning" will make them dependent. But this is not always so. For example^[Example taken from Blitzstein and Hwang, Example 2.5.10], suppose I only get a call from two people, Alice and Bob. Let $A$ be the event that Alice calls, and $B$ be the event that Bob calls. Alice and Bob do not communicate, so $P(A \mid B) = P(A).$ But now let $C$ be the event that your phone rings. For conditional independence to hold here, then $P(A \mid C)$ must be equal to $P(A \mid B \cap C).$ But this is not true -- $A \mid C$  may or may not be true, but $P(A \mid B \cap C)$ certainly is true. 
+ 
 
 
 ## Random Variables
