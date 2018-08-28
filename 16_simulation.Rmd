@@ -48,15 +48,17 @@ An increasing amount of political science contributions now include a simulation
 
 Statistical methods also incorporate simulation: 
   
-1. The bootstrap: a statistical method for estimating uncertainty around some parameter by re-sampling observations. 
-2. Bagging: a method for improving machine learning predictions by re-sampling observations, storing the estimate across many re-samples, and averaging these estimates to form the final estimate. A variance reduction technique. 
-3. Statistical reasoning: if you are trying to understand a quantitative problem, a wonderful first-step to understand the problem better is to simulate it! The analytical solution is often very hard (or impossible), but the simulation is often much easier :-) 
+* The bootstrap: a statistical method for estimating uncertainty around some parameter by re-sampling observations. 
+* Bagging: a method for improving machine learning predictions by re-sampling observations, storing the estimate across many re-samples, and averaging these estimates to form the final estimate. A variance reduction technique. 
+* Statistical reasoning: if you are trying to understand a quantitative problem, a wonderful first-step to understand the problem better is to simulate it! The analytical solution is often very hard (or impossible), but the simulation is often much easier :-) 
 
-## Key functions
+
+## Pick a sample, any sample
+
+## The `sample()` function
 
 The core functions for coding up stochastic data revolves around several key functions, so we will simply review them here.  
 
-## `sample()`
 Suppose you have a vector of values `x` and from it you want to randomly sample a sample of length `size`. For this, use the `sample` function
 ```{r}
 sample(x = 1:10, size = 5)
@@ -94,7 +96,9 @@ sample(c("Head", "Tail"), size = 20, prob = c(0.2, 0.8), replace = TRUE)
 ```
 
 
-## `rbinom()`
+## Random numbers from specific distributions
+
+### `rbinom()` {-}
 `rbinom` builds upon `sample` as a tool to help you answer the question -- what is the _total number of successes_ I would get if I ran sampled a binary (Bernoulli) result from a pool of size `size`, with a event-wise probability of `prob`, with `n` number of trials?
 
 For example, I want to know how many Heads I would get if I flipped a fair coin 100 times. 
@@ -107,7 +111,7 @@ Now imagine this I wanted to do this experiment 10 times, which would require I 
 rbinom(n = 10, size = 100, prob = 0.5)
 ```
 
-## `runif()`
+### `runif()` {-}
 `runif` also simulates a stochastic scheme where each event has equal probability of getting chosen like `sample`, but is a continuous rather than discrete system.  We will cover this more in the next math module.
 
 The intuition to emphasize here is that one can generate potentially infinite amounts (size `n`) of noise that is a essentially random
@@ -118,7 +122,8 @@ runif(n = 5)
 ```
 
 
-## `rnorm()`
+### `rnorm()` {-}
+
 `rnorm` is also a continuous distribution, but draws from a Normal distribution -- perhaps the most important distribution in statistics. It runs the same way as `runif`
 
 ```{r}
@@ -135,6 +140,11 @@ par(mfrow = c(1, 2)) ## two plots at once
 hist(from_runif)
 hist(from_rnorm)
 ```
+
+
+## r, p, and d
+
+Each distribution can do more than generate random numbers (the prefix `r`). We can compute the cumulative probability by the function `pbinom()`, `punif()`, and `pnorm()`. Also the density -- the value of the PDF -- by `dbinom()`, `dunif()` and `dnorm()`.  
 
 
 
@@ -161,17 +171,59 @@ runif(n = 10)
 whereas a true random number generator would give you the exact same sequence of output with probability 0!
 
 
-## Bootstrap
-
-The "bootstrap" might be a term you hear thrown around in applied methods work. This too is a simulation-type method. It tries to sample with replacement 
-
 
 
 ## Exercises {-}
 
 ### Survey Sampling {-}
 
-### 
+Let's treat the 1 percent Census 2010 as the "population", and think about what survey is doing.
+
+(a) First, load `usc2010_1percent.Rds` into your R session. After loading the `library(tidyverse)`, browse it.
+
+```{r}
+
+```
+
+
+
+
+
+### Trump Given Education {-}
+
+Read in the Upshot Siena poll from November 2016, `input/upshot-siena-polls.csv` 
+
+In addition to the variables from last time, we will consider one more, called `vt_pres_2` in the csv. This is a two-way presidential vote question, asking respondents who they plan to vote for President if the election were held today -- Donald Trump, the Republican, or Hilary Clinton, the Democrat, with options for Other candidates as well. For this problem, use the two-way vote question rather than the 4-way vote question. 
+
+(a)  Drop the the respondents who answered the November poll (i.e. those for which \texttt{poll == "November"}). We do this in order to ignore this November population in all subsequent parts of this question because they were not asked the Presidential vote question. 
+
+```{r}
+
+```
+
+
+(b) Using the dataset after the procedure in (a), find the proportion of _poll respondents_ (those who are in the sample) who support Donald Trump. 
+
+```{r}
+
+```
+
+
+(c)  Among those who supported Donald Trump, what proportion of them has a Bachelor's degree or higher (i.e. have a Bachelor's, Graduate, or other Professional Degree)?
+
+
+(d)  Among those who did not support Donald Trump (i.e. including supporters of Hilary Clinton, another candidate, or those who refused to answer the question), what proportion of them has a Bachelor's degree or higher? 
+
+
+(e)  Express the numbers in the previous parts as probabilities of specified events.  Define your own symbols: For example, we can let $T$ be the event that a randomly selected respondent in the poll supports Donald Trump, then the proportion in part (b) is the probability $P(T).$ 
+
+
+
+(f) Suppose we randomly sampled a person who participated in the survey and found that he/she had a Bachelor's degree or higher. Given this evidence, what is the probability that the same person supports Donald Trump? Use Bayes Rule and show your work -- that is, do not use data or R to compute the quantity directly.  Then, verify this is the case via R.
+
+
+
+
 
 
 ### The Birthday problem {-}
