@@ -10,10 +10,10 @@ library(tidyverse)
 Up till now, you should have covered:
 
 * `R` basics
-* Matrices and vectos
 * Visualization
+* Matrices and vectors
 * Functions, objects, loops
-* Wrangling with real data
+* Joining real data
 
 
 In this module, we will start to work with generating data within R, from thin air, as it were. Doing simulation also strengthens your understanding of Probability (Section \@ref{probability}).
@@ -24,6 +24,8 @@ In this module, we will start to work with generating data within R, from thin a
 * What does the `sample()` function do?
 * What does `runif()` stand for?
 * What is a `seed`?
+* What is a Monte Carlo?
+
 
 Check if you have an idea of how you might code the following tasks:
 
@@ -93,7 +95,7 @@ sample(c("Head", "Tail"), size = 20, prob = c(0.2, 0.8), replace = TRUE)
 
 
 ## `rbinom()`
-`rbinom` builds upon `sample` as a tool to help you answer the question -- what is the _total number of successes_ I would get if I ran sampled a binary (bernoulli) result from a pool of size `size`, with a event-wise probability of `prob`, with `n` number of trials?
+`rbinom` builds upon `sample` as a tool to help you answer the question -- what is the _total number of successes_ I would get if I ran sampled a binary (Bernoulli) result from a pool of size `size`, with a event-wise probability of `prob`, with `n` number of trials?
 
 For example, I want to know how many Heads I would get if I flipped a fair coin 100 times. 
 ```{r}
@@ -117,7 +119,7 @@ runif(n = 5)
 
 
 ## `rnorm()`
-`rnorm` is also a continous distribution, but draws from a Normal distribution -- perhaps the most important distribution in statistics. It runs the same way as `runif`
+`rnorm` is also a continuous distribution, but draws from a Normal distribution -- perhaps the most important distribution in statistics. It runs the same way as `runif`
 
 ```{r}
 rnorm(n = 5)
@@ -138,7 +140,7 @@ hist(from_rnorm)
 
 ## `set.seed()`
 
-`R` doesn't have the ability to generate truly random numbers! Random numbers are actually very hard to generate. (Think: flipping a coin --> can be perfectly predicted if I know windspeed, the angle the coin is flipped, etc.). Some people use random noise in the atmosphere or random behavior in quantum systems to generate "truly" (?) random numbers. Conversely, R uses deterministic algorithms which take as an input a "seed" and which then perform a series of operations to generate a sequence of random-seeming numbers (that is, numbers whose sequence is sufficiently hard to predict).
+`R` doesn't have the ability to generate truly random numbers! Random numbers are actually very hard to generate. (Think: flipping a coin --> can be perfectly predicted if I know wind speed, the angle the coin is flipped, etc.). Some people use random noise in the atmosphere or random behavior in quantum systems to generate "truly" (?) random numbers. Conversely, R uses deterministic algorithms which take as an input a "seed" and which then perform a series of operations to generate a sequence of random-seeming numbers (that is, numbers whose sequence is sufficiently hard to predict).
 
 Let's think about this another way. Sampling is a stochastic process, so every time you run `sample()` or `runif()` you are bound to get a different output (because different random seeds are used). This is intentional in some cases but you might want to avoid it in others. For example, you might want to diagnose a coding discrepancy by setting the random number generator to give the same number each time. To do this, use the function `set.seed()`.
 
@@ -146,22 +148,30 @@ In the function goes any number. When you run a sample function in the same comm
 
 ```{r}
 set.seed(02138)
-runif(n = 5)
-## exact same output long as you preced the function by the same seed, 
-set.seed(02138)
-runif(n = 5)
+runif(n = 10)
 ```
 
-A true random number generator would give you the exact same sequence of output with probability 0!
+The random number generator should  give you the exact same sequence of numbers if you precede the function by the same seed, 
+
 ```{r}
-runif(n = 5)
+set.seed(02138)
+runif(n = 10)
 ```
+
+whereas a true random number generator would give you the exact same sequence of output with probability 0!
+
+
+## Bootstrap
+
+The "bootstrap" might be a term you hear thrown around in applied methods work. This too is a simulation-type method. It tries to sample with replacement 
+
 
 
 ## Exercises {-}
 
 ### Survey Sampling {-}
 
+### 
 
 
 ### The Birthday problem {-}
@@ -178,7 +188,7 @@ _Step 1_: Set `k` to a concrete number. Pick a number from 1 to 365 randomly, `k
 ```
 
 
-_Step 2_: Write a line (or two) of code  that gives a `TRUE` or `FALSE` statement of whether or not at least two people share the same birthdate.
+_Step 2_: Write a line (or two) of code  that gives a `TRUE` or `FALSE` statement of whether or not at least two people share the same birth date.
 ```{r}
 # Your code
 ```
@@ -207,23 +217,3 @@ _Extra credit_: Give an "analytical" answer to this problem, that is an answer t
 # Your equations
 ```
 
-
-### The Monty Hall problem {-}
-The Monty Hall problem is a counterintuitive example demonstrating the importance of conditional probability that also shows up in most probability textbooks. 
-
-The original formulation of the problem appeared on a magazine column in 1990
-
-> "Suppose you're on a game show, and you're given the choice of three doors: Behind one door is a car; behind the others, goats. You pick a door, say No. 1, and the host, who knows what's behind the doors, opens another door, say No. 3, which has a goat. He then says to you, 'Do you want to pick door No. 2?' Is it to your advantage to switch your choice?"
-> [https://en.wikipedia.org/wiki/Monty_Hall_problem](https://en.wikipedia.org/wiki/Monty_Hall_problem)
-
-Give an answer to this question by a  Monte Carlo simulation. As in the previous example, set a number `sims` for the number of simulations you will run.
-
-The key difference in this problem is to record the outcome (whether you won or lost) for _two counterfactuals_ at any given simulation. That is, record the result for two cases: when you switched given the host's advice or did not switch. 
-
-Comparing the average success rates of each of the two choices will provide a simulation-based answer to the Monty Hall problem. 
-
-```{r}
-# Your code
-```
-
-A model answer (there are many correct answers) is given in Imai (2017), p.265^[with a slight robustness addition [here](https://github.com/kosukeimai/qss/blob/master/errata/QSSerrata.pdf)]
