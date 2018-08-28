@@ -165,7 +165,7 @@ for (state in states_of_interest) {
 ```
 
 
-# Chapter \@ref(simulation): Simulation
+## Chapter \@ref(simulation): Simulation
 
 ### Census Sampling
 
@@ -193,11 +193,11 @@ for (i in 1:20) {
   samp <- sample_n(pop, 100)
   ests[i] <- mean(samp$race != "White")
 }
-```
 
-```{r}
+
 mean(ests)
 ```
+
 
 
 ```{r}
