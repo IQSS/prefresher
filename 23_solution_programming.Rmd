@@ -165,3 +165,67 @@ for (state in states_of_interest) {
 ```
 
 
+# Chapter \@ref(simulation): Simulation
+
+### Census Sampling
+
+```{r}
+pop <- read_csv("input/usc2010_001percent.csv")
+```
+
+```{r}
+mean(pop$race != "White")
+```
+
+
+```{r}
+set.seed(1669482)
+samp <- sample_n(pop, 100)
+mean(samp$race != "White")
+```
+
+
+```{r, eval = FALSE}
+ests <- c()
+set.seed(1669482)
+
+for (i in 1:20) {
+  samp <- sample_n(pop, 100)
+  ests[i] <- mean(samp$race != "White")
+}
+```
+
+```{r}
+mean(ests)
+```
+
+
+```{r}
+pop_with_prop <- mutate(pop, propensity = ifelse(race != "White", 0.9, 1))
+```
+
+```{r, eval = FALSE}
+ests <- c()
+set.seed(1669482)
+
+for (i in 1:20) {
+  samp <- sample_n(pop_with_prop, 100, weight = propensity)
+  ests[i] <- mean(samp$race != "White")
+}
+
+mean(ests)
+```
+
+
+```{r, eval = FALSE}
+ests <- c()
+set.seed(1669482)
+
+for (i in 1:20) {
+  samp <- sample_n(pop_with_prop, 10000, weight = propensity)
+  ests[i] <- mean(samp$race != "White")
+}
+
+mean(ests)
+```
+
