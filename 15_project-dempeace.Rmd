@@ -1,4 +1,4 @@
-# Joins and Merges, Wide and Long^[Module originally written by Shiro Kuriwaki and Yon Soo Park]
+# Joins and Merges, Wide and Long^[Module originally written by Shiro Kuriwaki, Connor Jerzak, and Yon Soo Park]
 
 
 ## Where are we? Where are we headed? {-}
@@ -117,15 +117,8 @@ head(p_m)
 ```
 
 
-```{r}
-p_m %>% 
-  group_by(dispute) %>% 
-  summarize(mean_polity = mean(polity2, na.rm =))
-```
 
-
-
-Replace `dispute` = NA rows with a zero.
+Replace `dispute` = `NA` rows with a zero.
 
 ```{r}
 p_m$dispute[is.na(p_m$dispute)] <- 0
@@ -146,12 +139,12 @@ Try building a panel that would be useful in answering the Democratic Peace Ques
 
 Often, files we need are saved in the `.xls` or `xlsx` format. It is possible to read these files directly into `R`, but experience suggests that this process is slower than converting them first to `.csv` format and reading them in as `.csv` files. 
 
-`readxl`/`readr`/`haven` packages(<https://github.com/tidyverse/tidyverse>) is constantly expanding to capture more file types. `read_xl` is new but quite good.
+`readxl`/`readr`/`haven` packages(<https://github.com/tidyverse/tidyverse>) is constantly expanding to capture more file types. In day 1, we used the package `readxl`, using the `read_excel()` function.
+
 
 ```{r}
 
 ```
-
 
 
 ### Task 2: Data Merging {-}

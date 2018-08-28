@@ -10,10 +10,10 @@ library(tidyverse)
 Up till now, you should have covered:
 
 * `R` basics
-* Matrices and vectos
 * Visualization
+* Matrices and vectors
 * Functions, objects, loops
-* Wrangling with real data
+* Joining real data
 
 
 In this module, we will start to work with generating data within R, from thin air, as it were. Doing simulation also strengthens your understanding of Probability (Section \@ref{probability}).
@@ -24,6 +24,8 @@ In this module, we will start to work with generating data within R, from thin a
 * What does the `sample()` function do?
 * What does `runif()` stand for?
 * What is a `seed`?
+* What is a Monte Carlo?
+
 
 Check if you have an idea of how you might code the following tasks:
 
@@ -46,15 +48,17 @@ An increasing amount of political science contributions now include a simulation
 
 Statistical methods also incorporate simulation: 
   
-1. The bootstrap: a statistical method for estimating uncertainty around some parameter by re-sampling observations. 
-2. Bagging: a method for improving machine learning predictions by re-sampling observations, storing the estimate across many re-samples, and averaging these estimates to form the final estimate. A variance reduction technique. 
-3. Statistical reasoning: if you are trying to understand a quantitative problem, a wonderful first-step to understand the problem better is to simulate it! The analytical solution is often very hard (or impossible), but the simulation is often much easier :-) 
+* The bootstrap: a statistical method for estimating uncertainty around some parameter by re-sampling observations. 
+* Bagging: a method for improving machine learning predictions by re-sampling observations, storing the estimate across many re-samples, and averaging these estimates to form the final estimate. A variance reduction technique. 
+* Statistical reasoning: if you are trying to understand a quantitative problem, a wonderful first-step to understand the problem better is to simulate it! The analytical solution is often very hard (or impossible), but the simulation is often much easier :-) 
 
-## Key functions
+
+## Pick a sample, any sample
+
+## The `sample()` function
 
 The core functions for coding up stochastic data revolves around several key functions, so we will simply review them here.  
 
-## `sample()`
 Suppose you have a vector of values `x` and from it you want to randomly sample a sample of length `size`. For this, use the `sample` function
 ```{r}
 sample(x = 1:10, size = 5)
@@ -91,9 +95,37 @@ But this simulates 20 biased coin tosses, where say the probability of Tails is 
 sample(c("Head", "Tail"), size = 20, prob = c(0.2, 0.8), replace = TRUE)
 ```
 
+### Sampling rows from a dataframe
 
-## `rbinom()`
-`rbinom` builds upon `sample` as a tool to help you answer the question -- what is the _total number of successes_ I would get if I ran sampled a binary (bernoulli) result from a pool of size `size`, with a event-wise probability of `prob`, with `n` number of trials?
+In tidyverse, there is a convenience function to sample rows randomly: `sample_n()` and `sample_frac()`. 
+
+For example, load the dataset on cars, `mtcars`, which has 32 observations.
+
+```{r}
+mtcars
+```
+sample_n picks a user-specified number of rows from the dataset:
+
+```{r}
+sample_n(mtcars, 3)
+```
+
+Sometimes you want a X percent sample of your dataset. In this case use `sample_frac()`
+
+```{r}
+sample_frac(mtcars, 0.10)
+```
+
+As a side-note, these functions have very practical uses for any type of data analysis:
+
+* Inspecting your dataset: using `head()` all the same time and looking over the first few rows might lead you to ignore any issues that end up in the bottom for whatever reason.
+* Testing your analysis with a small sample: If running analyses on a dataset takes more than a handful of seconds, change your dataset upstream to a fraction of the size so the rest of the code runs in less than a second. Once verifying your analysis code runs, then re-do it with your full dataset (by simply removing the `sample_n` / `sample_frac` line of code in the beginning). While three seconds may not sound like much, they accumulate and eat up time.
+
+
+## Random numbers from specific distributions
+
+### `rbinom()` {-}
+`rbinom` builds upon `sample` as a tool to help you answer the question -- what is the _total number of successes_ I would get if I ran sampled a binary (Bernoulli) result from a pool of size `size`, with a event-wise probability of `prob`, with `n` number of trials?
 
 For example, I want to know how many Heads I would get if I flipped a fair coin 100 times. 
 ```{r}
@@ -105,7 +137,7 @@ Now imagine this I wanted to do this experiment 10 times, which would require I 
 rbinom(n = 10, size = 100, prob = 0.5)
 ```
 
-## `runif()`
+### `runif()` {-}
 `runif` also simulates a stochastic scheme where each event has equal probability of getting chosen like `sample`, but is a continuous rather than discrete system.  We will cover this more in the next math module.
 
 The intuition to emphasize here is that one can generate potentially infinite amounts (size `n`) of noise that is a essentially random
@@ -116,8 +148,9 @@ runif(n = 5)
 ```
 
 
-## `rnorm()`
-`rnorm` is also a continous distribution, but draws from a Normal distribution -- perhaps the most important distribution in statistics. It runs the same way as `runif`
+### `rnorm()` {-}
+
+`rnorm` is also a continuous distribution, but draws from a Normal distribution -- perhaps the most important distribution in statistics. It runs the same way as `runif`
 
 ```{r}
 rnorm(n = 5)
@@ -135,10 +168,15 @@ hist(from_rnorm)
 ```
 
 
+## r, p, and d
+
+Each distribution can do more than generate random numbers (the prefix `r`). We can compute the cumulative probability by the function `pbinom()`, `punif()`, and `pnorm()`. Also the density -- the value of the PDF -- by `dbinom()`, `dunif()` and `dnorm()`.  
+
+
 
 ## `set.seed()`
 
-`R` doesn't have the ability to generate truly random numbers! Random numbers are actually very hard to generate. (Think: flipping a coin --> can be perfectly predicted if I know windspeed, the angle the coin is flipped, etc.). Some people use random noise in the atmosphere or random behavior in quantum systems to generate "truly" (?) random numbers. Conversely, R uses deterministic algorithms which take as an input a "seed" and which then perform a series of operations to generate a sequence of random-seeming numbers (that is, numbers whose sequence is sufficiently hard to predict).
+`R` doesn't have the ability to generate truly random numbers! Random numbers are actually very hard to generate. (Think: flipping a coin --> can be perfectly predicted if I know wind speed, the angle the coin is flipped, etc.). Some people use random noise in the atmosphere or random behavior in quantum systems to generate "truly" (?) random numbers. Conversely, R uses deterministic algorithms which take as an input a "seed" and which then perform a series of operations to generate a sequence of random-seeming numbers (that is, numbers whose sequence is sufficiently hard to predict).
 
 Let's think about this another way. Sampling is a stochastic process, so every time you run `sample()` or `runif()` you are bound to get a different output (because different random seeds are used). This is intentional in some cases but you might want to avoid it in others. For example, you might want to diagnose a coding discrepancy by setting the random number generator to give the same number each time. To do this, use the function `set.seed()`.
 
@@ -146,21 +184,111 @@ In the function goes any number. When you run a sample function in the same comm
 
 ```{r}
 set.seed(02138)
-runif(n = 5)
-## exact same output long as you preced the function by the same seed, 
-set.seed(02138)
-runif(n = 5)
+runif(n = 10)
 ```
 
-A true random number generator would give you the exact same sequence of output with probability 0!
+The random number generator should  give you the exact same sequence of numbers if you precede the function by the same seed, 
+
 ```{r}
-runif(n = 5)
+set.seed(02138)
+runif(n = 10)
 ```
+
+whereas a true random number generator would give you the exact same sequence of output with probability 0!
+
+
 
 
 ## Exercises {-}
 
-### Survey Sampling {-}
+### Census Sampling {-}
+
+What can we learn from surveys of populations, and how wrong do we get if our sampling is biased?^[This example is inspired from [Meng, Xiao-Li  (2018). Statistical paradises and paradoxes in big data (I): Law of large populations, big data paradox, and the 2016 US presidential election. _Annals of  Applied Statistics_ 12:2, 685–726. doi:10.1214/18-AOAS1161SF.](https://statistics.fas.harvard.edu/files/statistics-2/files/statistical_paradises_and_paradoxes.pdf)]  Suppose we want to estimate the proportion of U.S. residents who are non-white (`race != "White"`). In reality, we do not have any population dataset to utilize and so we _only see the sample survey_. Here, however, to understand how sampling works, let's conveniently use the Census extract in some cases and pretend we didn't in others.
+
+
+(a) First, load `usc2010_1percent.Rds` into your R session. After loading the `library(tidyverse)`, browse it. Although this is only a 1 percent extract, treat this as your population for pedagogical purposes. What is the population proportion of non-White residents?
+
+```{r}
+
+```
+
+
+
+(b) Setting a seed to `1669482`, sample 100 respondents from this sample. What is the proportion of non-White residents in this _particular_ sample? By how many percentage points are you off from the true proportion?
+
+```{r}
+
+```
+
+
+(c) Now imagine what you did above was one survey. What would we get if we did 20 surveys? To simulate this, write a loop that does the same exercise 1000 times, each time computing a sample proportion. Use the same seed at the top. Show a histogram of these _20 draws_. Try doing this with a `for` loop and storing your results in a new length-20 vector. What is the average of the 20 sample estimates?
+
+```{r}
+
+```
+
+
+(d) Now, to make things more real, let's introduce some response bias. Suppose that non-White residents are 10 percent less likely to respond to enter your survey than the other two categories. This is plausible if you think that the Census is from 2010 but you are polling in 2018, and racial minorities are more mobile than Whites.  Repeat the same exercise in (c) by modeling this behavior. You can do this by creating a variable, e.g. `propensity`, that is 0.9 for renters and 1 otherwise. Then, you can refer to it in the propensity argument.
+
+```{r}
+
+```
+
+
+(e) Finally, we want to see if more data ("Big Data") will improve our estimates. Using the same unequal response rates framework as (d), repeat the same exercise but instead of each poll collecting 100 responses, we collect 10,000. 
+
+
+```{r}
+
+```
+
+
+(f) Optional - visualize your 2 pairs of 20 estimates, with a bar showing the "correct" population average. 
+
+```{r}
+
+```
+
+
+
+
+
+### Conditional Proportions {-}
+
+This example is not on simulation, but is meant to reinforce some of the probability discussion from math lecture. 
+
+Read in the Upshot Siena poll from November 2016, `input/upshot-siena-polls.csv` 
+
+In addition to some standard demographic questions, we will focus on one called `vt_pres_2` in the csv. This is a two-way presidential vote question, asking respondents who they plan to vote for President if the election were held today -- Donald Trump, the Republican, or Hilary Clinton, the Democrat, with options for Other candidates as well. For this problem, use the two-way vote question rather than the 4-way vote question. 
+
+(a)  Drop the the respondents who answered the November poll (i.e. those for which `poll == "November"`). We do this in order to ignore this November population in all subsequent parts of this question because they were not asked the Presidential vote question. 
+
+```{r}
+
+```
+
+
+(b) Using the dataset after the procedure in (a), find the proportion of _poll respondents_ (those who are in the sample) who support Donald Trump. 
+
+```{r}
+
+```
+
+
+(c)  Among those who supported Donald Trump, what proportion of them has a Bachelor's degree or higher (i.e. have a Bachelor's, Graduate, or other Professional Degree)?
+
+
+(d)  Among those who did not support Donald Trump (i.e. including supporters of Hilary Clinton, another candidate, or those who refused to answer the question), what proportion of them has a Bachelor's degree or higher? 
+
+
+(e)  Express the numbers in the previous parts as probabilities of specified events.  Define your own symbols: For example, we can let $T$ be the event that a randomly selected respondent in the poll supports Donald Trump, then the proportion in part (b) is the probability $P(T).$ 
+
+
+
+(f) Suppose we randomly sampled a person who participated in the survey and found that he/she had a Bachelor's degree or higher. Given this evidence, what is the probability that the same person supports Donald Trump? Use Bayes Rule and show your work -- that is, do not use data or R to compute the quantity directly.  Then, verify this is the case via R.
+
+
+
 
 
 
@@ -178,7 +306,7 @@ _Step 1_: Set `k` to a concrete number. Pick a number from 1 to 365 randomly, `k
 ```
 
 
-_Step 2_: Write a line (or two) of code  that gives a `TRUE` or `FALSE` statement of whether or not at least two people share the same birthdate.
+_Step 2_: Write a line (or two) of code  that gives a `TRUE` or `FALSE` statement of whether or not at least two people share the same birth date.
 ```{r}
 # Your code
 ```
@@ -207,23 +335,3 @@ _Extra credit_: Give an "analytical" answer to this problem, that is an answer t
 # Your equations
 ```
 
-
-### The Monty Hall problem {-}
-The Monty Hall problem is a counterintuitive example demonstrating the importance of conditional probability that also shows up in most probability textbooks. 
-
-The original formulation of the problem appeared on a magazine column in 1990
-
-> "Suppose you're on a game show, and you're given the choice of three doors: Behind one door is a car; behind the others, goats. You pick a door, say No. 1, and the host, who knows what's behind the doors, opens another door, say No. 3, which has a goat. He then says to you, 'Do you want to pick door No. 2?' Is it to your advantage to switch your choice?"
-> [https://en.wikipedia.org/wiki/Monty_Hall_problem](https://en.wikipedia.org/wiki/Monty_Hall_problem)
-
-Give an answer to this question by a  Monte Carlo simulation. As in the previous example, set a number `sims` for the number of simulations you will run.
-
-The key difference in this problem is to record the outcome (whether you won or lost) for _two counterfactuals_ at any given simulation. That is, record the result for two cases: when you switched given the host's advice or did not switch. 
-
-Comparing the average success rates of each of the two choices will provide a simulation-based answer to the Monty Hall problem. 
-
-```{r}
-# Your code
-```
-
-A model answer (there are many correct answers) is given in Imai (2017), p.265^[with a slight robustness addition [here](https://github.com/kosukeimai/qss/blob/master/errata/QSSerrata.pdf)]
