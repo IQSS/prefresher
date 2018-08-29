@@ -1,4 +1,6 @@
-# Joins and Merges, Wide and Long^[Module originally written by Shiro Kuriwaki, Connor Jerzak, and Yon Soo Park]
+
+# Joins and Merges, Wide and Long^[Module originally written by Shiro Kuriwaki, Connor Jerzak, and Yon Soo Park] {#dempeace}
+
 
 
 ## Where are we? Where are we headed? {-}
@@ -144,6 +146,7 @@ Often, files we need are saved in the `.xls` or `xlsx` format. It is possible to
 
 ```{r}
 
+
 ```
 
 
@@ -158,6 +161,7 @@ To start, let's download and merge some data.
 
 ```{r}
 
+
 ```
 
 
@@ -169,11 +173,11 @@ To start, let's download and merge some data.
 3. Arrive at a tentative conclusion for how well the Democratic Peace argument seems to hold up in this dataset. Visualize this conclusion. 
 
 ```{r}
+
+
+
 ```
 
 
-### Task 4 {-}
-
-* Once you have merged the datasets, what fraction of all MIDs in the time period we have data for involve 2 countries both with Polity2 scores greater than 5? Greater than 8? If there are any of the latter, find out what MIDs those are and research them for a bit. 
 
 
