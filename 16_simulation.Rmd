@@ -125,7 +125,7 @@ As a side-note, these functions have very practical uses for any type of data an
 ## Random numbers from specific distributions
 
 ### `rbinom()` {-}
-`rbinom` builds upon `sample` as a tool to help you answer the question -- what is the _total number of successes_ I would get if I ran sampled a binary (Bernoulli) result from a pool of size `size`, with a event-wise probability of `prob`, with `n` number of trials?
+`rbinom` builds upon `sample` as a tool to help you answer the question -- what is the _total number of successes_ I would get if I  sampled a binary (Bernoulli) result from a test with `size` number of trials each, with a event-wise probability of `prob`. The first argument `n` asks me how many such numbers I want.
 
 For example, I want to know how many Heads I would get if I flipped a fair coin 100 times. 
 ```{r}
@@ -162,7 +162,7 @@ To better visualize the difference between the output of `runif` and `rnorm`, le
 from_runif <- runif(n = 1000)
 from_rnorm <- rnorm(n = 1000)
 
-par(mfrow = c(1, 2)) ## two plots at once
+par(mfrow = c(1, 2)) ## base-R parameter for two plots at once
 hist(from_runif)
 hist(from_rnorm)
 ```
@@ -206,7 +206,7 @@ whereas a true random number generator would give you the exact same sequence of
 What can we learn from surveys of populations, and how wrong do we get if our sampling is biased?^[This example is inspired from [Meng, Xiao-Li  (2018). Statistical paradises and paradoxes in big data (I): Law of large populations, big data paradox, and the 2016 US presidential election. _Annals of  Applied Statistics_ 12:2, 685–726. doi:10.1214/18-AOAS1161SF.](https://statistics.fas.harvard.edu/files/statistics-2/files/statistical_paradises_and_paradoxes.pdf)]  Suppose we want to estimate the proportion of U.S. residents who are non-white (`race != "White"`). In reality, we do not have any population dataset to utilize and so we _only see the sample survey_. Here, however, to understand how sampling works, let's conveniently use the Census extract in some cases and pretend we didn't in others.
 
 
-(a) First, load `usc2010_1percent.Rds` into your R session. After loading the `library(tidyverse)`, browse it. Although this is only a 1 percent extract, treat this as your population for pedagogical purposes. What is the population proportion of non-White residents?
+(a) First, load `usc2010_001percent.csv` into your R session. After loading the `library(tidyverse)`, browse it. Although this is only a 0.01 percent extract, treat this as your population for pedagogical purposes. What is the population proportion of non-White residents?
 
 ```{r}
 
@@ -214,21 +214,27 @@ What can we learn from surveys of populations, and how wrong do we get if our sa
 
 
 
-(b) Setting a seed to `1669482`, sample 100 respondents from this sample. What is the proportion of non-White residents in this _particular_ sample? By how many percentage points are you off from the true proportion?
+(b) Setting a seed to `1669482`, sample 100 respondents from this sample. What is the proportion of non-White residents in this _particular_ sample? By how many percentage points are you off from (what we labelled as) the true proportion?
 
 ```{r}
 
 ```
 
 
-(c) Now imagine what you did above was one survey. What would we get if we did 20 surveys? To simulate this, write a loop that does the same exercise 1000 times, each time computing a sample proportion. Use the same seed at the top. Show a histogram of these _20 draws_. Try doing this with a `for` loop and storing your results in a new length-20 vector. What is the average of the 20 sample estimates?
+(c) Now imagine what you did above was one survey. What would we get if we did 20 surveys? 
+
+To simulate this, write a loop that does the same exercise 20 times, each time computing a sample proportion. Use the same seed at the top, but be careful to position the `set.seed` function such that it generates the same sequence of 20 samples, rather than 20 of the same sample. 
+
+Try doing this with a `for` loop and storing your sample proportions in a new length-20 vector. (Suggestion: make an empty vector first as a container). After running the loop, show a histogram of the 20 values. Also what is the average of the 20 sample estimates?
 
 ```{r}
 
 ```
 
 
-(d) Now, to make things more real, let's introduce some response bias. Suppose that non-White residents are 10 percent less likely to respond to enter your survey than the other two categories. This is plausible if you think that the Census is from 2010 but you are polling in 2018, and racial minorities are more mobile than Whites.  Repeat the same exercise in (c) by modeling this behavior. You can do this by creating a variable, e.g. `propensity`, that is 0.9 for renters and 1 otherwise. Then, you can refer to it in the propensity argument.
+(d) Now, to make things more real, let's introduce some response bias. The goal here is not to correct response bias but to induce it and see how it affects our estimates.  Suppose that non-White residents are 10 percent less likely to respond to enter your survey than White respondents. This is plausible if you think that the Census is from 2010 but you are polling in 2018, and racial minorities are more geographically mobile than Whites.  Repeat the same exercise in (c) by modeling this behavior. 
+
+You can do this by creating a variable, e.g. `propensity`, that is 0.9 for non-Whites and 1 otherwise. Then, you can refer to it in the propensity argument.
 
 ```{r}
 
@@ -257,7 +263,7 @@ What can we learn from surveys of populations, and how wrong do we get if our sa
 
 This example is not on simulation, but is meant to reinforce some of the probability discussion from math lecture. 
 
-Read in the Upshot Siena poll from November 2016, `input/upshot-siena-polls.csv` 
+Read in the Upshot Siena poll from Fall 2016, `input/upshot-siena-polls.csv`.
 
 In addition to some standard demographic questions, we will focus on one called `vt_pres_2` in the csv. This is a two-way presidential vote question, asking respondents who they plan to vote for President if the election were held today -- Donald Trump, the Republican, or Hilary Clinton, the Democrat, with options for Other candidates as well. For this problem, use the two-way vote question rather than the 4-way vote question. 
 
@@ -293,6 +299,7 @@ In addition to some standard demographic questions, we will focus on one called 
 
 
 ### The Birthday problem {-}
+
 Write code that will answer the well-known birthday problem via simulation^[This exercise draws from Imai (2017)]. 
 
 The problem is fairly simple: Suppose $k$ people gather together in a room. What is the probability at least two people share the same birthday?

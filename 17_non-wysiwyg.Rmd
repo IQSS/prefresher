@@ -122,7 +122,7 @@ Hello World
 ### main LaTeX commands
 LaTeX can cover most of your typesetting needs, to clean equations and intricate diagrams. 
 
-Some main commands you'll be using:
+Some main commands you'll be using are below, and a very concise cheat sheet here: <https://wch.github.io/latexsheet/latexsheet.pdf>
 
 Most involved features require that you begin a specific "environment" for that feature, clearly demarcating them by the notation `\begin{figure}` and then `\end{figure}`, e.g. in the case of figures.
 
@@ -219,8 +219,47 @@ For example, Gary's BibTeX file is here: <https://github.com/iqss-research/gkbib
 
 Citation management software (Mendeley or Zotero) automatically generates .bib entries from your library of PDFs for you, provided you have the bibliography attributes right. 
 
+## Exercise {-}
+
+Create a LaTeX document for a hypothetical research paper on your laptop and, once you've verified it compiles into a PDF, come show it to either one of the instructors. 
+
+You can also use overleaf if you have preference for a cloud-based system. But don't swallow the built-in templates without understanding or testing them.
+
+Each student will have slightly different substantive interests, so we won't impose much of a standard. But at a minimum, the LaTeX document should have:
+
+* A title, author, date, and abstract
+* Sections
+* Italics and boldface
+* A figure with a caption and in-text reference to it. 
+
+
+Depending on your subfield or interests, try to implement some of the following:
+
+* A bibliographical reference drawing from a separate `.bib` file
+* A table
+* A math expression
+* A different font
+* Different page margins
+* Different line spacing
+
+
+
 
 ## Concluding the Prefresher {-}
+
+Math may not be the perfect tool for every aspiring political scientist, but hopefully it was useful background to have at the least:
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Historians think this totally meaningless and nonsensical statistic is the product of an early-modern epistemological shift in which numbers and quantifiable data became revered above other kinds of knowledge as the most useful and credible form of truth <a href="https://t.co/wVFyAQGxEv">https://t.co/wVFyAQGxEv</a></p>&mdash; Gina Anne Tam 譚吉娜 (@DGTam86) <a href="https://twitter.com/DGTam86/status/1001279033638727680?ref_src=twsrc%5Etfw">May 29, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+But we should be aware that too much slant towards math and programming can miss the point:
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">To be clear, PhD training in Econ (first year) is often a disaster-- like how to prove the Central Limit Theorem (the LeBron James of Statistics) with polar-cooardinates. This is mostly a way to demoralize actual economists and select a bunch of unimaginative math jocks.</p>&mdash; Amitabh Chandra (@amitabhchandra2) <a href="https://twitter.com/amitabhchandra2/status/1029359117226438657?ref_src=twsrc%5Etfw">August 14, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
 
 Keep on learning, trying new techniques to improve your work, and learn from others! 
 
@@ -228,4 +267,8 @@ Keep on learning, trying new techniques to improve your work, and learn from oth
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
+### Your Feedback Matters {-}
+
 _Please tell us how we can improve the Prefresher_: The Prefresher is a work in progress, with material mainly driven by graduate students. Please tell us how we should change (or not change) each of its elements:
+
+https://harvard.az1.qualtrics.com/jfe/form/SV_esbzN8ZFAOPTqiV

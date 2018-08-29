@@ -15,7 +15,7 @@ Solving limits, i.e. finding out the value of functions as its input moves  clos
 
 Perhaps the most important theorem in statistics is the Central Limit Theorem, 
 
-```{theorem, clt, name = "Central Limit Theorem (i.i.d. case)"}
+```{theorem, clt-lim, name = "Central Limit Theorem (i.i.d. case)"}
 For any series of independent and identically distributed random variables $X_1, X_2, \cdots$, we know the distribution of its sum even if we do not know the distribution of $X$. The distribution of the sum is a Normal distribution. 
 
 \[\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \xrightarrow{d} \text{Normal}(0, 1),\]
@@ -32,7 +32,7 @@ The sign of a limit is the arrow "$\rightarrow$". Although we have not yet cover
 
 A finding that perhaps rivals the Central Limit Theorem is the Law of Large Numbers:
 
-```{theorem, lln, name = "(Weak) Law of Large Numbers"}
+```{theorem, lln-lim, name = "(Weak) Law of Large Numbers"}
 For any draw of identically distributed independent variables with mean $\mu$, the sample average after $n$ draws, $\bar{X}_n$, converges in probability to the true mean as $n \rightarrow \infty$:
   
 \[\lim\limits_{n\to \infty} P(|\bar{X}_n - \mu | > \varepsilon) = 0\]
