@@ -4,9 +4,11 @@
 # Orientation and Reading in Data^[Module originally written by Shiro Kuriwaki] {#dataimport}
 
 
-Up till now, you should have covered:
+Up till now, you should have
 
-* The R Visualization and Programming primers at  <https://rstudio.cloud/primers/>
+* Completed the R Visualization and Programming primers at  <https://rstudio.cloud/primers/>
+* Make an account at RStudio Cloud and join the Math Prefresher 2018 Space 
+* Set up wi-fi to work on your laptops: <https://getonline.harvard.edu/> (Acess Harvard Secure with your HarvardKey. Try to get a HarvardKey as soon as possible.)
 
 ### Where are we? Where are we headed? {-}
 
@@ -20,6 +22,7 @@ Today we'll cover:
 
 * What is the difference between a file and a folder?
 * In the RStudio windows, what is the difference between the "Source" Pane and the "Console"? What is a "code chunk"?
+* How do you read a R help page? What is the `Usage` section, the `Values` section, and the `Examples` section?
 * What use is the "Environment" Pane?
 * How would you read in a spreadsheet in R?
 * How would you figure out what variables are in the data? size of the data?
@@ -79,7 +82,65 @@ This code chunk would evaluate `1 + 1` and show its output when compiled, but no
 
 We'll do the Peanut Butter and Jelly Exercise in class as an introduction to programming for those who are new.^[This Exercise is taken from Harvard's Introductory Undergraduate Class, CS50 (<https://www.youtube.com/watch?v=kcbT3hrEi9s>), and many other writeups.]
 
-Assignment: Take 5 minutes to write down on a piece of paper, how to make a peanut butter and jelly sandwhich. Be as concise and unambiguous as possible so that a robot (who doesn't know what a PBJ is) would understand. You can assume that there'll be loaf of sliced bread, a jar of jelly, a jar of peanut butter, and a knife. 
+Assignment: Take 5 minutes to write down on a piece of paper, how to make a peanut butter and jelly sandwich. Be as concise and unambiguous as possible so that a robot (who doesn't know what a PBJ is) would understand. You can assume that there will be loaf of sliced bread, a jar of jelly, a jar of peanut butter, and a knife. 
+
+
+
+## Base-R vs. tidyverse 
+
+One last thing before we jump into data. Many things in R and other open source packages have competing standards. A lecture on a technique inevitably biases one standard over another. Right now among R users in this area, there are two families of functions: base-R and tidyverse.  R instructors thus face a dilemma about which to teach primarily^[See for example this community discussion: https://community.rstudio.com/t/base-r-and-the-tidyverse/2965/17].  
+
+In this prefresher, we try our best to choose the one that is most useful to the modal task of social science researchers, and make use of the tidyverse functions in most applications. but feel free to suggest changes to us or to the booklet. 
+
+
+Although you do not need to choose one over the other, for beginners it is confusing what is a tidyverse function and what is not. Many of the tidyverse _packages_ are covered in this 2017 graphic:
+
+![Tidyverse Packages](images/tidyverse-packages.png)
+
+
+### Dataframe subsetting {-}
+
+| In order to ...        | in tidyverse: | in base-R:  |
+|----------------------|:------------------------|:----------------------|
+| Count each category | `count(df, var)` | `table(df$var)`|
+| Filter rows by condition | `filter(df, var == "Female") ` | `df[df$var == "Female", ]` or `subset(df, var == "Female")` |
+| Extract columns | `select(df, var1, var2)`| `df[, c("var1", "var2")]` |
+| Extract a single column as a vector |  `pull(df, var)` | `df[["var"]]` or `df[, "var"]` |
+| Combine rows | `bind_rows()` | `rbind()` |
+| Combine columns | `bind_cols()` | `cbind()` |
+| Create a dataframe | `tibble(x = vec1, y = vec2)`| `data.frame(x = vec1, y = vec2)` |
+| Turn a dataframe into a tidyverse dataframe | `tbl_df(df)` | |
+
+
+Remember that tidyverse applies to _dataframes_ only, not vectors. For subsetting vectors, use the base-R functions with the square brackets.
+
+
+### Read data {-}
+
+Some non-tidyverse functions are not quite "base-R" but have similar relationships to tidyverse. For these, we recommend using the _tidyverse_ functions as a general rule due to their common format, simplicity, and scalability. 
+
+| In order to ...        | in tidyverse: | in base-R:  |
+|----------------------|:------------------------|:----------------------|
+| Read a Excel file | `read_excel()` | `read.xlsx()` |
+| Read a csv | `read_csv()` | `read.csv()` |
+| Read a Stata file |  `read_dta()` | `read.dta()` |
+| Substitute strings | `str_replace()` | `gsub()` |
+| Return matching strings | `str_subset()` | `grep(., value = TRUE)` |
+| Merge `data1` and `data2` on variables  `x1` and `x2` | `left_join(data1, data2, by = c("x1", "x2"))` | `merge(data1, data2, by.x = "x1", by.y = "x2", all.x = TRUE)` |
+
+
+### Visualization {-}
+
+Plotting by ggplot2 (from your tutorials) is also a tidyverse family.
+
+| In order to ...        | in tidyverse: | in base-R:  |
+|----------------------|:------------------------|:----------------------|
+| Make a scatter plot | `ggplot(data, aes(x, y)) + geom_point()` | `plot(data$x, data$y)` |
+| Make a line plot | `ggplot(data, aes(x, y)) + geom_line()` | `plot(data$x, data$y, type = "l")` |
+| Make a histogram | `ggplot(data, aes(x, y)) + geom_histogram()` | `hist(data$x, data$y)` |
+| Make a barplot | See Section \@ref(dataviz) | See Section \@ref(dataviz)|
+
+
 
 
 ## A is for Athens
@@ -115,19 +176,6 @@ help(package = readxl)
 ```
 
 
-### Base-R vs. tidyverse 
-
-(A R Instructor's headache?)
-
-Many things in R and other open source packages have competing standards. A lecture on a technique inevitably biases one standard over another. Right now among R users in this , there are two families of functions  We try our best to choose the one that is most relevant and useful, but feel free to suggest changes to us or to the booklet. 
-
-
-| To ...        | in tidyverse: | in base-R:  |
-|---------------|:--------------|:------------|
-| Count each category | `count(df, var)` | `table(df$var)`|
-| Filter rows by condition | `filter(df, var == "Female") ` | `df[df$var == "Female", ]` or `subset(df, var == "Female")` |
-
-![](images/xkcd_927_standards.png)
 
 ### Reading in Data
 

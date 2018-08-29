@@ -344,9 +344,9 @@ Then  in the special case where $a = e$,
 
 What happens when there's more than variable that is changing?
 
-> If you can do ordinary derivatives, you can do partial derivatives: just hold all the other input variables constant except for theone you're differentiang with respect to. (Joe Blitzstein's Math Notes)
+> If you can do ordinary derivatives, you can do partial derivatives: just hold all the other input variables constant except for the one you're differentiang with respect to. (Joe Blitzstein's Math Notes)
 
-Suppose we have a function $f$ now of two (or more) variables and we want to determine the rate of change relative to one of the variables. To do so, we would find it's partial derivative, which is defined similar to the derivative of a function of one variable. 
+Suppose we have a function $f$ now of two (or more) variables and we want to determine the rate of change relative to one of the variables. To do so, we would find its partial derivative, which is defined similar to the derivative of a function of one variable. 
 
 __Partial Derivative__:  Let $f$ be a function of the variables $(x_1,\ldots,x_n)$.  The partial derivative of $f$ with respect to $x_i$ is 
 
@@ -355,7 +355,7 @@ __Partial Derivative__:  Let $f$ be a function of the variables $(x_1,\ldots,x_n
 Only the $i$th variable changes --- the others are treated as constants.
 
 
-We can take higher-order partial derivatives, like we did with functions of a single variable, except now we the higher-order partials can be with respect to multiple variables.
+We can take higher-order partial derivatives, like we did with functions of a single variable, except now the higher-order partials can be with respect to multiple variables.
 
 ```{example, name = "More than one type of partial"}
 Notice that you can take partials with regard to different variables. 
