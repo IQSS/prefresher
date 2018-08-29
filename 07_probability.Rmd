@@ -946,13 +946,19 @@ What are asymptotics?  In probability theory, asymptotic analysis is the study o
 
 Why is this important?  We rarely know the true process governing the events we see in the social world. It is helpful to understand how such unknown processes theoretically must behave and asymptotic theory helps us do this. 
 
+### CLT and LLN
 
+We are now finally ready to revisit, with a bit more precise terms, the two pillars of statistical theory we motivated Section \@ref(limits) with.
 
-__Central Limit Theorem__. Let $\{X_n\} = \{X_1, X_2, \ldots\}$ be a sequence of i.i.d. random variables with finite mean ($\mu$) and variance ($\sigma^2$). Then, if $\bar{X}_n = \frac{X_1 + X_2 + \cdots + X_n}{n}$, for all real numbers $a$ and $b$
+```{theorem, clt, name = "Central Limit Theorem (i.i.d. case)"}
+Let $\{X_n\} = \{X_1, X_2, \ldots\}$ be a sequence of i.i.d. random variables with finite mean ($\mu$) and variance ($\sigma^2$). Then, the sample mean $\bar{X}_n = \frac{X_1 + X_2 + \cdots + X_n}{n}$ increasingly converges into a Normal distribution. 
 
-$$P\left(a \leq \frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \le b\right) \to \Phi(b) - \Phi(a)$$
-as $n\to \infty$, where \[\Phi(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} \, dx\] is the CDF of a Normal(0, 1): i.e., the probability that a random variable with a standard normal distribution (i.e., normal with mean zero and unit variance) is less than $x$. This result, known as the Central Limit Theorem, is an important motivation for many quantitative methods, as well as for the widespread use of the Normal distribution.
+\[\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \xrightarrow{d} \text{Normal}(0, 1),\]
 
+Another way to write this as a probability statement is that for all real numbers $a$,
+
+$$P\left(\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \le a\right) \rightarrow \Phi(a)$$
+as $n\to \infty$, where \[\Phi(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} \, dx\] is the CDF of a Normal distribution with mean 0 and variance 1. 
 
 This result means that, as $n$ grows, the distribution of the sample mean $\bar X_n = \frac{1}{n} (X_1 + X_2 + \cdots + X_n)$ is approximately normal with mean $\mu$ and standard deviation $\frac{\sigma}{\sqrt n}$, i.e.,
 \[\bar{X}_n \approx \mathcal{N}\bigg(\mu, \frac{\sigma^2}{n}\bigg).\] The standard deviation of $\bar X_n$ (which is roughly a measure of the precision of $\bar X_n$ as an estimator of $\mu$) decreases at the rate $1/\sqrt{n}$, so, for example, to increase its precision by $10$ (i.e., to get one more digit right), one needs to collect $10^2=100$ times more units of data.
@@ -960,17 +966,26 @@ This result means that, as $n$ grows, the distribution of the sample mean $\bar 
 Intuitively, this result also justifies that whenever a lot of small, independent processes somehow combine together to form the realized observations, practitioners often feel comfortable assuming Normality. 
 
 
-__Strong Law of Large Numbers__. Let $\{X_n\} = \{X_1, X_2, \ldots\}$ be a sequence of i.i.d. random variables with a finite expected value of $\mu$. Then, 
+```{theorem, lln, name = "Law of Large Numbers (LLN)"}
+For any draw of independent random variables with the same mean $\mu$, the sample average after $n$ draws, $\bar{X}_n = \frac{1}{n}(X_1 + X_2 + \ldots + X_n)$, converges in probability to the expected value of $X$, $\mu$  as $n \rightarrow \infty$:
+  
+\[\lim\limits_{n\to \infty} P(|\bar{X}_n - \mu | > \varepsilon) = 0\]
+  
+  
+A shorthand of which is  \(\bar{X}_n \xrightarrow{p} \mu\), where the arrow is read as "converges in probability to".
+```
 
-\begin{align*} 
-\bar{X}_n = \frac{X_1 + X_2 + \cdots + X_n}{n} \stackrel{\textrm{a.s.}}{\to} \mu
-\end{align*}
 
-as $n\to \infty$. In other words, $P( \lim_{n\to\infty}\bar{X}_n = \mu) = 1$. This theorem, known as the Strong Law of Large Numbers, is an important motivation for the widespread use of the sample mean, as well as the intuition link between averages and expected values. 
+as $n\to \infty$. In other words, $P( \lim_{n\to\infty}\bar{X}_n = \mu) = 1$. This is an important motivation for the widespread use of the sample mean, as well as the intuition link between averages and expected values. 
 
-_Important note_: The Strong Law of Large Numbers holds so long as the expected value exists; no other assumptions are needed. However, the rate of convergence will differ greatly depending on the distribution underlying the observed data. When extreme observations occur often (i.e. kurtosis is large), the rate of convergence is much slower. Cf. The distribution of financial returns. 
 
-__Big $\mathcal{O}$ Notation__. Some of you may encounter "big-OH''-notation. If $f, g$ are two functions, we say that $f = \mathcal{O}(g)$ if there exists some constant, $c$, such that $f(n) \leq c \times g(n)$ for large enough $n$. This notation is useful for simplifying complex problems in game theory, computer science, and statistics. 
+More precisely this version of the LLN is called the _weak_ law of large numbers because it leaves open the possibility that $|\bar{X}_n - \mu | > \varepsilon$ occurs many times. The _strong_ law of large numbers states that, undero a few more conditions, the probability that the limit of the sample average is the true mean is 1 (and other possibilities occur with probability 0), but the difference is rarely consequential in practice.
+
+The Strong Law of Large Numbers holds so long as the expected value exists; no other assumptions are needed. However, the rate of convergence will differ greatly depending on the distribution underlying the observed data. When extreme observations occur often (i.e. kurtosis is large), the rate of convergence is much slower. Cf. The distribution of financial returns. 
+
+### Big $\mathcal{O}$ Notation
+
+Some of you may encounter "big-OH''-notation. If $f, g$ are two functions, we say that $f = \mathcal{O}(g)$ if there exists some constant, $c$, such that $f(n) \leq c \times g(n)$ for large enough $n$. This notation is useful for simplifying complex problems in game theory, computer science, and statistics. 
 
 
 Example. 
