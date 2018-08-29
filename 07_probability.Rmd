@@ -772,6 +772,38 @@ Define the random variable $Y = X^2$.
 
 ```
 
+```{exercise, name = "Expectation and Variance 2", expvar2}
+
+
+1. Find the expectation and variance
+
+Given the following PDF: 
+\[f(x) =  \begin{cases}
+              \frac{3}{10}(3x - x^2) \quad 0 \leq x \leq 2\\
+               0 \quad otherwise
+            \end{cases}
+               \]
+
+
+
+```
+
+```{exercise, name = "Expectation and Variance 3", expvar3}
+
+
+1. Find the mean and standard deviation of random variable X. The PDF of this X is as follows:
+  
+  \[f(x) =  \begin{cases}
+              \frac{1}{4}x \quad 0 \leq x \leq 2\\
+               \frac{1}{4}(4 - x)  \quad 2 \leq x \leq 4\\
+               0 \quad otherwise
+            \end{cases}
+               \]
+
+2. Next, calculate $P(X < \mu - \sigma)$ Remember, $\mu$ is the mean and $\sigma$ is the standard deviation
+  
+
+```
 
 
 ## Special Distributions
@@ -1096,7 +1128,7 @@ We would never expect the result of a rolled die to be $7/2$, but that would be 
 
 Answer to Example \@ref(exm:expectconti)
 
-$E(Y)=$ $\frac{1}{1.5} \times 1.5 - \frac{1}{1.5} \times 0 = 1$
+0.75
 
 
 
@@ -1129,3 +1161,14 @@ Answer to Exercise \@ref(exr:expvar):
 &= \frac{5}{2} - \frac{7}{30}^2 \approx 2.45
 \end{align*}
 
+
+
+Answer to Exercise \@ref(exr:expvar2):
+
+1. expectation = $\frac{6}{5}$, variance = $\frac{6}{25}$
+
+Answer to Exercise \@ref(exr:expvar3):
+
+1. mean = 2, standard deviation = $\sqrt(\frac{2}{3})$
+
+2. $\frac{1}{8}(2 - \sqrt(\frac{2}{3}))^2$
