@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-# Joins and Merges, Wide and Long^[Module originally written by Shiro Kuriwaki and Yon Soo Park]{#dempeace}
-=======
-# Joins and Merges, Wide and Long^[Module originally written by Shiro Kuriwaki, Connor Jerzak, and Yon Soo Park]
->>>>>>> 5af58b32f729d252358c67e88946028b10c1eb71
+
+# Joins and Merges, Wide and Long^[Module originally written by Shiro Kuriwaki, Connor Jerzak, and Yon Soo Park] {#dempeace}
+
 
 
 ## Where are we? Where are we headed? {-}

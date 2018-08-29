@@ -165,7 +165,6 @@ for (state in states_of_interest) {
 ```
 
 
-<<<<<<< HEAD
 ## Chapter \@ref(dempeace): Demoratic Peace Project
 
 ### Task 1: Data Input and Standardization {-}
@@ -227,7 +226,7 @@ answer + geom_line(data =mean_polity_no_mid, aes(x = year, y = mean_polity_mid),
 
 
 ```
-=======
+
 ## Chapter \@ref(simulation): Simulation
 
 ### Census Sampling
@@ -292,4 +291,4 @@ for (i in 1:20) {
 mean(ests)
 ```
 
->>>>>>> 5af58b32f729d252358c67e88946028b10c1eb71
+
