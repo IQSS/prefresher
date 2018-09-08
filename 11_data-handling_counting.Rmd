@@ -47,7 +47,7 @@ Reviewing data import will allow us to get on the same page on how computer syst
 
     Although most of you will probably doing your work on RStudio local rather than cloud, we are trying to use cloud because it makes it easier to standardize people's settings.  
 
-2.  RStudio (either cloud or desktop) is a GUI and an IDE for the programming language R. A Graphical User Interface allows users to interface with the software (in this case R) using graphical aids like buttons and tabs. Often we don't think of GUIs because to most computer users, everything is a GUI (like Microsoft Word or your "Control Panel"), but it's always there!
+2.  RStudio (either cloud or desktop) is a __GUI__ and an IDE for the programming language R. A Graphical User Interface allows users to interface with the software (in this case R) using graphical aids like buttons and tabs. Often we don't think of GUIs because to most computer users, everything is a GUI (like Microsoft Word or your "Control Panel"), but it's always there!
 
     A Integrated Development Environment just says that the software to interface with R comes with useful useful bells and whistles to give you shortcuts. 
 
@@ -74,7 +74,6 @@ For example:
 
 ![A code chunk in Rmarkdown (before rendering)](images/11_4_codechunk.png)
 
-
 This code chunk would evaluate `1 + 1` and show its output when compiled, but not display the code that was executed.
 
 
@@ -95,7 +94,7 @@ In this prefresher, we try our best to choose the one that is most useful to the
 
 Although you do not need to choose one over the other, for beginners it is confusing what is a tidyverse function and what is not. Many of the tidyverse _packages_ are covered in this 2017 graphic:
 
-![Tidyverse Packages](images/tidyverse-packages.png)
+![Names of Packages in the tidyverse Family](images/tidyverse-packages.png)
 
 
 ### Dataframe subsetting {-}
@@ -163,7 +162,7 @@ For the first time using an outside package, you first need to install it.
 install.packages("readxl")
 ```
 
-After that, you don't need to install it again. But you do need to load it. 
+After that, you don't need to install it again. But you __do__ need to load it each time. 
 
 ```{r}
 library(readxl)
@@ -187,7 +186,21 @@ Let's try it.
 ober <- read_excel("input/complete_greek_data 5 DISTRIBUTION 2018.xlsx")
 ```
 
-What does the `/` mean?  Why do we need the `input` term first? Does the argument need to be in quotes?
+What does the `/` mean?  Why do we need the `input` term first? Does the argument need to be in quotes? Computer files (data, documents, programs) are organized hiearchically, like a branching tree. Folders can contain files, and also other folders. To load a dataset, you need to specify where that file is. 
+
+We denote the hierarchy of a folder by the `/` (slash) symbol. `data/input/2018-08` indicates the `2018-08` folder, which is included in the `input` folder, which is in turn included in the `data` folder. 
+
+Files (but not folders) have "file extensions" which you are probably familiar with already: `.docx`, `.pdf`, and `.pdf` already. The file extensions you will see in a stats or quantitative social science class are:
+
+* `.pdf`: PDF, a convenient format to view documents in, regardless of Mac/Windows.
+* `.csv`: A comma separated values file
+* `.xlsx`: Microsoft Excel file
+* `.dta`: Stata data
+* `.sav`: SPSS data
+
+* `.R`: R code (script)
+* `.Rmd`: Rmarkdown code (text + code)
+* `.do`: Stata code (script)
 
 
 ### Inspecting 
