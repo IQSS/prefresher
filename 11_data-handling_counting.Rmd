@@ -233,7 +233,6 @@ What do the 1's, 2's, and 3's stand for?
 
 ### Finding observations
 
-
 These `tidyverse` commands from the `dplyr` package are newer and not built-in, but they are one of the increasingly more popular ways to wrangle data. 
 
 * 80 percent of your data wrangling needs might be doable with these basic `dplyr` functions: `select`, `mutate`, `group_by`, `summarize`, and `arrange`.
