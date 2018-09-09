@@ -98,14 +98,22 @@ LaTeX is a typesetting program. You'd engage with LaTeX much like you engage wit
 
 1. Go to <https://www.overleaf.com>
 2. Scroll down and go to "CREATE A NEW PAPER" if you don't have an account.
+3. Let's discuss the default template.
+4. Make a new document, and set it as your main document. Then type in the Minimal Working Example (MWE):
 
+```{bash, eval = FALSE}
+\documentclass{article}
+\begin{document}
+Hello World
+\end{document}
+```
 
 
 
 ### compile your first LaTeX document locally
 LaTeX is a very stable system, and few changes to it have been made since the 1990s. The main benefit: better control over how your papers will look; better methods for writing equations or making tables; overall pleasing aesthetic. 
 
-1. Open a plain text editor. Then type in this.
+1. Open a plain text editor. Then type in the MWE
 
 ```{bash, eval = FALSE}
 \documentclass{article}
