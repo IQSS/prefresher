@@ -8,7 +8,7 @@ Up till now, you should have
 
 * Completed the R Visualization and Programming primers at  <https://rstudio.cloud/primers/>
 * Make an account at RStudio Cloud and join the Math Prefresher 2018 Space 
-* Set up wi-fi to work on your laptops: <https://getonline.harvard.edu/> (Acess Harvard Secure with your HarvardKey. Try to get a HarvardKey as soon as possible.)
+* Set up wi-fi to work on your laptops: <https://getonline.harvard.edu/> (Access Harvard Secure with your HarvardKey. Try to get a HarvardKey as soon as possible.)
 
 ### Where are we? Where are we headed? {-}
 
@@ -47,34 +47,46 @@ Reviewing data import will allow us to get on the same page on how computer syst
 
     Although most of you will probably doing your work on RStudio local rather than cloud, we are trying to use cloud because it makes it easier to standardize people's settings.  
 
-2.  RStudio (either cloud or desktop) is a __GUI__ and an IDE for the programming language R. A Graphical User Interface allows users to interface with the software (in this case R) using graphical aids like buttons and tabs. Often we don't think of GUIs because to most computer users, everything is a GUI (like Microsoft Word or your "Control Panel"), but it's always there!
-
-    A Integrated Development Environment just says that the software to interface with R comes with useful useful bells and whistles to give you shortcuts. 
+2.  RStudio (either cloud or desktop) is a __GUI__ and an IDE for the programming language R. A Graphical User Interface allows users to interface with the software (in this case R) using graphical aids like buttons and tabs. Often we don't think of GUIs because to most computer users, everything is a GUI (like Microsoft Word or your "Control Panel"), but it's always there! A Integrated Development Environment just says that the software to interface with R comes with useful useful bells and whistles to give you shortcuts. 
 
     The __Console__ is kind of a the core window through which you see your GUI actually operating through R. It's not graphical so might not be as intuitive. But all your results, commands, errors, warnings.. you see them in here. A console tells you what's going on now. 
 
 ![A Typical RStudio Window at Startup](images/11_1_rstudio-startup.png)
 
-3.  Theoretically, one could do all their work in a Console. But that would be a lot of work, because you'd have to give instructions each time you start your data analysis. Moreover, you'll have no record of what you did. That's why you need a __script__. This is a type of __code__. It can be referred to as a __source__ because that is the source of your commands. Source is also used as a verb; "source the script" just means execute it. 
+3. via the GUI, you the analyst needs to sends instructions, or __commands__, to the R application. The verb for this is "run" or "execute" the command. Computer programs ask users to provide instructions in very specific formats. While a English-speaking human can understand a sentence with a few typos in it by filling in the blanks, the same typo or misplaced character would halt a computer program. Each program has its own requirements for how commands should be typed; after all, each of these is its own language. We refer to the way a program needs its commands to be formatted as its __syntax__. 
 
-    RStudio doesn't start out with a script, so you can make one from "File > New" or the New file icon.
+
+4.  Theoretically, one could do all their work by typing in commands into the Console. But that would be a lot of work, because you'd have to give instructions each time you start your data analysis. Moreover, you'll have no record of what you did. That's why you need a __script__. This is a type of __code__. It can be referred to as a __source__ because that is the source of your commands. Source is also used as a verb; "source the script" just means execute it.  RStudio doesn't start out with a script, so you can make one from "File > New" or the New file icon.
 
 ![Opening New Script (as opposed to the Console)](images/11_2_rstudio-script.png)
 
 
-4.  You can also open scripts that are in your folder. A script is a type of File. Find your Files in the bottom-right "Files" pane. 
+4.  You can also open scripts that are in folders in your computer. A script is a type of File. Find your Files in the bottom-right "Files" pane. 
+
+    To load a dataset, you need to specify where that file is. Computer files (data, documents, programs) are organized hiearchically, like a branching tree. Folders can contain files, and also other folders.   The GUI toolbar makes this lineaer and hiearchical relationship apparent. When we turn to locate the file in our commands, we need another set of syntax. Importantly, denote the hierarchy of a folder by the `/` (slash) symbol. `data/input/2018-08` indicates the `2018-08` folder, which is included in the `input` folder, which is in turn included in the `data` folder. 
+
+    Files (but not folders) have "file extensions" which you are probably familiar with already: `.docx`, `.pdf`, and `.pdf` already. The file extensions you will see in a stats or quantitative social science class are:
+    
+    * `.pdf`: PDF, a convenient format to view documents in, regardless of Mac/Windows.
+    * `.csv`: A comma separated values file
+    * `.xlsx`: Microsoft Excel file
+    * `.dta`: Stata data
+    * `.sav`: SPSS data
+    
+    * `.R`: R code (script)
+    * `.Rmd`: Rmarkdown code (text + code)
+    * `.do`: Stata code (script)
+
 
 ![Opening an Existing Script from Files](images/11_3_rstudio-files.png)
 
 5.   In R, there are two main types of scripts. A classic `.R` file and a `.Rmd` file (for Rmarkdown). A .R file is just lines and lines of R code that is meant to be inserted right into the Console. A .Rmd tries to weave code and English together, to make it easier for users to create reports that interact with data and intersperse R code with explanation. For example, we built this book in Rmds. 
 
-The Rmarkdown facilitates is the use of __code chunks__, which are used here. These start and end with three back-ticks. In the beginning, we can add options in curly braces (`{}`). Specifying `r` in the beginning tells to render it as R code. Options like `echo = TRUE` switch between showing the code that was executed or not; `eval = TRUE` switch between evaluating the code. More about Rmarkdown in Section \@ref(nonwysiwyg).
-  
-For example:
+    The Rmarkdown facilitates is the use of __code chunks__, which are used here. These start and end with three back-ticks. In the beginning, we can add options in curly braces (`{}`). Specifying `r` in the beginning tells to render it as R code. Options like `echo = TRUE` switch between showing the code that was executed or not; `eval = TRUE` switch between evaluating the code. More about Rmarkdown in Section \@ref(nonwysiwyg). For example:
 
 ![A code chunk in Rmarkdown (before rendering)](images/11_4_codechunk.png)
 
-This code chunk would evaluate `1 + 1` and show its output when compiled, but not display the code that was executed.
+    This code chunk would evaluate `1 + 1` and show its output when compiled, but not display the code that was executed.
 
 
 ## The Computer and You: Giving Instructions
@@ -91,11 +103,11 @@ One last thing before we jump into data. Many things in R and other open source 
 
 In this prefresher, we try our best to choose the one that is most useful to the modal task of social science researchers, and make use of the tidyverse functions in most applications. but feel free to suggest changes to us or to the booklet. 
 
-
-Although you do not need to choose one over the other, for beginners it is confusing what is a tidyverse function and what is not. Many of the tidyverse _packages_ are covered in this 2017 graphic:
+Although you do not need to choose one over the other, for beginners it is confusing what is a tidyverse function and what is not. Many of the tidyverse _packages_ are covered in this 2017 graphic below, and the cheat-sheets that other programmers have written: https://www.rstudio.com/resources/cheatsheets/
 
 ![Names of Packages in the tidyverse Family](images/tidyverse-packages.png)
 
+The following side-by-side comparison of commands for a particular function compares some tidyverse and non-tidyverse functions (which we refer to loosely as base-R). This list is not meant to be comprehensive and more to give you a quick rule of thumb.
 
 ### Dataframe subsetting {-}
 
@@ -186,21 +198,8 @@ Let's try it.
 ober <- read_excel("input/complete_greek_data 5 DISTRIBUTION 2018.xlsx")
 ```
 
-What does the `/` mean?  Why do we need the `input` term first? Does the argument need to be in quotes? Computer files (data, documents, programs) are organized hiearchically, like a branching tree. Folders can contain files, and also other folders. To load a dataset, you need to specify where that file is. 
+Review: what does the `/` mean?  Why do we need the `input` term first? Does the argument need to be in quotes? 
 
-We denote the hierarchy of a folder by the `/` (slash) symbol. `data/input/2018-08` indicates the `2018-08` folder, which is included in the `input` folder, which is in turn included in the `data` folder. 
-
-Files (but not folders) have "file extensions" which you are probably familiar with already: `.docx`, `.pdf`, and `.pdf` already. The file extensions you will see in a stats or quantitative social science class are:
-
-* `.pdf`: PDF, a convenient format to view documents in, regardless of Mac/Windows.
-* `.csv`: A comma separated values file
-* `.xlsx`: Microsoft Excel file
-* `.dta`: Stata data
-* `.sav`: SPSS data
-
-* `.R`: R code (script)
-* `.Rmd`: Rmarkdown code (text + code)
-* `.do`: Stata code (script)
 
 
 ### Inspecting 
