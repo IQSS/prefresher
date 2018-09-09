@@ -41,10 +41,10 @@ We're going to learn about this today!
 
 An increasing amount of political science contributions now include a simulation. 
 
-* [Axelrod (1977)](http://www-personal.umich.edu/~axe/research/Dissemination.pdf) demonstrated via simulation how atomized individuals evolve to be grouped in similar clusters or countries, a model of culture^[[Axelrod, Robert. 1997. "The Dissemination of Culture." _Journal of Conflict Resolution_ 41(2): 203–26.](http://www-personal.umich.edu/~axe/research/Dissemination.pdf)].
-* [Chen and Rodden (2013)](http://www-personal.umich.edu/~jowei/florida.pdf) argued in a 2013 article that the vote-seat inequality in U.S. elections that is often attributed to intentional partisan gerrymandering can actually attributed to simply the reality of "human geography" -- Democratic voters tend to be concentrated in smaller area. Put another way, no feasible form of gerrymandering could spread out Democratic voters in such a way to equalize their vote-seat translation effectiveness. After demonstrating the empirical pattern of human geography, they advance their key claim by simulating thousands of redistricting plans and record the vote-seat ratio^[[Chen, Jowei, and Jonathan Rodden.  "Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures. _Quarterly Journal of Political Science_, 8:239-269"](http://www-personal.umich.edu/~jowei/florida.pdf)]. 
-* [Gary King, James Honaker, and multiple other authors](https://gking.harvard.edu/files/abs/evil-abs.shtml) propose a way to analyze missing data with a method of multiple imputation, which uses a lot of simulation from a researcher's observed dataset^[[King, Gary, et al. "Analyzing Incomplete Political Science Data: An Alternative Algorithm for Multiple Imputation". _American Political Science Review_, 95: 49-69.](https://gking.harvard.edu/files/abs/evil-abs.shtml)]  (Software: Amelia^[[James Honaker, Gary King, Matthew Blackwell (2011). Amelia II: A Program for Missing Data. Journal of
-  Statistical Software, 45(7), 1-47.](http://www.jstatsoft.org/v45/i07/)]). 
+* [Axelrod (1977)](http://www-personal.umich.edu/~axe/research/Dissemination.pdf) demonstrated via simulation how atomized individuals evolve to be grouped in similar clusters or countries, a model of culture.^[[Axelrod, Robert. 1997. "The Dissemination of Culture." _Journal of Conflict Resolution_ 41(2): 203–26.](http://www-personal.umich.edu/~axe/research/Dissemination.pdf)]
+* [Chen and Rodden (2013)](http://www-personal.umich.edu/~jowei/florida.pdf) argued in a 2013 article that the vote-seat inequality in U.S. elections that is often attributed to intentional partisan gerrymandering can actually attributed to simply the reality of "human geography" -- Democratic voters tend to be concentrated in smaller area. Put another way, no feasible form of gerrymandering could spread out Democratic voters in such a way to equalize their vote-seat translation effectiveness. After demonstrating the empirical pattern of human geography, they advance their key claim by simulating thousands of redistricting plans and record the vote-seat ratio.^[[Chen, Jowei, and Jonathan Rodden.  "Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures. _Quarterly Journal of Political Science_, 8:239-269"](http://www-personal.umich.edu/~jowei/florida.pdf)]
+* [Gary King, James Honaker, and multiple other authors](https://gking.harvard.edu/files/abs/evil-abs.shtml) propose a way to analyze missing data with a method of multiple imputation, which uses a lot of simulation from a researcher's observed dataset.^[[King, Gary, et al. "Analyzing Incomplete Political Science Data: An Alternative Algorithm for Multiple Imputation". _American Political Science Review_, 95: 49-69.](https://gking.harvard.edu/files/abs/evil-abs.shtml)]  (Software: Amelia^[[James Honaker, Gary King, Matthew Blackwell (2011). Amelia II: A Program for Missing Data. Journal of
+  Statistical Software, 45(7), 1-47.](http://www.jstatsoft.org/v45/i07/)])
 
 Statistical methods also incorporate simulation: 
   
@@ -300,7 +300,7 @@ In addition to some standard demographic questions, we will focus on one called 
 
 ### The Birthday problem {-}
 
-Write code that will answer the well-known birthday problem via simulation^[This exercise draws from Imai (2017)]. 
+Write code that will answer the well-known birthday problem via simulation.^[This exercise draws from Imai (2017)]
 
 The problem is fairly simple: Suppose $k$ people gather together in a room. What is the probability at least two people share the same birthday?
 
