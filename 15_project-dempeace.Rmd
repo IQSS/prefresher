@@ -151,7 +151,7 @@ Often, files we need are saved in the `.xls` or `xlsx` format. It is possible to
 
 
 ### Task 2: Data Merging {-}
-We will use data to test a version of the Democratic Peace Thesis (DPS): are democracies less likely to engage in militarized interstate disputes with one another? 
+We will use data to test a version of the Democratic Peace Thesis (DPS).  Democracies are said to go to war less because the leaders who wage wars are accountable to voters who have to bear the costs of war. Are democracies less likely to engage in militarized interstate disputes?
 
 To start, let's download and merge some data. 
 
