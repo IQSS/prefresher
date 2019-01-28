@@ -13,7 +13,7 @@ cover-image: "./images/logo.png"
 ---
 # About this Booklet {-}
 
-The Harvard Gov Prefresher is held each year in August. All relevant information is on our website: <https://projects.iq.harvard.edu/prefresher>. The 2018 Prefresher instructors are [Shiro Kuriwaki](https://www.shirokuriwaki.com) and [Yon Soo Park](https://scholar.harvard.edu/yonsoopark/home), and the faculty sponsor is  [Gary King](https://gking.harvard.edu). 
+The Harvard Gov Prefresher is held each year in August. All relevant information is on our website: <https://projects.iq.harvard.edu/prefresher>. The 2018 Prefresher instructors were [Shiro Kuriwaki](https://www.shirokuriwaki.com) and [Yon Soo Park](https://scholar.harvard.edu/yonsoopark/home), and the faculty sponsor is  [Gary King](https://gking.harvard.edu). 
 
 This booklet servs as the text for the Prefresher. It is the product of generations of Prefresher Instructors. See below for a full list of instructors and contributors. 
 
