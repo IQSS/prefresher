@@ -16,7 +16,7 @@ Define the vectors $u = \begin{pmatrix} 1 \\2 \\3 \end{pmatrix}$, $v = \begin{pm
 
 
 
-If you are having trouble with these problems, please review Section \@ref(vectors) "Working with Vectors" in Chapter \@ref(linearalgebra). 
+If you are having trouble with these problems, please review Section \@ref(vector-def) "Working with Vectors" in Chapter \@ref(linearalgebra). 
 
 
 Are the following sets of vectors linearly independent?
@@ -125,7 +125,7 @@ Simplify the following
 2. \(\prod\limits_{k=1}^3(3k + 2) = (3 + 2)\cdot (6 + 2)\cdot (9 + 2) = 440\)
 
 
-To review this material, please see Section \@ref(summation).
+To review this material, please see Section \@ref(sum-notation).
 
 
 ### Logs and exponents {-}

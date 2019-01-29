@@ -14,7 +14,7 @@ Optimization also comes up in Economics, Formal Theory, and Political Economy al
 
 ## Example: Meltzer-Richard {-}
 
-A standard backdrop in comprative political economy, the Meltzer-Richard (1981) model states that redistribution of wealth should be higher in societies where the median income is much smaller than the average income. Why is that the case? Here is a simplified example that is not the exact model by Meltzer and Richard^[Allan H. Meltzer and Scott F. Richard. ["A Rational Theory of the Size of Government"](https://www.jstor.org/stable/1830813).  _Journal of Political Economy_
+A standard backdrop in comparative political economy, the Meltzer-Richard (1981) model states that redistribution of wealth should be higher in societies where the median income is much smaller than the average income. More to the point, typically income distributions wher ethe median is very different from the average is one of high inequality. In other words, the Meltzer-Richard model says that highly unequal economies will have more re-distribution of wealth.  Why is that the case? Here is a simplified example that is not the exact model by Meltzer and Richard^[Allan H. Meltzer and Scott F. Richard. ["A Rational Theory of the Size of Government"](https://www.jstor.org/stable/1830813).  _Journal of Political Economy_
 89:5 (1981), p. 914-927], but adapted from Persson and Tabellini^[Adapted from Torsten Persson and Guido Tabellini, _Political Economics: Explaining Economic Policy_. MIT Press. ]
 
 

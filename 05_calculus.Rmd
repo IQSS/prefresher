@@ -3,6 +3,7 @@
 ```{r, include = FALSE}
 library(ggplot2)
 library(tibble)
+library(dplyr)
 library(patchwork)
 ```
 
@@ -31,7 +32,7 @@ even more concretely, if the potential values of $X$ are finite, then we can wri
 
 ## Derivatives {#derivintro}
 
-The derivative of $f$ at $x$ is its rate of change at $x$: how much $f(x)$ changes with a change in $x$. The rate of change is a fraction --- rise over run --- but because not all lines are straight and the rise over run formula will give us different values depending on the range we examine, we need to take a limit (Section \@ref(limits)).
+The derivative of $f$ at $x$ is its rate of change at $x$: how much $f(x)$ changes with a change in $x$. The rate of change is a fraction --- rise over run --- but because not all lines are straight and the rise over run formula will give us different values depending on the range we examine, we need to take a limit (Section \@ref(limits-precalc)).
 
 
 ```{definition, name = "Derivative"}
@@ -55,7 +56,8 @@ If $f(x)$ is a straight line, the derivative is the slope. For a curve, the slop
 range <- tibble::tibble(x = c(-3, 3))
 
 fx0 <- ggplot(range, aes(x = x)) +
-  labs(x = expression(x), y = expression(f(x)))
+  labs(x = expression(x), y = expression(f(x))) +
+  theme_classic()
 
 fx <- fx0 +  
   stat_function(fun = function(x) 2*x, size = 0.5) +
@@ -91,16 +93,52 @@ __Sum rule:__ \[\left[f(x)\pm g(x)\right]' = f'(x)\pm g'(x)\]
 
 With a bit more algebra, we can apply the definition of derivatives to get a formula for of the derivative of a product and a derivative of a quotient.
 
-__Product rule:__ \[\left[f(x)g(x)\right]' = f'(x)g(x)+f(x)g'(x)\]
+__Product rule:__ \[\left[f(x)g(x)\right]^\prime = f^\prime(x)g(x)+f(x)g^\prime(x)\]
 
-__Quotient rule:__  \[\left[f(x)/g(x)\right]' = \frac{f'(x)g(x)-f(x)g'(x)}{[g(x)]^2}, g(x)\neq 0\]
+__Quotient rule:__  \[\left[f(x)/g(x)\right]^\prime = \frac{f^\prime(x)g(x) - f(x)g^\prime(x)}{[g(x)]^2}, ~g(x)\neq 0\]
 
 
 Finally,  one way to think of the power of derivatives is that it takes a function a notch down in complexity. The power rule applies to any higher-order function:
 
-__Power rule:__ \[\left[x^k\right]' = k x^{k-1}\]
+__Power rule:__ \[\left[x^k\right]^\prime = k x^{k-1}\]
 
-The power rule is proved by induction.
+For any real number $k$ (that is, both whole numbers and fractions). The power rule is proved __by induction__, a neat method of proof used in many fundamental applications to prove that a general statement holds for every possible case, even if there are countably infinite cases.  We'll show a simple case where $k$ is an integer here.
+
+```{proof, pwrinduct, name = "Proof of Power Rule by Induction"}
+
+We would like to prove that 
+
+\[\left[x^k\right]^\prime = k x^{k-1}\]
+for any integer $k$.
+
+First, consider the first case (the base case) of $k = 1$. We can show by the definition of derivatives (setting $f(x) = x^1 = 1$) that 
+
+\[[x^1]^\prime = \lim_{h \rightarrow 0}\frac{(x + h) - x}{(x + h) - x}= 1.\]
+
+Because $1$ is also expressed as $1 x^{1- 1}$, the statement we want to prove holds for the case $k =1$.
+
+Now, \emph{assume} that the statement holds for some integer $m$. That is, assume 
+\[\left[x^m\right]^\prime = m x^{m-1}\]
+
+Then, for the case $m + 1$, using the product rule above, we can simplify
+
+\begin{align*}
+\left[x^{m + 1}\right]^\prime &= [x^{m}\cdot x]^\prime\\
+&= (x^m)^\prime\cdot x + (x^m)\cdot (x)^\prime\\
+&= m x^{m - 1}\cdot x + x^m ~~\because \text{by previous assumption}\\
+&= mx^m + x^m\\
+&= (m + 1)x^m\\
+&= (m + 1)x^{(m + 1) - 1}
+\end{align*}
+
+Therefore, the rule holds for the case $k = m + 1$ once we have assumed it holds for $k = m$. Combined with the first case, this completes proof by induction -- we have now proved that the statement holds for all integers $k = 1, 2, 3, \cdots, $. 
+
+To show that it holds for real fractions as well, we can prove expressing that exponent by a fraction of two integers.
+
+```
+
+
+
 
 
 These "rules"	become apparent by applying the definition of the derivative above to each of the things to be "derived", but these come up so frequently that it is best to repeat until it is muscle memory. 
@@ -139,6 +177,7 @@ We can keep applying the differentiation process to functions that are themselve
 
 
 Similarly, the derivative of $f''(x)$ would be called the third derivative and is denoted $f'''(x)$. And by extension, the __nth derivative__  is expressed as  $\frac{d^n}{dx^n}f(x)$, $\frac{d^ny}{dx^n}$.
+
 
 
 ```{example, name="Succession of Derivatives"}
@@ -281,7 +320,8 @@ The natural log  is the mirror image of the natural exponent and has mirroring p
 range <- tibble::tibble(x = c(-0.1, 3))
 
 fx0 <- ggplot(range, aes(x = x)) +
-  labs(x = expression(x), y = expression(f(x)))
+  labs(x = expression(x), y = expression(f(x))) +
+  theme_classic()
 
 fx <- fx0 +  
   stat_function(fun = function(x) ifelse(x <= 0, NA, log(x)), size = 0.5) +
@@ -344,7 +384,7 @@ Then  in the special case where $a = e$,
 
 What happens when there's more than variable that is changing?
 
-> If you can do ordinary derivatives, you can do partial derivatives: just hold all the other input variables constant except for the one you're differentiang with respect to. (Joe Blitzstein's Math Notes)
+> If you can do ordinary derivatives, you can do partial derivatives: just hold all the other input variables constant except for the one you're differentiating with respect to. (Joe Blitzstein's Math Notes)
 
 Suppose we have a function $f$ now of two (or more) variables and we want to determine the rate of change relative to one of the variables. To do so, we would find its partial derivative, which is defined similar to the derivative of a function of one variable. 
 
@@ -390,7 +430,7 @@ Let $f(x,y)=x^3 y^4 +e^x -\log y$. What are the following partial derivaitves?
 
 ## Taylor Series Approximation {#taylorapprox}
 
-A common form of appromximation used in statistics involves derivatives. A Taylor series is a way to represent common functions as infinite series (a sum of infinite elements) of the function's derivatives at some point $a$. 
+A common form of approximation used in statistics involves derivatives. A Taylor series is a way to represent common functions as infinite series (a sum of infinite elements) of the function's derivatives at some point $a$. 
 
 For example, Taylor series are very helpful in representing nonlinear (read: difficult) functions as linear (read: manageable) functions. One can thus __approximate__ functions by using lower-order, finite series known as __Taylor polynomials__. If $a=0$, the series is called a Maclaurin series.
   
@@ -432,7 +472,7 @@ The antiverivative of a function $f(x)$ is a differentiable function $F$ whose d
 ```
 
 
-Another way to describe is thorugh the inverse formula. Let $DF$ be the derivative of $F$.  And let $DF(x)$ be the derivative of $F$ evaluated at $x$.  Then the antiderivative is denoted by $D^{-1}$ (i.e., the inverse derivative).  If $DF=f$, then $F=D^{-1}f$.
+Another way to describe is through the inverse formula. Let $DF$ be the derivative of $F$.  And let $DF(x)$ be the derivative of $F$ evaluated at $x$.  Then the antiderivative is denoted by $D^{-1}$ (i.e., the inverse derivative).  If $DF=f$, then $F=D^{-1}f$.
 
 This definition bolsters the main takeaway about integrals and derivatives: They are inverses of each other. 
 
@@ -483,13 +523,15 @@ range1 <- tibble(x = c(-4, 4))
 
 fx <- ggplot(range1, aes(x = x)) +
   stat_function(fun = function(x) x^2 - 4, size = 0.5) +
-  labs(y = expression(f(x)))
+  labs(y = expression(f(x))) +
+  theme_classic()
 
 Fx <- ggplot(range1, aes(x = x)) +
   stat_function(fun = function(x) (x^3)/3 - 4*x,     size = 0.5, linetype = "dashed") +
   stat_function(fun = function(x) (x^3)/3 - 4*x + 1, size = 0.5, linetype = "dotted") +
   stat_function(fun = function(x) (x^3)/3 - 4*x - 1, size = 0.5, linetype = "dotdash") +
-  labs(y = expression(integral(f(x)*dx)))
+  labs(y = expression(integral(f(x)*dx)))+
+  theme_classic()
 
 fx + Fx + plot_layout(ncol = 1)
 ```
@@ -530,10 +572,36 @@ If there is a indefinite integral, there _must_ be a definite integral. Indeed t
 
 Suppose we want to determine the area $A(R)$ of a region $R$ defined by a curve $f(x)$ and some interval $a\le x \le b$.  
 
+```{r, defintfig, echo = FALSE, fig.cap="The Riemann Integral as a Sum of Evaluations"}
+f3 <- function(x) -15*(x - 5) + (x - 5)^3 + 50
+
+d1 <- tibble(x = seq(0, 10, 1)) %>%  mutate(f = f3(x))
+d2 <- tibble(x = seq(0, 10, 0.1)) %>%  mutate(f = f3(x))
+
+range <- tibble::tibble(x = c(0, 10))
+
+fx0 <- ggplot(range, aes(x = x)) +
+  labs(x = expression(x), y = expression(f(x)))
+
+fx <- fx0 +  
+  expand_limits(y = 0) + 
+  scale_y_continuous(expand = c(0, 0)) +
+  scale_x_continuous(expand = c(0, 0)) +
+  theme_classic()
+
+g1 <- fx +   geom_col(data = d1, aes(x, f), width = 1, fill = "gray", alpha = 0.5, color = "black") +   stat_function(fun = f3, size = 1.5) + labs(title = "Evaluating f with width = 1 intervals")
+g2 <- fx +   geom_col(data = d2, aes(x, f), width = 0.1, fill = "gray", alpha = 0.5, color = "black")  +   stat_function(fun = f3, size = 1.5) +labs(title = "Evaluating f with width = 0.1 intervals")
+
+g1 + g2
+```
+
+
 One way to calculate the area would be to divide the interval $a\le x\le b$ into $n$ subintervals of length $\Delta x$ and then approximate the region with a series of rectangles, where the base of each rectangle is $\Delta x$ and the height is $f(x)$ at the midpoint of that interval.  $A(R)$ would then be approximated by the area of the union of the rectangles, which is given by $$S(f,\Delta x)=\sum\limits_{i=1}^n f(x_i)\Delta x$$ and is called a __Riemann sum__.
 
 As we decrease the size of the subintervals $\Delta x$, making the rectangles "thinner," we would expect our approximation of the area of the region to become closer to the true area.  This allows us to express the area as a limit of a series: 
 $$A(R)=\lim\limits_{\Delta x\to 0}\sum\limits_{i=1}^n f(x_i)\Delta x$$
+
+Figure \@ref(fig:defintfig) shows that illustration. The curve depicted is $f(x) = -15(x - 5) + (x - 5)^3 + 50.$ We want approximate the area under the curve between the $x$ values of 0 and 10. We can do this in blocks of arbitrary width, where the sum of rectangles (the area of which is width times $f(x)$ evaluated at the midpoint of the bar) shows the Riemann Sum. As the width of the bars $\Delta x$ becomes smaller, the better the estimate of $A(R)$. 
 
 This is how we define the "Definite" Integral:
 

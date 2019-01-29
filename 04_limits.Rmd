@@ -1,4 +1,4 @@
-# Limits {#limits}
+# Limits {#limits-precalc}
 
 ```{r, include = FALSE}
 library(ggplot2)
@@ -25,7 +25,7 @@ where $\mu$ is the mean of $X$ and $\sigma$ is the standard deviation of $X$. Th
 That is,  the limit of the distribution of the lefthand side is the distribution of the righthand side. 
 ```
 
-The sign of a limit is the arrow "$\rightarrow$". Although we have not yet covered probability (in Section \@ref(probability)) so we have not described what distributions and random variables are, it is worth foreshadowing the Central Limit Theorem. The Central Limit Theorem is powerful because it gives us a _guarantee_ of what would happen if $n \rightarrow \infty$, which in this case means we collected more data.
+The sign of a limit is the arrow "$\rightarrow$". Although we have not yet covered probability (in Section \@ref(probability-theory)) so we have not described what distributions and random variables are, it is worth foreshadowing the Central Limit Theorem. The Central Limit Theorem is powerful because it gives us a _guarantee_ of what would happen if $n \rightarrow \infty$, which in this case means we collected more data.
 
 
 ## Example: The Law of Large Numbers {-}

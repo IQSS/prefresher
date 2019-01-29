@@ -1,10 +1,11 @@
-# Probability Theory {#probability}
+# Probability Theory {#probability-theory}
 
 Probability and Inferences are mirror images of each other, and both are integral to social science. Probability quantifies uncertainty, which is important because many things in the social world are at first uncertain. Inference is then the study of how to learn about facts you don't observe from facts you do  observe.
 
  
 ```{r, include = FALSE}
 library(ggplot2)
+options(knitr.graphics.auto_pdf = TRUE) # use pdf for images
 ```
  
 
@@ -140,13 +141,13 @@ Consider subsets A {2, 8} and B {2,3,7} of the sample space you found. What is
 
 ## Probability {#probdef}
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Historians think this totally meaningless and nonsensical statistic is the product of an early-modern epistemological shift in which numbers and quantifiable data became revered above other kinds of knowledge as the most useful and credible form of truth <a href="https://t.co/wVFyAQGxEv">https://t.co/wVFyAQGxEv</a></p>&mdash; Gina Anne Tam 譚吉娜 (@DGTam86) <a href="https://twitter.com/DGTam86/status/1001279033638727680?ref_src=twsrc%5Etfw">May 29, 2018</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+```{r prob-image, fig.cap='Probablity as a Measure^[Images of Probability and Random Variables drawn by Shiro Kuriwaki and inspired by Blitzstein and Morris]', echo = FALSE}
+knitr::include_graphics('images/probability.png')
+```
 
 ### Probability Definitions: Formal and Informal {-}
 
-Many events or outcomes are random. In everyday speech, we say that we are  _uncertain_ about the outcome of random events. Probability is a formal model of uncertainty which provides a measure of uncertainty governed by a particular set of rules. A different model of uncertainty would, of course, have a different set of rules and measures. Our focus on probability is justified because it has proven to be a particularly useful model of uncertainty.
+Many things in the world are uncertain. In everyday speech, we say that we are  _uncertain_ about the outcome of random events. Probability is a formal model of uncertainty which provides a measure of uncertainty governed by a particular set of rules (Figure \@ref(fig:prob-image)). A different model of uncertainty would, of course, have a set of rules different from anything we discuss here.  Our focus on probability is justified because it has proven to be a particularly useful model of uncertainty.
 
 
 __Probability Distribution Function__: a mapping of each event in the sample space $S$ to the real numbers that satisfy the following three axioms (also called Kolmogorov's Axioms).
@@ -197,7 +198,7 @@ A_i\right) \leq \sum\limits_{i=1}^n P(A_i)$.
 
 ```{example, name = "Probability", prob}
 
-Let's assume we have an evenly-balanced, six-sided die.
+Assume we have an evenly-balanced, six-sided die.
 
 Then,
 
@@ -208,8 +209,6 @@ Then,
 5. $P\left( \{ 1, 2 \}^C \right)= P\left( \{ 3, 4, 5, 6 \}\right)=$
 6. Let $A=\{ 1,2,3,4,5 \}\subset S$.  Then $P(A)=5/6<P(S)=$ 
 7.  Let $A=\{ 1, 2, 3 \}$ and $B=\{ 2, 4, 6 \}$.  Then $A\cup B$? $A\cap B$? $P(A \cup B)$?
-
-
 
 
 ```
@@ -225,15 +224,13 @@ Suppose you had a pair of four-sided dice. You sum the results from a single tos
   
 2. What is $P(X=5 \cup X = 3)^C$? 
   
-  
-  
 
 ```
 
 
 
 
-## Conditional Probability and Bayes Law
+## Conditional Probability and Bayes Rule
 
 __Conditional Probability__:  The conditional probability $P(A|B)$ of an event $A$ is the probability of $A$, given that another event $B$ has occurred. Conditional probability allows for the inclusion of other information into the calculation of the probability of an event.  It is calculated as
 
@@ -246,10 +243,10 @@ Note that conditional probabilities are probabilities and must also follow the K
 Assume $A$ and $B$ occur with the following frequencies: $\quad$
 
 
-                        $A$             $A^c$
---------------- ----------------    ------------------
-        $B$         $n_{ab}$            $n_{a^cb}$
-        $B^C$      $n_{ab^c}$           $n_{(ab)^c}$
+           $A$          $A^c$
+--------- ---------  ---------
+$B$       $n_{ab}$   $n_{a^cb}$
+$B^C$     $n_{ab^c}$ $n_{(ab)^c}$
     
 
 and let $n_{ab}+n_{a^Cb}+n_{ab^C}+n_{(ab)^C}=N$.  Then
@@ -260,8 +257,6 @@ and let $n_{ab}+n_{a^Cb}+n_{ab^C}+n_{(ab)^C}=N$.  Then
 4.  $P(A|B)= \frac{P(A\cap B)}{P(B)}=$ 
 5.  $P(B|A)= \frac{P(A\cap B)}{P(A)}=$ 
 
-  
-
 ```
 
 
@@ -270,8 +265,6 @@ and let $n_{ab}+n_{a^Cb}+n_{ab^C}+n_{(ab)^C}=N$.  Then
 
  A six-sided die is rolled.  What is the probability of a 1, given the outcome is an odd number? 
   
-
-
 ```
 
 
@@ -299,7 +292,6 @@ P(A)&=&\sum\limits_{i=1}^k P(A \cap B_i)\\
       &=&\sum\limits_{i=1}^k P(B_i)P(A|B_i)
 \end{eqnarray*}
 
-
 ```
 
 
@@ -319,15 +311,12 @@ __Prior and Posterior Probabilities__:  Above, $P(B_1)$ is often called the prio
 
 In a given town, 40% of the voters are Democrat and 60% are Republican. The president's budget is supported by 50% of the Democrats and 90% of the Republicans. If a randomly (equally likely) selected voter is found to support the president's budget, what is the probability that they are a Democrat?
 
-  
-
 ```
 
 ```{exercise, name = "Conditional Probability", condprobexr}
 
 
 Assume that 2% of the population of the U.S. are members of some extremist militia group. We develop a survey that positively classifies someone as being a member of a militia group given that they are a member 95% of the time and negatively classifies someone as not being a member of a militia group given that they are not a member 97% of the time. What is the probability that someone positively classified as being a member of a militia group is actually a militia member?
-
   
 
 ```
@@ -367,13 +356,17 @@ No. If A and B are mutually exclusive, then they cannot happen simultaneously. I
 
 Just because two events are conditionally independent does not mean that they are independent. Actually it is hard to think of real-world things that are "unconditionally" independent. That's why it's always important to ask about a finding: What was it conditioned on?  For example, suppose that a graduate school admission decisions are done by only one professor, who picks a group of 50 bright students and flips a coin for each student to generate a class of about 25 students. Then the the probability that two students get accepted are conditionally independent, because they are determined by two separate coin tosses. However, this does not mean that their admittance is not completely independent. Knowing that student $A$ got in gives us information about whether student $B$ got in, if we think that the professor originally picked her pool of 50 students by merit. 
 
-Perhaps more counterintuitively: If two events are already independent, then it might seem that no amount of "conditioning" will make them dependent. But this is not always so. For example^[Example taken from Blitzstein and Hwang, Example 2.5.10], suppose I only get a call from two people, Alice and Bob. Let $A$ be the event that Alice calls, and $B$ be the event that Bob calls. Alice and Bob do not communicate, so $P(A \mid B) = P(A).$ But now let $C$ be the event that your phone rings. For conditional independence to hold here, then $P(A \mid C)$ must be equal to $P(A \mid B \cap C).$ But this is not true -- $A \mid C$  may or may not be true, but $P(A \mid B \cap C)$ certainly is true. 
+Perhaps more counter-intuitively: If two events are already independent, then it might seem that no amount of "conditioning" will make them dependent. But this is not always so. For example^[Example taken from Blitzstein and Hwang, Example 2.5.10], suppose I only get a call from two people, Alice and Bob. Let $A$ be the event that Alice calls, and $B$ be the event that Bob calls. Alice and Bob do not communicate, so $P(A \mid B) = P(A).$ But now let $C$ be the event that your phone rings. For conditional independence to hold here, then $P(A \mid C)$ must be equal to $P(A \mid B \cap C).$ But this is not true -- $A \mid C$  may or may not be true, but $P(A \mid B \cap C)$ certainly is true. 
  
 
 
 ## Random Variables
 
 Most questions in the social sciences involve events, rather than numbers per se. To analyze and reason about events quantitatively, we need a way of mapping events to numbers. A random variable does exactly that.
+
+```{r rv-image, fig.cap='The Random Variable as a Real-Valued Function', echo = FALSE}
+knitr::include_graphics('images/rv.png')
+```
 
 
 ```{definition, name = "Random Variable"}
@@ -382,7 +375,7 @@ A random variable is a measurable function $X$ that maps from the sample space $
 
 ```
 
-It might seem strange to define a random variable as a function -- which is neither random nor variable. The randomness comes from the realization of an event from the sample space $s$.
+Figure \@ref(fig:rv-image) shows a image of the function. It might seem strange to define a random variable as a function -- which is neither random nor variable. The randomness comes from the realization of an event from the sample space $s$.
 
 
 __Randomness__  means that the outcome of some experiment is not deterministic, i.e. there is some probability ($0 < P(A) < 1$) that the event will occur.
@@ -403,7 +396,7 @@ What are other possible random variables?
 
 ## Distributions
 
-We now have two main concepts in this section -- probability and random variables. Given a sample space $S$ and the same experiment, both probability and random variables take events as their inputs. But they output different things (probabilities measure the ``size'' of events, random variables give a number in a way that the analyst chose to define the random variable). How do the two concepts relate?
+We now have two main concepts in this section -- probability and random variables. Given a sample space $S$ and the same experiment, both probability and random variables take events as their inputs. But they output different things (probabilities measure the "size" of events, random variables give a number in a way that the analyst chose to define the random variable). How do the two concepts relate?
 
 The concept of distributions is the natural bridge between these two concepts.
 
@@ -635,7 +628,7 @@ Find $E(Y)$ for $f(y)=\frac{1}{1.5}, \quad 0<y<1.5$.
 
 Remember: An Expected Value is a type of weighted average. We can extend this to composite functions. For random variable $Y$,
 
-If $Y$ is Discrete wiht PMF $p(y)$,  
+If $Y$ is Discrete with PMF $p(y)$,  
 
 \[E[g(Y)]=\sum\limits_y g(y)p(y)\]
 
@@ -646,7 +639,7 @@ If $Y$ is Continuous with PDF $f(y)$,
 
 ### Properties of Expected Values {-}
 
-Dealing with Expecations is easier when the thing inside is a sum. The intuition behind this that Expectation is an integral, which is a type of sum. 
+Dealing with Expectations is easier when the thing inside is a sum. The intuition behind this that Expectation is an integral, which is a type of sum. 
 
 1. Expectation of a constant is a constant \[E(c)=c\]
 2. Constants come out \[E(c g(Y))= c E(g(Y))\]
@@ -984,7 +977,7 @@ Why is this important?  We rarely know the true process governing the events we 
 
 ### CLT and LLN
 
-We are now finally ready to revisit, with a bit more precise terms, the two pillars of statistical theory we motivated Section \@ref(limits) with.
+We are now finally ready to revisit, with a bit more precise terms, the two pillars of statistical theory we motivated Section \@ref(limitsfun) with.
 
 ```{theorem, clt, name = "Central Limit Theorem (i.i.d. case)"}
 Let $\{X_n\} = \{X_1, X_2, \ldots\}$ be a sequence of i.i.d. random variables with finite mean ($\mu$) and variance ($\sigma^2$). Then, the sample mean $\bar{X}_n = \frac{X_1 + X_2 + \cdots + X_n}{n}$ increasingly converges into a Normal distribution. 
@@ -1015,7 +1008,7 @@ A shorthand of which is  \(\bar{X}_n \xrightarrow{p} \mu\), where the arrow is r
 as $n\to \infty$. In other words, $P( \lim_{n\to\infty}\bar{X}_n = \mu) = 1$. This is an important motivation for the widespread use of the sample mean, as well as the intuition link between averages and expected values. 
 
 
-More precisely this version of the LLN is called the _weak_ law of large numbers because it leaves open the possibility that $|\bar{X}_n - \mu | > \varepsilon$ occurs many times. The _strong_ law of large numbers states that, undero a few more conditions, the probability that the limit of the sample average is the true mean is 1 (and other possibilities occur with probability 0), but the difference is rarely consequential in practice.
+More precisely this version of the LLN is called the _weak_ law of large numbers because it leaves open the possibility that $|\bar{X}_n - \mu | > \varepsilon$ occurs many times. The _strong_ law of large numbers states that, under a few more conditions, the probability that the limit of the sample average is the true mean is 1 (and other possibilities occur with probability 0), but the difference is rarely consequential in practice.
 
 The Strong Law of Large Numbers holds so long as the expected value exists; no other assumptions are needed. However, the rate of convergence will differ greatly depending on the distribution underlying the observed data. When extreme observations occur often (i.e. kurtosis is large), the rate of convergence is much slower. Cf. The distribution of financial returns. 
 
