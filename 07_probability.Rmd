@@ -396,7 +396,7 @@ What are other possible random variables?
 
 ## Distributions
 
-We now have two main concepts in this section -- probability and random variables. Given a sample space $S$ and the same experiment, both probability and random variables take events as their inputs. But they output different things (probabilities measure the ``size'' of events, random variables give a number in a way that the analyst chose to define the random variable). How do the two concepts relate?
+We now have two main concepts in this section -- probability and random variables. Given a sample space $S$ and the same experiment, both probability and random variables take events as their inputs. But they output different things (probabilities measure the "size" of events, random variables give a number in a way that the analyst chose to define the random variable). How do the two concepts relate?
 
 The concept of distributions is the natural bridge between these two concepts.
 
@@ -977,7 +977,7 @@ Why is this important?  We rarely know the true process governing the events we 
 
 ### CLT and LLN
 
-We are now finally ready to revisit, with a bit more precise terms, the two pillars of statistical theory we motivated Section \@ref(limits) with.
+We are now finally ready to revisit, with a bit more precise terms, the two pillars of statistical theory we motivated Section \@ref(limitsfun) with.
 
 ```{theorem, clt, name = "Central Limit Theorem (i.i.d. case)"}
 Let $\{X_n\} = \{X_1, X_2, \ldots\}$ be a sequence of i.i.d. random variables with finite mean ($\mu$) and variance ($\sigma^2$). Then, the sample mean $\bar{X}_n = \frac{X_1 + X_2 + \cdots + X_n}{n}$ increasingly converges into a Normal distribution. 
