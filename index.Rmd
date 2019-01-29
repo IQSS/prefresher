@@ -13,7 +13,7 @@ cover-image: "./images/logo.png"
 ---
 # About this Booklet {-}
 
-The Harvard Gov Prefresher is held each year in August. All relevant information is on our website: <https://projects.iq.harvard.edu/prefresher>. The 2018 Prefresher instructors were [Shiro Kuriwaki](https://www.shirokuriwaki.com) and [Yon Soo Park](https://scholar.harvard.edu/yonsoopark/home), and the faculty sponsor is  [Gary King](https://gking.harvard.edu). 
+The [__Harvard Gov Prefresher__](https://projects.iq.harvard.edu/prefresher) is held each year in August. All relevant information is on our website, including the [day-to-day schedule](https://projects.iq.harvard.edu/prefresher/schedule). The 2018 Prefresher instructors were [Shiro Kuriwaki](https://www.shirokuriwaki.com) and [Yon Soo Park](https://scholar.harvard.edu/yonsoopark/home), and the faculty sponsor is  [Gary King](https://gking.harvard.edu).
 
 This booklet servs as the text for the Prefresher. It is the product of generations of Prefresher Instructors. See below for a full list of instructors and contributors. 
 
@@ -30,8 +30,8 @@ This booklet servs as the text for the Prefresher. It is the product of generati
 
 ### Contributing {-}
 
-We transitioned the booklet into a Rmarkdown (bookdown) document and into a public github [repo](https://github.com/kuriwaki/prefresher) in 2018. As we update this version, any bug reports or fixes would be greatly appreciated. 
+We transitioned the booklet into a Rmarkdown (bookdown) document and into a [github repository](https://github.com/kuriwaki/prefresher) in 2018.  As we update this version, any bug reports or fixes would be greatly appreciated. 
 
-All changes should be made in the `.Rmd` files in the project root. Especially if the changes go beyond changing certain words, please verify that that the entire book compiles both in html and in pdf before submitting if you can get the XeLaTeX settings on your computer aligned so that building produces a PDF as well as a HTML page.  
+All changes should be made in the `.Rmd` files in the project root. If the changes are substantial, please verify that that the entire book compiles before submitting. Ideally, try to get the XeLaTeX settings on your computer aligned so that building produces a PDF as well as a HTML page. Some of the datasets used are currently not tracked on github but available upon request.  
 
-To contribute a change, please make a pull request.
+To contribute a change, please make a pull request and set the repository maintainer as the reviewer.
