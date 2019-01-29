@@ -18,7 +18,7 @@ $\bullet$ Inverse of Larger Matrices
 
 
 
-## Working with Vectors {#vectors}
+## Working with Vectors {#vector-def}
 __Vector__: A vector in $n$-space is an ordered list of $n$ numbers.  These numbers can be represented as either a row vector or a column vector: 
 		$$ {\bf v} \begin{pmatrix} v_1 & v_2 & \dots & v_n\end{pmatrix} , {\bf v} = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}$$ 
 		

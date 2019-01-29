@@ -32,7 +32,7 @@ even more concretely, if the potential values of $X$ are finite, then we can wri
 
 ## Derivatives {#derivintro}
 
-The derivative of $f$ at $x$ is its rate of change at $x$: how much $f(x)$ changes with a change in $x$. The rate of change is a fraction --- rise over run --- but because not all lines are straight and the rise over run formula will give us different values depending on the range we examine, we need to take a limit (Section \@ref(limits)).
+The derivative of $f$ at $x$ is its rate of change at $x$: how much $f(x)$ changes with a change in $x$. The rate of change is a fraction --- rise over run --- but because not all lines are straight and the rise over run formula will give us different values depending on the range we examine, we need to take a limit (Section \@ref(limits-precalc)).
 
 
 ```{definition, name = "Derivative"}

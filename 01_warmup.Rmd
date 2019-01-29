@@ -16,7 +16,7 @@ Define the vectors $u = \begin{pmatrix} 1 \\2 \\3 \end{pmatrix}$, $v = \begin{pm
 2. $cv$
 3. $u \cdot v$
 
-If you are having trouble with these problems, please review Section \@ref(vectors) "Working with Vectors" in Chapter \@ref(linearalgebra). 
+If you are having trouble with these problems, please review Section \@ref(vector-def) "Working with Vectors" in Chapter \@ref(linearalgebra). 
 
 
 Are the following sets of vectors linearly independent?
