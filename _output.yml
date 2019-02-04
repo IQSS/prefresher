@@ -7,7 +7,7 @@ bookdown::gitbook:
       before: |
         <li><a href="./">Gov Prefresher</a></li>
     download: ["pdf", "epub"]
-    edit : https://github.com/kuriwaki/prefresher/edit/master/%s
+    edit : https://github.com/IQSS/prefresher/edit/master/%s
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
