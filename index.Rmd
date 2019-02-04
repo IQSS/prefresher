@@ -3,7 +3,7 @@ title: "Math Prefresher for Political Scientists"
 author: ""
 date: "`r format(Sys.Date(), '%B %Y')`"
 description: "Text for Harvard Department of Government Math Prefresher"
-github-repo: "kuriwaki/prefresher"
+github-repo: "IQSS/prefresher"
 site: "bookdown::bookdown_site"
 documentclass: book
 geometry: "margin=1.5in"
@@ -30,7 +30,7 @@ This booklet servs as the text for the Prefresher. It is the product of generati
 
 ### Contributing {-}
 
-We transitioned the booklet into a Rmarkdown (bookdown) document and into a [github repository](https://github.com/kuriwaki/prefresher) in 2018.  As we update this version, any bug reports or fixes would be greatly appreciated. 
+We transitioned the booklet into a Rmarkdown (bookdown) document and into a [github repository](https://github.com/IQSS/prefresher) in 2018.  As we update this version, any bug reports or fixes would be greatly appreciated. 
 
 All changes should be made in the `.Rmd` files in the project root. If the changes are substantial, please verify that that the entire book compiles before submitting. Ideally, try to get the XeLaTeX settings on your computer aligned so that building produces a PDF as well as a HTML page. Some of the datasets used are currently not tracked on github but available upon request.  
 
