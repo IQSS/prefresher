@@ -4,18 +4,18 @@
 # Orientation and Reading in Data^[Module originally written by Shiro Kuriwaki] {#dataimport}
 
 
-Up till now, you should have
+Welcome to the first in-class session for programming. Up till this point, you should have already:
 
-* Completed the R Visualization and Programming primers at  <https://rstudio.cloud/primers/>
-* Make an account at RStudio Cloud and join the Math Prefresher 2018 Space 
-* Set up wi-fi to work on your laptops: <https://getonline.harvard.edu/> (Access Harvard Secure with your HarvardKey. Try to get a HarvardKey as soon as possible.)
+* Completed the R Visualization and Programming primers (under "The Basics") on your own at <https://rstudio.cloud/learn/primers/>,
+* Made an account at RStudio Cloud and join the Math Prefresher 2018 Space, and
+* Successfully signed up for the University wi-fi: <https://getonline.harvard.edu/> (Access Harvard Secure with your HarvardKey. Try to get a HarvardKey as soon as possible.)
 
 ### Where are we? Where are we headed? {-}
 
 Today we'll cover:
 
 * What's what in RStudio
-* Reading in Data 
+* How to read in data 
 * Comment on coding style on the way
 
 ### Check your understanding  {-}
@@ -315,7 +315,7 @@ Make a scatterplot with the number of colonies on the x-axis and Fame on the y-a
 
 
 ### 4 {-}
-Find the right function to read the following datasets into your R window. 
+Find the correct function to read the following datasets (available in your rstudio.cloud session) into your R window.
 
 
 * `input/acs2015_1percent.csv`: A one percent sample of the American Community Survey

@@ -131,7 +131,7 @@ Then, for the case $m + 1$, using the product rule above, we can simplify
 &= (m + 1)x^{(m + 1) - 1}
 \end{align*}
 
-Therefore, the rule holds for the case $k = m + 1$ once we have assumed it holds for $k = m$. Combined with the first case, this completes proof by induction -- we have now proved that the statement holds for all integers $k = 1, 2, 3, \cdots, $. 
+Therefore, the rule holds for the case $k = m + 1$ once we have assumed it holds for $k = m$. Combined with the first case, this completes proof by induction -- we have now proved that the statement holds for all integers $k = 1, 2, 3, \cdots$. 
 
 To show that it holds for real fractions as well, we can prove expressing that exponent by a fraction of two integers.
 
@@ -557,11 +557,11 @@ Some common rules of integrals follow by virtue of being the inverse of a deriva
 ```{example, name="Common Integration"}
 Simplify the following indefinite integrals:
   
-* $\int 3x^2 dx =$
-* $\int (2x+1)dx=$
-* $\int e^x e^{e^x} dx =$
-  
-  
+* \(\int 3x^2 dx\)
+* \(\int (2x+1)dx\)
+* \(\int e^x e^{e^x} dx\)
+
+
 ```
 
 
@@ -628,7 +628,7 @@ This  is again a long way of saying that that differentiation is the inverse of 
 The second theorem gives us a simple way of computing a definite integral as a function of indefinite integrals. 
 
 ```{theorem, name = "Second Fundamental Theorem of Calculus"}
-Let the function $f$ be bounded on $[a,b]$ and continuous on $(a,b)$.  Let $F$ be any function that is continuous on $[a,b]$ such that $F'(x)=f(x)$ on $(a,b)$.  Then $$\int\limits_a^bf(x)dx = F(b)-F(a)$$
+Let the function $f$ be bounded on $[a,b]$ and continuous on $(a,b)$.  Let $F$ be any function that is continuous on $[a,b]$ such that $F^\prime(x)=f(x)$ on $(a,b)$.  Then $$\int\limits_a^bf(x)dx = F(b)-F(a)$$
 ```
 
 So the procedure to calculate a simple definite integral $\int\limits_a^b f(x)dx$ is then
