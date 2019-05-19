@@ -315,7 +315,7 @@ Make a scatterplot with the number of colonies on the x-axis and Fame on the y-a
 
 
 ### 4 {-}
-Find the right function to read the following datasets into your R window. 
+Find the correct function to read the following datasets (available in your rstudio.cloud session) into your R window.
 
 
 * `input/acs2015_1percent.csv`: A one percent sample of the American Community Survey
