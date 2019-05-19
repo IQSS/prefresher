@@ -6,7 +6,7 @@
 
 Welcome to the first in-class session for programming. Up till this point, you should have already:
 
-* Completed the R Visualization and Programming primers on your own at <https://rstudio.cloud/primers/>,
+* Completed the R Visualization and Programming primers (under "The Basics") on your own at <https://rstudio.cloud/learn/primers/>,
 * Made an account at RStudio Cloud and join the Math Prefresher 2018 Space, and
 * Successfully signed up for the University wi-fi: <https://getonline.harvard.edu/> (Access Harvard Secure with your HarvardKey. Try to get a HarvardKey as soon as possible.)
 
