@@ -6,6 +6,7 @@ _book/*.html
 _book/*.epub
 _book/*.png
 _bookdown_files/
+_book/prefresher_files
 
 rsconnect/
 libs/
