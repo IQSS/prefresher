@@ -108,7 +108,7 @@
 \usepackage{titling}
 
 % Create subtitle command for use in maketitle
-\newcommand{\subtitle}[1]{
+\providecommand{\subtitle}[1]{
   \posttitle{
     \begin{center}\large#1\end{center}
     }
@@ -123,7 +123,7 @@
     \preauthor{}\postauthor{}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{May 2019}
+    \date{June 2019}
 
 \usepackage{booktabs}
 
@@ -6961,7 +6961,7 @@ What is the difference between a \texttt{data.frame} and a matrix? A \texttt{dat
 
 \begin{verbatim}
 ##    user  system elapsed 
-##   0.257   0.004   0.262
+##   0.372   0.005   0.561
 \end{verbatim}
 
 \begin{Shaded}
@@ -6972,7 +6972,7 @@ What is the difference between a \texttt{data.frame} and a matrix? A \texttt{dat
 
 \begin{verbatim}
 ##    user  system elapsed 
-##   3.088   0.011   3.123
+##   3.774   0.030   4.040
 \end{verbatim}
 
 \hypertarget{handling-matricies-in-r}{%
@@ -9487,7 +9487,7 @@ Suppose you have a vector of values \texttt{x} and from it you want to randomly 
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  3  1  8 10  2
+## [1] 1 2 3 7 6
 \end{verbatim}
 
 There are two subtypes of sampling -- with and without replacement.
@@ -9506,7 +9506,7 @@ There are two subtypes of sampling -- with and without replacement.
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  4  5  9  2  3  7  1  6 10  8
+##  [1]  7  8  9  6  2  5  4  1 10  3
 \end{verbatim}
 
 \begin{enumerate}
@@ -9524,7 +9524,7 @@ There are two subtypes of sampling -- with and without replacement.
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 7 4 9 7 2 2 6 8 6 9
+##  [1] 10  2  1  5  3  9  3  6  6  1
 \end{verbatim}
 
 It follows then that you cannot sample without replacement a sample that is larger than the pool.
@@ -9550,8 +9550,8 @@ For example, this simulates 20 fair coin tosses (each outcome is equally likely 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Tail" "Head" "Tail" "Tail" "Head" "Head" "Tail" "Head" "Head" "Head"
-## [11] "Head" "Tail" "Tail" "Tail" "Head" "Head" "Tail" "Tail" "Head" "Tail"
+##  [1] "Head" "Tail" "Tail" "Head" "Tail" "Head" "Head" "Tail" "Tail" "Head"
+## [11] "Tail" "Head" "Head" "Head" "Tail" "Head" "Head" "Head" "Head" "Head"
 \end{verbatim}
 
 But this simulates 20 biased coin tosses, where say the probability of Tails is 4 times more likely than the number of Heads
@@ -9563,8 +9563,8 @@ But this simulates 20 biased coin tosses, where say the probability of Tails is 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Tail" "Tail" "Tail" "Head" "Tail" "Tail" "Tail" "Head" "Tail" "Tail"
-## [11] "Head" "Tail" "Tail" "Head" "Tail" "Head" "Head" "Head" "Tail" "Head"
+##  [1] "Tail" "Tail" "Tail" "Tail" "Tail" "Head" "Tail" "Tail" "Tail" "Head"
+## [11] "Head" "Head" "Tail" "Head" "Tail" "Tail" "Tail" "Tail" "Tail" "Tail"
 \end{verbatim}
 
 \hypertarget{sampling-rows-from-a-dataframe}{%
@@ -9625,10 +9625,10 @@ sample\_n picks a user-specified number of rows from the dataset:
 \end{Shaded}
 
 \begin{verbatim}
-##    mpg cyl  disp  hp drat    wt  qsec vs am gear carb
-## 1 19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
-## 2 15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
-## 3 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+##    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## 1 10.4   8  472 205 2.93 5.250 17.98  0  0    3    4
+## 2 15.2   8  304 150 3.15 3.435 17.30  0  0    3    2
+## 3 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
 \end{verbatim}
 
 Sometimes you want a X percent sample of your dataset. In this case use \texttt{sample\_frac()}
@@ -9641,9 +9641,9 @@ Sometimes you want a X percent sample of your dataset. In this case use \texttt{
 
 \begin{verbatim}
 ##    mpg cyl  disp  hp drat    wt  qsec vs am gear carb
-## 1 15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
-## 2 16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
-## 3 14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## 1 21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## 2 30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## 3 18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
 \end{verbatim}
 
 As a side-note, these functions have very practical uses for any type of data analysis:
@@ -9674,7 +9674,7 @@ For example, I want to know how many Heads I would get if I flipped a fair coin 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 46
+## [1] 51
 \end{verbatim}
 
 Now imagine this I wanted to do this experiment 10 times, which would require I flip the coin 10 x 100 = 1000 times! Helpfully, we can do this in one line
@@ -9686,7 +9686,7 @@ Now imagine this I wanted to do this experiment 10 times, which would require I 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 42 47 41 51 52 57 44 49 53 45
+##  [1] 47 46 49 57 45 42 45 50 44 50
 \end{verbatim}
 
 \hypertarget{runif}{%
@@ -9704,7 +9704,7 @@ The intuition to emphasize here is that one can generate potentially infinite am
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.04820592 0.18489989 0.54155194 0.83747694 0.97833988
+## [1] 0.1847970 0.9906337 0.4612721 0.8321032 0.3246780
 \end{verbatim}
 
 \hypertarget{rnorm}{%
@@ -9720,7 +9720,7 @@ The intuition to emphasize here is that one can generate potentially infinite am
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  0.94704868  0.05728521  0.32914573 -2.90922109  0.08422519
+## [1] 1.7477110 0.5347322 1.2716806 0.2623107 0.1506185
 \end{verbatim}
 
 To better visualize the difference between the output of \texttt{runif} and \texttt{rnorm}, let's generate lots of each and plot a histogram.
@@ -11015,8 +11015,6 @@ Running this command in a Mac (\texttt{dir} in Windows) should show you a list o
 ## prefresher.bbl
 ## prefresher.blg
 ## prefresher.log
-## prefresher.pdf
-## prefresher.tex
 ## prefresher_files
 ## rsconnect
 ## sample_library.bib
@@ -11885,7 +11883,7 @@ Then
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.31
+## [1] 0.22
 \end{verbatim}
 
 \begin{Shaded}
