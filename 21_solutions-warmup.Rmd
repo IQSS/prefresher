@@ -1,0 +1,196 @@
+# (PART) Solutions {-}
+
+# Solutions to Warmup Questions {-}
+
+
+
+## Linear Algebra {-}
+
+### Vectors {-}
+
+Define the vectors $u = \begin{pmatrix} 1 \\2 \\3 \end{pmatrix}$, $v = \begin{pmatrix} 4\\5\\6 \end{pmatrix}$, and the scalar $c = 2$. 
+
+1. $u + v = \begin{pmatrix}5\\7\\9\end{pmatrix}$
+2. $cv = \begin{pmatrix}8\\10\\12\end{pmatrix}$
+3. $u \cdot v = 1(4) + 2(5) + 3(6) = 32$
+
+
+
+If you are having trouble with these problems, please review Section \@ref(vector-def) "Working with Vectors" in Chapter \@ref(linearalgebra). 
+
+
+Are the following sets of vectors linearly independent?
+
+1. $u = \begin{pmatrix} 1\\ 2\end{pmatrix}$, $v = \begin{pmatrix} 2\\4\end{pmatrix}$
+
+$\leadsto$ No: \[2u = \begin{pmatrix} 2\\ 4\end{pmatrix}, v = \begin{pmatrix} 2\\ 4\end{pmatrix}\]
+so infinitely many linear combinations of $u$ and $v$ that amount to 0 exist.
+
+
+2. $u = \begin{pmatrix} 1\\ 2\\ 5 \end{pmatrix}$, $v = \begin{pmatrix} 3\\ 7\\ 9 \end{pmatrix}$
+
+$\leadsto$ Yes: we cannot find  linear combination of these two vectors that would amount to zero. 
+
+
+
+3. $a = \begin{pmatrix} 2\\ -1\\ 1 \end{pmatrix}$, $b = \begin{pmatrix} 3\\ -4\\ -2 \end{pmatrix}$, $c = \begin{pmatrix} 5\\ -10\\ -8 \end{pmatrix}$ 
+
+$\leadsto$ No: After playing around with some numbers, we can find that 
+\[-2a = \begin{pmatrix} -4\\ 2\\ -2 \end{pmatrix}, 3b = \begin{pmatrix} 9\\ -12\\ -6 \end{pmatrix}, -1c = \begin{pmatrix} -5\\ 10\\ 8 \end{pmatrix}\]
+
+So 
+\[-2a + 3b - c = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}\]
+
+i.e., a linear combination of these three vectors that would amount to zero exists.
+
+
+If you are having trouble with these problems, please review Section \@ref(linearindependence). 
+
+
+### Matrices {-}
+
+\[{\bf A}=\begin{pmatrix}
+			7 & 5 & 1 \\
+			11 & 9 & 3 \\ 
+			2 & 14 & 21 \\ 
+			4 & 1 & 5
+		\end{pmatrix}\]
+		
+		
+What is the dimensionality of matrix ${\bf A}$?  4 $\times$ 3
+
+What is the element $a_{23}$ of ${\bf A}$? 3
+
+Given that 
+		
+\[{\bf B}=\begin{pmatrix}
+			1 & 2 & 8 \\
+			3 & 9 & 11 \\ 
+			4 & 7 & 5 \\ 
+			5 & 1 & 9
+		\end{pmatrix}\]
+		
+\[\mathbf{A} + \mathbf{B} = \begin{pmatrix}
+			8 & 7 & 9 \\
+			14 & 18 & 14 \\ 
+			6 & 21 & 26 \\ 
+			9 & 2 & 14
+		\end{pmatrix}\]
+
+
+Given that 
+		
+\[{\bf C}=\begin{pmatrix}
+			1 & 2 & 8 \\
+			3 & 9 & 11 \\ 
+			4 & 7 & 5 \\ 
+		\end{pmatrix}\]
+		
+\[\mathbf{A} + \mathbf{C} = \text{No solution, matrices non-conformable}\]
+
+
+
+Given that 
+
+\[c = 2\]
+
+\[c\textbf{A} = \begin{pmatrix}
+			14 & 10 & 2 \\
+			22 & 18 & 6 \\ 
+			4 & 28 & 42 \\ 
+			8 & 2 & 10
+		\end{pmatrix}\]
+
+If you are having trouble with these problems, please review Section \@ref(matrixbasics). 
+
+
+
+## Operations {-}
+
+### Summation {-}
+
+Simplify the following
+
+1. \(\sum\limits_{i = 1}^3 i = 1 + 2+ 3 = 6\)
+
+2. \(\sum\limits_{k = 1}^3(3k + 2) = 3\sum\limits_{k=1}^3k + \sum\limits_{k=1}^3 2= 3\times 6 + 3\times 2 = 24\)
+
+3. \(\sum\limits_{i= 1}^4 (3k + i + 2) = 3\sum\limits_{i= 1}^4k + \sum\limits_{i= 1}^4i + \sum\limits_{i= 1}^42 = 12k + 10 + 8 = 12k + 18\)
+
+
+### Products {-}
+
+1. \(\prod\limits_{i= 1}^3 i = 1\cdot 2\cdot 3 = 6\)
+
+2. \(\prod\limits_{k=1}^3(3k + 2) = (3 + 2)\cdot (6 + 2)\cdot (9 + 2) = 440\)
+
+
+To review this material, please see Section \@ref(sum-notation).
+
+
+### Logs and exponents {-}
+
+Simplify the following
+
+1.  \(4^2 = 16\)
+2.  \(4^2 2^3 = 2^{2\cdot 2}2^{3} = 2^{4 + 3} = 128\)
+3.  \(\log_{10}100 = \log_{10}10^2 = 2\)
+4.  \(\log_{2}4 = \log_{2}2^2 = 2\)
+5.  when $\log$ is the natural log, \(\log e = \log_{e} e^1 = 1\)
+6.  when $a, b, c$ are each constants, \(e^a e^b e^c = e^{a + b + c}\), 
+7.  \(\log 0 = \text{undefined}\) -- no exponentiation of anything will result in a 0.
+8.  \(e^0 = 1\) -- any number raised to the 0 is always 1. 
+9.  \(e^1 = e\) -- any number raised to the 1 is always itself
+10. \(\log e^2 = \log_e e^2 = 2\)
+
+To review this material, please see Section \@ref(logexponents)
+
+
+
+## Limits {-}
+
+Find the limit of the following.
+
+1. $\lim\limits_{x \to 2} (x - 1) = 1$
+2. $\lim\limits_{x \to 2} \frac{(x - 2) (x - 1)}{(x - 2)} = 1$, though note that the original function $\frac{(x - 2) (x - 1)}{(x - 2)}$ would have been undefined at $x = 2$ because of a divide by zero problem; otherwise it would have been equal to $x - 1$.
+3. $\lim\limits_{x \to 2}\frac{x^2 - 3x + 2}{x- 2} = 1$, same as above.
+
+To review this material please see Section \@ref(limitsfun)
+
+
+## Calculus {-}
+
+For each of the following functions $f(x)$, find the derivative $f'(x)$ or $\frac{d}{dx}f(x)$
+
+1. $f(x)=c$, $f'(x) = 0$
+2. $f(x)=x$, $f'(x) = 1$
+3. $f(x)=x^2$, $f'(x) = 2x$
+4. $f(x)=x^3$, $f'(x) = 3x^2$
+5. $f(x)=3x^2+2x^{1/3}$, $f'(x) = 6x + \frac{2}{3}x^{-2/3}$
+6. $f(x)=(x^3)(2x^4)$, $f'(x) = \frac{d}{dx}2x^7 = 14x^6$
+
+For a review, please see Section \@ref(derivintro) - \@ref(derivpoly)
+
+## Optimization {-}
+
+For each of the followng functions $f(x)$, does a maximum and minimum exist in the domain $x \in \mathbf{R}$? If so, for what are those values and for which values of $x$?
+
+1. $f(x) = x$ $\leadsto$ neither exists.
+2. $f(x) = x^2$ $\leadsto$ a minimum $f(x) = 0$ exists at $x = 0$, but not a maximum.
+3. $f(x) = -(x  - 2)^2$ $\leadsto$ a maximum $f(x) = 0$ exists at $x = 2$, but not a minimum.
+
+If you are stuck, please try sketching out a picture of each of the functions.
+	
+
+## Probability {-}
+
+1. If there are 12 cards, numbered 1 to 12, and 4 cards are chosen, $\binom{12}{4} = \frac{12\cdot 11\cdot 10\cdot 9}{4!} = 495$ possible hands exist (unordered, without replacement) .
+2. Let $A = \{1,3,5,7,8\}$ and $B = \{2,4,7,8,12,13\}$. Then $A \cup B = \{1, 2, 3, 4, 5, 7, 8, 12, 13\}$,  $A \cap B = \{7, 8\}$? If $A$ is a subset of the Sample Space $S = \{1,2,3,4,5,6,7,8,9,10\}$, then the complement $A^C = \{2, 4, 6, 9, 10\}$
+
+3. If we roll two fair dice, what is the probability that their sum would be 11? $\leadsto \frac{1}{18}$ 
+4. If we roll two fair dice, what is the probability that their sum would be 12? $\leadsto \frac{1}{36}$. There are two independent dice, so $6^2 = 36$ options in total. While the previous question had two possibilities for a sum of 11 (5,6 and 6,5), there is only one possibility out of 36 for a sum of 12 (6,6).
+
+
+For a review, please see Sections \@ref(setoper) - \@ref(probdef)
+
+

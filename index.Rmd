@@ -1,0 +1,37 @@
+--- 
+title: "Math Prefresher for Political Scientists"
+author: ""
+date: "`r format(Sys.Date(), '%B %Y')`"
+description: "Text for Harvard Department of Government Math Prefresher"
+github-repo: "IQSS/prefresher"
+site: "bookdown::bookdown_site"
+documentclass: book
+geometry: "margin=1.5in"
+biblio-style: apalike
+link-citations: yes
+cover-image: "./images/logo.png"
+---
+# About this Booklet {-}
+
+The [__Harvard Gov Prefresher__](https://projects.iq.harvard.edu/prefresher) is held each year in August. All relevant information is on our website, including the [day-to-day schedule](https://projects.iq.harvard.edu/prefresher/schedule). The 2018 Prefresher instructors were [Shiro Kuriwaki](https://www.shirokuriwaki.com) and [Yon Soo Park](https://scholar.harvard.edu/yonsoopark/home), and the faculty sponsor is  [Gary King](https://gking.harvard.edu).
+
+This booklet servs as the text for the Prefresher. It is the product of generations of Prefresher Instructors. See below for a full list of instructors and contributors. 
+
+
+
+
+### Authors and Contributors {-}
+
+- Authors and Instructors:  Curt Signorino 1996-1997; Ken Scheve 1997-1998; Eric Dickson 1998-2000; Orit Kedar 1999; James Fowler 2000-2001; Kosuke Imai 2001-2002; Jacob Kline 2002; Dan Epstein 2003; Ben Ansell 2003-2004; Ryan Moore 2004-2005; Mike Kellermann 2005-2006; Ellie Powell 2006-2007; Jen Katkin 2007-2008; Patrick Lam 2008-2009; Viridiana Rios 2009-2010; Jennifer Pan 2010-2011; Konstantin Kashin 2011-2012; Soledad Prillaman 2013; Stephen Pettigrew 2013-2014; Anton Strezhnev 2014-2015; Mayya Komisarchik 2015-2016; Connor Jerzak 2016-2017; Shiro Kuriwaki 2017-2018; Yon Soo Park 2018-
+- Bookdown Creator: Shiro Kuriwaki 
+- Repository Maintainer: Shiro Kuriwaki ([kuriwaki](https://github.com/kuriwaki))
+- Contributors: Thanks to Juan Dodyk ([juandodyk](https://github.com/juandodyk)), Hunter Rendleman ([hrendleman](https://github.com/hrendleman)), and Tyler Simko ([tylersimko](https://github.com/tylersimko)) for contributing to the booklet for corrections and improvements as students.
+
+
+### Contributing {-}
+
+We transitioned the booklet into a Rmarkdown (bookdown) document and into a [github repository](https://github.com/IQSS/prefresher) in 2018.  As we update this version, any bug reports or fixes would be greatly appreciated. 
+
+All changes should be made in the `.Rmd` files in the project root. If the changes are substantial, please verify that that the entire book compiles before submitting. Ideally, try to get the XeLaTeX settings on your computer aligned so that building produces a PDF as well as a HTML page. Some of the datasets used are currently not tracked on github but available upon request.  
+
+To contribute a change, please make a pull request and set the repository maintainer as the reviewer.
