@@ -8,6 +8,7 @@ _book/*.png
 _bookdown_files/
 _book/prefresher_files
 
+docs/
 rsconnect/
 libs/
 
