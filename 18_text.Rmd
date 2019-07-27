@@ -5,7 +5,6 @@
 ```{r, include=FALSE}
 library(dplyr)
 library(readr)
-library(data.table)
 library(scales)
 library(forcats)
 library(ggplot2)

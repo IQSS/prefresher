@@ -4,8 +4,14 @@ Title: Does not matter.
 Version: 0.0.1
 Imports: 
     bookdown, 
-    tidyverse, 
-    scales, haven, readxl, tidyr, fs,
+    dplyr,
+    ggplot2,
+    readr,
+    scales, 
+    haven,
+    readxl, 
+    tidyr, 
+    fs,
     data.table,
     ggrepel,
     gridExtra
