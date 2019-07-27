@@ -15,7 +15,7 @@ library(scales)
 ### 1 State Proportions {-}
 
 ```{r}
-cen10 <- readRDS("input/usc2010_1percent.Rds")
+cen10 <- readRDS("input/usc2010_001percent.Rds")
 ```
 
 
@@ -24,7 +24,7 @@ Group by state, noting that the mean of a set of logicals is a mean of 1s (`TRUE
 ```{r}
 grp_st <- cen10 %>%
   group_by(state) %>%
-  summarize(prop = mean(ownership == "Rented")) %>%
+  summarize(prop = mean(age >= 65)) %>%
   arrange(prop) %>%
   mutate(state = as_factor(state))
 ```
@@ -35,11 +35,11 @@ Plot points
 ggplot(grp_st, aes(x = state, y = prop)) +
   geom_point() +
   coord_flip() +
-  scale_y_continuous(labels = percent) + # use the scales package to format percentages
+  scale_y_continuous(labels = percent_format(accuracy = 1)) + # use the scales package to format percentages
   labs(
-    y = "Proportion of Renters",
+    y = "Proportion Senior",
     x = "",
-    caption = "Source: 2010 Census (1 percent)"
+    caption = "Source: 2010 Census sample"
   )
 ```
 
@@ -57,7 +57,7 @@ justices <- read_csv("input/justices_court-median.csv")
 Keep justices who are in the dataset in 2016, 
 ```{r}
 in_2017 <- justices %>%
-  filter(term == 2016) %>%
+  filter(term >= 2016) %>%
   distinct(justice) %>% # unique values
   mutate(present_2016 = 1) # keep an indicator to distinguish from rest after merge
 
@@ -71,7 +71,7 @@ ggplot(df_indicator, aes(x = term, y = idealpt, group = justice_id)) +
   geom_line(aes(y = median_idealpt), color = "red", size = 2, alpha = 0.1) +
   geom_line(alpha = 0.5) +
   geom_line(data = filter(df_indicator, !is.na(present_2016))) +
-  geom_point(data = filter(df_indicator, !is.na(present_2016), term == 2016)) +
+  geom_point(data = filter(df_indicator, !is.na(present_2016), term == 2018)) +
   geom_text_repel(
     data = filter(df_indicator, term == 2016), aes(label = justice),
     nudge_x = 10,

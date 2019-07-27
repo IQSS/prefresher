@@ -52,7 +52,7 @@ We can access column vectors, or vectors that contain values of variables by usi
 ```{r, message = FALSE}
 head(cen10$state)
 
-head(cen10$city)
+head(cen10$race)
 ```
 
 We can look at a unique set of variable values by calling the unique function
@@ -93,11 +93,11 @@ cen10[1:20, ]
 
 cen10 %>% slice(1:20)
 
-# Of the first 20 rows of the entire data, look at values of just year and age
+# Of the first 20 rows of the entire data, look at values of just race and age
 # Below two lines of code do the same thing
-cen10[1:20, c("year", "age")]
+cen10[1:20, c("race", "age")]
 
-cen10 %>% slice(1:20) %>% select(c("year", "age"))
+cen10 %>% slice(1:20) %>% select(race, age)
 ```
 
 A vector is a special type of matrix with only one column or only one row 
@@ -143,21 +143,16 @@ s3 <- cen10[cen10$state == "New York" | cen10$state == "California", ]
 s4 <- cen10 %>% filter(state == "New York" | state == "California")
 all_equal(s3, s4)
 
-# all individuals NOT in the Pacific Division region
-s5 <- cen10[cen10$region != "Pacific Division", ]
-s6 <- cen10 %>% filter(region != "Pacific Division")
-all_equal(s5, s6)
-
 
 # all individuals in any of the following states: California, Ohio, Nevada, Michigan
-s7 <- cen10[cen10$state %in% c("California", "Ohio", "Nevada", "Michigan"), ]
-s8 <- cen10 %>% filter(state %in% c("California", "Ohio", "Nevada", "Michigan"))
-all_equal(s7, s8)
+s5 <- cen10[cen10$state %in% c("California", "Ohio", "Nevada", "Michigan"), ]
+s6 <- cen10 %>% filter(state %in% c("California", "Ohio", "Nevada", "Michigan"))
+all_equal(s5, s6)
 
 # all individuals NOT in any of the following states: California, Ohio, Nevada, Michigan
-s9 <- cen10[!(cen10$state %in% c("California", "Ohio", "Nevada", "Michigan")), ]
-s10 <- cen10 %>% filter(!state %in% c("California", "Ohio", "Nevada", "Michigan"))
-all_equal(s9, s10)
+s7 <- cen10[!(cen10$state %in% c("California", "Ohio", "Nevada", "Michigan")), ]
+s8 <- cen10 %>% filter(!state %in% c("California", "Ohio", "Nevada", "Michigan"))
+all_equal(s7, s8)
 ```
 
 ## Checkpoint {-}
