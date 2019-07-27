@@ -34,7 +34,7 @@ library(ggplot2)
 
 
 ```{r}
-cen10 <- read_csv("input/usc2010_001percent.csv", col_types = cols())
+cen10 <- read_csv("data/input/usc2010_001percent.csv", col_types = cols())
 ```
 
 
@@ -513,7 +513,7 @@ for (state in states_of_interest) {
 A issue raised in Persily's article is that the full-count U.S. Census does not record  whether the residents are citizens of the United States^[Here is that argument of his again, more recently in the popular press. ["The Mysterious Number of American Citizens". June 2, 2015.  _POLITICO_](http://www.politico.com/magazine/story/2015/06/the-supreme-courts-big-data-problem-118568)]. Instead, this question is asked in a survey, the American Community Survey. The two are fundamentally different exercises: the Census counts everyone by definition, a survey samples its data. Load the 1 percent sample of the 2015 ACS (`acs2015_1percent.csv`, in the `input` folder) and give an estimate of the proportion of a state's ACS respondents that are reportedly U.S. citizens. 
 
 ```{r}
-acs<- read_csv("input/acs2015_1percent.csv", col_types = cols())
+acs<- read_csv("data/input/acs2015_1percent.csv", col_types = cols())
 set.seed(02138)
 sample_acs <- sample_frac(acs, 0.01)
 

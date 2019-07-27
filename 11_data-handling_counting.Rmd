@@ -30,7 +30,8 @@ Today we'll cover:
 
 
 ```{r, include = FALSE, message = FALSE}
-library(tidyverse)
+library(ggplot2)
+library(dplyr)
 library(fs)
 ```
 
@@ -161,13 +162,20 @@ For our first dataset, let's try reading in a dataset on the Ancient Greek world
 This POLIS dataset was generously provided by Professor Josiah Ober of Stanford University. This dataset includes information on city states in the Ancient Greek world, parts of it collected by careful work by historians and archaeologists. It is part of his recent books on Greece (Ober 2015), "The Rise and Fall of Classical Greece"^[[Ober, Josiah (2015). _The Rise and Fall of Classical Greece_. Princeton University Press.](https://press.princeton.edu/titles/10423.html)] and Institutions in Ancient Athens (Ober 2010) , "Democracy and Knowledge: Innovation and Learning in Classical Athens."^[[Ober, Josiah (2010). _Democracy and Knowledge: Innovation and Learning in Classical Athens_. Princeton University Press.](https://press.princeton.edu/titles/8742.html)]
 
 ### Locating the Data 
-What files do we have in the `input` folder?
+What files do we have in the `data/input` folder?
 
 ```{r, echo = FALSE}
-dir_ls("input")
+dir_ls("data/input")
 ```
 
 A typical file format is Microsoft Excel. Although this is not usually the best format for R because of its highly formatted structure as opposed to plain text (more on this in Section \ref@(sec:wysiwyg)), recent packages have made this fairly easy. 
+
+
+
+### Reading in Data
+
+
+In Rstudio, a good way to start is to use the GUI and the Import tool. Once you click a file, an option to "Import Dataset" comes up. RStudio picks the right function for you, and you can copy that code, but it's important to eventually be able to write that code yourself. 
 
 For the first time using an outside package, you first need to install it. 
 ```{r, eval = FALSE}
@@ -176,7 +184,7 @@ install.packages("readxl")
 
 After that, you don't need to install it again. But you __do__ need to load it each time. 
 
-```{r}
+```{r, eval = FALSE}
 library(readxl)
 ```
 
@@ -186,19 +194,16 @@ The package `readxl` has a website: https://readxl.tidyverse.org/. Other package
 help(package = readxl)
 ```
 
-
-
-### Reading in Data
-
-From the help page, we see that `read_excel()` is the function that we want to use.  Look at the help page. How do you read a help page?
+From the help page, we see that `read_excel()` is the function that we want to use. 
 
 Let's try it. 
 
 ```{r}
-ober <- read_excel("input/complete_greek_data 5 DISTRIBUTION 2018.xlsx")
+library(readxl)
+ober <- read_excel("data/input/ober_2018.xlsx")
 ```
 
-Review: what does the `/` mean?  Why do we need the `input` term first? Does the argument need to be in quotes? 
+Review: what does the `/` mean?  Why do we need the `data` term first? Does the argument need to be in quotes? 
 
 
 
@@ -224,7 +229,7 @@ ggplot(ober, aes(x = Fame)) + geom_histogram()
 
 What about the distribution of fame by regime?
 ```{r}
-ggplot(ober, aes(y = Fame, x = factor(Regime), group = factor(Regime))) +
+ggplot(ober, aes(y = Fame, x = Regime, group = Regime)) +
   geom_boxplot()
 ```
 
@@ -242,10 +247,10 @@ These `tidyverse` commands from the `dplyr` package are newer and not built-in, 
 ### Extra: A sneak peak at Ober's data
 
 
-Although this is a bit beyond our current stage, it's hard to resist the temptation to see what you can do with data like this.  For example, you can map it.^[In mid-2018, changes in Google's services made it no longer possible to render maps on the fly. Therefore, no map is currently rendered.  Instead, you now need to register with Google. See the [change](https://github.com/dkahle/ggmap/blob/e55c0b22b0d16a010b4b45dd2fce800ff0ef19b8/NEWS#L6-L12) to the pacakge ggmap   ]
+Although this is a bit beyond our current stage, it's hard to resist the temptation to see what you can do with data like this.  For example, you can map it.^[In mid-2018, changes in Google's services made it no longer possible to render maps on the fly. Therefore, the map is not currently rendered automatically (but can be rendered once the user registers their API).  Instead, you now need to register with Google. See the [change](https://github.com/dkahle/ggmap/blob/e55c0b22b0d16a010b4b45dd2fce800ff0ef19b8/NEWS#L6-L12) to the pacakge ggmap.]
 
 Using the `ggmap` package
-```{r}
+```{r message=FALSE, warning=FALSE, eval = FALSE}
 library(ggmap)
 ```
 
@@ -257,8 +262,9 @@ greece <- get_map(location = c(lon = 22.6382849, lat = 39.543287),
                   maptype = "toner")
 ggmap(greece)
 ```
+![](images/ober_ggmap_default.png)
 
-I chose the specifications for arguments `zoom` and `maptype` by looking at the webpage and Googling some examples/ 
+I chose the specifications for arguments `zoom` and `maptype` by looking at the webpage and Googling some examples.
 
 
 Ober's data has the latitude and longitude of each polis. Because the map of Greece has the same coordinates, we can add the polei on the same map. 
@@ -268,20 +274,15 @@ gg_ober <- ggmap(greece) +
   geom_point(data = ober, 
              aes(y = Latitude, x = Longitude), 
              size = 0.5,
-             alpha = 0.5,
-             color = "gray")
-gg_ober
+             color = "orange")
+gg_ober + 
+  scale_x_continuous(limits = c(10, 35)) + 
+  scale_y_continuous(limits = c(32, 44)) +
+  theme_void()
 ```
+![](images/ober_ggmap_polis.png)
 
-We can also color the points by another variable, like Fame. 
 
-```{r, warning=FALSE, eval = FALSE}
-gg_ober_fame <- ggmap(greece) +
-  geom_point(data = ober, 
-             aes(y = Latitude, x = Longitude, color = Fame)) +
-  scale_color_gradient(low = "white", high = "indianred")
-gg_ober_fame
-```
 
 
 ## Exercises {-}
@@ -318,11 +319,11 @@ Make a scatterplot with the number of colonies on the x-axis and Fame on the y-a
 Find the correct function to read the following datasets (available in your rstudio.cloud session) into your R window.
 
 
-* `input/acs2015_1percent.csv`: A one percent sample of the American Community Survey
-* `input/gapminder_wide.tab`: Country-level wealth and health from Gapminder^[Formatted and taken from <https://doi.org/10.7910/DVN/GJQNEQ>]
-* `input/gapminder_wide.Rds`: A Rds version of the Gapminder (What is a Rds file? What's the difference?)
-* `input/Nunn_Wantchekon_sample.dta`: A sample from the Afrobarometer survey (which we'll explore tomorrow). `.dta` is a Stata format. 
-* `input/german_credit.sav`: A hypothetical dataset on consumer credit. `.sav` is a SPSS format. 
+* `data/input/acs2015_1percent.csv`: A one percent sample of the American Community Survey
+* `data/input/gapminder_wide.tab`: Country-level wealth and health from Gapminder^[Formatted and taken from <https://doi.org/10.7910/DVN/GJQNEQ>]
+* `data/input/gapminder_wide.Rds`: A Rds version of the Gapminder (What is a Rds file? What's the difference?)
+* `data/input/Nunn_Wantchekon_sample.dta`: A sample from the Afrobarometer survey (which we'll explore tomorrow). `.dta` is a Stata format. 
+* `data/input/german_credit.sav`: A hypothetical dataset on consumer credit. `.sav` is a SPSS format. 
 
 Our Recommendations: Look at the packages `haven` and `readr`
 

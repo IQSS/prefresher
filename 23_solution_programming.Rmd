@@ -1,7 +1,9 @@
 # Suggested Programming Solutions {-}
 
 ```{r, message = FALSE}
-library(tidyverse)
+library(dplyr)
+library(readr)
+library(ggplot2)
 library(ggrepel)
 library(forcats)
 library(scales)
@@ -15,7 +17,7 @@ library(scales)
 ### 1 State Proportions {-}
 
 ```{r}
-cen10 <- readRDS("input/usc2010_1percent.Rds")
+cen10 <- readRDS("data/input/usc2010_001percent.Rds")
 ```
 
 
@@ -24,7 +26,7 @@ Group by state, noting that the mean of a set of logicals is a mean of 1s (`TRUE
 ```{r}
 grp_st <- cen10 %>%
   group_by(state) %>%
-  summarize(prop = mean(ownership == "Rented")) %>%
+  summarize(prop = mean(age >= 65)) %>%
   arrange(prop) %>%
   mutate(state = as_factor(state))
 ```
@@ -35,11 +37,11 @@ Plot points
 ggplot(grp_st, aes(x = state, y = prop)) +
   geom_point() +
   coord_flip() +
-  scale_y_continuous(labels = percent) + # use the scales package to format percentages
+  scale_y_continuous(labels = percent_format(accuracy = 1)) + # use the scales package to format percentages
   labs(
-    y = "Proportion of Renters",
+    y = "Proportion Senior",
     x = "",
-    caption = "Source: 2010 Census (1 percent)"
+    caption = "Source: 2010 Census sample"
   )
 ```
 
@@ -51,13 +53,13 @@ ggplot(grp_st, aes(x = state, y = prop)) +
 
 
 ```{r, message = FALSE}
-justices <- read_csv("input/justices_court-median.csv")
+justices <- read_csv("data/input/justices_court-median.csv")
 ```
 
 Keep justices who are in the dataset in 2016, 
 ```{r}
 in_2017 <- justices %>%
-  filter(term == 2016) %>%
+  filter(term >= 2016) %>%
   distinct(justice) %>% # unique values
   mutate(present_2016 = 1) # keep an indicator to distinguish from rest after merge
 
@@ -71,7 +73,7 @@ ggplot(df_indicator, aes(x = term, y = idealpt, group = justice_id)) +
   geom_line(aes(y = median_idealpt), color = "red", size = 2, alpha = 0.1) +
   geom_line(alpha = 0.5) +
   geom_line(data = filter(df_indicator, !is.na(present_2016))) +
-  geom_point(data = filter(df_indicator, !is.na(present_2016), term == 2016)) +
+  geom_point(data = filter(df_indicator, !is.na(present_2016), term == 2018)) +
   geom_text_repel(
     data = filter(df_indicator, term == 2016), aes(label = justice),
     nudge_x = 10,
@@ -92,8 +94,8 @@ ggplot(df_indicator, aes(x = term, y = idealpt, group = justice_id)) +
 
 
 ```{r, message=FALSE}
-cen10 <- read_csv("input/usc2010_001percent.csv")
-sample_acs <- read_csv("input/acs2015_1percent.csv")
+cen10 <- read_csv("data/input/usc2010_001percent.csv")
+sample_acs <- read_csv("data/input/acs2015_1percent.csv")
 ```
 
 
@@ -102,7 +104,7 @@ sample_acs <- read_csv("input/acs2015_1percent.csv")
 
 ```{r}
 cen10 %>%
-  group_by(city) %>%
+  group_by(state) %>%
   summarise(avg_age = mean(age)) %>%
   arrange(desc(avg_age)) %>%
   slice(1:10)
@@ -170,8 +172,8 @@ for (state in states_of_interest) {
 ### Task 1: Data Input and Standardization {-}
 
 ```{r, eval = FALSE}
-mid_b <- read_csv("input/MIDB_4.2.csv")
-polity <- read_excel("input/p4v2017.xls")
+mid_b <- read_csv("data/input/MIDB_4.2.csv")
+polity <- read_excel("data/input/p4v2017.xls")
 
 ```
 
@@ -232,7 +234,7 @@ answer + geom_line(data =mean_polity_no_mid, aes(x = year, y = mean_polity_mid),
 ### Census Sampling
 
 ```{r}
-pop <- read_csv("input/usc2010_001percent.csv")
+pop <- read_csv("data/input/usc2010_001percent.csv")
 ```
 
 ```{r}
