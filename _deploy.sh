@@ -16,5 +16,5 @@ cd book-deploy
 git rm -rf *
 cp -r ../_book/* ./
 git add --all *
-git commit -m "Update the book" || true
+git commit -m "copy to deployment via travis" || true
 git push -q origin gh-pages
