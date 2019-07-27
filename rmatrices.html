@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 Manipulating Vectors and Matrices12 | Math Prefresher for Political Scientists</title>
   <meta name="description" content="Text for Harvard Department of Government Math Prefresher" />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Manipulating Vectors and Matrices12 | Math Prefresher for Political Scientists" />
   <meta property="og:type" content="book" />
@@ -904,10 +904,10 @@ Xdf &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(Xmat)
 
 <span class="kw">system.time</span>(<span class="kw">replicate</span>(<span class="dv">50000</span>, <span class="kw">colMeans</span>(Xmat)))</code></pre></div>
 <pre><code>##    user  system elapsed 
-##   0.302   0.004   0.321</code></pre>
+##   0.305   0.012   0.317</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system.time</span>(<span class="kw">replicate</span>(<span class="dv">50000</span>, <span class="kw">colMeans</span>(Xdf)))</code></pre></div>
 <pre><code>##    user  system elapsed 
-##   3.685   0.045   4.264</code></pre>
+##   3.261   0.016   3.279</code></pre>
 </div>
 <div id="handling-matricies-in-r" class="section level2">
 <h2><span class="header-section-number">8.6</span> Handling matricies in <code>R</code></h2>

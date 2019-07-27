@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 15 Command-line, git38 | Math Prefresher for Political Scientists</title>
   <meta name="description" content="Text for Harvard Department of Government Math Prefresher" />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 15 Command-line, git38 | Math Prefresher for Political Scientists" />
   <meta property="og:type" content="book" />
@@ -532,56 +532,52 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## 19_command-line_git.Rmd
 ## 21_solutions-warmup.Rmd
 ## 23_solution_programming.Rmd
-## CODE_OF_CONDUCT.md
-## CONTRIBUTING.md
-## DESCRIPTION
-## LICENSE
-## README.md
 ## _book
+## book.bib
 ## _bookdown.yml
 ## _build.sh
-## _deploy.sh
-## _output.yml
-## book.bib
+## CODE_OF_CONDUCT.md
+## CONTRIBUTING.md
 ## data
-## docs
+## _deploy.sh
+## DESCRIPTION
 ## images
 ## index.Rmd
+## LICENSE
+## _output.yml
 ## preamble.tex
-## prefresher.Rmd
-## prefresher.Rproj
 ## prefresher.bbl
 ## prefresher.blg
-## prefresher.log
 ## prefresher_files
+## prefresher.log
+## prefresher.Rmd
+## prefresher.Rproj
+## README.md
 ## sample_library.bib
 ## style.css</code></pre>
 <p><code>pwd</code> stands for present working directory (<code>cd</code> in Windows)</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">pwd</span></code></pre></div>
-<pre><code>## /Users/shirokuriwaki/Dropbox/prefresher_test/prefresher</code></pre>
+<pre><code>## /home/travis/build/IQSS/prefresher</code></pre>
 <p><code>cd</code> means change directory. You need to give it what to change your current directory <em>to</em>. You can specify a name of another directory in your directory.</p>
 <p>Or you can go up to your parent directory. The syntax for that are two periods, <code>..</code> . One period <code>.</code> refers to the current directory.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ..
 <span class="bu">pwd</span></code></pre></div>
-<pre><code>## /Users/shirokuriwaki/Dropbox/prefresher_test</code></pre>
+<pre><code>## /home/travis/build/IQSS</code></pre>
 <p><code>~/</code> stands for your home directory defined by your computer.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ~/
 <span class="fu">ls</span></code></pre></div>
-<pre><code>## 0b1214f81ba4a2373f0e4daf663706c0
-## Applications
-## Desktop
-## Documents
-## Downloads
-## Dropbox
-## Google Drive
-## Library
-## Movies
-## Music
-## PaladinTemp
-## Pictures
-## Public
+<pre><code>## apt-get-update.log
+## bin
+## build
+## builds
+## build.sh
+## filter.rb
+## gopath
+## otp
 ## perl5
-## samp.tsv</code></pre>
+## R-bin
+## texlive
+## virtualenv</code></pre>
 <p>Using <code>..</code> and <code>.</code> are “relative” to where you are currently at. So are things like <code>figures/figure1.pdf</code>, which is implicitly writing <code>./figures/figure1.pdf</code>. These are called relative paths. In contrast, <code>/Users/shirokuriwaki/project1/figures/figure1.pdf</code> is an “absolute” path because it does not start from your current directory.</p>
 <p>Relative paths are nice if you have a shared Dropbox, for example, and I had <code>/Users/shirokuriwaki/mathcamp</code> but Connor’s path to the same folder is <code>/Users/connorjerzak/mathcamp</code>. To run the same code in <code>mathcamp</code>, we should be using relative paths that start from “<code>mathcamp</code>”. Relative paths are also shorter, and they are invariant to higher-level changes in your computer.</p>
 </div>
