@@ -2,13 +2,9 @@
 .Rhistory
 .RData
 .Ruserdata
-_book/*.html
-_book/*.epub
-_book/*.png
-_bookdown_files/
-_book/prefresher_files
-
-rsconnect/
+_book
+_bookdown_files
+rsconnect
 
 .Rproj.user
 .DS_Store
