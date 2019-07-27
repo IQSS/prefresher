@@ -263,7 +263,7 @@ You can do this by creating a variable, e.g. `propensity`, that is 0.9 for non-W
 
 This example is not on simulation, but is meant to reinforce some of the probability discussion from math lecture. 
 
-Read in the Upshot Siena poll from Fall 2016, `input/upshot-siena-polls.csv`.
+Read in the Upshot Siena poll from Fall 2016, `data/input/upshot-siena-polls.csv`.
 
 In addition to some standard demographic questions, we will focus on one called `vt_pres_2` in the csv. This is a two-way presidential vote question, asking respondents who they plan to vote for President if the election were held today -- Donald Trump, the Republican, or Hilary Clinton, the Democrat, with options for Other candidates as well. For this problem, use the two-way vote question rather than the 4-way vote question. 
 

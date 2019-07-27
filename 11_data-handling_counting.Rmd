@@ -162,10 +162,10 @@ For our first dataset, let's try reading in a dataset on the Ancient Greek world
 This POLIS dataset was generously provided by Professor Josiah Ober of Stanford University. This dataset includes information on city states in the Ancient Greek world, parts of it collected by careful work by historians and archaeologists. It is part of his recent books on Greece (Ober 2015), "The Rise and Fall of Classical Greece"^[[Ober, Josiah (2015). _The Rise and Fall of Classical Greece_. Princeton University Press.](https://press.princeton.edu/titles/10423.html)] and Institutions in Ancient Athens (Ober 2010) , "Democracy and Knowledge: Innovation and Learning in Classical Athens."^[[Ober, Josiah (2010). _Democracy and Knowledge: Innovation and Learning in Classical Athens_. Princeton University Press.](https://press.princeton.edu/titles/8742.html)]
 
 ### Locating the Data 
-What files do we have in the `input` folder?
+What files do we have in the `data/input` folder?
 
 ```{r, echo = FALSE}
-dir_ls("input")
+dir_ls("data/input")
 ```
 
 A typical file format is Microsoft Excel. Although this is not usually the best format for R because of its highly formatted structure as opposed to plain text (more on this in Section \ref@(sec:wysiwyg)), recent packages have made this fairly easy. 
@@ -200,10 +200,10 @@ Let's try it.
 
 ```{r}
 library(readxl)
-ober <- read_excel("input/ober_2018.xlsx")
+ober <- read_excel("data/input/ober_2018.xlsx")
 ```
 
-Review: what does the `/` mean?  Why do we need the `input` term first? Does the argument need to be in quotes? 
+Review: what does the `/` mean?  Why do we need the `data` term first? Does the argument need to be in quotes? 
 
 
 
@@ -319,11 +319,11 @@ Make a scatterplot with the number of colonies on the x-axis and Fame on the y-a
 Find the correct function to read the following datasets (available in your rstudio.cloud session) into your R window.
 
 
-* `input/acs2015_1percent.csv`: A one percent sample of the American Community Survey
-* `input/gapminder_wide.tab`: Country-level wealth and health from Gapminder^[Formatted and taken from <https://doi.org/10.7910/DVN/GJQNEQ>]
-* `input/gapminder_wide.Rds`: A Rds version of the Gapminder (What is a Rds file? What's the difference?)
-* `input/Nunn_Wantchekon_sample.dta`: A sample from the Afrobarometer survey (which we'll explore tomorrow). `.dta` is a Stata format. 
-* `input/german_credit.sav`: A hypothetical dataset on consumer credit. `.sav` is a SPSS format. 
+* `data/input/acs2015_1percent.csv`: A one percent sample of the American Community Survey
+* `data/input/gapminder_wide.tab`: Country-level wealth and health from Gapminder^[Formatted and taken from <https://doi.org/10.7910/DVN/GJQNEQ>]
+* `data/input/gapminder_wide.Rds`: A Rds version of the Gapminder (What is a Rds file? What's the difference?)
+* `data/input/Nunn_Wantchekon_sample.dta`: A sample from the Afrobarometer survey (which we'll explore tomorrow). `.dta` is a Stata format. 
+* `data/input/german_credit.sav`: A hypothetical dataset on consumer credit. `.sav` is a SPSS format. 
 
 Our Recommendations: Look at the packages `haven` and `readr`
 

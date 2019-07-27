@@ -29,7 +29,7 @@ Today we'll cover
 Let's take a look at Matrices in the context of R
 
 ```{r, message = FALSE}
-cen10 <- read_csv("input/usc2010_001percent.csv")
+cen10 <- read_csv("data/input/usc2010_001percent.csv")
 head(cen10)
 ```
 
@@ -202,7 +202,7 @@ Nunn and Wantchekon use a variety of statistical tools to make their case (addin
 ## Read Data
 ```{r}
 library(haven)
-nunn_full <- read_dta("input/Nunn_Wantchekon_AER_2011.dta")
+nunn_full <- read_dta("data/input/Nunn_Wantchekon_AER_2011.dta")
 ```
 
 
@@ -219,11 +219,11 @@ First, let's consider a small subset of this dataset.
 set.seed(02138)
 sample <- sample_n(nunn_full, 10)
 sample <- select(sample, trust_neighbors, exports, ln_exports, export_area, ln_export_area)
-write_dta(sample, "./input/Nunn_Wantchekon_sample.dta")
+write_dta(sample, "data/input/Nunn_Wantchekon_sample.dta")
 ```
 
 ```{r}
-nunn <- read_dta("./input/Nunn_Wantchekon_sample.dta")
+nunn <- read_dta("data/input/Nunn_Wantchekon_sample.dta")
 ```
 
 ```{r}

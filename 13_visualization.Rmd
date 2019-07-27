@@ -61,7 +61,7 @@ First, the census. Read in a subset of the 2010 Census that we looked at earlier
 
 
 ```{r, message=FALSE}
-cen10 <- readRDS("input/usc2010_001percent.Rds")
+cen10 <- readRDS("data/input/usc2010_001percent.Rds")
 ```
 
 The data comes from IPUMS^[[Ruggles, Steven, Katie Genadek, Ronald Goeken, Josiah Grover, and Matthew Sobek. 2015. Integrated Public Use Microdata Series: Version 6.0 dataset](http://doi.org/10.18128/D010.V6.0)], a great source to extract and analyze Census and Census-conducted survey (ACS, CPS) data.
@@ -274,7 +274,7 @@ This data is adapted from the estimates of Martin and Quinn on their website <ht
 
 
 ```{r, message=FALSE}
-justice <- read_csv("input/justices_court-median.csv")
+justice <- read_csv("data/input/justices_court-median.csv")
 ```
 
 What does the data look like? How do you think it is organized? What does each row represent?

@@ -31,8 +31,6 @@ library(dplyr)
 library(tidyr)
 library(readr)
 library(data.table)
-library(foreach)
-library(readxl)
 library(ggplot2)
 ```
 
@@ -60,8 +58,8 @@ Most projects you do will start with downloading data from elsewhere. For this t
 
 Let's read in a sample dataset. 
 ```{r, warning = FALSE, message = FALSE}
-polity <- read_csv("input/sample_polity.csv")
-mid <- read_csv("input/sample_mid.csv")
+polity <- read_csv("data/input/sample_polity.csv")
+mid <- read_csv("data/input/sample_mid.csv")
 ```
 
 
