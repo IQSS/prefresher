@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Optimization | Math Prefresher for Political Scientists</title>
+  <meta name="description" content="Text for Harvard Department of Government Math Prefresher" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Optimization | Math Prefresher for Political Scientists" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="./images/logo.png" />
+  <meta property="og:description" content="Text for Harvard Department of Government Math Prefresher" />
+  <meta name="github-repo" content="IQSS/prefresher" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Optimization | Math Prefresher for Political Scientists" />
+  
+  <meta name="twitter:description" content="Text for Harvard Department of Government Math Prefresher" />
+  <meta name="twitter:image" content="./images/logo.png" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="derivatives.html">
+<link rel="next" href="probability-theory.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Gov Prefresher</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this Booklet</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#authors-and-contributors"><i class="fa fa-check"></i>Authors and Contributors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contributing"><i class="fa fa-check"></i>Contributing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html"><i class="fa fa-check"></i>Pre-Prefresher Exercises</a><ul>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html#linear-algebra"><i class="fa fa-check"></i>Linear Algebra</a><ul>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html#vectors"><i class="fa fa-check"></i>Vectors</a></li>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html#matrices"><i class="fa fa-check"></i>Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html#operations"><i class="fa fa-check"></i>Operations</a><ul>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html#summation"><i class="fa fa-check"></i>Summation</a></li>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html#products"><i class="fa fa-check"></i>Products</a></li>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html#logs-and-exponents"><i class="fa fa-check"></i>Logs and exponents</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html#limits"><i class="fa fa-check"></i>Limits</a></li>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html#calculus"><i class="fa fa-check"></i>Calculus</a></li>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html#optimization"><i class="fa fa-check"></i>Optimization</a></li>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html#probability"><i class="fa fa-check"></i>Probability</a></li>
+</ul></li>
+<li class="part"><span><b>I Math</b></span></li>
+<li class="chapter" data-level="1" data-path="linearalgebra.html"><a href="linearalgebra.html"><i class="fa fa-check"></i><b>1</b> Linear Algebra</a><ul>
+<li class="chapter" data-level="1.1" data-path="linearalgebra.html"><a href="linearalgebra.html#vector-def"><i class="fa fa-check"></i><b>1.1</b> Working with Vectors</a></li>
+<li class="chapter" data-level="1.2" data-path="linearalgebra.html"><a href="linearalgebra.html#linearindependence"><i class="fa fa-check"></i><b>1.2</b> Linear Independence</a></li>
+<li class="chapter" data-level="1.3" data-path="linearalgebra.html"><a href="linearalgebra.html#matrixbasics"><i class="fa fa-check"></i><b>1.3</b> Basics of Matrix Algebra</a></li>
+<li class="chapter" data-level="1.4" data-path="linearalgebra.html"><a href="linearalgebra.html#systems-of-linear-equations"><i class="fa fa-check"></i><b>1.4</b> Systems of Linear Equations</a></li>
+<li class="chapter" data-level="1.5" data-path="linearalgebra.html"><a href="linearalgebra.html#systems-of-equations-as-matrices"><i class="fa fa-check"></i><b>1.5</b> Systems of Equations as Matrices</a></li>
+<li class="chapter" data-level="1.6" data-path="linearalgebra.html"><a href="linearalgebra.html#finding-solutions-to-augmented-matrices-and-systems-of-equations"><i class="fa fa-check"></i><b>1.6</b> Finding Solutions to Augmented Matrices and Systems of Equations</a></li>
+<li class="chapter" data-level="1.7" data-path="linearalgebra.html"><a href="linearalgebra.html#rank-and-whether-a-system-has-one-infinite-or-no-solutions"><i class="fa fa-check"></i><b>1.7</b> Rank — and Whether a System Has One, Infinite, or No Solutions</a></li>
+<li class="chapter" data-level="1.8" data-path="linearalgebra.html"><a href="linearalgebra.html#the-inverse-of-a-matrix"><i class="fa fa-check"></i><b>1.8</b> The Inverse of a Matrix</a></li>
+<li class="chapter" data-level="1.9" data-path="linearalgebra.html"><a href="linearalgebra.html#linear-systems-and-inverses"><i class="fa fa-check"></i><b>1.9</b> Linear Systems and Inverses</a></li>
+<li class="chapter" data-level="1.10" data-path="linearalgebra.html"><a href="linearalgebra.html#determinants"><i class="fa fa-check"></i><b>1.10</b> Determinants</a></li>
+<li class="chapter" data-level="1.11" data-path="linearalgebra.html"><a href="linearalgebra.html#getting-inverse-of-a-matrix-using-its-determinant"><i class="fa fa-check"></i><b>1.11</b> Getting Inverse of a Matrix using its Determinant</a></li>
+<li class="chapter" data-level="" data-path="linearalgebra.html"><a href="linearalgebra.html#answers-to-examples-and-exercises"><i class="fa fa-check"></i>Answers to Examples and Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="functions-and-operations.html"><a href="functions-and-operations.html"><i class="fa fa-check"></i><b>2</b> Functions and Operations</a><ul>
+<li class="chapter" data-level="2.1" data-path="functions-and-operations.html"><a href="functions-and-operations.html#sum-notation"><i class="fa fa-check"></i><b>2.1</b> Summation Operators <span class="math inline">\(\sum\)</span> and <span class="math inline">\(\prod\)</span></a></li>
+<li class="chapter" data-level="2.2" data-path="functions-and-operations.html"><a href="functions-and-operations.html#introduction-to-functions"><i class="fa fa-check"></i><b>2.2</b> Introduction to Functions</a></li>
+<li class="chapter" data-level="2.3" data-path="functions-and-operations.html"><a href="functions-and-operations.html#logexponents"><i class="fa fa-check"></i><b>2.3</b> <span class="math inline">\(\log\)</span> and <span class="math inline">\(\exp\)</span></a></li>
+<li class="chapter" data-level="2.4" data-path="functions-and-operations.html"><a href="functions-and-operations.html#graphing-functions"><i class="fa fa-check"></i><b>2.4</b> Graphing Functions</a></li>
+<li class="chapter" data-level="2.5" data-path="functions-and-operations.html"><a href="functions-and-operations.html#solving-for-variables-and-finding-roots"><i class="fa fa-check"></i><b>2.5</b> Solving for Variables and Finding Roots</a></li>
+<li class="chapter" data-level="2.6" data-path="functions-and-operations.html"><a href="functions-and-operations.html#sets"><i class="fa fa-check"></i><b>2.6</b> Sets</a></li>
+<li class="chapter" data-level="" data-path="functions-and-operations.html"><a href="functions-and-operations.html#answers-to-examples-and-exercises-1"><i class="fa fa-check"></i>Answers to Examples and Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="limits-precalc.html"><a href="limits-precalc.html"><i class="fa fa-check"></i><b>3</b> Limits</a><ul>
+<li class="chapter" data-level="" data-path="limits-precalc.html"><a href="limits-precalc.html#example-the-central-limit-theorem"><i class="fa fa-check"></i>Example: The Central Limit Theorem</a></li>
+<li class="chapter" data-level="" data-path="limits-precalc.html"><a href="limits-precalc.html#example-the-law-of-large-numbers"><i class="fa fa-check"></i>Example: The Law of Large Numbers</a></li>
+<li class="chapter" data-level="3.1" data-path="limits-precalc.html"><a href="limits-precalc.html#sequences"><i class="fa fa-check"></i><b>3.1</b> Sequences</a></li>
+<li class="chapter" data-level="3.2" data-path="limits-precalc.html"><a href="limits-precalc.html#the-limit-of-a-sequence"><i class="fa fa-check"></i><b>3.2</b> The Limit of a Sequence</a></li>
+<li class="chapter" data-level="3.3" data-path="limits-precalc.html"><a href="limits-precalc.html#limitsfun"><i class="fa fa-check"></i><b>3.3</b> Limits of a Function</a></li>
+<li class="chapter" data-level="3.4" data-path="limits-precalc.html"><a href="limits-precalc.html#continuity"><i class="fa fa-check"></i><b>3.4</b> Continuity</a></li>
+<li class="chapter" data-level="" data-path="limits-precalc.html"><a href="limits-precalc.html#answers-to-examples"><i class="fa fa-check"></i>Answers to Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="derivatives.html"><a href="derivatives.html"><i class="fa fa-check"></i><b>4</b> Calculus</a><ul>
+<li class="chapter" data-level="" data-path="derivatives.html"><a href="derivatives.html#example-the-mean-is-a-type-of-integral"><i class="fa fa-check"></i>Example: The Mean is a Type of Integral</a></li>
+<li class="chapter" data-level="4.1" data-path="derivatives.html"><a href="derivatives.html#derivintro"><i class="fa fa-check"></i><b>4.1</b> Derivatives</a><ul>
+<li class="chapter" data-level="" data-path="derivatives.html"><a href="derivatives.html#properties-of-derivatives"><i class="fa fa-check"></i>Properties of derivatives</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="derivatives.html"><a href="derivatives.html#derivpoly"><i class="fa fa-check"></i><b>4.2</b> Higher-Order Derivatives (Derivatives of Derivatives of Derivatives)</a></li>
+<li class="chapter" data-level="4.3" data-path="derivatives.html"><a href="derivatives.html#composite-functions-and-the-chain-rule"><i class="fa fa-check"></i><b>4.3</b> Composite Functions and the Chain Rule</a></li>
+<li class="chapter" data-level="4.4" data-path="derivatives.html"><a href="derivatives.html#derivatives-of-natural-logs-and-the-exponent"><i class="fa fa-check"></i><b>4.4</b> Derivatives of natural logs and the exponent</a><ul>
+<li><a href="derivatives.html#derivatives-of-natural-exponential-function-e">Derivatives of natural exponential function (<span class="math inline">\(e\)</span>)</a></li>
+<li><a href="derivatives.html#derivatives-of-log">Derivatives of <span class="math inline">\(\log\)</span></a></li>
+<li class="chapter" data-level="" data-path="derivatives.html"><a href="derivatives.html#outline-of-proof"><i class="fa fa-check"></i>Outline of Proof</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="derivatives.html"><a href="derivatives.html#partial-derivatives"><i class="fa fa-check"></i><b>4.5</b> Partial Derivatives</a></li>
+<li class="chapter" data-level="4.6" data-path="derivatives.html"><a href="derivatives.html#taylorapprox"><i class="fa fa-check"></i><b>4.6</b> Taylor Series Approximation</a></li>
+<li class="chapter" data-level="4.7" data-path="derivatives.html"><a href="derivatives.html#the-indefinite-integration"><i class="fa fa-check"></i><b>4.7</b> The Indefinite Integration</a><ul>
+<li class="chapter" data-level="" data-path="derivatives.html"><a href="derivatives.html#common-rules-of-integration"><i class="fa fa-check"></i>Common Rules of Integration</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="derivatives.html"><a href="derivatives.html#the-definite-integral-the-area-under-the-curve"><i class="fa fa-check"></i><b>4.8</b> The Definite Integral: The Area under the Curve</a><ul>
+<li class="chapter" data-level="" data-path="derivatives.html"><a href="derivatives.html#common-rules-for-definite-integrals"><i class="fa fa-check"></i>Common Rules for Definite Integrals</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="derivatives.html"><a href="derivatives.html#integration-by-substitution"><i class="fa fa-check"></i><b>4.9</b> Integration by Substitution</a></li>
+<li class="chapter" data-level="4.10" data-path="derivatives.html"><a href="derivatives.html#integration-by-parts"><i class="fa fa-check"></i><b>4.10</b> Integration by Parts</a></li>
+<li class="chapter" data-level="" data-path="derivatives.html"><a href="derivatives.html#answers-to-examples-and-exercises-2"><i class="fa fa-check"></i>Answers to Examples and Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="optim.html"><a href="optim.html"><i class="fa fa-check"></i><b>5</b> Optimization</a><ul>
+<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#example-meltzer-richard"><i class="fa fa-check"></i>Example: Meltzer-Richard</a></li>
+<li class="chapter" data-level="5.1" data-path="optim.html"><a href="optim.html#maxima-and-minima"><i class="fa fa-check"></i><b>5.1</b> Maxima and Minima</a></li>
+<li class="chapter" data-level="5.2" data-path="optim.html"><a href="optim.html#concavity-of-a-function"><i class="fa fa-check"></i><b>5.2</b> Concavity of a Function</a><ul>
+<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#quadratic-forms"><i class="fa fa-check"></i>Quadratic Forms</a></li>
+<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#definiteness-of-quadratic-forms"><i class="fa fa-check"></i>Definiteness of Quadratic Forms</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="optim.html"><a href="optim.html#foc-and-soc"><i class="fa fa-check"></i><b>5.3</b> FOC and SOC</a><ul>
+<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#first-order-conditions"><i class="fa fa-check"></i>First Order Conditions</a></li>
+<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#second-order-conditions"><i class="fa fa-check"></i>Second Order Conditions</a></li>
+<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#definiteness-and-concavity"><i class="fa fa-check"></i>Definiteness and Concavity</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="optim.html"><a href="optim.html#global-maxima-and-minima"><i class="fa fa-check"></i><b>5.4</b> Global Maxima and Minima</a></li>
+<li class="chapter" data-level="5.5" data-path="optim.html"><a href="optim.html#constrained-optimization"><i class="fa fa-check"></i><b>5.5</b> Constrained Optimization</a><ul>
+<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#equality-constraints"><i class="fa fa-check"></i>Equality Constraints</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="optim.html"><a href="optim.html#inequality-constraints"><i class="fa fa-check"></i><b>5.6</b> Inequality Constraints</a></li>
+<li class="chapter" data-level="5.7" data-path="optim.html"><a href="optim.html#kuhn-tucker-conditions"><i class="fa fa-check"></i><b>5.7</b> Kuhn-Tucker Conditions</a></li>
+<li class="chapter" data-level="5.8" data-path="optim.html"><a href="optim.html#applications-of-quadratic-forms"><i class="fa fa-check"></i><b>5.8</b> Applications of Quadratic Forms</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="probability-theory.html"><a href="probability-theory.html"><i class="fa fa-check"></i><b>6</b> Probability Theory</a><ul>
+<li class="chapter" data-level="6.1" data-path="probability-theory.html"><a href="probability-theory.html#counting-rules"><i class="fa fa-check"></i><b>6.1</b> Counting rules</a></li>
+<li class="chapter" data-level="6.2" data-path="probability-theory.html"><a href="probability-theory.html#setoper"><i class="fa fa-check"></i><b>6.2</b> Sets</a></li>
+<li class="chapter" data-level="6.3" data-path="probability-theory.html"><a href="probability-theory.html#probdef"><i class="fa fa-check"></i><b>6.3</b> Probability</a><ul>
+<li class="chapter" data-level="" data-path="probability-theory.html"><a href="probability-theory.html#probability-definitions-formal-and-informal"><i class="fa fa-check"></i>Probability Definitions: Formal and Informal</a></li>
+<li class="chapter" data-level="" data-path="probability-theory.html"><a href="probability-theory.html#probability-operations"><i class="fa fa-check"></i>Probability Operations</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="probability-theory.html"><a href="probability-theory.html#conditional-probability-and-bayes-rule"><i class="fa fa-check"></i><b>6.4</b> Conditional Probability and Bayes Rule</a></li>
+<li class="chapter" data-level="6.5" data-path="probability-theory.html"><a href="probability-theory.html#independence"><i class="fa fa-check"></i><b>6.5</b> Independence</a></li>
+<li class="chapter" data-level="6.6" data-path="probability-theory.html"><a href="probability-theory.html#random-variables"><i class="fa fa-check"></i><b>6.6</b> Random Variables</a></li>
+<li class="chapter" data-level="6.7" data-path="probability-theory.html"><a href="probability-theory.html#distributions"><i class="fa fa-check"></i><b>6.7</b> Distributions</a><ul>
+<li class="chapter" data-level="" data-path="probability-theory.html"><a href="probability-theory.html#discrete-random-variables"><i class="fa fa-check"></i>Discrete Random Variables</a></li>
+<li class="chapter" data-level="" data-path="probability-theory.html"><a href="probability-theory.html#continuous-random-variables"><i class="fa fa-check"></i>Continuous Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="probability-theory.html"><a href="probability-theory.html#joint-distributions"><i class="fa fa-check"></i><b>6.8</b> Joint Distributions</a></li>
+<li class="chapter" data-level="6.9" data-path="probability-theory.html"><a href="probability-theory.html#expectation"><i class="fa fa-check"></i><b>6.9</b> Expectation</a><ul>
+<li class="chapter" data-level="" data-path="probability-theory.html"><a href="probability-theory.html#expected-value-of-a-function"><i class="fa fa-check"></i>Expected Value of a Function</a></li>
+<li class="chapter" data-level="" data-path="probability-theory.html"><a href="probability-theory.html#properties-of-expected-values"><i class="fa fa-check"></i>Properties of Expected Values</a></li>
+</ul></li>
+<li class="chapter" data-level="6.10" data-path="probability-theory.html"><a href="probability-theory.html#variance-and-covariance"><i class="fa fa-check"></i><b>6.10</b> Variance and Covariance</a></li>
+<li class="chapter" data-level="6.11" data-path="probability-theory.html"><a href="probability-theory.html#special-distributions"><i class="fa fa-check"></i><b>6.11</b> Special Distributions</a></li>
+<li class="chapter" data-level="6.12" data-path="probability-theory.html"><a href="probability-theory.html#summarizing-observed-events-data"><i class="fa fa-check"></i><b>6.12</b> Summarizing Observed Events (Data)</a></li>
+<li class="chapter" data-level="6.13" data-path="probability-theory.html"><a href="probability-theory.html#asymptotic-theory"><i class="fa fa-check"></i><b>6.13</b> Asymptotic Theory</a><ul>
+<li class="chapter" data-level="6.13.1" data-path="probability-theory.html"><a href="probability-theory.html#clt-and-lln"><i class="fa fa-check"></i><b>6.13.1</b> CLT and LLN</a></li>
+<li class="chapter" data-level="6.13.2" data-path="probability-theory.html"><a href="probability-theory.html#big-mathcalo-notation"><i class="fa fa-check"></i><b>6.13.2</b> Big <span class="math inline">\(\mathcal{O}\)</span> Notation</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="probability-theory.html"><a href="probability-theory.html#answers-to-examples-and-exercises-3"><i class="fa fa-check"></i>Answers to Examples and Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>II Programming</b></span></li>
+<li class="chapter" data-level="7" data-path="dataimport.html"><a href="dataimport.html"><i class="fa fa-check"></i><b>7</b> Orientation and Reading in Data</a><ul>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#where-are-we-where-are-we-headed"><i class="fa fa-check"></i>Where are we? Where are we headed?</a></li>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#check-your-understanding"><i class="fa fa-check"></i>Check your understanding</a></li>
+<li class="chapter" data-level="7.1" data-path="dataimport.html"><a href="dataimport.html#motivation-data-and-you"><i class="fa fa-check"></i><b>7.1</b> Motivation: Data and You</a></li>
+<li class="chapter" data-level="7.2" data-path="dataimport.html"><a href="dataimport.html#orienting"><i class="fa fa-check"></i><b>7.2</b> Orienting</a></li>
+<li class="chapter" data-level="7.3" data-path="dataimport.html"><a href="dataimport.html#the-computer-and-you-giving-instructions"><i class="fa fa-check"></i><b>7.3</b> The Computer and You: Giving Instructions</a></li>
+<li class="chapter" data-level="7.4" data-path="dataimport.html"><a href="dataimport.html#base-r-vs.tidyverse"><i class="fa fa-check"></i><b>7.4</b> Base-R vs. tidyverse</a><ul>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#dataframe-subsetting"><i class="fa fa-check"></i>Dataframe subsetting</a></li>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#read-data"><i class="fa fa-check"></i>Read data</a></li>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#visualization"><i class="fa fa-check"></i>Visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="dataimport.html"><a href="dataimport.html#a-is-for-athens"><i class="fa fa-check"></i><b>7.5</b> A is for Athens</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="dataimport.html"><a href="dataimport.html#locating-the-data"><i class="fa fa-check"></i><b>7.5.1</b> Locating the Data</a></li>
+<li class="chapter" data-level="7.5.2" data-path="dataimport.html"><a href="dataimport.html#reading-in-data"><i class="fa fa-check"></i><b>7.5.2</b> Reading in Data</a></li>
+<li class="chapter" data-level="7.5.3" data-path="dataimport.html"><a href="dataimport.html#inspecting"><i class="fa fa-check"></i><b>7.5.3</b> Inspecting</a></li>
+<li class="chapter" data-level="7.5.4" data-path="dataimport.html"><a href="dataimport.html#finding-observations"><i class="fa fa-check"></i><b>7.5.4</b> Finding observations</a></li>
+<li class="chapter" data-level="7.5.5" data-path="dataimport.html"><a href="dataimport.html#extra-a-sneak-peak-at-obers-data"><i class="fa fa-check"></i><b>7.5.5</b> Extra: A sneak peak at Ober’s data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#exercises"><i class="fa fa-check"></i>Exercises</a><ul>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#section"><i class="fa fa-check"></i>1</a></li>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#section-1"><i class="fa fa-check"></i>2</a></li>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#section-2"><i class="fa fa-check"></i>3</a></li>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#section-3"><i class="fa fa-check"></i>4</a></li>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#section-4"><i class="fa fa-check"></i>5</a></li>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#section-5"><i class="fa fa-check"></i>6</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="rmatrices.html"><a href="rmatrices.html"><i class="fa fa-check"></i><b>8</b> Manipulating Vectors and Matrices</a><ul>
+<li class="chapter" data-level="" data-path="rmatrices.html"><a href="rmatrices.html#where-are-we-where-are-we-headed-1"><i class="fa fa-check"></i>Where are we? Where are we headed?</a></li>
+<li class="chapter" data-level="8.1" data-path="rmatrices.html"><a href="rmatrices.html#basics---matrices"><i class="fa fa-check"></i><b>8.1</b> Basics - Matrices</a></li>
+<li class="chapter" data-level="" data-path="rmatrices.html"><a href="rmatrices.html#checkpoint"><i class="fa fa-check"></i>Checkpoint</a><ul>
+<li class="chapter" data-level="" data-path="rmatrices.html"><a href="rmatrices.html#section-6"><i class="fa fa-check"></i>1</a></li>
+<li class="chapter" data-level="" data-path="rmatrices.html"><a href="rmatrices.html#section-7"><i class="fa fa-check"></i>2</a></li>
+<li class="chapter" data-level="" data-path="rmatrices.html"><a href="rmatrices.html#section-8"><i class="fa fa-check"></i>3</a></li>
+<li class="chapter" data-level="8.1.1" data-path="rmatrices.html"><a href="rmatrices.html#data-frames"><i class="fa fa-check"></i><b>8.1.1</b> data frames</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="rmatrices.html"><a href="rmatrices.html#motivation"><i class="fa fa-check"></i><b>8.2</b> Motivation</a></li>
+<li class="chapter" data-level="8.3" data-path="rmatrices.html"><a href="rmatrices.html#read-data-1"><i class="fa fa-check"></i><b>8.3</b> Read Data</a></li>
+<li class="chapter" data-level="8.4" data-path="rmatrices.html"><a href="rmatrices.html#data.frame-vs.matricies"><i class="fa fa-check"></i><b>8.4</b> data.frame vs. matricies</a></li>
+<li class="chapter" data-level="8.5" data-path="rmatrices.html"><a href="rmatrices.html#speed-considerations"><i class="fa fa-check"></i><b>8.5</b> Speed considerations</a></li>
+<li class="chapter" data-level="8.6" data-path="rmatrices.html"><a href="rmatrices.html#handling-matricies-in-r"><i class="fa fa-check"></i><b>8.6</b> Handling matricies in <code>R</code></a></li>
+<li class="chapter" data-level="8.7" data-path="rmatrices.html"><a href="rmatrices.html#variable-transformations"><i class="fa fa-check"></i><b>8.7</b> Variable Transformations</a></li>
+<li class="chapter" data-level="8.8" data-path="rmatrices.html"><a href="rmatrices.html#linear-combinations"><i class="fa fa-check"></i><b>8.8</b> Linear Combinations</a></li>
+<li class="chapter" data-level="" data-path="rmatrices.html"><a href="rmatrices.html#exercises-1"><i class="fa fa-check"></i>Exercises</a><ul>
+<li class="chapter" data-level="" data-path="rmatrices.html"><a href="rmatrices.html#section-9"><i class="fa fa-check"></i>1</a></li>
+<li class="chapter" data-level="" data-path="rmatrices.html"><a href="rmatrices.html#section-10"><i class="fa fa-check"></i>2</a></li>
+<li class="chapter" data-level="" data-path="rmatrices.html"><a href="rmatrices.html#section-11"><i class="fa fa-check"></i>3</a></li>
+<li class="chapter" data-level="" data-path="rmatrices.html"><a href="rmatrices.html#section-12"><i class="fa fa-check"></i>4</a></li>
+<li class="chapter" data-level="" data-path="rmatrices.html"><a href="rmatrices.html#section-13"><i class="fa fa-check"></i>5</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="dataviz.html"><a href="dataviz.html"><i class="fa fa-check"></i><b>9</b> Visualization</a><ul>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#where-are-we-where-are-we-headed-2"><i class="fa fa-check"></i>Where are we? Where are we headed?</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#check-your-understanding-1"><i class="fa fa-check"></i>Check your understanding</a></li>
+<li class="chapter" data-level="9.1" data-path="dataviz.html"><a href="dataviz.html#motivation-the-law-of-the-census"><i class="fa fa-check"></i><b>9.1</b> Motivation: The Law of the Census</a></li>
+<li class="chapter" data-level="9.2" data-path="dataviz.html"><a href="dataviz.html#read-data-2"><i class="fa fa-check"></i><b>9.2</b> Read data</a></li>
+<li class="chapter" data-level="9.3" data-path="dataviz.html"><a href="dataviz.html#counting"><i class="fa fa-check"></i><b>9.3</b> Counting</a></li>
+<li class="chapter" data-level="9.4" data-path="dataviz.html"><a href="dataviz.html#tabulating"><i class="fa fa-check"></i><b>9.4</b> Tabulating</a></li>
+<li class="chapter" data-level="9.5" data-path="dataviz.html"><a href="dataviz.html#base-r-graphics-and-ggplot"><i class="fa fa-check"></i><b>9.5</b> base R graphics and ggplot</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="dataviz.html"><a href="dataviz.html#base-r"><i class="fa fa-check"></i><b>9.5.1</b> base R</a></li>
+<li class="chapter" data-level="9.5.2" data-path="dataviz.html"><a href="dataviz.html#ggplot"><i class="fa fa-check"></i><b>9.5.2</b> ggplot</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="dataviz.html"><a href="dataviz.html#improving-your-graphics"><i class="fa fa-check"></i><b>9.6</b> Improving your graphics</a></li>
+<li class="chapter" data-level="9.7" data-path="dataviz.html"><a href="dataviz.html#cross-tabs"><i class="fa fa-check"></i><b>9.7</b> Cross-tabs</a></li>
+<li class="chapter" data-level="9.8" data-path="dataviz.html"><a href="dataviz.html#composition-plots"><i class="fa fa-check"></i><b>9.8</b> Composition Plots</a></li>
+<li class="chapter" data-level="9.9" data-path="dataviz.html"><a href="dataviz.html#line-graphs"><i class="fa fa-check"></i><b>9.9</b> Line graphs</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#exercises-2"><i class="fa fa-check"></i>Exercises</a><ul>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#rural-states"><i class="fa fa-check"></i>1: Rural states</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#the-swing-justice"><i class="fa fa-check"></i>2: The swing justice</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#dont-sort-by-the-alphabet"><i class="fa fa-check"></i>3: Don’t sort by the alphabet</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#what-to-show-and-how-to-show-it"><i class="fa fa-check"></i>4 What to show and how to show it</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="robjloops.html"><a href="robjloops.html"><i class="fa fa-check"></i><b>10</b> Objects, Functions, Loops</a><ul>
+<li class="chapter" data-level="" data-path="robjloops.html"><a href="robjloops.html#where-are-we-where-are-we-headed-3"><i class="fa fa-check"></i>Where are we? Where are we headed?</a></li>
+<li class="chapter" data-level="10.1" data-path="robjloops.html"><a href="robjloops.html#what-is-an-object"><i class="fa fa-check"></i><b>10.1</b> What is an object?</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="robjloops.html"><a href="robjloops.html#lists"><i class="fa fa-check"></i><b>10.1.1</b> lists</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="robjloops.html"><a href="robjloops.html#making-your-own-objects"><i class="fa fa-check"></i><b>10.2</b> Making your own objects</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="robjloops.html"><a href="robjloops.html#seeing-r-through-objects"><i class="fa fa-check"></i><b>10.2.1</b> Seeing R through objects</a></li>
+<li class="chapter" data-level="10.2.2" data-path="robjloops.html"><a href="robjloops.html#parsing-an-object-by-strs"><i class="fa fa-check"></i><b>10.2.2</b> Parsing an object by <code>str()s</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="robjloops.html"><a href="robjloops.html#types-of-variables"><i class="fa fa-check"></i><b>10.3</b> Types of variables</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="robjloops.html"><a href="robjloops.html#scalars"><i class="fa fa-check"></i><b>10.3.1</b> scalars</a></li>
+<li class="chapter" data-level="10.3.2" data-path="robjloops.html"><a href="robjloops.html#numeric-vectors"><i class="fa fa-check"></i><b>10.3.2</b> numeric vectors</a></li>
+<li class="chapter" data-level="10.3.3" data-path="robjloops.html"><a href="robjloops.html#characters-aka-strings"><i class="fa fa-check"></i><b>10.3.3</b> characters (aka strings)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="robjloops.html"><a href="robjloops.html#what-is-a-function"><i class="fa fa-check"></i><b>10.4</b> What is a function?</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="robjloops.html"><a href="robjloops.html#write-your-own-function"><i class="fa fa-check"></i><b>10.4.1</b> Write your own function</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="robjloops.html"><a href="robjloops.html#checkpoint-1"><i class="fa fa-check"></i>Checkpoint</a><ul>
+<li class="chapter" data-level="" data-path="robjloops.html"><a href="robjloops.html#section-14"><i class="fa fa-check"></i>1</a></li>
+<li class="chapter" data-level="" data-path="robjloops.html"><a href="robjloops.html#section-15"><i class="fa fa-check"></i>2</a></li>
+<li class="chapter" data-level="" data-path="robjloops.html"><a href="robjloops.html#section-16"><i class="fa fa-check"></i>3</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="robjloops.html"><a href="robjloops.html#what-is-a-package"><i class="fa fa-check"></i><b>10.5</b> What is a package?</a></li>
+<li class="chapter" data-level="10.6" data-path="robjloops.html"><a href="robjloops.html#conditionals"><i class="fa fa-check"></i><b>10.6</b> Conditionals</a></li>
+<li class="chapter" data-level="10.7" data-path="robjloops.html"><a href="robjloops.html#for-loops"><i class="fa fa-check"></i><b>10.7</b> For-loops</a></li>
+<li class="chapter" data-level="10.8" data-path="robjloops.html"><a href="robjloops.html#nested-loops"><i class="fa fa-check"></i><b>10.8</b> Nested Loops</a></li>
+<li class="chapter" data-level="" data-path="robjloops.html"><a href="robjloops.html#exercises-3"><i class="fa fa-check"></i>Exercises</a><ul>
+<li class="chapter" data-level="" data-path="robjloops.html"><a href="robjloops.html#exercise-1-counting-cvap"><i class="fa fa-check"></i>Exercise 1: Counting CVAP</a></li>
+<li class="chapter" data-level="" data-path="robjloops.html"><a href="robjloops.html#exercise-2-write-your-own-function"><i class="fa fa-check"></i>Exercise 2: Write your own function</a></li>
+<li class="chapter" data-level="" data-path="robjloops.html"><a href="robjloops.html#exercise-3-using-loops"><i class="fa fa-check"></i>Exercise 3: Using Loops</a></li>
+<li class="chapter" data-level="" data-path="robjloops.html"><a href="robjloops.html#exercise-4-storing-information-derived-within-loops-in-a-global-dataframe"><i class="fa fa-check"></i>Exercise 4: Storing information derived within loops in a global dataframe</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="dempeace.html"><a href="dempeace.html"><i class="fa fa-check"></i><b>11</b> Joins and Merges, Wide and Long</a><ul>
+<li class="chapter" data-level="" data-path="dempeace.html"><a href="dempeace.html#where-are-we-where-are-we-headed-4"><i class="fa fa-check"></i>Where are we? Where are we headed?</a></li>
+<li class="chapter" data-level="11.1" data-path="dempeace.html"><a href="dempeace.html#motivation-1"><i class="fa fa-check"></i><b>11.1</b> Motivation</a></li>
+<li class="chapter" data-level="11.2" data-path="dempeace.html"><a href="dempeace.html#setting-up"><i class="fa fa-check"></i><b>11.2</b> Setting up</a></li>
+<li class="chapter" data-level="11.3" data-path="dempeace.html"><a href="dempeace.html#create-a-project-directory"><i class="fa fa-check"></i><b>11.3</b> Create a project directory</a></li>
+<li class="chapter" data-level="11.4" data-path="dempeace.html"><a href="dempeace.html#data-sources"><i class="fa fa-check"></i><b>11.4</b> Data Sources</a></li>
+<li class="chapter" data-level="11.5" data-path="dempeace.html"><a href="dempeace.html#example-with-2-datasets"><i class="fa fa-check"></i><b>11.5</b> Example with 2 Datasets</a></li>
+<li class="chapter" data-level="11.6" data-path="dempeace.html"><a href="dempeace.html#loops"><i class="fa fa-check"></i><b>11.6</b> Loops</a></li>
+<li class="chapter" data-level="11.7" data-path="dempeace.html"><a href="dempeace.html#merging"><i class="fa fa-check"></i><b>11.7</b> Merging</a></li>
+<li class="chapter" data-level="11.8" data-path="dempeace.html"><a href="dempeace.html#main-project"><i class="fa fa-check"></i><b>11.8</b> Main Project</a><ul>
+<li class="chapter" data-level="" data-path="dempeace.html"><a href="dempeace.html#task-1-data-input-and-standardization"><i class="fa fa-check"></i>Task 1: Data Input and Standardization</a></li>
+<li class="chapter" data-level="" data-path="dempeace.html"><a href="dempeace.html#task-2-data-merging"><i class="fa fa-check"></i>Task 2: Data Merging</a></li>
+<li class="chapter" data-level="" data-path="dempeace.html"><a href="dempeace.html#task-3-tabulations-and-visualization"><i class="fa fa-check"></i>Task 3: Tabulations and Visualization</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>12</b> Simulation</a><ul>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#where-are-we-where-are-we-headed-5"><i class="fa fa-check"></i>Where are we? Where are we headed?</a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#check-your-understanding-2"><i class="fa fa-check"></i>Check your Understanding</a></li>
+<li class="chapter" data-level="12.1" data-path="simulation.html"><a href="simulation.html#motivation-simulation-as-an-analytical-tool"><i class="fa fa-check"></i><b>12.1</b> Motivation: Simulation as an Analytical Tool</a></li>
+<li class="chapter" data-level="12.2" data-path="simulation.html"><a href="simulation.html#pick-a-sample-any-sample"><i class="fa fa-check"></i><b>12.2</b> Pick a sample, any sample</a></li>
+<li class="chapter" data-level="12.3" data-path="simulation.html"><a href="simulation.html#the-sample-function"><i class="fa fa-check"></i><b>12.3</b> The <code>sample()</code> function</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="simulation.html"><a href="simulation.html#sampling-rows-from-a-dataframe"><i class="fa fa-check"></i><b>12.3.1</b> Sampling rows from a dataframe</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="simulation.html"><a href="simulation.html#random-numbers-from-specific-distributions"><i class="fa fa-check"></i><b>12.4</b> Random numbers from specific distributions</a><ul>
+<li><a href="simulation.html#rbinom"><code>rbinom()</code></a></li>
+<li><a href="simulation.html#runif"><code>runif()</code></a></li>
+<li><a href="simulation.html#rnorm"><code>rnorm()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="simulation.html"><a href="simulation.html#r-p-and-d"><i class="fa fa-check"></i><b>12.5</b> r, p, and d</a></li>
+<li class="chapter" data-level="12.6" data-path="simulation.html"><a href="simulation.html#set.seed"><i class="fa fa-check"></i><b>12.6</b> <code>set.seed()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#exercises-4"><i class="fa fa-check"></i>Exercises</a><ul>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#census-sampling"><i class="fa fa-check"></i>Census Sampling</a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#conditional-proportions"><i class="fa fa-check"></i>Conditional Proportions</a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#the-birthday-problem"><i class="fa fa-check"></i>The Birthday problem</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html"><i class="fa fa-check"></i><b>13</b> LaTeX and markdown</a><ul>
+<li class="chapter" data-level="" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#where-are-we-where-are-we-headed-6"><i class="fa fa-check"></i>Where are we? Where are we headed?</a></li>
+<li class="chapter" data-level="" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#check-your-understanding-3"><i class="fa fa-check"></i>Check your understanding</a></li>
+<li class="chapter" data-level="13.1" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#motivation-2"><i class="fa fa-check"></i><b>13.1</b> Motivation</a></li>
+<li class="chapter" data-level="13.2" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#markdown"><i class="fa fa-check"></i><b>13.2</b> Markdown</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#markdown-commands"><i class="fa fa-check"></i><b>13.2.1</b> markdown commands</a></li>
+<li class="chapter" data-level="13.2.2" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#your-own-markdown"><i class="fa fa-check"></i><b>13.2.2</b> your own markdown</a></li>
+<li class="chapter" data-level="13.2.3" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#a-note-on-plain-text-editors"><i class="fa fa-check"></i><b>13.2.3</b> A note on plain-text editors</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#latex"><i class="fa fa-check"></i><b>13.3</b> LaTeX</a><ul>
+<li class="chapter" data-level="13.3.1" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#compile-online"><i class="fa fa-check"></i><b>13.3.1</b> compile online</a></li>
+<li class="chapter" data-level="13.3.2" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#compile-your-first-latex-document-locally"><i class="fa fa-check"></i><b>13.3.2</b> compile your first LaTeX document locally</a></li>
+<li class="chapter" data-level="13.3.3" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#main-latex-commands"><i class="fa fa-check"></i><b>13.3.3</b> main LaTeX commands</a></li>
+<li class="chapter" data-level="" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#further-guides"><i class="fa fa-check"></i>Further Guides</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#bibtex"><i class="fa fa-check"></i><b>13.4</b> BibTeX</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#what-is-a-.bib-file"><i class="fa fa-check"></i><b>13.4.1</b> what is a <code>.bib</code> file?</a></li>
+<li class="chapter" data-level="13.4.2" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#what-does-latex-do-with-.bib-files"><i class="fa fa-check"></i><b>13.4.2</b> what does LaTeX do with .bib files?</a></li>
+<li class="chapter" data-level="13.4.3" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#stocking-up-on-your-.bib-files"><i class="fa fa-check"></i><b>13.4.3</b> stocking up on your .bib files</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#exercise"><i class="fa fa-check"></i>Exercise</a></li>
+<li class="chapter" data-level="" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#concluding-the-prefresher"><i class="fa fa-check"></i>Concluding the Prefresher</a><ul>
+<li class="chapter" data-level="" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#your-feedback-matters"><i class="fa fa-check"></i>Your Feedback Matters</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="rtext.html"><a href="rtext.html"><i class="fa fa-check"></i><b>14</b> Text</a><ul>
+<li class="chapter" data-level="" data-path="rtext.html"><a href="rtext.html#where-are-we-where-are-we-headed-7"><i class="fa fa-check"></i>Where are we? Where are we headed?</a></li>
+<li class="chapter" data-level="14.1" data-path="rtext.html"><a href="rtext.html#review"><i class="fa fa-check"></i><b>14.1</b> Review</a></li>
+<li class="chapter" data-level="14.2" data-path="rtext.html"><a href="rtext.html#goals-for-today"><i class="fa fa-check"></i><b>14.2</b> Goals for today</a></li>
+<li class="chapter" data-level="14.3" data-path="rtext.html"><a href="rtext.html#reading-and-writing-text-in-r"><i class="fa fa-check"></i><b>14.3</b> Reading and writing text in R</a></li>
+<li class="chapter" data-level="14.4" data-path="rtext.html"><a href="rtext.html#paste-and-sprintf"><i class="fa fa-check"></i><b>14.4</b> <code>paste()</code> and <code>sprintf()</code></a></li>
+<li class="chapter" data-level="14.5" data-path="rtext.html"><a href="rtext.html#regular-expressions"><i class="fa fa-check"></i><b>14.5</b> Regular expressions</a><ul>
+<li class="chapter" data-level="14.5.1" data-path="rtext.html"><a href="rtext.html#character-classes"><i class="fa fa-check"></i><b>14.5.1</b> Character classes</a></li>
+<li class="chapter" data-level="14.5.2" data-path="rtext.html"><a href="rtext.html#special-characters."><i class="fa fa-check"></i><b>14.5.2</b> Special Characters.</a></li>
+<li class="chapter" data-level="14.5.3" data-path="rtext.html"><a href="rtext.html#conditional-patterns"><i class="fa fa-check"></i><b>14.5.3</b> Conditional patterns</a></li>
+</ul></li>
+<li class="chapter" data-level="14.6" data-path="rtext.html"><a href="rtext.html#representing-text"><i class="fa fa-check"></i><b>14.6</b> Representing Text</a></li>
+<li class="chapter" data-level="14.7" data-path="rtext.html"><a href="rtext.html#important-packages-for-parsing-text"><i class="fa fa-check"></i><b>14.7</b> Important packages for parsing text</a></li>
+<li class="chapter" data-level="" data-path="rtext.html"><a href="rtext.html#exercises-5"><i class="fa fa-check"></i>Exercises</a><ul>
+<li class="chapter" data-level="" data-path="rtext.html"><a href="rtext.html#section-17"><i class="fa fa-check"></i>1</a></li>
+<li class="chapter" data-level="" data-path="rtext.html"><a href="rtext.html#section-18"><i class="fa fa-check"></i>2</a></li>
+<li class="chapter" data-level="" data-path="rtext.html"><a href="rtext.html#section-19"><i class="fa fa-check"></i>3</a></li>
+<li class="chapter" data-level="" data-path="rtext.html"><a href="rtext.html#section-20"><i class="fa fa-check"></i>4</a></li>
+<li class="chapter" data-level="" data-path="rtext.html"><a href="rtext.html#section-21"><i class="fa fa-check"></i>5</a></li>
+<li class="chapter" data-level="" data-path="rtext.html"><a href="rtext.html#section-22"><i class="fa fa-check"></i>6</a></li>
+<li class="chapter" data-level="" data-path="rtext.html"><a href="rtext.html#section-23"><i class="fa fa-check"></i>7</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="commandline-git.html"><a href="commandline-git.html"><i class="fa fa-check"></i><b>15</b> Command-line, git</a><ul>
+<li class="chapter" data-level="15.1" data-path="commandline-git.html"><a href="commandline-git.html#where-are-we-where-are-we-headed-8"><i class="fa fa-check"></i><b>15.1</b> Where are we? Where are we headed?</a></li>
+<li class="chapter" data-level="15.2" data-path="commandline-git.html"><a href="commandline-git.html#check-your-understanding-4"><i class="fa fa-check"></i><b>15.2</b> Check your understanding</a></li>
+<li class="chapter" data-level="15.3" data-path="commandline-git.html"><a href="commandline-git.html#command-line"><i class="fa fa-check"></i><b>15.3</b> command-line</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="commandline-git.html"><a href="commandline-git.html#command-line-commands"><i class="fa fa-check"></i><b>15.3.1</b> command-line commands</a></li>
+<li class="chapter" data-level="15.3.2" data-path="commandline-git.html"><a href="commandline-git.html#running-things-via-command-line"><i class="fa fa-check"></i><b>15.3.2</b> running things via command-line</a></li>
+<li class="chapter" data-level="15.3.3" data-path="commandline-git.html"><a href="commandline-git.html#why-do-command-line"><i class="fa fa-check"></i><b>15.3.3</b> why do command-line?</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="commandline-git.html"><a href="commandline-git.html#git"><i class="fa fa-check"></i><b>15.4</b> git</a><ul>
+<li class="chapter" data-level="15.4.1" data-path="commandline-git.html"><a href="commandline-git.html#why-version-control"><i class="fa fa-check"></i><b>15.4.1</b> why version control?</a></li>
+<li class="chapter" data-level="15.4.2" data-path="commandline-git.html"><a href="commandline-git.html#open-source-code-at-your-fingertips"><i class="fa fa-check"></i><b>15.4.2</b> open-source code at your fingertips</a></li>
+<li class="chapter" data-level="15.4.3" data-path="commandline-git.html"><a href="commandline-git.html#commands-in-git"><i class="fa fa-check"></i><b>15.4.3</b> commands in git</a></li>
+<li class="chapter" data-level="15.4.4" data-path="commandline-git.html"><a href="commandline-git.html#is-git-worth-it"><i class="fa fa-check"></i><b>15.4.4</b> is git worth it?</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Solutions</b></span></li>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html"><i class="fa fa-check"></i>Solutions to Warmup Questions</a><ul>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html#linear-algebra-1"><i class="fa fa-check"></i>Linear Algebra</a><ul>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html#vectors-1"><i class="fa fa-check"></i>Vectors</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html#matrices-1"><i class="fa fa-check"></i>Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html#operations-1"><i class="fa fa-check"></i>Operations</a><ul>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html#summation-1"><i class="fa fa-check"></i>Summation</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html#products-1"><i class="fa fa-check"></i>Products</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html#logs-and-exponents-1"><i class="fa fa-check"></i>Logs and exponents</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html#limits-1"><i class="fa fa-check"></i>Limits</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html#calculus-1"><i class="fa fa-check"></i>Calculus</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html#optimization-1"><i class="fa fa-check"></i>Optimization</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html#probability-1"><i class="fa fa-check"></i>Probability</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html"><i class="fa fa-check"></i>Suggested Programming Solutions</a><ul>
+<li class="chapter" data-level="15.5" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#chapter-refdataviz-visualization"><i class="fa fa-check"></i><b>15.5</b> Chapter @ref(dataviz): Visualization</a><ul>
+<li class="chapter" data-level="" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#state-proportions"><i class="fa fa-check"></i>1 State Proportions</a></li>
+<li class="chapter" data-level="" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#swing-justice"><i class="fa fa-check"></i>2 Swing Justice</a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#chapter-refrobjloops-objects-and-loops"><i class="fa fa-check"></i><b>15.6</b> Chapter @ref(robjloops): Objects and Loops</a><ul>
+<li class="chapter" data-level="" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#checkpoint-3"><i class="fa fa-check"></i>Checkpoint #3</a></li>
+<li class="chapter" data-level="" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#exercise-1"><i class="fa fa-check"></i>Exercise 1</a></li>
+<li class="chapter" data-level="" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#exercise-3"><i class="fa fa-check"></i>Exercise 3</a></li>
+<li class="chapter" data-level="" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#exercise-4"><i class="fa fa-check"></i>Exercise 4</a></li>
+</ul></li>
+<li class="chapter" data-level="15.7" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#chapter-refdempeace-demoratic-peace-project"><i class="fa fa-check"></i><b>15.7</b> Chapter @ref(dempeace): Demoratic Peace Project</a><ul>
+<li class="chapter" data-level="" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#task-1-data-input-and-standardization-1"><i class="fa fa-check"></i>Task 1: Data Input and Standardization</a></li>
+<li class="chapter" data-level="" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#task-2-data-merging-1"><i class="fa fa-check"></i>Task 2: Data Merging</a></li>
+<li class="chapter" data-level="" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#task-3-tabulations-and-visualization-1"><i class="fa fa-check"></i>Task 3: Tabulations and Visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="15.8" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#chapter-refsimulation-simulation"><i class="fa fa-check"></i><b>15.8</b> Chapter @ref(simulation): Simulation</a><ul>
+<li class="chapter" data-level="15.8.1" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#census-sampling-1"><i class="fa fa-check"></i><b>15.8.1</b> Census Sampling</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Math Prefresher for Political Scientists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="optim" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Optimization</h1>
+<p>To optimize, we use derivatives and calculus. Optimization is to find the maximum or minimum of a functon, and to find what value of an input gives that extremum. This has obvious uses in engineering. Many tools in the statistical toolkit use optimization. One of the most common ways of estimating a model is through “Maximum Likelihood Estimation”, done via optimizing a function (the likelihood).</p>
+<p>Optimization also comes up in Economics, Formal Theory, and Political Economy all the time. A go-to model of human behavior is that they optimize a certain utility function. Humans are not pure utility maximizers, of course, but nuanced models of optimization – for example, adding constraints and adding uncertainty – will prove to be quite useful.</p>
+<div id="example-meltzer-richard" class="section level2 unnumbered">
+<h2>Example: Meltzer-Richard</h2>
+<p>A standard backdrop in comparative political economy, the Meltzer-Richard (1981) model states that redistribution of wealth should be higher in societies where the median income is much smaller than the average income. More to the point, typically income distributions wher ethe median is very different from the average is one of high inequality. In other words, the Meltzer-Richard model says that highly unequal economies will have more re-distribution of wealth. Why is that the case? Here is a simplified example that is not the exact model by Meltzer and Richard<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>, but adapted from Persson and Tabellini<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
+<p>We will set the following things about our model human and model democracy.</p>
+<ul>
+<li>Individuals are indexed by <span class="math inline">\(i\)</span>, and the total population is normalized to unity (“1”) without loss of generality.</li>
+<li><span class="math inline">\(U(\cdot)\)</span>, u for “utility”, is a function that is concave and increasing, and expresses the utility gained from public goods. This tells us that its first derivative is <em>positive</em>, and its second derivative is <strong>negative</strong>.</li>
+<li><span class="math inline">\(y_i\)</span> is the income of person <span class="math inline">\(i\)</span></li>
+<li><span class="math inline">\(W_i\)</span>, w for “welfare”, is the welfare of person <span class="math inline">\(i\)</span></li>
+<li><span class="math inline">\(c_i\)</span>, c for “consumption”, is the consumption utility of person <span class="math inline">\(i\)</span></li>
+</ul>
+<p>Also, the government is democratically elected and sets the following redistribution output:</p>
+<ul>
+<li><span class="math inline">\(\tau\)</span>, t for “tax”, is a flat tax rate between 0 and 1 that is applied to everyone’s income.</li>
+<li><span class="math inline">\(g\)</span>, “g” for “goods”, is the amount of public goods that the government provides.</li>
+</ul>
+<p>Suppose an individual’s welfare is given by: <span class="math display">\[W_i = c_i + U(g)\]</span></p>
+<p>The consumption good is the person’s post-tax income.</p>
+<p><span class="math display">\[c_i = (1 - \tau) y_i\]</span></p>
+<p>Income varies by person (In the next section we will cover probability, by then we will know that we can express this by saying that <span class="math inline">\(y\)</span> is a random variable with the cumulative distribution function <span class="math inline">\(F\)</span>, i.e. <span class="math inline">\(y \sim F\)</span>.). Every distribution has a mean and an median.</p>
+<ul>
+<li><span class="math inline">\(E(y)\)</span> is the average income of the society.</li>
+<li><span class="math inline">\(\text{med}(y)\)</span> is the <strong>median income</strong> of the society.</li>
+</ul>
+<p>What will happen in this economy? What will the tax rate be set too? How much public goods will be provided?</p>
+<p>We’ve skipped ahead of some formal theory results of demoracy, but hopefully these are conceptually intuitive. First, if a democracy is competitive, there is no slack in the government’s goods, and all tax revenue becomes a public good. So we can go ahead and set the constraint:</p>
+<p><span class="math display">\[g = \sum_{i} \tau y_i P(y_i) = \tau E(y)\]</span></p>
+<p>We can do this trick because of the “normalizes to unity” setting, but this is a general property of the average.</p>
+<p>Now given this constraint we can re-write an individual’s welfare as</p>
+<span class="math display">\[\begin{align*}
+W_i &amp;= \left(1 - \frac{g}{E(y)}\right)y_i + U(g)\\
+&amp;= \left(E(y) - g\right) \frac{1}{E(y)} y_i + U(g)\\
+&amp;= \left(E(y) - g\right) \frac{y_i}{E(y)} + U(g)\\
+\end{align*}\]</span>
+When is the individual’s welfare maximized, <strong>as a function of the public good</strong>?
+<span class="math display">\[\begin{align*}
+\frac{d}{dg}W_i &amp;=  - \frac{y_i}{E(y)} + \frac{d}{dg}U(g)\\
+\end{align*}\]</span>
+<p><span class="math inline">\(\frac{d}{dg}W_i = 0\)</span> when <span class="math inline">\(\frac{d}{dg}U(g) = \frac{y_i}{E(y)}\)</span>, and so after expressing the derivative as <span class="math inline">\(U_g = \frac{d}{dg}U(g)\)</span> for simplicity,</p>
+<p><span class="math display">\[g_i^\star = {U_g}^{-1}\left(\frac{y_i}{E(y)}\right)\]</span></p>
+<p>Now recall that because we assumed concavity, <span class="math inline">\(U_g\)</span> is a negative sloping function whose value is positive. It can be shown that the inverse of such a function is also decreasing. Thus an individual’s preferred level of government is determined by a single continuum, the person’s income divided by the average income, and the function is <strong>decreasing</strong> in <span class="math inline">\(y_i\)</span>. This is consistent with our intuition that richer people prefer less redistribution.</p>
+<p>That was the amount for any given person. The government has to set one value of <span class="math inline">\(g\)</span>, however. So what will that be? Now we will use another result, the median voter theorem. This says that under certain general electoral conditions (single-peaked preferences, two parties, majority rule), the policy winner will be that preferred by the median person in the population. Because the only thing that determines a person’s preferred level of government is <span class="math inline">\(y_i / E(y)\)</span>, we can presume that the median voter, whose income is <span class="math inline">\(\text{med}(y)\)</span> will prevail in their preferred choice of government. Therefore, we wil see</p>
+<p><span class="math display">\[g^\star = {U_g}^{-1}\left(\frac{\text{med}(y)}{E(y)}\right)\]</span></p>
+<p>What does this say about the level of redistribution we observe in an economy? The higher the average income is than the median income, which often (but not always) means <em>more</em> inequality, there should be <em>more</em> redistribution.</p>
+</div>
+<div id="maxima-and-minima" class="section level2">
+<h2><span class="header-section-number">5.1</span> Maxima and Minima</h2>
+<p>The first derivative, <span class="math inline">\(f&#39;(x)\)</span>, quantifies the slope of a function. Therefore, it can be used to check whether the function <span class="math inline">\(f(x)\)</span> at the point <span class="math inline">\(x\)</span> is increasing or decreasing at <span class="math inline">\(x\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><strong>Increasing:</strong> <span class="math inline">\(f&#39;(x)&gt;0\)</span></li>
+<li><strong>Decreasing:</strong> <span class="math inline">\(f&#39;(x)&lt;0\)</span></li>
+<li><strong>Neither increasing nor decreasing</strong>: <span class="math inline">\(f&#39;(x)=0\)</span> i.e. a maximum, minimum, or saddle point</li>
+</ol>
+<p>So for example, <span class="math inline">\(f(x) = x^2 + 2\)</span> and <span class="math inline">\(f^\prime(x) = 2x\)</span></p>
+<div class="figure"><span id="fig:unnamed-chunk-43"></span>
+<img src="prefresher_files/figure-html/unnamed-chunk-43-1.png" alt="Maxima and Minima" width="672" />
+<p class="caption">
+Figure 5.1: Maxima and Minima
+</p>
+</div>
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-44" class="exercise"><strong>Exercise 5.1  (Plotting a mazimum and minimum)  </strong></span>Plot <span class="math inline">\(f(x)=x^3+ x^2 + 2\)</span>, plot its derivative, and identifiy where the derivative is zero. Is there a maximum or minimum?</p>
+</div>
+
+<p>The second derivative <span class="math inline">\(f&#39;&#39;(x)\)</span> identifies whether the function <span class="math inline">\(f(x)\)</span> at the point <span class="math inline">\(x\)</span> is</p>
+<ol style="list-style-type: decimal">
+<li>Concave down: <span class="math inline">\(f&#39;&#39;(x)&lt;0\)</span></li>
+<li>Concave up: <span class="math inline">\(f&#39;&#39;(x)&gt;0\)</span></li>
+</ol>
+<p><strong>Maximum (Minimum)</strong>: <span class="math inline">\(x_0\)</span> is a <strong>local maximum (minimum)</strong> if <span class="math inline">\(f(x_0)&gt;f(x)\)</span> (<span class="math inline">\(f(x_0)&lt;f(x))\)</span> for all <span class="math inline">\(x\)</span> within some open interval containing <span class="math inline">\(x_0\)</span>. <span class="math inline">\(x_0\)</span> is a <strong>global maximum (minimum)</strong> if <span class="math inline">\(f(x_0)&gt;f(x)\)</span> (<span class="math inline">\(f(x_0)&lt;f(x))\)</span> for all <span class="math inline">\(x\)</span> in the domain of <span class="math inline">\(f\)</span>.</p>
+<p>Given the function <span class="math inline">\(f\)</span> defined over domain <span class="math inline">\(D\)</span>, all of the following are defined as <strong>critical points</strong>:</p>
+<ol style="list-style-type: decimal">
+<li>Any interior point of <span class="math inline">\(D\)</span> where <span class="math inline">\(f&#39;(x)=0\)</span>.</li>
+<li>Any interior point of <span class="math inline">\(D\)</span> where <span class="math inline">\(f&#39;(x)\)</span> does not exist.</li>
+<li>Any endpoint that is in <span class="math inline">\(D\)</span>.</li>
+</ol>
+<p>The maxima and minima will be a subset of the critical points.</p>
+<p><strong>Second Derivative Test of Maxima/Minima</strong>: We can use the second derivative to tell us whether a point is a maximum or minimum of <span class="math inline">\(f(x)\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Local Maximum: <span class="math inline">\(f&#39;(x)=0\)</span> and <span class="math inline">\(f&#39;&#39;(x)&lt;0\)</span></li>
+<li>Local Minimum: <span class="math inline">\(f&#39;(x)=0\)</span> and <span class="math inline">\(f&#39;&#39;(x)&gt;0\)</span></li>
+<li>Need more info: <span class="math inline">\(f&#39;(x)=0\)</span> and <span class="math inline">\(f&#39;&#39;(x)=0\)</span></li>
+</ol>
+<p><strong>Global Maxima and Minima</strong> Sometimes no global max or min exists — e.g., <span class="math inline">\(f(x)\)</span> not bounded above or below. However, there are three situations where we can fairly easily identify global max or min.</p>
+<ol style="list-style-type: decimal">
+<li><strong>Functions with only one critical point.</strong> If <span class="math inline">\(x_0\)</span> is a local max or min of <span class="math inline">\(f\)</span> and it is the only critical point, then it is the global max or min.</li>
+<li><strong>Globally concave up or concave down functions.</strong> If <span class="math inline">\(f&#39;&#39;(x)\)</span> is never zero, then there is at most one critical point. That critical point is a global maximum if <span class="math inline">\(f&#39;&#39;&lt;0\)</span> and a global minimum if <span class="math inline">\(f&#39;&#39;&gt;0\)</span>.</li>
+<li><strong>Functions over closed and bounded intervals</strong> must have both a global maximum and a global minimum.</li>
+</ol>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-46" class="example"><strong>Example 5.1  (Maxima and Minima by drawing)  </strong></span> Find any critical points and identify whether they are a max, min, or saddle point:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(f(x)=x^2+2\)</span></li>
+<li><span class="math inline">\(f(x)=x^3+2\)</span></li>
+<li><span class="math inline">\(f(x)=|x^2-1|\)</span>, <span class="math inline">\(x\in [-2,2]\)</span></li>
+</ol>
+</div>
+
+</div>
+<div id="concavity-of-a-function" class="section level2">
+<h2><span class="header-section-number">5.2</span> Concavity of a Function</h2>
+<p>Concavity helps identify the curvature of a function, <span class="math inline">\(f(x)\)</span>, in 2 dimensional space.</p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-47" class="definition"><strong>Definition 5.1  (Concave Function)  </strong></span>A function <span class="math inline">\(f\)</span> is strictly concave over the set S  <span class="math inline">\(\forall x_1,x_2 \in S\)</span> and <span class="math inline">\(\forall a \in (0,1)\)</span>, <span class="math display">\[f(ax_1 + (1-a)x_2) &gt; af(x_1) + (1-a)f(x_2)\]</span>  line connecting two points on a concave function will lie  the function.
+</div>
+
+<p><img src="prefresher_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-49" class="definition"><strong>Definition 5.2  (Convex Function)  </strong></span>Convex: A function f is strictly convex over the set S  <span class="math inline">\(\forall x_1,x_2 \in S\)</span> and <span class="math inline">\(\forall a \in (0,1)\)</span>, <span class="math display">\[f(ax_1 + (1-a)x_2) &lt; af(x_1) + (1-a)f(x_2)\]</span></p>
+Any line connecting two points on a convex function will lie above the function.
+</div>
+
+
+<p>Sometimes, concavity and convexity are strict of a requirement. For most purposes of getting solutions, what we call quasi-concavity is enough.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-50" class="definition"><strong>Definition 5.3  (Quasiconcave Function)  </strong></span>A function f is quasiconcave over the set S if <span class="math inline">\(\forall x_1,x_2 \in S\)</span> and <span class="math inline">\(\forall a \in (0,1)\)</span>, <span class="math display">\[f(ax_1 + (1-a)x_2) \ge \min(f(x_1),f(x_2))\]</span></p>
+<p>No matter what two points you select, the  valued point will always be an end point.</p>
+</div>
+
+
+
+<div class="definition">
+<span id="def:unnamed-chunk-51" class="definition"><strong>Definition 5.4  (Quasiconvex)  </strong></span>A function f is quasiconvex over the set <span class="math inline">\(S\)</span> if <span class="math inline">\(\forall x_1,x_2 \in S\)</span> and <span class="math inline">\(\forall a \in (0,1)\)</span>, <span class="math display">\[f(ax_1 + (1-a)x_2) \le \max(f(x_1),f(x_2))\]</span> No matter what two points you select, the  valued point will always be an end point.
+</div>
+
+
+<p><strong>Second Derivative Test of Concavity</strong>: The second derivative can be used to understand concavity.</p>
+<p>If <span class="math display">\[\begin{array}{lll}
+f&#39;&#39;(x) &lt; 0 &amp; \Rightarrow &amp; \text{Concave}\\
+f&#39;&#39;(x) &gt; 0 &amp; \Rightarrow &amp; \text{Convex}
+\end{array}\]</span></p>
+<div id="quadratic-forms" class="section level3 unnumbered">
+<h3>Quadratic Forms</h3>
+<p>Quadratic forms is shorthand for a way to summarize a function. This is important for finding concavity because</p>
+<ol style="list-style-type: decimal">
+<li>Approximates local curvature around a point — e.g., used to identify max vs min vs saddle point.</li>
+<li>They are simple to express even in <span class="math inline">\(n\)</span> dimensions:</li>
+<li>Have a matrix representation.</li>
+</ol>
+<p><strong>Quadratic Form</strong>: A polynomial where each term is a monomial of degree 2 in any number of variables:</p>
+<span class="math display">\[\begin{align*}
+\text{One variable: }&amp; Q(x_1) = a_{11}x_1^2\\
+\text{Two variables: }&amp; Q(x_1,x_2) = a_{11}x_1^2 + a_{12}x_1x_2 + a_{22}x_2^2\\
+\text{N variables: }&amp; Q(x_1,\cdots,x_n)=\sum\limits_{i\le j} a_{ij}x_i x_j
+\end{align*}\]</span>
+<p>which can be written in matrix terms:</p>
+<p>One variable</p>
+<p><span class="math display">\[Q(\mathbf{x}) = x_1^\top a_{11} x_1\]</span></p>
+N variables:
+<span class="math display">\[\begin{align*}
+Q(\mathbf{x}) &amp;=\begin{pmatrix} x_1 &amp; x_2 &amp; \cdots &amp; x_n \end{pmatrix}\begin{pmatrix}
+a_{11}&amp;\frac{1}{2}a_{12}&amp;\cdots&amp;\frac{1}{2}a_{1n}\\
+\frac{1}{2}a_{12}&amp;a_{22}&amp;\cdots&amp;\frac{1}{2}a_{2n}\\
+\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\
+\frac{1}{2}a_{1n}&amp;\frac{1}{2}a_{2n}&amp;\cdots&amp;a_{nn}
+\end{pmatrix}
+\begin{pmatrix} x_1\\x_2\\\vdots\\x_n\end{pmatrix}\\
+&amp;= \mathbf{x}^\top\mathbf{Ax}
+\end{align*}\]</span>
+For example, the Quadratic on <span class="math inline">\(\mathbf{R}^2\)</span>:
+<span class="math display">\[\begin{align*}
+  Q(x_1,x_2)&amp;=\begin{pmatrix} x_1&amp; x_2 \end{pmatrix} \begin{pmatrix} a_{11}&amp;\frac{1}{2} a_{12}\\
+  \frac{1}{2}a_{12}&amp;a_{22}\end{pmatrix} \begin{pmatrix} x_1\\x_2 \end{pmatrix} \\
+  &amp;= a_{11}x_1^2 + a_{12}x_1x_2 + a_{22}x_2^2
+\end{align*}\]</span>
+</div>
+<div id="definiteness-of-quadratic-forms" class="section level3 unnumbered">
+<h3>Definiteness of Quadratic Forms</h3>
+<p>When the function <span class="math inline">\(f(\mathbf{x})\)</span> has more than two inputs, determining whether it has a maxima and minima (remember, functions may have many inputs but they have only one output) is a bit more tedious. Definiteness helps identify the curvature of a function, <span class="math inline">\(Q(\textbf{x})\)</span>, in n dimensional space.</p>
+<p><strong>Definiteness</strong>: By definition, a quadratic form always takes on the value of zero when <span class="math inline">\(x = 0\)</span>, <span class="math inline">\(Q(\textbf{x})=0\)</span> at <span class="math inline">\(\textbf{x}=0\)</span>. The definiteness of the matrix <span class="math inline">\(\textbf{A}\)</span> is determined by whether the quadratic form <span class="math inline">\(Q(\textbf{x})=\textbf{x}^\top\textbf{A}\textbf{x}\)</span> is greater than zero, less than zero, or sometimes both over all <span class="math inline">\(\mathbf{x}\ne 0\)</span>.</p>
+</div>
+</div>
+<div id="foc-and-soc" class="section level2">
+<h2><span class="header-section-number">5.3</span> FOC and SOC</h2>
+<p>We can see from a graphical representation that if a point is a local maxima or minima, it must meet certain conditions regarding its derivative. These are so commonly used that we refer these to “First Order Conditions” (FOCs) and “Second Order Conditions” (SOCs) in the economic tradition.</p>
+<div id="first-order-conditions" class="section level3 unnumbered">
+<h3>First Order Conditions</h3>
+<p>When we examined functions of one variable <span class="math inline">\(x\)</span>, we found critical points by taking the first derivative, setting it to zero, and solving for <span class="math inline">\(x\)</span>. For functions of <span class="math inline">\(n\)</span> variables, the critical points are found in much the same way, except now we set the partial derivatives equal to zero. Note: We will only consider critical points on the interior of a function’s domain.</p>
+<p>In a derivative, we only took the derivative with respect to one variable at a time. When we take the derivative separately with respect to all variables in the elements of <span class="math inline">\(\mathbf{x}\)</span> and then express the result as a vector, we use the term Gradient and Hessian.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-52" class="definition"><strong>Definition 5.5  (Gradient)  </strong></span> Given a function <span class="math inline">\(f(\textbf{x})\)</span> in <span class="math inline">\(n\)</span> variables, the gradient <span class="math inline">\(\nabla f(\mathbf{x})\)</span> (the greek letter nabla ) is a column vector, where the <span class="math inline">\(i\)</span>th element is the partial derivative of <span class="math inline">\(f(\textbf{x})\)</span> with respect to <span class="math inline">\(x_i\)</span>:</p>
+<p><span class="math display">\[\nabla f(\mathbf{x}) = \begin{pmatrix}
+\frac{\partial f(\mathbf{x})}{\partial x_1}\\ \frac{\partial f(\mathbf{x})}{\partial x_2}\\
+  \vdots \\ \frac{\partial f(\mathbf{x})}{\partial x_n} \end{pmatrix}\]</span></p>
+</div>
+
+<p>Before we know whether a point is a maxima or minima, if it meets the FOC it is a “Critical Point”.</p>
+
+<div class="definition">
+<span id="def:unnamed-chunk-53" class="definition"><strong>Definition 5.6  (Critical Point)  </strong></span> <span class="math inline">\(\mathbf{x}^*\)</span> is a critical point if and only if <span class="math inline">\(\nabla f(\mathbf{x}^*)=0\)</span>. If the partial derivative of f(x) with respect to <span class="math inline">\(x^*\)</span> is 0, then <span class="math inline">\(\mathbf{x}^*\)</span> is a critical point. To solve for <span class="math inline">\(\mathbf{x}^*\)</span>, find the gradient, set each element equal to 0, and solve the system of equations. <span class="math display">\[\mathbf{x}^* = \begin{pmatrix} x_1^*\\x_2^*\\ \vdots \\ x_n^*\end{pmatrix}\]</span>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-54" class="example"><strong>Example 5.2  </strong></span> Example: Given a function <span class="math inline">\(f(\mathbf{x})=(x_1-1)^2+x_2^2+1\)</span>, find the (1) Gradient and (2) Critical point of <span class="math inline">\(f(\mathbf{x})\)</span>.</p>
+</div>
+
+
+<div class="solution">
+<p> <span class="solution"><em>Solution. </em></span> Gradient</p>
+<span class="math display">\[\begin{align*}
+\nabla f(\mathbf{x}) &amp;= \begin{pmatrix}\frac{\partial f(\mathbf{x})}{\partial x_1}\\ \frac{\partial f(\mathbf{x})}{\partial x_2} \end{pmatrix}\\
+&amp;= \begin{pmatrix} 2(x_1-1)\\ 2x_2 \end{pmatrix}
+\end{align*}\]</span>
+<p>Critical Point <span class="math inline">\(\mathbf{x}^* =\)</span></p>
+<span class="math display">\[\begin{align*}
+&amp;\frac{\partial f(\mathbf{x})}{\partial x_1} = 2(x_1-1) = 0\\
+&amp;\Rightarrow x_1^* = 1\\
+&amp;\frac{\partial f(\mathbf{x})}{\partial x_2} = 2x_2 = 0\\
+&amp;\Rightarrow   x_2^* = 0\\
+\end{align*}\]</span>
+<p>So <span class="math display">\[\mathbf{x}^* = (1,0)\]</span></p>
+</div>
+
+</div>
+<div id="second-order-conditions" class="section level3 unnumbered">
+<h3>Second Order Conditions</h3>
+<p>When we found a critical point for a function of one variable, we used the second derivative as a indicator of the curvature at the point in order to determine whether the point was a min, max, or saddle (second derivative test of concavity). For functions of <span class="math inline">\(n\)</span> variables, we use <em>second order partial derivatives</em> as an indicator of curvature.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-56" class="definition"><strong>Definition 5.7  (Hessian)  </strong></span> Given a function <span class="math inline">\(f(\mathbf{x})\)</span> in <span class="math inline">\(n\)</span> variables, the hessian <span class="math inline">\(\mathbf{H(x)}\)</span> is an <span class="math inline">\(n\times n\)</span> matrix, where the <span class="math inline">\((i,j)\)</span>th element is the second order partial derivative of <span class="math inline">\(f(\mathbf{x})\)</span> with respect to <span class="math inline">\(x_i\)</span> and <span class="math inline">\(x_j\)</span>:</p>
+<p><span class="math display">\[\mathbf{H(x)}=\begin{pmatrix}
+\frac{\partial^2 f(\mathbf{x})}{\partial x_1^2}&amp;\frac{\partial^2f(\mathbf{x})}{\partial x_1 \partial x_2}&amp;
+\cdots &amp; \frac{\partial^2 f(\mathbf{x})}{\partial x_1 \partial x_n}\\[9pt]
+\frac{\partial^2 f(\mathbf{x})}{\partial x_2 \partial x_1}&amp;\frac{\partial^2f(\mathbf{x})}{\partial x_2^2}&amp;
+\cdots &amp; \frac{\partial^2 f(\mathbf{x})}{\partial x_2 \partial x_n}\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\[3pt]
+\frac{\partial^2 f(\mathbf{x})}{\partial x_n \partial x_1}&amp;\frac{\partial^2f(\mathbf{x})}{\partial x_n \partial x_2}&amp;
+\cdots &amp; \frac{\partial^2 f(\mathbf{x})}{\partial x_n^2}\end{pmatrix}\]</span></p>
+</div>
+
+<p>Note that the hessian will be a symmetric matrix because <span class="math inline">\(\frac{\partial f(\mathbf{x})}{\partial x_1\partial x_2} = \frac{\partial f(\mathbf{x})}{\partial x_2\partial x_1}\)</span>.</p>
+<p>Also note that given that <span class="math inline">\(f(\mathbf{x})\)</span> is of quadratic form, each element of the hessian will be a constant.</p>
+<p>These definitions will be employed when we determine the <strong>Second Order Conditions</strong> of a function:</p>
+<p>Given a function <span class="math inline">\(f(\mathbf{x})\)</span> and a point <span class="math inline">\(\mathbf{x}^*\)</span> such that <span class="math inline">\(\nabla f(\mathbf{x}^*)=0\)</span>,</p>
+<ol style="list-style-type: decimal">
+<li>Hessian is Positive Definite <span class="math inline">\(\quad \Longrightarrow \quad\)</span> Strict Local Min</li>
+<li>Hessian is Positive Semidefinite <span class="math inline">\(\forall \mathbf{x}\in B(\mathbf{x}^*,\epsilon)\)</span>} <span class="math inline">\(\quad \Longrightarrow \quad\)</span> Local Min</li>
+<li>Hessian is Negative Definite <span class="math inline">\(\quad \Longrightarrow \quad\)</span> Strict Local Max</li>
+<li>Hessian is Negative Semidefinite <span class="math inline">\(\forall \mathbf{x}\in B(\mathbf{x}^*,\epsilon)\)</span>} <span class="math inline">\(\quad \Longrightarrow \quad\)</span> Local Max</li>
+<li>Hessian is Indefinite <span class="math inline">\(\quad \Longrightarrow \quad\)</span> Saddle Point</li>
+</ol>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-57" class="example"><strong>Example 5.3  (Max and min with two dimensions)  </strong></span> We found that the only critical point of <span class="math inline">\(f(\mathbf{x})=(x_1-1)^2+x_2^2+1\)</span> is at <span class="math inline">\(\mathbf{x}^*=(1,0)\)</span>. Is it a min, max, or saddle point?</p>
+</div>
+
+
+<div class="solution">
+ <span class="solution"><em>Solution. </em></span>  The Hessian is
+<span class="math display">\[\begin{align*}
+\mathbf{H(x)} &amp;= \begin{pmatrix} 2&amp;0\\0&amp;2 \end{pmatrix}
+\end{align*}\]</span>
+<p>The Leading principal minors of the Hessian are <span class="math inline">\(M_1=2; M_2=4\)</span>. Now we consider Definiteness. Since both leading principal minors are positive, the Hessian is positive definite.</p>
+<p>Maxima, Minima, or Saddle Point? Since the Hessian is positive definite and the gradient equals 0, <span class="math inline">\(x^\star = (1,0)\)</span> is a strict local minimum.</p>
+<p>Note: Alternate check of definiteness. Is <span class="math inline">\(\mathbf{H(x^*)} \geq \leq 0 \quad \forall \quad \mathbf{x}\ne 0\)</span></p>
+<span class="math display">\[\begin{align*}
+\mathbf{x}^\top H(\mathbf{x}^*) \mathbf{x} &amp;= \begin{pmatrix} x_1 &amp; x_2 \end{pmatrix}\\
+&amp;= \begin{pmatrix} 2&amp;0\\0&amp;2 \end{pmatrix}\\
+\begin{pmatrix} x_1\\x_2\end{pmatrix} &amp;= 2x_1^2+2x_2^2
+\end{align*}\]</span>
+For any <span class="math inline">\(\mathbf{x}\ne 0\)</span>, <span class="math inline">\(2(x_1^2+x_2^2)&gt;0\)</span>, so the Hessian is positive definite and <span class="math inline">\(\mathbf{x}^*\)</span> is a strict local minimum.
+</div>
+
+</div>
+<div id="definiteness-and-concavity" class="section level3 unnumbered">
+<h3>Definiteness and Concavity</h3>
+<p>Although definiteness helps us to understand the curvature of an n-dimensional function, it does not necessarily tell us whether the function is globally concave or convex.</p>
+<p>We need to know whether a function is globally concave or convex to determine whether a critical point is a global min or max. We can use the definiteness of the Hessian to determine whether a function is globally concave or convex:</p>
+<ol style="list-style-type: decimal">
+<li>Hessian is Positive Semidefinite <span class="math inline">\(\forall \mathbf{x}\)</span>} <span class="math inline">\(\quad \Longrightarrow \quad\)</span> Globally Convex</li>
+<li>Hessian is Negative Semidefinite <span class="math inline">\(\forall \mathbf{x}\)</span>} <span class="math inline">\(\quad \Longrightarrow \quad\)</span> Globally Concave</li>
+</ol>
+<p>Notice that the definiteness conditions must be satisfied over the entire domain.</p>
+</div>
+</div>
+<div id="global-maxima-and-minima" class="section level2">
+<h2><span class="header-section-number">5.4</span> Global Maxima and Minima</h2>
+<p><strong>Global Max/Min Conditions</strong>: Given a function <span class="math inline">\(f(\mathbf{x})\)</span> and a point <span class="math inline">\(\mathbf{x}^*\)</span> such that <span class="math inline">\(\nabla f(\mathbf{x}^*)=0\)</span>,</p>
+
+<p>Note that showing that <span class="math inline">\(\mathbf{H(x^*)}\)</span> is negative semidefinite is not enough to guarantee <span class="math inline">\(\mathbf{x}^*\)</span> is a local max. However, showing that <span class="math inline">\(\mathbf{H(x)}\)</span> is negative semidefinite for all <span class="math inline">\(\mathbf{x}\)</span> guarantees that <span class="math inline">\(x^*\)</span> is a global max. (The same goes for positive semidefinite and minima.)\</p>
+<p>Example: Take <span class="math inline">\(f_1(x)=x^4\)</span> and <span class="math inline">\(f_2(x)=-x^4\)</span>. Both have <span class="math inline">\(x=0\)</span> as a critical point. Unfortunately, <span class="math inline">\(f&#39;&#39;_1(0)=0\)</span> and <span class="math inline">\(f&#39;&#39;_2(0)=0\)</span>, so we can’t tell whether <span class="math inline">\(x=0\)</span> is a min or max for either. However, <span class="math inline">\(f&#39;&#39;_1(x)=12x^2\)</span> and <span class="math inline">\(f&#39;&#39;_2(x)=-12x^2\)</span>. For all <span class="math inline">\(x\)</span>, <span class="math inline">\(f&#39;&#39;_1(x)\ge 0\)</span> and <span class="math inline">\(f&#39;&#39;_2(x)\le 0\)</span> — i.e., <span class="math inline">\(f_1(x)\)</span> is globally convex and <span class="math inline">\(f_2(x)\)</span> is globally concave. So <span class="math inline">\(x=0\)</span> is a global min of <span class="math inline">\(f_1(x)\)</span> and a global max of <span class="math inline">\(f_2(x)\)</span>.</p>
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-59" class="exercise"><strong>Exercise 5.2  </strong></span>Given <span class="math inline">\(f(\mathbf{x})=x_1^3-x_2^3+9x_1x_2\)</span>, find any maxima or minima.
+</div>
+
+
+</div>
+<div id="constrained-optimization" class="section level2">
+<h2><span class="header-section-number">5.5</span> Constrained Optimization</h2>
+<p>We have already looked at optimizing a function in one or more dimensions over the whole domain of the function. Often, however, we want to find the maximum or minimum of a function over some restricted part of its domain.</p>
+<p>ex: Maximizing utility subject to a budget constraint</p>
+<div class="figure">
+<img src="images/constraint.png" alt="A typical Utility Function with a Budget Constraint" />
+<p class="caption">A typical Utility Function with a Budget Constraint</p>
+</div>
+<strong>Types of Constraints</strong>: For a function <span class="math inline">\(f(x_1, \dots, x_n)\)</span>, there are two types of constraints that can be imposed:
+
+<p>In any constrained optimization problem, the constrained maximum will always be less than or equal to the unconstrained maximum. If the constrained maximum is less than the unconstrained maximum, then the constraint is binding. Essentially, this means that you can treat your constraint as an equality constraint rather than an inequality constraint.</p>
+<p>For example, the budget constraint binds when you spend your entire budget. This generally happens because we believe that utility is strictly increasing in consumption, i.e. you always want more so you spend everything you have.</p>
+<p>Any number of constraints can be placed on an optimization problem. When working with multiple constraints, always make sure that the set of constraints are not pathological; it must be possible for all of the constraints to be satisfied simultaneously.</p>
+<p> <span class="math display">\[\max_{x_1,x_2} f(x_1,x_2) \text{ s.t. } c(x_1,x_2)\]</span> <span class="math display">\[\min_{x_1,x_2} f(x_1,x_2) \text{ s.t. } c(x_1,x_2)\]</span> This tells us to maximize/minimize our function, <span class="math inline">\(f(x_1,x_2)\)</span>, with respect to the choice variables, <span class="math inline">\(x_1,x_2\)</span>, subject to the constraint.</p>
+<p>Example: <span class="math display">\[\max_{x_1,x_2} f(x_1, x_2) = -(x_1^2 + 2x_2^2) \text{ s.t. }x_1 + x_2 = 4\]</span> It is easy to see that the  maximum occurs at <span class="math inline">\((x_1, x_2) = (0,0)\)</span>, but that does not satisfy the constraint. How should we proceed?</p>
+<div id="equality-constraints" class="section level3 unnumbered">
+<h3>Equality Constraints</h3>
+<p>Equality constraints are the easiest to deal with because we know that the maximum or minimum has to lie on the (intersection of the) constraint(s).</p>
+<p>The trick is to change the problem from a constrained optimization problem in <span class="math inline">\(n\)</span> variables to an unconstrained optimization problem in <span class="math inline">\(n + k\)</span> variables, adding <em>one</em> variable for <em>each</em> equality constraint. We do this using a lagrangian multiplier.</p>
+<p><strong>Lagrangian function</strong>: The Lagrangian function allows us to combine the function we want to optimize and the constraint function into a single function. Once we have this single function, we can proceed as if this were an <em>unconstrained</em> optimization problem.</p>
+<p>For each constraint, we must include a <strong>Lagrange multiplier</strong> (<span class="math inline">\(\lambda_i\)</span>) as an additional variable in the analysis. These terms are the link between the constraint and the Lagrangian function.</p>
+<p>Given a <em>two dimensional</em> set-up: <span class="math display">\[\max_{x_1,x_2}/\min_{x_1,x_2} f(x_1,x_2) \text{ s.t. } c(x_1,x_2) = a\]</span></p>
+<p>We define the Lagrangian function <span class="math inline">\(L(x_1,x_2,\lambda_1)\)</span> as follows: <span class="math display">\[L(x_1,x_2,\lambda_1) = f(x_1,x_2) - \lambda_1 (c(x_1,x_2) - a)\]</span></p>
+<p>More generally, in <em>n dimensions</em>: <span class="math display">\[ L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k) = f(x_1, \dots, x_n) - \sum_{i=1}^k\lambda_i(c_i(x_1,\dots, x_n) - r_i)\]</span></p>
+<p><strong>Getting the sign right:</strong> Note that above we subtract the lagrangian term <em>and</em> we subtract the constraint constant from the constraint function. Occasionally, you may see the following alternative form of the Lagrangian, which is <em>equivalent</em>: <span class="math display">\[ L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k) = f(x_1, \dots, x_n) + \sum_{i=1}^k\lambda_i(r_i - c_i(x_1,\dots, x_n))\]</span> Here we add the lagrangian term <em>and</em> we subtract the constraining function from the constraint constant.</p>
+<p><strong>Using the Lagrangian to Find the Critical Points</strong>: To find the critical points, we take the partial derivatives of lagrangian function, <span class="math inline">\(L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k)\)</span>, with respect to each of its variables (all choice variables <span class="math inline">\(\mathbf{x}\)</span> <em>and</em> all lagrangian multipliers <span class="math inline">\(\mathbf{\lambda}\)</span>). At a critical point, each of these partial derivatives must be equal to zero, so we obtain a system of <span class="math inline">\(n + k\)</span> equations in <span class="math inline">\(n + k\)</span> unknowns:</p>
+<span class="math display">\[\begin{align*}
+\frac{\partial L}{\partial x_1} &amp;= \frac{\partial f}{\partial x_1} - \sum_{i = 1}^k\lambda_i\frac{\partial c_i}{\partial x_1} = 0\\
+ \vdots &amp;= \vdots \nonumber \\ 
+\frac{\partial L}{\partial x_n}  &amp;= \frac{\partial f}{\partial x_n} - \sum_{i = 1}^k\lambda_i\frac{\partial c_i}{\partial x_n} = 0\\
+\frac{\partial L}{\partial \lambda_1} &amp;= c_1(x_i, \dots, x_n) - r_1 =  0\\
+ \vdots &amp;= \vdots \nonumber \\
+\frac{\partial L}{\partial \lambda_k} &amp;= c_k(x_i, \dots, x_n) - r_k = 0
+\end{align*}\]</span>
+<p>We can then solve this system of equations, because there are <span class="math inline">\(n+k\)</span> equations and <span class="math inline">\(n+k\)</span> unknowns, to calculate the critical point <span class="math inline">\((x_1^*,\dots,x_n^*,\lambda_1^*,\dots,\lambda_k^*)\)</span>.</p>
+<p><strong>Second-order Conditions and Unconstrained Optimization:</strong> There may be more than one critical point, i.e. we need to verify that the critical point we find is a maximum/minimum. Similar to unconstrained optimization, we can do this by checking the second-order conditions.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-60" class="example"><strong>Example 5.4  (Constrained optimization with two goods and a budget constraint)  </strong></span> Find the constrained optimization of <span class="math display">\[\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } x_1 + x_2 = 4\]</span>
+</div>
+
+
+<div class="solution">
+<p> <span class="solution"><em>Solution. </em></span>  1. Begin by writing the Lagrangian: <span class="math display">\[L(x_1, x_2, \lambda) =  -(x_1^2 + 2x_2^2) - \lambda(x_1 + x_2 - 4)\]</span> 2. Take the partial derivatives and set equal to zero:</p>
+<span class="math display">\[\begin{align*}
+\frac{\partial L}{\partial x_1} = -2x_1 - \lambda \quad \quad \quad &amp;= 0\\
+\frac{\partial L}{\partial x_2}  = -4x_2 - \lambda \quad \quad \quad &amp;= 0\\
+\frac{\partial L}{\partial \lambda} = -(x_1 + x_2 - 4) \quad &amp; = &amp; 0\\
+\end{align*}\]</span>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Solve the system of equations: Using the first two partials, we see that <span class="math inline">\(\lambda = -2x_1\)</span> and <span class="math inline">\(\lambda = -4x_2\)</span> Set these equal to see that <span class="math inline">\(x_1 = 2x_2\)</span>. Using the third partial and the above equality, <span class="math inline">\(4 = 2x_2 + x_2\)</span> from which we get <span class="math display">\[x_2^* = 4/3, x_1^* = 8/3, \lambda = -16/3\]</span></p></li>
+<li>Therefore, the only critical point is <span class="math inline">\(x_1^* = \frac{8}{3}\)</span> and <span class="math inline">\(x_2^* = \frac{4}{3}\)</span></li>
+<li><p>This gives <span class="math inline">\(f(\frac{8}{3}, \frac{4}{3}) = -\frac{96}{9}\)</span>, which is less than the unconstrained optimum <span class="math inline">\(f(0,0) = 0\)</span></p></li>
+</ol>
+</div>
+
+<p>Notice that when we take the partial derivative of L with respect to the Lagrangian multiplier and set it equal to 0, we return exactly our constraint! This is why signs matter.</p>
+</div>
+</div>
+<div id="inequality-constraints" class="section level2">
+<h2><span class="header-section-number">5.6</span> Inequality Constraints</h2>
+<p>Inequality constraints define the boundary of a region over which we seek to optimize the function. This makes inequality constraints more challenging because we do not know if the maximum/minimum lies along one of the constraints (the constraint binds) or in the interior of the region.</p>
+<p>We must introduce more variables in order to turn the problem into an unconstrained optimization.</p>
+<p><strong>Slack:</strong> For each inequality constraint <span class="math inline">\(c_i(x_1, \dots, x_n) \leq a_i\)</span>, we define a slack variable <span class="math inline">\(s_i^2\)</span> for which the expression <span class="math inline">\(c_i(x_1, \dots, x_n) \leq a_i - s_i^2\)</span> would hold with equality. These slack variables capture how close the constraint comes to binding. We use <span class="math inline">\(s^2\)</span> rather than <span class="math inline">\(s\)</span> to ensure that the slack is positive.</p>
+<p>Slack is just a way to transform our constraints.</p>
+<p>Given a two-dimensional set-up and these edited constraints: <span class="math display">\[\max_{x_1,x_2}/\min_{x_1,x_2} f(x_1,x_2) \text{ s.t. } c(x_1,x_2) \le a_1\]</span></p>
+<p>Adding in Slack: <span class="math display">\[\max_{x_1,x_2}/\min_{x_1,x_2} f(x_1,x_2) \text{ s.t. } c(x_1,x_2) \le a_1 - s_1^2\]</span></p>
+<p>We define the Lagrangian function <span class="math inline">\(L(x_1,x_2,\lambda_1,s_1)\)</span> as follows: <span class="math display">\[L(x_1,x_2,\lambda_1,s_1) = f(x_1,x_2) - \lambda_1 ( c(x_1,x_2) + s_1^2 - a_1)\]</span></p>
+<p>More generally, in n dimensions: <span class="math display">\[ L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k, s_1, \dots, s_k) = f(x_1, \dots, x_n) - \sum_{i = 1}^k \lambda_i(c_i(x_1,\dots, x_n) + s_i^2 - a_i)\]</span></p>
+<p><strong>Finding the Critical Points</strong>: To find the critical points, we take the partial derivatives of the lagrangian function, <span class="math inline">\(L(x_1,\dots,x_n,\lambda_1,\dots,\lambda_k,s_1,\dots,s_k)\)</span>, with respect to each of its variables (all choice variables <span class="math inline">\(x\)</span>, all lagrangian multipliers <span class="math inline">\(\lambda\)</span>, and all slack variables <span class="math inline">\(s\)</span>). At a critical point, <em>each</em> of these partial derivatives must be equal to zero, so we obtain a system of <span class="math inline">\(n + 2k\)</span> equations in <span class="math inline">\(n + 2k\)</span> unknowns:</p>
+<span class="math display">\[\begin{align*}
+\frac{\partial L}{\partial x_1} &amp;= \frac{\partial f}{\partial x_1} - \sum_{i = 1}^k\lambda_i\frac{\partial c_i}{\partial x_1} = 0\\
+ \vdots &amp; =  \vdots  \\
+\frac{\partial L}{\partial x_n}  &amp;= \frac{\partial f}{\partial x_n} - \sum_{i = 1}^k\lambda_i\frac{\partial c_i}{\partial x_n} = 0\\
+\frac{\partial L}{\partial \lambda_1} &amp;= c_1(x_i, \dots, x_n) + s_1^2 - b_1 = 0\\
+ \vdots &amp; = \vdots \\
+\frac{\partial L}{\partial \lambda_k} &amp;= c_k(x_i, \dots, x_n) + s_k^2 - b_k = 0\\
+\frac{\partial L}{\partial s_1} &amp;= 2s_1\lambda_1 = 0\\
+ \vdots =\vdots \\
+\frac{\partial L}{\partial s_k} &amp;= 2s_k\lambda_k = 0
+\end{align*}\]</span>
+<p><strong>Complementary slackness conditions</strong>: The last set of first order conditions of the form <span class="math inline">\(2s_i\lambda_i = 0\)</span> (the partials taken with respect to the slack variables) are known as complementary slackness conditions. These conditions can be satisfied one of three ways:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\lambda_i = 0\)</span> and <span class="math inline">\(s_i \neq 0\)</span>: This implies that the slack is positive and thus <em>the constraint does not bind</em>.</li>
+<li><span class="math inline">\(\lambda_i \neq 0\)</span> and <span class="math inline">\(s_i = 0\)</span>: This implies that there is no slack in the constraint and <em>the constraint does bind</em>.</li>
+<li><span class="math inline">\(\lambda_i = 0\)</span> and <span class="math inline">\(s_i = 0\)</span>: In this case, there is no slack but the <em>constraint binds trivially</em>, without changing the optimum.</li>
+</ol>
+<p>Example: Find the critical points for the following constrained optimization: <span class="math display">\[\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } x_1 + x_2 \le 4\]</span></p>
+<ol style="list-style-type: decimal">
+<li><p>Rewrite with the slack variables: <span class="math display">\[\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } x_1 + x_2 \le 4 - s_1^2\]</span></p></li>
+<li><p>Write the Lagrangian: <span class="math display">\[L(x_1,x_2,\lambda_1,s_1) = -(x_1^2 + 2x_2^2) - \lambda_1 (x_1 + x_2 + s_1^2 - 4)\]</span></p></li>
+<li><p>Take the partial derivatives and set equal to 0:</p></li>
+</ol>
+<span class="math display">\[\begin{align*}
+\frac{\partial L}{\partial x_1} = -2x_1 - \lambda_1  &amp;= 0\\
+\frac{\partial L}{\partial x_2}  = -4x_2 - \lambda_1 &amp;=  0\\
+\frac{\partial L}{\partial \lambda_1} = -(x_1 + x_2 + s_1^2 - 4)&amp;= 0\\
+\frac{\partial L}{\partial s_1} = -2s_1\lambda_1 &amp;= 0\\
+\end{align*}\]</span>
+<ol start="4" style="list-style-type: decimal">
+<li>Consider all ways that the complementary slackness conditions are solved:
+</li>
+</ol>
+<p>This shows that there are two critical points: <span class="math inline">\((0,0)\)</span> and <span class="math inline">\((\frac{8}{3},\frac{4}{3})\)</span>.</p>
+<ol start="5" style="list-style-type: decimal">
+<li>Find maximum: Looking at the values of <span class="math inline">\(f(x_1,x_2)\)</span> at the critical points, we see that <span class="math inline">\(f(x_1,x_2)\)</span> is maximized at <span class="math inline">\(x_1^* = 0\)</span> and <span class="math inline">\(x_2^*=0\)</span>.</li>
+</ol>
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-62" class="exercise"><strong>Exercise 5.3  </strong></span>Example: Find the critical points for the following constrained optimization: <span class="math display">\[\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } 
+\begin{array}{l}
+x_1 + x_2 \le 4\\
+x_1 \ge 0\\
+x_2 \ge 0
+\end{array}\]</span>
+</div>
+
+<ol style="list-style-type: decimal">
+<li><p>Rewrite with the slack variables: <span class="math display">\[\phantom{max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } 
+\begin{array}{l}
+x_1 + x_2 \le 4 - s_1^2\\
+-x_1 \le 0 - s_2^2\\
+-x_2 \le 0 - s_3^2
+\end{array}}\]</span></p></li>
+<li>Write the Lagrangian: <span class="math display">\[\phantom{L(x_1, x_2, \lambda_1, \lambda_2, \lambda_3, s_1, s_2, s_3) =  -(x_1^2 + 2x_2^2) - \lambda_1(x_1 + x_2 + s_1^2  - 4) - \lambda_2(-x_1 + s_2^2) - \lambda_3(-x_2 + s_3^2)}\]</span></li>
+<li><p>Take the partial derivatives and set equal to zero:</p></li>
+</ol>
+
+<ol start="4" style="list-style-type: decimal">
+<li>Consider all ways that the complementary slackness conditions are solved:
+</li>
+</ol>
+
+<ol start="5" style="list-style-type: decimal">
+<li>Find maximum: </li>
+</ol>
+</div>
+<div id="kuhn-tucker-conditions" class="section level2">
+<h2><span class="header-section-number">5.7</span> Kuhn-Tucker Conditions</h2>
+<p>As you can see, this can be a pain. When dealing explicitly with <em>non-negativity constraints</em>, this process is simplified by using the Kuhn-Tucker method.</p>
+<p>Because the problem of maximizing a function subject to inequality and non-negativity constraints arises frequently in economics, the <strong>Kuhn-Tucker conditions</strong> provides a method that often makes it easier to both calculate the critical points and identify points that are (local) maxima.</p>
+<p>Given a <em>two-dimensional set-up</em>: <span class="math display">\[\max_{x_1,x_2}/\min_{x_1,x_2} f(x_1,x_2) \text{ s.t. }
+\begin{array}{l}
+c(x_1,x_2) \le a_1\\
+x_1 \ge 0 \\
+gx_2 \ge 0
+\end{array}\]</span></p>
+<p>We define the Lagrangian function <span class="math inline">\(L(x_1,x_2,\lambda_1)\)</span> the same as if we did not have the non-negativity constraints: <span class="math display">\[L(x_1,x_2,\lambda_2) = f(x_1,x_2) - \lambda_1(c(x_1,x_2) - a_1)\]</span></p>
+<p>More generally, in n dimensions: <span class="math display">\[ L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k) = f(x_1, \dots, x_n) - \sum_{i=1}^k\lambda_i(c_i(x_1,\dots, x_n) - a_i)\]</span></p>
+<p><strong>Kuhn-Tucker and Complementary Slackness Conditions</strong>: To find the critical points, we first calculate the Kuhn-Tucker conditions by taking the partial derivatives of the lagrangian function, <span class="math inline">\(L(x_1,\dots,x_n,\lambda_1,\dots,\lambda_k)\)</span>, with respect to each of its variables (all choice variable s<span class="math inline">\(x\)</span> and all lagrangian multipliers <span class="math inline">\(\lambda\)</span>) and we calculate the <em>complementary slackness conditions</em> by multiplying each partial derivative by its respective variable <em>and</em> include non-negativity conditions for all variables (choice variables <span class="math inline">\(x\)</span> and lagrangian multipliers <span class="math inline">\(\lambda\)</span>).</p>
+<p><strong>Kuhn-Tucker Conditions</strong></p>
+<span class="math display">\[\begin{align*}
+\frac{\partial L}{\partial x_1} \leq 0, &amp; \dots, \frac{\partial L}{\partial x_n} \leq 0\\
+\frac{\partial L}{\partial \lambda_1} \geq 0, &amp; \dots, \frac{\partial L}{\partial \lambda_m} \geq 0
+\end{align*}\]</span>
+<p><strong>Complementary Slackness Conditions</strong></p>
+<span class="math display">\[\begin{align*}
+x_1\frac{\partial L}{\partial x_1} = 0, &amp; \dots, x_n\frac{\partial L}{\partial x_n} = 0\\
+\lambda_1\frac{\partial L}{\partial \lambda_1} = 0, &amp; \dots, \lambda_m \frac{\partial L}{\partial \lambda_m} = 0
+\end{align*}\]</span>
+<strong>Non-negativity Conditions</strong>
+<span class="math display">\[\begin{eqnarray*}
+x_1 \geq 0 &amp; \dots &amp; x_n \geq 0\\
+\lambda_1 \geq 0 &amp; \dots &amp; \lambda_m \geq 0
+\end{eqnarray*}\]</span>
+<p>Note that some of these conditions are set equal to 0, while others are set as inequalities!</p>
+<p>Note also that to minimize the function <span class="math inline">\(f(x_1, \dots, x_n)\)</span>, the simplest thing to do is maximize the function <span class="math inline">\(-f(x_1, \dots, x_n)\)</span>; all of the conditions remain the same after reformulating as a maximization problem.</p>
+<p>There are additional assumptions (notably, f(x) is quasi-concave and the constraints are convex) that are sufficient to ensure that a point satisfying the Kuhn-Tucker conditions is a global max; if these assumptions do not hold, you may have to check more than one point.</p>
+<p><strong>Finding the Critical Points with Kuhn-Tucker Conditions</strong>: Given the above conditions, to find the critical points we solve the above system of equations. To do so, we must check  border and interior solutions to see if they satisfy the above conditions.</p>
+<p>In a two-dimensional set-up, this means we must check the following cases:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(x_1 = 0, x_2 = 0\)</span> Border Solution</li>
+<li><span class="math inline">\(x_1 = 0, x_2 \neq 0\)</span> Border Solution</li>
+<li><span class="math inline">\(x_1 \neq 0, x_2 = 0\)</span> Border Solution</li>
+<li><span class="math inline">\(x_1 \neq 0, x_2 \neq 0\)</span> Interior Solution</li>
+</ol>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-63" class="example"><strong>Example 5.5  (Kuhn-Tucker with two variables)  </strong></span>Solve the following optimization problem with inequality constraints <span class="math display">\[\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2)\]</span></p>
+<span class="math display">\[\begin{align*}
+\text{ s.t. } 
+\begin{cases}
+&amp;x_1 + x_2 *\le 4\\
+&amp;x_1 *\ge 0\\
+&amp;x_2 *\ge 0
+\end{cases}
+\end{align*}\]</span>
+</div>
+
+<ol style="list-style-type: decimal">
+<li><p>Write the Lagrangian: <span class="math display">\[L(x_1, x_2, \lambda) =  -(x_1^2 + 2x_2^2) - \lambda(x_1 + x_2 - 4)\]</span></p></li>
+<li><p>Find the First Order Conditions:</p></li>
+</ol>
+Kuhn-Tucker Conditions
+<span class="math display">\[\begin{align*}
+\frac{\partial L}{\partial x_1} = -2x_1 - \lambda  &amp;\leq 0\\
+\frac{\partial L}{\partial x_2}  = -4x_2 - \lambda &amp; \leq  0\\
+\frac{\partial L}{\partial \lambda} = -(x_1 + x_2 - 4)&amp; \geq 0
+\end{align*}\]</span>
+Complementary Slackness Conditions
+<span class="math display">\[\begin{align*}
+x_1\frac{\partial L}{\partial x_2} = x_1(-2x_1 - \lambda)  &amp;= 0\\
+x_2\frac{\partial L}{\partial x_2} = x_2(-4x_2 - \lambda)  &amp;= 0\\
+\lambda\frac{\partial L}{\partial \lambda} = -\lambda(x_1 + x_2 - 4)&amp;= 0
+\end{align*}\]</span>
+Non-negativity Conditions
+<span class="math display">\[\begin{align*}
+x_1 &amp; \geq  0\\
+x_2 &amp; \geq 0\\
+\lambda &amp; \geq 0
+\end{align*}\]</span>
+<ol start="3" style="list-style-type: decimal">
+<li>Consider all border and interior cases:
+</li>
+<li>Find Maximum: Three of the critical points violate the requirement that <span class="math inline">\(\lambda \geq 0\)</span>, so the point <span class="math inline">\((0,0,0)\)</span> is the maximum.</li>
+</ol>
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-64" class="exercise"><strong>Exercise 5.4  (Kuhn-Tucker with logs)  </strong></span>Solve the constrained optimization problem,</p>
+<span class="math display">\[\max_{x_1,x_2} f(x) = \frac{1}{3}\log (x_1 + 1) + \frac{2}{3}\log (x_2 + 1) \text{ s.t. }  
+\begin{array}{l}
+x_1 + 2x_2 \leq 4\\
+     x_1 \geq 0\\
+    x_2 \geq 0
+\end{array}\]</span>
+</div>
+
+
+</div>
+<div id="applications-of-quadratic-forms" class="section level2">
+<h2><span class="header-section-number">5.8</span> Applications of Quadratic Forms</h2>
+<p><strong>Curvature and The Taylor Polynomial as a Quadratic Form</strong>: The Hessian is used in a Taylor polynomial approximation to <span class="math inline">\(f(\mathbf{x})\)</span> and provides information about the curvature of <span class="math inline">\(f({\bf x})\)</span> at <span class="math inline">\(\mathbf{x}\)</span> — e.g., which tells us whether a critical point <span class="math inline">\(\mathbf{x}^*\)</span> is a min, max, or saddle point.</p>
+<ol style="list-style-type: decimal">
+<li>The second order Taylor polynomial about the critical point <span class="math inline">\({\bf x}^*\)</span> is <span class="math display">\[f({\bf x}^*+\bf h)=f({\bf x}^*)+\nabla f({\bf x}^*) \bf h +\frac{1}{2} \bf h^\top
+{\bf H(x^*)} \bf h + R(\bf h)\]</span></li>
+<li>Since we’re looking at a critical point, <span class="math inline">\(\nabla f({\bf x}^*)=0\)</span>; and for small <span class="math inline">\(\bf h\)</span>, <span class="math inline">\(R(\bf h)\)</span> is negligible. Rearranging, we get <span class="math display">\[f({\bf x}^*+\bf h)-f({\bf x}^*)\approx \frac{1}{2} \bf h^\top {\bf H(x^*)}
+\bf h \]</span></li>
+<li>The Righthand side here is a quadratic form and we can determine the definiteness of <span class="math inline">\(\bf H(x^*)\)</span>.</li>
+</ol>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Allan H. Meltzer and Scott F. Richard. <a href="https://www.jstor.org/stable/1830813">“A Rational Theory of the Size of Government”</a>. <em>Journal of Political Economy</em> 89:5 (1981), p. 914-927<a href="optim.html#fnref1">↩</a></p></li>
+<li id="fn2"><p>Adapted from Torsten Persson and Guido Tabellini, <em>Political Economics: Explaining Economic Policy</em>. MIT Press.<a href="optim.html#fnref2">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="derivatives.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="probability-theory.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/IQSS/prefresher/edit/master/06_optimization.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["prefresher.pdf", "prefresher.epub"],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

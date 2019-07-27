@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 1 Linear Algebra | Math Prefresher for Political Scientists</title>
+  <meta name="description" content="Text for Harvard Department of Government Math Prefresher" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 1 Linear Algebra | Math Prefresher for Political Scientists" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="./images/logo.png" />
+  <meta property="og:description" content="Text for Harvard Department of Government Math Prefresher" />
+  <meta name="github-repo" content="IQSS/prefresher" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 1 Linear Algebra | Math Prefresher for Political Scientists" />
+  
+  <meta name="twitter:description" content="Text for Harvard Department of Government Math Prefresher" />
+  <meta name="twitter:image" content="./images/logo.png" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="pre-prefresher-exercises.html">
+<link rel="next" href="functions-and-operations.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Gov Prefresher</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this Booklet</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#authors-and-contributors"><i class="fa fa-check"></i>Authors and Contributors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contributing"><i class="fa fa-check"></i>Contributing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html"><i class="fa fa-check"></i>Pre-Prefresher Exercises</a><ul>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html#linear-algebra"><i class="fa fa-check"></i>Linear Algebra</a><ul>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html#vectors"><i class="fa fa-check"></i>Vectors</a></li>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html#matrices"><i class="fa fa-check"></i>Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html#operations"><i class="fa fa-check"></i>Operations</a><ul>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html#summation"><i class="fa fa-check"></i>Summation</a></li>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html#products"><i class="fa fa-check"></i>Products</a></li>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html#logs-and-exponents"><i class="fa fa-check"></i>Logs and exponents</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html#limits"><i class="fa fa-check"></i>Limits</a></li>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html#calculus"><i class="fa fa-check"></i>Calculus</a></li>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html#optimization"><i class="fa fa-check"></i>Optimization</a></li>
+<li class="chapter" data-level="" data-path="pre-prefresher-exercises.html"><a href="pre-prefresher-exercises.html#probability"><i class="fa fa-check"></i>Probability</a></li>
+</ul></li>
+<li class="part"><span><b>I Math</b></span></li>
+<li class="chapter" data-level="1" data-path="linearalgebra.html"><a href="linearalgebra.html"><i class="fa fa-check"></i><b>1</b> Linear Algebra</a><ul>
+<li class="chapter" data-level="1.1" data-path="linearalgebra.html"><a href="linearalgebra.html#vector-def"><i class="fa fa-check"></i><b>1.1</b> Working with Vectors</a></li>
+<li class="chapter" data-level="1.2" data-path="linearalgebra.html"><a href="linearalgebra.html#linearindependence"><i class="fa fa-check"></i><b>1.2</b> Linear Independence</a></li>
+<li class="chapter" data-level="1.3" data-path="linearalgebra.html"><a href="linearalgebra.html#matrixbasics"><i class="fa fa-check"></i><b>1.3</b> Basics of Matrix Algebra</a></li>
+<li class="chapter" data-level="1.4" data-path="linearalgebra.html"><a href="linearalgebra.html#systems-of-linear-equations"><i class="fa fa-check"></i><b>1.4</b> Systems of Linear Equations</a></li>
+<li class="chapter" data-level="1.5" data-path="linearalgebra.html"><a href="linearalgebra.html#systems-of-equations-as-matrices"><i class="fa fa-check"></i><b>1.5</b> Systems of Equations as Matrices</a></li>
+<li class="chapter" data-level="1.6" data-path="linearalgebra.html"><a href="linearalgebra.html#finding-solutions-to-augmented-matrices-and-systems-of-equations"><i class="fa fa-check"></i><b>1.6</b> Finding Solutions to Augmented Matrices and Systems of Equations</a></li>
+<li class="chapter" data-level="1.7" data-path="linearalgebra.html"><a href="linearalgebra.html#rank-and-whether-a-system-has-one-infinite-or-no-solutions"><i class="fa fa-check"></i><b>1.7</b> Rank — and Whether a System Has One, Infinite, or No Solutions</a></li>
+<li class="chapter" data-level="1.8" data-path="linearalgebra.html"><a href="linearalgebra.html#the-inverse-of-a-matrix"><i class="fa fa-check"></i><b>1.8</b> The Inverse of a Matrix</a></li>
+<li class="chapter" data-level="1.9" data-path="linearalgebra.html"><a href="linearalgebra.html#linear-systems-and-inverses"><i class="fa fa-check"></i><b>1.9</b> Linear Systems and Inverses</a></li>
+<li class="chapter" data-level="1.10" data-path="linearalgebra.html"><a href="linearalgebra.html#determinants"><i class="fa fa-check"></i><b>1.10</b> Determinants</a></li>
+<li class="chapter" data-level="1.11" data-path="linearalgebra.html"><a href="linearalgebra.html#getting-inverse-of-a-matrix-using-its-determinant"><i class="fa fa-check"></i><b>1.11</b> Getting Inverse of a Matrix using its Determinant</a></li>
+<li class="chapter" data-level="" data-path="linearalgebra.html"><a href="linearalgebra.html#answers-to-examples-and-exercises"><i class="fa fa-check"></i>Answers to Examples and Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="functions-and-operations.html"><a href="functions-and-operations.html"><i class="fa fa-check"></i><b>2</b> Functions and Operations</a><ul>
+<li class="chapter" data-level="2.1" data-path="functions-and-operations.html"><a href="functions-and-operations.html#sum-notation"><i class="fa fa-check"></i><b>2.1</b> Summation Operators <span class="math inline">\(\sum\)</span> and <span class="math inline">\(\prod\)</span></a></li>
+<li class="chapter" data-level="2.2" data-path="functions-and-operations.html"><a href="functions-and-operations.html#introduction-to-functions"><i class="fa fa-check"></i><b>2.2</b> Introduction to Functions</a></li>
+<li class="chapter" data-level="2.3" data-path="functions-and-operations.html"><a href="functions-and-operations.html#logexponents"><i class="fa fa-check"></i><b>2.3</b> <span class="math inline">\(\log\)</span> and <span class="math inline">\(\exp\)</span></a></li>
+<li class="chapter" data-level="2.4" data-path="functions-and-operations.html"><a href="functions-and-operations.html#graphing-functions"><i class="fa fa-check"></i><b>2.4</b> Graphing Functions</a></li>
+<li class="chapter" data-level="2.5" data-path="functions-and-operations.html"><a href="functions-and-operations.html#solving-for-variables-and-finding-roots"><i class="fa fa-check"></i><b>2.5</b> Solving for Variables and Finding Roots</a></li>
+<li class="chapter" data-level="2.6" data-path="functions-and-operations.html"><a href="functions-and-operations.html#sets"><i class="fa fa-check"></i><b>2.6</b> Sets</a></li>
+<li class="chapter" data-level="" data-path="functions-and-operations.html"><a href="functions-and-operations.html#answers-to-examples-and-exercises-1"><i class="fa fa-check"></i>Answers to Examples and Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="limits-precalc.html"><a href="limits-precalc.html"><i class="fa fa-check"></i><b>3</b> Limits</a><ul>
+<li class="chapter" data-level="" data-path="limits-precalc.html"><a href="limits-precalc.html#example-the-central-limit-theorem"><i class="fa fa-check"></i>Example: The Central Limit Theorem</a></li>
+<li class="chapter" data-level="" data-path="limits-precalc.html"><a href="limits-precalc.html#example-the-law-of-large-numbers"><i class="fa fa-check"></i>Example: The Law of Large Numbers</a></li>
+<li class="chapter" data-level="3.1" data-path="limits-precalc.html"><a href="limits-precalc.html#sequences"><i class="fa fa-check"></i><b>3.1</b> Sequences</a></li>
+<li class="chapter" data-level="3.2" data-path="limits-precalc.html"><a href="limits-precalc.html#the-limit-of-a-sequence"><i class="fa fa-check"></i><b>3.2</b> The Limit of a Sequence</a></li>
+<li class="chapter" data-level="3.3" data-path="limits-precalc.html"><a href="limits-precalc.html#limitsfun"><i class="fa fa-check"></i><b>3.3</b> Limits of a Function</a></li>
+<li class="chapter" data-level="3.4" data-path="limits-precalc.html"><a href="limits-precalc.html#continuity"><i class="fa fa-check"></i><b>3.4</b> Continuity</a></li>
+<li class="chapter" data-level="" data-path="limits-precalc.html"><a href="limits-precalc.html#answers-to-examples"><i class="fa fa-check"></i>Answers to Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="derivatives.html"><a href="derivatives.html"><i class="fa fa-check"></i><b>4</b> Calculus</a><ul>
+<li class="chapter" data-level="" data-path="derivatives.html"><a href="derivatives.html#example-the-mean-is-a-type-of-integral"><i class="fa fa-check"></i>Example: The Mean is a Type of Integral</a></li>
+<li class="chapter" data-level="4.1" data-path="derivatives.html"><a href="derivatives.html#derivintro"><i class="fa fa-check"></i><b>4.1</b> Derivatives</a><ul>
+<li class="chapter" data-level="" data-path="derivatives.html"><a href="derivatives.html#properties-of-derivatives"><i class="fa fa-check"></i>Properties of derivatives</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="derivatives.html"><a href="derivatives.html#derivpoly"><i class="fa fa-check"></i><b>4.2</b> Higher-Order Derivatives (Derivatives of Derivatives of Derivatives)</a></li>
+<li class="chapter" data-level="4.3" data-path="derivatives.html"><a href="derivatives.html#composite-functions-and-the-chain-rule"><i class="fa fa-check"></i><b>4.3</b> Composite Functions and the Chain Rule</a></li>
+<li class="chapter" data-level="4.4" data-path="derivatives.html"><a href="derivatives.html#derivatives-of-natural-logs-and-the-exponent"><i class="fa fa-check"></i><b>4.4</b> Derivatives of natural logs and the exponent</a><ul>
+<li><a href="derivatives.html#derivatives-of-natural-exponential-function-e">Derivatives of natural exponential function (<span class="math inline">\(e\)</span>)</a></li>
+<li><a href="derivatives.html#derivatives-of-log">Derivatives of <span class="math inline">\(\log\)</span></a></li>
+<li class="chapter" data-level="" data-path="derivatives.html"><a href="derivatives.html#outline-of-proof"><i class="fa fa-check"></i>Outline of Proof</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="derivatives.html"><a href="derivatives.html#partial-derivatives"><i class="fa fa-check"></i><b>4.5</b> Partial Derivatives</a></li>
+<li class="chapter" data-level="4.6" data-path="derivatives.html"><a href="derivatives.html#taylorapprox"><i class="fa fa-check"></i><b>4.6</b> Taylor Series Approximation</a></li>
+<li class="chapter" data-level="4.7" data-path="derivatives.html"><a href="derivatives.html#the-indefinite-integration"><i class="fa fa-check"></i><b>4.7</b> The Indefinite Integration</a><ul>
+<li class="chapter" data-level="" data-path="derivatives.html"><a href="derivatives.html#common-rules-of-integration"><i class="fa fa-check"></i>Common Rules of Integration</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="derivatives.html"><a href="derivatives.html#the-definite-integral-the-area-under-the-curve"><i class="fa fa-check"></i><b>4.8</b> The Definite Integral: The Area under the Curve</a><ul>
+<li class="chapter" data-level="" data-path="derivatives.html"><a href="derivatives.html#common-rules-for-definite-integrals"><i class="fa fa-check"></i>Common Rules for Definite Integrals</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="derivatives.html"><a href="derivatives.html#integration-by-substitution"><i class="fa fa-check"></i><b>4.9</b> Integration by Substitution</a></li>
+<li class="chapter" data-level="4.10" data-path="derivatives.html"><a href="derivatives.html#integration-by-parts"><i class="fa fa-check"></i><b>4.10</b> Integration by Parts</a></li>
+<li class="chapter" data-level="" data-path="derivatives.html"><a href="derivatives.html#answers-to-examples-and-exercises-2"><i class="fa fa-check"></i>Answers to Examples and Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="optim.html"><a href="optim.html"><i class="fa fa-check"></i><b>5</b> Optimization</a><ul>
+<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#example-meltzer-richard"><i class="fa fa-check"></i>Example: Meltzer-Richard</a></li>
+<li class="chapter" data-level="5.1" data-path="optim.html"><a href="optim.html#maxima-and-minima"><i class="fa fa-check"></i><b>5.1</b> Maxima and Minima</a></li>
+<li class="chapter" data-level="5.2" data-path="optim.html"><a href="optim.html#concavity-of-a-function"><i class="fa fa-check"></i><b>5.2</b> Concavity of a Function</a><ul>
+<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#quadratic-forms"><i class="fa fa-check"></i>Quadratic Forms</a></li>
+<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#definiteness-of-quadratic-forms"><i class="fa fa-check"></i>Definiteness of Quadratic Forms</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="optim.html"><a href="optim.html#foc-and-soc"><i class="fa fa-check"></i><b>5.3</b> FOC and SOC</a><ul>
+<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#first-order-conditions"><i class="fa fa-check"></i>First Order Conditions</a></li>
+<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#second-order-conditions"><i class="fa fa-check"></i>Second Order Conditions</a></li>
+<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#definiteness-and-concavity"><i class="fa fa-check"></i>Definiteness and Concavity</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="optim.html"><a href="optim.html#global-maxima-and-minima"><i class="fa fa-check"></i><b>5.4</b> Global Maxima and Minima</a></li>
+<li class="chapter" data-level="5.5" data-path="optim.html"><a href="optim.html#constrained-optimization"><i class="fa fa-check"></i><b>5.5</b> Constrained Optimization</a><ul>
+<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#equality-constraints"><i class="fa fa-check"></i>Equality Constraints</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="optim.html"><a href="optim.html#inequality-constraints"><i class="fa fa-check"></i><b>5.6</b> Inequality Constraints</a></li>
+<li class="chapter" data-level="5.7" data-path="optim.html"><a href="optim.html#kuhn-tucker-conditions"><i class="fa fa-check"></i><b>5.7</b> Kuhn-Tucker Conditions</a></li>
+<li class="chapter" data-level="5.8" data-path="optim.html"><a href="optim.html#applications-of-quadratic-forms"><i class="fa fa-check"></i><b>5.8</b> Applications of Quadratic Forms</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="probability-theory.html"><a href="probability-theory.html"><i class="fa fa-check"></i><b>6</b> Probability Theory</a><ul>
+<li class="chapter" data-level="6.1" data-path="probability-theory.html"><a href="probability-theory.html#counting-rules"><i class="fa fa-check"></i><b>6.1</b> Counting rules</a></li>
+<li class="chapter" data-level="6.2" data-path="probability-theory.html"><a href="probability-theory.html#setoper"><i class="fa fa-check"></i><b>6.2</b> Sets</a></li>
+<li class="chapter" data-level="6.3" data-path="probability-theory.html"><a href="probability-theory.html#probdef"><i class="fa fa-check"></i><b>6.3</b> Probability</a><ul>
+<li class="chapter" data-level="" data-path="probability-theory.html"><a href="probability-theory.html#probability-definitions-formal-and-informal"><i class="fa fa-check"></i>Probability Definitions: Formal and Informal</a></li>
+<li class="chapter" data-level="" data-path="probability-theory.html"><a href="probability-theory.html#probability-operations"><i class="fa fa-check"></i>Probability Operations</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="probability-theory.html"><a href="probability-theory.html#conditional-probability-and-bayes-rule"><i class="fa fa-check"></i><b>6.4</b> Conditional Probability and Bayes Rule</a></li>
+<li class="chapter" data-level="6.5" data-path="probability-theory.html"><a href="probability-theory.html#independence"><i class="fa fa-check"></i><b>6.5</b> Independence</a></li>
+<li class="chapter" data-level="6.6" data-path="probability-theory.html"><a href="probability-theory.html#random-variables"><i class="fa fa-check"></i><b>6.6</b> Random Variables</a></li>
+<li class="chapter" data-level="6.7" data-path="probability-theory.html"><a href="probability-theory.html#distributions"><i class="fa fa-check"></i><b>6.7</b> Distributions</a><ul>
+<li class="chapter" data-level="" data-path="probability-theory.html"><a href="probability-theory.html#discrete-random-variables"><i class="fa fa-check"></i>Discrete Random Variables</a></li>
+<li class="chapter" data-level="" data-path="probability-theory.html"><a href="probability-theory.html#continuous-random-variables"><i class="fa fa-check"></i>Continuous Random Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="probability-theory.html"><a href="probability-theory.html#joint-distributions"><i class="fa fa-check"></i><b>6.8</b> Joint Distributions</a></li>
+<li class="chapter" data-level="6.9" data-path="probability-theory.html"><a href="probability-theory.html#expectation"><i class="fa fa-check"></i><b>6.9</b> Expectation</a><ul>
+<li class="chapter" data-level="" data-path="probability-theory.html"><a href="probability-theory.html#expected-value-of-a-function"><i class="fa fa-check"></i>Expected Value of a Function</a></li>
+<li class="chapter" data-level="" data-path="probability-theory.html"><a href="probability-theory.html#properties-of-expected-values"><i class="fa fa-check"></i>Properties of Expected Values</a></li>
+</ul></li>
+<li class="chapter" data-level="6.10" data-path="probability-theory.html"><a href="probability-theory.html#variance-and-covariance"><i class="fa fa-check"></i><b>6.10</b> Variance and Covariance</a></li>
+<li class="chapter" data-level="6.11" data-path="probability-theory.html"><a href="probability-theory.html#special-distributions"><i class="fa fa-check"></i><b>6.11</b> Special Distributions</a></li>
+<li class="chapter" data-level="6.12" data-path="probability-theory.html"><a href="probability-theory.html#summarizing-observed-events-data"><i class="fa fa-check"></i><b>6.12</b> Summarizing Observed Events (Data)</a></li>
+<li class="chapter" data-level="6.13" data-path="probability-theory.html"><a href="probability-theory.html#asymptotic-theory"><i class="fa fa-check"></i><b>6.13</b> Asymptotic Theory</a><ul>
+<li class="chapter" data-level="6.13.1" data-path="probability-theory.html"><a href="probability-theory.html#clt-and-lln"><i class="fa fa-check"></i><b>6.13.1</b> CLT and LLN</a></li>
+<li class="chapter" data-level="6.13.2" data-path="probability-theory.html"><a href="probability-theory.html#big-mathcalo-notation"><i class="fa fa-check"></i><b>6.13.2</b> Big <span class="math inline">\(\mathcal{O}\)</span> Notation</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="probability-theory.html"><a href="probability-theory.html#answers-to-examples-and-exercises-3"><i class="fa fa-check"></i>Answers to Examples and Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>II Programming</b></span></li>
+<li class="chapter" data-level="7" data-path="dataimport.html"><a href="dataimport.html"><i class="fa fa-check"></i><b>7</b> Orientation and Reading in Data</a><ul>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#where-are-we-where-are-we-headed"><i class="fa fa-check"></i>Where are we? Where are we headed?</a></li>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#check-your-understanding"><i class="fa fa-check"></i>Check your understanding</a></li>
+<li class="chapter" data-level="7.1" data-path="dataimport.html"><a href="dataimport.html#motivation-data-and-you"><i class="fa fa-check"></i><b>7.1</b> Motivation: Data and You</a></li>
+<li class="chapter" data-level="7.2" data-path="dataimport.html"><a href="dataimport.html#orienting"><i class="fa fa-check"></i><b>7.2</b> Orienting</a></li>
+<li class="chapter" data-level="7.3" data-path="dataimport.html"><a href="dataimport.html#the-computer-and-you-giving-instructions"><i class="fa fa-check"></i><b>7.3</b> The Computer and You: Giving Instructions</a></li>
+<li class="chapter" data-level="7.4" data-path="dataimport.html"><a href="dataimport.html#base-r-vs.tidyverse"><i class="fa fa-check"></i><b>7.4</b> Base-R vs. tidyverse</a><ul>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#dataframe-subsetting"><i class="fa fa-check"></i>Dataframe subsetting</a></li>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#read-data"><i class="fa fa-check"></i>Read data</a></li>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#visualization"><i class="fa fa-check"></i>Visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="dataimport.html"><a href="dataimport.html#a-is-for-athens"><i class="fa fa-check"></i><b>7.5</b> A is for Athens</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="dataimport.html"><a href="dataimport.html#locating-the-data"><i class="fa fa-check"></i><b>7.5.1</b> Locating the Data</a></li>
+<li class="chapter" data-level="7.5.2" data-path="dataimport.html"><a href="dataimport.html#reading-in-data"><i class="fa fa-check"></i><b>7.5.2</b> Reading in Data</a></li>
+<li class="chapter" data-level="7.5.3" data-path="dataimport.html"><a href="dataimport.html#inspecting"><i class="fa fa-check"></i><b>7.5.3</b> Inspecting</a></li>
+<li class="chapter" data-level="7.5.4" data-path="dataimport.html"><a href="dataimport.html#finding-observations"><i class="fa fa-check"></i><b>7.5.4</b> Finding observations</a></li>
+<li class="chapter" data-level="7.5.5" data-path="dataimport.html"><a href="dataimport.html#extra-a-sneak-peak-at-obers-data"><i class="fa fa-check"></i><b>7.5.5</b> Extra: A sneak peak at Ober’s data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#exercises"><i class="fa fa-check"></i>Exercises</a><ul>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#section"><i class="fa fa-check"></i>1</a></li>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#section-1"><i class="fa fa-check"></i>2</a></li>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#section-2"><i class="fa fa-check"></i>3</a></li>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#section-3"><i class="fa fa-check"></i>4</a></li>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#section-4"><i class="fa fa-check"></i>5</a></li>
+<li class="chapter" data-level="" data-path="dataimport.html"><a href="dataimport.html#section-5"><i class="fa fa-check"></i>6</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="rmatrices.html"><a href="rmatrices.html"><i class="fa fa-check"></i><b>8</b> Manipulating Vectors and Matrices</a><ul>
+<li class="chapter" data-level="" data-path="rmatrices.html"><a href="rmatrices.html#where-are-we-where-are-we-headed-1"><i class="fa fa-check"></i>Where are we? Where are we headed?</a></li>
+<li class="chapter" data-level="8.1" data-path="rmatrices.html"><a href="rmatrices.html#basics---matrices"><i class="fa fa-check"></i><b>8.1</b> Basics - Matrices</a></li>
+<li class="chapter" data-level="" data-path="rmatrices.html"><a href="rmatrices.html#checkpoint"><i class="fa fa-check"></i>Checkpoint</a><ul>
+<li class="chapter" data-level="" data-path="rmatrices.html"><a href="rmatrices.html#section-6"><i class="fa fa-check"></i>1</a></li>
+<li class="chapter" data-level="" data-path="rmatrices.html"><a href="rmatrices.html#section-7"><i class="fa fa-check"></i>2</a></li>
+<li class="chapter" data-level="" data-path="rmatrices.html"><a href="rmatrices.html#section-8"><i class="fa fa-check"></i>3</a></li>
+<li class="chapter" data-level="8.1.1" data-path="rmatrices.html"><a href="rmatrices.html#data-frames"><i class="fa fa-check"></i><b>8.1.1</b> data frames</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="rmatrices.html"><a href="rmatrices.html#motivation"><i class="fa fa-check"></i><b>8.2</b> Motivation</a></li>
+<li class="chapter" data-level="8.3" data-path="rmatrices.html"><a href="rmatrices.html#read-data-1"><i class="fa fa-check"></i><b>8.3</b> Read Data</a></li>
+<li class="chapter" data-level="8.4" data-path="rmatrices.html"><a href="rmatrices.html#data.frame-vs.matricies"><i class="fa fa-check"></i><b>8.4</b> data.frame vs. matricies</a></li>
+<li class="chapter" data-level="8.5" data-path="rmatrices.html"><a href="rmatrices.html#speed-considerations"><i class="fa fa-check"></i><b>8.5</b> Speed considerations</a></li>
+<li class="chapter" data-level="8.6" data-path="rmatrices.html"><a href="rmatrices.html#handling-matricies-in-r"><i class="fa fa-check"></i><b>8.6</b> Handling matricies in <code>R</code></a></li>
+<li class="chapter" data-level="8.7" data-path="rmatrices.html"><a href="rmatrices.html#variable-transformations"><i class="fa fa-check"></i><b>8.7</b> Variable Transformations</a></li>
+<li class="chapter" data-level="8.8" data-path="rmatrices.html"><a href="rmatrices.html#linear-combinations"><i class="fa fa-check"></i><b>8.8</b> Linear Combinations</a></li>
+<li class="chapter" data-level="" data-path="rmatrices.html"><a href="rmatrices.html#exercises-1"><i class="fa fa-check"></i>Exercises</a><ul>
+<li class="chapter" data-level="" data-path="rmatrices.html"><a href="rmatrices.html#section-9"><i class="fa fa-check"></i>1</a></li>
+<li class="chapter" data-level="" data-path="rmatrices.html"><a href="rmatrices.html#section-10"><i class="fa fa-check"></i>2</a></li>
+<li class="chapter" data-level="" data-path="rmatrices.html"><a href="rmatrices.html#section-11"><i class="fa fa-check"></i>3</a></li>
+<li class="chapter" data-level="" data-path="rmatrices.html"><a href="rmatrices.html#section-12"><i class="fa fa-check"></i>4</a></li>
+<li class="chapter" data-level="" data-path="rmatrices.html"><a href="rmatrices.html#section-13"><i class="fa fa-check"></i>5</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="dataviz.html"><a href="dataviz.html"><i class="fa fa-check"></i><b>9</b> Visualization</a><ul>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#where-are-we-where-are-we-headed-2"><i class="fa fa-check"></i>Where are we? Where are we headed?</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#check-your-understanding-1"><i class="fa fa-check"></i>Check your understanding</a></li>
+<li class="chapter" data-level="9.1" data-path="dataviz.html"><a href="dataviz.html#motivation-the-law-of-the-census"><i class="fa fa-check"></i><b>9.1</b> Motivation: The Law of the Census</a></li>
+<li class="chapter" data-level="9.2" data-path="dataviz.html"><a href="dataviz.html#read-data-2"><i class="fa fa-check"></i><b>9.2</b> Read data</a></li>
+<li class="chapter" data-level="9.3" data-path="dataviz.html"><a href="dataviz.html#counting"><i class="fa fa-check"></i><b>9.3</b> Counting</a></li>
+<li class="chapter" data-level="9.4" data-path="dataviz.html"><a href="dataviz.html#tabulating"><i class="fa fa-check"></i><b>9.4</b> Tabulating</a></li>
+<li class="chapter" data-level="9.5" data-path="dataviz.html"><a href="dataviz.html#base-r-graphics-and-ggplot"><i class="fa fa-check"></i><b>9.5</b> base R graphics and ggplot</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="dataviz.html"><a href="dataviz.html#base-r"><i class="fa fa-check"></i><b>9.5.1</b> base R</a></li>
+<li class="chapter" data-level="9.5.2" data-path="dataviz.html"><a href="dataviz.html#ggplot"><i class="fa fa-check"></i><b>9.5.2</b> ggplot</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="dataviz.html"><a href="dataviz.html#improving-your-graphics"><i class="fa fa-check"></i><b>9.6</b> Improving your graphics</a></li>
+<li class="chapter" data-level="9.7" data-path="dataviz.html"><a href="dataviz.html#cross-tabs"><i class="fa fa-check"></i><b>9.7</b> Cross-tabs</a></li>
+<li class="chapter" data-level="9.8" data-path="dataviz.html"><a href="dataviz.html#composition-plots"><i class="fa fa-check"></i><b>9.8</b> Composition Plots</a></li>
+<li class="chapter" data-level="9.9" data-path="dataviz.html"><a href="dataviz.html#line-graphs"><i class="fa fa-check"></i><b>9.9</b> Line graphs</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#exercises-2"><i class="fa fa-check"></i>Exercises</a><ul>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#rural-states"><i class="fa fa-check"></i>1: Rural states</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#the-swing-justice"><i class="fa fa-check"></i>2: The swing justice</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#dont-sort-by-the-alphabet"><i class="fa fa-check"></i>3: Don’t sort by the alphabet</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#what-to-show-and-how-to-show-it"><i class="fa fa-check"></i>4 What to show and how to show it</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="robjloops.html"><a href="robjloops.html"><i class="fa fa-check"></i><b>10</b> Objects, Functions, Loops</a><ul>
+<li class="chapter" data-level="" data-path="robjloops.html"><a href="robjloops.html#where-are-we-where-are-we-headed-3"><i class="fa fa-check"></i>Where are we? Where are we headed?</a></li>
+<li class="chapter" data-level="10.1" data-path="robjloops.html"><a href="robjloops.html#what-is-an-object"><i class="fa fa-check"></i><b>10.1</b> What is an object?</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="robjloops.html"><a href="robjloops.html#lists"><i class="fa fa-check"></i><b>10.1.1</b> lists</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="robjloops.html"><a href="robjloops.html#making-your-own-objects"><i class="fa fa-check"></i><b>10.2</b> Making your own objects</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="robjloops.html"><a href="robjloops.html#seeing-r-through-objects"><i class="fa fa-check"></i><b>10.2.1</b> Seeing R through objects</a></li>
+<li class="chapter" data-level="10.2.2" data-path="robjloops.html"><a href="robjloops.html#parsing-an-object-by-strs"><i class="fa fa-check"></i><b>10.2.2</b> Parsing an object by <code>str()s</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="robjloops.html"><a href="robjloops.html#types-of-variables"><i class="fa fa-check"></i><b>10.3</b> Types of variables</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="robjloops.html"><a href="robjloops.html#scalars"><i class="fa fa-check"></i><b>10.3.1</b> scalars</a></li>
+<li class="chapter" data-level="10.3.2" data-path="robjloops.html"><a href="robjloops.html#numeric-vectors"><i class="fa fa-check"></i><b>10.3.2</b> numeric vectors</a></li>
+<li class="chapter" data-level="10.3.3" data-path="robjloops.html"><a href="robjloops.html#characters-aka-strings"><i class="fa fa-check"></i><b>10.3.3</b> characters (aka strings)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="robjloops.html"><a href="robjloops.html#what-is-a-function"><i class="fa fa-check"></i><b>10.4</b> What is a function?</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="robjloops.html"><a href="robjloops.html#write-your-own-function"><i class="fa fa-check"></i><b>10.4.1</b> Write your own function</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="robjloops.html"><a href="robjloops.html#checkpoint-1"><i class="fa fa-check"></i>Checkpoint</a><ul>
+<li class="chapter" data-level="" data-path="robjloops.html"><a href="robjloops.html#section-14"><i class="fa fa-check"></i>1</a></li>
+<li class="chapter" data-level="" data-path="robjloops.html"><a href="robjloops.html#section-15"><i class="fa fa-check"></i>2</a></li>
+<li class="chapter" data-level="" data-path="robjloops.html"><a href="robjloops.html#section-16"><i class="fa fa-check"></i>3</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="robjloops.html"><a href="robjloops.html#what-is-a-package"><i class="fa fa-check"></i><b>10.5</b> What is a package?</a></li>
+<li class="chapter" data-level="10.6" data-path="robjloops.html"><a href="robjloops.html#conditionals"><i class="fa fa-check"></i><b>10.6</b> Conditionals</a></li>
+<li class="chapter" data-level="10.7" data-path="robjloops.html"><a href="robjloops.html#for-loops"><i class="fa fa-check"></i><b>10.7</b> For-loops</a></li>
+<li class="chapter" data-level="10.8" data-path="robjloops.html"><a href="robjloops.html#nested-loops"><i class="fa fa-check"></i><b>10.8</b> Nested Loops</a></li>
+<li class="chapter" data-level="" data-path="robjloops.html"><a href="robjloops.html#exercises-3"><i class="fa fa-check"></i>Exercises</a><ul>
+<li class="chapter" data-level="" data-path="robjloops.html"><a href="robjloops.html#exercise-1-counting-cvap"><i class="fa fa-check"></i>Exercise 1: Counting CVAP</a></li>
+<li class="chapter" data-level="" data-path="robjloops.html"><a href="robjloops.html#exercise-2-write-your-own-function"><i class="fa fa-check"></i>Exercise 2: Write your own function</a></li>
+<li class="chapter" data-level="" data-path="robjloops.html"><a href="robjloops.html#exercise-3-using-loops"><i class="fa fa-check"></i>Exercise 3: Using Loops</a></li>
+<li class="chapter" data-level="" data-path="robjloops.html"><a href="robjloops.html#exercise-4-storing-information-derived-within-loops-in-a-global-dataframe"><i class="fa fa-check"></i>Exercise 4: Storing information derived within loops in a global dataframe</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="dempeace.html"><a href="dempeace.html"><i class="fa fa-check"></i><b>11</b> Joins and Merges, Wide and Long</a><ul>
+<li class="chapter" data-level="" data-path="dempeace.html"><a href="dempeace.html#where-are-we-where-are-we-headed-4"><i class="fa fa-check"></i>Where are we? Where are we headed?</a></li>
+<li class="chapter" data-level="11.1" data-path="dempeace.html"><a href="dempeace.html#motivation-1"><i class="fa fa-check"></i><b>11.1</b> Motivation</a></li>
+<li class="chapter" data-level="11.2" data-path="dempeace.html"><a href="dempeace.html#setting-up"><i class="fa fa-check"></i><b>11.2</b> Setting up</a></li>
+<li class="chapter" data-level="11.3" data-path="dempeace.html"><a href="dempeace.html#create-a-project-directory"><i class="fa fa-check"></i><b>11.3</b> Create a project directory</a></li>
+<li class="chapter" data-level="11.4" data-path="dempeace.html"><a href="dempeace.html#data-sources"><i class="fa fa-check"></i><b>11.4</b> Data Sources</a></li>
+<li class="chapter" data-level="11.5" data-path="dempeace.html"><a href="dempeace.html#example-with-2-datasets"><i class="fa fa-check"></i><b>11.5</b> Example with 2 Datasets</a></li>
+<li class="chapter" data-level="11.6" data-path="dempeace.html"><a href="dempeace.html#loops"><i class="fa fa-check"></i><b>11.6</b> Loops</a></li>
+<li class="chapter" data-level="11.7" data-path="dempeace.html"><a href="dempeace.html#merging"><i class="fa fa-check"></i><b>11.7</b> Merging</a></li>
+<li class="chapter" data-level="11.8" data-path="dempeace.html"><a href="dempeace.html#main-project"><i class="fa fa-check"></i><b>11.8</b> Main Project</a><ul>
+<li class="chapter" data-level="" data-path="dempeace.html"><a href="dempeace.html#task-1-data-input-and-standardization"><i class="fa fa-check"></i>Task 1: Data Input and Standardization</a></li>
+<li class="chapter" data-level="" data-path="dempeace.html"><a href="dempeace.html#task-2-data-merging"><i class="fa fa-check"></i>Task 2: Data Merging</a></li>
+<li class="chapter" data-level="" data-path="dempeace.html"><a href="dempeace.html#task-3-tabulations-and-visualization"><i class="fa fa-check"></i>Task 3: Tabulations and Visualization</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>12</b> Simulation</a><ul>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#where-are-we-where-are-we-headed-5"><i class="fa fa-check"></i>Where are we? Where are we headed?</a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#check-your-understanding-2"><i class="fa fa-check"></i>Check your Understanding</a></li>
+<li class="chapter" data-level="12.1" data-path="simulation.html"><a href="simulation.html#motivation-simulation-as-an-analytical-tool"><i class="fa fa-check"></i><b>12.1</b> Motivation: Simulation as an Analytical Tool</a></li>
+<li class="chapter" data-level="12.2" data-path="simulation.html"><a href="simulation.html#pick-a-sample-any-sample"><i class="fa fa-check"></i><b>12.2</b> Pick a sample, any sample</a></li>
+<li class="chapter" data-level="12.3" data-path="simulation.html"><a href="simulation.html#the-sample-function"><i class="fa fa-check"></i><b>12.3</b> The <code>sample()</code> function</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="simulation.html"><a href="simulation.html#sampling-rows-from-a-dataframe"><i class="fa fa-check"></i><b>12.3.1</b> Sampling rows from a dataframe</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="simulation.html"><a href="simulation.html#random-numbers-from-specific-distributions"><i class="fa fa-check"></i><b>12.4</b> Random numbers from specific distributions</a><ul>
+<li><a href="simulation.html#rbinom"><code>rbinom()</code></a></li>
+<li><a href="simulation.html#runif"><code>runif()</code></a></li>
+<li><a href="simulation.html#rnorm"><code>rnorm()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="simulation.html"><a href="simulation.html#r-p-and-d"><i class="fa fa-check"></i><b>12.5</b> r, p, and d</a></li>
+<li class="chapter" data-level="12.6" data-path="simulation.html"><a href="simulation.html#set.seed"><i class="fa fa-check"></i><b>12.6</b> <code>set.seed()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#exercises-4"><i class="fa fa-check"></i>Exercises</a><ul>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#census-sampling"><i class="fa fa-check"></i>Census Sampling</a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#conditional-proportions"><i class="fa fa-check"></i>Conditional Proportions</a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#the-birthday-problem"><i class="fa fa-check"></i>The Birthday problem</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html"><i class="fa fa-check"></i><b>13</b> LaTeX and markdown</a><ul>
+<li class="chapter" data-level="" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#where-are-we-where-are-we-headed-6"><i class="fa fa-check"></i>Where are we? Where are we headed?</a></li>
+<li class="chapter" data-level="" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#check-your-understanding-3"><i class="fa fa-check"></i>Check your understanding</a></li>
+<li class="chapter" data-level="13.1" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#motivation-2"><i class="fa fa-check"></i><b>13.1</b> Motivation</a></li>
+<li class="chapter" data-level="13.2" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#markdown"><i class="fa fa-check"></i><b>13.2</b> Markdown</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#markdown-commands"><i class="fa fa-check"></i><b>13.2.1</b> markdown commands</a></li>
+<li class="chapter" data-level="13.2.2" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#your-own-markdown"><i class="fa fa-check"></i><b>13.2.2</b> your own markdown</a></li>
+<li class="chapter" data-level="13.2.3" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#a-note-on-plain-text-editors"><i class="fa fa-check"></i><b>13.2.3</b> A note on plain-text editors</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#latex"><i class="fa fa-check"></i><b>13.3</b> LaTeX</a><ul>
+<li class="chapter" data-level="13.3.1" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#compile-online"><i class="fa fa-check"></i><b>13.3.1</b> compile online</a></li>
+<li class="chapter" data-level="13.3.2" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#compile-your-first-latex-document-locally"><i class="fa fa-check"></i><b>13.3.2</b> compile your first LaTeX document locally</a></li>
+<li class="chapter" data-level="13.3.3" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#main-latex-commands"><i class="fa fa-check"></i><b>13.3.3</b> main LaTeX commands</a></li>
+<li class="chapter" data-level="" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#further-guides"><i class="fa fa-check"></i>Further Guides</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#bibtex"><i class="fa fa-check"></i><b>13.4</b> BibTeX</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#what-is-a-.bib-file"><i class="fa fa-check"></i><b>13.4.1</b> what is a <code>.bib</code> file?</a></li>
+<li class="chapter" data-level="13.4.2" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#what-does-latex-do-with-.bib-files"><i class="fa fa-check"></i><b>13.4.2</b> what does LaTeX do with .bib files?</a></li>
+<li class="chapter" data-level="13.4.3" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#stocking-up-on-your-.bib-files"><i class="fa fa-check"></i><b>13.4.3</b> stocking up on your .bib files</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#exercise"><i class="fa fa-check"></i>Exercise</a></li>
+<li class="chapter" data-level="" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#concluding-the-prefresher"><i class="fa fa-check"></i>Concluding the Prefresher</a><ul>
+<li class="chapter" data-level="" data-path="nonwysiwyg.html"><a href="nonwysiwyg.html#your-feedback-matters"><i class="fa fa-check"></i>Your Feedback Matters</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="rtext.html"><a href="rtext.html"><i class="fa fa-check"></i><b>14</b> Text</a><ul>
+<li class="chapter" data-level="" data-path="rtext.html"><a href="rtext.html#where-are-we-where-are-we-headed-7"><i class="fa fa-check"></i>Where are we? Where are we headed?</a></li>
+<li class="chapter" data-level="14.1" data-path="rtext.html"><a href="rtext.html#review"><i class="fa fa-check"></i><b>14.1</b> Review</a></li>
+<li class="chapter" data-level="14.2" data-path="rtext.html"><a href="rtext.html#goals-for-today"><i class="fa fa-check"></i><b>14.2</b> Goals for today</a></li>
+<li class="chapter" data-level="14.3" data-path="rtext.html"><a href="rtext.html#reading-and-writing-text-in-r"><i class="fa fa-check"></i><b>14.3</b> Reading and writing text in R</a></li>
+<li class="chapter" data-level="14.4" data-path="rtext.html"><a href="rtext.html#paste-and-sprintf"><i class="fa fa-check"></i><b>14.4</b> <code>paste()</code> and <code>sprintf()</code></a></li>
+<li class="chapter" data-level="14.5" data-path="rtext.html"><a href="rtext.html#regular-expressions"><i class="fa fa-check"></i><b>14.5</b> Regular expressions</a><ul>
+<li class="chapter" data-level="14.5.1" data-path="rtext.html"><a href="rtext.html#character-classes"><i class="fa fa-check"></i><b>14.5.1</b> Character classes</a></li>
+<li class="chapter" data-level="14.5.2" data-path="rtext.html"><a href="rtext.html#special-characters."><i class="fa fa-check"></i><b>14.5.2</b> Special Characters.</a></li>
+<li class="chapter" data-level="14.5.3" data-path="rtext.html"><a href="rtext.html#conditional-patterns"><i class="fa fa-check"></i><b>14.5.3</b> Conditional patterns</a></li>
+</ul></li>
+<li class="chapter" data-level="14.6" data-path="rtext.html"><a href="rtext.html#representing-text"><i class="fa fa-check"></i><b>14.6</b> Representing Text</a></li>
+<li class="chapter" data-level="14.7" data-path="rtext.html"><a href="rtext.html#important-packages-for-parsing-text"><i class="fa fa-check"></i><b>14.7</b> Important packages for parsing text</a></li>
+<li class="chapter" data-level="" data-path="rtext.html"><a href="rtext.html#exercises-5"><i class="fa fa-check"></i>Exercises</a><ul>
+<li class="chapter" data-level="" data-path="rtext.html"><a href="rtext.html#section-17"><i class="fa fa-check"></i>1</a></li>
+<li class="chapter" data-level="" data-path="rtext.html"><a href="rtext.html#section-18"><i class="fa fa-check"></i>2</a></li>
+<li class="chapter" data-level="" data-path="rtext.html"><a href="rtext.html#section-19"><i class="fa fa-check"></i>3</a></li>
+<li class="chapter" data-level="" data-path="rtext.html"><a href="rtext.html#section-20"><i class="fa fa-check"></i>4</a></li>
+<li class="chapter" data-level="" data-path="rtext.html"><a href="rtext.html#section-21"><i class="fa fa-check"></i>5</a></li>
+<li class="chapter" data-level="" data-path="rtext.html"><a href="rtext.html#section-22"><i class="fa fa-check"></i>6</a></li>
+<li class="chapter" data-level="" data-path="rtext.html"><a href="rtext.html#section-23"><i class="fa fa-check"></i>7</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="commandline-git.html"><a href="commandline-git.html"><i class="fa fa-check"></i><b>15</b> Command-line, git</a><ul>
+<li class="chapter" data-level="15.1" data-path="commandline-git.html"><a href="commandline-git.html#where-are-we-where-are-we-headed-8"><i class="fa fa-check"></i><b>15.1</b> Where are we? Where are we headed?</a></li>
+<li class="chapter" data-level="15.2" data-path="commandline-git.html"><a href="commandline-git.html#check-your-understanding-4"><i class="fa fa-check"></i><b>15.2</b> Check your understanding</a></li>
+<li class="chapter" data-level="15.3" data-path="commandline-git.html"><a href="commandline-git.html#command-line"><i class="fa fa-check"></i><b>15.3</b> command-line</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="commandline-git.html"><a href="commandline-git.html#command-line-commands"><i class="fa fa-check"></i><b>15.3.1</b> command-line commands</a></li>
+<li class="chapter" data-level="15.3.2" data-path="commandline-git.html"><a href="commandline-git.html#running-things-via-command-line"><i class="fa fa-check"></i><b>15.3.2</b> running things via command-line</a></li>
+<li class="chapter" data-level="15.3.3" data-path="commandline-git.html"><a href="commandline-git.html#why-do-command-line"><i class="fa fa-check"></i><b>15.3.3</b> why do command-line?</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="commandline-git.html"><a href="commandline-git.html#git"><i class="fa fa-check"></i><b>15.4</b> git</a><ul>
+<li class="chapter" data-level="15.4.1" data-path="commandline-git.html"><a href="commandline-git.html#why-version-control"><i class="fa fa-check"></i><b>15.4.1</b> why version control?</a></li>
+<li class="chapter" data-level="15.4.2" data-path="commandline-git.html"><a href="commandline-git.html#open-source-code-at-your-fingertips"><i class="fa fa-check"></i><b>15.4.2</b> open-source code at your fingertips</a></li>
+<li class="chapter" data-level="15.4.3" data-path="commandline-git.html"><a href="commandline-git.html#commands-in-git"><i class="fa fa-check"></i><b>15.4.3</b> commands in git</a></li>
+<li class="chapter" data-level="15.4.4" data-path="commandline-git.html"><a href="commandline-git.html#is-git-worth-it"><i class="fa fa-check"></i><b>15.4.4</b> is git worth it?</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Solutions</b></span></li>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html"><i class="fa fa-check"></i>Solutions to Warmup Questions</a><ul>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html#linear-algebra-1"><i class="fa fa-check"></i>Linear Algebra</a><ul>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html#vectors-1"><i class="fa fa-check"></i>Vectors</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html#matrices-1"><i class="fa fa-check"></i>Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html#operations-1"><i class="fa fa-check"></i>Operations</a><ul>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html#summation-1"><i class="fa fa-check"></i>Summation</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html#products-1"><i class="fa fa-check"></i>Products</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html#logs-and-exponents-1"><i class="fa fa-check"></i>Logs and exponents</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html#limits-1"><i class="fa fa-check"></i>Limits</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html#calculus-1"><i class="fa fa-check"></i>Calculus</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html#optimization-1"><i class="fa fa-check"></i>Optimization</a></li>
+<li class="chapter" data-level="" data-path="solutions-to-warmup-questions.html"><a href="solutions-to-warmup-questions.html#probability-1"><i class="fa fa-check"></i>Probability</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html"><i class="fa fa-check"></i>Suggested Programming Solutions</a><ul>
+<li class="chapter" data-level="15.5" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#chapter-refdataviz-visualization"><i class="fa fa-check"></i><b>15.5</b> Chapter @ref(dataviz): Visualization</a><ul>
+<li class="chapter" data-level="" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#state-proportions"><i class="fa fa-check"></i>1 State Proportions</a></li>
+<li class="chapter" data-level="" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#swing-justice"><i class="fa fa-check"></i>2 Swing Justice</a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#chapter-refrobjloops-objects-and-loops"><i class="fa fa-check"></i><b>15.6</b> Chapter @ref(robjloops): Objects and Loops</a><ul>
+<li class="chapter" data-level="" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#checkpoint-3"><i class="fa fa-check"></i>Checkpoint #3</a></li>
+<li class="chapter" data-level="" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#exercise-1"><i class="fa fa-check"></i>Exercise 1</a></li>
+<li class="chapter" data-level="" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#exercise-3"><i class="fa fa-check"></i>Exercise 3</a></li>
+<li class="chapter" data-level="" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#exercise-4"><i class="fa fa-check"></i>Exercise 4</a></li>
+</ul></li>
+<li class="chapter" data-level="15.7" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#chapter-refdempeace-demoratic-peace-project"><i class="fa fa-check"></i><b>15.7</b> Chapter @ref(dempeace): Demoratic Peace Project</a><ul>
+<li class="chapter" data-level="" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#task-1-data-input-and-standardization-1"><i class="fa fa-check"></i>Task 1: Data Input and Standardization</a></li>
+<li class="chapter" data-level="" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#task-2-data-merging-1"><i class="fa fa-check"></i>Task 2: Data Merging</a></li>
+<li class="chapter" data-level="" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#task-3-tabulations-and-visualization-1"><i class="fa fa-check"></i>Task 3: Tabulations and Visualization</a></li>
+</ul></li>
+<li class="chapter" data-level="15.8" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#chapter-refsimulation-simulation"><i class="fa fa-check"></i><b>15.8</b> Chapter @ref(simulation): Simulation</a><ul>
+<li class="chapter" data-level="15.8.1" data-path="suggested-programming-solutions.html"><a href="suggested-programming-solutions.html#census-sampling-1"><i class="fa fa-check"></i><b>15.8.1</b> Census Sampling</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Math Prefresher for Political Scientists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="linearalgebra" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Linear Algebra</h1>
+<p>Topics: <span class="math inline">\(\bullet\)</span> Working with Vectors <span class="math inline">\(\bullet\)</span> Linear Independence <span class="math inline">\(\bullet\)</span> Basics of Matrix Algebra <span class="math inline">\(\bullet\)</span> Square Matrices <span class="math inline">\(\bullet\)</span> Linear Equations <span class="math inline">\(\bullet\)</span> Systems of Linear Equations <span class="math inline">\(\bullet\)</span> Systems of Equations as Matrices <span class="math inline">\(\bullet\)</span> Solving Augmented Matrices and Systems of Equations <span class="math inline">\(\bullet\)</span> Rank <span class="math inline">\(\bullet\)</span> The Inverse of a Matrix <span class="math inline">\(\bullet\)</span> Inverse of Larger Matrices</p>
+<div id="vector-def" class="section level2">
+<h2><span class="header-section-number">1.1</span> Working with Vectors</h2>
+<p><strong>Vector</strong>: A vector in <span class="math inline">\(n\)</span>-space is an ordered list of <span class="math inline">\(n\)</span> numbers. These numbers can be represented as either a row vector or a column vector: <span class="math display">\[ {\bf v} \begin{pmatrix} v_1 &amp; v_2 &amp; \dots &amp; v_n\end{pmatrix} , {\bf v} = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}\]</span></p>
+<p>We can also think of a vector as defining a point in <span class="math inline">\(n\)</span>-dimensional space, usually <span class="math inline">\({\bf R}^n\)</span>; each element of the vector defines the coordinate of the point in a particular direction.</p>
+<p><strong>Vector Addition and Subtraction</strong>: If two vectors, <span class="math inline">\({\bf u}\)</span> and <span class="math inline">\({\bf v}\)</span>, have the same length (i.e. have the same number of elements), they can be added (subtracted) together: <span class="math display">\[ {\bf u} + {\bf v} = \begin{pmatrix} u_1 + v_1 &amp; u_2 + v_2 &amp; \cdots &amp; u_k + v_n \end{pmatrix}\]</span> <span class="math display">\[ {\bf u} - {\bf v} = \begin{pmatrix} u_1 - v_1 &amp; u_2 - v_2 &amp; \cdots &amp; u_k - v_n \end{pmatrix}\]</span></p>
+<p><strong>Scalar Multiplication</strong>: The product of a scalar <span class="math inline">\(c\)</span> (i.e. a constant) and vector <span class="math inline">\({\bf v}\)</span> is:<br />
+<span class="math display">\[ c{\bf v} =  \begin{pmatrix} cv_1 &amp; cv_2 &amp; \dots &amp; cv_n \end{pmatrix} \]</span></p>
+<p><strong>Vector Inner Product</strong>: The inner product (also called the dot product or scalar product) of two vectors <span class="math inline">\({\bf u}\)</span> and <span class="math inline">\({\bf v}\)</span> is again defined if and only if they have the same number of elements <span class="math display">\[ {\bf u} \cdot {\bf v} = u_1v_1 + u_2v_2 + \cdots + u_nv_n = \sum_{i = 1}^n u_iv_i\]</span> If <span class="math inline">\({\bf u} \cdot {\bf v} = 0\)</span>, the two vectors are orthogonal (or perpendicular).</p>
+<p><strong>Vector Norm</strong>: The norm of a vector is a measure of its length. There are many different ways to calculate the norm, but the most common is the Euclidean norm (which corresponds to our usual conception of distance in three-dimensional space): <span class="math display">\[ ||{\bf v}|| = \sqrt{{\bf v}\cdot{\bf v}} = \sqrt{ v_1v_1 + v_2v_2 + \cdots + v_nv_n}\]</span></p>
+
+<div class="example">
+<p><span id="exm:vectors" class="example"><strong>Example 1.1  (Vector Algebra)  </strong></span> Let <span class="math inline">\(a = \begin{pmatrix} 2&amp;1&amp;2\end{pmatrix}\)</span>, <span class="math inline">\(b = \begin{pmatrix} 3&amp;4&amp;5 \end{pmatrix}\)</span>. Calculate the following:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(a - b\)</span></p></li>
+<li><p><span class="math inline">\(a \cdot b\)</span></p></li>
+</ol>
+</div>
+
+
+<div class="exercise">
+<p><span id="exr:vectors1" class="exercise"><strong>Exercise 1.1  (Vector Algebra)  </strong></span> Let <span class="math inline">\(u = \begin{pmatrix} 7&amp;1&amp;-5&amp;3\end{pmatrix}\)</span>, <span class="math inline">\(v = \begin{pmatrix} 9&amp;-3&amp;2&amp;8 \end{pmatrix}\)</span>, <span class="math inline">\(w = \begin{pmatrix} 1&amp;13&amp; -7&amp;2 &amp;15 \end{pmatrix}\)</span>, and <span class="math inline">\(c = 2\)</span>. Calculate the following:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(u-v\)</span></p></li>
+<li><p><span class="math inline">\(cw\)</span></p></li>
+<li><p><span class="math inline">\(u \cdot v\)</span></p></li>
+<li><p><span class="math inline">\(w \cdot v\)</span></p></li>
+</ol>
+</div>
+
+</div>
+<div id="linearindependence" class="section level2">
+<h2><span class="header-section-number">1.2</span> Linear Independence</h2>
+<p><strong>Linear combinations</strong>: The vector <span class="math inline">\({\bf u}\)</span> is a linear combination of the vectors <span class="math inline">\({\bf v}_1, {\bf v}_2, \cdots , {\bf v}_k\)</span> if <span class="math display">\[{\bf u} = c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k\]</span></p>
+<p>For example, <span class="math inline">\(\begin{pmatrix}9 &amp; 13 &amp; 17 \end{pmatrix}\)</span> is a linear combination of the following three vectors: <span class="math inline">\(\begin{pmatrix}1 &amp; 2 &amp; 3 \end{pmatrix}\)</span>, <span class="math inline">\(\begin{pmatrix} 2 &amp; 3&amp; 4\end{pmatrix}\)</span>, and <span class="math inline">\(\begin{pmatrix} 3 &amp; 4 &amp; 5 \end{pmatrix}\)</span>. This is because <span class="math inline">\(\begin{pmatrix}9 &amp; 13 &amp; 17 \end{pmatrix}\)</span> = <span class="math inline">\((2)\begin{pmatrix}1 &amp; 2 &amp; 3 \end{pmatrix}\)</span> <span class="math inline">\(+ (-1)\begin{pmatrix} 2 &amp; 3&amp; 4\end{pmatrix}\)</span> + <span class="math inline">\(3\begin{pmatrix} 3 &amp; 4 &amp; 5 \end{pmatrix}\)</span></p>
+<p><strong>Linear independence</strong>: A set of vectors <span class="math inline">\({\bf v}_1, {\bf v}_2, \cdots , {\bf v}_k\)</span> is linearly independent if the only solution to the equation <span class="math display">\[c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k = 0\]</span> is <span class="math inline">\(c_1 = c_2 = \cdots = c_k = 0\)</span>. If another solution exists, the set of vectors is linearly dependent.</p>
+<p>A set <span class="math inline">\(S\)</span> of vectors is linearly dependent if and only if at least one of the vectors in <span class="math inline">\(S\)</span> can be written as a linear combination of the other vectors in <span class="math inline">\(S\)</span>.</p>
+<p>Linear independence is only defined for sets of vectors with the same number of elements; any linearly independent set of vectors in <span class="math inline">\(n\)</span>-space contains at most <span class="math inline">\(n\)</span> vectors.</p>
+<p>Since <span class="math inline">\(\begin{pmatrix}9 &amp; 13 &amp; 17 \end{pmatrix}\)</span> is a linear combination of <span class="math inline">\(\begin{pmatrix}1 &amp; 2 &amp; 3 \end{pmatrix}\)</span>, <span class="math inline">\(\begin{pmatrix} 2 &amp; 3&amp; 4\end{pmatrix}\)</span>, and <span class="math inline">\(\begin{pmatrix} 3 &amp; 4 &amp; 5 \end{pmatrix}\)</span>, these 4 vectors constitute a linearly dependent set.</p>
+
+<div class="example">
+<p><span id="exm:linearindep" class="example"><strong>Example 1.2  (Linear Independence)  </strong></span> Are the following sets of vectors linearly independent?</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\begin{pmatrix}2 &amp; 3 &amp; 1 \end{pmatrix}\)</span> and <span class="math inline">\(\begin{pmatrix}4 &amp; 6 &amp; 1 \end{pmatrix}\)</span></li>
+<li><span class="math inline">\(\begin{pmatrix}1 &amp; 0 &amp; 0 \end{pmatrix}\)</span>, <span class="math inline">\(\begin{pmatrix}0 &amp; 5 &amp; 0 \end{pmatrix}\)</span>, and <span class="math inline">\(\begin{pmatrix}10 &amp; 10 &amp; 0 \end{pmatrix}\)</span></li>
+</ol>
+</div>
+
+
+<div class="exercise">
+<p><span id="exr:linearindep1" class="exercise"><strong>Exercise 1.2  (Linear Independence)  </strong></span> Are the following sets of vectors linearly independent?</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math display">\[{\bf v}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \]</span></p></li>
+<li><p><span class="math display">\[{\bf v}_1 = \begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} -4 \\ 6 \\ 5 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} -2 \\ 8 \\ 6 \end{pmatrix} \]</span></p></li>
+</ol>
+</div>
+
+</div>
+<div id="matrixbasics" class="section level2">
+<h2><span class="header-section-number">1.3</span> Basics of Matrix Algebra</h2>
+<p><strong>Matrix</strong>: A matrix is an array of real numbers arranged in <span class="math inline">\(m\)</span> rows by <span class="math inline">\(n\)</span> columns. The dimensionality of the matrix is defined as the number of rows by the number of columns, <span class="math inline">\(m \times n\)</span>.</p>
+<p><span class="math display">\[{\bf A}=\begin{pmatrix}
+            a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
+            a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
+            \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+            a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
+        \end{pmatrix}\]</span></p>
+<p>Note that you can think of vectors as special cases of matrices; a column vector of length <span class="math inline">\(k\)</span> is a <span class="math inline">\(k \times 1\)</span> matrix, while a row vector of the same length is a <span class="math inline">\(1 \times k\)</span> matrix.</p>
+<p>It’s also useful to think of matrices as being made up of a collection of row or column vectors. For example, <span class="math display">\[\bf A = \begin{pmatrix} {\bf a}_1 &amp; {\bf a}_2 &amp;  \cdots &amp; {\bf a}_m \end{pmatrix}\]</span></p>
+<p><strong>Matrix Addition</strong>: Let <span class="math inline">\(\bf A\)</span> and <span class="math inline">\(\bf B\)</span> be two <span class="math inline">\(m\times n\)</span> matrices. <span class="math display">\[{\bf A+B}=\begin{pmatrix}
+            a_{11}+b_{11} &amp; a_{12}+b_{12} &amp; \cdots &amp; a_{1n}+b_{1n} \\
+            a_{21}+b_{21} &amp; a_{22}+b_{22} &amp; \cdots &amp; a_{2n}+b_{2n} \\
+            \vdots &amp; \vdots  &amp; \ddots &amp; \vdots \\
+            a_{m1}+b_{m1} &amp; a_{m2}+b_{m2} &amp; \cdots &amp; a_{mn}+b_{mn}
+        \end{pmatrix}\]</span></p>
+<p>Note that matrices <span class="math inline">\({\bf A}\)</span> and <span class="math inline">\({\bf B}\)</span> must have the same dimensionality, in which case they are <strong>conformable for addition</strong>.</p>
+
+<div class="example">
+<p><span id="exm:matrixaddition" class="example"><strong>Example 1.3  </strong></span><span class="math display">\[{\bf A}=\begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \end{pmatrix}, \qquad
+            {\bf B}=\begin{pmatrix} 1 &amp; 2 &amp; 1 \\ 2 &amp; 1 &amp; 2 \end{pmatrix}\]</span> <span class="math inline">\({\bf A+B}=\)</span></p>
+</div>
+
+<p><strong>Scalar Multiplication</strong>: Given the scalar <span class="math inline">\(s\)</span>, the scalar multiplication of <span class="math inline">\(s {\bf A}\)</span> is <span class="math display">\[ s {\bf A}=  s \begin{pmatrix}
+            a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
+            a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
+            \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+            a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
+        \end{pmatrix}
+        = \begin{pmatrix}
+            s a_{11} &amp; s a_{12} &amp; \cdots &amp; s a_{1n} \\
+            s a_{21} &amp; s a_{22} &amp; \cdots &amp; s a_{2n} \\
+            \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+            s a_{m1} &amp; s a_{m2} &amp; \cdots &amp; s a_{mn}
+        \end{pmatrix}\]</span></p>
+
+<div class="example">
+<p><span id="exm:scalarmulti" class="example"><strong>Example 1.4  </strong></span></p>
+<p><span class="math inline">\(s=2, \qquad {\bf A}=\begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \end{pmatrix}\)</span></p>
+<p><span class="math inline">\(s {\bf A} =\)</span></p>
+</div>
+
+<p><strong>Matrix Multiplication</strong>: If <span class="math inline">\({\bf A}\)</span> is an <span class="math inline">\(m\times k\)</span> matrix and <span class="math inline">\(\bf B\)</span> is a <span class="math inline">\(k\times n\)</span> matrix, then their product <span class="math inline">\(\bf C = A B\)</span> is the <span class="math inline">\(m\times n\)</span> matrix where <span class="math display">\[c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{ik}b_{kj}\]</span></p>
+
+<div class="example">
+<p><span id="exm:matrixmulti" class="example"><strong>Example 1.5  </strong></span></p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\begin{pmatrix} a&amp;b\\c&amp;d\\e&amp;f \end{pmatrix} \begin{pmatrix} A&amp;B\\C&amp;D \end{pmatrix}  =\)</span></p></li>
+<li><p><span class="math inline">\(\begin{pmatrix} 1&amp;2&amp;-1\\3&amp;1&amp;4 \end{pmatrix} \begin{pmatrix} -2&amp;5\\4&amp;-3\\2&amp;1\end{pmatrix} =\)</span></p></li>
+</ol>
+</div>
+
+<p>Note that the number of columns of the first matrix must equal the number of rows of the second matrix, in which case they are <strong>conformable for multiplication</strong>. The sizes of the matrices (including the resulting product) must be <span class="math display">\[(m\times k)(k\times n)=(m\times n)\]</span></p>
+<p>Also note that if <strong>AB</strong> exists, <strong>BA</strong> exists only if <span class="math inline">\(\dim({\bf A}) = m \times n\)</span> and <span class="math inline">\(\dim({\bf B}) = n \times m\)</span>.</p>
+<p>This does not mean that <strong>AB</strong> = <strong>BA</strong>. <strong>AB</strong> = <strong>BA</strong> is true only in special circumstances, like when <span class="math inline">\({\bf A}\)</span> or <span class="math inline">\({\bf B}\)</span> is an identity matrix or <span class="math inline">\({\bf A} = {\bf B}^{-1}\)</span>.</p>
+<strong>Laws of Matrix Algebra</strong>:
+
+<p>Commutative law for multiplication does not hold – the order of multiplication matters: <span class="math display">\[\bf AB\ne BA\]</span></p>
+<p>For example, <span class="math display">\[{\bf A}=\begin{pmatrix} 1&amp;2\\-1&amp;3\end{pmatrix}, \qquad {\bf B}=\begin{pmatrix} 2&amp;1\\0&amp;1\end{pmatrix}\]</span> <span class="math display">\[{\bf AB}=\begin{pmatrix} 2&amp;3\\-2&amp;2\end{pmatrix}, \qquad {\bf BA}=\begin{pmatrix} 1&amp;7\\-1&amp;3\end{pmatrix}\]</span></p>
+<p><strong>Transpose</strong>: The transpose of the <span class="math inline">\(m\times n\)</span> matrix <span class="math inline">\(\bf A\)</span> is the <span class="math inline">\(n\times m\)</span> matrix <span class="math inline">\({\bf A}^T\)</span> (also written <span class="math inline">\({\bf A}&#39;\)</span>) obtained by interchanging the rows and columns of <span class="math inline">\(\bf A\)</span>.</p>
+<p>For example,</p>
+<p><span class="math inline">\({\bf A}=\begin{pmatrix} 4&amp;-2&amp;3\\0&amp;5&amp;-1\end{pmatrix}, \qquad {\bf A}^T=\begin{pmatrix} 4&amp;0\\-2&amp;5\\3&amp;-1 \end{pmatrix}\)</span></p>
+<p><span class="math inline">\({\bf B}=\begin{pmatrix} 2\\-1\\3 \end{pmatrix}, \qquad {\bf B}^T=\begin{pmatrix} 2&amp;-1&amp;3\end{pmatrix}\)</span></p>
+The following rules apply for transposed matrices:
+
+<p>Example of <span class="math inline">\(({\bf AB})^T = {\bf B}^T{\bf A}^T\)</span>: <span class="math display">\[{\bf A}=\begin{pmatrix} 1&amp;3&amp;2\\2&amp;-1&amp;3\end{pmatrix}, \qquad {\bf B}=\begin{pmatrix} 0&amp;1\\2&amp;2\\3&amp;-1\end{pmatrix}\]</span> <span class="math display">\[ ({\bf AB})^T = \left[ \begin{pmatrix} 1&amp;3&amp;2\\2&amp;-1&amp;3\end{pmatrix} \begin{pmatrix} 0&amp;1\\2&amp;2\\3&amp;-1\end{pmatrix} \right]^T = \begin{pmatrix} 12&amp;7\\5&amp;-3 \end{pmatrix}\]</span> <span class="math display">\[ {\bf B}^T{\bf A}^T= \begin{pmatrix} 0&amp;2&amp;3\\1&amp;2&amp;-1 \end{pmatrix}  \begin{pmatrix} 1&amp;2\\3&amp;-1\\2&amp;3 \end{pmatrix} = \begin{pmatrix} 12&amp;7\\5&amp;-3 \end{pmatrix}\]</span></p>
+
+<div class="exercise">
+<p><span id="exr:matrixmulti1" class="exercise"><strong>Exercise 1.3  (Matrix Multiplication)  </strong></span></p>
+<p>Let <span class="math display">\[A =  \begin{pmatrix} 2&amp;0&amp;-1&amp;1\\1&amp;2&amp;0&amp;1 \end{pmatrix}\]</span></p>
+<p><span class="math display">\[B = \begin{pmatrix} 1&amp;5&amp;-7\\1&amp;1&amp;0\\0&amp;-1&amp;1\\2&amp;0&amp;0\end{pmatrix} \]</span></p>
+<p><span class="math display">\[C =  \begin{pmatrix} 3&amp;2&amp;-1\\0&amp;4&amp;6 \end{pmatrix}\]</span></p>
+<p>Calculate the following:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math display">\[AB\]</span></li>
+<li><span class="math display">\[BA\]</span></li>
+<li><span class="math display">\[(BC)^T\]</span></li>
+<li><span class="math display">\[BC^T\]</span></li>
+</ol>
+</div>
+
+</div>
+<div id="systems-of-linear-equations" class="section level2">
+<h2><span class="header-section-number">1.4</span> Systems of Linear Equations</h2>
+<p><strong>Linear Equation</strong>: <span class="math inline">\(a_1 x_1 + a_2 x_2 + \cdots + a_n x_n = b\)</span></p>
+<p><span class="math inline">\(a_i\)</span> are parameters or coefficients. <span class="math inline">\(x_i\)</span> are variables or unknowns.</p>
+<p>Linear because only one variable per term and degree is at most 1.</p>
+<p>We are often interested in solving linear systems like</p>
+<p><span class="math display">\[\begin{matrix}
+            x  &amp; - &amp; 3y &amp; = &amp; -3\\
+            2x &amp; + &amp;  y &amp; = &amp;  8
+            \end{matrix}\]</span></p>
+
+<p>More generally, we might have a system of <span class="math inline">\(m\)</span> equations in <span class="math inline">\(n\)</span> unknowns</p>
+<p><span class="math display">\[\begin{matrix}
+            a_{11}x_1  &amp; + &amp; a_{12}x_2 &amp; + &amp; \cdots &amp; + &amp; a_{1n}x_n &amp; = &amp; b_1\\
+            a_{21}x_1  &amp; + &amp; a_{22}x_2 &amp; + &amp; \cdots &amp; + &amp; a_{2n}x_n &amp; = &amp; b_2\\
+            \vdots     &amp;   &amp;     &amp;   &amp; \vdots &amp;   &amp;     &amp; \vdots &amp; \\
+            a_{m1}x_1  &amp; + &amp; a_{m2}x_2 &amp; + &amp; \cdots &amp; + &amp; a_{mn}x_n &amp; = &amp; b_m
+            \end{matrix}\]</span></p>
+<p>A <strong>solution</strong> to a linear system of <span class="math inline">\(m\)</span> equations in <span class="math inline">\(n\)</span> unknowns is a set of <span class="math inline">\(n\)</span> numbers <span class="math inline">\(x_1, x_2, \cdots, x_n\)</span> that satisfy each of the <span class="math inline">\(m\)</span> equations.</p>
+<p>Example: <span class="math inline">\(x=3\)</span> and <span class="math inline">\(y=2\)</span> is the solution to the above <span class="math inline">\(2\times 2\)</span> linear system. If you graph the two lines, you will find that they intersect at <span class="math inline">\((3,2)\)</span>.</p>
+<p>Does a linear system have one, no, or multiple solutions? For a system of 2 equations with 2 unknowns (i.e., two lines): _<br />
+<strong>One solution:</strong> The lines intersect at exactly one point.</p>
+<p><strong>No solution:</strong> The lines are parallel.</p>
+<p><strong>Infinite solutions:</strong> The lines coincide.</p>
+<p>Methods to solve linear systems:</p>
+<ol style="list-style-type: decimal">
+<li>Substitution</li>
+<li>Elimination of variables</li>
+<li>Matrix methods</li>
+</ol>
+
+<div class="exercise">
+<p><span id="exr:lineareq" class="exercise"><strong>Exercise 1.4  (Linear Equations)  </strong></span></p>
+<p>Provide a system of 2 equations with 2 unknowns that has</p>
+<ol style="list-style-type: decimal">
+<li><p>one solution</p></li>
+<li><p>no solution</p></li>
+<li><p>infinite solutions</p></li>
+</ol>
+</div>
+
+</div>
+<div id="systems-of-equations-as-matrices" class="section level2">
+<h2><span class="header-section-number">1.5</span> Systems of Equations as Matrices</h2>
+<p>Matrices provide an easy and efficient way to represent linear systems such as <span class="math display">\[\begin{matrix}
+        a_{11}x_1  &amp; + &amp; a_{12}x_2 &amp; + &amp; \cdots &amp; + &amp; a_{1n}x_n &amp; = &amp; b_1\\
+        a_{21}x_1  &amp; + &amp; a_{22}x_2 &amp; + &amp; \cdots &amp; + &amp; a_{2n}x_n &amp; = &amp; b_2\\
+        \vdots     &amp;   &amp;     &amp;   &amp; \vdots &amp;   &amp;     &amp; \vdots &amp; \\
+        a_{m1}x_1  &amp; + &amp; a_{m2}x_2 &amp; + &amp; \cdots &amp; + &amp; a_{mn}x_n &amp; = &amp; b_m
+        \end{matrix}\]</span></p>
+<p>as <span class="math display">\[{\bf A x = b}\]</span> where</p>
+<p>The <span class="math inline">\(m \times n\)</span>  <span class="math inline">\({\bf A}\)</span> is an array of <span class="math inline">\(m n\)</span> real numbers arranged in <span class="math inline">\(m\)</span> rows by <span class="math inline">\(n\)</span> columns: <span class="math display">\[{\bf A}=\begin{pmatrix}
+            a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
+            a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
+            \vdots &amp;  &amp; \ddots &amp; \vdots \\
+            a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
+            \end{pmatrix}\]</span></p>
+<p>The unknown quantities are represented by the vector <span class="math inline">\({\bf x}=\begin{pmatrix} x_1\\x_2\\\vdots\\x_n \end{pmatrix}\)</span>.</p>
+<p>The right hand side of the linear system is represented by the vector <span class="math inline">\({\bf b}=\begin{pmatrix} b_1\\b_2\\\vdots\\b_m \end{pmatrix}\)</span>.</p>
+<p><strong>Augmented Matrix</strong>: When we append <span class="math inline">\(\bf b\)</span> to the coefficient matrix <span class="math inline">\(\bf A\)</span>, we get the augmented matrix <span class="math inline">\(\widehat{\bf A}=[\bf A | b]\)</span> <span class="math display">\[\begin{pmatrix}
+            a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} &amp; | &amp; b_1\\
+            a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} &amp; | &amp; b_2\\
+            \vdots &amp;  &amp; \ddots &amp; \vdots &amp; | &amp; \vdots\\
+            a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn} &amp; | &amp; b_m
+            \end{pmatrix}\]</span></p>
+
+<div class="exercise">
+<p><span id="exr:augmatrix" class="exercise"><strong>Exercise 1.5  (Augmented Matrix)  </strong></span></p>
+<p>Create an augmented matrix that represent the following system of equations:</p>
+<p><span class="math display">\[2x_1 -7x_2 + 9x_3 -4x_4 = 8\]</span> <span class="math display">\[41x_2 + 9x_3 -5x_6 = 11\]</span> <span class="math display">\[x_1 -15x_2 -11x_5 = 9\]</span></p>
+</div>
+
+</div>
+<div id="finding-solutions-to-augmented-matrices-and-systems-of-equations" class="section level2">
+<h2><span class="header-section-number">1.6</span> Finding Solutions to Augmented Matrices and Systems of Equations</h2>
+<p><strong>Row Echelon Form</strong>: Our goal is to translate our augmented matrix or system of equations into row echelon form. This will provide us with the values of the vector <strong>x</strong> which solve the system. We use the row operations to change coefficients in the lower triangle of the augmented matrix to 0. An augmented matrix of the form</p>
+<p><span class="math display">\[\begin{pmatrix}
+            \fbox{$a&#39;_{11}$}&amp; a&#39;_{12} &amp; a&#39;_{13}&amp; \cdots &amp; a&#39;_{1n} &amp; | &amp; b&#39;_1\\
+            0 &amp; \fbox{$a&#39;_{22}$} &amp; a&#39;_{23}&amp; \cdots &amp; a&#39;_{2n} &amp; | &amp; b&#39;_2\\
+            0 &amp; 0 &amp; \fbox{$a&#39;_{33}$}&amp; \cdots &amp; a&#39;_{3n} &amp; | &amp; b&#39;_3\\
+            0 &amp; 0 &amp;0 &amp; \ddots &amp; \vdots  &amp; | &amp; \vdots \\
+            0 &amp; 0 &amp;0 &amp;0 &amp; \fbox{$a&#39;_{mn}$} &amp; | &amp; b&#39;_m
+            \end{pmatrix}\]</span></p>
+<p>is said to be in row echelon form — each row has more leading zeros than the row preceding it.</p>
+<p><strong>Reduced Row Echelon Form</strong>: We can go one step further and put the matrix into reduced row echelon form. Reduced row echelon form makes the value of <strong>x</strong> which solves the system very obvious. For a system of <span class="math inline">\(m\)</span> equations in <span class="math inline">\(m\)</span> unknowns, with no all-zero rows, the reduced row echelon form would be</p>
+<p><span class="math display">\[\begin{pmatrix}
+            \fbox{$1$}  &amp;  0 &amp;   0 &amp;    0  &amp;   0 &amp; | &amp; b^*_1\\
+            0  &amp;  \fbox{$1$} &amp;   0 &amp;    0  &amp;   0 &amp; | &amp; b^*_2\\
+            0  &amp;  0 &amp;   \fbox{$1$} &amp;    0  &amp;   0 &amp; | &amp; b^*_3\\
+            0  &amp;  0 &amp;   0 &amp;\ddots &amp;   0 &amp; | &amp;\vdots\\
+            0  &amp;  0 &amp;   0 &amp;    0  &amp;   \fbox{$1$} &amp; | &amp; b^*_m
+            \end{pmatrix}\]</span></p>
+<p><strong>Gaussian and Gauss-Jordan elimination</strong>: We can conduct elementary row operations to get our augmented matrix into row echelon or reduced row echelon form. The methods of transforming a matrix or system into row echelon and reduced row echelon form are referred to as Gaussian elimination and Gauss-Jordan elimination, respectively.</p>
+<p><strong>Elementary Row Operations</strong>: To do Gaussian and Gauss-Jordan elimination, we use three basic operations to transform the augmented matrix into another augmented matrix that represents an equivalent linear system – equivalent in the sense that the same values of <span class="math inline">\(x_j\)</span> solve both the original and transformed matrix/system:</p>
+<p><strong>Interchanging Rows</strong>: Suppose we have the augmented matrix <span class="math display">\[{\widehat{\bf A}}=\begin{pmatrix} a_{11} &amp; a_{12} &amp; | &amp; b_1\\
+            a_{21} &amp; a_{22} &amp; | &amp; b_2 
+            \end{pmatrix}\]</span> If we interchange the two rows, we get the augmented matrix <span class="math display">\[\begin{pmatrix}
+            a_{21} &amp; a_{22} &amp; | &amp; b_2\\
+            a_{11} &amp; a_{12} &amp; | &amp; b_1
+            \end{pmatrix}\]</span> which represents a linear system equivalent to that represented by matrix <span class="math inline">\(\widehat{\bf A}\)</span>.</p>
+<p><strong>Multiplying by a Constant</strong>: If we multiply the second row of matrix <span class="math inline">\(\widehat{\bf A}\)</span> by a constant <span class="math inline">\(c\)</span>, we get the augmented matrix <span class="math display">\[\begin{pmatrix}
+            a_{11} &amp; a_{12} &amp; | &amp; b_1\\
+            c a_{21} &amp; c a_{22} &amp; | &amp; c b_2
+            \end{pmatrix}\]</span> which represents a linear system equivalent to that represented by matrix <span class="math inline">\(\widehat{\bf A}\)</span>.</p>
+<p><strong>Adding (subtracting) Rows</strong>: If we add (subtract) the first row of matrix <span class="math inline">\(\widehat{\bf A}\)</span> to the second, we obtain the augmented matrix <span class="math display">\[\begin{pmatrix}
+            a_{11} &amp; a_{12} &amp; | &amp; b_1\\
+            a_{11}+a_{21} &amp; a_{12}+a_{22} &amp; | &amp; b_1+b_2
+            \end{pmatrix}\]</span> which represents a linear system equivalent to that represented by matrix <span class="math inline">\(\widehat{\bf A}\)</span>.</p>
+
+<div class="example">
+<p><span id="exm:solvesys" class="example"><strong>Example 1.6  </strong></span></p>
+<p>Solve the following system of equations by using elementary row operations:</p>
+<p><span class="math inline">\(\begin{matrix}  x &amp; - &amp; 3y &amp; = &amp; -3\\  2x &amp; + &amp; y &amp; = &amp; 8  \end{matrix}\)</span></p>
+</div>
+
+
+<div class="exercise">
+<p><span id="exr:solvesys1" class="exercise"><strong>Exercise 1.6  (Solving Systems of Equations)  </strong></span></p>
+<p>Put the following system of equations into augmented matrix form. Then, using Gaussian or Gauss-Jordan elimination, solve the system of equations by putting the matrix into row echelon or reduced row echelon form.</p>
+<p><span class="math display">\[
+  1. \begin{cases}
+               x + y + 2z = 2\\
+               3x - 2y + z = 1\\
+               y - z = 3
+            \end{cases}
+               \]</span></p>
+<p><span class="math display">\[
+  2. \begin{cases}
+               2x + 3y - z = -8\\
+               x + 2y - z = 12\\
+             -x -4y + z = -6
+            \end{cases}
+               \]</span></p>
+</div>
+
+</div>
+<div id="rank-and-whether-a-system-has-one-infinite-or-no-solutions" class="section level2">
+<h2><span class="header-section-number">1.7</span> Rank — and Whether a System Has One, Infinite, or No Solutions</h2>
+<p>To determine how many solutions exist, we can use information about (1) the number of equations <span class="math inline">\(m\)</span>, (2) the number of unknowns <span class="math inline">\(n\)</span>, and (3) the <strong>rank</strong> of the matrix representing the linear system.</p>
+<p><strong>Rank</strong>: The maximum number of linearly independent row or column vectors in the matrix. This is equivalent to the number of nonzero rows of a matrix in row echelon form. For any matrix <strong>A</strong>, the row rank always equals column rank, and we refer to this number as the rank of <strong>A</strong>.</p>
+<p>For example</p>
+<p><span class="math inline">\(\begin{pmatrix} 1 &amp; 2 &amp; 3 \\  0 &amp; 4 &amp; 5 \\  0 &amp; 0 &amp; 6 \end{pmatrix}\)</span></p>
+<p>Rank = 3</p>
+<p><span class="math inline">\(\begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; 4 &amp; 5 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}\)</span></p>
+<p>Rank = 2</p>
+
+<div class="exercise">
+<p><span id="exr:rank" class="exercise"><strong>Exercise 1.7  (Rank of Matrices)  </strong></span></p>
+<p>Find the rank of each matrix below:</p>
+<p>(Hint: transform the matrices into row echelon form. Remember that the number of nonzero rows of a matrix in row echelon form is the rank of that matrix)</p>
+<p>1.<span class="math inline">\(\begin{pmatrix} 1 &amp; 1 &amp; 2 \\ 2 &amp; 1 &amp; 3 \\ 1 &amp; 2 &amp; 3 \end{pmatrix}\)</span></p>
+
+<p>2.<span class="math inline">\(\begin{pmatrix} 1 &amp; 3 &amp; 3 &amp; -3 &amp; 3\\ 1 &amp; 3 &amp; 1 &amp; 1 &amp; 3 \\ 1 &amp; 3 &amp; 2 &amp; -1 &amp; -2 \\ 1 &amp; 3 &amp; 0 &amp; 3 &amp; -2 \end{pmatrix}\)</span></p>
+</div>
+
+<p>Answer to Exercise <a href="linearalgebra.html#exr:rank">1.7</a>:</p>
+<ol style="list-style-type: decimal">
+<li><p>rank is 2</p></li>
+<li><p>rank is 3</p></li>
+</ol>
+</div>
+<div id="the-inverse-of-a-matrix" class="section level2">
+<h2><span class="header-section-number">1.8</span> The Inverse of a Matrix</h2>
+<p><strong>Identity Matrix</strong>: The <span class="math inline">\(n\times n\)</span> identity matrix <span class="math inline">\({\bf I}_n\)</span> is the matrix whose diagonal elements are 1 and all off-diagonal elements are 0. Examples: <span class="math display">\[ {\bf I}_2=\begin{pmatrix} 1&amp;0\\0&amp;1 \end{pmatrix}, \qquad {\bf I}_3=\begin{pmatrix} 1&amp;0&amp;0\\ 0&amp;1&amp;0\\ 
+            0&amp;0&amp;1 \end{pmatrix}\]</span></p>
+<p><strong>Inverse Matrix</strong>: An <span class="math inline">\(n\times n\)</span> matrix <span class="math inline">\({\bf A}\)</span> is <strong>nonsingular</strong> or <strong>invertible</strong> if there exists an <span class="math inline">\(n\times n\)</span> matrix <span class="math inline">\({\bf A}^{-1}\)</span> such that <span class="math display">\[{\bf A} {\bf A}^{-1} = {\bf A}^{-1} {\bf A} = {\bf I}_n\]</span> where <span class="math inline">\({\bf A}^{-1}\)</span> is the inverse of <span class="math inline">\({\bf A}\)</span>. If there is no such <span class="math inline">\({\bf A}^{-1}\)</span>, then <span class="math inline">\({\bf A}\)</span> is singular or not invertible.</p>
+<p>Example: Let <span class="math display">\[{\bf A} = \begin{pmatrix} 2&amp;3\\2&amp;2 \end{pmatrix}, \qquad {\bf B}=\begin{pmatrix} -1&amp;\frac{3}{2}\\ 1&amp;-1
+        \end{pmatrix}\]</span> Since <span class="math display">\[{\bf A} {\bf B} = {\bf B} {\bf A} = {\bf I}_n\]</span> we conclude that <span class="math inline">\({\bf B}\)</span> is the inverse, <span class="math inline">\({\bf A}^{-1}\)</span>, of <span class="math inline">\({\bf A}\)</span> and that <span class="math inline">\({\bf A}\)</span> is nonsingular.</p>
+<p><strong>Properties of the Inverse</strong>:</p>
+<ul>
+<li><p>If the inverse exists, it is unique.</p></li>
+<li><p>If <span class="math inline">\({\bf A}\)</span> is nonsingular, then <span class="math inline">\({\bf A}^{-1}\)</span> is nonsingular.</p></li>
+<li><p><span class="math inline">\(({\bf A}^{-1})^{-1} = {\bf A}\)</span></p></li>
+<li><p>If <span class="math inline">\({\bf A}\)</span> and <span class="math inline">\({\bf B}\)</span> are nonsingular, then <span class="math inline">\({\bf A}{\bf B}\)</span> is nonsingular</p></li>
+<li><p><span class="math inline">\(({\bf A}{\bf B})^{-1} = {\bf B}^{-1}{\bf A}^{-1}\)</span></p></li>
+<li><p>If <span class="math inline">\({\bf A}\)</span> is nonsingular, then <span class="math inline">\(({\bf A}^T)^{-1}=({\bf A}^{-1})^T\)</span></p></li>
+</ul>
+<p><strong>Procedure to Find</strong> <span class="math inline">\({\bf A}^{-1}\)</span>: We know that if <span class="math inline">\({\bf B}\)</span> is the inverse of <span class="math inline">\({\bf A}\)</span>, then <span class="math display">\[{\bf A} {\bf B} = {\bf B} {\bf A} = {\bf I}_n\]</span> Looking only at the first and last parts of this <span class="math display">\[{\bf A} {\bf B} = {\bf I}_n\]</span> Solving for <span class="math inline">\({\bf B}\)</span> is equivalent to solving for <span class="math inline">\(n\)</span> linear systems, where each column of <span class="math inline">\({\bf B}\)</span> is solved for the corresponding column in <span class="math inline">\({\bf I}_n\)</span>. We can solve the systems simultaneously by augmenting <span class="math inline">\({\bf A}\)</span> with <span class="math inline">\({\bf I}_n\)</span> and performing Gauss-Jordan elimination on <span class="math inline">\({\bf A}\)</span>. If Gauss-Jordan elimination on <span class="math inline">\([{\bf A} | {\bf I}_n]\)</span> results in <span class="math inline">\([{\bf I}_n | {\bf B} ]\)</span>, then <span class="math inline">\({\bf B}\)</span> is the inverse of <span class="math inline">\({\bf A}\)</span>. Otherwise, <span class="math inline">\({\bf A}\)</span> is singular.</p>
+<p>To summarize: To calculate the inverse of <span class="math inline">\({\bf A}\)</span></p>
+<ol style="list-style-type: decimal">
+<li><p>Form the augmented matrix <span class="math inline">\([ {\bf A} | {\bf I}_n]\)</span></p></li>
+<li><p>Using elementary row operations, transform the augmented matrix to reduced row echelon form.</p></li>
+<li><p>The result of step 2 is an augmented matrix <span class="math inline">\([ {\bf C} | {\bf B} ]\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>If <span class="math inline">\({\bf C}={\bf I}_n\)</span>, then <span class="math inline">\({\bf B}={\bf A}^{-1}\)</span>.</p></li>
+<li><p>If <span class="math inline">\({\bf C}\ne{\bf I}_n\)</span>, then <span class="math inline">\(\bf C\)</span> has a row of zeros. This means <span class="math inline">\({\bf A}\)</span> is singular and <span class="math inline">\({\bf A}^{-1}\)</span> does not exist.</p></li>
+</ol></li>
+</ol>
+
+<div class="example">
+<p><span id="exm:inverse" class="example"><strong>Example 1.7  </strong></span> Find the inverse of the following matricies:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\({\bf A}=\begin{pmatrix} 1&amp;1&amp;1\\0&amp;2&amp;3\\5&amp;5&amp;1 \end{pmatrix}\)</span></li>
+</ol>
+</div>
+
+
+<div class="exercise">
+<p><span id="exr:inverse1" class="exercise"><strong>Exercise 1.8  (Finding the inverse of matrices)  </strong></span></p>
+<p>Find the inverse of the following matrix:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\({\bf A}=\begin{pmatrix} 1&amp;0&amp;4\\0&amp;2&amp;0\\0&amp;0&amp;1 \end{pmatrix}\)</span></li>
+</ol>
+</div>
+
+</div>
+<div id="linear-systems-and-inverses" class="section level2">
+<h2><span class="header-section-number">1.9</span> Linear Systems and Inverses</h2>
+<p>Let’s return to the matrix representation of a linear system</p>
+<p><span class="math display">\[\bf{Ax} = \bf{b}\]</span></p>
+<p>If <span class="math inline">\(\bf{A}\)</span> is an <span class="math inline">\(n\times n\)</span> matrix,then <span class="math inline">\(\bf{Ax}=\bf{b}\)</span> is a system of <span class="math inline">\(n\)</span> equations in <span class="math inline">\(n\)</span> unknowns. Suppose <span class="math inline">\(\bf{A}\)</span> is nonsingular. Then <span class="math inline">\(\bf{A}^{-1}\)</span> exists. To solve this system, we can multiply each side by <span class="math inline">\(\bf{A}^{-1}\)</span> and reduce it as follows:</p>
+<span class="math display">\[\begin{eqnarray*} 
+\bf{A}^{-1} (\bf{A} \bf{x}) &amp; = &amp; \bf{A}^{-1} \bf{b} \\
+(\bf{A}^{-1} \bf{A})\bf{x} &amp; = &amp; \bf{A}^{-1} \bf{b}\\
+\bf{I}_n \bf{x}     &amp; = &amp; \bf{A}^{-1} \bf{b}\\
+\bf{x} &amp; = &amp; \bf{A}^{-1} \bf{b}
+\end{eqnarray*}\]</span>
+<p>Hence, given <span class="math inline">\(\bf{A}\)</span> and <span class="math inline">\(\bf{b}\)</span> and given that <span class="math inline">\(\bf{A}\)</span> is nonsingular, then <span class="math inline">\(\bf{x} = \bf{A}^{-1} \bf{b}\)</span> is a unique solution to this system.</p>
+
+<div class="exercise">
+<p><span id="exr:invlinsys" class="exercise"><strong>Exercise 1.9  (Solve linear system using inverses)  </strong></span> Use the inverse matrix to solve the following linear system:</p>
+<span class="math display">\[\begin{align*} 
+-3x + 4y &amp;= 5 \\
+2x - y &amp;= -10
+\end{align*}\]</span>
+<p><strong><em>Hint: the linear system above can be written in the matrix form</em></strong></p>
+<p><span class="math inline">\(\textbf{A}\textbf{z} = \textbf{b}\)</span></p>
+<p>given <span class="math display">\[\textbf{A} = \begin{pmatrix} -3&amp;4\\2&amp;-1 \end{pmatrix},\]</span></p>
+<p><span class="math display">\[\textbf{z} = \begin{pmatrix} x\\y \end{pmatrix},\]</span> and <span class="math display">\[\textbf{b} = \begin{pmatrix} 5\\-10 \end{pmatrix}\]</span></p>
+</div>
+
+</div>
+<div id="determinants" class="section level2">
+<h2><span class="header-section-number">1.10</span> Determinants</h2>
+<p><strong>Singularity</strong>: Determinants can be used to determine whether a square matrix is nonsingular.</p>
+<p>A square matrix is nonsingular if and only if its determinant is not zero.</p>
+<p>Determinant of a <span class="math inline">\(1 \times 1\)</span> matrix, <strong>A</strong>, equals <span class="math inline">\(a_{11}\)</span></p>
+<p>Determinant of a <span class="math inline">\(2 \times 2\)</span> matrix, <strong>A</strong>, <span class="math inline">\(\begin{vmatrix} a_{11}&amp;a_{12}\\  a_{21}&amp;a_{22} \end{vmatrix}\)</span>:</p>
+<span class="math display">\[\begin{eqnarray*}
+\det({\bf A}) &amp;=&amp; |{\bf A}|\\
+            &amp;=&amp; a_{11}|a_{22}| - a_{12}|a_{21}|\\
+            &amp;=&amp; a_{11}a_{22} - a_{12}a_{21}
+\end{eqnarray*}\]</span>
+<p>We can extend the second to last equation above to get the definition of the determinant of a <span class="math inline">\(3 \times 3\)</span> matrix:</p>
+<span class="math display">\[\begin{eqnarray*}
+            \begin{vmatrix} a_{11}&amp;a_{12}&amp;a_{13}\\  a_{21} &amp; a_{22}&amp;a_{23}\\ a_{31}&amp;a_{32}&amp;a_{33} \end{vmatrix} 
+                &amp;=&amp; 
+                a_{11} \begin{vmatrix} a_{22}&amp;a_{23}\\ a_{32}&amp;a_{33} \end{vmatrix}
+                - a_{12} \begin{vmatrix} a_{21}&amp;a_{23}\\ a_{31}&amp;a_{33} \end{vmatrix}
+                + a_{13} \begin{vmatrix} a_{21}&amp;a_{22}\\ a_{31}&amp;a_{32} 
+                \end{vmatrix}\\
+                &amp;=&amp; a_{11}(a_{22}a_{33} - a_{23}a_{32}) - a_{12}(a_{21}a_{33} - a_{23}a_{31}) + a_{13}(a_{21}a_{32} - a_{22}a_{31})
+\end{eqnarray*}\]</span>
+<p>Let’s extend this now to any <span class="math inline">\(n\times n\)</span> matrix. Let’s define <span class="math inline">\({\bf A}_{ij}\)</span> as the <span class="math inline">\((n-1)\times (n-1)\)</span> submatrix of <span class="math inline">\({\bf A}\)</span> obtained by deleting row <span class="math inline">\(i\)</span> and column <span class="math inline">\(j\)</span>. Let the <span class="math inline">\((i,j)\)</span>th <strong>minor</strong> of <span class="math inline">\({\bf A}\)</span> be the determinant of <span class="math inline">\({\bf A}_{ij}\)</span>: <span class="math display">\[M_{ij}=|{\bf A}_{ij}|\]</span> Then for any <span class="math inline">\(n\times n\)</span> matrix <span class="math inline">\({\bf A}\)</span> <span class="math display">\[|{\bf A}|= a_{11}M_{11} - a_{12}M_{12} + \cdots + (-1)^{n+1} a_{1n} M_{1n}\]</span></p>
+For example, in figuring out whether the following matrix has an inverse? <span class="math display">\[{\bf A}=\begin{pmatrix} 1&amp;1&amp;1\\0&amp;2&amp;3\\5&amp;5&amp;1 \end{pmatrix}\]</span> 1. Calculate its determinant.
+<span class="math display">\[\begin{eqnarray}
+                &amp;=&amp; 1(2-15) - 1(0-15) + 1(0-10) \nonumber\\
+                &amp;=&amp; -13+15-10 \nonumber\\
+                &amp;=&amp; -8\nonumber
+\end{eqnarray}\]</span>
+<ol start="2" style="list-style-type: decimal">
+<li>Since <span class="math inline">\(|{\bf A}|\ne 0\)</span>, we conclude that <span class="math inline">\({\bf A}\)</span> has an inverse.</li>
+</ol>
+
+<div class="exercise">
+<p><span id="exr:determinants" class="exercise"><strong>Exercise 1.10  (Determinants and Inverses)  </strong></span></p>
+<p>Determine whether the following matrices are nonsingular:</p>
+<p><span class="math display">\[1. \begin{pmatrix}
+            1 &amp; 0 &amp; 1\\
+            2 &amp; 1 &amp; 2\\
+            1 &amp; 0 &amp; -1
+        \end{pmatrix}\]</span></p>
+<p><span class="math display">\[2. \begin{pmatrix}
+            2 &amp; 1 &amp; 2\\
+            1 &amp; 0 &amp; 1\\
+            4 &amp; 1 &amp; 4
+        \end{pmatrix}\]</span></p>
+</div>
+
+</div>
+<div id="getting-inverse-of-a-matrix-using-its-determinant" class="section level2">
+<h2><span class="header-section-number">1.11</span> Getting Inverse of a Matrix using its Determinant</h2>
+<p>Thus far, we have a number of algorithms to</p>
+<ol style="list-style-type: decimal">
+<li>Find the solution of a linear system,</li>
+<li>Find the inverse of a matrix</li>
+</ol>
+<p>but these remain just that — algorithms. At this point, we have no way of telling how the solutions <span class="math inline">\(x_j\)</span> change as the parameters <span class="math inline">\(a_{ij}\)</span> and <span class="math inline">\(b_i\)</span> change, except by changing the values and “rerunning” the algorithms.</p>
+<p>With determinants, we can provide an explicit formula for the inverse and therefore provide an explicit formula for the solution of an <span class="math inline">\(n\times n\)</span> linear system.</p>
+<p>Hence, we can examine how changes in the parameters and <span class="math inline">\(b_i\)</span> affect the solutions <span class="math inline">\(x_j\)</span>.</p>
+<p><strong>Determinant Formula for the Inverse of a <span class="math inline">\(2 \times 2\)</span></strong>:</p>
+<p>The determinant of a <span class="math inline">\(2 \times 2\)</span> matrix <strong>A</strong> <span class="math inline">\(\begin{pmatrix} a &amp; b\\ c &amp; d\\ \end{pmatrix}\)</span> is defined as: <span class="math display">\[\frac{1}{\det({\bf A})} \begin{pmatrix}
+            d &amp; -b\\
+            -c &amp; a\\
+        \end{pmatrix}\]</span></p>
+<p>For example, Let’s calculate the inverse of matrix A from Exercise <a href="linearalgebra.html#exr:invlinsys">1.9</a> using the determinant formula.</p>
+<p>Recall,</p>
+<p><span class="math display">\[A = \begin{pmatrix}
+            -3 &amp; 4\\
+            2 &amp; -1\\
+        \end{pmatrix}\]</span></p>
+<p><span class="math display">\[\det({\bf A}) = (-3)(-1) - (4)(2) = 3 - 8  = -5\]</span></p>
+<p><span class="math display">\[\frac{1}{\det({\bf A})} \begin{pmatrix}
+            -1 &amp; -4\\
+            -2 &amp; -3\\
+        \end{pmatrix}\]</span></p>
+<p><span class="math display">\[\frac{1}{-5} \begin{pmatrix}
+            -1 &amp; -4\\
+            -2 &amp; -3\\
+        \end{pmatrix}\]</span></p>
+<p><span class="math display">\[ \begin{pmatrix}
+            \frac{1}{5} &amp; \frac{4}{5}\\
+            \frac{2}{5} &amp; \frac{3}{5}\\
+        \end{pmatrix}\]</span></p>
+
+<div class="exercise">
+<p><span id="exr:calcinverse" class="exercise"><strong>Exercise 1.11  (Calculate Inverse using Determinant Formula)  </strong></span></p>
+<p>Caculate the inverse of A</p>
+<p><span class="math display">\[A = \begin{pmatrix}
+            3 &amp; 5\\
+            -7 &amp; 2\\
+        \end{pmatrix}\]</span></p>
+</div>
+
+</div>
+<div id="answers-to-examples-and-exercises" class="section level2 unnumbered">
+<h2>Answers to Examples and Exercises</h2>
+<p>Answer to Example <a href="linearalgebra.html#exm:vectors">1.1</a>:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\begin{pmatrix} -1 &amp;-3&amp;-3 \end{pmatrix}\)</span></li>
+<li>6 + 4 + 10 = 20</li>
+</ol>
+<p>Answer to Exercise <a href="linearalgebra.html#exr:vectors1">1.1</a>:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\begin{pmatrix} -2 &amp;4&amp;-7&amp;-5 \end{pmatrix}\)</span></li>
+<li><span class="math inline">\(\begin{pmatrix} 2 &amp;26&amp;-14&amp;4&amp;30 \end{pmatrix}\)</span></li>
+<li>63 -3 -10 + 24 = 74</li>
+<li>undefined</li>
+</ol>
+<p>Answer to Example <a href="linearalgebra.html#exm:linearindep">1.2</a>:</p>
+<ol style="list-style-type: decimal">
+<li>yes</li>
+<li>no</li>
+</ol>
+<p>Answer to Exercise <a href="linearalgebra.html#exr:linearindep1">1.2</a>:</p>
+<ol style="list-style-type: decimal">
+<li>yes</li>
+<li>no (<span class="math inline">\(-v_1 -v_2 + v_3 = 0\)</span>)</li>
+</ol>
+<p>Answer to Example <a href="linearalgebra.html#exm:matrixaddition">1.3</a>:</p>
+<p><span class="math inline">\({\bf A+B}=\begin{pmatrix} 2 &amp; 4 &amp; 4 \\ 6 &amp; 6 &amp; 8 \end{pmatrix}\)</span></p>
+<p>Answer to Example <a href="linearalgebra.html#exm:scalarmulti">1.4</a>:</p>
+<p><span class="math inline">\(s {\bf A} = \begin{pmatrix} 2 &amp; 4 &amp; 6 \\ 8 &amp; 10 &amp; 12 \end{pmatrix}\)</span></p>
+<p>Answer to Example <a href="linearalgebra.html#exm:matrixmulti">1.5</a>:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\begin{pmatrix} aA+bC&amp;aB+bD\\cA+dC&amp;cB+dD\\eA+fC&amp;eB+fD \end{pmatrix}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{pmatrix} 1(-2)+2(4)-1(2)&amp;1(5)+2(-3)-1(1)\\  3(-2)+1(4)+4(2)&amp;3(5)+1(-3)+4(1)\end{pmatrix} =  \begin{pmatrix} 4&amp;-2\\6&amp;16\end{pmatrix}\)</span></p></li>
+</ol>
+<p>Answer to Exercise <a href="linearalgebra.html#exr:matrixmulti1">1.3</a>:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(AB = \begin{pmatrix} 4 &amp; 11 &amp; -15 \\ 5 &amp; 7 &amp; -7 \end{pmatrix}\)</span></p></li>
+<li><p><span class="math inline">\(BA =\)</span> undefined</p></li>
+<li><p><span class="math inline">\((BC)^T =\)</span> undefined</p></li>
+<li><p><span class="math inline">\(BC^T = \begin{pmatrix} 1&amp;5&amp;-7\\1&amp;1&amp;0\\0&amp;-1&amp;1\\2&amp;0&amp;0\end{pmatrix}\begin{pmatrix} 3&amp;0\\2&amp;4\\-1&amp;6 \end{pmatrix} =\begin{pmatrix}20 &amp; -22 \\ 5 &amp; 4 \\ -3 &amp;2 \\6 &amp; 0\end{pmatrix}\)</span></p></li>
+</ol>
+<p>Answer to Exercise <a href="linearalgebra.html#exr:lineareq">1.4</a>:</p>
+<p>There are many answers to this. Some possible simple ones are as follows:</p>
+<ol style="list-style-type: decimal">
+<li><p>One solution: <span class="math display">\[\begin{matrix}
+        -x  &amp; + &amp; y &amp; = &amp; 0\\
+        x &amp; + &amp;  y &amp; = &amp;  2
+        \end{matrix}\]</span></p></li>
+<li><p>No solution: <span class="math display">\[\begin{matrix}
+        -x  &amp; + &amp; y &amp; = &amp; 0\\
+        x &amp; - &amp;  y &amp; = &amp;  2
+        \end{matrix}\]</span></p></li>
+<li><p>Infinite solutions: <span class="math display">\[\begin{matrix}
+        -x  &amp; + &amp; y &amp; = &amp; 0\\
+        2x &amp; - &amp;  2y &amp; = &amp;  0
+        \end{matrix}\]</span></p></li>
+</ol>
+<p>Answer to Exercise <a href="linearalgebra.html#exr:augmatrix">1.5</a>:</p>
+<p><span class="math inline">\(\begin{pmatrix}  2 &amp; -7 &amp; 9 &amp; -4 &amp; 0 &amp; 0| &amp; 8\\  0 &amp; 41 &amp; 9 &amp; 0 &amp; 0 &amp; 5 | &amp; 11\\  1 &amp; -15 &amp; 0 &amp; 0 &amp; -11 &amp; 0 | &amp; 9  \end{pmatrix}\)</span></p>
+<p>Answer to Example <a href="linearalgebra.html#exm:solvesys">1.6</a>:</p>
+<p><span class="math display">\[\begin{matrix}
+            x  &amp; - &amp; 3y &amp; = &amp; -3\\
+            2x &amp; + &amp;  y &amp; = &amp;  8
+            \end{matrix}\]</span></p>
+<p><span class="math display">\[\begin{matrix}
+            x  &amp; - &amp; 3y &amp; = &amp; -3\\
+               &amp;   &amp; 7y &amp; = &amp; 14\\          
+            \end{matrix}\]</span></p>
+<p><span class="math display">\[\begin{matrix}
+            x  &amp; - &amp; 3y &amp; = &amp; -3\\
+               &amp;   &amp; y &amp; = &amp; 2\\            
+            \end{matrix}\]</span></p>
+<p><span class="math display">\[\begin{matrix}
+            x &amp; = &amp; 3\\
+            y &amp; = &amp; 2\\         
+            \end{matrix}\]</span></p>
+<p>Answer to Exercise <a href="linearalgebra.html#exr:solvesys1">1.6</a>:</p>
+<ol style="list-style-type: decimal">
+<li><p>x = 2, y = 2, z = -1</p></li>
+<li><p>x = -17, y = -3, z = -35</p></li>
+</ol>
+<p>Answer to Exercise <a href="linearalgebra.html#exr:rank">1.7</a>:</p>
+<ol style="list-style-type: decimal">
+<li><p>rank is 2</p></li>
+<li><p>rank is 3</p></li>
+</ol>
+<p>Answer to Example <a href="linearalgebra.html#exm:inverse">1.7</a>:</p>
+<p><span class="math inline">\(\left(\begin{array}{ccc|ccc}  1&amp;1&amp;1&amp;1&amp;0&amp;0\\  0&amp;2&amp;3&amp;0&amp;1&amp;0\\  5&amp;5&amp;1&amp;0&amp;0&amp;1 \end{array} \right)\)</span></p>
+<p><span class="math inline">\(\left(\begin{array}{ccc|ccc}  1&amp;1&amp;1 &amp;1 &amp;0&amp;0\\  0&amp;2&amp;3 &amp;0 &amp;1&amp;0\\  0&amp;0&amp;-4&amp;-5&amp;0&amp;1 \end{array} \right)\)</span></p>
+<p><span class="math inline">\(\left(\begin{array}{ccc|ccc}  1&amp;1&amp;1&amp;1 &amp;0&amp;0\\  0&amp;2&amp;3&amp;0 &amp;1&amp;0\\  0&amp;0&amp;1&amp;5/4&amp;0&amp;-1/4 \end{array} \right)\)</span></p>
+<p><span class="math inline">\(\left(\begin{array}{ccc|ccc}  1&amp;1&amp;0&amp;-1/4 &amp;0&amp;1/4\\  0&amp;2&amp;0&amp;-15/4&amp;1&amp;3/4\\  0&amp;0&amp;1&amp;5/4 &amp;0&amp;-1/4 \end{array} \right)\)</span></p>
+<p><span class="math inline">\(\left(\begin{array}{ccc|ccc}  1&amp;1&amp;0&amp;-1/4 &amp;0 &amp;1/4\\  0&amp;1&amp;0&amp;-15/8&amp;1/2&amp;3/8\\  0&amp;0&amp;1&amp;5/4 &amp;0 &amp;-1/4 \end{array} \right)\)</span></p>
+<p><span class="math inline">\(\left(\begin{array}{ccc|ccc}  1&amp;0&amp;0&amp;13/8 &amp;-1/2&amp;-1/8\\  0&amp;1&amp;0&amp;-15/8&amp;1/2 &amp;3/8\\  0&amp;0&amp;1&amp;5/4 &amp;0 &amp;-1/4 \end{array} \right)\)</span></p>
+<p><span class="math inline">\({\bf A}^{-1} = \left(\begin{array}{ccc}  13/8 &amp;-1/2&amp;-1/8\\  -15/8&amp;1/2 &amp;3/8\\  5/4 &amp;0 &amp;-1/4 \end{array} \right)\)</span></p>
+<p>Answer to Exercise <a href="linearalgebra.html#exr:inverse1">1.8</a>:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\({\bf A}^{-1}=\begin{pmatrix} 1&amp;0&amp;-4\\0&amp;\frac{1}{2}&amp;0\\0&amp;0&amp;1 \end{pmatrix}\)</span></li>
+</ol>
+<p>Answer to Exercise <a href="linearalgebra.html#exr:invlinsys">1.9</a>:</p>
+<p><span class="math inline">\(\textbf{z} = \bf{A}^{-1} \bf{b} = \begin{pmatrix}  1/5 &amp;4/5\\  2/5&amp;3/5 \end{pmatrix} \begin{pmatrix}  5 \\  -10 \end{pmatrix}= \begin{pmatrix}  -7 \\  -4 \end{pmatrix} = \begin{pmatrix}  x \\  y \end{pmatrix}\)</span></p>
+<p>Answer to Exercise <a href="linearalgebra.html#exr:determinants">1.10</a>:</p>
+<ol style="list-style-type: decimal">
+<li><p>nonsingular</p></li>
+<li><p>singular</p></li>
+</ol>
+<p>Answer to Exercise <a href="linearalgebra.html#exr:calcinverse">1.11</a>:</p>
+<p><span class="math inline">\(\begin{pmatrix}  \frac{2}{41} &amp; \frac{-5}{41}\\  \frac{7}{41} &amp; \frac{3}{41}\\  \end{pmatrix}\)</span></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="pre-prefresher-exercises.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="functions-and-operations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/IQSS/prefresher/edit/master/02_linear-algebra.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["prefresher.pdf", "prefresher.epub"],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
