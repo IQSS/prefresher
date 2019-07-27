@@ -1,7 +1,9 @@
 # Suggested Programming Solutions {-}
 
 ```{r, message = FALSE}
-library(tidyverse)
+library(dplyr)
+library(readr)
+library(ggplot2)
 library(ggrepel)
 library(forcats)
 library(scales)
