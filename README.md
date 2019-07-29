@@ -4,11 +4,9 @@
 _(view this book on a browser: https://iqss.github.io/prefresher/)_
 
 
-The [__Harvard Gov Prefresher__](https://projects.iq.harvard.edu/prefresher) is held each year in August. All relevant information is on our website, including the [day-to-day schedule](https://projects.iq.harvard.edu/prefresher/schedule). The 2019 Prefresher instructors are [Shannon Parker](https://wcfia.harvard.edu/shannon-lynn-parker) and [Meg Schwenzfeier](http://schwenzfeier.github.io/), and the faculty sponsor is  [Gary King](https://gking.harvard.edu). The booklet maintained in this repository is the text for the Prefresher. Shiro Kuriwaki ([kuriwaki](https://github.com/kuriwaki)) is the repository maintainer. 
+The [__Harvard Gov Prefresher__](https://projects.iq.harvard.edu/prefresher) is held each year in August. All relevant information is on our website, including the [day-to-day schedule](https://projects.iq.harvard.edu/prefresher/schedule). The 2019 Prefresher instructors are [Shannon Parker](https://wcfia.harvard.edu/shannon-lynn-parker) and [Meg Schwenzfeier](http://schwenzfeier.github.io/), and the faculty sponsor is  [Gary King](https://gking.harvard.edu). 
 
-This material is maintained under a GPL License.
-
-![](images/readme-license.png)
+The booklet maintained in this repository is the text for the Prefresher, and is the accumulation of continuous improvements by previous instructors for the past 25 years (See the [title page](https://iqss.github.io/prefresher/) for the full list). Shiro Kuriwaki ([kuriwaki](https://github.com/kuriwaki)) is the repository maintainer. 
 
 
 ## How the book is compiled
@@ -26,3 +24,15 @@ The repository is also associated with a set of scripts that automatically compi
 
 _This system follows the guidelines outline in the [bookdown manual](https://bookdown.org/yihui/bookdown/github.html)._
 
+
+
+## Contributing
+
+This material is maintained under a GPL License, and other insturctors are welcome to fork, clone, or make copies of the material. Comments and suggestions are also always welcome. 
+
+![](images/readme-license.png)
+
+
+You may also be interested in a paper about the prefresher: 
+
+> [The "Math Prefresher" and The Collective Future of Political Science Graduate Training](https://gking.harvard.edu/prefresher), by Gary King, Shiro Kuriwaki, and Yon Soo Park.
