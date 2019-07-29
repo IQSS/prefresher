@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Called by .travis.yml. Copies the compiled html into a separate directory, 
+# book-deploy, and pushes that up to the gh-pages branch of the main repository. 
+# This then gets automatically recognized by Github Pages and is deployed.
+
 set -e
 
 [ -z "${GITHUB_PAT}" ] && exit 0
