@@ -1,7 +1,7 @@
 # Math Prefresher Text 
-![](https://travis-ci.org/IQSS/prefresher.svg?branch=master)
+![](https://travis-ci.org/IQSS/prefresher.svg?branch=master) [![Github All Releases](https://img.shields.io/github/downloads/IQSS/prefresher/total.svg)]()
 
-_(view this book on a browser: https://iqss.github.io/prefresher/)_
+_(view this book on a [browser](https://iqss.github.io/prefresher/) or in a [PDF](https://github.com/IQSS/prefresher/releases))_
 
 
 The [__Harvard Gov Prefresher__](https://projects.iq.harvard.edu/prefresher) is held each year in August. All relevant information is on our website, including the day-to-day schedule. The 2019 Prefresher instructors are [Shannon Parker](https://wcfia.harvard.edu/shannon-lynn-parker) and [Meg Schwenzfeier](http://schwenzfeier.github.io/), and the faculty sponsor is  [Gary King](https://gking.harvard.edu). 
