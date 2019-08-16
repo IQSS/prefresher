@@ -17,7 +17,7 @@ The repository is also associated with a set of scripts that automatically compi
 
 1. A [Travis-CI app](https://travis-ci.org/IQSS/prefresher) is linked to this repository. The `.travis.yml` file in the repository is what Travis runs. 
 2. First, Travis creates a virtual machine, downloads all the materials on the `master` branch of the repository, starts a R session, and installs the R packages listed in `DESCRIPTION`. 
-3.Then, according to the `.travis.yml` file, Travis runs the shell scripts `_build.sh`. This compiles the Rmd files and images into a html book format (in the virtual machine). 
+3. Then, according to the `.travis.yml` file, Travis runs the shell scripts `_build.sh`. This compiles the Rmd files and images into a html book format (in the virtual machine). 
 4. Then, Travis runs the second script, `_deploy.sh`. This shell script clones the `gh-pages` branch of the repo into a _sub-directory_ of the repository (called `book-deploy`). Then, it removes the content of that cloned copy and then copies the compiled html (in `_book`) into `book-deploy`. It tracks that contents of `book-deploy` and pushes it back up to the `gh-pages branch`.
 5. The repository is separately setup with Github Pages, which is designed to notice any `index.html` and associated html files in the `gh-pages` branch and upload the html into a book format at https://iqss.github.io/prefresher/. 
 6. Every time a commit is pushed to a branch, it will trigger Travis to run procedures 1 through 6. This is the same for pull requests to merge those branches into master. Travis will check beforehand if the merged branch will compile. This is useful to test out the compilation in the cloud before you alter master. 
