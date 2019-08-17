@@ -505,6 +505,8 @@ functions.
 
 For a review, please see Sections \ref{setoper} - \ref{probdef}.
 
+\part{Math}\label{part-math}
+
 \chapter{Functions and Operations}\label{functions-and-operations}
 
 \textbf{Topics} Dimensionality; Interval Notation for \({\bf R}^1\);
@@ -1149,1085 +1151,6 @@ Answer to Exercise \ref{exr:solvevar1}:
 \item
   x = - \(\ln10\)
 \end{enumerate}
-
-\part{Math}\label{part-math}
-
-\chapter{Linear Algebra}\label{linearalgebra}
-
-Topics: \(\bullet\) Working with Vectors \(\bullet\) Linear Independence
-\(\bullet\) Basics of Matrix Algebra \(\bullet\) Square Matrices
-\(\bullet\) Linear Equations \(\bullet\) Systems of Linear Equations
-\(\bullet\) Systems of Equations as Matrices \(\bullet\) Solving
-Augmented Matrices and Systems of Equations \(\bullet\) Rank \(\bullet\)
-The Inverse of a Matrix \(\bullet\) Inverse of Larger Matrices
-
-\section{Working with Vectors}\label{vector-def}
-
-\textbf{Vector}: A vector in \(n\)-space is an ordered list of \(n\)
-numbers. These numbers can be represented as either a row vector or a
-column vector:
-\[ {\bf v} \begin{pmatrix} v_1 & v_2 & \dots & v_n\end{pmatrix} , {\bf v} = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}\]
-
-We can also think of a vector as defining a point in \(n\)-dimensional
-space, usually \({\bf R}^n\); each element of the vector defines the
-coordinate of the point in a particular direction.
-
-\textbf{Vector Addition and Subtraction}: If two vectors, \({\bf u}\)
-and \({\bf v}\), have the same length (i.e.~have the same number of
-elements), they can be added (subtracted) together:
-\[ {\bf u} + {\bf v} = \begin{pmatrix} u_1 + v_1 & u_2 + v_2 & \cdots & u_k + v_n \end{pmatrix}\]
-\[ {\bf u} - {\bf v} = \begin{pmatrix} u_1 - v_1 & u_2 - v_2 & \cdots & u_k - v_n \end{pmatrix}\]
-
-\textbf{Scalar Multiplication}: The product of a scalar \(c\) (i.e.~a
-constant) and vector \({\bf v}\) is:\\
-\[ c{\bf v} =  \begin{pmatrix} cv_1 & cv_2 & \dots & cv_n \end{pmatrix} \]
-
-\textbf{Vector Inner Product}: The inner product (also called the dot
-product or scalar product) of two vectors \({\bf u}\) and \({\bf v}\) is
-again defined if and only if they have the same number of elements
-\[ {\bf u} \cdot {\bf v} = u_1v_1 + u_2v_2 + \cdots + u_nv_n = \sum_{i = 1}^n u_iv_i\]
-If \({\bf u} \cdot {\bf v} = 0\), the two vectors are orthogonal (or
-perpendicular).
-
-\textbf{Vector Norm}: The norm of a vector is a measure of its length.
-There are many different ways to calculate the norm, but the most common
-is the Euclidean norm (which corresponds to our usual conception of
-distance in three-dimensional space):
-\[ ||{\bf v}|| = \sqrt{{\bf v}\cdot{\bf v}} = \sqrt{ v_1v_1 + v_2v_2 + \cdots + v_nv_n}\]
-
-\BeginKnitrBlock{example}[Vector Algebra]
-\protect\hypertarget{exm:vectors}{}{\label{exm:vectors} \iffalse (Vector
-Algebra) \fi{} } Let \(a = \begin{pmatrix} 2&1&2\end{pmatrix}\),
-\(b = \begin{pmatrix} 3&4&5 \end{pmatrix}\). Calculate the following:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \(a - b\)
-\item
-  \(a \cdot b\)
-\end{enumerate}
-\EndKnitrBlock{example}
-
-\BeginKnitrBlock{exercise}[Vector Algebra]
-\protect\hypertarget{exr:vectors1}{}{\label{exr:vectors1} \iffalse (Vector
-Algebra) \fi{} } Let \(u = \begin{pmatrix} 7&1&-5&3\end{pmatrix}\),
-\(v = \begin{pmatrix} 9&-3&2&8 \end{pmatrix}\),
-\(w = \begin{pmatrix} 1&13& -7&2 &15 \end{pmatrix}\), and \(c = 2\).
-Calculate the following:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \(u-v\)
-\item
-  \(cw\)
-\item
-  \(u \cdot v\)
-\item
-  \(w \cdot v\)
-\end{enumerate}
-\EndKnitrBlock{exercise}
-
-\section{Linear Independence}\label{linearindependence}
-
-\textbf{Linear combinations}: The vector \({\bf u}\) is a linear
-combination of the vectors \({\bf v}_1, {\bf v}_2, \cdots , {\bf v}_k\)
-if \[{\bf u} = c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k\]
-
-For example, \(\begin{pmatrix}9 & 13 & 17 \end{pmatrix}\) is a linear
-combination of the following three vectors:
-\(\begin{pmatrix}1 & 2 & 3 \end{pmatrix}\),
-\(\begin{pmatrix} 2 & 3& 4\end{pmatrix}\), and
-\(\begin{pmatrix} 3 & 4 & 5 \end{pmatrix}\). This is because
-\(\begin{pmatrix}9 & 13 & 17 \end{pmatrix}\) =
-\((2)\begin{pmatrix}1 & 2 & 3 \end{pmatrix}\)
-\(+ (-1)\begin{pmatrix} 2 & 3& 4\end{pmatrix}\) +
-\(3\begin{pmatrix} 3 & 4 & 5 \end{pmatrix}\)
-
-\textbf{Linear independence}: A set of vectors
-\({\bf v}_1, {\bf v}_2, \cdots , {\bf v}_k\) is linearly independent if
-the only solution to the equation
-\[c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k = 0\] is
-\(c_1 = c_2 = \cdots = c_k = 0\). If another solution exists, the set of
-vectors is linearly dependent.
-
-A set \(S\) of vectors is linearly dependent if and only if at least one
-of the vectors in \(S\) can be written as a linear combination of the
-other vectors in \(S\).
-
-Linear independence is only defined for sets of vectors with the same
-number of elements; any linearly independent set of vectors in
-\(n\)-space contains at most \(n\) vectors.
-
-Since \(\begin{pmatrix}9 & 13 & 17 \end{pmatrix}\) is a linear
-combination of \(\begin{pmatrix}1 & 2 & 3 \end{pmatrix}\),
-\(\begin{pmatrix} 2 & 3& 4\end{pmatrix}\), and
-\(\begin{pmatrix} 3 & 4 & 5 \end{pmatrix}\), these 4 vectors constitute
-a linearly dependent set.
-
-\BeginKnitrBlock{example}[Linear Independence]
-\protect\hypertarget{exm:linearindep}{}{\label{exm:linearindep}
-\iffalse (Linear Independence) \fi{} } Are the following sets of vectors
-linearly independent?
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \(\begin{pmatrix}2 & 3 & 1 \end{pmatrix}\) and
-  \(\begin{pmatrix}4 & 6 & 1 \end{pmatrix}\)
-\item
-  \(\begin{pmatrix}1 & 0 & 0 \end{pmatrix}\),
-  \(\begin{pmatrix}0 & 5 & 0 \end{pmatrix}\), and
-  \(\begin{pmatrix}10 & 10 & 0 \end{pmatrix}\)
-\end{enumerate}
-\EndKnitrBlock{example}
-
-\BeginKnitrBlock{exercise}[Linear Independence]
-\protect\hypertarget{exr:linearindep1}{}{\label{exr:linearindep1}
-\iffalse (Linear Independence) \fi{} } Are the following sets of vectors
-linearly independent?
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \[{\bf v}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \]
-\item
-  \[{\bf v}_1 = \begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} -4 \\ 6 \\ 5 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} -2 \\ 8 \\ 6 \end{pmatrix} \]
-\end{enumerate}
-\EndKnitrBlock{exercise}
-
-\section{Basics of Matrix Algebra}\label{matrixbasics}
-
-\textbf{Matrix}: A matrix is an array of real numbers arranged in \(m\)
-rows by \(n\) columns. The dimensionality of the matrix is defined as
-the number of rows by the number of columns, \(m \times n\).
-
-\[{\bf A}=\begin{pmatrix}
-            a_{11} & a_{12} & \cdots & a_{1n} \\
-            a_{21} & a_{22} & \cdots & a_{2n} \\
-            \vdots & \vdots & \ddots & \vdots \\
-            a_{m1} & a_{m2} & \cdots & a_{mn}
-        \end{pmatrix}\]
-
-Note that you can think of vectors as special cases of matrices; a
-column vector of length \(k\) is a \(k \times 1\) matrix, while a row
-vector of the same length is a \(1 \times k\) matrix.
-
-It's also useful to think of matrices as being made up of a collection
-of row or column vectors. For example,
-\[\bf A = \begin{pmatrix} {\bf a}_1 & {\bf a}_2 &  \cdots & {\bf a}_m \end{pmatrix}\]
-
-\textbf{Matrix Addition}: Let \(\bf A\) and \(\bf B\) be two
-\(m\times n\) matrices. \[{\bf A+B}=\begin{pmatrix}
-            a_{11}+b_{11} & a_{12}+b_{12} & \cdots & a_{1n}+b_{1n} \\
-            a_{21}+b_{21} & a_{22}+b_{22} & \cdots & a_{2n}+b_{2n} \\
-            \vdots & \vdots  & \ddots & \vdots \\
-            a_{m1}+b_{m1} & a_{m2}+b_{m2} & \cdots & a_{mn}+b_{mn}
-        \end{pmatrix}\]
-
-Note that matrices \({\bf A}\) and \({\bf B}\) must have the same
-dimensionality, in which case they are \textbf{conformable for
-addition}.
-
-\BeginKnitrBlock{example}
-\protect\hypertarget{exm:matrixaddition}{}{\label{exm:matrixaddition}
-}\[{\bf A}=\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}, \qquad
-            {\bf B}=\begin{pmatrix} 1 & 2 & 1 \\ 2 & 1 & 2 \end{pmatrix}\]
-\({\bf A+B}=\)
-\EndKnitrBlock{example}
-
-\textbf{Scalar Multiplication}: Given the scalar \(s\), the scalar
-multiplication of \(s {\bf A}\) is \[ s {\bf A}=  s \begin{pmatrix}
-            a_{11} & a_{12} & \cdots & a_{1n} \\
-            a_{21} & a_{22} & \cdots & a_{2n} \\
-            \vdots & \vdots & \ddots & \vdots \\
-            a_{m1} & a_{m2} & \cdots & a_{mn}
-        \end{pmatrix}
-        = \begin{pmatrix}
-            s a_{11} & s a_{12} & \cdots & s a_{1n} \\
-            s a_{21} & s a_{22} & \cdots & s a_{2n} \\
-            \vdots & \vdots & \ddots & \vdots \\
-            s a_{m1} & s a_{m2} & \cdots & s a_{mn}
-        \end{pmatrix}\]
-
-\BeginKnitrBlock{example}
-\protect\hypertarget{exm:scalarmulti}{}{\label{exm:scalarmulti} }
-
-\(s=2, \qquad {\bf A}=\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}\)
-
-\(s {\bf A} =\)
-\EndKnitrBlock{example}
-
-\textbf{Matrix Multiplication}: If \({\bf A}\) is an \(m\times k\)
-matrix and \(\bf B\) is a \(k\times n\) matrix, then their product
-\(\bf C = A B\) is the \(m\times n\) matrix where
-\[c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{ik}b_{kj}\]
-
-\BeginKnitrBlock{example}
-\protect\hypertarget{exm:matrixmulti}{}{\label{exm:matrixmulti} }
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \(\begin{pmatrix} a&b\\c&d\\e&f \end{pmatrix} \begin{pmatrix} A&B\\C&D \end{pmatrix}  =\)
-\item
-  \(\begin{pmatrix} 1&2&-1\\3&1&4 \end{pmatrix} \begin{pmatrix} -2&5\\4&-3\\2&1\end{pmatrix} =\)
-\end{enumerate}
-\EndKnitrBlock{example}
-
-Note that the number of columns of the first matrix must equal the
-number of rows of the second matrix, in which case they are
-\textbf{conformable for multiplication}. The sizes of the matrices
-(including the resulting product) must be
-\[(m\times k)(k\times n)=(m\times n)\]
-
-Also note that if \textbf{AB} exists, \textbf{BA} exists only if
-\(\dim({\bf A}) = m \times n\) and \(\dim({\bf B}) = n \times m\).
-
-This does not mean that \textbf{AB} = \textbf{BA}. \textbf{AB} =
-\textbf{BA} is true only in special circumstances, like when \({\bf A}\)
-or \({\bf B}\) is an identity matrix or \({\bf A} = {\bf B}^{-1}\).
-
-\textbf{Laws of Matrix Algebra}:
-
-\begin{enumerate}
-        \item \parbox[t]{1.5in}{Associative:} $\bf (A+B)+C = A+(B+C)$\\
-            \parbox[t]{1.5in}{\quad}  $\bf (AB)C = A(BC)$
-        \item \parbox[t]{1.5in}{Commutative:} $\bf A+B=B+A$
-        \item \parbox[t]{1.5in}{Distributive:} $\bf A(B+C)=AB+AC$\\
-            \parbox[t]{1.5in}{\quad}   $\bf (A+B)C=AC+BC$
-\end{enumerate}
-
-Commutative law for multiplication does not hold -- the order of
-multiplication matters: \[\bf AB\ne BA\]
-
-For example,
-\[{\bf A}=\begin{pmatrix} 1&2\\-1&3\end{pmatrix}, \qquad {\bf B}=\begin{pmatrix} 2&1\\0&1\end{pmatrix}\]
-\[{\bf AB}=\begin{pmatrix} 2&3\\-2&2\end{pmatrix}, \qquad {\bf BA}=\begin{pmatrix} 1&7\\-1&3\end{pmatrix}\]
-
-\textbf{Transpose}: The transpose of the \(m\times n\) matrix \(\bf A\)
-is the \(n\times m\) matrix \({\bf A}^T\) (also written \({\bf A}'\))
-obtained by interchanging the rows and columns of \(\bf A\).
-
-For example,
-
-\({\bf A}=\begin{pmatrix} 4&-2&3\\0&5&-1\end{pmatrix}, \qquad {\bf A}^T=\begin{pmatrix} 4&0\\-2&5\\3&-1 \end{pmatrix}\)
-
-\({\bf B}=\begin{pmatrix} 2\\-1\\3 \end{pmatrix}, \qquad {\bf B}^T=\begin{pmatrix} 2&-1&3\end{pmatrix}\)
-
-The following rules apply for transposed matrices:
-
-\begin{enumerate}
-        \item $({\bf A+B})^T = {\bf A}^T+{\bf B}^T$
-        \item $({\bf A}^T)^T={\bf A}$
-        \item $(s{\bf A})^T = s{\bf A}^T$
-        \item $({\bf AB})^T = {\bf B}^T{\bf A}^T$; and by induction $({\bf ABC})^T = {\bf C}^T{\bf B}^T{\bf A}^T$
-\end{enumerate}
-
-Example of \(({\bf AB})^T = {\bf B}^T{\bf A}^T\):
-\[{\bf A}=\begin{pmatrix} 1&3&2\\2&-1&3\end{pmatrix}, \qquad {\bf B}=\begin{pmatrix} 0&1\\2&2\\3&-1\end{pmatrix}\]
-\[ ({\bf AB})^T = \left[ \begin{pmatrix} 1&3&2\\2&-1&3\end{pmatrix} \begin{pmatrix} 0&1\\2&2\\3&-1\end{pmatrix} \right]^T = \begin{pmatrix} 12&7\\5&-3 \end{pmatrix}\]
-\[ {\bf B}^T{\bf A}^T= \begin{pmatrix} 0&2&3\\1&2&-1 \end{pmatrix}  \begin{pmatrix} 1&2\\3&-1\\2&3 \end{pmatrix} = \begin{pmatrix} 12&7\\5&-3 \end{pmatrix}\]
-
-\BeginKnitrBlock{exercise}[Matrix Multiplication]
-\protect\hypertarget{exr:matrixmulti1}{}{\label{exr:matrixmulti1}
-\iffalse (Matrix Multiplication) \fi{} }
-
-Let \[A =  \begin{pmatrix} 2&0&-1&1\\1&2&0&1 \end{pmatrix}\]
-
-\[B = \begin{pmatrix} 1&5&-7\\1&1&0\\0&-1&1\\2&0&0\end{pmatrix} \]
-
-\[C =  \begin{pmatrix} 3&2&-1\\0&4&6 \end{pmatrix}\]
-
-Calculate the following:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \[AB\]
-\item
-  \[BA\]
-\item
-  \[(BC)^T\]
-\item
-  \[BC^T\]
-\end{enumerate}
-\EndKnitrBlock{exercise}
-
-\section{Systems of Linear Equations}\label{systems-of-linear-equations}
-
-\textbf{Linear Equation}: \(a_1 x_1 + a_2 x_2 + \cdots + a_n x_n = b\)
-
-\(a_i\) are parameters or coefficients. \(x_i\) are variables or
-unknowns.
-
-Linear because only one variable per term and degree is at most 1.
-
-We are often interested in solving linear systems like
-
-\[\begin{matrix}
-            x  & - & 3y & = & -3\\
-            2x & + &  y & = &  8
-            \end{matrix}\]
-
-\begin{comment}
-        \parbox[t]{1in}{\includegraphics[angle=270, width = 1in]{linsys.eps}}
-\end{comment}
-
-More generally, we might have a system of \(m\) equations in \(n\)
-unknowns
-
-\[\begin{matrix}
-            a_{11}x_1  & + & a_{12}x_2 & + & \cdots & + & a_{1n}x_n & = & b_1\\
-            a_{21}x_1  & + & a_{22}x_2 & + & \cdots & + & a_{2n}x_n & = & b_2\\
-            \vdots     &   &     &   & \vdots &   &     & \vdots & \\
-            a_{m1}x_1  & + & a_{m2}x_2 & + & \cdots & + & a_{mn}x_n & = & b_m
-            \end{matrix}\]
-
-A \textbf{solution} to a linear system of \(m\) equations in \(n\)
-unknowns is a set of \(n\) numbers \(x_1, x_2, \cdots, x_n\) that
-satisfy each of the \(m\) equations.
-
-Example: \(x=3\) and \(y=2\) is the solution to the above \(2\times 2\)
-linear system. If you graph the two lines, you will find that they
-intersect at \((3,2)\).
-
-Does a linear system have one, no, or multiple solutions? For a system
-of 2 equations with 2 unknowns (i.e., two lines): \_\\
-\textbf{One solution:} The lines intersect at exactly one point.
-
-\textbf{No solution:} The lines are parallel.
-
-\textbf{Infinite solutions:} The lines coincide.
-
-Methods to solve linear systems:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Substitution
-\item
-  Elimination of variables
-\item
-  Matrix methods
-\end{enumerate}
-
-\BeginKnitrBlock{exercise}[Linear Equations]
-\protect\hypertarget{exr:lineareq}{}{\label{exr:lineareq} \iffalse (Linear
-Equations) \fi{} }
-
-Provide a system of 2 equations with 2 unknowns that has
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  one solution
-\item
-  no solution
-\item
-  infinite solutions
-\end{enumerate}
-\EndKnitrBlock{exercise}
-
-\section{Systems of Equations as
-Matrices}\label{systems-of-equations-as-matrices}
-
-Matrices provide an easy and efficient way to represent linear systems
-such as \[\begin{matrix}
-        a_{11}x_1  & + & a_{12}x_2 & + & \cdots & + & a_{1n}x_n & = & b_1\\
-        a_{21}x_1  & + & a_{22}x_2 & + & \cdots & + & a_{2n}x_n & = & b_2\\
-        \vdots     &   &     &   & \vdots &   &     & \vdots & \\
-        a_{m1}x_1  & + & a_{m2}x_2 & + & \cdots & + & a_{mn}x_n & = & b_m
-        \end{matrix}\]
-
-as \[{\bf A x = b}\] where
-
-The \(m \times n\) \textbf{coefficient matrix} \({\bf A}\) is an array
-of \(m n\) real numbers arranged in \(m\) rows by \(n\) columns:
-\[{\bf A}=\begin{pmatrix}
-            a_{11} & a_{12} & \cdots & a_{1n} \\
-            a_{21} & a_{22} & \cdots & a_{2n} \\
-            \vdots &  & \ddots & \vdots \\
-            a_{m1} & a_{m2} & \cdots & a_{mn}
-            \end{pmatrix}\]
-
-The unknown quantities are represented by the vector
-\({\bf x}=\begin{pmatrix} x_1\\x_2\\\vdots\\x_n \end{pmatrix}\).
-
-The right hand side of the linear system is represented by the vector
-\({\bf b}=\begin{pmatrix} b_1\\b_2\\\vdots\\b_m \end{pmatrix}\).
-
-\textbf{Augmented Matrix}: When we append \(\bf b\) to the coefficient
-matrix \(\bf A\), we get the augmented matrix
-\(\widehat{\bf A}=[\bf A | b]\) \[\begin{pmatrix}
-            a_{11} & a_{12} & \cdots & a_{1n} & | & b_1\\
-            a_{21} & a_{22} & \cdots & a_{2n} & | & b_2\\
-            \vdots &  & \ddots & \vdots & | & \vdots\\
-            a_{m1} & a_{m2} & \cdots & a_{mn} & | & b_m
-            \end{pmatrix}\]
-
-\BeginKnitrBlock{exercise}[Augmented Matrix]
-\protect\hypertarget{exr:augmatrix}{}{\label{exr:augmatrix}
-\iffalse (Augmented Matrix) \fi{} }
-
-Create an augmented matrix that represent the following system of
-equations:
-
-\[2x_1 -7x_2 + 9x_3 -4x_4 = 8\] \[41x_2 + 9x_3 -5x_6 = 11\]
-\[x_1 -15x_2 -11x_5 = 9\]
-\EndKnitrBlock{exercise}
-
-\section{Finding Solutions to Augmented Matrices and Systems of
-Equations}\label{finding-solutions-to-augmented-matrices-and-systems-of-equations}
-
-\textbf{Row Echelon Form}: Our goal is to translate our augmented matrix
-or system of equations into row echelon form. This will provide us with
-the values of the vector \textbf{x} which solve the system. We use the
-row operations to change coefficients in the lower triangle of the
-augmented matrix to 0. An augmented matrix of the form
-
-\[\begin{pmatrix}
-            \fbox{$a'_{11}$}& a'_{12} & a'_{13}& \cdots & a'_{1n} & | & b'_1\\
-            0 & \fbox{$a'_{22}$} & a'_{23}& \cdots & a'_{2n} & | & b'_2\\
-            0 & 0 & \fbox{$a'_{33}$}& \cdots & a'_{3n} & | & b'_3\\
-            0 & 0 &0 & \ddots & \vdots  & | & \vdots \\
-            0 & 0 &0 &0 & \fbox{$a'_{mn}$} & | & b'_m
-            \end{pmatrix}\]
-
-is said to be in row echelon form --- each row has more leading zeros
-than the row preceding it.
-
-\textbf{Reduced Row Echelon Form}: We can go one step further and put
-the matrix into reduced row echelon form. Reduced row echelon form makes
-the value of \textbf{x} which solves the system very obvious. For a
-system of \(m\) equations in \(m\) unknowns, with no all-zero rows, the
-reduced row echelon form would be
-
-\[\begin{pmatrix}
-            \fbox{$1$}  &  0 &   0 &    0  &   0 & | & b^*_1\\
-            0  &  \fbox{$1$} &   0 &    0  &   0 & | & b^*_2\\
-            0  &  0 &   \fbox{$1$} &    0  &   0 & | & b^*_3\\
-            0  &  0 &   0 &\ddots &   0 & | &\vdots\\
-            0  &  0 &   0 &    0  &   \fbox{$1$} & | & b^*_m
-            \end{pmatrix}\]
-
-\textbf{Gaussian and Gauss-Jordan elimination}: We can conduct
-elementary row operations to get our augmented matrix into row echelon
-or reduced row echelon form. The methods of transforming a matrix or
-system into row echelon and reduced row echelon form are referred to as
-Gaussian elimination and Gauss-Jordan elimination, respectively.
-
-\textbf{Elementary Row Operations}: To do Gaussian and Gauss-Jordan
-elimination, we use three basic operations to transform the augmented
-matrix into another augmented matrix that represents an equivalent
-linear system -- equivalent in the sense that the same values of \(x_j\)
-solve both the original and transformed matrix/system:
-
-\textbf{Interchanging Rows}: Suppose we have the augmented matrix
-\[{\widehat{\bf A}}=\begin{pmatrix} a_{11} & a_{12} & | & b_1\\
-            a_{21} & a_{22} & | & b_2 
-            \end{pmatrix}\] If we interchange the two rows, we get the
-augmented matrix \[\begin{pmatrix}
-            a_{21} & a_{22} & | & b_2\\
-            a_{11} & a_{12} & | & b_1
-            \end{pmatrix}\] which represents a linear system equivalent
-to that represented by matrix \(\widehat{\bf A}\).
-
-\textbf{Multiplying by a Constant}: If we multiply the second row of
-matrix \(\widehat{\bf A}\) by a constant \(c\), we get the augmented
-matrix \[\begin{pmatrix}
-            a_{11} & a_{12} & | & b_1\\
-            c a_{21} & c a_{22} & | & c b_2
-            \end{pmatrix}\] which represents a linear system equivalent
-to that represented by matrix \(\widehat{\bf A}\).
-
-\textbf{Adding (subtracting) Rows}: If we add (subtract) the first row
-of matrix \(\widehat{\bf A}\) to the second, we obtain the augmented
-matrix \[\begin{pmatrix}
-            a_{11} & a_{12} & | & b_1\\
-            a_{11}+a_{21} & a_{12}+a_{22} & | & b_1+b_2
-            \end{pmatrix}\] which represents a linear system equivalent
-to that represented by matrix \(\widehat{\bf A}\).
-
-\BeginKnitrBlock{example}
-\protect\hypertarget{exm:solvesys}{}{\label{exm:solvesys} }
-
-Solve the following system of equations by using elementary row
-operations:
-
-\(\begin{matrix}  x & - & 3y & = & -3\\  2x & + & y & = & 8  \end{matrix}\)
-\EndKnitrBlock{example}
-
-\BeginKnitrBlock{exercise}[Solving Systems of Equations]
-\protect\hypertarget{exr:solvesys1}{}{\label{exr:solvesys1}
-\iffalse (Solving Systems of Equations) \fi{} }
-
-Put the following system of equations into augmented matrix form. Then,
-using Gaussian or Gauss-Jordan elimination, solve the system of
-equations by putting the matrix into row echelon or reduced row echelon
-form.
-
-\[
-  1. \begin{cases}
-               x + y + 2z = 2\\
-               3x - 2y + z = 1\\
-               y - z = 3
-            \end{cases}
-               \]
-
-\[
-  2. \begin{cases}
-               2x + 3y - z = -8\\
-               x + 2y - z = 12\\
-             -x -4y + z = -6
-            \end{cases}
-               \]
-\EndKnitrBlock{exercise}
-
-\section{Rank --- and Whether a System Has One, Infinite, or No
-Solutions}\label{rank-and-whether-a-system-has-one-infinite-or-no-solutions}
-
-To determine how many solutions exist, we can use information about (1)
-the number of equations \(m\), (2) the number of unknowns \(n\), and (3)
-the \textbf{rank} of the matrix representing the linear system.
-
-\textbf{Rank}: The maximum number of linearly independent row or column
-vectors in the matrix. This is equivalent to the number of nonzero rows
-of a matrix in row echelon form. For any matrix \textbf{A}, the row rank
-always equals column rank, and we refer to this number as the rank of
-\textbf{A}.
-
-For example
-
-\(\begin{pmatrix} 1 & 2 & 3 \\  0 & 4 & 5 \\  0 & 0 & 6 \end{pmatrix}\)
-
-Rank = 3
-
-\(\begin{pmatrix} 1 & 2 & 3 \\ 0 & 4 & 5 \\ 0 & 0 & 0 \end{pmatrix}\)
-
-Rank = 2
-
-\BeginKnitrBlock{exercise}[Rank of Matrices]
-\protect\hypertarget{exr:rank}{}{\label{exr:rank} \iffalse (Rank of
-Matrices) \fi{} }
-
-Find the rank of each matrix below:
-
-(Hint: transform the matrices into row echelon form. Remember that the
-number of nonzero rows of a matrix in row echelon form is the rank of
-that matrix)
-
-1.\(\begin{pmatrix} 1 & 1 & 2 \\ 2 & 1 & 3 \\ 1 & 2 & 3 \end{pmatrix}\)
-
-\bigskip
-
-2.\(\begin{pmatrix} 1 & 3 & 3 & -3 & 3\\ 1 & 3 & 1 & 1 & 3 \\ 1 & 3 & 2 & -1 & -2 \\ 1 & 3 & 0 & 3 & -2 \end{pmatrix}\)
-\EndKnitrBlock{exercise}
-
-Answer to Exercise \ref{exr:rank}:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  rank is 2
-\item
-  rank is 3
-\end{enumerate}
-
-\section{The Inverse of a Matrix}\label{the-inverse-of-a-matrix}
-
-\textbf{Identity Matrix}: The \(n\times n\) identity matrix
-\({\bf I}_n\) is the matrix whose diagonal elements are 1 and all
-off-diagonal elements are 0. Examples:
-\[ {\bf I}_2=\begin{pmatrix} 1&0\\0&1 \end{pmatrix}, \qquad {\bf I}_3=\begin{pmatrix} 1&0&0\\ 0&1&0\\ 
-            0&0&1 \end{pmatrix}\]
-
-\textbf{Inverse Matrix}: An \(n\times n\) matrix \({\bf A}\) is
-\textbf{nonsingular} or \textbf{invertible} if there exists an
-\(n\times n\) matrix \({\bf A}^{-1}\) such that
-\[{\bf A} {\bf A}^{-1} = {\bf A}^{-1} {\bf A} = {\bf I}_n\] where
-\({\bf A}^{-1}\) is the inverse of \({\bf A}\). If there is no such
-\({\bf A}^{-1}\), then \({\bf A}\) is singular or not invertible.
-
-Example: Let
-\[{\bf A} = \begin{pmatrix} 2&3\\2&2 \end{pmatrix}, \qquad {\bf B}=\begin{pmatrix} -1&\frac{3}{2}\\ 1&-1
-        \end{pmatrix}\] Since
-\[{\bf A} {\bf B} = {\bf B} {\bf A} = {\bf I}_n\] we conclude that
-\({\bf B}\) is the inverse, \({\bf A}^{-1}\), of \({\bf A}\) and that
-\({\bf A}\) is nonsingular.
-
-\textbf{Properties of the Inverse}:
-
-\begin{itemize}
-\item
-  If the inverse exists, it is unique.
-\item
-  If \({\bf A}\) is nonsingular, then \({\bf A}^{-1}\) is nonsingular.
-\item
-  \(({\bf A}^{-1})^{-1} = {\bf A}\)
-\item
-  If \({\bf A}\) and \({\bf B}\) are nonsingular, then
-  \({\bf A}{\bf B}\) is nonsingular
-\item
-  \(({\bf A}{\bf B})^{-1} = {\bf B}^{-1}{\bf A}^{-1}\)
-\item
-  If \({\bf A}\) is nonsingular, then
-  \(({\bf A}^T)^{-1}=({\bf A}^{-1})^T\)
-\end{itemize}
-
-\textbf{Procedure to Find} \({\bf A}^{-1}\): We know that if \({\bf B}\)
-is the inverse of \({\bf A}\), then
-\[{\bf A} {\bf B} = {\bf B} {\bf A} = {\bf I}_n\] Looking only at the
-first and last parts of this \[{\bf A} {\bf B} = {\bf I}_n\] Solving for
-\({\bf B}\) is equivalent to solving for \(n\) linear systems, where
-each column of \({\bf B}\) is solved for the corresponding column in
-\({\bf I}_n\). We can solve the systems simultaneously by augmenting
-\({\bf A}\) with \({\bf I}_n\) and performing Gauss-Jordan elimination
-on \({\bf A}\). If Gauss-Jordan elimination on \([{\bf A} | {\bf I}_n]\)
-results in \([{\bf I}_n | {\bf B} ]\), then \({\bf B}\) is the inverse
-of \({\bf A}\). Otherwise, \({\bf A}\) is singular.
-
-To summarize: To calculate the inverse of \({\bf A}\)
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Form the augmented matrix \([ {\bf A} | {\bf I}_n]\)
-\item
-  Using elementary row operations, transform the augmented matrix to
-  reduced row echelon form.
-\item
-  The result of step 2 is an augmented matrix \([ {\bf C} | {\bf B} ]\).
-
-  \begin{enumerate}
-  \def\labelenumii{\alph{enumii}.}
-  \item
-    If \({\bf C}={\bf I}_n\), then \({\bf B}={\bf A}^{-1}\).
-  \item
-    If \({\bf C}\ne{\bf I}_n\), then \(\bf C\) has a row of zeros. This
-    means \({\bf A}\) is singular and \({\bf A}^{-1}\) does not exist.
-  \end{enumerate}
-\end{enumerate}
-
-\BeginKnitrBlock{example}
-\protect\hypertarget{exm:inverse}{}{\label{exm:inverse} } Find the inverse
-of the following matricies:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \({\bf A}=\begin{pmatrix} 1&1&1\\0&2&3\\5&5&1 \end{pmatrix}\)
-\end{enumerate}
-\EndKnitrBlock{example}
-
-\BeginKnitrBlock{exercise}[Finding the inverse of matrices]
-\protect\hypertarget{exr:inverse1}{}{\label{exr:inverse1} \iffalse (Finding
-the inverse of matrices) \fi{} }
-
-Find the inverse of the following matrix:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \({\bf A}=\begin{pmatrix} 1&0&4\\0&2&0\\0&0&1 \end{pmatrix}\)
-\end{enumerate}
-\EndKnitrBlock{exercise}
-
-\section{Linear Systems and Inverses}\label{linear-systems-and-inverses}
-
-Let's return to the matrix representation of a linear system
-
-\[\bf{Ax} = \bf{b}\]
-
-If \(\bf{A}\) is an \(n\times n\) matrix,then \(\bf{Ax}=\bf{b}\) is a
-system of \(n\) equations in \(n\) unknowns. Suppose \(\bf{A}\) is
-nonsingular. Then \(\bf{A}^{-1}\) exists. To solve this system, we can
-multiply each side by \(\bf{A}^{-1}\) and reduce it as follows:
-
-\begin{eqnarray*} 
-\bf{A}^{-1} (\bf{A} \bf{x}) & = & \bf{A}^{-1} \bf{b} \\
-(\bf{A}^{-1} \bf{A})\bf{x} & = & \bf{A}^{-1} \bf{b}\\
-\bf{I}_n \bf{x}     & = & \bf{A}^{-1} \bf{b}\\
-\bf{x} & = & \bf{A}^{-1} \bf{b}
-\end{eqnarray*}
-
-Hence, given \(\bf{A}\) and \(\bf{b}\) and given that \(\bf{A}\) is
-nonsingular, then \(\bf{x} = \bf{A}^{-1} \bf{b}\) is a unique solution
-to this system.
-
-\BeginKnitrBlock{exercise}[Solve linear system using inverses]
-\protect\hypertarget{exr:invlinsys}{}{\label{exr:invlinsys} \iffalse (Solve
-linear system using inverses) \fi{} } Use the inverse matrix to solve
-the following linear system:
-
-\begin{align*} 
--3x + 4y &= 5 \\
-2x - y &= -10
-\end{align*}
-
-\textbf{\emph{Hint: the linear system above can be written in the matrix
-form}}
-
-\(\textbf{A}\textbf{z} = \textbf{b}\)
-
-given \[\textbf{A} = \begin{pmatrix} -3&4\\2&-1 \end{pmatrix},\]
-
-\[\textbf{z} = \begin{pmatrix} x\\y \end{pmatrix},\] and
-\[\textbf{b} = \begin{pmatrix} 5\\-10 \end{pmatrix}\]
-\EndKnitrBlock{exercise}
-
-\section{Determinants}\label{determinants}
-
-\textbf{Singularity}: Determinants can be used to determine whether a
-square matrix is nonsingular.
-
-A square matrix is nonsingular if and only if its determinant is not
-zero.
-
-Determinant of a \(1 \times 1\) matrix, \textbf{A}, equals \(a_{11}\)
-
-Determinant of a \(2 \times 2\) matrix, \textbf{A},
-\(\begin{vmatrix} a_{11}&a_{12}\\  a_{21}&a_{22} \end{vmatrix}\):
-
-\begin{eqnarray*}
-\det({\bf A}) &=& |{\bf A}|\\
-            &=& a_{11}|a_{22}| - a_{12}|a_{21}|\\
-            &=& a_{11}a_{22} - a_{12}a_{21}
-\end{eqnarray*}
-
-We can extend the second to last equation above to get the definition of
-the determinant of a \(3 \times 3\) matrix:
-
-\begin{eqnarray*}
-            \begin{vmatrix} a_{11}&a_{12}&a_{13}\\  a_{21} & a_{22}&a_{23}\\ a_{31}&a_{32}&a_{33} \end{vmatrix} 
-                &=& 
-                a_{11} \begin{vmatrix} a_{22}&a_{23}\\ a_{32}&a_{33} \end{vmatrix}
-                - a_{12} \begin{vmatrix} a_{21}&a_{23}\\ a_{31}&a_{33} \end{vmatrix}
-                + a_{13} \begin{vmatrix} a_{21}&a_{22}\\ a_{31}&a_{32} 
-                \end{vmatrix}\\
-                &=& a_{11}(a_{22}a_{33} - a_{23}a_{32}) - a_{12}(a_{21}a_{33} - a_{23}a_{31}) + a_{13}(a_{21}a_{32} - a_{22}a_{31})
-\end{eqnarray*}
-
-Let's extend this now to any \(n\times n\) matrix. Let's define
-\({\bf A}_{ij}\) as the \((n-1)\times (n-1)\) submatrix of \({\bf A}\)
-obtained by deleting row \(i\) and column \(j\). Let the \((i,j)\)th
-\textbf{minor} of \({\bf A}\) be the determinant of \({\bf A}_{ij}\):
-\[M_{ij}=|{\bf A}_{ij}|\] Then for any \(n\times n\) matrix \({\bf A}\)
-\[|{\bf A}|= a_{11}M_{11} - a_{12}M_{12} + \cdots + (-1)^{n+1} a_{1n} M_{1n}\]
-
-For example, in figuring out whether the following matrix has an
-inverse? \[{\bf A}=\begin{pmatrix} 1&1&1\\0&2&3\\5&5&1 \end{pmatrix}\]
-1. Calculate its determinant.
-
-\begin{eqnarray}
-                &=& 1(2-15) - 1(0-15) + 1(0-10) \nonumber\\
-                &=& -13+15-10 \nonumber\\
-                &=& -8\nonumber
-\end{eqnarray}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  Since \(|{\bf A}|\ne 0\), we conclude that \({\bf A}\) has an inverse.
-\end{enumerate}
-
-\BeginKnitrBlock{exercise}[Determinants and Inverses]
-\protect\hypertarget{exr:determinants}{}{\label{exr:determinants}
-\iffalse (Determinants and Inverses) \fi{} }
-
-Determine whether the following matrices are nonsingular:
-
-\[1. \begin{pmatrix}
-            1 & 0 & 1\\
-            2 & 1 & 2\\
-            1 & 0 & -1
-        \end{pmatrix}\]
-
-\[2. \begin{pmatrix}
-            2 & 1 & 2\\
-            1 & 0 & 1\\
-            4 & 1 & 4
-        \end{pmatrix}\]
-\EndKnitrBlock{exercise}
-
-\section{Getting Inverse of a Matrix using its
-Determinant}\label{getting-inverse-of-a-matrix-using-its-determinant}
-
-Thus far, we have a number of algorithms to
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Find the solution of a linear system,
-\item
-  Find the inverse of a matrix
-\end{enumerate}
-
-but these remain just that --- algorithms. At this point, we have no way
-of telling how the solutions \(x_j\) change as the parameters \(a_{ij}\)
-and \(b_i\) change, except by changing the values and ``rerunning'' the
-algorithms.
-
-With determinants, we can provide an explicit formula for the inverse
-and therefore provide an explicit formula for the solution of an
-\(n\times n\) linear system.
-
-Hence, we can examine how changes in the parameters and \(b_i\) affect
-the solutions \(x_j\).
-
-\textbf{Determinant Formula for the Inverse of a \(2 \times 2\)}:
-
-The determinant of a \(2 \times 2\) matrix \textbf{A}
-\(\begin{pmatrix} a & b\\ c & d\\ \end{pmatrix}\) is defined as:
-\[\frac{1}{\det({\bf A})} \begin{pmatrix}
-            d & -b\\
-            -c & a\\
-        \end{pmatrix}\]
-
-For example, Let's calculate the inverse of matrix A from Exercise
-\ref{exr:invlinsys} using the determinant formula.
-
-Recall,
-
-\[A = \begin{pmatrix}
-            -3 & 4\\
-            2 & -1\\
-        \end{pmatrix}\]
-
-\[\det({\bf A}) = (-3)(-1) - (4)(2) = 3 - 8  = -5\]
-
-\[\frac{1}{\det({\bf A})} \begin{pmatrix}
-            -1 & -4\\
-            -2 & -3\\
-        \end{pmatrix}\]
-
-\[\frac{1}{-5} \begin{pmatrix}
-            -1 & -4\\
-            -2 & -3\\
-        \end{pmatrix}\]
-
-\[ \begin{pmatrix}
-            \frac{1}{5} & \frac{4}{5}\\
-            \frac{2}{5} & \frac{3}{5}\\
-        \end{pmatrix}\]
-
-\BeginKnitrBlock{exercise}[Calculate Inverse using Determinant Formula]
-\protect\hypertarget{exr:calcinverse}{}{\label{exr:calcinverse}
-\iffalse (Calculate Inverse using Determinant Formula) \fi{} }
-
-Caculate the inverse of A
-
-\[A = \begin{pmatrix}
-            3 & 5\\
-            -7 & 2\\
-        \end{pmatrix}\]
-\EndKnitrBlock{exercise}
-
-\section*{Answers to Examples and
-Exercises}\label{answers-to-examples-and-exercises-1}
-\addcontentsline{toc}{section}{Answers to Examples and Exercises}
-
-Answer to Example \ref{exm:vectors}:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \(\begin{pmatrix} -1 &-3&-3 \end{pmatrix}\)
-\item
-  6 + 4 + 10 = 20
-\end{enumerate}
-
-Answer to Exercise \ref{exr:vectors1}:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \(\begin{pmatrix} -2 &4&-7&-5 \end{pmatrix}\)
-\item
-  \(\begin{pmatrix} 2 &26&-14&4&30 \end{pmatrix}\)
-\item
-  63 -3 -10 + 24 = 74
-\item
-  undefined
-\end{enumerate}
-
-Answer to Example \ref{exm:linearindep}:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  yes
-\item
-  no
-\end{enumerate}
-
-Answer to Exercise \ref{exr:linearindep1}:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  yes
-\item
-  no (\(-v_1 -v_2 + v_3 = 0\))
-\end{enumerate}
-
-Answer to Example \ref{exm:matrixaddition}:
-
-\({\bf A+B}=\begin{pmatrix} 2 & 4 & 4 \\ 6 & 6 & 8 \end{pmatrix}\)
-
-Answer to Example \ref{exm:scalarmulti}:
-
-\(s {\bf A} = \begin{pmatrix} 2 & 4 & 6 \\ 8 & 10 & 12 \end{pmatrix}\)
-
-Answer to Example \ref{exm:matrixmulti}:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \(\begin{pmatrix} aA+bC&aB+bD\\cA+dC&cB+dD\\eA+fC&eB+fD \end{pmatrix}\)
-\item
-  \(\begin{pmatrix} 1(-2)+2(4)-1(2)&1(5)+2(-3)-1(1)\\  3(-2)+1(4)+4(2)&3(5)+1(-3)+4(1)\end{pmatrix} =  \begin{pmatrix} 4&-2\\6&16\end{pmatrix}\)
-\end{enumerate}
-
-Answer to Exercise \ref{exr:matrixmulti1}:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \(AB = \begin{pmatrix} 4 & 11 & -15 \\ 5 & 7 & -7 \end{pmatrix}\)
-\item
-  \(BA =\) undefined
-\item
-  \((BC)^T =\) undefined
-\item
-  \(BC^T = \begin{pmatrix} 1&5&-7\\1&1&0\\0&-1&1\\2&0&0\end{pmatrix}\begin{pmatrix} 3&0\\2&4\\-1&6 \end{pmatrix} =\begin{pmatrix}20 & -22 \\ 5 & 4 \\ -3 &2 \\6 & 0\end{pmatrix}\)
-\end{enumerate}
-
-Answer to Exercise \ref{exr:lineareq}:
-
-There are many answers to this. Some possible simple ones are as
-follows:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  One solution: \[\begin{matrix}
-          -x  & + & y & = & 0\\
-          x & + &  y & = &  2
-          \end{matrix}\]
-\item
-  No solution: \[\begin{matrix}
-          -x  & + & y & = & 0\\
-          x & - &  y & = &  2
-          \end{matrix}\]
-\item
-  Infinite solutions: \[\begin{matrix}
-          -x  & + & y & = & 0\\
-          2x & - &  2y & = &  0
-          \end{matrix}\]
-\end{enumerate}
-
-Answer to Exercise \ref{exr:augmatrix}:
-
-\(\begin{pmatrix}  2 & -7 & 9 & -4 & 0 & 0| & 8\\  0 & 41 & 9 & 0 & 0 & 5 | & 11\\  1 & -15 & 0 & 0 & -11 & 0 | & 9  \end{pmatrix}\)
-
-Answer to Example \ref{exm:solvesys}:
-
-\[\begin{matrix}
-            x  & - & 3y & = & -3\\
-            2x & + &  y & = &  8
-            \end{matrix}\]
-
-\[\begin{matrix}
-            x  & - & 3y & = & -3\\
-               &   & 7y & = & 14\\          
-            \end{matrix}\]
-
-\[\begin{matrix}
-            x  & - & 3y & = & -3\\
-               &   & y & = & 2\\            
-            \end{matrix}\]
-
-\[\begin{matrix}
-            x & = & 3\\
-            y & = & 2\\         
-            \end{matrix}\]
-
-Answer to Exercise \ref{exr:solvesys1}:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  x = 2, y = 2, z = -1
-\item
-  x = -17, y = -3, z = -35
-\end{enumerate}
-
-Answer to Exercise \ref{exr:rank}:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  rank is 2
-\item
-  rank is 3
-\end{enumerate}
-
-Answer to Example \ref{exm:inverse}:
-
-\(\left(\begin{array}{ccc|ccc}  1&1&1&1&0&0\\  0&2&3&0&1&0\\  5&5&1&0&0&1 \end{array} \right)\)
-
-\(\left(\begin{array}{ccc|ccc}  1&1&1 &1 &0&0\\  0&2&3 &0 &1&0\\  0&0&-4&-5&0&1 \end{array} \right)\)
-
-\(\left(\begin{array}{ccc|ccc}  1&1&1&1 &0&0\\  0&2&3&0 &1&0\\  0&0&1&5/4&0&-1/4 \end{array} \right)\)
-
-\(\left(\begin{array}{ccc|ccc}  1&1&0&-1/4 &0&1/4\\  0&2&0&-15/4&1&3/4\\  0&0&1&5/4 &0&-1/4 \end{array} \right)\)
-
-\(\left(\begin{array}{ccc|ccc}  1&1&0&-1/4 &0 &1/4\\  0&1&0&-15/8&1/2&3/8\\  0&0&1&5/4 &0 &-1/4 \end{array} \right)\)
-
-\(\left(\begin{array}{ccc|ccc}  1&0&0&13/8 &-1/2&-1/8\\  0&1&0&-15/8&1/2 &3/8\\  0&0&1&5/4 &0 &-1/4 \end{array} \right)\)
-
-\({\bf A}^{-1} = \left(\begin{array}{ccc}  13/8 &-1/2&-1/8\\  -15/8&1/2 &3/8\\  5/4 &0 &-1/4 \end{array} \right)\)
-
-Answer to Exercise \ref{exr:inverse1}:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \({\bf A}^{-1}=\begin{pmatrix} 1&0&-4\\0&\frac{1}{2}&0\\0&0&1 \end{pmatrix}\)
-\end{enumerate}
-
-Answer to Exercise \ref{exr:invlinsys}:
-
-\(\textbf{z} = \bf{A}^{-1} \bf{b} = \begin{pmatrix}  1/5 &4/5\\  2/5&3/5 \end{pmatrix} \begin{pmatrix}  5 \\  -10 \end{pmatrix}= \begin{pmatrix}  -7 \\  -4 \end{pmatrix} = \begin{pmatrix}  x \\  y \end{pmatrix}\)
-
-Answer to Exercise \ref{exr:determinants}:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  nonsingular
-\item
-  singular
-\end{enumerate}
-
-Answer to Exercise \ref{exr:calcinverse}:
-
-\(\begin{pmatrix}  \frac{2}{41} & \frac{-5}{41}\\  \frac{7}{41} & \frac{3}{41}\\  \end{pmatrix}\)
 
 \chapter{Limits}\label{limits-precalc}
 
@@ -3715,7 +2638,7 @@ Substituting this into the integration by parts formula, we obtain\\
 \EndKnitrBlock{exercise}
 
 \section*{Answers to Examples and
-Exercises}\label{answers-to-examples-and-exercises-2}
+Exercises}\label{answers-to-examples-and-exercises-1}
 \addcontentsline{toc}{section}{Answers to Examples and Exercises}
 
 Exercise \ref{exr:introderivatives}
@@ -6670,7 +5593,7 @@ numerator / denominator <= (1 * denominator) / denominator
 \end{comment}
 
 \section*{Answers to Examples and
-Exercises}\label{answers-to-examples-and-exercises-3}
+Exercises}\label{answers-to-examples-and-exercises-2}
 \addcontentsline{toc}{section}{Answers to Examples and Exercises}
 
 Answer to Example \ref{exm:counting}:
@@ -6854,6 +5777,1087 @@ Answer to Exercise \ref{exr:expvar3}:
   \(\frac{1}{8}(2 - \sqrt(\frac{2}{3}))^2\)
 \end{enumerate}
 
+\chapter{Linear Algebra}\label{linearalgebra}
+
+Topics: \(\bullet\) Working with Vectors \(\bullet\) Linear Independence
+\(\bullet\) Basics of Matrix Algebra \(\bullet\) Square Matrices
+\(\bullet\) Linear Equations \(\bullet\) Systems of Linear Equations
+\(\bullet\) Systems of Equations as Matrices \(\bullet\) Solving
+Augmented Matrices and Systems of Equations \(\bullet\) Rank \(\bullet\)
+The Inverse of a Matrix \(\bullet\) Inverse of Larger Matrices
+
+\section{Working with Vectors}\label{vector-def}
+
+\textbf{Vector}: A vector in \(n\)-space is an ordered list of \(n\)
+numbers. These numbers can be represented as either a row vector or a
+column vector:
+\[ {\bf v} \begin{pmatrix} v_1 & v_2 & \dots & v_n\end{pmatrix} , {\bf v} = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}\]
+
+We can also think of a vector as defining a point in \(n\)-dimensional
+space, usually \({\bf R}^n\); each element of the vector defines the
+coordinate of the point in a particular direction.
+
+\textbf{Vector Addition and Subtraction}: If two vectors, \({\bf u}\)
+and \({\bf v}\), have the same length (i.e.~have the same number of
+elements), they can be added (subtracted) together:
+\[ {\bf u} + {\bf v} = \begin{pmatrix} u_1 + v_1 & u_2 + v_2 & \cdots & u_k + v_n \end{pmatrix}\]
+\[ {\bf u} - {\bf v} = \begin{pmatrix} u_1 - v_1 & u_2 - v_2 & \cdots & u_k - v_n \end{pmatrix}\]
+
+\textbf{Scalar Multiplication}: The product of a scalar \(c\) (i.e.~a
+constant) and vector \({\bf v}\) is:\\
+\[ c{\bf v} =  \begin{pmatrix} cv_1 & cv_2 & \dots & cv_n \end{pmatrix} \]
+
+\textbf{Vector Inner Product}: The inner product (also called the dot
+product or scalar product) of two vectors \({\bf u}\) and \({\bf v}\) is
+again defined if and only if they have the same number of elements
+\[ {\bf u} \cdot {\bf v} = u_1v_1 + u_2v_2 + \cdots + u_nv_n = \sum_{i = 1}^n u_iv_i\]
+If \({\bf u} \cdot {\bf v} = 0\), the two vectors are orthogonal (or
+perpendicular).
+
+\textbf{Vector Norm}: The norm of a vector is a measure of its length.
+There are many different ways to calculate the norm, but the most common
+is the Euclidean norm (which corresponds to our usual conception of
+distance in three-dimensional space):
+\[ ||{\bf v}|| = \sqrt{{\bf v}\cdot{\bf v}} = \sqrt{ v_1v_1 + v_2v_2 + \cdots + v_nv_n}\]
+
+\BeginKnitrBlock{example}[Vector Algebra]
+\protect\hypertarget{exm:vectors}{}{\label{exm:vectors} \iffalse (Vector
+Algebra) \fi{} } Let \(a = \begin{pmatrix} 2&1&2\end{pmatrix}\),
+\(b = \begin{pmatrix} 3&4&5 \end{pmatrix}\). Calculate the following:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(a - b\)
+\item
+  \(a \cdot b\)
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{exercise}[Vector Algebra]
+\protect\hypertarget{exr:vectors1}{}{\label{exr:vectors1} \iffalse (Vector
+Algebra) \fi{} } Let \(u = \begin{pmatrix} 7&1&-5&3\end{pmatrix}\),
+\(v = \begin{pmatrix} 9&-3&2&8 \end{pmatrix}\),
+\(w = \begin{pmatrix} 1&13& -7&2 &15 \end{pmatrix}\), and \(c = 2\).
+Calculate the following:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(u-v\)
+\item
+  \(cw\)
+\item
+  \(u \cdot v\)
+\item
+  \(w \cdot v\)
+\end{enumerate}
+\EndKnitrBlock{exercise}
+
+\section{Linear Independence}\label{linearindependence}
+
+\textbf{Linear combinations}: The vector \({\bf u}\) is a linear
+combination of the vectors \({\bf v}_1, {\bf v}_2, \cdots , {\bf v}_k\)
+if \[{\bf u} = c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k\]
+
+For example, \(\begin{pmatrix}9 & 13 & 17 \end{pmatrix}\) is a linear
+combination of the following three vectors:
+\(\begin{pmatrix}1 & 2 & 3 \end{pmatrix}\),
+\(\begin{pmatrix} 2 & 3& 4\end{pmatrix}\), and
+\(\begin{pmatrix} 3 & 4 & 5 \end{pmatrix}\). This is because
+\(\begin{pmatrix}9 & 13 & 17 \end{pmatrix}\) =
+\((2)\begin{pmatrix}1 & 2 & 3 \end{pmatrix}\)
+\(+ (-1)\begin{pmatrix} 2 & 3& 4\end{pmatrix}\) +
+\(3\begin{pmatrix} 3 & 4 & 5 \end{pmatrix}\)
+
+\textbf{Linear independence}: A set of vectors
+\({\bf v}_1, {\bf v}_2, \cdots , {\bf v}_k\) is linearly independent if
+the only solution to the equation
+\[c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k = 0\] is
+\(c_1 = c_2 = \cdots = c_k = 0\). If another solution exists, the set of
+vectors is linearly dependent.
+
+A set \(S\) of vectors is linearly dependent if and only if at least one
+of the vectors in \(S\) can be written as a linear combination of the
+other vectors in \(S\).
+
+Linear independence is only defined for sets of vectors with the same
+number of elements; any linearly independent set of vectors in
+\(n\)-space contains at most \(n\) vectors.
+
+Since \(\begin{pmatrix}9 & 13 & 17 \end{pmatrix}\) is a linear
+combination of \(\begin{pmatrix}1 & 2 & 3 \end{pmatrix}\),
+\(\begin{pmatrix} 2 & 3& 4\end{pmatrix}\), and
+\(\begin{pmatrix} 3 & 4 & 5 \end{pmatrix}\), these 4 vectors constitute
+a linearly dependent set.
+
+\BeginKnitrBlock{example}[Linear Independence]
+\protect\hypertarget{exm:linearindep}{}{\label{exm:linearindep}
+\iffalse (Linear Independence) \fi{} } Are the following sets of vectors
+linearly independent?
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\begin{pmatrix}2 & 3 & 1 \end{pmatrix}\) and
+  \(\begin{pmatrix}4 & 6 & 1 \end{pmatrix}\)
+\item
+  \(\begin{pmatrix}1 & 0 & 0 \end{pmatrix}\),
+  \(\begin{pmatrix}0 & 5 & 0 \end{pmatrix}\), and
+  \(\begin{pmatrix}10 & 10 & 0 \end{pmatrix}\)
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{exercise}[Linear Independence]
+\protect\hypertarget{exr:linearindep1}{}{\label{exr:linearindep1}
+\iffalse (Linear Independence) \fi{} } Are the following sets of vectors
+linearly independent?
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \[{\bf v}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \]
+\item
+  \[{\bf v}_1 = \begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} -4 \\ 6 \\ 5 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} -2 \\ 8 \\ 6 \end{pmatrix} \]
+\end{enumerate}
+\EndKnitrBlock{exercise}
+
+\section{Basics of Matrix Algebra}\label{matrixbasics}
+
+\textbf{Matrix}: A matrix is an array of real numbers arranged in \(m\)
+rows by \(n\) columns. The dimensionality of the matrix is defined as
+the number of rows by the number of columns, \(m \times n\).
+
+\[{\bf A}=\begin{pmatrix}
+            a_{11} & a_{12} & \cdots & a_{1n} \\
+            a_{21} & a_{22} & \cdots & a_{2n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{m1} & a_{m2} & \cdots & a_{mn}
+        \end{pmatrix}\]
+
+Note that you can think of vectors as special cases of matrices; a
+column vector of length \(k\) is a \(k \times 1\) matrix, while a row
+vector of the same length is a \(1 \times k\) matrix.
+
+It's also useful to think of matrices as being made up of a collection
+of row or column vectors. For example,
+\[\bf A = \begin{pmatrix} {\bf a}_1 & {\bf a}_2 &  \cdots & {\bf a}_m \end{pmatrix}\]
+
+\textbf{Matrix Addition}: Let \(\bf A\) and \(\bf B\) be two
+\(m\times n\) matrices. \[{\bf A+B}=\begin{pmatrix}
+            a_{11}+b_{11} & a_{12}+b_{12} & \cdots & a_{1n}+b_{1n} \\
+            a_{21}+b_{21} & a_{22}+b_{22} & \cdots & a_{2n}+b_{2n} \\
+            \vdots & \vdots  & \ddots & \vdots \\
+            a_{m1}+b_{m1} & a_{m2}+b_{m2} & \cdots & a_{mn}+b_{mn}
+        \end{pmatrix}\]
+
+Note that matrices \({\bf A}\) and \({\bf B}\) must have the same
+dimensionality, in which case they are \textbf{conformable for
+addition}.
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:matrixaddition}{}{\label{exm:matrixaddition}
+}\[{\bf A}=\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}, \qquad
+            {\bf B}=\begin{pmatrix} 1 & 2 & 1 \\ 2 & 1 & 2 \end{pmatrix}\]
+\({\bf A+B}=\)
+\EndKnitrBlock{example}
+
+\textbf{Scalar Multiplication}: Given the scalar \(s\), the scalar
+multiplication of \(s {\bf A}\) is \[ s {\bf A}=  s \begin{pmatrix}
+            a_{11} & a_{12} & \cdots & a_{1n} \\
+            a_{21} & a_{22} & \cdots & a_{2n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{m1} & a_{m2} & \cdots & a_{mn}
+        \end{pmatrix}
+        = \begin{pmatrix}
+            s a_{11} & s a_{12} & \cdots & s a_{1n} \\
+            s a_{21} & s a_{22} & \cdots & s a_{2n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            s a_{m1} & s a_{m2} & \cdots & s a_{mn}
+        \end{pmatrix}\]
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:scalarmulti}{}{\label{exm:scalarmulti} }
+
+\(s=2, \qquad {\bf A}=\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}\)
+
+\(s {\bf A} =\)
+\EndKnitrBlock{example}
+
+\textbf{Matrix Multiplication}: If \({\bf A}\) is an \(m\times k\)
+matrix and \(\bf B\) is a \(k\times n\) matrix, then their product
+\(\bf C = A B\) is the \(m\times n\) matrix where
+\[c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{ik}b_{kj}\]
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:matrixmulti}{}{\label{exm:matrixmulti} }
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(\begin{pmatrix} a&b\\c&d\\e&f \end{pmatrix} \begin{pmatrix} A&B\\C&D \end{pmatrix}  =\)
+\item
+  \(\begin{pmatrix} 1&2&-1\\3&1&4 \end{pmatrix} \begin{pmatrix} -2&5\\4&-3\\2&1\end{pmatrix} =\)
+\end{enumerate}
+\EndKnitrBlock{example}
+
+Note that the number of columns of the first matrix must equal the
+number of rows of the second matrix, in which case they are
+\textbf{conformable for multiplication}. The sizes of the matrices
+(including the resulting product) must be
+\[(m\times k)(k\times n)=(m\times n)\]
+
+Also note that if \textbf{AB} exists, \textbf{BA} exists only if
+\(\dim({\bf A}) = m \times n\) and \(\dim({\bf B}) = n \times m\).
+
+This does not mean that \textbf{AB} = \textbf{BA}. \textbf{AB} =
+\textbf{BA} is true only in special circumstances, like when \({\bf A}\)
+or \({\bf B}\) is an identity matrix or \({\bf A} = {\bf B}^{-1}\).
+
+\textbf{Laws of Matrix Algebra}:
+
+\begin{enumerate}
+        \item \parbox[t]{1.5in}{Associative:} $\bf (A+B)+C = A+(B+C)$\\
+            \parbox[t]{1.5in}{\quad}  $\bf (AB)C = A(BC)$
+        \item \parbox[t]{1.5in}{Commutative:} $\bf A+B=B+A$
+        \item \parbox[t]{1.5in}{Distributive:} $\bf A(B+C)=AB+AC$\\
+            \parbox[t]{1.5in}{\quad}   $\bf (A+B)C=AC+BC$
+\end{enumerate}
+
+Commutative law for multiplication does not hold -- the order of
+multiplication matters: \[\bf AB\ne BA\]
+
+For example,
+\[{\bf A}=\begin{pmatrix} 1&2\\-1&3\end{pmatrix}, \qquad {\bf B}=\begin{pmatrix} 2&1\\0&1\end{pmatrix}\]
+\[{\bf AB}=\begin{pmatrix} 2&3\\-2&2\end{pmatrix}, \qquad {\bf BA}=\begin{pmatrix} 1&7\\-1&3\end{pmatrix}\]
+
+\textbf{Transpose}: The transpose of the \(m\times n\) matrix \(\bf A\)
+is the \(n\times m\) matrix \({\bf A}^T\) (also written \({\bf A}'\))
+obtained by interchanging the rows and columns of \(\bf A\).
+
+For example,
+
+\({\bf A}=\begin{pmatrix} 4&-2&3\\0&5&-1\end{pmatrix}, \qquad {\bf A}^T=\begin{pmatrix} 4&0\\-2&5\\3&-1 \end{pmatrix}\)
+
+\({\bf B}=\begin{pmatrix} 2\\-1\\3 \end{pmatrix}, \qquad {\bf B}^T=\begin{pmatrix} 2&-1&3\end{pmatrix}\)
+
+The following rules apply for transposed matrices:
+
+\begin{enumerate}
+        \item $({\bf A+B})^T = {\bf A}^T+{\bf B}^T$
+        \item $({\bf A}^T)^T={\bf A}$
+        \item $(s{\bf A})^T = s{\bf A}^T$
+        \item $({\bf AB})^T = {\bf B}^T{\bf A}^T$; and by induction $({\bf ABC})^T = {\bf C}^T{\bf B}^T{\bf A}^T$
+\end{enumerate}
+
+Example of \(({\bf AB})^T = {\bf B}^T{\bf A}^T\):
+\[{\bf A}=\begin{pmatrix} 1&3&2\\2&-1&3\end{pmatrix}, \qquad {\bf B}=\begin{pmatrix} 0&1\\2&2\\3&-1\end{pmatrix}\]
+\[ ({\bf AB})^T = \left[ \begin{pmatrix} 1&3&2\\2&-1&3\end{pmatrix} \begin{pmatrix} 0&1\\2&2\\3&-1\end{pmatrix} \right]^T = \begin{pmatrix} 12&7\\5&-3 \end{pmatrix}\]
+\[ {\bf B}^T{\bf A}^T= \begin{pmatrix} 0&2&3\\1&2&-1 \end{pmatrix}  \begin{pmatrix} 1&2\\3&-1\\2&3 \end{pmatrix} = \begin{pmatrix} 12&7\\5&-3 \end{pmatrix}\]
+
+\BeginKnitrBlock{exercise}[Matrix Multiplication]
+\protect\hypertarget{exr:matrixmulti1}{}{\label{exr:matrixmulti1}
+\iffalse (Matrix Multiplication) \fi{} }
+
+Let \[A =  \begin{pmatrix} 2&0&-1&1\\1&2&0&1 \end{pmatrix}\]
+
+\[B = \begin{pmatrix} 1&5&-7\\1&1&0\\0&-1&1\\2&0&0\end{pmatrix} \]
+
+\[C =  \begin{pmatrix} 3&2&-1\\0&4&6 \end{pmatrix}\]
+
+Calculate the following:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \[AB\]
+\item
+  \[BA\]
+\item
+  \[(BC)^T\]
+\item
+  \[BC^T\]
+\end{enumerate}
+\EndKnitrBlock{exercise}
+
+\section{Systems of Linear Equations}\label{systems-of-linear-equations}
+
+\textbf{Linear Equation}: \(a_1 x_1 + a_2 x_2 + \cdots + a_n x_n = b\)
+
+\(a_i\) are parameters or coefficients. \(x_i\) are variables or
+unknowns.
+
+Linear because only one variable per term and degree is at most 1.
+
+We are often interested in solving linear systems like
+
+\[\begin{matrix}
+            x  & - & 3y & = & -3\\
+            2x & + &  y & = &  8
+            \end{matrix}\]
+
+\begin{comment}
+        \parbox[t]{1in}{\includegraphics[angle=270, width = 1in]{linsys.eps}}
+\end{comment}
+
+More generally, we might have a system of \(m\) equations in \(n\)
+unknowns
+
+\[\begin{matrix}
+            a_{11}x_1  & + & a_{12}x_2 & + & \cdots & + & a_{1n}x_n & = & b_1\\
+            a_{21}x_1  & + & a_{22}x_2 & + & \cdots & + & a_{2n}x_n & = & b_2\\
+            \vdots     &   &     &   & \vdots &   &     & \vdots & \\
+            a_{m1}x_1  & + & a_{m2}x_2 & + & \cdots & + & a_{mn}x_n & = & b_m
+            \end{matrix}\]
+
+A \textbf{solution} to a linear system of \(m\) equations in \(n\)
+unknowns is a set of \(n\) numbers \(x_1, x_2, \cdots, x_n\) that
+satisfy each of the \(m\) equations.
+
+Example: \(x=3\) and \(y=2\) is the solution to the above \(2\times 2\)
+linear system. If you graph the two lines, you will find that they
+intersect at \((3,2)\).
+
+Does a linear system have one, no, or multiple solutions? For a system
+of 2 equations with 2 unknowns (i.e., two lines): \_\\
+\textbf{One solution:} The lines intersect at exactly one point.
+
+\textbf{No solution:} The lines are parallel.
+
+\textbf{Infinite solutions:} The lines coincide.
+
+Methods to solve linear systems:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Substitution
+\item
+  Elimination of variables
+\item
+  Matrix methods
+\end{enumerate}
+
+\BeginKnitrBlock{exercise}[Linear Equations]
+\protect\hypertarget{exr:lineareq}{}{\label{exr:lineareq} \iffalse (Linear
+Equations) \fi{} }
+
+Provide a system of 2 equations with 2 unknowns that has
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  one solution
+\item
+  no solution
+\item
+  infinite solutions
+\end{enumerate}
+\EndKnitrBlock{exercise}
+
+\section{Systems of Equations as
+Matrices}\label{systems-of-equations-as-matrices}
+
+Matrices provide an easy and efficient way to represent linear systems
+such as \[\begin{matrix}
+        a_{11}x_1  & + & a_{12}x_2 & + & \cdots & + & a_{1n}x_n & = & b_1\\
+        a_{21}x_1  & + & a_{22}x_2 & + & \cdots & + & a_{2n}x_n & = & b_2\\
+        \vdots     &   &     &   & \vdots &   &     & \vdots & \\
+        a_{m1}x_1  & + & a_{m2}x_2 & + & \cdots & + & a_{mn}x_n & = & b_m
+        \end{matrix}\]
+
+as \[{\bf A x = b}\] where
+
+The \(m \times n\) \textbf{coefficient matrix} \({\bf A}\) is an array
+of \(m n\) real numbers arranged in \(m\) rows by \(n\) columns:
+\[{\bf A}=\begin{pmatrix}
+            a_{11} & a_{12} & \cdots & a_{1n} \\
+            a_{21} & a_{22} & \cdots & a_{2n} \\
+            \vdots &  & \ddots & \vdots \\
+            a_{m1} & a_{m2} & \cdots & a_{mn}
+            \end{pmatrix}\]
+
+The unknown quantities are represented by the vector
+\({\bf x}=\begin{pmatrix} x_1\\x_2\\\vdots\\x_n \end{pmatrix}\).
+
+The right hand side of the linear system is represented by the vector
+\({\bf b}=\begin{pmatrix} b_1\\b_2\\\vdots\\b_m \end{pmatrix}\).
+
+\textbf{Augmented Matrix}: When we append \(\bf b\) to the coefficient
+matrix \(\bf A\), we get the augmented matrix
+\(\widehat{\bf A}=[\bf A | b]\) \[\begin{pmatrix}
+            a_{11} & a_{12} & \cdots & a_{1n} & | & b_1\\
+            a_{21} & a_{22} & \cdots & a_{2n} & | & b_2\\
+            \vdots &  & \ddots & \vdots & | & \vdots\\
+            a_{m1} & a_{m2} & \cdots & a_{mn} & | & b_m
+            \end{pmatrix}\]
+
+\BeginKnitrBlock{exercise}[Augmented Matrix]
+\protect\hypertarget{exr:augmatrix}{}{\label{exr:augmatrix}
+\iffalse (Augmented Matrix) \fi{} }
+
+Create an augmented matrix that represent the following system of
+equations:
+
+\[2x_1 -7x_2 + 9x_3 -4x_4 = 8\] \[41x_2 + 9x_3 -5x_6 = 11\]
+\[x_1 -15x_2 -11x_5 = 9\]
+\EndKnitrBlock{exercise}
+
+\section{Finding Solutions to Augmented Matrices and Systems of
+Equations}\label{finding-solutions-to-augmented-matrices-and-systems-of-equations}
+
+\textbf{Row Echelon Form}: Our goal is to translate our augmented matrix
+or system of equations into row echelon form. This will provide us with
+the values of the vector \textbf{x} which solve the system. We use the
+row operations to change coefficients in the lower triangle of the
+augmented matrix to 0. An augmented matrix of the form
+
+\[\begin{pmatrix}
+            \fbox{$a'_{11}$}& a'_{12} & a'_{13}& \cdots & a'_{1n} & | & b'_1\\
+            0 & \fbox{$a'_{22}$} & a'_{23}& \cdots & a'_{2n} & | & b'_2\\
+            0 & 0 & \fbox{$a'_{33}$}& \cdots & a'_{3n} & | & b'_3\\
+            0 & 0 &0 & \ddots & \vdots  & | & \vdots \\
+            0 & 0 &0 &0 & \fbox{$a'_{mn}$} & | & b'_m
+            \end{pmatrix}\]
+
+is said to be in row echelon form --- each row has more leading zeros
+than the row preceding it.
+
+\textbf{Reduced Row Echelon Form}: We can go one step further and put
+the matrix into reduced row echelon form. Reduced row echelon form makes
+the value of \textbf{x} which solves the system very obvious. For a
+system of \(m\) equations in \(m\) unknowns, with no all-zero rows, the
+reduced row echelon form would be
+
+\[\begin{pmatrix}
+            \fbox{$1$}  &  0 &   0 &    0  &   0 & | & b^*_1\\
+            0  &  \fbox{$1$} &   0 &    0  &   0 & | & b^*_2\\
+            0  &  0 &   \fbox{$1$} &    0  &   0 & | & b^*_3\\
+            0  &  0 &   0 &\ddots &   0 & | &\vdots\\
+            0  &  0 &   0 &    0  &   \fbox{$1$} & | & b^*_m
+            \end{pmatrix}\]
+
+\textbf{Gaussian and Gauss-Jordan elimination}: We can conduct
+elementary row operations to get our augmented matrix into row echelon
+or reduced row echelon form. The methods of transforming a matrix or
+system into row echelon and reduced row echelon form are referred to as
+Gaussian elimination and Gauss-Jordan elimination, respectively.
+
+\textbf{Elementary Row Operations}: To do Gaussian and Gauss-Jordan
+elimination, we use three basic operations to transform the augmented
+matrix into another augmented matrix that represents an equivalent
+linear system -- equivalent in the sense that the same values of \(x_j\)
+solve both the original and transformed matrix/system:
+
+\textbf{Interchanging Rows}: Suppose we have the augmented matrix
+\[{\widehat{\bf A}}=\begin{pmatrix} a_{11} & a_{12} & | & b_1\\
+            a_{21} & a_{22} & | & b_2 
+            \end{pmatrix}\] If we interchange the two rows, we get the
+augmented matrix \[\begin{pmatrix}
+            a_{21} & a_{22} & | & b_2\\
+            a_{11} & a_{12} & | & b_1
+            \end{pmatrix}\] which represents a linear system equivalent
+to that represented by matrix \(\widehat{\bf A}\).
+
+\textbf{Multiplying by a Constant}: If we multiply the second row of
+matrix \(\widehat{\bf A}\) by a constant \(c\), we get the augmented
+matrix \[\begin{pmatrix}
+            a_{11} & a_{12} & | & b_1\\
+            c a_{21} & c a_{22} & | & c b_2
+            \end{pmatrix}\] which represents a linear system equivalent
+to that represented by matrix \(\widehat{\bf A}\).
+
+\textbf{Adding (subtracting) Rows}: If we add (subtract) the first row
+of matrix \(\widehat{\bf A}\) to the second, we obtain the augmented
+matrix \[\begin{pmatrix}
+            a_{11} & a_{12} & | & b_1\\
+            a_{11}+a_{21} & a_{12}+a_{22} & | & b_1+b_2
+            \end{pmatrix}\] which represents a linear system equivalent
+to that represented by matrix \(\widehat{\bf A}\).
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:solvesys}{}{\label{exm:solvesys} }
+
+Solve the following system of equations by using elementary row
+operations:
+
+\(\begin{matrix}  x & - & 3y & = & -3\\  2x & + & y & = & 8  \end{matrix}\)
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{exercise}[Solving Systems of Equations]
+\protect\hypertarget{exr:solvesys1}{}{\label{exr:solvesys1}
+\iffalse (Solving Systems of Equations) \fi{} }
+
+Put the following system of equations into augmented matrix form. Then,
+using Gaussian or Gauss-Jordan elimination, solve the system of
+equations by putting the matrix into row echelon or reduced row echelon
+form.
+
+\[
+  1. \begin{cases}
+               x + y + 2z = 2\\
+               3x - 2y + z = 1\\
+               y - z = 3
+            \end{cases}
+               \]
+
+\[
+  2. \begin{cases}
+               2x + 3y - z = -8\\
+               x + 2y - z = 12\\
+             -x -4y + z = -6
+            \end{cases}
+               \]
+\EndKnitrBlock{exercise}
+
+\section{Rank --- and Whether a System Has One, Infinite, or No
+Solutions}\label{rank-and-whether-a-system-has-one-infinite-or-no-solutions}
+
+To determine how many solutions exist, we can use information about (1)
+the number of equations \(m\), (2) the number of unknowns \(n\), and (3)
+the \textbf{rank} of the matrix representing the linear system.
+
+\textbf{Rank}: The maximum number of linearly independent row or column
+vectors in the matrix. This is equivalent to the number of nonzero rows
+of a matrix in row echelon form. For any matrix \textbf{A}, the row rank
+always equals column rank, and we refer to this number as the rank of
+\textbf{A}.
+
+For example
+
+\(\begin{pmatrix} 1 & 2 & 3 \\  0 & 4 & 5 \\  0 & 0 & 6 \end{pmatrix}\)
+
+Rank = 3
+
+\(\begin{pmatrix} 1 & 2 & 3 \\ 0 & 4 & 5 \\ 0 & 0 & 0 \end{pmatrix}\)
+
+Rank = 2
+
+\BeginKnitrBlock{exercise}[Rank of Matrices]
+\protect\hypertarget{exr:rank}{}{\label{exr:rank} \iffalse (Rank of
+Matrices) \fi{} }
+
+Find the rank of each matrix below:
+
+(Hint: transform the matrices into row echelon form. Remember that the
+number of nonzero rows of a matrix in row echelon form is the rank of
+that matrix)
+
+1.\(\begin{pmatrix} 1 & 1 & 2 \\ 2 & 1 & 3 \\ 1 & 2 & 3 \end{pmatrix}\)
+
+\bigskip
+
+2.\(\begin{pmatrix} 1 & 3 & 3 & -3 & 3\\ 1 & 3 & 1 & 1 & 3 \\ 1 & 3 & 2 & -1 & -2 \\ 1 & 3 & 0 & 3 & -2 \end{pmatrix}\)
+\EndKnitrBlock{exercise}
+
+Answer to Exercise \ref{exr:rank}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  rank is 2
+\item
+  rank is 3
+\end{enumerate}
+
+\section{The Inverse of a Matrix}\label{the-inverse-of-a-matrix}
+
+\textbf{Identity Matrix}: The \(n\times n\) identity matrix
+\({\bf I}_n\) is the matrix whose diagonal elements are 1 and all
+off-diagonal elements are 0. Examples:
+\[ {\bf I}_2=\begin{pmatrix} 1&0\\0&1 \end{pmatrix}, \qquad {\bf I}_3=\begin{pmatrix} 1&0&0\\ 0&1&0\\ 
+            0&0&1 \end{pmatrix}\]
+
+\textbf{Inverse Matrix}: An \(n\times n\) matrix \({\bf A}\) is
+\textbf{nonsingular} or \textbf{invertible} if there exists an
+\(n\times n\) matrix \({\bf A}^{-1}\) such that
+\[{\bf A} {\bf A}^{-1} = {\bf A}^{-1} {\bf A} = {\bf I}_n\] where
+\({\bf A}^{-1}\) is the inverse of \({\bf A}\). If there is no such
+\({\bf A}^{-1}\), then \({\bf A}\) is singular or not invertible.
+
+Example: Let
+\[{\bf A} = \begin{pmatrix} 2&3\\2&2 \end{pmatrix}, \qquad {\bf B}=\begin{pmatrix} -1&\frac{3}{2}\\ 1&-1
+        \end{pmatrix}\] Since
+\[{\bf A} {\bf B} = {\bf B} {\bf A} = {\bf I}_n\] we conclude that
+\({\bf B}\) is the inverse, \({\bf A}^{-1}\), of \({\bf A}\) and that
+\({\bf A}\) is nonsingular.
+
+\textbf{Properties of the Inverse}:
+
+\begin{itemize}
+\item
+  If the inverse exists, it is unique.
+\item
+  If \({\bf A}\) is nonsingular, then \({\bf A}^{-1}\) is nonsingular.
+\item
+  \(({\bf A}^{-1})^{-1} = {\bf A}\)
+\item
+  If \({\bf A}\) and \({\bf B}\) are nonsingular, then
+  \({\bf A}{\bf B}\) is nonsingular
+\item
+  \(({\bf A}{\bf B})^{-1} = {\bf B}^{-1}{\bf A}^{-1}\)
+\item
+  If \({\bf A}\) is nonsingular, then
+  \(({\bf A}^T)^{-1}=({\bf A}^{-1})^T\)
+\end{itemize}
+
+\textbf{Procedure to Find} \({\bf A}^{-1}\): We know that if \({\bf B}\)
+is the inverse of \({\bf A}\), then
+\[{\bf A} {\bf B} = {\bf B} {\bf A} = {\bf I}_n\] Looking only at the
+first and last parts of this \[{\bf A} {\bf B} = {\bf I}_n\] Solving for
+\({\bf B}\) is equivalent to solving for \(n\) linear systems, where
+each column of \({\bf B}\) is solved for the corresponding column in
+\({\bf I}_n\). We can solve the systems simultaneously by augmenting
+\({\bf A}\) with \({\bf I}_n\) and performing Gauss-Jordan elimination
+on \({\bf A}\). If Gauss-Jordan elimination on \([{\bf A} | {\bf I}_n]\)
+results in \([{\bf I}_n | {\bf B} ]\), then \({\bf B}\) is the inverse
+of \({\bf A}\). Otherwise, \({\bf A}\) is singular.
+
+To summarize: To calculate the inverse of \({\bf A}\)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Form the augmented matrix \([ {\bf A} | {\bf I}_n]\)
+\item
+  Using elementary row operations, transform the augmented matrix to
+  reduced row echelon form.
+\item
+  The result of step 2 is an augmented matrix \([ {\bf C} | {\bf B} ]\).
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \item
+    If \({\bf C}={\bf I}_n\), then \({\bf B}={\bf A}^{-1}\).
+  \item
+    If \({\bf C}\ne{\bf I}_n\), then \(\bf C\) has a row of zeros. This
+    means \({\bf A}\) is singular and \({\bf A}^{-1}\) does not exist.
+  \end{enumerate}
+\end{enumerate}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:inverse}{}{\label{exm:inverse} } Find the inverse
+of the following matricies:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \({\bf A}=\begin{pmatrix} 1&1&1\\0&2&3\\5&5&1 \end{pmatrix}\)
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{exercise}[Finding the inverse of matrices]
+\protect\hypertarget{exr:inverse1}{}{\label{exr:inverse1} \iffalse (Finding
+the inverse of matrices) \fi{} }
+
+Find the inverse of the following matrix:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \({\bf A}=\begin{pmatrix} 1&0&4\\0&2&0\\0&0&1 \end{pmatrix}\)
+\end{enumerate}
+\EndKnitrBlock{exercise}
+
+\section{Linear Systems and Inverses}\label{linear-systems-and-inverses}
+
+Let's return to the matrix representation of a linear system
+
+\[\bf{Ax} = \bf{b}\]
+
+If \(\bf{A}\) is an \(n\times n\) matrix,then \(\bf{Ax}=\bf{b}\) is a
+system of \(n\) equations in \(n\) unknowns. Suppose \(\bf{A}\) is
+nonsingular. Then \(\bf{A}^{-1}\) exists. To solve this system, we can
+multiply each side by \(\bf{A}^{-1}\) and reduce it as follows:
+
+\begin{eqnarray*} 
+\bf{A}^{-1} (\bf{A} \bf{x}) & = & \bf{A}^{-1} \bf{b} \\
+(\bf{A}^{-1} \bf{A})\bf{x} & = & \bf{A}^{-1} \bf{b}\\
+\bf{I}_n \bf{x}     & = & \bf{A}^{-1} \bf{b}\\
+\bf{x} & = & \bf{A}^{-1} \bf{b}
+\end{eqnarray*}
+
+Hence, given \(\bf{A}\) and \(\bf{b}\) and given that \(\bf{A}\) is
+nonsingular, then \(\bf{x} = \bf{A}^{-1} \bf{b}\) is a unique solution
+to this system.
+
+\BeginKnitrBlock{exercise}[Solve linear system using inverses]
+\protect\hypertarget{exr:invlinsys}{}{\label{exr:invlinsys} \iffalse (Solve
+linear system using inverses) \fi{} } Use the inverse matrix to solve
+the following linear system:
+
+\begin{align*} 
+-3x + 4y &= 5 \\
+2x - y &= -10
+\end{align*}
+
+\textbf{\emph{Hint: the linear system above can be written in the matrix
+form}}
+
+\(\textbf{A}\textbf{z} = \textbf{b}\)
+
+given \[\textbf{A} = \begin{pmatrix} -3&4\\2&-1 \end{pmatrix},\]
+
+\[\textbf{z} = \begin{pmatrix} x\\y \end{pmatrix},\] and
+\[\textbf{b} = \begin{pmatrix} 5\\-10 \end{pmatrix}\]
+\EndKnitrBlock{exercise}
+
+\section{Determinants}\label{determinants}
+
+\textbf{Singularity}: Determinants can be used to determine whether a
+square matrix is nonsingular.
+
+A square matrix is nonsingular if and only if its determinant is not
+zero.
+
+Determinant of a \(1 \times 1\) matrix, \textbf{A}, equals \(a_{11}\)
+
+Determinant of a \(2 \times 2\) matrix, \textbf{A},
+\(\begin{vmatrix} a_{11}&a_{12}\\  a_{21}&a_{22} \end{vmatrix}\):
+
+\begin{eqnarray*}
+\det({\bf A}) &=& |{\bf A}|\\
+            &=& a_{11}|a_{22}| - a_{12}|a_{21}|\\
+            &=& a_{11}a_{22} - a_{12}a_{21}
+\end{eqnarray*}
+
+We can extend the second to last equation above to get the definition of
+the determinant of a \(3 \times 3\) matrix:
+
+\begin{eqnarray*}
+            \begin{vmatrix} a_{11}&a_{12}&a_{13}\\  a_{21} & a_{22}&a_{23}\\ a_{31}&a_{32}&a_{33} \end{vmatrix} 
+                &=& 
+                a_{11} \begin{vmatrix} a_{22}&a_{23}\\ a_{32}&a_{33} \end{vmatrix}
+                - a_{12} \begin{vmatrix} a_{21}&a_{23}\\ a_{31}&a_{33} \end{vmatrix}
+                + a_{13} \begin{vmatrix} a_{21}&a_{22}\\ a_{31}&a_{32} 
+                \end{vmatrix}\\
+                &=& a_{11}(a_{22}a_{33} - a_{23}a_{32}) - a_{12}(a_{21}a_{33} - a_{23}a_{31}) + a_{13}(a_{21}a_{32} - a_{22}a_{31})
+\end{eqnarray*}
+
+Let's extend this now to any \(n\times n\) matrix. Let's define
+\({\bf A}_{ij}\) as the \((n-1)\times (n-1)\) submatrix of \({\bf A}\)
+obtained by deleting row \(i\) and column \(j\). Let the \((i,j)\)th
+\textbf{minor} of \({\bf A}\) be the determinant of \({\bf A}_{ij}\):
+\[M_{ij}=|{\bf A}_{ij}|\] Then for any \(n\times n\) matrix \({\bf A}\)
+\[|{\bf A}|= a_{11}M_{11} - a_{12}M_{12} + \cdots + (-1)^{n+1} a_{1n} M_{1n}\]
+
+For example, in figuring out whether the following matrix has an
+inverse? \[{\bf A}=\begin{pmatrix} 1&1&1\\0&2&3\\5&5&1 \end{pmatrix}\]
+1. Calculate its determinant.
+
+\begin{eqnarray}
+                &=& 1(2-15) - 1(0-15) + 1(0-10) \nonumber\\
+                &=& -13+15-10 \nonumber\\
+                &=& -8\nonumber
+\end{eqnarray}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Since \(|{\bf A}|\ne 0\), we conclude that \({\bf A}\) has an inverse.
+\end{enumerate}
+
+\BeginKnitrBlock{exercise}[Determinants and Inverses]
+\protect\hypertarget{exr:determinants}{}{\label{exr:determinants}
+\iffalse (Determinants and Inverses) \fi{} }
+
+Determine whether the following matrices are nonsingular:
+
+\[1. \begin{pmatrix}
+            1 & 0 & 1\\
+            2 & 1 & 2\\
+            1 & 0 & -1
+        \end{pmatrix}\]
+
+\[2. \begin{pmatrix}
+            2 & 1 & 2\\
+            1 & 0 & 1\\
+            4 & 1 & 4
+        \end{pmatrix}\]
+\EndKnitrBlock{exercise}
+
+\section{Getting Inverse of a Matrix using its
+Determinant}\label{getting-inverse-of-a-matrix-using-its-determinant}
+
+Thus far, we have a number of algorithms to
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Find the solution of a linear system,
+\item
+  Find the inverse of a matrix
+\end{enumerate}
+
+but these remain just that --- algorithms. At this point, we have no way
+of telling how the solutions \(x_j\) change as the parameters \(a_{ij}\)
+and \(b_i\) change, except by changing the values and ``rerunning'' the
+algorithms.
+
+With determinants, we can provide an explicit formula for the inverse
+and therefore provide an explicit formula for the solution of an
+\(n\times n\) linear system.
+
+Hence, we can examine how changes in the parameters and \(b_i\) affect
+the solutions \(x_j\).
+
+\textbf{Determinant Formula for the Inverse of a \(2 \times 2\)}:
+
+The determinant of a \(2 \times 2\) matrix \textbf{A}
+\(\begin{pmatrix} a & b\\ c & d\\ \end{pmatrix}\) is defined as:
+\[\frac{1}{\det({\bf A})} \begin{pmatrix}
+            d & -b\\
+            -c & a\\
+        \end{pmatrix}\]
+
+For example, Let's calculate the inverse of matrix A from Exercise
+\ref{exr:invlinsys} using the determinant formula.
+
+Recall,
+
+\[A = \begin{pmatrix}
+            -3 & 4\\
+            2 & -1\\
+        \end{pmatrix}\]
+
+\[\det({\bf A}) = (-3)(-1) - (4)(2) = 3 - 8  = -5\]
+
+\[\frac{1}{\det({\bf A})} \begin{pmatrix}
+            -1 & -4\\
+            -2 & -3\\
+        \end{pmatrix}\]
+
+\[\frac{1}{-5} \begin{pmatrix}
+            -1 & -4\\
+            -2 & -3\\
+        \end{pmatrix}\]
+
+\[ \begin{pmatrix}
+            \frac{1}{5} & \frac{4}{5}\\
+            \frac{2}{5} & \frac{3}{5}\\
+        \end{pmatrix}\]
+
+\BeginKnitrBlock{exercise}[Calculate Inverse using Determinant Formula]
+\protect\hypertarget{exr:calcinverse}{}{\label{exr:calcinverse}
+\iffalse (Calculate Inverse using Determinant Formula) \fi{} }
+
+Caculate the inverse of A
+
+\[A = \begin{pmatrix}
+            3 & 5\\
+            -7 & 2\\
+        \end{pmatrix}\]
+\EndKnitrBlock{exercise}
+
+\section*{Answers to Examples and
+Exercises}\label{answers-to-examples-and-exercises-3}
+\addcontentsline{toc}{section}{Answers to Examples and Exercises}
+
+Answer to Example \ref{exm:vectors}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\begin{pmatrix} -1 &-3&-3 \end{pmatrix}\)
+\item
+  6 + 4 + 10 = 20
+\end{enumerate}
+
+Answer to Exercise \ref{exr:vectors1}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\begin{pmatrix} -2 &4&-7&-5 \end{pmatrix}\)
+\item
+  \(\begin{pmatrix} 2 &26&-14&4&30 \end{pmatrix}\)
+\item
+  63 -3 -10 + 24 = 74
+\item
+  undefined
+\end{enumerate}
+
+Answer to Example \ref{exm:linearindep}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  yes
+\item
+  no
+\end{enumerate}
+
+Answer to Exercise \ref{exr:linearindep1}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  yes
+\item
+  no (\(-v_1 -v_2 + v_3 = 0\))
+\end{enumerate}
+
+Answer to Example \ref{exm:matrixaddition}:
+
+\({\bf A+B}=\begin{pmatrix} 2 & 4 & 4 \\ 6 & 6 & 8 \end{pmatrix}\)
+
+Answer to Example \ref{exm:scalarmulti}:
+
+\(s {\bf A} = \begin{pmatrix} 2 & 4 & 6 \\ 8 & 10 & 12 \end{pmatrix}\)
+
+Answer to Example \ref{exm:matrixmulti}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(\begin{pmatrix} aA+bC&aB+bD\\cA+dC&cB+dD\\eA+fC&eB+fD \end{pmatrix}\)
+\item
+  \(\begin{pmatrix} 1(-2)+2(4)-1(2)&1(5)+2(-3)-1(1)\\  3(-2)+1(4)+4(2)&3(5)+1(-3)+4(1)\end{pmatrix} =  \begin{pmatrix} 4&-2\\6&16\end{pmatrix}\)
+\end{enumerate}
+
+Answer to Exercise \ref{exr:matrixmulti1}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(AB = \begin{pmatrix} 4 & 11 & -15 \\ 5 & 7 & -7 \end{pmatrix}\)
+\item
+  \(BA =\) undefined
+\item
+  \((BC)^T =\) undefined
+\item
+  \(BC^T = \begin{pmatrix} 1&5&-7\\1&1&0\\0&-1&1\\2&0&0\end{pmatrix}\begin{pmatrix} 3&0\\2&4\\-1&6 \end{pmatrix} =\begin{pmatrix}20 & -22 \\ 5 & 4 \\ -3 &2 \\6 & 0\end{pmatrix}\)
+\end{enumerate}
+
+Answer to Exercise \ref{exr:lineareq}:
+
+There are many answers to this. Some possible simple ones are as
+follows:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  One solution: \[\begin{matrix}
+          -x  & + & y & = & 0\\
+          x & + &  y & = &  2
+          \end{matrix}\]
+\item
+  No solution: \[\begin{matrix}
+          -x  & + & y & = & 0\\
+          x & - &  y & = &  2
+          \end{matrix}\]
+\item
+  Infinite solutions: \[\begin{matrix}
+          -x  & + & y & = & 0\\
+          2x & - &  2y & = &  0
+          \end{matrix}\]
+\end{enumerate}
+
+Answer to Exercise \ref{exr:augmatrix}:
+
+\(\begin{pmatrix}  2 & -7 & 9 & -4 & 0 & 0| & 8\\  0 & 41 & 9 & 0 & 0 & 5 | & 11\\  1 & -15 & 0 & 0 & -11 & 0 | & 9  \end{pmatrix}\)
+
+Answer to Example \ref{exm:solvesys}:
+
+\[\begin{matrix}
+            x  & - & 3y & = & -3\\
+            2x & + &  y & = &  8
+            \end{matrix}\]
+
+\[\begin{matrix}
+            x  & - & 3y & = & -3\\
+               &   & 7y & = & 14\\          
+            \end{matrix}\]
+
+\[\begin{matrix}
+            x  & - & 3y & = & -3\\
+               &   & y & = & 2\\            
+            \end{matrix}\]
+
+\[\begin{matrix}
+            x & = & 3\\
+            y & = & 2\\         
+            \end{matrix}\]
+
+Answer to Exercise \ref{exr:solvesys1}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  x = 2, y = 2, z = -1
+\item
+  x = -17, y = -3, z = -35
+\end{enumerate}
+
+Answer to Exercise \ref{exr:rank}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  rank is 2
+\item
+  rank is 3
+\end{enumerate}
+
+Answer to Example \ref{exm:inverse}:
+
+\(\left(\begin{array}{ccc|ccc}  1&1&1&1&0&0\\  0&2&3&0&1&0\\  5&5&1&0&0&1 \end{array} \right)\)
+
+\(\left(\begin{array}{ccc|ccc}  1&1&1 &1 &0&0\\  0&2&3 &0 &1&0\\  0&0&-4&-5&0&1 \end{array} \right)\)
+
+\(\left(\begin{array}{ccc|ccc}  1&1&1&1 &0&0\\  0&2&3&0 &1&0\\  0&0&1&5/4&0&-1/4 \end{array} \right)\)
+
+\(\left(\begin{array}{ccc|ccc}  1&1&0&-1/4 &0&1/4\\  0&2&0&-15/4&1&3/4\\  0&0&1&5/4 &0&-1/4 \end{array} \right)\)
+
+\(\left(\begin{array}{ccc|ccc}  1&1&0&-1/4 &0 &1/4\\  0&1&0&-15/8&1/2&3/8\\  0&0&1&5/4 &0 &-1/4 \end{array} \right)\)
+
+\(\left(\begin{array}{ccc|ccc}  1&0&0&13/8 &-1/2&-1/8\\  0&1&0&-15/8&1/2 &3/8\\  0&0&1&5/4 &0 &-1/4 \end{array} \right)\)
+
+\({\bf A}^{-1} = \left(\begin{array}{ccc}  13/8 &-1/2&-1/8\\  -15/8&1/2 &3/8\\  5/4 &0 &-1/4 \end{array} \right)\)
+
+Answer to Exercise \ref{exr:inverse1}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \({\bf A}^{-1}=\begin{pmatrix} 1&0&-4\\0&\frac{1}{2}&0\\0&0&1 \end{pmatrix}\)
+\end{enumerate}
+
+Answer to Exercise \ref{exr:invlinsys}:
+
+\(\textbf{z} = \bf{A}^{-1} \bf{b} = \begin{pmatrix}  1/5 &4/5\\  2/5&3/5 \end{pmatrix} \begin{pmatrix}  5 \\  -10 \end{pmatrix}= \begin{pmatrix}  -7 \\  -4 \end{pmatrix} = \begin{pmatrix}  x \\  y \end{pmatrix}\)
+
+Answer to Exercise \ref{exr:determinants}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  nonsingular
+\item
+  singular
+\end{enumerate}
+
+Answer to Exercise \ref{exr:calcinverse}:
+
+\(\begin{pmatrix}  \frac{2}{41} & \frac{-5}{41}\\  \frac{7}{41} & \frac{3}{41}\\  \end{pmatrix}\)
+
+\chapter{Causal Inference}\label{causal}
+
+Topics: TBD
+
 \part{Programming}\label{part-programming}
 
 \chapter[Orientation and Reading in Data]{\texorpdfstring{Orientation
@@ -6868,7 +6872,7 @@ point, you should have already:
   Completed the R Visualization and Programming primers (under ``The
   Basics'') on your own at \url{https://rstudio.cloud/learn/primers/},
 \item
-  Made an account at RStudio Cloud and join the Math Prefresher 2018
+  Made an account at RStudio Cloud and join the Math Prefresher 2019
   Space, and
 \item
   Successfully signed up for the University wi-fi:
@@ -6886,6 +6890,8 @@ Today we'll cover:
 \tightlist
 \item
   What's what in RStudio
+\item
+  What R is, at a high level
 \item
   How to read in data
 \item
@@ -6936,7 +6942,7 @@ computer systems work.
 \item
   We will be using a cloud version of RStudio at
   \url{https://rstudio.cloud}. You should join the Math Prefresher Space
-  2018 from the link that was emailed to you. Each day, click on the
+  2019 from the link that was emailed to you. Each day, click on the
   project with the day's date on it.
 
   Although most of you will probably doing your work on RStudio local
@@ -7075,6 +7081,93 @@ computer systems work.
 \caption{A code chunk in Rmarkdown (before rendering)}
 \end{figure}
 
+\newpage
+
+\section{But what is R?}\label{but-what-is-r}
+
+R is an object oriented programming language primarily used for
+statistical computing. An object oriented language is a programming
+language built around manipulating objects.
+
+\begin{itemize}
+\tightlist
+\item
+  In R, objects can be matrices, vectors, scalars, strings, and data
+  frames, for example
+\item
+  Objects contain different types of information
+\item
+  Different objects have different allowable procedures:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Adding a string and a string does not work because the '+' operator }
+\CommentTok{# does not work for strings:}
+
+\CommentTok{# 'Harvard' + 'Gov'}
+
+\CommentTok{# The '+' operator can add numbers just fine}
+\DecValTok{9} \OperatorTok{+}\StringTok{ }\DecValTok{13}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 22
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Reminder: to figure out the type of an object use:}
+\NormalTok{x <-}\StringTok{ }\DecValTok{9}
+\KeywordTok{class}\NormalTok{(}\DecValTok{9}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "numeric"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "numeric"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(}\StringTok{'Harvard'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "character"
+\end{verbatim}
+
+Object oriented programming makes languages flexible and powerful:
+
+\begin{itemize}
+\tightlist
+\item
+  You can create custom functions and objects for your needs
+\item
+  Other people can create great packages for everyone to use
+\item
+  Many errors come from using the wrong data type and a lot of
+  programming in R is getting data into the right format and type to
+  work with.
+\end{itemize}
+
+It is helpful to think in terms of object manipulation at a high level
+while programming in R, particularly at the beginning of tackling a new
+problem. Think about what objects you want to manipulate, what types
+they are, and how they fit together. Once you have the logic of your
+solution ready then you can write it in R.
+
 \section{The Computer and You: Giving
 Instructions}\label{the-computer-and-you-giving-instructions}
 
@@ -7089,6 +7182,25 @@ make a peanut butter and jelly sandwich. Be as concise and unambiguous
 as possible so that a robot (who doesn't know what a PBJ is) would
 understand. You can assume that there will be loaf of sliced bread, a
 jar of jelly, a jar of peanut butter, and a knife.
+
+Simpler assignment: Say we just want a robot to be able to tell us if we
+have enough ingredients to make a peanut butter and jelly sandwich.
+Write down instructions so that if told how many slices of bread,
+servings of peanut butter, and servings of jelly you have, the robot can
+tell you if you can make a PBJ.
+
+Now, translate the simpler assignment into R code using the code below
+as a starting point:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n_bread <-}\StringTok{ }\DecValTok{8}
+\NormalTok{n_pb <-}\StringTok{ }\DecValTok{3}
+\NormalTok{n_jelly <-}\StringTok{ }\DecValTok{9}
+
+\CommentTok{# write instructions in R here}
+\end{Highlighting}
+\end{Shaded}
 
 \section{Base-R vs.~tidyverse}\label{base-r-vs.tidyverse}
 
@@ -7461,7 +7573,7 @@ Chapter \ref{dataviz}.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-103-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-105-1.pdf}
 
 What about the distribution of fame by regime?
 
@@ -7472,7 +7584,7 @@ What about the distribution of fame by regime?
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-104-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-106-1.pdf}
 
 What do the 1's, 2's, and 3's stand for?
 
@@ -8458,7 +8570,7 @@ whereas --- in a matrix --- all columns must be of the same type
 
 \begin{verbatim}
 ##    user  system elapsed 
-##   0.312   0.012   0.325
+##   0.312   0.040   0.352
 \end{verbatim}
 
 \begin{Shaded}
@@ -8469,7 +8581,7 @@ whereas --- in a matrix --- all columns must be of the same type
 
 \begin{verbatim}
 ##    user  system elapsed 
-##   3.340   0.020   3.362
+##   3.389   0.024   3.413
 \end{verbatim}
 
 \section{\texorpdfstring{Handling matricies in
@@ -9094,910 +9206,10 @@ the small subset you've just created.
 ##  1.61991315  0.04550246
 \end{verbatim}
 
-\chapter[Visualization]{\texorpdfstring{Visualization\footnote{Module
-  originally written by Shiro Kuriwaki}}{Visualization}}\label{dataviz}
-
-\subsection*{Where are we? Where are we
-headed?}\label{where-are-we-where-are-we-headed-2}
-\addcontentsline{toc}{subsection}{Where are we? Where are we headed?}
-
-Up till now, you should have covered:
-
-\begin{itemize}
-\tightlist
-\item
-  The R Visualization and Programming primers at
-  \url{https://rstudio.cloud/primers/}
-\item
-  Reading and handling data
-\item
-  Matrices and Vectors
-\item
-  What does \texttt{:} mean in R? What about \texttt{==}? \texttt{,}?,
-  \texttt{!=} , \texttt{\&}, \texttt{\textbar{}}, \texttt{\%in\%}
-\item
-  What does \texttt{\%\textgreater{}\%} do?
-\end{itemize}
-
-Today we'll cover:
-
-\begin{itemize}
-\tightlist
-\item
-  Visualization
-\item
-  A bit of data wrangling
-\end{itemize}
-
-\subsection*{Check your understanding}\label{check-your-understanding-1}
-\addcontentsline{toc}{subsection}{Check your understanding}
-
-\begin{itemize}
-\tightlist
-\item
-  How do you make a barplot, in base-R and in ggplot?
-\item
-  How do you add layers to a ggplot?
-\item
-  How do you change the axes of a ggplot?
-\item
-  How do you make a histogram?
-\item
-  How do you make a graph that looks like this?
-\end{itemize}
-
-\begin{figure}
-\centering
-\includegraphics{images/Martin-Quinn_Wikipedia.png}
-\caption{By Randy Schutt - Own work, CC BY-SA 3.0,
-\href{https://commons.wikimedia.org/w/index.php?curid=29585342}{Wikimedia.}}
-\end{figure}
-
-Other review
-
-\section{Motivation: The Law of the
-Census}\label{motivation-the-law-of-the-census}
-
-In this module, let's visualize some cross-sectional stats with an
-actual Census. Then, we'll do an example on time trends with Supreme
-Court ideal points.
-
-Why care about the Census? The Census is one of the fundamental acts of
-a government. See the Law Review article by
-\href{http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf}{Persily
-(2011)}, ``The Law of the Census.''\footnote{\href{http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf}{Persily,
-  Nathaniel. 2011. ``The Law of the Census: How to Count, What to Count,
-  Whom to Count, and Where to Count Them.''}. \emph{Cardozo Law Review}
-  32(3): 755--91.} The Census is government's primary tool for
-apportionment (allocating seats to districts), appropriations
-(allocating federal funding), and tracking demographic change.
-See\footnote{\href{https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2}{Hochschild,
-  Jennifer L., and Brenna Marea Powell. 2008. ``Racial Reorganization
-  and the United States Census 1850--1930: Mulattoes, Half-Breeds, Mixed
-  Parentage, Hindoos, and the Mexican Race.''}. \emph{Studies in
-  American Political Development} 22(1): 59--96.} for example
-\href{https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2}{Hochschild
-and Powell (2008)} on how the categorizations of race in the Census
-during 1850-1930. Notice also that both of these pieces are not
-inherently ``quantitative'' --- the Persily article is a Law Review and
-the Hochschild and Powell article is on American Historical Development
---- but data analysis would be certainly relevant.
-
-Time series data is a common form of data in social science data, and
-there is growing methodological work on making causal inferences with
-time series.\footnote{\href{https://doi.org/10.1017/S0003055418000357}{Blackwell,
-  Matthew, and Adam Glynn. 2018. ``How to Make Causal Inferences with
-  Time-Series Cross-Sectional Data under Selection on Observables.''}
-  \emph{American Political Science Review}} We will use the the
-ideological estimates of the Supreme court, which has been in the news
-with Brett Kavanaugh's nomination.
-
-\section{Read data}\label{read-data-2}
-
-First, the census. Read in a subset of the 2010 Census that we looked at
-earlier. This time, it is in Rds form.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{cen10 <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"data/input/usc2010_001percent.Rds"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-The data comes from IPUMS\footnote{\href{http://doi.org/10.18128/D010.V6.0}{Ruggles,
-  Steven, Katie Genadek, Ronald Goeken, Josiah Grover, and Matthew
-  Sobek. 2015. Integrated Public Use Microdata Series: Version 6.0
-  dataset}}, a great source to extract and analyze Census and
-Census-conducted survey (ACS, CPS) data.
-
-\section{Counting}\label{counting}
-
-How many people are in your sample?
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{nrow}\NormalTok{(cen10)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 30871
-\end{verbatim}
-
-This and all subsequent tasks involve manipulating and summarizing data,
-sometimes called ``wrangling''. As per last time, there are both
-``base-R'' and ``tidyverse'' approaches.
-
-Yesterday we saw several functions from the tidyverse:
-
-\begin{itemize}
-\tightlist
-\item
-  \texttt{select} selects columns
-\item
-  \texttt{filter} selects rows based on a logical (boolean) statement
-\item
-  \texttt{slice} selects rows based on the row number
-\item
-  \texttt{arrange} reordered the rows in descending order.
-\end{itemize}
-
-In this visualization section, we'll make use of the pair of functions
-\texttt{group\_by()} and \texttt{summarize()}.
-
-\section{Tabulating}\label{tabulating}
-
-Summarizing data is the key part of communication; good data viz gets
-the point across.\footnote{\href{http://www.princeton.edu/~jkastell/Tables2Graphs/graphs.pdf}{Kastellec,
-  Jonathan P., and Eduardo L. Leoni. 2007. ``Using Graphs Instead of
-  Tables in Political Science.''}. \emph{Perspectives on Politics} 5
-  (4): 755--71.} Summaries of data come in two forms: tables and
-figures.
-
-Here are two ways to count by group, or to tabulate.
-
-In base-R Use the \texttt{table} function, that provides how many rows
-exist for an unique value of the vector (remember \texttt{unique} from
-yesterday?)
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{table}\NormalTok{(cen10}\OperatorTok{$}\NormalTok{race)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-## American Indian or Alaska Native                      Black/Negro 
-##                              295                             4013 
-##                          Chinese                         Japanese 
-##                              354                               77 
-##  Other Asian or Pacific Islander                  Other race, nec 
-##                             1129                             1839 
-##        Three or more major races                  Two major races 
-##                               88                              869 
-##                            White 
-##                            22207
-\end{verbatim}
-
-With tidyverse, a quick convenience function is \texttt{count}, with the
-variable to count on included.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{count}\NormalTok{(cen10, race)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## # A tibble: 9 x 2
-##   race                                 n
-##   <chr>                            <int>
-## 1 American Indian or Alaska Native   295
-## 2 Black/Negro                       4013
-## 3 Chinese                            354
-## 4 Japanese                            77
-## 5 Other Asian or Pacific Islander   1129
-## 6 Other race, nec                   1839
-## 7 Three or more major races           88
-## 8 Two major races                    869
-## 9 White                            22207
-\end{verbatim}
-
-We can check out the arguments of \texttt{count} and see that there is a
-\texttt{sort} option. What does this do?
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{count}\NormalTok{(cen10, race, }\DataTypeTok{sort =} \OtherTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## # A tibble: 9 x 2
-##   race                                 n
-##   <chr>                            <int>
-## 1 White                            22207
-## 2 Black/Negro                       4013
-## 3 Other race, nec                   1839
-## 4 Other Asian or Pacific Islander   1129
-## 5 Two major races                    869
-## 6 Chinese                            354
-## 7 American Indian or Alaska Native   295
-## 8 Three or more major races           88
-## 9 Japanese                            77
-\end{verbatim}
-
-\texttt{count} is a kind of shorthand for \texttt{group\_by()} and
-\texttt{summarize}. This code would have done the same.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{cen10 }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(race) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{n =} \KeywordTok{n}\NormalTok{())}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## # A tibble: 9 x 2
-##   race                                 n
-##   <chr>                            <int>
-## 1 American Indian or Alaska Native   295
-## 2 Black/Negro                       4013
-## 3 Chinese                            354
-## 4 Japanese                            77
-## 5 Other Asian or Pacific Islander   1129
-## 6 Other race, nec                   1839
-## 7 Three or more major races           88
-## 8 Two major races                    869
-## 9 White                            22207
-\end{verbatim}
-
-If you are new to tidyverse, what would you \emph{think} each row did?
-Reading the function help page, verify if your intuition was correct.
-
-where \texttt{n()} is a function that counts rows.
-
-\section{base R graphics and ggplot}\label{base-r-graphics-and-ggplot}
-
-Two prevalent ways of making graphing are referred to as ``base-R'' and
-``ggplot''.
-
-\subsection{base R}\label{base-r}
-
-``Base-R'' graphics are graphics that are made with R's default graphics
-commands. First, let's assign our tabulation to an object, then put it
-in the \texttt{barplot()} function.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{barplot}\NormalTok{(}\KeywordTok{table}\NormalTok{(cen10}\OperatorTok{$}\NormalTok{race))}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-177-1.pdf}
-
-\subsection{ggplot}\label{ggplot}
-
-A popular alternative a \texttt{ggplot} graphics, that you were
-introduced to in the tutorial. \texttt{gg} stands for grammar of
-graphics by Hadley Wickham, and it has a new semantics of explaining
-graphics in R. Again, first let's set up the data.
-
-Although the tutorial covered making scatter plots as the first cut,
-often data requires summaries before they made into graphs.
-
-For this example, let's group and count first like we just did. But
-assign it to a new object.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{grp_race <-}\StringTok{ }\KeywordTok{count}\NormalTok{(cen10, race)}
-\end{Highlighting}
-\end{Shaded}
-
-We will now plot this grouped set of numbers. Recall that the
-\texttt{ggplot()} function takes two main arguments, \texttt{data} and
-\texttt{aes}.
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  First enter a single dataframe from which you will draw a plot.
-\item
-  Then enter the \texttt{aes}, or aesthetics. This defines which
-  variable in the data the plotting functions should take for pre-set
-  dimensions in graphics. The dimensions \texttt{x} and \texttt{y} are
-  the most important. We will assign \texttt{race} and \texttt{count} to
-  them, respectively,
-\item
-  After you close \texttt{ggplot()} .. add \textbf{layers} by the plus
-  sign. A \texttt{geom} is a layer of graphical representation, for
-  example \texttt{geom\_histogram} renders a histogram,
-  \texttt{geom\_point} renders a scatter plot. For a barplot, we can use
-  \texttt{geom\_col()}
-\end{enumerate}
-
-What is the right geometry layer to make a barplot? Turns out:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ grp_race, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ race, }\DataTypeTok{y =}\NormalTok{ n)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_col}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-179-1.pdf}
-
-\section{Improving your graphics}\label{improving-your-graphics}
-
-Adjusting your graphics to make the point clear is an important skill.
-Here is a base-R example of showing the same numbers but with a
-different design, in a way that aims to maximize the ``data-to-ink
-ratio''.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{oma =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{))}
-\KeywordTok{barplot}\NormalTok{(}\KeywordTok{sort}\NormalTok{(}\KeywordTok{table}\NormalTok{(cen10}\OperatorTok{$}\NormalTok{race)), }\CommentTok{# sort numbers}
-        \DataTypeTok{horiz =} \OtherTok{TRUE}\NormalTok{, }\CommentTok{# flip}
-        \DataTypeTok{border =} \OtherTok{NA}\NormalTok{, }\CommentTok{# border is extraneous}
-        \DataTypeTok{xlab =} \StringTok{"Number in Race Category"}\NormalTok{, }
-        \DataTypeTok{bty =} \StringTok{"n"}\NormalTok{, }\CommentTok{# no box}
-        \DataTypeTok{las =} \DecValTok{1}\NormalTok{) }\CommentTok{# alignment of axis labels is horizontal}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-180-1.pdf}
-
-Notice that we applied the \texttt{sort()} function to order the bars in
-terms of their counts. The default ordering of a categorical variable /
-factor is alphabetical. Alphabetical ordering is uninformative and
-almost never the way you should order variables.
-
-In ggplot you might do this by:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(forcats)}
-
-\NormalTok{grp_race_ordered <-}\StringTok{ }\KeywordTok{arrange}\NormalTok{(grp_race, n) }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{race =} \KeywordTok{as_factor}\NormalTok{(race))}
-
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ grp_race_ordered, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ race, }\DataTypeTok{y =}\NormalTok{ n)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_col}\NormalTok{() }\OperatorTok{+}
-\StringTok{  }\KeywordTok{coord_flip}\NormalTok{() }\OperatorTok{+}
-\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{y =} \StringTok{"Number in Race Category"}\NormalTok{,}
-       \DataTypeTok{x =} \StringTok{""}\NormalTok{,}
-       \DataTypeTok{caption =} \StringTok{"Source: 2010 U.S. Census sample"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-181-1.pdf}
-
-The data ink ratio was popularized by Ed Tufte (originally a political
-economy scholar who has recently become well known for his data
-visualization work). See Tufte (2001), \emph{The Visual Display of
-Quantitative Information} and his website
-\url{https://www.edwardtufte.com/tufte/}. For a R and ggplot focused
-example using social science examples, check out Healy (2018),
-\emph{Data Visualization: A Practical Introduction} with a draft at
-\url{https://socviz.co/}\footnote{Healy, Kieran. forthcoming. \emph{Data
-  Visualization: A Practical Introduction}. Princeton University Press}.
-There are a growing number of excellent books on data visualization.
-
-\section{Cross-tabs}\label{cross-tabs}
-
-Visualizations and Tables each have their strengths. A rule of thumb is
-that more than a dozen numbers on a table is too much to digest, but
-less than a dozen is too few for a figure to be worth it. Let's look at
-a table first.
-
-A cross-tab is counting with two types of variables, and is a simple and
-powerful tool to show the relationship between multiple variables.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{xtab_race_state <-}\StringTok{ }\KeywordTok{table}\NormalTok{(cen10}\OperatorTok{$}\NormalTok{state, cen10}\OperatorTok{$}\NormalTok{race)}
-\NormalTok{xtab_race_state}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##                       
-##                        American Indian or Alaska Native Black/Negro
-##   Alabama                                             2         128
-##   Alaska                                             11           6
-##   Arizona                                            28          23
-##   Arkansas                                            1          45
-##   California                                         42         253
-##   Colorado                                            7          26
-##   Connecticut                                         1          39
-##   Delaware                                            3          28
-##   District of Columbia                                0          35
-##   Florida                                             9         304
-##   Georgia                                             2         304
-##   Hawaii                                              0           0
-##   Idaho                                               2           0
-##   Illinois                                            5         194
-##   Indiana                                             2          66
-##   Iowa                                                0           9
-##   Kansas                                              2          24
-##   Kentucky                                            2          35
-##   Louisiana                                           3         161
-##   Maine                                               0           4
-##   Maryland                                            2         177
-##   Massachusetts                                       5          38
-##   Michigan                                            5         147
-##   Minnesota                                           6          25
-##   Mississippi                                         1         116
-##   Missouri                                            4          74
-##   Montana                                             8           0
-##   Nebraska                                            2          11
-##   Nevada                                              6          15
-##   New Hampshire                                       1           1
-##   New Jersey                                          0         130
-##   New Mexico                                         21           3
-##   New York                                           13         305
-##   North Carolina                                     12         220
-##   North Dakota                                        4           1
-##   Ohio                                                1         122
-##   Oklahoma                                           21          20
-##   Oregon                                              5           5
-##   Pennsylvania                                        2         156
-##   Rhode Island                                        2           3
-##   South Carolina                                      2         120
-##   South Dakota                                        7           1
-##   Tennessee                                           0          97
-##   Texas                                              14         316
-##   Utah                                                8           0
-##   Vermont                                             0           2
-##   Virginia                                            0         171
-##   Washington                                         14          20
-##   West Virginia                                       0           5
-##   Wisconsin                                           6          27
-##   Wyoming                                             1           1
-##                       
-##                        Chinese Japanese Other Asian or Pacific Islander
-##   Alabama                    1        0                               3
-##   Alaska                     0        0                               5
-##   Arizona                    1        0                              12
-##   Arkansas                   0        0                               1
-##   California               141       27                             359
-##   Colorado                   3        0                              10
-##   Connecticut                7        0                              16
-##   Delaware                   1        0                               4
-##   District of Columbia       0        0                               1
-##   Florida                    4        1                              24
-##   Georgia                    5        0                              35
-##   Hawaii                     2       16                              35
-##   Idaho                      0        1                               0
-##   Illinois                   6        3                              53
-##   Indiana                    3        0                               8
-##   Iowa                       1        0                               4
-##   Kansas                     2        0                               8
-##   Kentucky                   2        0                               4
-##   Louisiana                  1        0                               5
-##   Maine                      1        0                               1
-##   Maryland                   4        1                              12
-##   Massachusetts             15        2                              28
-##   Michigan                   8        1                              23
-##   Minnesota                  5        1                              28
-##   Mississippi                0        0                               3
-##   Missouri                   2        0                               9
-##   Montana                    0        0                               0
-##   Nebraska                   0        0                               5
-##   Nevada                     6        2                              15
-##   New Hampshire              1        1                               3
-##   New Jersey                19        2                              65
-##   New Mexico                 1        1                               1
-##   New York                  55        3                              68
-##   North Carolina             4        1                              12
-##   North Dakota               0        0                               0
-##   Ohio                       5        2                              17
-##   Oklahoma                   0        0                               5
-##   Oregon                     4        0                              11
-##   Pennsylvania              10        1                              28
-##   Rhode Island               0        0                               4
-##   South Carolina             1        0                               4
-##   South Dakota               0        1                               1
-##   Tennessee                  0        0                              13
-##   Texas                     15        2                              92
-##   Utah                       1        1                               6
-##   Vermont                    0        0                               0
-##   Virginia                   8        2                              29
-##   Washington                 9        4                              46
-##   West Virginia              0        0                               0
-##   Wisconsin                  0        1                              11
-##   Wyoming                    0        0                               2
-##                       
-##                        Other race, nec Three or more major races
-##   Alabama                            8                         1
-##   Alaska                             2                         0
-##   Arizona                           74                         2
-##   Arkansas                          11                         1
-##   California                       585                        14
-##   Colorado                          28                         1
-##   Connecticut                       20                         1
-##   Delaware                           5                         1
-##   District of Columbia               1                         0
-##   Florida                           72                         2
-##   Georgia                           35                         1
-##   Hawaii                             0                        14
-##   Idaho                              8                         1
-##   Illinois                          75                         2
-##   Indiana                           20                         1
-##   Iowa                              10                         0
-##   Kansas                             6                         0
-##   Kentucky                           5                         1
-##   Louisiana                          7                         0
-##   Maine                              0                         0
-##   Maryland                          28                         1
-##   Massachusetts                     26                         0
-##   Michigan                           8                         2
-##   Minnesota                         13                         1
-##   Mississippi                        2                         2
-##   Missouri                           6                         2
-##   Montana                            1                         0
-##   Nebraska                           6                         0
-##   Nevada                            41                         1
-##   New Hampshire                      1                         0
-##   New Jersey                        69                         3
-##   New Mexico                        23                         1
-##   New York                         154                         8
-##   North Carolina                    40                         2
-##   North Dakota                       0                         0
-##   Ohio                               7                         3
-##   Oklahoma                          15                         3
-##   Oregon                            21                         4
-##   Pennsylvania                      30                         1
-##   Rhode Island                       6                         1
-##   South Carolina                     6                         1
-##   South Dakota                       2                         0
-##   Tennessee                         13                         0
-##   Texas                            253                         2
-##   Utah                              14                         0
-##   Vermont                            1                         0
-##   Virginia                          29                         4
-##   Washington                        37                         2
-##   West Virginia                      0                         0
-##   Wisconsin                         13                         1
-##   Wyoming                            2                         0
-##                       
-##                        Two major races White
-##   Alabama                            8   344
-##   Alaska                            15    37
-##   Arizona                           11   485
-##   Arkansas                           2   247
-##   California                       174  2168
-##   Colorado                          22   401
-##   Connecticut                        7   284
-##   Delaware                           1    66
-##   District of Columbia               2    21
-##   Florida                           42  1435
-##   Georgia                           21   587
-##   Hawaii                            27    39
-##   Idaho                              6   129
-##   Illinois                          35   856
-##   Indiana                            6   514
-##   Iowa                               8   287
-##   Kansas                             8   237
-##   Kentucky                           9   357
-##   Louisiana                          6   273
-##   Maine                              1   117
-##   Maryland                          13   302
-##   Massachusetts                     18   515
-##   Michigan                          23   792
-##   Minnesota                         10   483
-##   Mississippi                        1   167
-##   Missouri                          14   516
-##   Montana                            0    88
-##   Nebraska                           5   155
-##   Nevada                            16   171
-##   New Hampshire                      1   129
-##   New Jersey                        25   589
-##   New Mexico                         6   146
-##   New York                          51  1220
-##   North Carolina                    20   648
-##   North Dakota                       1    46
-##   Ohio                              20   931
-##   Oklahoma                          24   266
-##   Oregon                             9   279
-##   Pennsylvania                      27  1045
-##   Rhode Island                       4    74
-##   South Carolina                     6   325
-##   South Dakota                       2    72
-##   Tennessee                          9   474
-##   Texas                             71  1792
-##   Utah                               8   255
-##   Vermont                            4    59
-##   Virginia                          24   548
-##   Washington                        33   524
-##   West Virginia                      3   168
-##   Wisconsin                          8   497
-##   Wyoming                            2    47
-\end{verbatim}
-
-Another function to make a cross-tab is the \texttt{xtabs} command,
-which uses formula notation.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{xtabs}\NormalTok{(}\OperatorTok{~}\StringTok{ }\NormalTok{state }\OperatorTok{+}\StringTok{ }\NormalTok{race, cen10)}
-\end{Highlighting}
-\end{Shaded}
-
-What if we care about proportions within states, rather than counts? Say
-we'd like to compare the racial composition of a small state (like
-Delaware) and a large state (like California). In fact, most tasks of
-inference is about the unobserved population, not the observed data ---
-and proportions are estimates of a quantity in the population.
-
-One way to transform a table of counts to a table of proportions is the
-function \texttt{prop.table}. Be careful what you want to take
-proportions of -- this is set by the \texttt{margin} argument. In R, the
-first margin (\texttt{margin\ =\ 1}) is \emph{rows} and the second
-(\texttt{margin\ =\ 2}) is \emph{columns}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{ptab_race_state <-}\StringTok{ }\KeywordTok{prop.table}\NormalTok{(xtab_race_state, }\DataTypeTok{margin =} \DecValTok{2}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-Check out each of these table objects in your console and familiarize
-yourself with the difference.
-
-\section{Composition Plots}\label{composition-plots}
-
-How would you make the same figure with \texttt{ggplot()}? First, we
-want a count for each state \(\times\) race combination. So group by
-those two factors and count how many observations are in each two-way
-categorization. \texttt{group\_by()} can take any number of variables,
-separated by commas.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{grp_race_state <-}\StringTok{ }\NormalTok{cen10 }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{count}\NormalTok{(race, state)}
-\end{Highlighting}
-\end{Shaded}
-
-Can you tell from the code what \texttt{grp\_race\_state} will look
-like?
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# run on your own}
-\NormalTok{grp_race_state}
-\end{Highlighting}
-\end{Shaded}
-
-Now, we want to tell \texttt{ggplot2} something like the following: I
-want bars by state, where heights indicate racial groups. Each bar
-should be colored by the race. With some googling, you will get
-something like this:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ grp_race_state, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{  state, }\DataTypeTok{y =}\NormalTok{ n,  }\DataTypeTok{fill =}\NormalTok{ race)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_col}\NormalTok{(}\DataTypeTok{position =} \StringTok{"fill"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# the position is determined by the fill ae}
-\StringTok{  }\KeywordTok{scale_fill_brewer}\NormalTok{(}\DataTypeTok{name =} \StringTok{"Census Race"}\NormalTok{, }\DataTypeTok{palette =} \StringTok{"OrRd"}\NormalTok{, }\DataTypeTok{direction =} \OperatorTok{-}\DecValTok{1}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# choose palette}
-\StringTok{  }\KeywordTok{coord_flip}\NormalTok{() }\OperatorTok{+}\StringTok{ }\CommentTok{# flip axes}
-\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{labels =}\NormalTok{ percent) }\OperatorTok{+}\StringTok{ }\CommentTok{# label numbers as percentage}
-\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{y =} \StringTok{"Proportion of Racial Group within State"}\NormalTok{,}
-       \DataTypeTok{x =} \StringTok{""}\NormalTok{,}
-       \DataTypeTok{source =} \StringTok{"Source: 2010 Census  sample"}\NormalTok{) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{theme_minimal}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-187-1.pdf}
-
-\section{Line graphs}\label{line-graphs}
-
-Line graphs are useful for plotting time trends.
-
-The Census does not track individuals over time. So let's take up
-another example: The U.S. Supreme Court. Take the dataset
-\texttt{justices\_court-median.csv}.
-
-This data is adapted from the estimates of Martin and Quinn on their
-website \url{http://mqscores.lsa.umich.edu/}.\footnote{This exercise
-  inspired from Princeton's R Camp Assignment.}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{justice <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/input/justices_court-median.csv"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-What does the data look like? How do you think it is organized? What
-does each row represent?
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{justice}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## # A tibble: 746 x 7
-##     term justice_id justice idealpt idealpt_sd median_idealpt
-##    <dbl>      <dbl> <chr>     <dbl>      <dbl>          <dbl>
-##  1  1937         67 McReyn~   3.44       0.54          -0.568
-##  2  1937         68 Brande~  -0.612      0.271         -0.568
-##  3  1937         71 Suther~   1.59       0.549         -0.568
-##  4  1937         72 Butler    2.06       0.426         -0.568
-##  5  1937         74 Stone    -0.774      0.259         -0.568
-##  6  1937         75 Hughes2  -0.368      0.232         -0.568
-##  7  1937         76 O. Rob~   0.008      0.228         -0.568
-##  8  1937         77 Cardozo  -1.59       0.634         -0.568
-##  9  1937         78 Black    -2.90       0.334         -0.568
-## 10  1937         79 Reed     -1.06       0.342         -0.568
-## # ... with 736 more rows, and 1 more variable: median_justice <chr>
-\end{verbatim}
-
-As you might have guessed, these data can be shown in a time trend from
-the range of the \texttt{term} variable. As there are only nine justices
-at any given time and justices have life tenure, there times on the
-court are staggered. With a common measure of ``preference'', we can
-plot time trends of these justices ideal points on the same y-axis
-scale.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(justice, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ term, }\DataTypeTok{y =}\NormalTok{ idealpt)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-190-1.pdf}
-Why does the above graph not look like the the put in the beginning? Fix
-it by adding just one aesthetic to the graph.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# enter a correction that draws separate lines by group.}
-\end{Highlighting}
-\end{Shaded}
-
-If you got the right aesthetic, this seems to ``work'' off the shelf.
-But take a moment to see why the code was written as it is and how that
-maps on to the graphics. What is the \texttt{group} aesthetic doing for
-you?
-
-Now, this graphic already indicates a lot, but let's improve the
-graphics so people can actually read it. This is left for a Exercise.
-
-As social scientists, we should also not forget to ask ourselves whether
-these numerical measures are fit for what we care about, or actually
-succeeds in measuring what we'd like to measure. The estimation of these
-``ideal points'' is a subfield of political methodology beyond this
-prefresher. For more reading, skim through the original paper by Martin
-and Quinn (2002).\footnote{\href{http://mqscores.lsa.umich.edu/media/pa02.pdf}{Martin,
-  Andrew D. and Kevin M. Quinn. 2002. ``Dynamic Ideal Point Estimation
-  via Markov Chain Monte Carlo for the U.S. Supreme Court, 1953-1999''}.
-  \emph{Political Analysis.} 10(2): 134-153.} Also for a methodological
-discussion on the difficulty of measuring time series of preferences,
-check out Bailey (2013).\footnote{\href{https://michaelbailey.georgetown.domains/wp-content/uploads/2018/05/JOP_proofs_June2013.pdf}{Bailey,
-  Michael A. 2013. ``Is Today's Court the Most Conservative in Sixty
-  Years? Challenges and Opportunities in Measuring Judicial
-  Preferences.''}. \emph{Journal of Politics} 75(3): 821-834}
-
-\section*{Exercises}\label{exercises-2}
-\addcontentsline{toc}{section}{Exercises}
-
-In the time remaining, try the following exercises. Order doesn't
-matter.
-
-\subsection*{1: Rural states}\label{rural-states}
-\addcontentsline{toc}{subsection}{1: Rural states}
-
-Make a well-labelled figure that plots the proportion of the state's
-population (as per the census) that is 65 years or older. Each state
-should be visualized as a point, rather than a bar, and there should be
-51 points, ordered by their value. All labels should be readable.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# Enter yourself}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{itemize}
-\tightlist
-\item
-  Alternatively, you can for instead plot the proportion of residents
-  who do not reisde in a specified city.
-\end{itemize}
-
-\subsection*{2: The swing justice}\label{the-swing-justice}
-\addcontentsline{toc}{subsection}{2: The swing justice}
-
-Using the \texttt{justices\_court-median.csv} dataset and building off
-of the plot that was given, make an improved plot by implementing as
-many of the following changes (which hopefully improves the graph):
-
-\begin{itemize}
-\tightlist
-\item
-  Label axes
-\item
-  Use a black-white background.
-\item
-  Change the breaks of the x-axis to print numbers for every decade, not
-  just every two decades.
-\item
-  Plots each line in translucent gray, so the overlapping lines can be
-  visualized clearly. (Hint: in ggplot the \texttt{alpha} argument
-  controls the degree of transparency)
-\item
-  Limit the scale of the y-axis to {[}-5, 5{]} so that the outlier
-  justice in the 60s is trimmed and the rest of the data can be seen
-  more easily (also, who is that justice?)
-\item
-  Plot the ideal point of the justice who holds the ``median'' ideal
-  point in a given term. To distinguish this with the others, plot this
-  line separately in a very light red \emph{below} the individual
-  justice's lines.
-\item
-  Highlight the trend-line of only the nine justices who are
-  \emph{currently} sitting on SCOTUS. Make sure this is clearer than the
-  other past justices.
-\item
-  Add the current nine justice's names to the right of the endpoint of
-  the 2016 figure, alongside their ideal point.
-\item
-  Make sure the text labels do not overlap with each other for
-  readability using the \texttt{ggrepel} package.
-\item
-  Extend the x-axis label to about 2020 so the text labels of justices
-  are to the right of the trend-lines.
-\item
-  Add a caption to your text describing the data briefly, as well as any
-  features relevant for the reader (such as the median line and the
-  trimming of the y-axis)
-\end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# Enter yourself}
-\end{Highlighting}
-\end{Shaded}
-
-\subsection*{3: Don't sort by the
-alphabet}\label{dont-sort-by-the-alphabet}
-\addcontentsline{toc}{subsection}{3: Don't sort by the alphabet}
-
-The Figure we made that shows racial composition by state has one
-notable shortcoming: it orders the states alphabetically, which is not
-particularly useful if you want see an overall pattern, without having
-particular states in mind.
-
-Find a way to modify the figures so that the states are ordered by the
-\emph{proportion} of White residents in the sample.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# Enter yourself}
-\end{Highlighting}
-\end{Shaded}
-
-\subsection*{4 What to show and how to show
-it}\label{what-to-show-and-how-to-show-it}
-\addcontentsline{toc}{subsection}{4 What to show and how to show it}
-
-As a student of politics our goal is not necessarily to make pretty
-pictures, but rather make pictures that tell us something about
-politics, government, or society. If you could augment either the census
-dataset or the justices dataset in some way, what would be an
-substantively significant thing to show as a graphic?
-
 \chapter{Objects, Functions, Loops}\label{robjloops}
 
 \subsection*{Where are we? Where are we
-headed?}\label{where-are-we-where-are-we-headed-3}
+headed?}\label{where-are-we-where-are-we-headed-2}
 \addcontentsline{toc}{subsection}{Where are we? Where are we headed?}
 
 Up till now, you should have covered:
@@ -10306,7 +9518,7 @@ assigned, re-assigned, and edited.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-210-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-187-1.pdf}
 
 You can change the orientation
 
@@ -10470,13 +9682,13 @@ This can be just one stretch of characters
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{my_name <-}\StringTok{ "Yon Soo"}
+\NormalTok{my_name <-}\StringTok{ "Meg"}
 \NormalTok{my_name}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "Yon Soo"
+## [1] "Meg"
 \end{verbatim}
 
 \begin{Shaded}
@@ -10494,13 +9706,13 @@ vector of individual characters and a length-one object of characters.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{my_name_letters <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"S"}\NormalTok{, }\StringTok{"h"}\NormalTok{, }\StringTok{"i"}\NormalTok{, }\StringTok{"r"}\NormalTok{, }\StringTok{"o"}\NormalTok{)}
+\NormalTok{my_name_letters <-}\StringTok{  }\KeywordTok{c}\NormalTok{(}\StringTok{"M"}\NormalTok{,}\StringTok{"e"}\NormalTok{,}\StringTok{"g"}\NormalTok{)}
 \NormalTok{my_name_letters}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "S" "h" "i" "r" "o"
+## [1] "M" "e" "g"
 \end{verbatim}
 
 \begin{Shaded}
@@ -10943,39 +10155,12 @@ tidyverse functions to do this, but let's try using loops!
 ## [1] "Percentage of  Japanese in Washington is 0.58"
 \end{verbatim}
 
-\section*{Exercises}\label{exercises-3}
+\section*{Exercises}\label{exercises-2}
 \addcontentsline{toc}{section}{Exercises}
 
-\subsection*{Exercise 1: Counting CVAP}\label{exercise-1-counting-cvap}
-\addcontentsline{toc}{subsection}{Exercise 1: Counting CVAP}
-
-A issue raised in Persily's article is that the full-count U.S. Census
-does not record whether the residents are citizens of the United
-States\footnote{Here is that argument of his again, more recently in the
-  popular press.
-  \href{http://www.politico.com/magazine/story/2015/06/the-supreme-courts-big-data-problem-118568}{``The
-  Mysterious Number of American Citizens''. June 2, 2015.
-  \emph{POLITICO}}}. Instead, this question is asked in a survey, the
-American Community Survey. The two are fundamentally different
-exercises: the Census counts everyone by definition, a survey samples
-its data. Load the 1 percent sample of the 2015 ACS
-(\texttt{acs2015\_1percent.csv}, in the \texttt{input} folder) and give
-an estimate of the proportion of a state's ACS respondents that are
-reportedly U.S. citizens.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{acs<-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/input/acs2015_1percent.csv"}\NormalTok{, }\DataTypeTok{col_types =} \KeywordTok{cols}\NormalTok{())}
-\KeywordTok{set.seed}\NormalTok{(}\DecValTok{02138}\NormalTok{)}
-\NormalTok{sample_acs <-}\StringTok{ }\KeywordTok{sample_frac}\NormalTok{(acs, }\FloatTok{0.01}\NormalTok{)}
-
-\CommentTok{# Enter yourself}
-\end{Highlighting}
-\end{Shaded}
-
-\subsection*{Exercise 2: Write your own
-function}\label{exercise-2-write-your-own-function}
-\addcontentsline{toc}{subsection}{Exercise 2: Write your own function}
+\subsection*{Exercise 1: Write your own
+function}\label{exercise-1-write-your-own-function}
+\addcontentsline{toc}{subsection}{Exercise 1: Write your own function}
 
 Write your own function that makes some task of data analysis simpler.
 Ideally, it would be a function that helps you do either of the previous
@@ -10988,8 +10173,8 @@ was provided in exercise 1 to wrap that into another function too!
 \end{Highlighting}
 \end{Shaded}
 
-\subsection*{Exercise 3: Using Loops}\label{exercise-3-using-loops}
-\addcontentsline{toc}{subsection}{Exercise 3: Using Loops}
+\subsection*{Exercise 2: Using Loops}\label{exercise-2-using-loops}
+\addcontentsline{toc}{subsection}{Exercise 2: Using Loops}
 
 Using a loop, create a crosstab of sex and race for each state in the
 set ``states\_of\_interest''
@@ -11001,10 +10186,10 @@ set ``states\_of\_interest''
 \end{Highlighting}
 \end{Shaded}
 
-\subsection*{Exercise 4: Storing information derived within loops in a
+\subsection*{Exercise 3: Storing information derived within loops in a
 global
-dataframe}\label{exercise-4-storing-information-derived-within-loops-in-a-global-dataframe}
-\addcontentsline{toc}{subsection}{Exercise 4: Storing information
+dataframe}\label{exercise-3-storing-information-derived-within-loops-in-a-global-dataframe}
+\addcontentsline{toc}{subsection}{Exercise 3: Storing information
 derived within loops in a global dataframe}
 
 Recall the following nested loop
@@ -11066,6 +10251,898 @@ Instead of printing the percentage of each race in each state, create a
 dataframe, and store all that information in that dataframe. (Hint: look
 at how I stored information about male percentage in each state of
 interest in a vector.)
+
+\chapter[Visualization]{\texorpdfstring{Visualization\footnote{Module
+  originally written by Shiro Kuriwaki}}{Visualization}}\label{dataviz}
+
+\subsection*{Where are we? Where are we
+headed?}\label{where-are-we-where-are-we-headed-3}
+\addcontentsline{toc}{subsection}{Where are we? Where are we headed?}
+
+Up till now, you should have covered:
+
+\begin{itemize}
+\tightlist
+\item
+  The R Visualization and Programming primers at
+  \url{https://rstudio.cloud/primers/}
+\item
+  Reading and handling data
+\item
+  Matrices and Vectors
+\item
+  What does \texttt{:} mean in R? What about \texttt{==}? \texttt{,}?,
+  \texttt{!=} , \texttt{\&}, \texttt{\textbar{}}, \texttt{\%in\%}
+\item
+  What does \texttt{\%\textgreater{}\%} do?
+\end{itemize}
+
+Today we'll cover:
+
+\begin{itemize}
+\tightlist
+\item
+  Visualization
+\item
+  A bit of data wrangling
+\end{itemize}
+
+\subsection*{Check your understanding}\label{check-your-understanding-1}
+\addcontentsline{toc}{subsection}{Check your understanding}
+
+\begin{itemize}
+\tightlist
+\item
+  How do you make a barplot, in base-R and in ggplot?
+\item
+  How do you add layers to a ggplot?
+\item
+  How do you change the axes of a ggplot?
+\item
+  How do you make a histogram?
+\item
+  How do you make a graph that looks like this?
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics{images/Martin-Quinn_Wikipedia.png}
+\caption{By Randy Schutt - Own work, CC BY-SA 3.0,
+\href{https://commons.wikimedia.org/w/index.php?curid=29585342}{Wikimedia.}}
+\end{figure}
+
+Other review
+
+\section{Motivation: The Law of the
+Census}\label{motivation-the-law-of-the-census}
+
+In this module, let's visualize some cross-sectional stats with an
+actual Census. Then, we'll do an example on time trends with Supreme
+Court ideal points.
+
+Why care about the Census? The Census is one of the fundamental acts of
+a government. See the Law Review article by
+\href{http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf}{Persily
+(2011)}, ``The Law of the Census.''\footnote{\href{http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf}{Persily,
+  Nathaniel. 2011. ``The Law of the Census: How to Count, What to Count,
+  Whom to Count, and Where to Count Them.''}. \emph{Cardozo Law Review}
+  32(3): 755--91.} The Census is government's primary tool for
+apportionment (allocating seats to districts), appropriations
+(allocating federal funding), and tracking demographic change.
+See\footnote{\href{https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2}{Hochschild,
+  Jennifer L., and Brenna Marea Powell. 2008. ``Racial Reorganization
+  and the United States Census 1850--1930: Mulattoes, Half-Breeds, Mixed
+  Parentage, Hindoos, and the Mexican Race.''}. \emph{Studies in
+  American Political Development} 22(1): 59--96.} for example
+\href{https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2}{Hochschild
+and Powell (2008)} on how the categorizations of race in the Census
+during 1850-1930. Notice also that both of these pieces are not
+inherently ``quantitative'' --- the Persily article is a Law Review and
+the Hochschild and Powell article is on American Historical Development
+--- but data analysis would be certainly relevant.
+
+Time series data is a common form of data in social science data, and
+there is growing methodological work on making causal inferences with
+time series.\footnote{\href{https://doi.org/10.1017/S0003055418000357}{Blackwell,
+  Matthew, and Adam Glynn. 2018. ``How to Make Causal Inferences with
+  Time-Series Cross-Sectional Data under Selection on Observables.''}
+  \emph{American Political Science Review}} We will use the the
+ideological estimates of the Supreme court.
+
+\section{Read data}\label{read-data-2}
+
+First, the census. Read in a subset of the 2010 Census that we looked at
+earlier. This time, it is in Rds form.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cen10 <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"data/input/usc2010_001percent.Rds"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+The data comes from IPUMS\footnote{\href{http://doi.org/10.18128/D010.V6.0}{Ruggles,
+  Steven, Katie Genadek, Ronald Goeken, Josiah Grover, and Matthew
+  Sobek. 2015. Integrated Public Use Microdata Series: Version 6.0
+  dataset}}, a great source to extract and analyze Census and
+Census-conducted survey (ACS, CPS) data.
+
+\section{Counting}\label{counting}
+
+How many people are in your sample?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{nrow}\NormalTok{(cen10)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 30871
+\end{verbatim}
+
+This and all subsequent tasks involve manipulating and summarizing data,
+sometimes called ``wrangling''. As per last time, there are both
+``base-R'' and ``tidyverse'' approaches.
+
+We have already seen several functions from the tidyverse:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{select} selects columns
+\item
+  \texttt{filter} selects rows based on a logical (boolean) statement
+\item
+  \texttt{slice} selects rows based on the row number
+\item
+  \texttt{arrange} reordered the rows in descending order.
+\end{itemize}
+
+In this visualization section, we'll make use of the pair of functions
+\texttt{group\_by()} and \texttt{summarize()}.
+
+\section{Tabulating}\label{tabulating}
+
+Summarizing data is the key part of communication; good data viz gets
+the point across.\footnote{\href{http://www.princeton.edu/~jkastell/Tables2Graphs/graphs.pdf}{Kastellec,
+  Jonathan P., and Eduardo L. Leoni. 2007. ``Using Graphs Instead of
+  Tables in Political Science.''}. \emph{Perspectives on Politics} 5
+  (4): 755--71.} Summaries of data come in two forms: tables and
+figures.
+
+Here are two ways to count by group, or to tabulate.
+
+In base-R Use the \texttt{table} function, that provides how many rows
+exist for an unique value of the vector (remember \texttt{unique} from
+yesterday?)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{table}\NormalTok{(cen10}\OperatorTok{$}\NormalTok{race)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## American Indian or Alaska Native                      Black/Negro 
+##                              295                             4013 
+##                          Chinese                         Japanese 
+##                              354                               77 
+##  Other Asian or Pacific Islander                  Other race, nec 
+##                             1129                             1839 
+##        Three or more major races                  Two major races 
+##                               88                              869 
+##                            White 
+##                            22207
+\end{verbatim}
+
+With tidyverse, a quick convenience function is \texttt{count}, with the
+variable to count on included.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{count}\NormalTok{(cen10, race)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 9 x 2
+##   race                                 n
+##   <chr>                            <int>
+## 1 American Indian or Alaska Native   295
+## 2 Black/Negro                       4013
+## 3 Chinese                            354
+## 4 Japanese                            77
+## 5 Other Asian or Pacific Islander   1129
+## 6 Other race, nec                   1839
+## 7 Three or more major races           88
+## 8 Two major races                    869
+## 9 White                            22207
+\end{verbatim}
+
+We can check out the arguments of \texttt{count} and see that there is a
+\texttt{sort} option. What does this do?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{count}\NormalTok{(cen10, race, }\DataTypeTok{sort =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 9 x 2
+##   race                                 n
+##   <chr>                            <int>
+## 1 White                            22207
+## 2 Black/Negro                       4013
+## 3 Other race, nec                   1839
+## 4 Other Asian or Pacific Islander   1129
+## 5 Two major races                    869
+## 6 Chinese                            354
+## 7 American Indian or Alaska Native   295
+## 8 Three or more major races           88
+## 9 Japanese                            77
+\end{verbatim}
+
+\texttt{count} is a kind of shorthand for \texttt{group\_by()} and
+\texttt{summarize}. This code would have done the same.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cen10 }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(race) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{n =} \KeywordTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 9 x 2
+##   race                                 n
+##   <chr>                            <int>
+## 1 American Indian or Alaska Native   295
+## 2 Black/Negro                       4013
+## 3 Chinese                            354
+## 4 Japanese                            77
+## 5 Other Asian or Pacific Islander   1129
+## 6 Other race, nec                   1839
+## 7 Three or more major races           88
+## 8 Two major races                    869
+## 9 White                            22207
+\end{verbatim}
+
+If you are new to tidyverse, what would you \emph{think} each row did?
+Reading the function help page, verify if your intuition was correct.
+
+where \texttt{n()} is a function that counts rows.
+
+\section{base R graphics and ggplot}\label{base-r-graphics-and-ggplot}
+
+Two prevalent ways of making graphing are referred to as ``base-R'' and
+``ggplot''.
+
+\subsection{base R}\label{base-r}
+
+``Base-R'' graphics are graphics that are made with R's default graphics
+commands. First, let's assign our tabulation to an object, then put it
+in the \texttt{barplot()} function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{barplot}\NormalTok{(}\KeywordTok{table}\NormalTok{(cen10}\OperatorTok{$}\NormalTok{race))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-231-1.pdf}
+
+\subsection{ggplot}\label{ggplot}
+
+A popular alternative a \texttt{ggplot} graphics, that you were
+introduced to in the tutorial. \texttt{gg} stands for grammar of
+graphics by Hadley Wickham, and it has a new semantics of explaining
+graphics in R. Again, first let's set up the data.
+
+Although the tutorial covered making scatter plots as the first cut,
+often data requires summaries before they made into graphs.
+
+For this example, let's group and count first like we just did. But
+assign it to a new object.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{grp_race <-}\StringTok{ }\KeywordTok{count}\NormalTok{(cen10, race)}
+\end{Highlighting}
+\end{Shaded}
+
+We will now plot this grouped set of numbers. Recall that the
+\texttt{ggplot()} function takes two main arguments, \texttt{data} and
+\texttt{aes}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  First enter a single dataframe from which you will draw a plot.
+\item
+  Then enter the \texttt{aes}, or aesthetics. This defines which
+  variable in the data the plotting functions should take for pre-set
+  dimensions in graphics. The dimensions \texttt{x} and \texttt{y} are
+  the most important. We will assign \texttt{race} and \texttt{count} to
+  them, respectively,
+\item
+  After you close \texttt{ggplot()} .. add \textbf{layers} by the plus
+  sign. A \texttt{geom} is a layer of graphical representation, for
+  example \texttt{geom\_histogram} renders a histogram,
+  \texttt{geom\_point} renders a scatter plot. For a barplot, we can use
+  \texttt{geom\_col()}
+\end{enumerate}
+
+What is the right geometry layer to make a barplot? Turns out:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ grp_race, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ race, }\DataTypeTok{y =}\NormalTok{ n)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_col}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-233-1.pdf}
+
+\section{Improving your graphics}\label{improving-your-graphics}
+
+Adjusting your graphics to make the point clear is an important skill.
+Here is a base-R example of showing the same numbers but with a
+different design, in a way that aims to maximize the ``data-to-ink
+ratio''.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{oma =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+\KeywordTok{barplot}\NormalTok{(}\KeywordTok{sort}\NormalTok{(}\KeywordTok{table}\NormalTok{(cen10}\OperatorTok{$}\NormalTok{race)), }\CommentTok{# sort numbers}
+        \DataTypeTok{horiz =} \OtherTok{TRUE}\NormalTok{, }\CommentTok{# flip}
+        \DataTypeTok{border =} \OtherTok{NA}\NormalTok{, }\CommentTok{# border is extraneous}
+        \DataTypeTok{xlab =} \StringTok{"Number in Race Category"}\NormalTok{, }
+        \DataTypeTok{bty =} \StringTok{"n"}\NormalTok{, }\CommentTok{# no box}
+        \DataTypeTok{las =} \DecValTok{1}\NormalTok{) }\CommentTok{# alignment of axis labels is horizontal}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-234-1.pdf}
+
+Notice that we applied the \texttt{sort()} function to order the bars in
+terms of their counts. The default ordering of a categorical variable /
+factor is alphabetical. Alphabetical ordering is uninformative and
+almost never the way you should order variables.
+
+In ggplot you might do this by:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(forcats)}
+
+\NormalTok{grp_race_ordered <-}\StringTok{ }\KeywordTok{arrange}\NormalTok{(grp_race, n) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{race =} \KeywordTok{as_factor}\NormalTok{(race))}
+
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ grp_race_ordered, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ race, }\DataTypeTok{y =}\NormalTok{ n)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_col}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{coord_flip}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{y =} \StringTok{"Number in Race Category"}\NormalTok{,}
+       \DataTypeTok{x =} \StringTok{""}\NormalTok{,}
+       \DataTypeTok{caption =} \StringTok{"Source: 2010 U.S. Census sample"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-235-1.pdf}
+
+The data ink ratio was popularized by Ed Tufte (originally a political
+economy scholar who has recently become well known for his data
+visualization work). See Tufte (2001), \emph{The Visual Display of
+Quantitative Information} and his website
+\url{https://www.edwardtufte.com/tufte/}. For a R and ggplot focused
+example using social science examples, check out Healy (2018),
+\emph{Data Visualization: A Practical Introduction} with a draft at
+\url{https://socviz.co/}\footnote{Healy, Kieran. forthcoming. \emph{Data
+  Visualization: A Practical Introduction}. Princeton University Press}.
+There are a growing number of excellent books on data visualization.
+
+\section{Cross-tabs}\label{cross-tabs}
+
+Visualizations and Tables each have their strengths. A rule of thumb is
+that more than a dozen numbers on a table is too much to digest, but
+less than a dozen is too few for a figure to be worth it. Let's look at
+a table first.
+
+A cross-tab is counting with two types of variables, and is a simple and
+powerful tool to show the relationship between multiple variables.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{xtab_race_state <-}\StringTok{ }\KeywordTok{table}\NormalTok{(cen10}\OperatorTok{$}\NormalTok{state, cen10}\OperatorTok{$}\NormalTok{race)}
+\NormalTok{xtab_race_state}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                       
+##                        American Indian or Alaska Native Black/Negro
+##   Alabama                                             2         128
+##   Alaska                                             11           6
+##   Arizona                                            28          23
+##   Arkansas                                            1          45
+##   California                                         42         253
+##   Colorado                                            7          26
+##   Connecticut                                         1          39
+##   Delaware                                            3          28
+##   District of Columbia                                0          35
+##   Florida                                             9         304
+##   Georgia                                             2         304
+##   Hawaii                                              0           0
+##   Idaho                                               2           0
+##   Illinois                                            5         194
+##   Indiana                                             2          66
+##   Iowa                                                0           9
+##   Kansas                                              2          24
+##   Kentucky                                            2          35
+##   Louisiana                                           3         161
+##   Maine                                               0           4
+##   Maryland                                            2         177
+##   Massachusetts                                       5          38
+##   Michigan                                            5         147
+##   Minnesota                                           6          25
+##   Mississippi                                         1         116
+##   Missouri                                            4          74
+##   Montana                                             8           0
+##   Nebraska                                            2          11
+##   Nevada                                              6          15
+##   New Hampshire                                       1           1
+##   New Jersey                                          0         130
+##   New Mexico                                         21           3
+##   New York                                           13         305
+##   North Carolina                                     12         220
+##   North Dakota                                        4           1
+##   Ohio                                                1         122
+##   Oklahoma                                           21          20
+##   Oregon                                              5           5
+##   Pennsylvania                                        2         156
+##   Rhode Island                                        2           3
+##   South Carolina                                      2         120
+##   South Dakota                                        7           1
+##   Tennessee                                           0          97
+##   Texas                                              14         316
+##   Utah                                                8           0
+##   Vermont                                             0           2
+##   Virginia                                            0         171
+##   Washington                                         14          20
+##   West Virginia                                       0           5
+##   Wisconsin                                           6          27
+##   Wyoming                                             1           1
+##                       
+##                        Chinese Japanese Other Asian or Pacific Islander
+##   Alabama                    1        0                               3
+##   Alaska                     0        0                               5
+##   Arizona                    1        0                              12
+##   Arkansas                   0        0                               1
+##   California               141       27                             359
+##   Colorado                   3        0                              10
+##   Connecticut                7        0                              16
+##   Delaware                   1        0                               4
+##   District of Columbia       0        0                               1
+##   Florida                    4        1                              24
+##   Georgia                    5        0                              35
+##   Hawaii                     2       16                              35
+##   Idaho                      0        1                               0
+##   Illinois                   6        3                              53
+##   Indiana                    3        0                               8
+##   Iowa                       1        0                               4
+##   Kansas                     2        0                               8
+##   Kentucky                   2        0                               4
+##   Louisiana                  1        0                               5
+##   Maine                      1        0                               1
+##   Maryland                   4        1                              12
+##   Massachusetts             15        2                              28
+##   Michigan                   8        1                              23
+##   Minnesota                  5        1                              28
+##   Mississippi                0        0                               3
+##   Missouri                   2        0                               9
+##   Montana                    0        0                               0
+##   Nebraska                   0        0                               5
+##   Nevada                     6        2                              15
+##   New Hampshire              1        1                               3
+##   New Jersey                19        2                              65
+##   New Mexico                 1        1                               1
+##   New York                  55        3                              68
+##   North Carolina             4        1                              12
+##   North Dakota               0        0                               0
+##   Ohio                       5        2                              17
+##   Oklahoma                   0        0                               5
+##   Oregon                     4        0                              11
+##   Pennsylvania              10        1                              28
+##   Rhode Island               0        0                               4
+##   South Carolina             1        0                               4
+##   South Dakota               0        1                               1
+##   Tennessee                  0        0                              13
+##   Texas                     15        2                              92
+##   Utah                       1        1                               6
+##   Vermont                    0        0                               0
+##   Virginia                   8        2                              29
+##   Washington                 9        4                              46
+##   West Virginia              0        0                               0
+##   Wisconsin                  0        1                              11
+##   Wyoming                    0        0                               2
+##                       
+##                        Other race, nec Three or more major races
+##   Alabama                            8                         1
+##   Alaska                             2                         0
+##   Arizona                           74                         2
+##   Arkansas                          11                         1
+##   California                       585                        14
+##   Colorado                          28                         1
+##   Connecticut                       20                         1
+##   Delaware                           5                         1
+##   District of Columbia               1                         0
+##   Florida                           72                         2
+##   Georgia                           35                         1
+##   Hawaii                             0                        14
+##   Idaho                              8                         1
+##   Illinois                          75                         2
+##   Indiana                           20                         1
+##   Iowa                              10                         0
+##   Kansas                             6                         0
+##   Kentucky                           5                         1
+##   Louisiana                          7                         0
+##   Maine                              0                         0
+##   Maryland                          28                         1
+##   Massachusetts                     26                         0
+##   Michigan                           8                         2
+##   Minnesota                         13                         1
+##   Mississippi                        2                         2
+##   Missouri                           6                         2
+##   Montana                            1                         0
+##   Nebraska                           6                         0
+##   Nevada                            41                         1
+##   New Hampshire                      1                         0
+##   New Jersey                        69                         3
+##   New Mexico                        23                         1
+##   New York                         154                         8
+##   North Carolina                    40                         2
+##   North Dakota                       0                         0
+##   Ohio                               7                         3
+##   Oklahoma                          15                         3
+##   Oregon                            21                         4
+##   Pennsylvania                      30                         1
+##   Rhode Island                       6                         1
+##   South Carolina                     6                         1
+##   South Dakota                       2                         0
+##   Tennessee                         13                         0
+##   Texas                            253                         2
+##   Utah                              14                         0
+##   Vermont                            1                         0
+##   Virginia                          29                         4
+##   Washington                        37                         2
+##   West Virginia                      0                         0
+##   Wisconsin                         13                         1
+##   Wyoming                            2                         0
+##                       
+##                        Two major races White
+##   Alabama                            8   344
+##   Alaska                            15    37
+##   Arizona                           11   485
+##   Arkansas                           2   247
+##   California                       174  2168
+##   Colorado                          22   401
+##   Connecticut                        7   284
+##   Delaware                           1    66
+##   District of Columbia               2    21
+##   Florida                           42  1435
+##   Georgia                           21   587
+##   Hawaii                            27    39
+##   Idaho                              6   129
+##   Illinois                          35   856
+##   Indiana                            6   514
+##   Iowa                               8   287
+##   Kansas                             8   237
+##   Kentucky                           9   357
+##   Louisiana                          6   273
+##   Maine                              1   117
+##   Maryland                          13   302
+##   Massachusetts                     18   515
+##   Michigan                          23   792
+##   Minnesota                         10   483
+##   Mississippi                        1   167
+##   Missouri                          14   516
+##   Montana                            0    88
+##   Nebraska                           5   155
+##   Nevada                            16   171
+##   New Hampshire                      1   129
+##   New Jersey                        25   589
+##   New Mexico                         6   146
+##   New York                          51  1220
+##   North Carolina                    20   648
+##   North Dakota                       1    46
+##   Ohio                              20   931
+##   Oklahoma                          24   266
+##   Oregon                             9   279
+##   Pennsylvania                      27  1045
+##   Rhode Island                       4    74
+##   South Carolina                     6   325
+##   South Dakota                       2    72
+##   Tennessee                          9   474
+##   Texas                             71  1792
+##   Utah                               8   255
+##   Vermont                            4    59
+##   Virginia                          24   548
+##   Washington                        33   524
+##   West Virginia                      3   168
+##   Wisconsin                          8   497
+##   Wyoming                            2    47
+\end{verbatim}
+
+Another function to make a cross-tab is the \texttt{xtabs} command,
+which uses formula notation.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{xtabs}\NormalTok{(}\OperatorTok{~}\StringTok{ }\NormalTok{state }\OperatorTok{+}\StringTok{ }\NormalTok{race, cen10)}
+\end{Highlighting}
+\end{Shaded}
+
+What if we care about proportions within states, rather than counts? Say
+we'd like to compare the racial composition of a small state (like
+Delaware) and a large state (like California). In fact, most tasks of
+inference is about the unobserved population, not the observed data ---
+and proportions are estimates of a quantity in the population.
+
+One way to transform a table of counts to a table of proportions is the
+function \texttt{prop.table}. Be careful what you want to take
+proportions of -- this is set by the \texttt{margin} argument. In R, the
+first margin (\texttt{margin\ =\ 1}) is \emph{rows} and the second
+(\texttt{margin\ =\ 2}) is \emph{columns}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ptab_race_state <-}\StringTok{ }\KeywordTok{prop.table}\NormalTok{(xtab_race_state, }\DataTypeTok{margin =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Check out each of these table objects in your console and familiarize
+yourself with the difference.
+
+\section{Composition Plots}\label{composition-plots}
+
+How would you make the same figure with \texttt{ggplot()}? First, we
+want a count for each state \(\times\) race combination. So group by
+those two factors and count how many observations are in each two-way
+categorization. \texttt{group\_by()} can take any number of variables,
+separated by commas.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{grp_race_state <-}\StringTok{ }\NormalTok{cen10 }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{count}\NormalTok{(race, state)}
+\end{Highlighting}
+\end{Shaded}
+
+Can you tell from the code what \texttt{grp\_race\_state} will look
+like?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# run on your own}
+\NormalTok{grp_race_state}
+\end{Highlighting}
+\end{Shaded}
+
+Now, we want to tell \texttt{ggplot2} something like the following: I
+want bars by state, where heights indicate racial groups. Each bar
+should be colored by the race. With some googling, you will get
+something like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ grp_race_state, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{  state, }\DataTypeTok{y =}\NormalTok{ n,  }\DataTypeTok{fill =}\NormalTok{ race)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_col}\NormalTok{(}\DataTypeTok{position =} \StringTok{"fill"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# the position is determined by the fill ae}
+\StringTok{  }\KeywordTok{scale_fill_brewer}\NormalTok{(}\DataTypeTok{name =} \StringTok{"Census Race"}\NormalTok{, }\DataTypeTok{palette =} \StringTok{"OrRd"}\NormalTok{, }\DataTypeTok{direction =} \OperatorTok{-}\DecValTok{1}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# choose palette}
+\StringTok{  }\KeywordTok{coord_flip}\NormalTok{() }\OperatorTok{+}\StringTok{ }\CommentTok{# flip axes}
+\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{labels =}\NormalTok{ percent) }\OperatorTok{+}\StringTok{ }\CommentTok{# label numbers as percentage}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{y =} \StringTok{"Proportion of Racial Group within State"}\NormalTok{,}
+       \DataTypeTok{x =} \StringTok{""}\NormalTok{,}
+       \DataTypeTok{source =} \StringTok{"Source: 2010 Census  sample"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-241-1.pdf}
+
+\section{Line graphs}\label{line-graphs}
+
+Line graphs are useful for plotting time trends.
+
+The Census does not track individuals over time. So let's take up
+another example: The U.S. Supreme Court. Take the dataset
+\texttt{justices\_court-median.csv}.
+
+This data is adapted from the estimates of Martin and Quinn on their
+website \url{http://mqscores.lsa.umich.edu/}.\footnote{This exercise
+  inspired from Princeton's R Camp Assignment.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{justice <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/input/justices_court-median.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+What does the data look like? How do you think it is organized? What
+does each row represent?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{justice}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 746 x 7
+##     term justice_id justice idealpt idealpt_sd median_idealpt
+##    <dbl>      <dbl> <chr>     <dbl>      <dbl>          <dbl>
+##  1  1937         67 McReyn~   3.44       0.54          -0.568
+##  2  1937         68 Brande~  -0.612      0.271         -0.568
+##  3  1937         71 Suther~   1.59       0.549         -0.568
+##  4  1937         72 Butler    2.06       0.426         -0.568
+##  5  1937         74 Stone    -0.774      0.259         -0.568
+##  6  1937         75 Hughes2  -0.368      0.232         -0.568
+##  7  1937         76 O. Rob~   0.008      0.228         -0.568
+##  8  1937         77 Cardozo  -1.59       0.634         -0.568
+##  9  1937         78 Black    -2.90       0.334         -0.568
+## 10  1937         79 Reed     -1.06       0.342         -0.568
+## # ... with 736 more rows, and 1 more variable: median_justice <chr>
+\end{verbatim}
+
+As you might have guessed, these data can be shown in a time trend from
+the range of the \texttt{term} variable. As there are only nine justices
+at any given time and justices have life tenure, there times on the
+court are staggered. With a common measure of ``preference'', we can
+plot time trends of these justices ideal points on the same y-axis
+scale.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(justice, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ term, }\DataTypeTok{y =}\NormalTok{ idealpt)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-244-1.pdf}
+Why does the above graph not look like the the put in the beginning? Fix
+it by adding just one aesthetic to the graph.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# enter a correction that draws separate lines by group.}
+\end{Highlighting}
+\end{Shaded}
+
+If you got the right aesthetic, this seems to ``work'' off the shelf.
+But take a moment to see why the code was written as it is and how that
+maps on to the graphics. What is the \texttt{group} aesthetic doing for
+you?
+
+Now, this graphic already indicates a lot, but let's improve the
+graphics so people can actually read it. This is left for a Exercise.
+
+As social scientists, we should also not forget to ask ourselves whether
+these numerical measures are fit for what we care about, or actually
+succeeds in measuring what we'd like to measure. The estimation of these
+``ideal points'' is a subfield of political methodology beyond this
+prefresher. For more reading, skim through the original paper by Martin
+and Quinn (2002).\footnote{\href{http://mqscores.lsa.umich.edu/media/pa02.pdf}{Martin,
+  Andrew D. and Kevin M. Quinn. 2002. ``Dynamic Ideal Point Estimation
+  via Markov Chain Monte Carlo for the U.S. Supreme Court, 1953-1999''}.
+  \emph{Political Analysis.} 10(2): 134-153.} Also for a methodological
+discussion on the difficulty of measuring time series of preferences,
+check out Bailey (2013).\footnote{\href{https://michaelbailey.georgetown.domains/wp-content/uploads/2018/05/JOP_proofs_June2013.pdf}{Bailey,
+  Michael A. 2013. ``Is Today's Court the Most Conservative in Sixty
+  Years? Challenges and Opportunities in Measuring Judicial
+  Preferences.''}. \emph{Journal of Politics} 75(3): 821-834}
+
+\section*{Exercises}\label{exercises-3}
+\addcontentsline{toc}{section}{Exercises}
+
+In the time remaining, try the following exercises. Order doesn't
+matter.
+
+\subsection*{1: Rural states}\label{rural-states}
+\addcontentsline{toc}{subsection}{1: Rural states}
+
+Make a well-labelled figure that plots the proportion of the state's
+population (as per the census) that is 65 years or older. Each state
+should be visualized as a point, rather than a bar, and there should be
+51 points, ordered by their value. All labels should be readable.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Enter yourself}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{2: The swing justice}\label{the-swing-justice}
+\addcontentsline{toc}{subsection}{2: The swing justice}
+
+Using the \texttt{justices\_court-median.csv} dataset and building off
+of the plot that was given, make an improved plot by implementing as
+many of the following changes (which hopefully improves the graph):
+
+\begin{itemize}
+\tightlist
+\item
+  Label axes
+\item
+  Use a black-white background.
+\item
+  Change the breaks of the x-axis to print numbers for every decade, not
+  just every two decades.
+\item
+  Plots each line in translucent gray, so the overlapping lines can be
+  visualized clearly. (Hint: in ggplot the \texttt{alpha} argument
+  controls the degree of transparency)
+\item
+  Limit the scale of the y-axis to {[}-5, 5{]} so that the outlier
+  justice in the 60s is trimmed and the rest of the data can be seen
+  more easily (also, who is that justice?)
+\item
+  Plot the ideal point of the justice who holds the ``median'' ideal
+  point in a given term. To distinguish this with the others, plot this
+  line separately in a very light red \emph{below} the individual
+  justice's lines.
+\item
+  Highlight the trend-line of only the nine justices who are
+  \emph{currently} sitting on SCOTUS. Make sure this is clearer than the
+  other past justices.
+\item
+  Add the current nine justice's names to the right of the endpoint of
+  the 2016 figure, alongside their ideal point.
+\item
+  Make sure the text labels do not overlap with each other for
+  readability using the \texttt{ggrepel} package.
+\item
+  Extend the x-axis label to about 2020 so the text labels of justices
+  are to the right of the trend-lines.
+\item
+  Add a caption to your text describing the data briefly, as well as any
+  features relevant for the reader (such as the median line and the
+  trimming of the y-axis)
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Enter yourself}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{3: Don't sort by the
+alphabet}\label{dont-sort-by-the-alphabet}
+\addcontentsline{toc}{subsection}{3: Don't sort by the alphabet}
+
+The Figure we made that shows racial composition by state has one
+notable shortcoming: it orders the states alphabetically, which is not
+particularly useful if you want see an overall pattern, without having
+particular states in mind.
+
+Find a way to modify the figures so that the states are ordered by the
+\emph{proportion} of White residents in the sample.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Enter yourself}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{4 What to show and how to show
+it}\label{what-to-show-and-how-to-show-it}
+\addcontentsline{toc}{subsection}{4 What to show and how to show it}
+
+As a student of politics our goal is not necessarily to make pretty
+pictures, but rather make pictures that tell us something about
+politics, government, or society. If you could augment either the census
+dataset or the justices dataset in some way, what would be an
+substantively significant thing to show as a graphic?
 
 \chapter[Joins and Merges, Wide and Long]{\texorpdfstring{Joins and
 Merges, Wide and Long\footnote{Module originally written by Shiro
@@ -11206,7 +11283,7 @@ What does \texttt{polity} look like?
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-250-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-251-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11347,7 +11424,7 @@ Replace \texttt{dispute} = \texttt{NA} rows with a zero.
 \end{Highlighting}
 \end{Shaded}
 
-long to wide
+Reshape the dataset long to wide
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11566,7 +11643,7 @@ randomly sample a sample of length \texttt{size}. For this, use the
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1 2 3 7 6
+## [1] 3 1 2 6 8
 \end{verbatim}
 
 There are two subtypes of sampling -- with and without replacement.
@@ -11586,7 +11663,7 @@ There are two subtypes of sampling -- with and without replacement.
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  7  8  9  6  2  5  4  1 10  3
+##  [1] 10  1  9  5  2  4  8  3  6  7
 \end{verbatim}
 
 \begin{enumerate}
@@ -11606,7 +11683,7 @@ There are two subtypes of sampling -- with and without replacement.
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 10  2  1  5  3  9  3  6  6  1
+##  [1] 6 2 6 6 1 7 3 1 5 6
 \end{verbatim}
 
 It follows then that you cannot sample without replacement a sample that
@@ -11637,8 +11714,8 @@ likely to happen)
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Head" "Tail" "Tail" "Head" "Tail" "Head" "Head" "Tail" "Tail" "Head"
-## [11] "Tail" "Head" "Head" "Head" "Tail" "Head" "Head" "Head" "Head" "Head"
+##  [1] "Tail" "Head" "Head" "Head" "Tail" "Tail" "Tail" "Head" "Tail" "Tail"
+## [11] "Tail" "Head" "Head" "Head" "Tail" "Tail" "Tail" "Tail" "Head" "Head"
 \end{verbatim}
 
 But this simulates 20 biased coin tosses, where say the probability of
@@ -11651,8 +11728,8 @@ Tails is 4 times more likely than the number of Heads
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Tail" "Tail" "Tail" "Tail" "Tail" "Head" "Tail" "Tail" "Tail" "Head"
-## [11] "Head" "Head" "Tail" "Head" "Tail" "Tail" "Tail" "Tail" "Tail" "Tail"
+##  [1] "Tail" "Head" "Tail" "Tail" "Tail" "Tail" "Tail" "Tail" "Tail" "Head"
+## [11] "Tail" "Tail" "Head" "Tail" "Tail" "Tail" "Head" "Tail" "Tail" "Head"
 \end{verbatim}
 
 \subsection{Sampling rows from a
@@ -11715,10 +11792,10 @@ sample\_n picks a user-specified number of rows from the dataset:
 \end{Shaded}
 
 \begin{verbatim}
-##    mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## 1 10.4   8  472 205 2.93 5.250 17.98  0  0    3    4
-## 2 15.2   8  304 150 3.15 3.435 17.30  0  0    3    2
-## 3 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+##    mpg cyl  disp  hp drat   wt  qsec vs am gear carb
+## 1 26.0   4 120.3  91 4.43 2.14 16.70  0  1    5    2
+## 2 21.4   4 121.0 109 4.11 2.78 18.60  1  1    4    2
+## 3 10.4   8 472.0 205 2.93 5.25 17.98  0  0    3    4
 \end{verbatim}
 
 Sometimes you want a X percent sample of your dataset. In this case use
@@ -11731,10 +11808,10 @@ Sometimes you want a X percent sample of your dataset. In this case use
 \end{Shaded}
 
 \begin{verbatim}
-##    mpg cyl  disp  hp drat    wt  qsec vs am gear carb
-## 1 21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
-## 2 30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
-## 3 18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+##    mpg cyl  disp  hp drat   wt  qsec vs am gear carb
+## 1 19.2   6 167.6 123 3.92 3.44 18.30  1  0    4    4
+## 2 14.3   8 360.0 245 3.21 3.57 15.84  0  0    3    4
+## 3 17.8   6 167.6 123 3.92 3.44 18.90  1  0    4    4
 \end{verbatim}
 
 As a side-note, these functions have very practical uses for any type of
@@ -11778,7 +11855,7 @@ fair coin 100 times.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 51
+## [1] 49
 \end{verbatim}
 
 Now imagine this I wanted to do this experiment 10 times, which would
@@ -11792,7 +11869,7 @@ in one line
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 47 46 49 57 45 42 45 50 44 50
+##  [1] 44 49 55 54 50 50 51 57 45 53
 \end{verbatim}
 
 \subsection*{\texorpdfstring{\texttt{runif()}}{runif()}}\label{runif}
@@ -11813,7 +11890,7 @@ infinite amounts (size \texttt{n}) of noise that is a essentially random
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1847970 0.9906337 0.4612721 0.8321032 0.3246780
+## [1] 0.2468074 0.4173707 0.5889004 0.4548374 0.9548947
 \end{verbatim}
 
 \subsection*{\texorpdfstring{\texttt{rnorm()}}{rnorm()}}\label{rnorm}
@@ -11830,7 +11907,7 @@ statistics. It runs the same way as \texttt{runif}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.7477110 0.5347322 1.2716806 0.2623107 0.1506185
+## [1] -0.2752280 -0.9084678  0.9390441  0.1000015 -1.0508537
 \end{verbatim}
 
 To better visualize the difference between the output of \texttt{runif}
@@ -11847,7 +11924,7 @@ and \texttt{rnorm}, let's generate lots of each and plot a histogram.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-273-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-274-1.pdf}
 
 \section{r, p, and d}\label{r-p-and-d}
 
@@ -11909,9 +11986,6 @@ numbers if you precede the function by the same seed,
 ##  [1] 0.51236144 0.61530551 0.37451441 0.43541258 0.21166530 0.17812129
 ##  [7] 0.04420775 0.45567854 0.88718264 0.06970056
 \end{verbatim}
-
-whereas a true random number generator would give you the exact same
-sequence of output with probability 0!
 
 \section*{Exercises}\label{exercises-4}
 \addcontentsline{toc}{section}{Exercises}
@@ -13377,15 +13451,16 @@ a list of all files in the directory that you are currently in.
 \begin{verbatim}
 ## 01_warmup.Rmd
 ## 02_functions.Rmd
-## 03_linear-algebra.Rmd
-## 04_limits.Rmd
-## 05_calculus.Rmd
-## 06_optimization.Rmd
-## 07_probability.Rmd
+## 03_limits.Rmd
+## 04_calculus.Rmd
+## 05_optimization.Rmd
+## 06_probability.Rmd
+## 07_linear-algebra.Rmd
+## 08_causal.Rmd
 ## 11_data-handling_counting.Rmd
 ## 12_matricies-manipulation.Rmd
-## 13_visualization.Rmd
-## 14_functions_obj_loops.Rmd
+## 13_functions_obj_loops.Rmd
+## 14_visualization.Rmd
 ## 15_project-dempeace.Rmd
 ## 16_simulation.Rmd
 ## 17_non-wysiwyg.Rmd
@@ -13408,9 +13483,11 @@ a list of all files in the directory that you are currently in.
 ## _output.yml
 ## preamble.tex
 ## prefresher_files
+## prefresher.log
 ## prefresher.Rmd
 ## prefresher.Rproj
 ## README.md
+## R_exercises
 ## style.css
 \end{verbatim}
 
@@ -13986,7 +14063,7 @@ Plot points
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-326-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-327-1.pdf}
 
 \subsection*{2 Swing Justice}\label{swing-justice}
 \addcontentsline{toc}{subsection}{2 Swing Justice}
@@ -14044,7 +14121,7 @@ All together
 ## Warning: Removed 19 rows containing missing values (geom_path).
 \end{verbatim}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-329-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-330-1.pdf}
 
 \section{Chapter \ref{robjloops}: Objects and
 Loops}\label{chapter-refrobjloops-objects-and-loops}
@@ -14085,50 +14162,8 @@ Loops}\label{chapter-refrobjloops-objects-and-loops}
 ## 10 New Mexico       39.3
 \end{verbatim}
 
-\subsection*{Exercise 1}\label{exercise-1}
-\addcontentsline{toc}{subsection}{Exercise 1}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{colnames}\NormalTok{(sample_acs)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##  [1] "serial"            "pernum"            "hhwt"             
-##  [4] "perwt"             "state"             "county_identified"
-##  [7] "puma"              "city"              "sex"              
-## [10] "age"               "birthyr"           "race"             
-## [13] "hispan"            "educ"              "citizen"          
-## [16] "yrnatur"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{unique}\NormalTok{(sample_acs}\OperatorTok{$}\NormalTok{citizen)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "Born in the US"                                                           
-## [2] "US citizen by naturalization"                                             
-## [3] "Not a citizen of the US"                                                  
-## [4] "Born abroad of American parent(s)"                                        
-## [5] "Born in Puerto Rico, Guam, the US Virgin Islands,or the Northern Marianas"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{mean}\NormalTok{(sample_acs}\OperatorTok{$}\NormalTok{citizen }\OperatorTok{!=}\StringTok{ "Not a citizen of the US"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 0.9419765
-\end{verbatim}
-
-\subsection*{Exercise 3}\label{exercise-3}
-\addcontentsline{toc}{subsection}{Exercise 3}
+\subsection*{Exercise 2}\label{exercise-2}
+\addcontentsline{toc}{subsection}{Exercise 2}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -14193,8 +14228,8 @@ Loops}\label{chapter-refrobjloops-objects-and-loops}
 ##   White                               267  257
 \end{verbatim}
 
-\subsection*{Exercise 4}\label{exercise-4}
-\addcontentsline{toc}{subsection}{Exercise 4}
+\subsection*{Exercise 3}\label{exercise-3}
+\addcontentsline{toc}{subsection}{Exercise 3}
 
 \begin{Shaded}
 \begin{Highlighting}[]
