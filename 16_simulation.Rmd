@@ -194,9 +194,6 @@ set.seed(02138)
 runif(n = 10)
 ```
 
-whereas a true random number generator would give you the exact same sequence of output with probability 0!
-
-
 
 
 ## Exercises {-}

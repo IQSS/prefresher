@@ -7,7 +7,7 @@
 Welcome to the first in-class session for programming. Up till this point, you should have already:
 
 * Completed the R Visualization and Programming primers (under "The Basics") on your own at <https://rstudio.cloud/learn/primers/>,
-* Made an account at RStudio Cloud and join the Math Prefresher 2018 Space, and
+* Made an account at RStudio Cloud and join the Math Prefresher 2019 Space, and
 * Successfully signed up for the University wi-fi: <https://getonline.harvard.edu/> (Access Harvard Secure with your HarvardKey. Try to get a HarvardKey as soon as possible.)
 
 ### Where are we? Where are we headed? {-}
@@ -15,6 +15,7 @@ Welcome to the first in-class session for programming. Up till this point, you s
 Today we'll cover:
 
 * What's what in RStudio
+* What R is, at a high level
 * How to read in data 
 * Comment on coding style on the way
 
@@ -44,7 +45,7 @@ Reviewing data import will allow us to get on the same page on how computer syst
 
 ## Orienting
 
-1. We will be using a cloud version of RStudio at <https://rstudio.cloud>. You should join the Math Prefresher Space 2018 from the link that was emailed to you. Each day, click on the project with the day's date on it.
+1. We will be using a cloud version of RStudio at <https://rstudio.cloud>. You should join the Math Prefresher Space 2019 from the link that was emailed to you. Each day, click on the project with the day's date on it.
 
     Although most of you will probably doing your work on RStudio local rather than cloud, we are trying to use cloud because it makes it easier to standardize people's settings.  
 
@@ -89,12 +90,58 @@ Reviewing data import will allow us to get on the same page on how computer syst
 
 ![A code chunk in Rmarkdown (before rendering)](images/11_4_codechunk.png)
 
+\newpage
+## But what is R?
+R is an object oriented programming language primarily used for statistical computing. An object oriented language is a programming language built around manipulating objects. 
+
+* In R, objects can be matrices, vectors, scalars, strings, and data frames, for example
+* Objects contain different types of information
+* Different objects have different allowable procedures:
+
+```{r}
+# Adding a string and a string does not work because the '+' operator 
+# does not work for strings:
+
+# 'Harvard' + 'Gov'
+
+# The '+' operator can add numbers just fine
+9 + 13
+
+# Reminder: to figure out the type of an object use:
+x <- 9
+class(9)
+class(x)
+class('Harvard')
+```
+
+Object oriented programming makes languages flexible and powerful:
+
+* You can create custom functions and objects for your needs
+* Other people can create great packages for everyone to use
+* Many errors come from using the wrong data type and a lot of programming in R is getting data into the right format and type to work with.
+
+It is helpful to think in terms of object manipulation at a high level while programming in R, particularly at the beginning of tackling a new problem. Think about what objects you want to manipulate, what types they are, and how they fit together. Once you have the logic of your solution ready then you can write it in R.
+
 
 ## The Computer and You: Giving Instructions
 
 We'll do the Peanut Butter and Jelly Exercise in class as an introduction to programming for those who are new.^[This Exercise is taken from Harvard's Introductory Undergraduate Class, CS50 (<https://www.youtube.com/watch?v=kcbT3hrEi9s>), and many other writeups.]
 
 Assignment: Take 5 minutes to write down on a piece of paper, how to make a peanut butter and jelly sandwich. Be as concise and unambiguous as possible so that a robot (who doesn't know what a PBJ is) would understand. You can assume that there will be loaf of sliced bread, a jar of jelly, a jar of peanut butter, and a knife. 
+
+Simpler assignment: Say we just want a robot to be able to tell us if we have enough ingredients to make a peanut butter and jelly sandwich. Write down instructions so that if told how many slices of bread, servings of peanut butter, and servings of jelly you have, the robot can tell you if you can make a PBJ.
+
+Now, translate the simpler assignment into R code using the code below as a starting point:
+
+```{r}
+n_bread <- 8
+n_pb <- 3
+n_jelly <- 9
+
+# write instructions in R here
+
+
+```
 
 
 

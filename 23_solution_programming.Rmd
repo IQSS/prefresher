@@ -112,20 +112,7 @@ cen10 %>%
 
 
 
-
-
-
-### Exercise 1 {-}
-
-```{r}
-colnames(sample_acs)
-
-unique(sample_acs$citizen)
-
-mean(sample_acs$citizen != "Not a citizen of the US")
-```
-
-### Exercise 3 {-}
+### Exercise 2 {-}
 
 
 ```{r}
@@ -142,7 +129,7 @@ for (state_i in states_of_interest) {
 
 
 
-### Exercise 4 {-}
+### Exercise 3 {-}
 
 
 ```{r}

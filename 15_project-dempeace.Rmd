@@ -124,7 +124,7 @@ Replace `dispute` = `NA` rows with a zero.
 p_m$dispute[is.na(p_m$dispute)] <- 0
 ```
 
-long to wide
+Reshape the dataset long to wide
 ```{r}
 p_m_wide <- dcast(data = p_m,
                   formula = ccode ~ year,
@@ -168,7 +168,7 @@ To start, let's download and merge some data.
 1.  Calculate the mean Polity2 score by year. Plot the result. Use graphical indicators of your choosing to show where key events fall in this timeline (such as 1914, 1929, 1939, 1989, 2008). Speculate on why the behavior from 1800 to 1920 seems to be qualitatively different than behavior afterwards.
 2. Do the same but only among state-years that were invovled in a MID. Plot this line together with your results from 1. 
 3. Do the same but only among state years that were  _not_ involved in a MID.
-3. Arrive at a tentative conclusion for how well the Democratic Peace argument seems to hold up in this dataset. Visualize this conclusion. 
+4. Arrive at a tentative conclusion for how well the Democratic Peace argument seems to hold up in this dataset. Visualize this conclusion. 
 
 ```{r}
 

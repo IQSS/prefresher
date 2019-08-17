@@ -123,7 +123,7 @@
     \preauthor{}\postauthor{}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{June 2019}
+    \date{August 2019}
 
 \usepackage{booktabs}
 
@@ -194,9 +194,9 @@
 \chapter*{About this Booklet}\label{about-this-booklet}}
 \addcontentsline{toc}{chapter}{About this Booklet}
 
-The \href{https://projects.iq.harvard.edu/prefresher}{\textbf{Harvard Gov Prefresher}} is held each year in August. All relevant information is on our website, including the \href{https://projects.iq.harvard.edu/prefresher/schedule}{day-to-day schedule}. The 2018 Prefresher instructors were \href{https://www.shirokuriwaki.com}{Shiro Kuriwaki} and \href{https://scholar.harvard.edu/yonsoopark/home}{Yon Soo Park}, and the faculty sponsor is \href{https://gking.harvard.edu}{Gary King}.
+The \href{https://projects.iq.harvard.edu/prefresher}{\textbf{Harvard Gov Prefresher}} is held each year in August. All relevant information is on our website, including the day-to-day schedule. The 2019 Prefresher instructors are \href{https://wcfia.harvard.edu/shannon-lynn-parker}{Shannon Parker} and \href{http://schwenzfeier.github.io/}{Meg Schwenzfeier}, and the faculty sponsor is \href{https://gking.harvard.edu}{Gary King}.
 
-This booklet servs as the text for the Prefresher. It is the product of generations of Prefresher Instructors. See below for a full list of instructors and contributors.
+This booklet serves as the text for the Prefresher, available as a \href{https://iqss.github.io/prefresher/}{webpage} and as a \href{https://github.com/IQSS/prefresher/releases}{printable PDF}. It is the product of generations of Prefresher instructors. See below for a full list of instructors and contributors.
 
 \hypertarget{authors-and-contributors}{%
 \subsection*{Authors and Contributors}\label{authors-and-contributors}}
@@ -205,9 +205,7 @@ This booklet servs as the text for the Prefresher. It is the product of generati
 \begin{itemize}
 \tightlist
 \item
-  Authors and Instructors: Curt Signorino 1996-1997; Ken Scheve 1997-1998; Eric Dickson 1998-2000; Orit Kedar 1999; James Fowler 2000-2001; Kosuke Imai 2001-2002; Jacob Kline 2002; Dan Epstein 2003; Ben Ansell 2003-2004; Ryan Moore 2004-2005; Mike Kellermann 2005-2006; Ellie Powell 2006-2007; Jen Katkin 2007-2008; Patrick Lam 2008-2009; Viridiana Rios 2009-2010; Jennifer Pan 2010-2011; Konstantin Kashin 2011-2012; Soledad Prillaman 2013; Stephen Pettigrew 2013-2014; Anton Strezhnev 2014-2015; Mayya Komisarchik 2015-2016; Connor Jerzak 2016-2017; Shiro Kuriwaki 2017-2018; Yon Soo Park 2018-
-\item
-  Bookdown Creator: Shiro Kuriwaki
+  Authors and Instructors: Curt Signorino 1996-1997; Ken Scheve 1997-1998; Eric Dickson 1998-2000; Orit Kedar 1999; James Fowler 2000-2001; Kosuke Imai 2001-2002; Jacob Kline 2002; Dan Epstein 2003; Ben Ansell 2003-2004; Ryan Moore 2004-2005; Mike Kellermann 2005-2006; Ellie Powell 2006-2007; Jen Katkin 2007-2008; Patrick Lam 2008-2009; Viridiana Rios 2009-2010; Jennifer Pan 2010-2011; Konstantin Kashin 2011-2012; Soledad Prillaman 2013; Stephen Pettigrew 2013-2014; Anton Strezhnev 2014-2015; Mayya Komisarchik 2015-2016; Connor Jerzak 2016-2017; Shiro Kuriwaki 2017-2018; Yon Soo Park 2018
 \item
   Repository Maintainer: Shiro Kuriwaki (\href{https://github.com/kuriwaki}{kuriwaki})
 \item
@@ -218,11 +216,9 @@ This booklet servs as the text for the Prefresher. It is the product of generati
 \subsection*{Contributing}\label{contributing}}
 \addcontentsline{toc}{subsection}{Contributing}
 
-We transitioned the booklet into a Rmarkdown (bookdown) document and into a \href{https://github.com/IQSS/prefresher}{github repository} in 2018. As we update this version, any bug reports or fixes would be greatly appreciated.
+We transitioned the booklet into a bookdown \href{https://github.com/IQSS/prefresher}{github repository} in 2018. As we update this version, we appreciate any bug reports or fixes appreciated.
 
-All changes should be made in the \texttt{.Rmd} files in the project root. If the changes are substantial, please verify that that the entire book compiles before submitting. Ideally, try to get the XeLaTeX settings on your computer aligned so that building produces a PDF as well as a HTML page. Some of the datasets used are currently not tracked on github but available upon request.
-
-To contribute a change, please make a pull request and set the repository maintainer as the reviewer.
+All changes should be made in the \texttt{.Rmd} files in the project root. Changes pushed to the repository will be checked for compilation by Travis-CI. To contribute a change, please make a pull request and set the repository maintainer as the reviewer.
 
 \hypertarget{pre-prefresher-exercises}{%
 \chapter*{Pre-Prefresher Exercises}\label{pre-prefresher-exercises}}
@@ -461,6 +457,576 @@ If you are stuck, please try sketching out a picture of each of the functions.
 \end{enumerate}
 
 For a review, please see Sections \ref{setoper} - \ref{probdef}.
+
+\hypertarget{functions-and-operations}{%
+\chapter{Functions and Operations}\label{functions-and-operations}}
+
+\textbf{Topics}
+Dimensionality;
+Interval Notation for \({\bf R}^1\);
+Neighborhoods: Intervals, Disks, and Balls; Introduction to Functions;
+Domain and Range;
+Some General Types of Functions;
+\(\log\), \(\ln\), and \(\exp\);
+Other Useful Functions;
+Graphing Functions;
+Solving for Variables;
+Finding Roots;
+Limit of a Function;
+Continuity; Sets, Sets, and More Sets.
+
+\hypertarget{sum-notation}{%
+\section{\texorpdfstring{Summation Operators \(\sum\) and \(\prod\)}{Summation Operators \textbackslash{}sum and \textbackslash{}prod}}\label{sum-notation}}
+
+Addition (+), Subtraction (-), multiplication and division are basic operations of arithmetic -- combining numbers. In statistics and calculus, we want to add a \emph{sequence} of numbers that can be expressed as a pattern without needing to write down all its components. For example, how would we express the sum of all numbers from 1 to 100 without writing a hundred numbers?
+
+For this we use the summation operator \(\sum\) and the product operator \(\prod\).
+
+\textbf{Summation:}
+
+\[\sum\limits_{i=1}^{100} x_i = x_1+x_2+x_3+\cdots+x_{100}\]
+
+The bottom of the \(\sum\) symbol indicates an index (here, \(i\)), and its start value \(1\). At the top is where the index ends. The notion of ``addition'' is part of the \(\sum\) symbol. The content to the right of the summation is the meat of what we add. While you can pick your favorite index, start, and end values, the content must also have the index.
+
+\begin{itemize}
+\tightlist
+\item
+  \(\sum\limits_{i=1}^n c x_i = c \sum\limits_{i=1}^n x_i\)
+\item
+  \(\sum\limits_{i=1}^n (x_i + y_i) = \sum\limits_{i=1}^n x_i + \sum\limits_{i=1}^n y_i\)
+\item
+  \(\sum\limits_{i=1}^n c = n c\)
+\end{itemize}
+
+\textbf{Product:}
+
+\[\prod\limits_{i=1}^n x_i = x_1 x_2 x_3 \cdots x_n\]
+
+Properties:
+
+\begin{itemize}
+\tightlist
+\item
+  \(\prod\limits_{i=1}^n c x_i = c^n \prod\limits_{i=1}^n x_i\)
+\item
+  \(\prod\limits_{i=k}^n c x_k = c^{n-k} \prod\limits_{i=k}^n x_i\)
+\item
+  \(\prod\limits_{i=1}^n (x_i + y_i) =\) a total mess
+\item
+  \(\prod\limits_{i=1}^n c = c^n\)
+\end{itemize}
+
+Other Useful Functions
+
+\textbf{Factorials!:}
+
+\[x! = x\cdot (x-1) \cdot (x-2) \cdots (1)\]
+
+\textbf{Modulo:} Tells you the remainder when you divide the first number by the second.
+
+\begin{itemize}
+\tightlist
+\item
+  \(17 \mod 3 = 2\)
+\item
+  \(100 \ \% \ 30 = 10\)
+\end{itemize}
+
+\BeginKnitrBlock{example}[Operators]
+\protect\hypertarget{exm:operators}{}{\label{exm:operators} \iffalse (Operators) \fi{} }
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(\sum\limits_{i=1}^{5} i =\)
+\item
+  \(\prod\limits_{i=1}^{5} i =\)
+\item
+  \(14 \mod 4 =\)
+\item
+  \(4! =\)
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{exercise}[Operators]
+\protect\hypertarget{exr:operators1}{}{\label{exr:operators1} \iffalse (Operators) \fi{} }Let \(x_1 = 4, x_2 = 3, x_3 = 7, x_4 = 11, x_5 = 2\)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(\sum\limits_{i=1}^{3} (7)x_i\)
+\item
+  \(\sum\limits_{i=1}^{5} 2\)
+\item
+  \(\prod\limits_{i=3}^{5} (2)x_i\)
+\end{enumerate}
+\EndKnitrBlock{exercise}
+
+\hypertarget{introduction-to-functions}{%
+\section{Introduction to Functions}\label{introduction-to-functions}}
+
+A \textbf{function} (in \({\bf R}^1\)) is a mapping, or transformation, that relates members of one set to members of another set. For instance, if you have two sets: set \(A\) and set \(B\), a function from \(A\) to \(B\) maps every value \(a\) in set \(A\) such that \(f(a) \in B\). Functions can be ``many-to-one'', where many values or combinations of values from set \(A\) produce a single output in set \(B\), or they can be ``one-to-one'', where each value in set \(A\) corresponds to a single value in set \(B\). A function by definition has a single function value for each element of its domain. This means, there cannot be ``one-to-many'' mapping.
+
+\textbf{Dimensionality}: \({\bf R}^1\) is the set of all real numbers extending from \(-\infty\) to \(+\infty\) --- i.e., the real number line. \({\bf R}^n\) is an \(n\)-dimensional space, where each of the \(n\) axes extends from \(-\infty\) to \(+\infty\).
+
+\begin{itemize}
+\tightlist
+\item
+  \({\bf R}^1\) is a one dimensional line.
+\item
+  \({\bf R}^2\) is a two dimensional plane.
+\item
+  \({\bf R}^3\) is a three dimensional space.
+\end{itemize}
+
+Points in \({\bf R}^n\) are ordered \(n\)-tuples (just means an combination of \(n\) elements where order matters), where each element of the \(n\)-tuple represents the coordinate along that dimension.
+
+For example:
+
+\begin{itemize}
+\tightlist
+\item
+  \({\bf R}^1\): (3)
+\item
+  \({\bf R}^2\): (-15, 5)
+\item
+  \({\bf R}^3\): (86, 4, 0)
+\end{itemize}
+
+Examples of mapping notation:
+
+Function of one variable: \(f:{\bf R}^1\to{\bf R}^1\)
+
+\begin{itemize}
+\tightlist
+\item
+  \(f(x)=x+1\). For each \(x\) in \({\bf R}^1\), \(f(x)\) assigns the number \(x+1\).
+\end{itemize}
+
+Function of two variables: \(f: {\bf R}^2\to{\bf R}^1\).
+
+\begin{itemize}
+\tightlist
+\item
+  \(f(x,y)=x^2+y^2\). For each ordered pair \((x,y)\) in \({\bf R}^2\), \(f(x,y)\) assigns the number \(x^2+y^2\).
+\end{itemize}
+
+We often use variable \(x\) as input and another \(y\) as output, e.g. \(y=x+1\)
+
+\BeginKnitrBlock{example}[Functions]
+\protect\hypertarget{exm:functions}{}{\label{exm:functions} \iffalse (Functions) \fi{} }
+For each of the following, state whether they are one-to-one or many-to-one functions.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  For \(x \in [0,\infty]\), \(f : x \rightarrow x^2\) (this could also be written as \(f(x) = x^2\)).
+\item
+  For \(x \in [-\infty, \infty]\), \(f: x \rightarrow x^2\).
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{exercise}[Functions]
+\protect\hypertarget{exr:functions1}{}{\label{exr:functions1} \iffalse (Functions) \fi{} }
+For each of the following, state whether they are one-to-one or many-to-one functions.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  For \(x \in [-3, \infty]\), \(f: x \rightarrow x^2\).
+\item
+  For \(x \in [0, \infty]\), \(f: x \rightarrow \sqrt{x}\)
+\end{enumerate}
+\EndKnitrBlock{exercise}
+
+Some functions are defined only on proper subsets of \({\bf R}^n\).
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Domain}: the set of numbers in \(X\) at which \(f(x)\) is defined.
+\item
+  \textbf{Range}: elements of \(Y\) assigned by \(f(x)\) to elements of \(X\), or \[f(X)=\{ y : y=f(x), x\in X\}\]
+  Most often used when talking about a function \(f:{\bf R}^1\to{\bf R}^1\).
+\item
+  \textbf{Image}: same as range, but more often used when talking about a function \(f:{\bf R}^n\to{\bf R}^1\).
+\end{itemize}
+
+Some General Types of Functions
+
+\textbf{Monomials}: \(f(x)=a x^k\)
+
+\(a\) is the coefficient. \(k\) is the degree.
+
+Examples: \(y=x^2\), \(y=-\frac{1}{2}x^3\)
+
+\textbf{Polynomials}: sum of monomials.
+
+Examples: \(y=-\frac{1}{2}x^3+x^2\), \(y=3x+5\)
+
+The degree of a polynomial is the highest degree of its monomial terms. Also, it's often a good idea to write polynomials with terms in decreasing degree.
+
+\textbf{Exponential Functions}: Example: \(y=2^x\)
+
+\hypertarget{logexponents}{%
+\section{\texorpdfstring{\(\log\) and \(\exp\)}{\textbackslash{}log and \textbackslash{}exp}}\label{logexponents}}
+
+\textbf{Relationship of logarithmic and exponential functions}:
+\[y=\log_a(x) \iff a^y=x\]
+
+The log function can be thought of as an inverse for exponential functions. \(a\) is referred to as the ``base'' of the logarithm.
+
+\textbf{Common Bases}: The two most common logarithms are base 10 and base \(e\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Base 10: \(\quad y=\log_{10}(x) \iff 10^y=x\). The base 10 logarithm is often simply written as ``\(\log(x)\)'' with no base denoted.
+\item
+  Base \(e\): \(\quad y=\log_e(x) \iff e^y=x\). The base \(e\) logarithm is referred to as the ``natural'' logarithm and is written as ``\(\ln(x)\)".
+\end{enumerate}
+
+\begin{comment}
+            {\includegraphics[width=1in, angle = 270]{ln.eps}} \,  {\includegraphics[width=1in, angle = 270]{exp.eps}}
+            \end{comment}
+
+\textbf{Properties of exponential functions:}
+
+\begin{itemize}
+\tightlist
+\item
+  \(a^x a^y = a^{x+y}\)
+\item
+  \(a^{-x} = 1/a^x\)
+\item
+  \(a^x/a^y = a^{x-y}\)
+\item
+  \((a^x)^y = a^{x y}\)
+\item
+  \(a^0 = 1\)
+\end{itemize}
+
+\textbf{Properties of logarithmic functions} (any base):
+
+Generally, when statisticians or social scientists write \(\log(x)\) they mean \(\log_e(x)\). In other words: \(\log_e(x) \equiv \ln(x) \equiv \log(x)\)
+
+\[\log_a(a^x)=x\] and
+\[a^{\log_a(x)}=x\]
+
+\begin{itemize}
+\tightlist
+\item
+  \(\log(x y)=\log(x)+\log(y)\)
+\item
+  \(\log(x^y)=y\log(x)\)
+\item
+  \(\log(1/x)=\log(x^{-1})=-\log(x)\)
+\item
+  \(\log(x/y)=\log(x\cdot y^{-1})=\log(x)+\log(y^{-1})=\log(x)-\log(y)\)
+\item
+  \(\log(1)=\log(e^0)=0\)
+\end{itemize}
+
+\textbf{Change of Base Formula}: Use the change of base formula to switch bases as necessary:
+\[\log_b(x) = \frac{\log_a(x)}{\log_a(b)}\]
+
+Example: \[\log_{10}(x) = \frac{\ln(x)}{\ln(10)}\]
+
+You can use logs to go between sum and product notation. This will be particularly important when you're learning maximum likelihood estimation.
+
+\begin{eqnarray*}
+            \log \bigg(\prod\limits_{i=1}^n x_i \bigg) &=& \log(x_1 \cdot x_2 \cdot x_3 \cdots \cdot x_n)\\
+            &=& \log(x_1) + \log(x_2) + \log(x_3) + \cdots + \log(x_n)\\
+            &=& \sum\limits_{i=1}^n \log (x_i)
+\end{eqnarray*}
+
+Therefore, you can see that the log of a product is equal to the sum of the logs. We can write this more generally by adding in a constant, \(c\):
+
+\begin{eqnarray*}
+            \log \bigg(\prod\limits_{i=1}^n c x_i\bigg) &=& \log(cx_1 \cdot cx_2 \cdots cx_n)\\
+            &=& \log(c^n \cdot x_1 \cdot x_2 \cdots x_n)\\
+            &=& \log(c^n) + \log(x_1) + \log(x_2) + \cdots + \log(x_n)\\\\
+            &=& n \log(c) +  \sum\limits_{i=1}^n \log (x_i)\\
+\end{eqnarray*}
+
+\BeginKnitrBlock{example}[Logarithmic Functions]
+\protect\hypertarget{exm:log}{}{\label{exm:log} \iffalse (Logarithmic Functions) \fi{} }
+Evaluate each of the following logarithms
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(\log_4(16)\)
+\item
+  \(\log_2(16)\)
+\end{enumerate}
+
+Simplify the following logarithm. By ``simplify'', we actually really mean - use as many of the logarithmic properties as you can.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  \(\log_4(x^3y^5)\)
+\end{enumerate}
+\EndKnitrBlock{example}
+
+\BeginKnitrBlock{exercise}[Logarithmic Functions]
+\protect\hypertarget{exr:log1}{}{\label{exr:log1} \iffalse (Logarithmic Functions) \fi{} }
+
+Evaluate each of the following logarithms
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(\log_\frac{3}{2}(\frac{27}{8})\)
+\end{enumerate}
+
+Simplify each of the following logarithms. By ``simplify'', we actually really mean - use as many of the logarithmic properties as you can.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  \(\log(\frac{x^9y^5}{z^3})\)
+\item
+  \(\ln{\sqrt{xy}}\)
+\end{enumerate}
+\EndKnitrBlock{exercise}
+
+\hypertarget{graphing-functions}{%
+\section{Graphing Functions}\label{graphing-functions}}
+
+What can a graph tell you about a function?
+
+\begin{itemize}
+\tightlist
+\item
+  Is the function increasing or decreasing? Over what part of the domain?
+\item
+  How ``fast" does it increase or decrease?
+\item
+  Are there global or local maxima and minima? Where?
+\item
+  Are there inflection points?
+\item
+  Is the function continuous?
+\item
+  Is the function differentiable?
+\item
+  Does the function tend to some limit?
+\item
+  Other questions related to the substance of the problem at hand.
+\end{itemize}
+
+\hypertarget{solving-for-variables-and-finding-roots}{%
+\section{Solving for Variables and Finding Roots}\label{solving-for-variables-and-finding-roots}}
+
+Sometimes we're given a function \(y=f(x)\) and we want to find how \(x\) varies as a function of \(y\). Use algebra to move \(x\) to the left hand side (LHS) of the equation and so that the right hand side (RHS) is only a function of \(y\).
+
+\BeginKnitrBlock{example}[Solving for Variables]
+\protect\hypertarget{exm:solvevar}{}{\label{exm:solvevar} \iffalse (Solving for Variables) \fi{} }
+
+Solve for x:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(y=3x+2\)
+\item
+  \(y=e^x\)
+\end{enumerate}
+\EndKnitrBlock{example}
+
+Solving for variables is especially important when we want to find the \textbf{roots} of an equation: those values of variables that cause an equation to equal zero. Especially important in finding equilibria and in doing maximum likelihood estimation.
+
+Procedure: Given \(y=f(x)\), set \(f(x)=0\). Solve for \(x\).
+
+Multiple Roots:
+\[f(x)=x^2 - 9 \quad\Longrightarrow\quad 0=x^2 - 9 \quad\Longrightarrow\quad 9=x^2 \quad\Longrightarrow\quad \pm \sqrt{9}=\sqrt{x^2} \quad\Longrightarrow\quad \pm 3=x\]
+
+\textbf{Quadratic Formula:} For quadratic equations \(ax^2+bx+c=0\), use the quadratic formula: \[x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\]
+
+\BeginKnitrBlock{exercise}[Finding Roots]
+\protect\hypertarget{exr:solvevar1}{}{\label{exr:solvevar1} \iffalse (Finding Roots) \fi{} }
+Solve for x:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(f(x)=3x+2 = 0\)
+\item
+  \(f(x)=x^2+3x-4=0\)
+\item
+  \(f(x)=e^{-x}-10 = 0\)
+\end{enumerate}
+\EndKnitrBlock{exercise}
+
+\hypertarget{sets}{%
+\section{Sets}\label{sets}}
+
+\textbf{Interior Point}: The point \(\bf x\) is an interior point of the set \(S\) if \(\bf x\) is in \(S\) and if there is some \(\epsilon\)-ball around \(\bf x\) that contains only points in \(S\). The \textbf{interior} of \(S\) is the collection of all interior points in \(S\). The interior can also be defined as the union of all open sets in \(S\).
+
+\begin{itemize}
+\tightlist
+\item
+  If the set \(S\) is circular, the interior points are everything inside of the circle, but not on the circle's rim.
+\item
+  Example: The interior of the set \(\{ (x,y) : x^2+y^2\le 4 \}\) is \(\{ (x,y) : x^2+y^2< 4 \}\) .
+\end{itemize}
+
+\textbf{Boundary Point}: The point \(\bf x\) is a boundary point of the set \(S\) if every \(\epsilon\)-ball around \(\bf x\) contains both points that are in \(S\) and points that are outside \(S\). The \textbf{boundary} is the collection of all boundary points.
+
+\begin{itemize}
+\tightlist
+\item
+  If the set \(S\) is circular, the boundary points are everything on the circle's rim.
+\item
+  Example: The boundary of \(\{ (x,y) : x^2+y^2\le 4 \}\) is \(\{ (x,y) : x^2+y^2 = 4 \}\).
+\end{itemize}
+
+\textbf{Open}: A set \(S\) is open if for each point \(\bf x\) in \(S\), there exists an open \(\epsilon\)-ball around \(\bf x\) completely contained in \(S\).
+
+\begin{itemize}
+\tightlist
+\item
+  If the set \(S\) is circular and open, the points contained within the set get infinitely close to the circle's rim, but do not touch it.
+\item
+  Example: \(\{ (x,y) : x^2+y^2<4 \}\)
+\end{itemize}
+
+\textbf{Closed}: A set \(S\) is closed if it contains all of its boundary points.
+
+\begin{itemize}
+\tightlist
+\item
+  Alternatively: A set is closed if its complement is open.
+\item
+  If the set \(S\) is circular and closed, the set contains all points within the rim as well as the rim itself.
+\item
+  Example: \(\{ (x,y) : x^2+y^2\le 4 \}\)
+\item
+  Note: a set may be neither open nor closed. Example: \(\{ (x,y) : 2 < x^2+y^2\le 4 \}\)
+\end{itemize}
+
+\textbf{Complement}: The complement of set \(S\) is everything outside of \(S\).
+
+\begin{itemize}
+\tightlist
+\item
+  If the set \(S\) is circular, the complement of \(S\) is everything outside of the circle.
+\item
+  Example: The complement of \(\{ (x,y) : x^2+y^2\le 4 \}\) is \(\{ (x,y) : x^2+y^2 > 4 \}\).
+\end{itemize}
+
+\textbf{Empty}: The empty (or null) set is a unique set that has no elements, denoted by \{\} or \(\emptyset\).
+
+\begin{itemize}
+\tightlist
+\item
+  The empty set is an example of a set that is open and closed, or a ``clopen'' set.
+\item
+  Examples: The set of squares with 5 sides; the set of countries south of the South Pole.
+\end{itemize}
+
+\hypertarget{answers-to-examples-and-exercises}{%
+\section*{Answers to Examples and Exercises}\label{answers-to-examples-and-exercises}}
+\addcontentsline{toc}{section}{Answers to Examples and Exercises}
+
+Answer to Example \ref{exm:operators}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  1 + 2 + 3 + 4 + 5 = 15
+\item
+  1 * 2 * 3 * 4 * 5 = 120
+\item
+  2
+\item
+  4 * 3 * 2 * 1 = 24
+\end{enumerate}
+
+Answer to Exercise \ref{exr:operators1}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  7(4 + 3 + 7) = 98
+\item
+  2 + 2 + 2 + 2 + 2 = 10
+\item
+  \(2^3(7)(11)(2)\) = 1232
+\end{enumerate}
+
+Answer to Example \ref{exm:functions}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  one-to-one
+\item
+  many-to-one
+\end{enumerate}
+
+Answer to Exercise \ref{exr:functions1}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  many-to-one
+\item
+  one-to-one
+\end{enumerate}
+
+Answer to Example \ref{exm:log}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  2
+\item
+  4
+\item
+  \(3\log_4(x) + 5\log_4(y)\)
+\end{enumerate}
+
+Answer to Exercise \ref{exr:log1}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  3
+\item
+  \(9\log(x) + 5\log(y) - 3\log(z)\)
+\item
+  \(\frac{1}{2}(\ln{x} + \ln{y})\)
+\end{enumerate}
+
+Answer to Example \ref{exm:solvevar}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(y=3x+2 \quad\Longrightarrow\quad -3x=2-y \quad\Longrightarrow\quad 3x=y-2 \quad\Longrightarrow\quad x=\frac{1}{3}(y-2)\)
+\item
+  \(x = \ln{y}\)
+\end{enumerate}
+
+Answer to Exercise \ref{exr:solvevar1}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(\frac{-2}{3}\)
+\item
+  x = \{1, -4\}
+\item
+  x = - \(\ln10\)
+\end{enumerate}
 
 \hypertarget{part-math}{%
 \part{Math}\label{part-math}}
@@ -1201,8 +1767,8 @@ Caculate the inverse of A
         \end{pmatrix}\]
 \EndKnitrBlock{exercise}
 
-\hypertarget{answers-to-examples-and-exercises}{%
-\section*{Answers to Examples and Exercises}\label{answers-to-examples-and-exercises}}
+\hypertarget{answers-to-examples-and-exercises-1}{%
+\section*{Answers to Examples and Exercises}\label{answers-to-examples-and-exercises-1}}
 \addcontentsline{toc}{section}{Answers to Examples and Exercises}
 
 Answer to Example \ref{exm:vectors}:
@@ -1396,576 +1962,6 @@ Answer to Exercise \ref{exr:determinants}:
 Answer to Exercise \ref{exr:calcinverse}:
 
 \(\begin{pmatrix}  \frac{2}{41} & \frac{-5}{41}\\  \frac{7}{41} & \frac{3}{41}\\  \end{pmatrix}\)
-
-\hypertarget{functions-and-operations}{%
-\chapter{Functions and Operations}\label{functions-and-operations}}
-
-\textbf{Topics}
-Dimensionality;
-Interval Notation for \({\bf R}^1\);
-Neighborhoods: Intervals, Disks, and Balls; Introduction to Functions;
-Domain and Range;
-Some General Types of Functions;
-\(\log\), \(\ln\), and \(\exp\);
-Other Useful Functions;
-Graphing Functions;
-Solving for Variables;
-Finding Roots;
-Limit of a Function;
-Continuity; Sets, Sets, and More Sets.
-
-\hypertarget{sum-notation}{%
-\section{\texorpdfstring{Summation Operators \(\sum\) and \(\prod\)}{Summation Operators \textbackslash{}sum and \textbackslash{}prod}}\label{sum-notation}}
-
-Addition (+), Subtraction (-), multiplication and division are basic operations of arithmetic -- combining numbers. In statistics and calculus, we want to add a \emph{sequence} of numbers that can be expressed as a pattern without needing to write down all its components. For example, how would we express the sum of all numbers from 1 to 100 without writing a hundred numbers?
-
-For this we use the summation operator \(\sum\) and the product operator \(\prod\).
-
-\textbf{Summation:}
-
-\[\sum\limits_{i=1}^{100} x_i = x_1+x_2+x_3+\cdots+x_{100}\]
-
-The bottom of the \(\sum\) symbol indicates an index (here, \(i\)), and its start value \(1\). At the top is where the index ends. The notion of ``addition'' is part of the \(\sum\) symbol. The content to the right of the summation is the meat of what we add. While you can pick your favorite index, start, and end values, the content must also have the index.
-
-\begin{itemize}
-\tightlist
-\item
-  \(\sum\limits_{i=1}^n c x_i = c \sum\limits_{i=1}^n x_i\)
-\item
-  \(\sum\limits_{i=1}^n (x_i + y_i) = \sum\limits_{i=1}^n x_i + \sum\limits_{i=1}^n y_i\)
-\item
-  \(\sum\limits_{i=1}^n c = n c\)
-\end{itemize}
-
-\textbf{Product:}
-
-\[\prod\limits_{i=1}^n x_i = x_1 x_2 x_3 \cdots x_n\]
-
-Properties:
-
-\begin{itemize}
-\tightlist
-\item
-  \(\prod\limits_{i=1}^n c x_i = c^n \prod\limits_{i=1}^n x_i\)
-\item
-  \(\prod\limits_{i=k}^n c x_k = c^{n-k} \prod\limits_{i=k}^n x_i\)
-\item
-  \(\prod\limits_{i=1}^n (x_i + y_i) =\) a total mess
-\item
-  \(\prod\limits_{i=1}^n c = c^n\)
-\end{itemize}
-
-Other Useful Functions
-
-\textbf{Factorials!:}
-
-\[x! = x\cdot (x-1) \cdot (x-2) \cdots (1)\]
-
-\textbf{Modulo:} Tells you the remainder when you divide the first number by the second.
-
-\begin{itemize}
-\tightlist
-\item
-  \(17 \mod 3 = 2\)
-\item
-  \(100 \ \% \ 30 = 10\)
-\end{itemize}
-
-\BeginKnitrBlock{example}[Operators]
-\protect\hypertarget{exm:operators}{}{\label{exm:operators} \iffalse (Operators) \fi{} }
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \(\sum\limits_{i=1}^{5} i =\)
-\item
-  \(\prod\limits_{i=1}^{5} i =\)
-\item
-  \(14 \mod 4 =\)
-\item
-  \(4! =\)
-\end{enumerate}
-\EndKnitrBlock{example}
-
-\BeginKnitrBlock{exercise}[Operators]
-\protect\hypertarget{exr:operators1}{}{\label{exr:operators1} \iffalse (Operators) \fi{} }Let \(x_1 = 4, x_2 = 3, x_3 = 7, x_4 = 11, x_5 = 2\)
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \(\sum\limits_{i=1}^{3} (7)x_i\)
-\item
-  \(\sum\limits_{i=1}^{5} 2\)
-\item
-  \(\prod\limits_{i=3}^{5} (2)x_i\)
-\end{enumerate}
-\EndKnitrBlock{exercise}
-
-\hypertarget{introduction-to-functions}{%
-\section{Introduction to Functions}\label{introduction-to-functions}}
-
-A \textbf{function} (in \({\bf R}^1\)) is a mapping, or transformation, that relates members of one set to members of another set. For instance, if you have two sets: set \(A\) and set \(B\), a function from \(A\) to \(B\) maps every value \(a\) in set \(A\) such that \(f(a) \in B\). Functions can be ``many-to-one'', where many values or combinations of values from set \(A\) produce a single output in set \(B\), or they can be ``one-to-one'', where each value in set \(A\) corresponds to a single value in set \(B\). A function by definition has a single function value for each element of its domain. This means, there cannot be ``one-to-many'' mapping.
-
-\textbf{Dimensionality}: \({\bf R}^1\) is the set of all real numbers extending from \(-\infty\) to \(+\infty\) --- i.e., the real number line. \({\bf R}^n\) is an \(n\)-dimensional space, where each of the \(n\) axes extends from \(-\infty\) to \(+\infty\).
-
-\begin{itemize}
-\tightlist
-\item
-  \({\bf R}^1\) is a one dimensional line.
-\item
-  \({\bf R}^2\) is a two dimensional plane.
-\item
-  \({\bf R}^3\) is a three dimensional space.
-\end{itemize}
-
-Points in \({\bf R}^n\) are ordered \(n\)-tuples (just means an combination of \(n\) elements where order matters), where each element of the \(n\)-tuple represents the coordinate along that dimension.
-
-For example:
-
-\begin{itemize}
-\tightlist
-\item
-  \({\bf R}^1\): (3)
-\item
-  \({\bf R}^2\): (-15, 5)
-\item
-  \({\bf R}^3\): (86, 4, 0)
-\end{itemize}
-
-Examples of mapping notation:
-
-Function of one variable: \(f:{\bf R}^1\to{\bf R}^1\)
-
-\begin{itemize}
-\tightlist
-\item
-  \(f(x)=x+1\). For each \(x\) in \({\bf R}^1\), \(f(x)\) assigns the number \(x+1\).
-\end{itemize}
-
-Function of two variables: \(f: {\bf R}^2\to{\bf R}^1\).
-
-\begin{itemize}
-\tightlist
-\item
-  \(f(x,y)=x^2+y^2\). For each ordered pair \((x,y)\) in \({\bf R}^2\), \(f(x,y)\) assigns the number \(x^2+y^2\).
-\end{itemize}
-
-We often use variable \(x\) as input and another \(y\) as output, e.g. \(y=x+1\)
-
-\BeginKnitrBlock{example}[Functions]
-\protect\hypertarget{exm:functions}{}{\label{exm:functions} \iffalse (Functions) \fi{} }
-For each of the following, state whether they are one-to-one or many-to-one functions.
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  For \(x \in [0,\infty]\), \(f : x \rightarrow x^2\) (this could also be written as \(f(x) = x^2\)).
-\item
-  For \(x \in [-\infty, \infty]\), \(f: x \rightarrow x^2\).
-\end{enumerate}
-\EndKnitrBlock{example}
-
-\BeginKnitrBlock{exercise}[Functions]
-\protect\hypertarget{exr:functions1}{}{\label{exr:functions1} \iffalse (Functions) \fi{} }
-For each of the following, state whether they are one-to-one or many-to-one functions.
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  For \(x \in [-3, \infty]\), \(f: x \rightarrow x^2\).
-\item
-  For \(x \in [0, \infty]\), \(f: x \rightarrow \sqrt{x}\)
-\end{enumerate}
-\EndKnitrBlock{exercise}
-
-Some functions are defined only on proper subsets of \({\bf R}^n\).
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Domain}: the set of numbers in \(X\) at which \(f(x)\) is defined.
-\item
-  \textbf{Range}: elements of \(Y\) assigned by \(f(x)\) to elements of \(X\), or \[f(X)=\{ y : y=f(x), x\in X\}\]
-  Most often used when talking about a function \(f:{\bf R}^1\to{\bf R}^1\).
-\item
-  \textbf{Image}: same as range, but more often used when talking about a function \(f:{\bf R}^n\to{\bf R}^1\).
-\end{itemize}
-
-Some General Types of Functions
-
-\textbf{Monomials}: \(f(x)=a x^k\)
-
-\(a\) is the coefficient. \(k\) is the degree.
-
-Examples: \(y=x^2\), \(y=-\frac{1}{2}x^3\)
-
-\textbf{Polynomials}: sum of monomials.
-
-Examples: \(y=-\frac{1}{2}x^3+x^2\), \(y=3x+5\)
-
-The degree of a polynomial is the highest degree of its monomial terms. Also, it's often a good idea to write polynomials with terms in decreasing degree.
-
-\textbf{Exponential Functions}: Example: \(y=2^x\)
-
-\hypertarget{logexponents}{%
-\section{\texorpdfstring{\(\log\) and \(\exp\)}{\textbackslash{}log and \textbackslash{}exp}}\label{logexponents}}
-
-\textbf{Relationship of logarithmic and exponential functions}:
-\[y=\log_a(x) \iff a^y=x\]
-
-The log function can be thought of as an inverse for exponential functions. \(a\) is referred to as the ``base'' of the logarithm.
-
-\textbf{Common Bases}: The two most common logarithms are base 10 and base \(e\).
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Base 10: \(\quad y=\log_{10}(x) \iff 10^y=x\). The base 10 logarithm is often simply written as ``\(\log(x)\)'' with no base denoted.
-\item
-  Base \(e\): \(\quad y=\log_e(x) \iff e^y=x\). The base \(e\) logarithm is referred to as the ``natural'' logarithm and is written as ``\(\ln(x)\)".
-\end{enumerate}
-
-\begin{comment}
-            {\includegraphics[width=1in, angle = 270]{ln.eps}} \,  {\includegraphics[width=1in, angle = 270]{exp.eps}}
-            \end{comment}
-
-\textbf{Properties of exponential functions:}
-
-\begin{itemize}
-\tightlist
-\item
-  \(a^x a^y = a^{x+y}\)
-\item
-  \(a^{-x} = 1/a^x\)
-\item
-  \(a^x/a^y = a^{x-y}\)
-\item
-  \((a^x)^y = a^{x y}\)
-\item
-  \(a^0 = 1\)
-\end{itemize}
-
-\textbf{Properties of logarithmic functions} (any base):
-
-Generally, when statisticians or social scientists write \(\log(x)\) they mean \(\log_e(x)\). In other words: \(\log_e(x) \equiv \ln(x) \equiv \log(x)\)
-
-\[\log_a(a^x)=x\] and
-\[a^{\log_a(x)}=x\]
-
-\begin{itemize}
-\tightlist
-\item
-  \(\log(x y)=\log(x)+\log(y)\)
-\item
-  \(\log(x^y)=y\log(x)\)
-\item
-  \(\log(1/x)=\log(x^{-1})=-\log(x)\)
-\item
-  \(\log(x/y)=\log(x\cdot y^{-1})=\log(x)+\log(y^{-1})=\log(x)-\log(y)\)
-\item
-  \(\log(1)=\log(e^0)=0\)
-\end{itemize}
-
-\textbf{Change of Base Formula}: Use the change of base formula to switch bases as necessary:
-\[\log_b(x) = \frac{\log_a(x)}{\log_a(b)}\]
-
-Example: \[\log_{10}(x) = \frac{\ln(x)}{\ln(10)}\]
-
-You can use logs to go between sum and product notation. This will be particularly important when you're learning maximum likelihood estimation.
-
-\begin{eqnarray*}
-            \log \bigg(\prod\limits_{i=1}^n x_i \bigg) &=& \log(x_1 \cdot x_2 \cdot x_3 \cdots \cdot x_n)\\
-            &=& \log(x_1) + \log(x_2) + \log(x_3) + \cdots + \log(x_n)\\
-            &=& \sum\limits_{i=1}^n \log (x_i)
-\end{eqnarray*}
-
-Therefore, you can see that the log of a product is equal to the sum of the logs. We can write this more generally by adding in a constant, \(c\):
-
-\begin{eqnarray*}
-            \log \bigg(\prod\limits_{i=1}^n c x_i\bigg) &=& \log(cx_1 \cdot cx_2 \cdots cx_n)\\
-            &=& \log(c^n \cdot x_1 \cdot x_2 \cdots x_n)\\
-            &=& \log(c^n) + \log(x_1) + \log(x_2) + \cdots + \log(x_n)\\\\
-            &=& n \log(c) +  \sum\limits_{i=1}^n \log (x_i)\\
-\end{eqnarray*}
-
-\BeginKnitrBlock{example}[Logarithmic Functions]
-\protect\hypertarget{exm:log}{}{\label{exm:log} \iffalse (Logarithmic Functions) \fi{} }
-Evaluate each of the following logarithms
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \(\log_4(16)\)
-\item
-  \(\log_2(16)\)
-\end{enumerate}
-
-Simplify the following logarithm. By ``simplify'', we actually really mean - use as many of the logarithmic properties as you can.
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{2}
-\tightlist
-\item
-  \(\log_4(x^3y^5)\)
-\end{enumerate}
-\EndKnitrBlock{example}
-
-\BeginKnitrBlock{exercise}[Logarithmic Functions]
-\protect\hypertarget{exr:log1}{}{\label{exr:log1} \iffalse (Logarithmic Functions) \fi{} }
-
-Evaluate each of the following logarithms
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \(\log_\frac{3}{2}(\frac{27}{8})\)
-\end{enumerate}
-
-Simplify each of the following logarithms. By ``simplify'', we actually really mean - use as many of the logarithmic properties as you can.
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\item
-  \(\log(\frac{x^9y^5}{z^3})\)
-\item
-  \(\ln{\sqrt{xy}}\)
-\end{enumerate}
-\EndKnitrBlock{exercise}
-
-\hypertarget{graphing-functions}{%
-\section{Graphing Functions}\label{graphing-functions}}
-
-What can a graph tell you about a function?
-
-\begin{itemize}
-\tightlist
-\item
-  Is the function increasing or decreasing? Over what part of the domain?
-\item
-  How ``fast" does it increase or decrease?
-\item
-  Are there global or local maxima and minima? Where?
-\item
-  Are there inflection points?
-\item
-  Is the function continuous?
-\item
-  Is the function differentiable?
-\item
-  Does the function tend to some limit?
-\item
-  Other questions related to the substance of the problem at hand.
-\end{itemize}
-
-\hypertarget{solving-for-variables-and-finding-roots}{%
-\section{Solving for Variables and Finding Roots}\label{solving-for-variables-and-finding-roots}}
-
-Sometimes we're given a function \(y=f(x)\) and we want to find how \(x\) varies as a function of \(y\). Use algebra to move \(x\) to the left hand side (LHS) of the equation and so that the right hand side (RHS) is only a function of \(y\).
-
-\BeginKnitrBlock{example}[Solving for Variables]
-\protect\hypertarget{exm:solvevar}{}{\label{exm:solvevar} \iffalse (Solving for Variables) \fi{} }
-
-Solve for x:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \(y=3x+2\)
-\item
-  \(y=e^x\)
-\end{enumerate}
-\EndKnitrBlock{example}
-
-Solving for variables is especially important when we want to find the \textbf{roots} of an equation: those values of variables that cause an equation to equal zero. Especially important in finding equilibria and in doing maximum likelihood estimation.
-
-Procedure: Given \(y=f(x)\), set \(f(x)=0\). Solve for \(x\).
-
-Multiple Roots:
-\[f(x)=x^2 - 9 \quad\Longrightarrow\quad 0=x^2 - 9 \quad\Longrightarrow\quad 9=x^2 \quad\Longrightarrow\quad \pm \sqrt{9}=\sqrt{x^2} \quad\Longrightarrow\quad \pm 3=x\]
-
-\textbf{Quadratic Formula:} For quadratic equations \(ax^2+bx+c=0\), use the quadratic formula: \[x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\]
-
-\BeginKnitrBlock{exercise}[Finding Roots]
-\protect\hypertarget{exr:solvevar1}{}{\label{exr:solvevar1} \iffalse (Finding Roots) \fi{} }
-Solve for x:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \(f(x)=3x+2 = 0\)
-\item
-  \(f(x)=x^2+3x-4=0\)
-\item
-  \(f(x)=e^{-x}-10 = 0\)
-\end{enumerate}
-\EndKnitrBlock{exercise}
-
-\hypertarget{sets}{%
-\section{Sets}\label{sets}}
-
-\textbf{Interior Point}: The point \(\bf x\) is an interior point of the set \(S\) if \(\bf x\) is in \(S\) and if there is some \(\epsilon\)-ball around \(\bf x\) that contains only points in \(S\). The \textbf{interior} of \(S\) is the collection of all interior points in \(S\). The interior can also be defined as the union of all open sets in \(S\).
-
-\begin{itemize}
-\tightlist
-\item
-  If the set \(S\) is circular, the interior points are everything inside of the circle, but not on the circle's rim.
-\item
-  Example: The interior of the set \(\{ (x,y) : x^2+y^2\le 4 \}\) is \(\{ (x,y) : x^2+y^2< 4 \}\) .
-\end{itemize}
-
-\textbf{Boundary Point}: The point \(\bf x\) is a boundary point of the set \(S\) if every \(\epsilon\)-ball around \(\bf x\) contains both points that are in \(S\) and points that are outside \(S\). The \textbf{boundary} is the collection of all boundary points.
-
-\begin{itemize}
-\tightlist
-\item
-  If the set \(S\) is circular, the boundary points are everything on the circle's rim.
-\item
-  Example: The boundary of \(\{ (x,y) : x^2+y^2\le 4 \}\) is \(\{ (x,y) : x^2+y^2 = 4 \}\).
-\end{itemize}
-
-\textbf{Open}: A set \(S\) is open if for each point \(\bf x\) in \(S\), there exists an open \(\epsilon\)-ball around \(\bf x\) completely contained in \(S\).
-
-\begin{itemize}
-\tightlist
-\item
-  If the set \(S\) is circular and open, the points contained within the set get infinitely close to the circle's rim, but do not touch it.
-\item
-  Example: \(\{ (x,y) : x^2+y^2<4 \}\)
-\end{itemize}
-
-\textbf{Closed}: A set \(S\) is closed if it contains all of its boundary points.
-
-\begin{itemize}
-\tightlist
-\item
-  Alternatively: A set is closed if its complement is open.
-\item
-  If the set \(S\) is circular and closed, the set contains all points within the rim as well as the rim itself.
-\item
-  Example: \(\{ (x,y) : x^2+y^2\le 4 \}\)
-\item
-  Note: a set may be neither open nor closed. Example: \(\{ (x,y) : 2 < x^2+y^2\le 4 \}\)
-\end{itemize}
-
-\textbf{Complement}: The complement of set \(S\) is everything outside of \(S\).
-
-\begin{itemize}
-\tightlist
-\item
-  If the set \(S\) is circular, the complement of \(S\) is everything outside of the circle.
-\item
-  Example: The complement of \(\{ (x,y) : x^2+y^2\le 4 \}\) is \(\{ (x,y) : x^2+y^2 > 4 \}\).
-\end{itemize}
-
-\textbf{Empty}: The empty (or null) set is a unique set that has no elements, denoted by \{\} or \(\emptyset\).
-
-\begin{itemize}
-\tightlist
-\item
-  The empty set is an example of a set that is open and closed, or a ``clopen'' set.
-\item
-  Examples: The set of squares with 5 sides; the set of countries south of the South Pole.
-\end{itemize}
-
-\hypertarget{answers-to-examples-and-exercises-1}{%
-\section*{Answers to Examples and Exercises}\label{answers-to-examples-and-exercises-1}}
-\addcontentsline{toc}{section}{Answers to Examples and Exercises}
-
-Answer to Example \ref{exm:operators}:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  1 + 2 + 3 + 4 + 5 = 15
-\item
-  1 * 2 * 3 * 4 * 5 = 120
-\item
-  2
-\item
-  4 * 3 * 2 * 1 = 24
-\end{enumerate}
-
-Answer to Exercise \ref{exr:operators1}:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  7(4 + 3 + 7) = 98
-\item
-  2 + 2 + 2 + 2 + 2 = 10
-\item
-  \(2^3(7)(11)(2)\) = 1232
-\end{enumerate}
-
-Answer to Example \ref{exm:functions}:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  one-to-one
-\item
-  many-to-one
-\end{enumerate}
-
-Answer to Exercise \ref{exr:functions1}:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  many-to-one
-\item
-  one-to-one
-\end{enumerate}
-
-Answer to Example \ref{exm:log}:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  2
-\item
-  4
-\item
-  \(3\log_4(x) + 5\log_4(y)\)
-\end{enumerate}
-
-Answer to Exercise \ref{exr:log1}:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  3
-\item
-  \(9\log(x) + 5\log(y) - 3\log(z)\)
-\item
-  \(\frac{1}{2}(\ln{x} + \ln{y})\)
-\end{enumerate}
-
-Answer to Example \ref{exm:solvevar}:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \(y=3x+2 \quad\Longrightarrow\quad -3x=2-y \quad\Longrightarrow\quad 3x=y-2 \quad\Longrightarrow\quad x=\frac{1}{3}(y-2)\)
-\item
-  \(x = \ln{y}\)
-\end{enumerate}
-
-Answer to Exercise \ref{exr:solvevar1}:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \(\frac{-2}{3}\)
-\item
-  x = \{1, -4\}
-\item
-  x = - \(\ln10\)
-\end{enumerate}
 
 \hypertarget{limits-precalc}{%
 \chapter{Limits}\label{limits-precalc}}
@@ -2824,7 +2820,7 @@ and is equal to the antiderivative of \(f\).
 \iffalse{} {Solution. } \fi{}The Indefinite Integral of the function \(f(x) = (x^2-4)\) can, for example, be \(F(x) = \frac{1}{3}x^3 - 4x.\) But it can also be \(F(x) = \frac{1}{3}x^3 - 4x + 1\), because the constant 1 disappears when taking the derivative.
 \EndKnitrBlock{solution}
 
-Some of these functions are plotted in the right panel of Figure \ref{fig:integralc} as dotted lines.
+Some of these functions are plotted in the bottom panel of Figure \ref{fig:integralc} as dotted lines.
 
 \begin{figure}
 \centering
@@ -5538,6 +5534,8 @@ Today we'll cover:
 \item
   What's what in RStudio
 \item
+  What R is, at a high level
+\item
   How to read in data
 \item
   Comment on coding style on the way
@@ -5578,7 +5576,7 @@ Reviewing data import will allow us to get on the same page on how computer syst
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  We will be using a cloud version of RStudio at \url{https://rstudio.cloud}. You should join the Math Prefresher Space 2018 from the link that was emailed to you. Each day, click on the project with the day's date on it.
+  We will be using a cloud version of RStudio at \url{https://rstudio.cloud}. You should join the Math Prefresher Space 2019 from the link that was emailed to you. Each day, click on the project with the day's date on it.
 
   Although most of you will probably doing your work on RStudio local rather than cloud, we are trying to use cloud because it makes it easier to standardize people's settings.
 \item
@@ -5662,12 +5660,94 @@ The Rmarkdown facilitates is the use of __code chunks__, which are used here. Th
 \caption{A code chunk in Rmarkdown (before rendering)}
 \end{figure}
 
+\hypertarget{but-what-is-r}{%
+\section{But what is R?}\label{but-what-is-r}}
+
+R is an object oriented programming language primarily used for statistical computing. An object oriented language is a programming language built around manipulating objects.
+
+\begin{itemize}
+\tightlist
+\item
+  In R, objects can be matrices, vectors, scalars, strings, and data frames, for example
+\item
+  Objects contain different types of information
+\item
+  Different objects have different allowable procedures:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Adding a string and a string does not work because the '+' operator does not work for strings:}
+\CommentTok{# 'Harvard' + 'Gov'}
+
+\CommentTok{# The '+' operator can add numbers just fine}
+\DecValTok{9} \OperatorTok{+}\StringTok{ }\DecValTok{13}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 22
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Reminder: to figure out the type of an object use:}
+\NormalTok{x <-}\StringTok{ }\DecValTok{9}
+\KeywordTok{class}\NormalTok{(}\DecValTok{9}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "numeric"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "numeric"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(}\StringTok{'Harvard'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "character"
+\end{verbatim}
+
+Object oriented programming makes languages flexible and powerful:
+* You can create custom functions and objects for your needs
+* Other people can create great packages for everyone to use
+* Many errors come from using the wrong data type and a lot of programmin gin R is getting data into the right format and type to work with.
+
+It is helpful to think in terms of object manipulation at a high level while programming in R, particularly at the beginning of tackling a new problem. Think about what objects you want to manipulate, what types they are, and how they fit together. Once you have the logic of your solution ready then you can write it in R.
+
 \hypertarget{the-computer-and-you-giving-instructions}{%
 \section{The Computer and You: Giving Instructions}\label{the-computer-and-you-giving-instructions}}
 
 We'll do the Peanut Butter and Jelly Exercise in class as an introduction to programming for those who are new.\footnote{This Exercise is taken from Harvard's Introductory Undergraduate Class, CS50 (\url{https://www.youtube.com/watch?v=kcbT3hrEi9s}), and many other writeups.}
 
 Assignment: Take 5 minutes to write down on a piece of paper, how to make a peanut butter and jelly sandwich. Be as concise and unambiguous as possible so that a robot (who doesn't know what a PBJ is) would understand. You can assume that there will be loaf of sliced bread, a jar of jelly, a jar of peanut butter, and a knife.
+
+Simpler assignment: Say we just want a robot to be able to tell us if we have enough ingredients to make a peanut butter and jelly sandwich. Write down instructions so that if told how many slices of bread, servings of peanut butter, and servings of jelly you have, the robot can tell you if you can make a PBJ.
+
+Now, translate the simpler assignment into R code using the code below as a starting point:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n_bread <-}\StringTok{ }\DecValTok{8}
+\NormalTok{n_pb <-}\StringTok{ }\DecValTok{3}
+\NormalTok{n_jelly <-}\StringTok{ }\DecValTok{9}
+
+\CommentTok{# write instructions in R here}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{base-r-vs.tidyverse}{%
 \section{Base-R vs.~tidyverse}\label{base-r-vs.tidyverse}}
@@ -5882,25 +5962,30 @@ This POLIS dataset was generously provided by Professor Josiah Ober of Stanford 
 \hypertarget{locating-the-data}{%
 \subsection{Locating the Data}\label{locating-the-data}}
 
-What files do we have in the \texttt{input} folder?
+What files do we have in the \texttt{data/input} folder?
 
 \begin{verbatim}
-## input/Nunn_Wantchekon_AER_2011.dta
-## input/Nunn_Wantchekon_sample.dta
-## input/acs2015_1percent.csv
-## input/complete_greek_data 5 DISTRIBUTION 2018.xlsx
-## input/gapminder_wide.Rds
-## input/gapminder_wide.tab
-## input/german_credit.sav
-## input/justices_court-median.csv
-## input/sample_mid.csv
-## input/sample_polity.csv
-## input/upshot-siena-polls.csv
-## input/usc2010_001percent.csv
-## input/usc2010_1percent.Rds
+## data/input/Nunn_Wantchekon_AER_2011.dta
+## data/input/Nunn_Wantchekon_sample.dta
+## data/input/acs2015_1percent.csv
+## data/input/gapminder_wide.Rds
+## data/input/gapminder_wide.tab
+## data/input/german_credit.sav
+## data/input/justices_court-median.csv
+## data/input/ober_2018.xlsx
+## data/input/sample_mid.csv
+## data/input/sample_polity.csv
+## data/input/upshot-siena-polls.csv
+## data/input/usc2010_001percent.Rds
+## data/input/usc2010_001percent.csv
 \end{verbatim}
 
 A typical file format is Microsoft Excel. Although this is not usually the best format for R because of its highly formatted structure as opposed to plain text (more on this in Section \ref@(sec:wysiwyg)), recent packages have made this fairly easy.
+
+\hypertarget{reading-in-data}{%
+\subsection{Reading in Data}\label{reading-in-data}}
+
+In Rstudio, a good way to start is to use the GUI and the Import tool. Once you click a file, an option to ``Import Dataset'' comes up. RStudio picks the right function for you, and you can copy that code, but it's important to eventually be able to write that code yourself.
 
 For the first time using an outside package, you first need to install it.
 
@@ -5926,25 +6011,18 @@ The package \texttt{readxl} has a website: \url{https://readxl.tidyverse.org/}. 
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{reading-in-data}{%
-\subsection{Reading in Data}\label{reading-in-data}}
-
-From the help page, we see that \texttt{read\_excel()} is the function that we want to use. Look at the help page. How do you read a help page?
+From the help page, we see that \texttt{read\_excel()} is the function that we want to use.
 
 Let's try it.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ober <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{"input/complete_greek_data 5 DISTRIBUTION 2018.xlsx"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(readxl)}
+\NormalTok{ober <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{"data/input/ober_2018.xlsx"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## New names:
-## * `` -> ...35
-\end{verbatim}
-
-Review: what does the \texttt{/} mean? Why do we need the \texttt{input} term first? Does the argument need to be in quotes?
+Review: what does the \texttt{/} mean? Why do we need the \texttt{data} term first? Does the argument need to be in quotes?
 
 \hypertarget{inspecting}{%
 \subsection{Inspecting}\label{inspecting}}
@@ -5958,28 +6036,21 @@ For almost any dataset, you usually want to do a couple of standard checks first
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 1,035 x 35
-##    polis_number Name  Polisity Hellenicity  Fame `In/out`  Size
-##           <dbl> <chr>    <dbl>       <dbl> <dbl>    <dbl> <dbl>
-##  1            1 Alal~        1           1  1.12        1     3
-##  2            2 Empo~        1           2  2.12        2     2
-##  3            3 Mass~        1           1  4           2     2
-##  4            4 Rhode        2           1  0.87        3     0
-##  5            5 Abak~        2           2  1           2     0
-##  6            6 Adra~        2           1  1           3     0
-##  7            7 Agyr~        2           1  1.25        2     0
-##  8            8 Aitna        1           1  3.25        1     4
-##  9            9 Akra~        1           1  6.37        4     5
-## 10           10 Akrai        3           1  1.25        2     0
-## # ... with 1,025 more rows, and 28 more variables: `Silver-1st` <dbl>,
-## #   `Bronze 1st` <dbl>, Grid <dbl>, Colonies <dbl>, Victors <dbl>,
-## #   Proxenoi <dbl>, Walls <dbl>, `Delian L` <dbl>, Koinon <dbl>,
-## #   Regime <dbl>, `Region #` <dbl>, `Region name` <chr>, Latitude <dbl>,
-## #   Longitude <dbl>, Source <chr>, `Elevation m` <dbl>, `Pleiades
-## #   Control` <chr>, `Hanson Appearance` <dbl>, `Hanson Name` <chr>,
-## #   `Hanson #` <dbl>, `Occupied From (Hanson)` <dbl>, `Size (ha.)` <chr>,
-## #   `Hanson Longitude` <dbl>, `Hanson Latitude` <dbl>, `Lat O-H` <dbl>,
-## #   `Long O-H` <dbl>, `Absolute Lat+Long O-H` <dbl>, ...35 <chr>
+## # A tibble: 1,035 x 10
+##    polis_number Name  Latitude Longitude Hellenicity  Fame Size  Colonies
+##           <dbl> <chr>    <dbl>     <dbl> <chr>       <dbl> <chr>    <dbl>
+##  1            1 Alal~     42.1      9.51 most Greek   1.12 100-~        0
+##  2            2 Empo~     42.1      3.11 most barba~  2.12 25-1~        0
+##  3            3 Mass~     43.3      5.38 most Greek   4    25-1~        2
+##  4            4 Rhode     42.3      3.17 most Greek   0.87 <NA>         0
+##  5            5 Abak~     38.1     15.1  most barba~  1    <NA>         0
+##  6            6 Adra~     37.7     14.8  most Greek   1    <NA>         0
+##  7            7 Agyr~     37.7     14.5  most Greek   1.25 <NA>         0
+##  8            8 Aitna     38.2     15.6  most Greek   3.25 200-~        1
+##  9            9 Akra~     37.3     13.6  most Greek   6.37 500 ~        0
+## 10           10 Akrai     37.1     14.9  most Greek   1.25 <NA>         0
+## # ... with 1,025 more rows, and 2 more variables: Regime <chr>,
+## #   Delian <chr>
 \end{verbatim}
 
 \begin{Shaded}
@@ -5989,7 +6060,7 @@ For almost any dataset, you usually want to do a couple of standard checks first
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1035   35
+## [1] 1035   10
 \end{verbatim}
 
 From your tutorials, you also know how to do graphics! Graphics are useful for grasping your data, but we will cover them more deeply in Chapter \ref{dataviz}.
@@ -6004,18 +6075,18 @@ From your tutorials, you also know how to do graphics! Graphics are useful for g
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 \end{verbatim}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-103-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-105-1.pdf}
 
 What about the distribution of fame by regime?
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(ober, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ Fame, }\DataTypeTok{x =} \KeywordTok{factor}\NormalTok{(Regime), }\DataTypeTok{group =} \KeywordTok{factor}\NormalTok{(Regime))) }\OperatorTok{+}
+\KeywordTok{ggplot}\NormalTok{(ober, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ Fame, }\DataTypeTok{x =}\NormalTok{ Regime, }\DataTypeTok{group =}\NormalTok{ Regime)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-104-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-106-1.pdf}
 
 What do the 1's, 2's, and 3's stand for?
 
@@ -6037,7 +6108,7 @@ These \texttt{tidyverse} commands from the \texttt{dplyr} package are newer and 
 \hypertarget{extra-a-sneak-peak-at-obers-data}{%
 \subsection{Extra: A sneak peak at Ober's data}\label{extra-a-sneak-peak-at-obers-data}}
 
-Although this is a bit beyond our current stage, it's hard to resist the temptation to see what you can do with data like this. For example, you can map it.\footnote{In mid-2018, changes in Google's services made it no longer possible to render maps on the fly. Therefore, no map is currently rendered. Instead, you now need to register with Google. See the \href{https://github.com/dkahle/ggmap/blob/e55c0b22b0d16a010b4b45dd2fce800ff0ef19b8/NEWS\#L6-L12}{change} to the pacakge ggmap }
+Although this is a bit beyond our current stage, it's hard to resist the temptation to see what you can do with data like this. For example, you can map it.\footnote{In mid-2018, changes in Google's services made it no longer possible to render maps on the fly. Therefore, the map is not currently rendered automatically (but can be rendered once the user registers their API). Instead, you now need to register with Google. See the \href{https://github.com/dkahle/ggmap/blob/e55c0b22b0d16a010b4b45dd2fce800ff0ef19b8/NEWS\#L6-L12}{change} to the pacakge ggmap.}
 
 Using the \texttt{ggmap} package
 
@@ -6059,7 +6130,9 @@ First get a map of the Greek world.
 \end{Highlighting}
 \end{Shaded}
 
-I chose the specifications for arguments \texttt{zoom} and \texttt{maptype} by looking at the webpage and Googling some examples/
+\includegraphics{images/ober_ggmap_default.png}
+
+I chose the specifications for arguments \texttt{zoom} and \texttt{maptype} by looking at the webpage and Googling some examples.
 
 Ober's data has the latitude and longitude of each polis. Because the map of Greece has the same coordinates, we can add the polei on the same map.
 
@@ -6069,23 +6142,15 @@ Ober's data has the latitude and longitude of each polis. Because the map of Gre
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ ober, }
              \KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ Latitude, }\DataTypeTok{x =}\NormalTok{ Longitude), }
              \DataTypeTok{size =} \FloatTok{0.5}\NormalTok{,}
-             \DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{,}
-             \DataTypeTok{color =} \StringTok{"gray"}\NormalTok{)}
-\NormalTok{gg_ober}
+             \DataTypeTok{color =} \StringTok{"orange"}\NormalTok{)}
+\NormalTok{gg_ober }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{limits =} \KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{35}\NormalTok{)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{limits =} \KeywordTok{c}\NormalTok{(}\DecValTok{32}\NormalTok{, }\DecValTok{44}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_void}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-We can also color the points by another variable, like Fame.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{gg_ober_fame <-}\StringTok{ }\KeywordTok{ggmap}\NormalTok{(greece) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ ober, }
-             \KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ Latitude, }\DataTypeTok{x =}\NormalTok{ Longitude, }\DataTypeTok{color =}\NormalTok{ Fame)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{scale_color_gradient}\NormalTok{(}\DataTypeTok{low =} \StringTok{"white"}\NormalTok{, }\DataTypeTok{high =} \StringTok{"indianred"}\NormalTok{)}
-\NormalTok{gg_ober_fame}
-\end{Highlighting}
-\end{Shaded}
+\includegraphics{images/ober_ggmap_polis.png}
 
 \hypertarget{exercises}{%
 \section*{Exercises}\label{exercises}}
@@ -6136,15 +6201,15 @@ Find the correct function to read the following datasets (available in your rstu
 \begin{itemize}
 \tightlist
 \item
-  \texttt{input/acs2015\_1percent.csv}: A one percent sample of the American Community Survey
+  \texttt{data/input/acs2015\_1percent.csv}: A one percent sample of the American Community Survey
 \item
-  \texttt{input/gapminder\_wide.tab}: Country-level wealth and health from Gapminder\footnote{Formatted and taken from \url{https://doi.org/10.7910/DVN/GJQNEQ}}
+  \texttt{data/input/gapminder\_wide.tab}: Country-level wealth and health from Gapminder\footnote{Formatted and taken from \url{https://doi.org/10.7910/DVN/GJQNEQ}}
 \item
-  \texttt{input/gapminder\_wide.Rds}: A Rds version of the Gapminder (What is a Rds file? What's the difference?)
+  \texttt{data/input/gapminder\_wide.Rds}: A Rds version of the Gapminder (What is a Rds file? What's the difference?)
 \item
-  \texttt{input/Nunn\_Wantchekon\_sample.dta}: A sample from the Afrobarometer survey (which we'll explore tomorrow). \texttt{.dta} is a Stata format.
+  \texttt{data/input/Nunn\_Wantchekon\_sample.dta}: A sample from the Afrobarometer survey (which we'll explore tomorrow). \texttt{.dta} is a Stata format.
 \item
-  \texttt{input/german\_credit.sav}: A hypothetical dataset on consumer credit. \texttt{.sav} is a SPSS format.
+  \texttt{data/input/german\_credit.sav}: A hypothetical dataset on consumer credit. \texttt{.sav} is a SPSS format.
 \end{itemize}
 
 Our Recommendations: Look at the packages \texttt{haven} and \texttt{readr}
@@ -6213,22 +6278,21 @@ Let's take a look at Matrices in the context of R
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{cen10 <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"input/usc2010_001percent.csv"}\NormalTok{)}
+\NormalTok{cen10 <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/input/usc2010_001percent.csv"}\NormalTok{)}
 \KeywordTok{head}\NormalTok{(cen10)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 6 x 13
-##    year serial pernum region state countyfips city  cpuma0010 sex     age
-##   <dbl>  <dbl>  <dbl> <chr>  <chr>      <dbl> <chr>     <dbl> <chr> <dbl>
-## 1  2010 8.80e6      4 Middl~ New ~          0 Not ~       636 Fema~     8
-## 2  2010 9.80e6      1 East ~ Ohio         103 Not ~       802 Male     24
-## 3  2010 8.69e6      1 Mount~ Neva~          3 Not ~       582 Male     37
-## 4  2010 6.35e6      3 East ~ Mich~          0 Not ~       476 Fema~    12
-## 5  2010 6.15e6      2 South~ Mary~         33 Not ~       449 Fema~    18
-## 6  2010 8.10e6      1 New E~ New ~          0 Not ~       586 Male     50
-## # ... with 3 more variables: race <chr>, hhtype <chr>, relate <chr>
+## # A tibble: 6 x 4
+##   state         sex      age race       
+##   <chr>         <chr>  <int> <chr>      
+## 1 New York      Female     8 White      
+## 2 Ohio          Male      24 White      
+## 3 Nevada        Male      37 White      
+## 4 Michigan      Female    12 White      
+## 5 Maryland      Female    18 Black/Negro
+## 6 New Hampshire Male      50 White
 \end{verbatim}
 
 What is the dimension of this dataframe? What does the number of rows represent? What does the number of columns represent?
@@ -6240,7 +6304,7 @@ What is the dimension of this dataframe? What does the number of rows represent?
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 30871    13
+## [1] 30871     4
 \end{verbatim}
 
 \begin{Shaded}
@@ -6260,7 +6324,7 @@ What is the dimension of this dataframe? What does the number of rows represent?
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 13
+## [1] 4
 \end{verbatim}
 
 What variables does this dataset hold? What kind of information does it have?
@@ -6272,9 +6336,7 @@ What variables does this dataset hold? What kind of information does it have?
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "year"       "serial"     "pernum"     "region"     "state"     
-##  [6] "countyfips" "city"       "cpuma0010"  "sex"        "age"       
-## [11] "race"       "hhtype"     "relate"
+## [1] "state" "sex"   "age"   "race"
 \end{verbatim}
 
 We can access column vectors, or vectors that contain values of variables by using the \$ sign
@@ -6292,17 +6354,13 @@ We can access column vectors, or vectors that contain values of variables by usi
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{head}\NormalTok{(cen10}\OperatorTok{$}\NormalTok{city)}
+\KeywordTok{head}\NormalTok{(cen10}\OperatorTok{$}\NormalTok{race)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "Not in identifiable city (or size group)"
-## [2] "Not in identifiable city (or size group)"
-## [3] "Not in identifiable city (or size group)"
-## [4] "Not in identifiable city (or size group)"
-## [5] "Not in identifiable city (or size group)"
-## [6] "Not in identifiable city (or size group)"
+## [1] "White"       "White"       "White"       "White"       "Black/Negro"
+## [6] "White"
 \end{verbatim}
 
 We can look at a unique set of variable values by calling the unique function
@@ -6401,30 +6459,29 @@ But a subset of your data -- individual values-- can be considered a matrix too.
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 20 x 13
-##     year serial pernum region state countyfips city  cpuma0010 sex     age
-##    <dbl>  <dbl>  <dbl> <chr>  <chr>      <dbl> <chr>     <dbl> <chr> <dbl>
-##  1  2010 8.80e6      4 Middl~ New ~          0 Not ~       636 Fema~     8
-##  2  2010 9.80e6      1 East ~ Ohio         103 Not ~       802 Male     24
-##  3  2010 8.69e6      1 Mount~ Neva~          3 Not ~       582 Male     37
-##  4  2010 6.35e6      3 East ~ Mich~          0 Not ~       476 Fema~    12
-##  5  2010 6.15e6      2 South~ Mary~         33 Not ~       449 Fema~    18
-##  6  2010 8.10e6      1 New E~ New ~          0 Not ~       586 Male     50
-##  7  2010 4.06e6      1 West ~ Iowa           0 Not ~       362 Fema~    51
-##  8  2010 7.03e6      2 West ~ Miss~          0 Not ~       550 Fema~    41
-##  9  2010 8.16e6      2 Middl~ New ~          3 Not ~       592 Male     62
-## 10  2010 1.12e6      3 Pacif~ Cali~         37 Los ~        81 Male     25
-## 11  2010 1.25e7      1 West ~ Texas        453 Not ~       995 Fema~    23
-## 12  2010 1.07e7      2 Middl~ Penn~          3 Not ~       871 Fema~    66
-## 13  2010 9.31e5      2 Pacif~ Cali~         31 Not ~        69 Fema~    57
-## 14  2010 1.18e7      6 West ~ Texas          0 Not ~       968 Fema~    73
-## 15  2010 1.41e6      1 Pacif~ Cali~         59 Not ~       106 Male     43
-## 16  2010 1.34e7      1 Pacif~ Wash~         33 Seat~      1040 Male     29
-## 17  2010 1.17e7      2 West ~ Texas        381 Not ~       956 Male      8
-## 18  2010 7.21e6      1 West ~ Miss~        189 Not ~       558 Male     78
-## 19  2010 1.39e7      4 South~ West~          0 Not ~      1052 Male     10
-## 20  2010 4.21e6      3 Mount~ Idaho          0 Not ~       290 Fema~     9
-## # ... with 3 more variables: race <chr>, hhtype <chr>, relate <chr>
+## # A tibble: 20 x 4
+##    state         sex      age race           
+##    <chr>         <chr>  <int> <chr>          
+##  1 New York      Female     8 White          
+##  2 Ohio          Male      24 White          
+##  3 Nevada        Male      37 White          
+##  4 Michigan      Female    12 White          
+##  5 Maryland      Female    18 Black/Negro    
+##  6 New Hampshire Male      50 White          
+##  7 Iowa          Female    51 White          
+##  8 Missouri      Female    41 White          
+##  9 New Jersey    Male      62 White          
+## 10 California    Male      25 White          
+## 11 Texas         Female    23 White          
+## 12 Pennsylvania  Female    66 White          
+## 13 California    Female    57 White          
+## 14 Texas         Female    73 Other race, nec
+## 15 California    Male      43 White          
+## 16 Washington    Male      29 White          
+## 17 Texas         Male       8 White          
+## 18 Missouri      Male      78 White          
+## 19 West Virginia Male      10 White          
+## 20 Idaho         Female     9 White
 \end{verbatim}
 
 \begin{Shaded}
@@ -6434,96 +6491,95 @@ But a subset of your data -- individual values-- can be considered a matrix too.
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 20 x 13
-##     year serial pernum region state countyfips city  cpuma0010 sex     age
-##    <dbl>  <dbl>  <dbl> <chr>  <chr>      <dbl> <chr>     <dbl> <chr> <dbl>
-##  1  2010 8.80e6      4 Middl~ New ~          0 Not ~       636 Fema~     8
-##  2  2010 9.80e6      1 East ~ Ohio         103 Not ~       802 Male     24
-##  3  2010 8.69e6      1 Mount~ Neva~          3 Not ~       582 Male     37
-##  4  2010 6.35e6      3 East ~ Mich~          0 Not ~       476 Fema~    12
-##  5  2010 6.15e6      2 South~ Mary~         33 Not ~       449 Fema~    18
-##  6  2010 8.10e6      1 New E~ New ~          0 Not ~       586 Male     50
-##  7  2010 4.06e6      1 West ~ Iowa           0 Not ~       362 Fema~    51
-##  8  2010 7.03e6      2 West ~ Miss~          0 Not ~       550 Fema~    41
-##  9  2010 8.16e6      2 Middl~ New ~          3 Not ~       592 Male     62
-## 10  2010 1.12e6      3 Pacif~ Cali~         37 Los ~        81 Male     25
-## 11  2010 1.25e7      1 West ~ Texas        453 Not ~       995 Fema~    23
-## 12  2010 1.07e7      2 Middl~ Penn~          3 Not ~       871 Fema~    66
-## 13  2010 9.31e5      2 Pacif~ Cali~         31 Not ~        69 Fema~    57
-## 14  2010 1.18e7      6 West ~ Texas          0 Not ~       968 Fema~    73
-## 15  2010 1.41e6      1 Pacif~ Cali~         59 Not ~       106 Male     43
-## 16  2010 1.34e7      1 Pacif~ Wash~         33 Seat~      1040 Male     29
-## 17  2010 1.17e7      2 West ~ Texas        381 Not ~       956 Male      8
-## 18  2010 7.21e6      1 West ~ Miss~        189 Not ~       558 Male     78
-## 19  2010 1.39e7      4 South~ West~          0 Not ~      1052 Male     10
-## 20  2010 4.21e6      3 Mount~ Idaho          0 Not ~       290 Fema~     9
-## # ... with 3 more variables: race <chr>, hhtype <chr>, relate <chr>
+## # A tibble: 20 x 4
+##    state         sex      age race           
+##    <chr>         <chr>  <int> <chr>          
+##  1 New York      Female     8 White          
+##  2 Ohio          Male      24 White          
+##  3 Nevada        Male      37 White          
+##  4 Michigan      Female    12 White          
+##  5 Maryland      Female    18 Black/Negro    
+##  6 New Hampshire Male      50 White          
+##  7 Iowa          Female    51 White          
+##  8 Missouri      Female    41 White          
+##  9 New Jersey    Male      62 White          
+## 10 California    Male      25 White          
+## 11 Texas         Female    23 White          
+## 12 Pennsylvania  Female    66 White          
+## 13 California    Female    57 White          
+## 14 Texas         Female    73 Other race, nec
+## 15 California    Male      43 White          
+## 16 Washington    Male      29 White          
+## 17 Texas         Male       8 White          
+## 18 Missouri      Male      78 White          
+## 19 West Virginia Male      10 White          
+## 20 Idaho         Female     9 White
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# Of the first 20 rows of the entire data, look at values of just year and age}
+\CommentTok{# Of the first 20 rows of the entire data, look at values of just race and age}
 \CommentTok{# Below two lines of code do the same thing}
-\NormalTok{cen10[}\DecValTok{1}\OperatorTok{:}\DecValTok{20}\NormalTok{, }\KeywordTok{c}\NormalTok{(}\StringTok{"year"}\NormalTok{, }\StringTok{"age"}\NormalTok{)]}
+\NormalTok{cen10[}\DecValTok{1}\OperatorTok{:}\DecValTok{20}\NormalTok{, }\KeywordTok{c}\NormalTok{(}\StringTok{"race"}\NormalTok{, }\StringTok{"age"}\NormalTok{)]}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ## # A tibble: 20 x 2
-##     year   age
-##    <dbl> <dbl>
-##  1  2010     8
-##  2  2010    24
-##  3  2010    37
-##  4  2010    12
-##  5  2010    18
-##  6  2010    50
-##  7  2010    51
-##  8  2010    41
-##  9  2010    62
-## 10  2010    25
-## 11  2010    23
-## 12  2010    66
-## 13  2010    57
-## 14  2010    73
-## 15  2010    43
-## 16  2010    29
-## 17  2010     8
-## 18  2010    78
-## 19  2010    10
-## 20  2010     9
+##    race              age
+##    <chr>           <int>
+##  1 White               8
+##  2 White              24
+##  3 White              37
+##  4 White              12
+##  5 Black/Negro        18
+##  6 White              50
+##  7 White              51
+##  8 White              41
+##  9 White              62
+## 10 White              25
+## 11 White              23
+## 12 White              66
+## 13 White              57
+## 14 Other race, nec    73
+## 15 White              43
+## 16 White              29
+## 17 White               8
+## 18 White              78
+## 19 White              10
+## 20 White               9
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{cen10 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{slice}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{20}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{select}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"year"}\NormalTok{, }\StringTok{"age"}\NormalTok{))}
+\NormalTok{cen10 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{slice}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{20}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{select}\NormalTok{(race, age)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ## # A tibble: 20 x 2
-##     year   age
-##    <dbl> <dbl>
-##  1  2010     8
-##  2  2010    24
-##  3  2010    37
-##  4  2010    12
-##  5  2010    18
-##  6  2010    50
-##  7  2010    51
-##  8  2010    41
-##  9  2010    62
-## 10  2010    25
-## 11  2010    23
-## 12  2010    66
-## 13  2010    57
-## 14  2010    73
-## 15  2010    43
-## 16  2010    29
-## 17  2010     8
-## 18  2010    78
-## 19  2010    10
-## 20  2010     9
+##    race              age
+##    <chr>           <int>
+##  1 White               8
+##  2 White              24
+##  3 White              37
+##  4 White              12
+##  5 Black/Negro        18
+##  6 White              50
+##  7 White              51
+##  8 White              41
+##  9 White              62
+## 10 White              25
+## 11 White              23
+## 12 White              66
+## 13 White              57
+## 14 Other race, nec    73
+## 15 White              43
+## 16 White              29
+## 17 White               8
+## 18 White              78
+## 19 White              10
+## 20 White               9
 \end{verbatim}
 
 A vector is a special type of matrix with only one column or only one row
@@ -6538,7 +6594,7 @@ A vector is a special type of matrix with only one column or only one row
 \begin{verbatim}
 ## # A tibble: 10 x 1
 ##      age
-##    <dbl>
+##    <int>
 ##  1     8
 ##  2    24
 ##  3    37
@@ -6560,7 +6616,7 @@ A vector is a special type of matrix with only one column or only one row
 \begin{verbatim}
 ## # A tibble: 10 x 1
 ##      age
-##    <dbl>
+##    <int>
 ##  1     8
 ##  2    24
 ##  3    37
@@ -6581,11 +6637,10 @@ A vector is a special type of matrix with only one column or only one row
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 1 x 13
-##    year serial pernum region state countyfips city  cpuma0010 sex     age
-##   <dbl>  <dbl>  <dbl> <chr>  <chr>      <dbl> <chr>     <dbl> <chr> <dbl>
-## 1  2010 9.80e6      1 East ~ Ohio         103 Not ~       802 Male     24
-## # ... with 3 more variables: race <chr>, hhtype <chr>, relate <chr>
+## # A tibble: 1 x 4
+##   state sex     age race 
+##   <chr> <chr> <int> <chr>
+## 1 Ohio  Male     24 White
 \end{verbatim}
 
 \begin{Shaded}
@@ -6595,11 +6650,10 @@ A vector is a special type of matrix with only one column or only one row
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 1 x 13
-##    year serial pernum region state countyfips city  cpuma0010 sex     age
-##   <dbl>  <dbl>  <dbl> <chr>  <chr>      <dbl> <chr>     <dbl> <chr> <dbl>
-## 1  2010 9.80e6      1 East ~ Ohio         103 Not ~       802 Male     24
-## # ... with 3 more variables: race <chr>, hhtype <chr>, relate <chr>
+## # A tibble: 1 x 4
+##   state sex     age race 
+##   <chr> <chr> <int> <chr>
+## 1 Ohio  Male     24 White
 \end{verbatim}
 
 What if we want a special subset of the data? For example, what if I only want the records of individuals in California? What if I just want the age and race of individuals in California?
@@ -6664,9 +6718,9 @@ Some common operators that can be used to filter or to use as a condition. Remem
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# all individuals NOT in the Pacific Division region}
-\NormalTok{s5 <-}\StringTok{ }\NormalTok{cen10[cen10}\OperatorTok{$}\NormalTok{region }\OperatorTok{!=}\StringTok{ "Pacific Division"}\NormalTok{, ]}
-\NormalTok{s6 <-}\StringTok{ }\NormalTok{cen10 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(region }\OperatorTok{!=}\StringTok{ "Pacific Division"}\NormalTok{)}
+\CommentTok{# all individuals in any of the following states: California, Ohio, Nevada, Michigan}
+\NormalTok{s5 <-}\StringTok{ }\NormalTok{cen10[cen10}\OperatorTok{$}\NormalTok{state }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"California"}\NormalTok{, }\StringTok{"Ohio"}\NormalTok{, }\StringTok{"Nevada"}\NormalTok{, }\StringTok{"Michigan"}\NormalTok{), ]}
+\NormalTok{s6 <-}\StringTok{ }\NormalTok{cen10 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(state }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"California"}\NormalTok{, }\StringTok{"Ohio"}\NormalTok{, }\StringTok{"Nevada"}\NormalTok{, }\StringTok{"Michigan"}\NormalTok{))}
 \KeywordTok{all_equal}\NormalTok{(s5, s6)}
 \end{Highlighting}
 \end{Shaded}
@@ -6677,23 +6731,10 @@ Some common operators that can be used to filter or to use as a condition. Remem
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{# all individuals in any of the following states: California, Ohio, Nevada, Michigan}
-\NormalTok{s7 <-}\StringTok{ }\NormalTok{cen10[cen10}\OperatorTok{$}\NormalTok{state }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"California"}\NormalTok{, }\StringTok{"Ohio"}\NormalTok{, }\StringTok{"Nevada"}\NormalTok{, }\StringTok{"Michigan"}\NormalTok{), ]}
-\NormalTok{s8 <-}\StringTok{ }\NormalTok{cen10 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(state }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"California"}\NormalTok{, }\StringTok{"Ohio"}\NormalTok{, }\StringTok{"Nevada"}\NormalTok{, }\StringTok{"Michigan"}\NormalTok{))}
-\KeywordTok{all_equal}\NormalTok{(s7, s8)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] TRUE
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \CommentTok{# all individuals NOT in any of the following states: California, Ohio, Nevada, Michigan}
-\NormalTok{s9 <-}\StringTok{ }\NormalTok{cen10[}\OperatorTok{!}\NormalTok{(cen10}\OperatorTok{$}\NormalTok{state }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"California"}\NormalTok{, }\StringTok{"Ohio"}\NormalTok{, }\StringTok{"Nevada"}\NormalTok{, }\StringTok{"Michigan"}\NormalTok{)), ]}
-\NormalTok{s10 <-}\StringTok{ }\NormalTok{cen10 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(}\OperatorTok{!}\NormalTok{state }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"California"}\NormalTok{, }\StringTok{"Ohio"}\NormalTok{, }\StringTok{"Nevada"}\NormalTok{, }\StringTok{"Michigan"}\NormalTok{))}
-\KeywordTok{all_equal}\NormalTok{(s9, s10)}
+\NormalTok{s7 <-}\StringTok{ }\NormalTok{cen10[}\OperatorTok{!}\NormalTok{(cen10}\OperatorTok{$}\NormalTok{state }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"California"}\NormalTok{, }\StringTok{"Ohio"}\NormalTok{, }\StringTok{"Nevada"}\NormalTok{, }\StringTok{"Michigan"}\NormalTok{)), ]}
+\NormalTok{s8 <-}\StringTok{ }\NormalTok{cen10 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(}\OperatorTok{!}\NormalTok{state }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"California"}\NormalTok{, }\StringTok{"Ohio"}\NormalTok{, }\StringTok{"Nevada"}\NormalTok{, }\StringTok{"Michigan"}\NormalTok{))}
+\KeywordTok{all_equal}\NormalTok{(s7, s8)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6753,21 +6794,20 @@ You can think of data frames maybe as matrices-plus, because a column can take o
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 30,871 x 13
-##     year serial pernum region state countyfips city  cpuma0010 sex     age
-##    <dbl>  <dbl>  <dbl> <chr>  <chr>      <dbl> <chr>     <dbl> <chr> <dbl>
-##  1  2010 8.80e6      4 Middl~ New ~          0 Not ~       636 Fema~     8
-##  2  2010 9.80e6      1 East ~ Ohio         103 Not ~       802 Male     24
-##  3  2010 8.69e6      1 Mount~ Neva~          3 Not ~       582 Male     37
-##  4  2010 6.35e6      3 East ~ Mich~          0 Not ~       476 Fema~    12
-##  5  2010 6.15e6      2 South~ Mary~         33 Not ~       449 Fema~    18
-##  6  2010 8.10e6      1 New E~ New ~          0 Not ~       586 Male     50
-##  7  2010 4.06e6      1 West ~ Iowa           0 Not ~       362 Fema~    51
-##  8  2010 7.03e6      2 West ~ Miss~          0 Not ~       550 Fema~    41
-##  9  2010 8.16e6      2 Middl~ New ~          3 Not ~       592 Male     62
-## 10  2010 1.12e6      3 Pacif~ Cali~         37 Los ~        81 Male     25
-## # ... with 30,861 more rows, and 3 more variables: race <chr>,
-## #   hhtype <chr>, relate <chr>
+## # A tibble: 30,871 x 4
+##    state         sex      age race       
+##    <chr>         <chr>  <int> <chr>      
+##  1 New York      Female     8 White      
+##  2 Ohio          Male      24 White      
+##  3 Nevada        Male      37 White      
+##  4 Michigan      Female    12 White      
+##  5 Maryland      Female    18 Black/Negro
+##  6 New Hampshire Male      50 White      
+##  7 Iowa          Female    51 White      
+##  8 Missouri      Female    41 White      
+##  9 New Jersey    Male      62 White      
+## 10 California    Male      25 White      
+## # ... with 30,861 more rows
 \end{verbatim}
 
 Another way to think about data frames is that it is a type of list. Try the \texttt{str()} code below and notice how it is organized in slots. Each slot is a vector. They can be vectors of numbers or characters.
@@ -6792,7 +6832,7 @@ Nunn and Wantchekon use a variety of statistical tools to make their case (addin
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(haven)}
-\NormalTok{nunn_full <-}\StringTok{ }\KeywordTok{read_dta}\NormalTok{(}\StringTok{"input/Nunn_Wantchekon_AER_2011.dta"}\NormalTok{)}
+\NormalTok{nunn_full <-}\StringTok{ }\KeywordTok{read_dta}\NormalTok{(}\StringTok{"data/input/Nunn_Wantchekon_AER_2011.dta"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6882,7 +6922,7 @@ First, let's consider a small subset of this dataset.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{nunn <-}\StringTok{ }\KeywordTok{read_dta}\NormalTok{(}\StringTok{"./input/Nunn_Wantchekon_sample.dta"}\NormalTok{)}
+\NormalTok{nunn <-}\StringTok{ }\KeywordTok{read_dta}\NormalTok{(}\StringTok{"data/input/Nunn_Wantchekon_sample.dta"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -6961,7 +7001,7 @@ What is the difference between a \texttt{data.frame} and a matrix? A \texttt{dat
 
 \begin{verbatim}
 ##    user  system elapsed 
-##   0.372   0.005   0.561
+##   1.093   0.012   1.126
 \end{verbatim}
 
 \begin{Shaded}
@@ -6972,7 +7012,7 @@ What is the difference between a \texttt{data.frame} and a matrix? A \texttt{dat
 
 \begin{verbatim}
 ##    user  system elapsed 
-##   3.774   0.030   4.040
+##   6.132   0.061   6.613
 \end{verbatim}
 
 \hypertarget{handling-matricies-in-r}{%
@@ -7452,83 +7492,83 @@ Consider the regression that was run to generate Table 1:
 
 \begin{verbatim}
 ##                (Intercept)                    exports 
-##               1.619913e+00              -6.791360e-04 
+##              1.61991314585             -0.00067913598 
 ##                        age                       age2 
-##               8.395936e-03              -5.473436e-05 
+##              0.00839593573             -0.00005473436 
 ##                       male                  urban_dum 
-##               4.550246e-02              -1.404551e-01 
+##              0.04550246394             -0.14045509643 
 ##         factor(education)1         factor(education)2 
-##               1.709816e-02              -5.224591e-02 
+##              0.01709815986             -0.05224590915 
 ##         factor(education)3         factor(education)4 
-##              -1.373770e-01              -1.889619e-01 
+##             -0.13737696934             -0.18896190211 
 ##         factor(education)5         factor(education)6 
-##              -1.893494e-01              -2.400767e-01 
+##             -0.18934938886             -0.24007667789 
 ##         factor(education)7         factor(education)8 
-##              -2.850748e-01              -1.232085e-01 
+##             -0.28507483615             -0.12320854743 
 ##         factor(education)9        factor(occupation)1 
-##              -2.406437e-01               6.185655e-02 
+##             -0.24064373904              0.06185655039 
 ##        factor(occupation)2        factor(occupation)3 
-##               7.392168e-02               3.356158e-02 
+##              0.07392167619              0.03356157537 
 ##        factor(occupation)4        factor(occupation)5 
-##               7.942048e-03               6.661126e-02 
+##              0.00794204756              0.06661125981 
 ##        factor(occupation)6        factor(occupation)7 
-##              -7.563297e-02               1.699699e-02 
+##             -0.07563296877              0.01699699347 
 ##        factor(occupation)8        factor(occupation)9 
-##              -9.428177e-02              -9.981440e-02 
+##             -0.09428177043             -0.09981440190 
 ##       factor(occupation)10       factor(occupation)11 
-##              -3.307068e-02              -2.300045e-02 
+##             -0.03307067833             -0.02300044929 
 ##       factor(occupation)12       factor(occupation)13 
-##              -1.564540e-01              -1.441370e-02 
+##             -0.15645401487             -0.01441369915 
 ##       factor(occupation)14       factor(occupation)15 
-##              -5.566414e-02              -2.343762e-01 
+##             -0.05566413605             -0.23437620978 
 ##       factor(occupation)16       factor(occupation)18 
-##              -1.306947e-02              -1.729589e-01 
+##             -0.01306947177             -0.17295887330 
 ##       factor(occupation)19       factor(occupation)20 
-##              -1.770261e-01              -2.457800e-02 
+##             -0.17702612296             -0.02457799882 
 ##       factor(occupation)21       factor(occupation)22 
-##              -4.936813e-02              -1.068511e-01 
+##             -0.04936813028             -0.10685107199 
 ##       factor(occupation)23       factor(occupation)24 
-##              -9.712205e-02               1.292371e-02 
+##             -0.09712205357              0.01292371279 
 ##       factor(occupation)25      factor(occupation)995 
-##               2.623186e-02              -1.195063e-03 
+##              0.02623186093             -0.00119506304 
 ##          factor(religion)2          factor(religion)3 
-##               5.395953e-02               7.887878e-02 
+##              0.05395952751              0.07887878023 
 ##          factor(religion)4          factor(religion)5 
-##               4.749150e-02               4.318455e-02 
+##              0.04749150422              0.04318454995 
 ##          factor(religion)6          factor(religion)7 
-##              -1.787694e-02              -3.616542e-02 
+##             -0.01787693720             -0.03616541858 
 ##         factor(religion)10         factor(religion)11 
-##               6.015041e-02               2.237845e-01 
+##              0.06015040527              0.22378452027 
 ##         factor(religion)12         factor(religion)13 
-##               2.627086e-01              -6.812813e-02 
+##              0.26270856829             -0.06812812550 
 ##         factor(religion)14         factor(religion)15 
-##               4.673681e-02               3.844555e-01 
+##              0.04673681468              0.38445553937 
 ##        factor(religion)360        factor(religion)361 
-##               3.656843e-01               3.416413e-01 
+##              0.36568427222              0.34164126902 
 ##        factor(religion)362        factor(religion)363 
-##               8.230393e-01               3.856565e-01 
+##              0.82303925603              0.38565654806 
 ##        factor(religion)995 factor(living_conditions)2 
-##               4.161301e-02               4.395862e-02 
+##              0.04161301307              0.04395861576 
 ## factor(living_conditions)3 factor(living_conditions)4 
-##               8.627372e-02               1.197428e-01 
+##              0.08627372236              0.11974283686 
 ## factor(living_conditions)5       district_ethnic_frac 
-##               1.203606e-01              -1.553648e-02 
+##              0.12036059889             -0.01553647948 
 ## frac_ethnicity_in_district                 isocodeBWA 
-##               1.011222e-01              -4.258953e-01 
+##              0.10112219520             -0.42589528005 
 ##                 isocodeGHA                 isocodeKEN 
-##               1.135307e-02              -1.819556e-01 
+##              0.01135307275             -0.18195562970 
 ##                 isocodeLSO                 isocodeMDG 
-##              -5.511200e-01              -3.315727e-01 
+##             -0.55112004647             -0.33157269677 
 ##                 isocodeMLI                 isocodeMOZ 
-##               7.528101e-02               8.223730e-02 
+##              0.07528101292              0.08223730128 
 ##                 isocodeMWI                 isocodeNAM 
-##               3.062497e-01              -1.397541e-01 
+##              0.30624972321             -0.13975413661 
 ##                 isocodeNGA                 isocodeSEN 
-##              -2.381525e-01               3.867371e-01 
+##             -0.23815245775              0.38673712372 
 ##                 isocodeTZA                 isocodeUGA 
-##               2.079366e-01              -6.443732e-02 
+##              0.20793660458             -0.06443731501 
 ##                 isocodeZAF                 isocodeZMB 
-##              -2.179153e-01              -2.172868e-01
+##             -0.21791529657             -0.21728678908
 \end{verbatim}
 
 First, get a small subset of the nunn\_full dataset. This time, sample 20 rows and select for variables \texttt{exports}, \texttt{age}, \texttt{age2}, \texttt{male}, and \texttt{urban\_dum}. To this small subset, add (\texttt{bind\_cols()} in tidyverse or \texttt{cbind()} in base R) a column of 1's; this represents the intercept. If you need some guidance, look at how we sampled 10 rows selected for a different set of variables above in the lecture portion.
@@ -7642,11 +7682,11 @@ Time series data is a common form of data in social science data, and there is g
 \hypertarget{read-data-2}{%
 \section{Read data}\label{read-data-2}}
 
-First, the census. Read in a subset of the 2010 Census. This is a 1 percent sample of the entire U.S. Census (100 times larger than the previous version).
+First, the census. Read in a subset of the 2010 Census that we looked at earlier. This time, it is in Rds form.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{cen10 <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"input/usc2010_1percent.Rds"}\NormalTok{)}
+\NormalTok{cen10 <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"data/input/usc2010_001percent.Rds"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -7664,7 +7704,7 @@ How many people are in your sample?
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 3087108
+## [1] 30871
 \end{verbatim}
 
 This and all subsequent tasks involve manipulating and summarizing data, sometimes called ``wrangling''. As per last time, there are both ``base-R'' and ``tidyverse'' approaches.
@@ -7702,16 +7742,16 @@ In base-R Use the \texttt{table} function, that provides how many rows exist for
 
 \begin{verbatim}
 ## 
-## American Indian or Alaska Native     Black/African American/Negro 
-##                            29584                           390640 
+## American Indian or Alaska Native                      Black/Negro 
+##                              295                             4013 
 ##                          Chinese                         Japanese 
-##                            33537                             7629 
+##                              354                               77 
 ##  Other Asian or Pacific Islander                  Other race, nec 
-##                           110325                           190319 
+##                             1129                             1839 
 ##        Three or more major races                  Two major races 
-##                             8421                            82724 
+##                               88                              869 
 ##                            White 
-##                          2233929
+##                            22207
 \end{verbatim}
 
 With tidyverse, a quick convenience function is \texttt{count}, with the variable to count on included.
@@ -7724,17 +7764,17 @@ With tidyverse, a quick convenience function is \texttt{count}, with the variabl
 
 \begin{verbatim}
 ## # A tibble: 9 x 2
-##   race                                   n
-##   <chr>                              <int>
-## 1 American Indian or Alaska Native   29584
-## 2 Black/African American/Negro      390640
-## 3 Chinese                            33537
-## 4 Japanese                            7629
-## 5 Other Asian or Pacific Islander   110325
-## 6 Other race, nec                   190319
-## 7 Three or more major races           8421
-## 8 Two major races                    82724
-## 9 White                            2233929
+##   race                                 n
+##   <chr>                            <int>
+## 1 American Indian or Alaska Native   295
+## 2 Black/Negro                       4013
+## 3 Chinese                            354
+## 4 Japanese                            77
+## 5 Other Asian or Pacific Islander   1129
+## 6 Other race, nec                   1839
+## 7 Three or more major races           88
+## 8 Two major races                    869
+## 9 White                            22207
 \end{verbatim}
 
 We can check out the arguments of \texttt{count} and see that there is a \texttt{sort} option. What does this do?
@@ -7747,17 +7787,17 @@ We can check out the arguments of \texttt{count} and see that there is a \texttt
 
 \begin{verbatim}
 ## # A tibble: 9 x 2
-##   race                                   n
-##   <chr>                              <int>
-## 1 White                            2233929
-## 2 Black/African American/Negro      390640
-## 3 Other race, nec                   190319
-## 4 Other Asian or Pacific Islander   110325
-## 5 Two major races                    82724
-## 6 Chinese                            33537
-## 7 American Indian or Alaska Native   29584
-## 8 Three or more major races           8421
-## 9 Japanese                            7629
+##   race                                 n
+##   <chr>                            <int>
+## 1 White                            22207
+## 2 Black/Negro                       4013
+## 3 Other race, nec                   1839
+## 4 Other Asian or Pacific Islander   1129
+## 5 Two major races                    869
+## 6 Chinese                            354
+## 7 American Indian or Alaska Native   295
+## 8 Three or more major races           88
+## 9 Japanese                            77
 \end{verbatim}
 
 \texttt{count} is a kind of shorthand for \texttt{group\_by()} and \texttt{summarize}. This code would have done the same.
@@ -7772,17 +7812,17 @@ We can check out the arguments of \texttt{count} and see that there is a \texttt
 
 \begin{verbatim}
 ## # A tibble: 9 x 2
-##   race                                   n
-##   <chr>                              <int>
-## 1 American Indian or Alaska Native   29584
-## 2 Black/African American/Negro      390640
-## 3 Chinese                            33537
-## 4 Japanese                            7629
-## 5 Other Asian or Pacific Islander   110325
-## 6 Other race, nec                   190319
-## 7 Three or more major races           8421
-## 8 Two major races                    82724
-## 9 White                            2233929
+##   race                                 n
+##   <chr>                            <int>
+## 1 American Indian or Alaska Native   295
+## 2 Black/Negro                       4013
+## 3 Chinese                            354
+## 4 Japanese                            77
+## 5 Other Asian or Pacific Islander   1129
+## 6 Other race, nec                   1839
+## 7 Three or more major races           88
+## 8 Two major races                    869
+## 9 White                            22207
 \end{verbatim}
 
 If you are new to tidyverse, what would you \emph{think} each row did? Reading the function help page, verify if your intuition was correct.
@@ -7806,7 +7846,7 @@ then put it in the \texttt{barplot()} function.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-178-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-179-1.pdf}
 
 \hypertarget{ggplot}{%
 \subsection{ggplot}\label{ggplot}}
@@ -7844,7 +7884,7 @@ What is the right geometry layer to make a barplot? Turns out:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-180-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-181-1.pdf}
 
 \hypertarget{improving-your-graphics}{%
 \section{Improving your graphics}\label{improving-your-graphics}}
@@ -7863,7 +7903,7 @@ Adjusting your graphics to make the point clear is an important skill. Here is a
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-181-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-182-1.pdf}
 
 Notice that we applied the \texttt{sort()} function to order the bars in terms of their counts. The default ordering of a categorical variable / factor is alphabetical. Alphabetical ordering is uninformative and almost never the way you should order variables.
 
@@ -7885,7 +7925,7 @@ In ggplot you might do this by:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-182-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-183-1.pdf}
 
 The data ink ratio was popularized by Ed Tufte (originally a political economy scholar who has recently become well known for his data visualization work). See Tufte (2001), \emph{The Visual Display of Quantitative Information} and his website \url{https://www.edwardtufte.com/tufte/}. For a R and ggplot focused example using social science examples, check out Healy (2018), \emph{Data Visualization: A Practical Introduction} with a draft at \url{https://socviz.co/}\footnote{Healy, Kieran. forthcoming. \emph{Data Visualization: A Practical Introduction}. Princeton University Press}. There are a growing number of excellent books on data visualization.
 
@@ -7899,12 +7939,234 @@ A cross-tab is counting with two types of variables, and is a simple and powerfu
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{xtab_race_state <-}\StringTok{ }\KeywordTok{table}\NormalTok{(cen10}\OperatorTok{$}\NormalTok{state, cen10}\OperatorTok{$}\NormalTok{race)}
+\NormalTok{xtab_race_state}
 \end{Highlighting}
 \end{Shaded}
 
-What would the dimensions of this table be?
+\begin{verbatim}
+##                       
+##                        American Indian or Alaska Native Black/Negro
+##   Alabama                                             2         128
+##   Alaska                                             11           6
+##   Arizona                                            28          23
+##   Arkansas                                            1          45
+##   California                                         42         253
+##   Colorado                                            7          26
+##   Connecticut                                         1          39
+##   Delaware                                            3          28
+##   District of Columbia                                0          35
+##   Florida                                             9         304
+##   Georgia                                             2         304
+##   Hawaii                                              0           0
+##   Idaho                                               2           0
+##   Illinois                                            5         194
+##   Indiana                                             2          66
+##   Iowa                                                0           9
+##   Kansas                                              2          24
+##   Kentucky                                            2          35
+##   Louisiana                                           3         161
+##   Maine                                               0           4
+##   Maryland                                            2         177
+##   Massachusetts                                       5          38
+##   Michigan                                            5         147
+##   Minnesota                                           6          25
+##   Mississippi                                         1         116
+##   Missouri                                            4          74
+##   Montana                                             8           0
+##   Nebraska                                            2          11
+##   Nevada                                              6          15
+##   New Hampshire                                       1           1
+##   New Jersey                                          0         130
+##   New Mexico                                         21           3
+##   New York                                           13         305
+##   North Carolina                                     12         220
+##   North Dakota                                        4           1
+##   Ohio                                                1         122
+##   Oklahoma                                           21          20
+##   Oregon                                              5           5
+##   Pennsylvania                                        2         156
+##   Rhode Island                                        2           3
+##   South Carolina                                      2         120
+##   South Dakota                                        7           1
+##   Tennessee                                           0          97
+##   Texas                                              14         316
+##   Utah                                                8           0
+##   Vermont                                             0           2
+##   Virginia                                            0         171
+##   Washington                                         14          20
+##   West Virginia                                       0           5
+##   Wisconsin                                           6          27
+##   Wyoming                                             1           1
+##                       
+##                        Chinese Japanese Other Asian or Pacific Islander
+##   Alabama                    1        0                               3
+##   Alaska                     0        0                               5
+##   Arizona                    1        0                              12
+##   Arkansas                   0        0                               1
+##   California               141       27                             359
+##   Colorado                   3        0                              10
+##   Connecticut                7        0                              16
+##   Delaware                   1        0                               4
+##   District of Columbia       0        0                               1
+##   Florida                    4        1                              24
+##   Georgia                    5        0                              35
+##   Hawaii                     2       16                              35
+##   Idaho                      0        1                               0
+##   Illinois                   6        3                              53
+##   Indiana                    3        0                               8
+##   Iowa                       1        0                               4
+##   Kansas                     2        0                               8
+##   Kentucky                   2        0                               4
+##   Louisiana                  1        0                               5
+##   Maine                      1        0                               1
+##   Maryland                   4        1                              12
+##   Massachusetts             15        2                              28
+##   Michigan                   8        1                              23
+##   Minnesota                  5        1                              28
+##   Mississippi                0        0                               3
+##   Missouri                   2        0                               9
+##   Montana                    0        0                               0
+##   Nebraska                   0        0                               5
+##   Nevada                     6        2                              15
+##   New Hampshire              1        1                               3
+##   New Jersey                19        2                              65
+##   New Mexico                 1        1                               1
+##   New York                  55        3                              68
+##   North Carolina             4        1                              12
+##   North Dakota               0        0                               0
+##   Ohio                       5        2                              17
+##   Oklahoma                   0        0                               5
+##   Oregon                     4        0                              11
+##   Pennsylvania              10        1                              28
+##   Rhode Island               0        0                               4
+##   South Carolina             1        0                               4
+##   South Dakota               0        1                               1
+##   Tennessee                  0        0                              13
+##   Texas                     15        2                              92
+##   Utah                       1        1                               6
+##   Vermont                    0        0                               0
+##   Virginia                   8        2                              29
+##   Washington                 9        4                              46
+##   West Virginia              0        0                               0
+##   Wisconsin                  0        1                              11
+##   Wyoming                    0        0                               2
+##                       
+##                        Other race, nec Three or more major races
+##   Alabama                            8                         1
+##   Alaska                             2                         0
+##   Arizona                           74                         2
+##   Arkansas                          11                         1
+##   California                       585                        14
+##   Colorado                          28                         1
+##   Connecticut                       20                         1
+##   Delaware                           5                         1
+##   District of Columbia               1                         0
+##   Florida                           72                         2
+##   Georgia                           35                         1
+##   Hawaii                             0                        14
+##   Idaho                              8                         1
+##   Illinois                          75                         2
+##   Indiana                           20                         1
+##   Iowa                              10                         0
+##   Kansas                             6                         0
+##   Kentucky                           5                         1
+##   Louisiana                          7                         0
+##   Maine                              0                         0
+##   Maryland                          28                         1
+##   Massachusetts                     26                         0
+##   Michigan                           8                         2
+##   Minnesota                         13                         1
+##   Mississippi                        2                         2
+##   Missouri                           6                         2
+##   Montana                            1                         0
+##   Nebraska                           6                         0
+##   Nevada                            41                         1
+##   New Hampshire                      1                         0
+##   New Jersey                        69                         3
+##   New Mexico                        23                         1
+##   New York                         154                         8
+##   North Carolina                    40                         2
+##   North Dakota                       0                         0
+##   Ohio                               7                         3
+##   Oklahoma                          15                         3
+##   Oregon                            21                         4
+##   Pennsylvania                      30                         1
+##   Rhode Island                       6                         1
+##   South Carolina                     6                         1
+##   South Dakota                       2                         0
+##   Tennessee                         13                         0
+##   Texas                            253                         2
+##   Utah                              14                         0
+##   Vermont                            1                         0
+##   Virginia                          29                         4
+##   Washington                        37                         2
+##   West Virginia                      0                         0
+##   Wisconsin                         13                         1
+##   Wyoming                            2                         0
+##                       
+##                        Two major races White
+##   Alabama                            8   344
+##   Alaska                            15    37
+##   Arizona                           11   485
+##   Arkansas                           2   247
+##   California                       174  2168
+##   Colorado                          22   401
+##   Connecticut                        7   284
+##   Delaware                           1    66
+##   District of Columbia               2    21
+##   Florida                           42  1435
+##   Georgia                           21   587
+##   Hawaii                            27    39
+##   Idaho                              6   129
+##   Illinois                          35   856
+##   Indiana                            6   514
+##   Iowa                               8   287
+##   Kansas                             8   237
+##   Kentucky                           9   357
+##   Louisiana                          6   273
+##   Maine                              1   117
+##   Maryland                          13   302
+##   Massachusetts                     18   515
+##   Michigan                          23   792
+##   Minnesota                         10   483
+##   Mississippi                        1   167
+##   Missouri                          14   516
+##   Montana                            0    88
+##   Nebraska                           5   155
+##   Nevada                            16   171
+##   New Hampshire                      1   129
+##   New Jersey                        25   589
+##   New Mexico                         6   146
+##   New York                          51  1220
+##   North Carolina                    20   648
+##   North Dakota                       1    46
+##   Ohio                              20   931
+##   Oklahoma                          24   266
+##   Oregon                             9   279
+##   Pennsylvania                      27  1045
+##   Rhode Island                       4    74
+##   South Carolina                     6   325
+##   South Dakota                       2    72
+##   Tennessee                          9   474
+##   Texas                             71  1792
+##   Utah                               8   255
+##   Vermont                            4    59
+##   Virginia                          24   548
+##   Washington                        33   524
+##   West Virginia                      3   168
+##   Wisconsin                          8   497
+##   Wyoming                            2    47
+\end{verbatim}
 
-What if we care about proportions within states, rather than counts. We want to compare the racial composition of a small state (like Delaware) and a large state (like California).
+Another function to make a cross-tab is the \texttt{xtabs} command, which uses formula notation.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{xtabs}\NormalTok{(}\OperatorTok{~}\StringTok{ }\NormalTok{state }\OperatorTok{+}\StringTok{ }\NormalTok{race, cen10)}
+\end{Highlighting}
+\end{Shaded}
+
+What if we care about proportions within states, rather than counts? Say we'd like to compare the racial composition of a small state (like Delaware) and a large state (like California). In fact, most tasks of inference is about the unobserved population, not the observed data --- and proportions are estimates of a quantity in the population.
 
 One way to transform a table of counts to a table of proportions is the function \texttt{prop.table}. Be careful what you want to take proportions of -- this is set by the \texttt{margin} argument. In R, the first margin (\texttt{margin\ =\ 1}) is \emph{rows} and the second (\texttt{margin\ =\ 2}) is \emph{columns}.
 
@@ -7913,6 +8175,8 @@ One way to transform a table of counts to a table of proportions is the function
 \NormalTok{ptab_race_state <-}\StringTok{ }\KeywordTok{prop.table}\NormalTok{(xtab_race_state, }\DataTypeTok{margin =} \DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+Check out each of these table objects in your console and familiarize yourself with the difference.
 
 \hypertarget{composition-plots}{%
 \section{Composition Plots}\label{composition-plots}}
@@ -7940,7 +8204,7 @@ Now, we want to tell \texttt{ggplot2} something like the following: I want bars 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ grp_race_state, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{  state, }\DataTypeTok{y =}\NormalTok{ n,  }\DataTypeTok{fill =}\NormalTok{ race)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_col}\NormalTok{(}\DataTypeTok{position =} \StringTok{"fill"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# the position is dertemined by the fill ae}
+\StringTok{  }\KeywordTok{geom_col}\NormalTok{(}\DataTypeTok{position =} \StringTok{"fill"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# the position is determined by the fill ae}
 \StringTok{  }\KeywordTok{scale_fill_brewer}\NormalTok{(}\DataTypeTok{name =} \StringTok{"Census Race"}\NormalTok{, }\DataTypeTok{palette =} \StringTok{"OrRd"}\NormalTok{, }\DataTypeTok{direction =} \DecValTok{-1}\NormalTok{) }\OperatorTok{+}\StringTok{ }\CommentTok{# choose palette}
 \StringTok{  }\KeywordTok{coord_flip}\NormalTok{() }\OperatorTok{+}\StringTok{ }\CommentTok{# flip axes}
 \StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{labels =}\NormalTok{ percent) }\OperatorTok{+}\StringTok{ }\CommentTok{# label numbers as percentage}
@@ -7951,20 +8215,20 @@ Now, we want to tell \texttt{ggplot2} something like the following: I want bars 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-187-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-189-1.pdf}
 
 \hypertarget{line-graphs}{%
 \section{Line graphs}\label{line-graphs}}
 
 Line graphs are useful for plotting time trends.
 
-The Census does not track individuals over time. So let's take up another example: The U.S. Supreme Court. Take the dataset \texttt{justices\_median.csv}.
+The Census does not track individuals over time. So let's take up another example: The U.S. Supreme Court. Take the dataset \texttt{justices\_court-median.csv}.
 
 This data is adapted from the estimates of Martin and Quinn on their website \url{http://mqscores.lsa.umich.edu/}.\footnote{This exercise inspired from Princeton's R Camp Assignment.}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{justice <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"input/justices_court-median.csv"}\NormalTok{)}
+\NormalTok{justice <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/input/justices_court-median.csv"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -7977,20 +8241,20 @@ What does the data look like? How do you think it is organized? What does each r
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 728 x 7
+## # A tibble: 746 x 7
 ##     term justice_id justice idealpt idealpt_sd median_idealpt
-##    <dbl>      <dbl> <chr>     <dbl>      <dbl>          <dbl>
-##  1  1937         67 McReyn~   3.44       0.546         NA    
-##  2  1938         67 McReyn~   3.57       0.561         NA    
-##  3  1939         67 McReyn~   3.54       0.616         -1.07 
-##  4  1940         67 McReyn~   3.36       0.714         -0.734
-##  5  1937         68 Brande~  -0.611      0.273         NA    
-##  6  1938         68 Brande~  -0.616      0.313         NA    
-##  7  1937         71 Suther~   1.58       0.551         NA    
-##  8  1937         72 Butler    2.07       0.425         NA    
-##  9  1938         72 Butler    2.37       0.429         NA    
-## 10  1937         74 Stone    -0.769      0.259         NA    
-## # ... with 718 more rows, and 1 more variable: median_justice <chr>
+##    <int>      <int> <chr>     <dbl>      <dbl>          <dbl>
+##  1  1937         67 McReyn~   3.44       0.54          -0.568
+##  2  1937         68 Brande~  -0.612      0.271         -0.568
+##  3  1937         71 Suther~   1.59       0.549         -0.568
+##  4  1937         72 Butler    2.06       0.426         -0.568
+##  5  1937         74 Stone    -0.774      0.259         -0.568
+##  6  1937         75 Hughes2  -0.368      0.232         -0.568
+##  7  1937         76 O. Rob~   0.008      0.228         -0.568
+##  8  1937         77 Cardozo  -1.59       0.634         -0.568
+##  9  1937         78 Black    -2.90       0.334         -0.568
+## 10  1937         79 Reed     -1.06       0.342         -0.568
+## # ... with 736 more rows, and 1 more variable: median_justice <chr>
 \end{verbatim}
 
 As you might have guessed, these data can be shown in a time trend from the range of the \texttt{term} variable. As there are only nine justices at any given time and justices have life tenure, there times on the court are staggered. With a common measure of ``preference'', we can plot time trends of these justices ideal points on the same y-axis scale.
@@ -8002,7 +8266,7 @@ As you might have guessed, these data can be shown in a time trend from the rang
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-190-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-192-1.pdf}
 Why does the above graph not look like the the put in the beginning? Fix it by adding just one aesthetic to the graph.
 
 \begin{Shaded}
@@ -8027,7 +8291,7 @@ In the time remaining, try the following exercises. Order doesn't matter.
 \subsection*{1: Rural states}\label{rural-states}}
 \addcontentsline{toc}{subsection}{1: Rural states}
 
-Make a well-labelled figure that plots the proportion of the state's population (as per the census) that reside in their file as a renter. Each state should be visualized as a point, rather than a bar, and there should be 51 points, ordered by their value. All labels should be readable.
+Make a well-labelled figure that plots the proportion of the state's population (as per the census) that is 65 years or older. Each state should be visualized as a point, rather than a bar, and there should be 51 points, ordered by their value. All labels should be readable.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8045,7 +8309,7 @@ Make a well-labelled figure that plots the proportion of the state's population 
 \subsection*{2: The swing justice}\label{the-swing-justice}}
 \addcontentsline{toc}{subsection}{2: The swing justice}
 
-Using the \texttt{justice} dataset and building off of the plot that was given, make an improved plot by implementing as many of the following changes (which hopefully improves the graph):
+Using the \texttt{justices\_court-median.csv} dataset and building off of the plot that was given, make an improved plot by implementing as many of the following changes (which hopefully improves the graph):
 
 \begin{itemize}
 \tightlist
@@ -8150,7 +8414,7 @@ Let's first set up
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{cen10 <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"input/usc2010_001percent.csv"}\NormalTok{, }\DataTypeTok{col_types =} \KeywordTok{cols}\NormalTok{())}
+\NormalTok{cen10 <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/input/usc2010_001percent.csv"}\NormalTok{, }\DataTypeTok{col_types =} \KeywordTok{cols}\NormalTok{())}
 \end{Highlighting}
 \end{Shaded}
 
@@ -8171,21 +8435,20 @@ This looks the same as the original dataset:
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 30,871 x 13
-##     year serial pernum region state countyfips city  cpuma0010 sex     age
-##    <dbl>  <dbl>  <dbl> <chr>  <chr>      <dbl> <chr>     <dbl> <chr> <dbl>
-##  1  2010 8.80e6      4 Middl~ New ~          0 Not ~       636 Fema~     8
-##  2  2010 9.80e6      1 East ~ Ohio         103 Not ~       802 Male     24
-##  3  2010 8.69e6      1 Mount~ Neva~          3 Not ~       582 Male     37
-##  4  2010 6.35e6      3 East ~ Mich~          0 Not ~       476 Fema~    12
-##  5  2010 6.15e6      2 South~ Mary~         33 Not ~       449 Fema~    18
-##  6  2010 8.10e6      1 New E~ New ~          0 Not ~       586 Male     50
-##  7  2010 4.06e6      1 West ~ Iowa           0 Not ~       362 Fema~    51
-##  8  2010 7.03e6      2 West ~ Miss~          0 Not ~       550 Fema~    41
-##  9  2010 8.16e6      2 Middl~ New ~          3 Not ~       592 Male     62
-## 10  2010 1.12e6      3 Pacif~ Cali~         37 Los ~        81 Male     25
-## # ... with 30,861 more rows, and 3 more variables: race <chr>,
-## #   hhtype <chr>, relate <chr>
+## # A tibble: 30,871 x 4
+##    state         sex      age race       
+##    <chr>         <chr>  <int> <chr>      
+##  1 New York      Female     8 White      
+##  2 Ohio          Male      24 White      
+##  3 Nevada        Male      37 White      
+##  4 Michigan      Female    12 White      
+##  5 Maryland      Female    18 Black/Negro
+##  6 New Hampshire Male      50 White      
+##  7 Iowa          Female    51 White      
+##  8 Missouri      Female    41 White      
+##  9 New Jersey    Male      62 White      
+## 10 California    Male      25 White      
+## # ... with 30,861 more rows
 \end{verbatim}
 
 What happens if you do this next?
@@ -8309,7 +8572,7 @@ What is type (class) of object is \texttt{cen10}?
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "spec_tbl_df" "tbl_df"      "tbl"         "data.frame"
+## [1] "tbl_df"     "tbl"        "data.frame"
 \end{verbatim}
 
 What about this text?
@@ -8400,7 +8663,7 @@ Anything can be an object! Even graphs (in \texttt{ggplot}) can be assigned, re-
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-210-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-212-1.pdf}
 
 You can change the orientation
 
@@ -9008,7 +9271,7 @@ A issue raised in Persily's article is that the full-count U.S. Census does not 
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{acs<-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"input/acs2015_1percent.csv"}\NormalTok{, }\DataTypeTok{col_types =} \KeywordTok{cols}\NormalTok{())}
+\NormalTok{acs<-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/input/acs2015_1percent.csv"}\NormalTok{, }\DataTypeTok{col_types =} \KeywordTok{cols}\NormalTok{())}
 \KeywordTok{set.seed}\NormalTok{(}\DecValTok{02138}\NormalTok{)}
 \NormalTok{sample_acs <-}\StringTok{ }\KeywordTok{sample_frac}\NormalTok{(acs, }\FloatTok{0.01}\NormalTok{)}
 
@@ -9145,8 +9408,6 @@ An empirical demonstration of the democratic peace is also a good example of a \
 \KeywordTok{library}\NormalTok{(tidyr)}
 \KeywordTok{library}\NormalTok{(readr)}
 \KeywordTok{library}\NormalTok{(data.table)}
-\KeywordTok{library}\NormalTok{(foreach)}
-\KeywordTok{library}\NormalTok{(readxl)}
 \KeywordTok{library}\NormalTok{(ggplot2)}
 \end{Highlighting}
 \end{Shaded}
@@ -9182,8 +9443,8 @@ Let's read in a sample dataset.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{polity <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"input/sample_polity.csv"}\NormalTok{)}
-\NormalTok{mid <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"input/sample_mid.csv"}\NormalTok{)}
+\NormalTok{polity <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/input/sample_polity.csv"}\NormalTok{)}
+\NormalTok{mid <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/input/sample_mid.csv"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -9207,7 +9468,7 @@ What does \texttt{polity} look like?
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-250-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-252-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9218,7 +9479,7 @@ What does \texttt{polity} look like?
 \begin{verbatim}
 ## # A tibble: 6 x 5
 ##   scode ccode country  year polity2
-##   <chr> <dbl> <chr>   <dbl>   <dbl>
+##   <chr> <int> <chr>   <dbl>   <int>
 ## 1 FRN     220 France   1800      -8
 ## 2 FRN     220 France   1801      -8
 ## 3 FRN     220 France   1802      -8
@@ -9238,7 +9499,7 @@ MID is a dataset that captures a \texttt{dispute} for a given country and year.
 \begin{verbatim}
 ## # A tibble: 6,132 x 5
 ##    ccode polity_code dispute StYear EndYear
-##    <dbl> <chr>         <dbl>  <dbl>   <dbl>
+##    <int> <chr>         <int>  <int>   <int>
 ##  1   200 UKG               1   1902    1903
 ##  2     2 USA               1   1902    1903
 ##  3   345 YGS               1   1913    1913
@@ -9279,7 +9540,7 @@ There are many ways to do this, but one is a loop. We go through one row at a ti
 \begin{verbatim}
 ## # A tibble: 6 x 3
 ##   ccode  year dispute
-##   <dbl> <int>   <dbl>
+##   <int> <int>   <dbl>
 ## 1   200  1902       1
 ## 2   200  1903       1
 ## 3     2  1902       1
@@ -9310,7 +9571,7 @@ Here we can do a \texttt{left\_join} matching rows from \texttt{mid} to \texttt{
 \begin{verbatim}
 ## # A tibble: 6 x 6
 ##   scode ccode country  year polity2 dispute
-##   <chr> <dbl> <chr>   <dbl>   <dbl>   <dbl>
+##   <chr> <int> <chr>   <dbl>   <int>   <dbl>
 ## 1 FRN     220 France   1800      -8      NA
 ## 2 FRN     220 France   1801      -8      NA
 ## 3 FRN     220 France   1802      -8      NA
@@ -9487,7 +9748,7 @@ Suppose you have a vector of values \texttt{x} and from it you want to randomly 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1 2 3 7 6
+## [1]  3  1  8 10  2
 \end{verbatim}
 
 There are two subtypes of sampling -- with and without replacement.
@@ -9506,7 +9767,7 @@ There are two subtypes of sampling -- with and without replacement.
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  7  8  9  6  2  5  4  1 10  3
+##  [1]  4  5  9  2  3  7  1  6 10  8
 \end{verbatim}
 
 \begin{enumerate}
@@ -9524,7 +9785,7 @@ There are two subtypes of sampling -- with and without replacement.
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 10  2  1  5  3  9  3  6  6  1
+##  [1] 7 4 9 7 2 2 6 8 6 9
 \end{verbatim}
 
 It follows then that you cannot sample without replacement a sample that is larger than the pool.
@@ -9550,8 +9811,8 @@ For example, this simulates 20 fair coin tosses (each outcome is equally likely 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Head" "Tail" "Tail" "Head" "Tail" "Head" "Head" "Tail" "Tail" "Head"
-## [11] "Tail" "Head" "Head" "Head" "Tail" "Head" "Head" "Head" "Head" "Head"
+##  [1] "Tail" "Head" "Tail" "Tail" "Head" "Head" "Tail" "Head" "Head" "Head"
+## [11] "Head" "Tail" "Tail" "Tail" "Head" "Head" "Tail" "Tail" "Head" "Tail"
 \end{verbatim}
 
 But this simulates 20 biased coin tosses, where say the probability of Tails is 4 times more likely than the number of Heads
@@ -9563,8 +9824,8 @@ But this simulates 20 biased coin tosses, where say the probability of Tails is 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Tail" "Tail" "Tail" "Tail" "Tail" "Head" "Tail" "Tail" "Tail" "Head"
-## [11] "Head" "Head" "Tail" "Head" "Tail" "Tail" "Tail" "Tail" "Tail" "Tail"
+##  [1] "Tail" "Tail" "Tail" "Head" "Tail" "Tail" "Tail" "Head" "Tail" "Tail"
+## [11] "Head" "Tail" "Tail" "Head" "Tail" "Head" "Head" "Head" "Tail" "Head"
 \end{verbatim}
 
 \hypertarget{sampling-rows-from-a-dataframe}{%
@@ -9625,10 +9886,10 @@ sample\_n picks a user-specified number of rows from the dataset:
 \end{Shaded}
 
 \begin{verbatim}
-##    mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## 1 10.4   8  472 205 2.93 5.250 17.98  0  0    3    4
-## 2 15.2   8  304 150 3.15 3.435 17.30  0  0    3    2
-## 3 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+##                   mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Pontiac Firebird 19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Maserati Bora    15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Toyota Corolla   33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
 \end{verbatim}
 
 Sometimes you want a X percent sample of your dataset. In this case use \texttt{sample\_frac()}
@@ -9640,10 +9901,10 @@ Sometimes you want a X percent sample of your dataset. In this case use \texttt{
 \end{Shaded}
 
 \begin{verbatim}
-##    mpg cyl  disp  hp drat    wt  qsec vs am gear carb
-## 1 21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
-## 2 30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
-## 3 18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+##                    mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## AMC Javelin       15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Merc 450SE        16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Chrysler Imperial 14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
 \end{verbatim}
 
 As a side-note, these functions have very practical uses for any type of data analysis:
@@ -9674,7 +9935,7 @@ For example, I want to know how many Heads I would get if I flipped a fair coin 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 51
+## [1] 46
 \end{verbatim}
 
 Now imagine this I wanted to do this experiment 10 times, which would require I flip the coin 10 x 100 = 1000 times! Helpfully, we can do this in one line
@@ -9686,7 +9947,7 @@ Now imagine this I wanted to do this experiment 10 times, which would require I 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 47 46 49 57 45 42 45 50 44 50
+##  [1] 42 47 41 51 52 57 44 49 53 45
 \end{verbatim}
 
 \hypertarget{runif}{%
@@ -9704,7 +9965,7 @@ The intuition to emphasize here is that one can generate potentially infinite am
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.1847970 0.9906337 0.4612721 0.8321032 0.3246780
+## [1] 0.04820592 0.18489989 0.54155194 0.83747694 0.97833988
 \end{verbatim}
 
 \hypertarget{rnorm}{%
@@ -9720,7 +9981,7 @@ The intuition to emphasize here is that one can generate potentially infinite am
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.7477110 0.5347322 1.2716806 0.2623107 0.1506185
+## [1]  0.94704868  0.05728521  0.32914573 -2.90922109  0.08422519
 \end{verbatim}
 
 To better visualize the difference between the output of \texttt{runif} and \texttt{rnorm}, let's generate lots of each and plot a histogram.
@@ -9736,7 +9997,7 @@ To better visualize the difference between the output of \texttt{runif} and \tex
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-273-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-275-1.pdf}
 
 \hypertarget{r-p-and-d}{%
 \section{r, p, and d}\label{r-p-and-d}}
@@ -9829,7 +10090,7 @@ You can do this by creating a variable, e.g. \texttt{propensity}, that is 0.9 fo
 
 This example is not on simulation, but is meant to reinforce some of the probability discussion from math lecture.
 
-Read in the Upshot Siena poll from Fall 2016, \texttt{input/upshot-siena-polls.csv}.
+Read in the Upshot Siena poll from Fall 2016, \texttt{data/input/upshot-siena-polls.csv}.
 
 In addition to some standard demographic questions, we will focus on one called \texttt{vt\_pres\_2} in the csv. This is a two-way presidential vote question, asking respondents who they plan to vote for President if the election were held today -- Donald Trump, the Republican, or Hilary Clinton, the Democrat, with options for Other candidates as well. For this problem, use the two-way vote question rather than the 4-way vote question.
 
@@ -10979,8 +11240,8 @@ Running this command in a Mac (\texttt{dir} in Windows) should show you a list o
 
 \begin{verbatim}
 ## 01_warmup.Rmd
-## 02_linear-algebra.Rmd
-## 03_functions.Rmd
+## 02_functions.Rmd
+## 03_linear-algebra.Rmd
 ## 04_limits.Rmd
 ## 05_calculus.Rmd
 ## 06_optimization.Rmd
@@ -10998,26 +11259,23 @@ Running this command in a Mac (\texttt{dir} in Windows) should show you a list o
 ## 23_solution_programming.Rmd
 ## CODE_OF_CONDUCT.md
 ## CONTRIBUTING.md
+## DESCRIPTION
 ## LICENSE
 ## README.md
+## R_exercises
 ## _book
 ## _bookdown.yml
 ## _bookdown_files
+## _build.sh
+## _deploy.sh
 ## _output.yml
-## book.bib
+## data
 ## images
 ## index.Rmd
-## input
-## math-prefresher-text.html
 ## preamble.tex
 ## prefresher.Rmd
 ## prefresher.Rproj
-## prefresher.bbl
-## prefresher.blg
-## prefresher.log
 ## prefresher_files
-## rsconnect
-## sample_library.bib
 ## style.css
 \end{verbatim}
 
@@ -11030,7 +11288,7 @@ Running this command in a Mac (\texttt{dir} in Windows) should show you a list o
 \end{Shaded}
 
 \begin{verbatim}
-## /Users/shirokuriwaki/Dropbox/prefresher
+## /Users/margaretschwenzfeier/Documents/harvard/prefresher
 \end{verbatim}
 
 \texttt{cd} means change directory. You need to give it what to change your current directory \emph{to}. You can specify a name of another directory in your directory.
@@ -11045,7 +11303,7 @@ Or you can go up to your parent directory. The syntax for that are two periods, 
 \end{Shaded}
 
 \begin{verbatim}
-## /Users/shirokuriwaki/Dropbox
+## /Users/margaretschwenzfeier/Documents/harvard
 \end{verbatim}
 
 \texttt{\textasciitilde{}/} stands for your home directory defined by your computer.
@@ -11059,6 +11317,7 @@ Or you can go up to your parent directory. The syntax for that are two periods, 
 
 \begin{verbatim}
 ## Applications
+## Calibre Library
 ## Desktop
 ## Documents
 ## Downloads
@@ -11070,8 +11329,14 @@ Or you can go up to your parent directory. The syntax for that are two periods, 
 ## PaladinTemp
 ## Pictures
 ## Public
-## perl5
-## samp.tsv
+## anaconda2
+## bfp
+## chebychev_histogram.png
+## dfp_analysis.R
+## nltk_data
+## rodeo.log
+## rodeo1.log
+## scikit_learn_data
 \end{verbatim}
 
 Using \texttt{..} and \texttt{.} are ``relative'' to where you are currently at. So are things like \texttt{figures/figure1.pdf}, which is implicitly writing \texttt{./figures/figure1.pdf}. These are called relative paths. In contrast, \texttt{/Users/shirokuriwaki/project1/figures/figure1.pdf} is an ``absolute'' path because it does not start from your current directory.
@@ -11475,7 +11740,9 @@ For a review, please see Sections \ref{setoper} - \ref{probdef}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(tidyverse)}
+\KeywordTok{library}\NormalTok{(dplyr)}
+\KeywordTok{library}\NormalTok{(readr)}
+\KeywordTok{library}\NormalTok{(ggplot2)}
 \KeywordTok{library}\NormalTok{(ggrepel)}
 \KeywordTok{library}\NormalTok{(forcats)}
 \KeywordTok{library}\NormalTok{(scales)}
@@ -11491,7 +11758,7 @@ For a review, please see Sections \ref{setoper} - \ref{probdef}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{cen10 <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"input/usc2010_1percent.Rds"}\NormalTok{)}
+\NormalTok{cen10 <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{"data/input/usc2010_001percent.Rds"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11501,7 +11768,7 @@ Group by state, noting that the mean of a set of logicals is a mean of 1s (\text
 \begin{Highlighting}[]
 \NormalTok{grp_st <-}\StringTok{ }\NormalTok{cen10 }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(state) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{prop =} \KeywordTok{mean}\NormalTok{(ownership }\OperatorTok{==}\StringTok{ "Rented"}\NormalTok{)) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{prop =} \KeywordTok{mean}\NormalTok{(age }\OperatorTok{>=}\StringTok{ }\DecValTok{65}\NormalTok{)) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{arrange}\NormalTok{(prop) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{state =} \KeywordTok{as_factor}\NormalTok{(state))}
 \end{Highlighting}
@@ -11514,16 +11781,16 @@ Plot points
 \KeywordTok{ggplot}\NormalTok{(grp_st, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ state, }\DataTypeTok{y =}\NormalTok{ prop)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}
 \StringTok{  }\KeywordTok{coord_flip}\NormalTok{() }\OperatorTok{+}
-\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{labels =}\NormalTok{ percent) }\OperatorTok{+}\StringTok{ }\CommentTok{# use the scales package to format percentages}
+\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{labels =} \KeywordTok{percent_format}\NormalTok{(}\DataTypeTok{accuracy =} \DecValTok{1}\NormalTok{)) }\OperatorTok{+}\StringTok{ }\CommentTok{# use the scales package to format percentages}
 \StringTok{  }\KeywordTok{labs}\NormalTok{(}
-    \DataTypeTok{y =} \StringTok{"Proportion of Renters"}\NormalTok{,}
+    \DataTypeTok{y =} \StringTok{"Proportion Senior"}\NormalTok{,}
     \DataTypeTok{x =} \StringTok{""}\NormalTok{,}
-    \DataTypeTok{caption =} \StringTok{"Source: 2010 Census (1 percent)"}
+    \DataTypeTok{caption =} \StringTok{"Source: 2010 Census sample"}
 \NormalTok{  )}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-326-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-328-1.pdf}
 
 \hypertarget{swing-justice}{%
 \subsection*{2 Swing Justice}\label{swing-justice}}
@@ -11531,7 +11798,7 @@ Plot points
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{justices <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"input/justices_court-median.csv"}\NormalTok{)}
+\NormalTok{justices <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/input/justices_court-median.csv"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11540,7 +11807,7 @@ Keep justices who are in the dataset in 2016,
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{in_}\DecValTok{2017}\NormalTok{ <-}\StringTok{ }\NormalTok{justices }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{filter}\NormalTok{(term }\OperatorTok{==}\StringTok{ }\DecValTok{2016}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(term }\OperatorTok{>=}\StringTok{ }\DecValTok{2016}\NormalTok{) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{distinct}\NormalTok{(justice) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# unique values}
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{present_2016 =} \DecValTok{1}\NormalTok{) }\CommentTok{# keep an indicator to distinguish from rest after merge}
 
@@ -11561,7 +11828,7 @@ All together
 \StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ median_idealpt), }\DataTypeTok{color =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{size =} \DecValTok{2}\NormalTok{, }\DataTypeTok{alpha =} \FloatTok{0.1}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\DataTypeTok{data =} \KeywordTok{filter}\NormalTok{(df_indicator, }\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(present_}\DecValTok{2016}\NormalTok{))) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{data =} \KeywordTok{filter}\NormalTok{(df_indicator, }\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(present_}\DecValTok{2016}\NormalTok{), term }\OperatorTok{==}\StringTok{ }\DecValTok{2016}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{data =} \KeywordTok{filter}\NormalTok{(df_indicator, }\OperatorTok{!}\KeywordTok{is.na}\NormalTok{(present_}\DecValTok{2016}\NormalTok{), term }\OperatorTok{==}\StringTok{ }\DecValTok{2018}\NormalTok{)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_text_repel}\NormalTok{(}
     \DataTypeTok{data =} \KeywordTok{filter}\NormalTok{(df_indicator, term }\OperatorTok{==}\StringTok{ }\DecValTok{2016}\NormalTok{), }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{label =}\NormalTok{ justice),}
     \DataTypeTok{nudge_x =} \DecValTok{10}\NormalTok{,}
@@ -11579,22 +11846,18 @@ All together
 \end{Shaded}
 
 \begin{verbatim}
-## Warning: Removed 30 rows containing missing values (geom_path).
-\end{verbatim}
-
-\begin{verbatim}
 ## Warning: Removed 19 rows containing missing values (geom_path).
 \end{verbatim}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-329-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-331-1.pdf}
 
 \hypertarget{chapter-refrobjloops-objects-and-loops}{%
 \section{Chapter \ref{robjloops}: Objects and Loops}\label{chapter-refrobjloops-objects-and-loops}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{cen10 <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"input/usc2010_001percent.csv"}\NormalTok{)}
-\NormalTok{sample_acs <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"input/acs2015_1percent.csv"}\NormalTok{)}
+\NormalTok{cen10 <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/input/usc2010_001percent.csv"}\NormalTok{)}
+\NormalTok{sample_acs <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/input/acs2015_1percent.csv"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11605,7 +11868,7 @@ All together
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{cen10 }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(city) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(state) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{avg_age =} \KeywordTok{mean}\NormalTok{(age)) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(avg_age)) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{slice}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{)}
@@ -11614,18 +11877,18 @@ All together
 
 \begin{verbatim}
 ## # A tibble: 10 x 2
-##    city                 avg_age
-##    <chr>                  <dbl>
-##  1 Sterling Heights, MI    53.2
-##  2 Waterbury, CT           49.3
-##  3 Antioch, CA             49  
-##  4 Little Rock, AR         46.9
-##  5 Roseville, CA           43.3
-##  6 Port St. Lucie, FL      42.8
-##  7 Huntington Beach, CA    42.3
-##  8 Pittsburgh, PA          42.2
-##  9 Cambridge, MA           41.8
-## 10 Alexandria, VA          41.8
+##    state         avg_age
+##    <chr>           <dbl>
+##  1 West Virginia    44.1
+##  2 Maine            42.1
+##  3 Florida          41.3
+##  4 New Hampshire    41.2
+##  5 North Dakota     41.1
+##  6 Montana          40.6
+##  7 Vermont          40.3
+##  8 Connecticut      40.1
+##  9 Wisconsin        39.9
+## 10 New Mexico       39.3
 \end{verbatim}
 
 \hypertarget{exercise-1}{%
@@ -11776,8 +12039,8 @@ Then
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{mid_b <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"input/MIDB_4.2.csv"}\NormalTok{)}
-\NormalTok{polity <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{"input/p4v2017.xls"}\NormalTok{)}
+\NormalTok{mid_b <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/input/MIDB_4.2.csv"}\NormalTok{)}
+\NormalTok{polity <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{"data/input/p4v2017.xls"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11841,26 +12104,17 @@ Then
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{pop <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"input/usc2010_001percent.csv"}\NormalTok{)}
+\NormalTok{pop <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/input/usc2010_001percent.csv"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ## Parsed with column specification:
 ## cols(
-##   year = col_double(),
-##   serial = col_double(),
-##   pernum = col_double(),
-##   region = col_character(),
 ##   state = col_character(),
-##   countyfips = col_double(),
-##   city = col_character(),
-##   cpuma0010 = col_double(),
 ##   sex = col_character(),
-##   age = col_double(),
-##   race = col_character(),
-##   hhtype = col_character(),
-##   relate = col_character()
+##   age = col_integer(),
+##   race = col_character()
 ## )
 \end{verbatim}
 
@@ -11883,7 +12137,7 @@ Then
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.22
+## [1] 0.31
 \end{verbatim}
 
 \begin{Shaded}
