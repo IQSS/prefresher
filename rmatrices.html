@@ -902,10 +902,10 @@ Xdf &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(Xmat)
 
 <span class="kw">system.time</span>(<span class="kw">replicate</span>(<span class="dv">50000</span>, <span class="kw">colMeans</span>(Xmat)))</code></pre></div>
 <pre><code>##    user  system elapsed 
-##   0.215   0.028   0.244</code></pre>
+##   0.243   0.024   0.268</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system.time</span>(<span class="kw">replicate</span>(<span class="dv">50000</span>, <span class="kw">colMeans</span>(Xdf)))</code></pre></div>
 <pre><code>##    user  system elapsed 
-##   2.846   0.032   2.878</code></pre>
+##   3.000   0.032   3.033</code></pre>
 </div>
 <div id="handling-matricies-in-r" class="section level2">
 <h2><span class="header-section-number">9.6</span> Handling matricies in <code>R</code></h2>
