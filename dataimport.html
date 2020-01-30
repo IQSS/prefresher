@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 Orientation and Reading in Data5 | Math Prefresher for Political Scientists</title>
   <meta name="description" content="Text for Harvard Department of Government Math Prefresher" />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Orientation and Reading in Data5 | Math Prefresher for Political Scientists" />
   <meta property="og:type" content="book" />
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="causal.html">
-<link rel="next" href="rmatrices.html">
+<link rel="prev" href="causal.html"/>
+<link rel="next" href="rmatrices.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -38,6 +38,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -780,18 +783,12 @@ n_jelly &lt;-<span class="st"> </span><span class="dv">9</span>
 <div id="locating-the-data" class="section level3">
 <h3><span class="header-section-number">8.6.1</span> Locating the Data</h3>
 <p>What files do we have in the <code>data/input</code> folder?</p>
-<pre><code>## data/input/Nunn_Wantchekon_AER_2011.dta
-## data/input/Nunn_Wantchekon_sample.dta
-## data/input/acs2015_1percent.csv
-## data/input/gapminder_wide.Rds
-## data/input/gapminder_wide.tab
-## data/input/german_credit.sav
-## data/input/justices_court-median.csv
-## data/input/ober_2018.xlsx
-## data/input/sample_mid.csv
-## data/input/sample_polity.csv
-## data/input/upshot-siena-polls.csv
-## data/input/usc2010_001percent.Rds
+<pre><code>## data/input/Nunn_Wantchekon_AER_2011.dta data/input/Nunn_Wantchekon_sample.dta   
+## data/input/acs2015_1percent.csv         data/input/gapminder_wide.Rds           
+## data/input/gapminder_wide.tab           data/input/german_credit.sav            
+## data/input/justices_court-median.csv    data/input/ober_2018.xlsx               
+## data/input/sample_mid.csv               data/input/sample_polity.csv            
+## data/input/upshot-siena-polls.csv       data/input/usc2010_001percent.Rds       
 ## data/input/usc2010_001percent.csv</code></pre>
 <p>A typical file format is Microsoft Excel. Although this is not usually the best format for R because of its highly formatted structure as opposed to plain text (more on this in Section @(sec:wysiwyg)), recent packages have made this fairly easy.</p>
 </div>
@@ -815,19 +812,19 @@ ober &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span clas
 <p>For almost any dataset, you usually want to do a couple of standard checks first to understand what you loaded.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ober</code></pre></div>
 <pre><code>## # A tibble: 1,035 x 10
-##    polis_number Name  Latitude Longitude Hellenicity  Fame Size  Colonies
-##           &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;
-##  1            1 Alal…     42.1      9.51 most Greek   1.12 100-…        0
-##  2            2 Empo…     42.1      3.11 most barba…  2.12 25-1…        0
-##  3            3 Mass…     43.3      5.38 most Greek   4    25-1…        2
-##  4            4 Rhode     42.3      3.17 most Greek   0.87 &lt;NA&gt;         0
-##  5            5 Abak…     38.1     15.1  most barba…  1    &lt;NA&gt;         0
-##  6            6 Adra…     37.7     14.8  most Greek   1    &lt;NA&gt;         0
-##  7            7 Agyr…     37.7     14.5  most Greek   1.25 &lt;NA&gt;         0
-##  8            8 Aitna     38.2     15.6  most Greek   3.25 200-…        1
-##  9            9 Akra…     37.3     13.6  most Greek   6.37 500 …        0
-## 10           10 Akrai     37.1     14.9  most Greek   1.25 &lt;NA&gt;         0
-## # … with 1,025 more rows, and 2 more variables: Regime &lt;chr&gt;, Delian &lt;chr&gt;</code></pre>
+##    polis_number Name  Latitude Longitude Hellenicity  Fame Size  Colonies Regime
+##           &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; 
+##  1            1 Alal…     42.1      9.51 most Greek   1.12 100-…        0 &lt;NA&gt;  
+##  2            2 Empo…     42.1      3.11 most barba…  2.12 25-1…        0 &lt;NA&gt;  
+##  3            3 Mass…     43.3      5.38 most Greek   4    25-1…        2 no ev…
+##  4            4 Rhode     42.3      3.17 most Greek   0.87 &lt;NA&gt;         0 &lt;NA&gt;  
+##  5            5 Abak…     38.1     15.1  most barba…  1    &lt;NA&gt;         0 &lt;NA&gt;  
+##  6            6 Adra…     37.7     14.8  most Greek   1    &lt;NA&gt;         0 &lt;NA&gt;  
+##  7            7 Agyr…     37.7     14.5  most Greek   1.25 &lt;NA&gt;         0 no ev…
+##  8            8 Aitna     38.2     15.6  most Greek   3.25 200-…        1 no ev…
+##  9            9 Akra…     37.3     13.6  most Greek   6.37 500 …        0 evide…
+## 10           10 Akrai     37.1     14.9  most Greek   1.25 &lt;NA&gt;         0 &lt;NA&gt;  
+## # … with 1,025 more rows, and 1 more variable: Delian &lt;chr&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(ober)</code></pre></div>
 <pre><code>## [1] 1035   10</code></pre>
 <p>From your tutorials, you also know how to do graphics! Graphics are useful for grasping your data, but we will cover them more deeply in Chapter <a href="dataviz.html#dataviz">11</a>.</p>
@@ -947,11 +944,13 @@ gg_ober <span class="op">+</span><span class="st"> </span>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -959,12 +958,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -976,6 +974,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
@@ -995,8 +997,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

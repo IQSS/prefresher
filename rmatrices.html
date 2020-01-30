@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 9 Manipulating Vectors and Matrices12 | Math Prefresher for Political Scientists</title>
   <meta name="description" content="Text for Harvard Department of Government Math Prefresher" />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 9 Manipulating Vectors and Matrices12 | Math Prefresher for Political Scientists" />
   <meta property="og:type" content="book" />
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="dataimport.html">
-<link rel="next" href="robjloops.html">
+<link rel="prev" href="dataimport.html"/>
+<link rel="next" href="robjloops.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -38,6 +38,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -804,37 +807,32 @@ nunn_full &lt;-<span class="st"> </span><span class="kw">read_dta</span>(<span c
 <p>Nunn and Wantchekon’s main dataset has more than 20,000 observations. Each observation is a respondent from the Afrobarometer survey.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(nunn_full)</code></pre></div>
 <pre><code>## # A tibble: 6 x 59
-##   respno ethnicity murdock_name isocode region district townvill
-##   &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;   
-## 1 BEN00… fon       FON          BEN     atlna… KPOMASSE TOKPA-D…
-## 2 BEN00… fon       FON          BEN     atlna… KPOMASSE TOKPA-D…
-## 3 BEN00… fon       FON          BEN     atlna… OUIDAH   3ARROND 
-## 4 BEN00… fon       FON          BEN     atlna… OUIDAH   3ARROND 
-## 5 BEN00… fon       FON          BEN     atlna… OUIDAH   PAHOU   
-## 6 BEN00… fon       FON          BEN     atlna… OUIDAH   PAHOU   
-## # … with 52 more variables: location_id &lt;dbl&gt;, trust_relatives &lt;dbl&gt;,
-## #   trust_neighbors &lt;dbl&gt;, intra_group_trust &lt;dbl&gt;,
-## #   inter_group_trust &lt;dbl&gt;, trust_local_council &lt;dbl&gt;,
-## #   ln_export_area &lt;dbl&gt;, export_area &lt;dbl&gt;, export_pop &lt;dbl&gt;,
-## #   ln_export_pop &lt;dbl&gt;, age &lt;dbl&gt;, age2 &lt;dbl&gt;, male &lt;dbl&gt;,
-## #   urban_dum &lt;dbl&gt;, occupation &lt;dbl&gt;, religion &lt;dbl&gt;,
-## #   living_conditions &lt;dbl&gt;, education &lt;dbl&gt;, near_dist &lt;dbl&gt;,
-## #   distsea &lt;dbl&gt;, loc_murdock_name &lt;chr&gt;, loc_ln_export_area &lt;dbl&gt;,
-## #   local_council_performance &lt;dbl&gt;, council_listen &lt;dbl&gt;,
-## #   corrupt_local_council &lt;dbl&gt;, school_present &lt;dbl&gt;,
-## #   electricity_present &lt;dbl&gt;, piped_water_present &lt;dbl&gt;,
-## #   sewage_present &lt;dbl&gt;, health_clinic_present &lt;dbl&gt;,
-## #   district_ethnic_frac &lt;dbl&gt;, frac_ethnicity_in_district &lt;dbl&gt;,
-## #   townvill_nonethnic_mean_exports &lt;dbl&gt;,
-## #   district_nonethnic_mean_exports &lt;dbl&gt;,
-## #   region_nonethnic_mean_exports &lt;dbl&gt;,
+##   respno ethnicity murdock_name isocode region district townvill location_id
+##   &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
+## 1 BEN00… fon       FON          BEN     atlna… KPOMASSE TOKPA-D…          30
+## 2 BEN00… fon       FON          BEN     atlna… KPOMASSE TOKPA-D…          30
+## 3 BEN00… fon       FON          BEN     atlna… OUIDAH   3ARROND           31
+## 4 BEN00… fon       FON          BEN     atlna… OUIDAH   3ARROND           31
+## 5 BEN00… fon       FON          BEN     atlna… OUIDAH   PAHOU             32
+## 6 BEN00… fon       FON          BEN     atlna… OUIDAH   PAHOU             32
+## # … with 51 more variables: trust_relatives &lt;dbl&gt;, trust_neighbors &lt;dbl&gt;,
+## #   intra_group_trust &lt;dbl&gt;, inter_group_trust &lt;dbl&gt;,
+## #   trust_local_council &lt;dbl&gt;, ln_export_area &lt;dbl&gt;, export_area &lt;dbl&gt;,
+## #   export_pop &lt;dbl&gt;, ln_export_pop &lt;dbl&gt;, age &lt;dbl&gt;, age2 &lt;dbl&gt;, male &lt;dbl&gt;,
+## #   urban_dum &lt;dbl&gt;, occupation &lt;dbl&gt;, religion &lt;dbl&gt;, living_conditions &lt;dbl&gt;,
+## #   education &lt;dbl&gt;, near_dist &lt;dbl&gt;, distsea &lt;dbl&gt;, loc_murdock_name &lt;chr&gt;,
+## #   loc_ln_export_area &lt;dbl&gt;, local_council_performance &lt;dbl&gt;,
+## #   council_listen &lt;dbl&gt;, corrupt_local_council &lt;dbl&gt;, school_present &lt;dbl&gt;,
+## #   electricity_present &lt;dbl&gt;, piped_water_present &lt;dbl&gt;, sewage_present &lt;dbl&gt;,
+## #   health_clinic_present &lt;dbl&gt;, district_ethnic_frac &lt;dbl&gt;,
+## #   frac_ethnicity_in_district &lt;dbl&gt;, townvill_nonethnic_mean_exports &lt;dbl&gt;,
+## #   district_nonethnic_mean_exports &lt;dbl&gt;, region_nonethnic_mean_exports &lt;dbl&gt;,
 ## #   country_nonethnic_mean_exports &lt;dbl&gt;, murdock_centr_dist_coast &lt;dbl&gt;,
 ## #   centroid_lat &lt;dbl&gt;, centroid_long &lt;dbl&gt;, explorer_contact &lt;dbl&gt;,
-## #   railway_contact &lt;dbl&gt;, dist_Saharan_node &lt;dbl&gt;,
-## #   dist_Saharan_line &lt;dbl&gt;, malaria_ecology &lt;dbl&gt;, v30 &lt;dbl+lbl&gt;,
-## #   v33 &lt;dbl+lbl&gt;, fishing &lt;dbl&gt;, exports &lt;dbl&gt;, ln_exports &lt;dbl&gt;,
-## #   total_missions_area &lt;dbl&gt;, ln_init_pop_density &lt;dbl&gt;,
-## #   cities_1400_dum &lt;dbl&gt;</code></pre>
+## #   railway_contact &lt;dbl&gt;, dist_Saharan_node &lt;dbl&gt;, dist_Saharan_line &lt;dbl&gt;,
+## #   malaria_ecology &lt;dbl&gt;, v30 &lt;dbl+lbl&gt;, v33 &lt;dbl+lbl&gt;, fishing &lt;dbl&gt;,
+## #   exports &lt;dbl&gt;, ln_exports &lt;dbl&gt;, total_missions_area &lt;dbl&gt;,
+## #   ln_init_pop_density &lt;dbl&gt;, cities_1400_dum &lt;dbl&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(nunn_full)</code></pre></div>
 <pre><code>##  [1] &quot;respno&quot;                          &quot;ethnicity&quot;                      
 ##  [3] &quot;murdock_name&quot;                    &quot;isocode&quot;                        
@@ -904,10 +902,10 @@ Xdf &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(Xmat)
 
 <span class="kw">system.time</span>(<span class="kw">replicate</span>(<span class="dv">50000</span>, <span class="kw">colMeans</span>(Xmat)))</code></pre></div>
 <pre><code>##    user  system elapsed 
-##   0.297   0.024   0.321</code></pre>
+##   0.215   0.028   0.244</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">system.time</span>(<span class="kw">replicate</span>(<span class="dv">50000</span>, <span class="kw">colMeans</span>(Xdf)))</code></pre></div>
 <pre><code>##    user  system elapsed 
-##   3.445   0.004   3.450</code></pre>
+##   2.846   0.032   2.878</code></pre>
 </div>
 <div id="handling-matricies-in-r" class="section level2">
 <h2><span class="header-section-number">9.6</span> Handling matricies in <code>R</code></h2>
@@ -942,14 +940,12 @@ Xdf &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(Xmat)
 <pre><code>##  [1] 3 3 3 0 3 2 2 0 3 3</code></pre>
 <p>What are all the values of “exports”? (i.e. return the whole “exports” column)</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">X[, <span class="st">&quot;exports&quot;</span>]</code></pre></div>
-<pre><code>##  [1]   0.3883497   0.6311236   0.9941893 182.5891266   0.0000000
-##  [6]   0.0000000 665.9652100   0.3476418   0.4349871   0.0000000</code></pre>
+<pre><code>##  [1]   0.3883497   0.6311236   0.9941893 182.5891266   0.0000000   0.0000000
+##  [7] 665.9652100   0.3476418   0.4349871   0.0000000</code></pre>
 <p>What is the first observation (i.e. first row)?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">X[<span class="dv">1</span>, ]</code></pre></div>
-<pre><code>## trust_neighbors         exports      ln_exports     export_area 
-##     3.000000000     0.388349682     0.328115761     0.004067405 
-##  ln_export_area 
-##     0.004059155</code></pre>
+<pre><code>## trust_neighbors         exports      ln_exports     export_area  ln_export_area 
+##     3.000000000     0.388349682     0.328115761     0.004067405     0.004059155</code></pre>
 <p>What is the value of the first variable of the first observation?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">X[<span class="dv">1</span>, <span class="dv">1</span>]</code></pre></div>
 <pre><code>## trust_neighbors 
@@ -999,28 +995,17 @@ Xdf &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(Xmat)
 ## export_area          39.728468
 ## ln_export_area        8.412887</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cbind</span>(X, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre></div>
-<pre><code>##       trust_neighbors     exports ln_exports  export_area ln_export_area
-##  [1,]               3   0.3883497  0.3281158  0.004067405    0.004059155
-##  [2,]               3   0.6311236  0.4892691  0.097059444    0.092633367
-##  [3,]               3   0.9941893  0.6902376  0.012524694    0.012446908
-##  [4,]               0 182.5891266  5.2127004  1.824284434    1.038255095
-##  [5,]               3   0.0000000  0.0000000  0.000000000    0.000000000
-##  [6,]               2   0.0000000  0.0000000  0.000000000    0.000000000
-##  [7,]               2 665.9652100  6.5027380 13.975566864    2.706419945
-##  [8,]               0   0.3476418  0.2983562  0.006082553    0.006064130
-##  [9,]               3   0.4349871  0.3611559  0.038332380    0.037615947
-## [10,]               3   0.0000000  0.0000000  0.000000000    0.000000000
-##         
-##  [1,]  1
-##  [2,]  2
-##  [3,]  3
-##  [4,]  4
-##  [5,]  5
-##  [6,]  6
-##  [7,]  7
-##  [8,]  8
-##  [9,]  9
-## [10,] 10</code></pre>
+<pre><code>##       trust_neighbors     exports ln_exports  export_area ln_export_area   
+##  [1,]               3   0.3883497  0.3281158  0.004067405    0.004059155  1
+##  [2,]               3   0.6311236  0.4892691  0.097059444    0.092633367  2
+##  [3,]               3   0.9941893  0.6902376  0.012524694    0.012446908  3
+##  [4,]               0 182.5891266  5.2127004  1.824284434    1.038255095  4
+##  [5,]               3   0.0000000  0.0000000  0.000000000    0.000000000  5
+##  [6,]               2   0.0000000  0.0000000  0.000000000    0.000000000  6
+##  [7,]               2 665.9652100  6.5027380 13.975566864    2.706419945  7
+##  [8,]               0   0.3476418  0.2983562  0.006082553    0.006064130  8
+##  [9,]               3   0.4349871  0.3611559  0.038332380    0.037615947  9
+## [10,]               3   0.0000000  0.0000000  0.000000000    0.000000000 10</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cbind</span>(X, <span class="dv">1</span>)</code></pre></div>
 <pre><code>##       trust_neighbors     exports ln_exports  export_area ln_export_area  
 ##  [1,]               3   0.3883497  0.3281158  0.004067405    0.004059155 1
@@ -1247,11 +1232,13 @@ lm_1_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">lm
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -1259,12 +1246,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -1276,6 +1262,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
@@ -1295,8 +1285,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

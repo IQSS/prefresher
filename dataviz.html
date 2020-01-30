@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 11 Visualization14 | Math Prefresher for Political Scientists</title>
   <meta name="description" content="Text for Harvard Department of Government Math Prefresher" />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 11 Visualization14 | Math Prefresher for Political Scientists" />
   <meta property="og:type" content="book" />
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="robjloops.html">
-<link rel="next" href="dempeace.html">
+<link rel="prev" href="robjloops.html"/>
+<link rel="next" href="dempeace.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -38,6 +38,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -668,217 +671,164 @@ grp_race_ordered &lt;-<span class="st"> </span><span class="kw">arrange</span>(g
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">xtab_race_state &lt;-<span class="st"> </span><span class="kw">table</span>(cen10<span class="op">$</span>state, cen10<span class="op">$</span>race)
 xtab_race_state</code></pre></div>
 <pre><code>##                       
-##                        American Indian or Alaska Native Black/Negro
-##   Alabama                                             2         128
-##   Alaska                                             11           6
-##   Arizona                                            28          23
-##   Arkansas                                            1          45
-##   California                                         42         253
-##   Colorado                                            7          26
-##   Connecticut                                         1          39
-##   Delaware                                            3          28
-##   District of Columbia                                0          35
-##   Florida                                             9         304
-##   Georgia                                             2         304
-##   Hawaii                                              0           0
-##   Idaho                                               2           0
-##   Illinois                                            5         194
-##   Indiana                                             2          66
-##   Iowa                                                0           9
-##   Kansas                                              2          24
-##   Kentucky                                            2          35
-##   Louisiana                                           3         161
-##   Maine                                               0           4
-##   Maryland                                            2         177
-##   Massachusetts                                       5          38
-##   Michigan                                            5         147
-##   Minnesota                                           6          25
-##   Mississippi                                         1         116
-##   Missouri                                            4          74
-##   Montana                                             8           0
-##   Nebraska                                            2          11
-##   Nevada                                              6          15
-##   New Hampshire                                       1           1
-##   New Jersey                                          0         130
-##   New Mexico                                         21           3
-##   New York                                           13         305
-##   North Carolina                                     12         220
-##   North Dakota                                        4           1
-##   Ohio                                                1         122
-##   Oklahoma                                           21          20
-##   Oregon                                              5           5
-##   Pennsylvania                                        2         156
-##   Rhode Island                                        2           3
-##   South Carolina                                      2         120
-##   South Dakota                                        7           1
-##   Tennessee                                           0          97
-##   Texas                                              14         316
-##   Utah                                                8           0
-##   Vermont                                             0           2
-##   Virginia                                            0         171
-##   Washington                                         14          20
-##   West Virginia                                       0           5
-##   Wisconsin                                           6          27
-##   Wyoming                                             1           1
+##                        American Indian or Alaska Native Black/Negro Chinese
+##   Alabama                                             2         128       1
+##   Alaska                                             11           6       0
+##   Arizona                                            28          23       1
+##   Arkansas                                            1          45       0
+##   California                                         42         253     141
+##   Colorado                                            7          26       3
+##   Connecticut                                         1          39       7
+##   Delaware                                            3          28       1
+##   District of Columbia                                0          35       0
+##   Florida                                             9         304       4
+##   Georgia                                             2         304       5
+##   Hawaii                                              0           0       2
+##   Idaho                                               2           0       0
+##   Illinois                                            5         194       6
+##   Indiana                                             2          66       3
+##   Iowa                                                0           9       1
+##   Kansas                                              2          24       2
+##   Kentucky                                            2          35       2
+##   Louisiana                                           3         161       1
+##   Maine                                               0           4       1
+##   Maryland                                            2         177       4
+##   Massachusetts                                       5          38      15
+##   Michigan                                            5         147       8
+##   Minnesota                                           6          25       5
+##   Mississippi                                         1         116       0
+##   Missouri                                            4          74       2
+##   Montana                                             8           0       0
+##   Nebraska                                            2          11       0
+##   Nevada                                              6          15       6
+##   New Hampshire                                       1           1       1
+##   New Jersey                                          0         130      19
+##   New Mexico                                         21           3       1
+##   New York                                           13         305      55
+##   North Carolina                                     12         220       4
+##   North Dakota                                        4           1       0
+##   Ohio                                                1         122       5
+##   Oklahoma                                           21          20       0
+##   Oregon                                              5           5       4
+##   Pennsylvania                                        2         156      10
+##   Rhode Island                                        2           3       0
+##   South Carolina                                      2         120       1
+##   South Dakota                                        7           1       0
+##   Tennessee                                           0          97       0
+##   Texas                                              14         316      15
+##   Utah                                                8           0       1
+##   Vermont                                             0           2       0
+##   Virginia                                            0         171       8
+##   Washington                                         14          20       9
+##   West Virginia                                       0           5       0
+##   Wisconsin                                           6          27       0
+##   Wyoming                                             1           1       0
 ##                       
-##                        Chinese Japanese Other Asian or Pacific Islander
-##   Alabama                    1        0                               3
-##   Alaska                     0        0                               5
-##   Arizona                    1        0                              12
-##   Arkansas                   0        0                               1
-##   California               141       27                             359
-##   Colorado                   3        0                              10
-##   Connecticut                7        0                              16
-##   Delaware                   1        0                               4
-##   District of Columbia       0        0                               1
-##   Florida                    4        1                              24
-##   Georgia                    5        0                              35
-##   Hawaii                     2       16                              35
-##   Idaho                      0        1                               0
-##   Illinois                   6        3                              53
-##   Indiana                    3        0                               8
-##   Iowa                       1        0                               4
-##   Kansas                     2        0                               8
-##   Kentucky                   2        0                               4
-##   Louisiana                  1        0                               5
-##   Maine                      1        0                               1
-##   Maryland                   4        1                              12
-##   Massachusetts             15        2                              28
-##   Michigan                   8        1                              23
-##   Minnesota                  5        1                              28
-##   Mississippi                0        0                               3
-##   Missouri                   2        0                               9
-##   Montana                    0        0                               0
-##   Nebraska                   0        0                               5
-##   Nevada                     6        2                              15
-##   New Hampshire              1        1                               3
-##   New Jersey                19        2                              65
-##   New Mexico                 1        1                               1
-##   New York                  55        3                              68
-##   North Carolina             4        1                              12
-##   North Dakota               0        0                               0
-##   Ohio                       5        2                              17
-##   Oklahoma                   0        0                               5
-##   Oregon                     4        0                              11
-##   Pennsylvania              10        1                              28
-##   Rhode Island               0        0                               4
-##   South Carolina             1        0                               4
-##   South Dakota               0        1                               1
-##   Tennessee                  0        0                              13
-##   Texas                     15        2                              92
-##   Utah                       1        1                               6
-##   Vermont                    0        0                               0
-##   Virginia                   8        2                              29
-##   Washington                 9        4                              46
-##   West Virginia              0        0                               0
-##   Wisconsin                  0        1                              11
-##   Wyoming                    0        0                               2
+##                        Japanese Other Asian or Pacific Islander Other race, nec
+##   Alabama                     0                               3               8
+##   Alaska                      0                               5               2
+##   Arizona                     0                              12              74
+##   Arkansas                    0                               1              11
+##   California                 27                             359             585
+##   Colorado                    0                              10              28
+##   Connecticut                 0                              16              20
+##   Delaware                    0                               4               5
+##   District of Columbia        0                               1               1
+##   Florida                     1                              24              72
+##   Georgia                     0                              35              35
+##   Hawaii                     16                              35               0
+##   Idaho                       1                               0               8
+##   Illinois                    3                              53              75
+##   Indiana                     0                               8              20
+##   Iowa                        0                               4              10
+##   Kansas                      0                               8               6
+##   Kentucky                    0                               4               5
+##   Louisiana                   0                               5               7
+##   Maine                       0                               1               0
+##   Maryland                    1                              12              28
+##   Massachusetts               2                              28              26
+##   Michigan                    1                              23               8
+##   Minnesota                   1                              28              13
+##   Mississippi                 0                               3               2
+##   Missouri                    0                               9               6
+##   Montana                     0                               0               1
+##   Nebraska                    0                               5               6
+##   Nevada                      2                              15              41
+##   New Hampshire               1                               3               1
+##   New Jersey                  2                              65              69
+##   New Mexico                  1                               1              23
+##   New York                    3                              68             154
+##   North Carolina              1                              12              40
+##   North Dakota                0                               0               0
+##   Ohio                        2                              17               7
+##   Oklahoma                    0                               5              15
+##   Oregon                      0                              11              21
+##   Pennsylvania                1                              28              30
+##   Rhode Island                0                               4               6
+##   South Carolina              0                               4               6
+##   South Dakota                1                               1               2
+##   Tennessee                   0                              13              13
+##   Texas                       2                              92             253
+##   Utah                        1                               6              14
+##   Vermont                     0                               0               1
+##   Virginia                    2                              29              29
+##   Washington                  4                              46              37
+##   West Virginia               0                               0               0
+##   Wisconsin                   1                              11              13
+##   Wyoming                     0                               2               2
 ##                       
-##                        Other race, nec Three or more major races
-##   Alabama                            8                         1
-##   Alaska                             2                         0
-##   Arizona                           74                         2
-##   Arkansas                          11                         1
-##   California                       585                        14
-##   Colorado                          28                         1
-##   Connecticut                       20                         1
-##   Delaware                           5                         1
-##   District of Columbia               1                         0
-##   Florida                           72                         2
-##   Georgia                           35                         1
-##   Hawaii                             0                        14
-##   Idaho                              8                         1
-##   Illinois                          75                         2
-##   Indiana                           20                         1
-##   Iowa                              10                         0
-##   Kansas                             6                         0
-##   Kentucky                           5                         1
-##   Louisiana                          7                         0
-##   Maine                              0                         0
-##   Maryland                          28                         1
-##   Massachusetts                     26                         0
-##   Michigan                           8                         2
-##   Minnesota                         13                         1
-##   Mississippi                        2                         2
-##   Missouri                           6                         2
-##   Montana                            1                         0
-##   Nebraska                           6                         0
-##   Nevada                            41                         1
-##   New Hampshire                      1                         0
-##   New Jersey                        69                         3
-##   New Mexico                        23                         1
-##   New York                         154                         8
-##   North Carolina                    40                         2
-##   North Dakota                       0                         0
-##   Ohio                               7                         3
-##   Oklahoma                          15                         3
-##   Oregon                            21                         4
-##   Pennsylvania                      30                         1
-##   Rhode Island                       6                         1
-##   South Carolina                     6                         1
-##   South Dakota                       2                         0
-##   Tennessee                         13                         0
-##   Texas                            253                         2
-##   Utah                              14                         0
-##   Vermont                            1                         0
-##   Virginia                          29                         4
-##   Washington                        37                         2
-##   West Virginia                      0                         0
-##   Wisconsin                         13                         1
-##   Wyoming                            2                         0
-##                       
-##                        Two major races White
-##   Alabama                            8   344
-##   Alaska                            15    37
-##   Arizona                           11   485
-##   Arkansas                           2   247
-##   California                       174  2168
-##   Colorado                          22   401
-##   Connecticut                        7   284
-##   Delaware                           1    66
-##   District of Columbia               2    21
-##   Florida                           42  1435
-##   Georgia                           21   587
-##   Hawaii                            27    39
-##   Idaho                              6   129
-##   Illinois                          35   856
-##   Indiana                            6   514
-##   Iowa                               8   287
-##   Kansas                             8   237
-##   Kentucky                           9   357
-##   Louisiana                          6   273
-##   Maine                              1   117
-##   Maryland                          13   302
-##   Massachusetts                     18   515
-##   Michigan                          23   792
-##   Minnesota                         10   483
-##   Mississippi                        1   167
-##   Missouri                          14   516
-##   Montana                            0    88
-##   Nebraska                           5   155
-##   Nevada                            16   171
-##   New Hampshire                      1   129
-##   New Jersey                        25   589
-##   New Mexico                         6   146
-##   New York                          51  1220
-##   North Carolina                    20   648
-##   North Dakota                       1    46
-##   Ohio                              20   931
-##   Oklahoma                          24   266
-##   Oregon                             9   279
-##   Pennsylvania                      27  1045
-##   Rhode Island                       4    74
-##   South Carolina                     6   325
-##   South Dakota                       2    72
-##   Tennessee                          9   474
-##   Texas                             71  1792
-##   Utah                               8   255
-##   Vermont                            4    59
-##   Virginia                          24   548
-##   Washington                        33   524
-##   West Virginia                      3   168
-##   Wisconsin                          8   497
-##   Wyoming                            2    47</code></pre>
+##                        Three or more major races Two major races White
+##   Alabama                                      1               8   344
+##   Alaska                                       0              15    37
+##   Arizona                                      2              11   485
+##   Arkansas                                     1               2   247
+##   California                                  14             174  2168
+##   Colorado                                     1              22   401
+##   Connecticut                                  1               7   284
+##   Delaware                                     1               1    66
+##   District of Columbia                         0               2    21
+##   Florida                                      2              42  1435
+##   Georgia                                      1              21   587
+##   Hawaii                                      14              27    39
+##   Idaho                                        1               6   129
+##   Illinois                                     2              35   856
+##   Indiana                                      1               6   514
+##   Iowa                                         0               8   287
+##   Kansas                                       0               8   237
+##   Kentucky                                     1               9   357
+##   Louisiana                                    0               6   273
+##   Maine                                        0               1   117
+##   Maryland                                     1              13   302
+##   Massachusetts                                0              18   515
+##   Michigan                                     2              23   792
+##   Minnesota                                    1              10   483
+##   Mississippi                                  2               1   167
+##   Missouri                                     2              14   516
+##   Montana                                      0               0    88
+##   Nebraska                                     0               5   155
+##   Nevada                                       1              16   171
+##   New Hampshire                                0               1   129
+##   New Jersey                                   3              25   589
+##   New Mexico                                   1               6   146
+##   New York                                     8              51  1220
+##   North Carolina                               2              20   648
+##   North Dakota                                 0               1    46
+##   Ohio                                         3              20   931
+##   Oklahoma                                     3              24   266
+##   Oregon                                       4               9   279
+##   Pennsylvania                                 1              27  1045
+##   Rhode Island                                 1               4    74
+##   South Carolina                               1               6   325
+##   South Dakota                                 0               2    72
+##   Tennessee                                    0               9   474
+##   Texas                                        2              71  1792
+##   Utah                                         0               8   255
+##   Vermont                                      0               4    59
+##   Virginia                                     4              24   548
+##   Washington                                   2              33   524
+##   West Virginia                                0               3   168
+##   Wisconsin                                    1               8   497
+##   Wyoming                                      0               2    47</code></pre>
 <p>Another function to make a cross-tab is the <code>xtabs</code> command, which uses formula notation.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>state <span class="op">+</span><span class="st"> </span>race, cen10)</code></pre></div>
 <p>What if we care about proportions within states, rather than counts? Say we’d like to compare the racial composition of a small state (like Delaware) and a large state (like California). In fact, most tasks of inference is about the unobserved population, not the observed data — and proportions are estimates of a quantity in the population.</p>
@@ -915,19 +865,19 @@ grp_race_state</code></pre></div>
 <p>What does the data look like? How do you think it is organized? What does each row represent?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">justice</code></pre></div>
 <pre><code>## # A tibble: 746 x 7
-##     term justice_id justice idealpt idealpt_sd median_idealpt
-##    &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;      &lt;dbl&gt;          &lt;dbl&gt;
-##  1  1937         67 McReyn…   3.44       0.54          -0.568
-##  2  1937         68 Brande…  -0.612      0.271         -0.568
-##  3  1937         71 Suther…   1.59       0.549         -0.568
-##  4  1937         72 Butler    2.06       0.426         -0.568
-##  5  1937         74 Stone    -0.774      0.259         -0.568
-##  6  1937         75 Hughes2  -0.368      0.232         -0.568
-##  7  1937         76 O. Rob…   0.008      0.228         -0.568
-##  8  1937         77 Cardozo  -1.59       0.634         -0.568
-##  9  1937         78 Black    -2.90       0.334         -0.568
-## 10  1937         79 Reed     -1.06       0.342         -0.568
-## # … with 736 more rows, and 1 more variable: median_justice &lt;chr&gt;</code></pre>
+##     term justice_id justice    idealpt idealpt_sd median_idealpt median_justice
+##    &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;      &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;         
+##  1  1937         67 McReynolds   3.44       0.54          -0.568 Brandeis      
+##  2  1937         68 Brandeis    -0.612      0.271         -0.568 Brandeis      
+##  3  1937         71 Sutherland   1.59       0.549         -0.568 Brandeis      
+##  4  1937         72 Butler       2.06       0.426         -0.568 Brandeis      
+##  5  1937         74 Stone       -0.774      0.259         -0.568 Brandeis      
+##  6  1937         75 Hughes2     -0.368      0.232         -0.568 Brandeis      
+##  7  1937         76 O. Roberts   0.008      0.228         -0.568 Brandeis      
+##  8  1937         77 Cardozo     -1.59       0.634         -0.568 Brandeis      
+##  9  1937         78 Black       -2.90       0.334         -0.568 Brandeis      
+## 10  1937         79 Reed        -1.06       0.342         -0.568 Brandeis      
+## # … with 736 more rows</code></pre>
 <p>As you might have guessed, these data can be shown in a time trend from the range of the <code>term</code> variable. As there are only nine justices at any given time and justices have life tenure, there times on the court are staggered. With a common measure of “preference”, we can plot time trends of these justices ideal points on the same y-axis scale.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(justice, <span class="kw">aes</span>(<span class="dt">x =</span> term, <span class="dt">y =</span> idealpt)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_line</span>()</code></pre></div>
@@ -1002,11 +952,13 @@ grp_race_state</code></pre></div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -1014,12 +966,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -1031,6 +982,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
@@ -1050,8 +1005,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

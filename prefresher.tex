@@ -18,16 +18,17 @@
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
 \IfFileExists{microtype.sty}{%
-\usepackage{microtype}
+\usepackage[]{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\usepackage[margin=1.5in]{geometry}
-\usepackage{hyperref}
-\hypersetup{unicode=true,
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+\usepackage[unicode=true]{hyperref}
+\hypersetup{
             pdftitle={Math Prefresher for Political Scientists},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
+\usepackage[margin=1.5in]{geometry}
 \usepackage{natbib}
 \bibliographystyle{apalike}
 \usepackage{color}
@@ -71,6 +72,8 @@
 \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
 \newcommand{\NormalTok}[1]{#1}
 \usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -100,30 +103,10 @@
 \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 
-%%% Use protect on footnotes to avoid problems with footnotes in titles
-\let\rmarkdownfootnote\footnote%
-\def\footnote{\protect\rmarkdownfootnote}
-
-%%% Change title format to be more compact
-\usepackage{titling}
-
-% Create subtitle command for use in maketitle
-\providecommand{\subtitle}[1]{
-  \posttitle{
-    \begin{center}\large#1\end{center}
-    }
-}
-
-\setlength{\droptitle}{-2em}
-
-  \title{Math Prefresher for Political Scientists}
-    \pretitle{\vspace{\droptitle}\centering\huge}
-  \posttitle{\par}
-    \author{}
-    \preauthor{}\postauthor{}
-      \predate{\centering\large\emph}
-  \postdate{\par}
-    \date{August 2019}
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
 
 \usepackage{booktabs}
 
@@ -167,6 +150,10 @@
 
 \urlstyle{tt}
 
+\title{Math Prefresher for Political Scientists}
+\author{}
+\date{\vspace{-2.5em}January 2020}
+
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{lemma}{Lemma}[chapter]
@@ -206,6 +193,13 @@ This booklet serves as the text for the Prefresher, available as a
 \href{https://github.com/IQSS/prefresher/releases}{printable PDF}. It is
 the product of generations of Prefresher instructors. See below for a
 full list of instructors and contributors.
+
+For information about the role of the prefresher (or ``math camp'') as a
+introduction to graduate school, you may also be interested in
+\href{https://gking.harvard.edu/prefresher}{``The Math Prefresher and
+The Collective Future of Political Science Graduate Training''}, in
+\emph{PS: Political Science \& Politics}, by Gary King, Shiro Kuriwaki,
+and Yon Soo Park.
 
 \subsection*{Authors and Contributors}\label{authors-and-contributors}
 \addcontentsline{toc}{subsection}{Authors and Contributors}
@@ -7449,18 +7443,12 @@ Athens.''\footnote{\href{https://press.princeton.edu/titles/8742.html}{Ober,
 What files do we have in the \texttt{data/input} folder?
 
 \begin{verbatim}
-## data/input/Nunn_Wantchekon_AER_2011.dta
-## data/input/Nunn_Wantchekon_sample.dta
-## data/input/acs2015_1percent.csv
-## data/input/gapminder_wide.Rds
-## data/input/gapminder_wide.tab
-## data/input/german_credit.sav
-## data/input/justices_court-median.csv
-## data/input/ober_2018.xlsx
-## data/input/sample_mid.csv
-## data/input/sample_polity.csv
-## data/input/upshot-siena-polls.csv
-## data/input/usc2010_001percent.Rds
+## data/input/Nunn_Wantchekon_AER_2011.dta data/input/Nunn_Wantchekon_sample.dta   
+## data/input/acs2015_1percent.csv         data/input/gapminder_wide.Rds           
+## data/input/gapminder_wide.tab           data/input/german_credit.sav            
+## data/input/justices_court-median.csv    data/input/ober_2018.xlsx               
+## data/input/sample_mid.csv               data/input/sample_polity.csv            
+## data/input/upshot-siena-polls.csv       data/input/usc2010_001percent.Rds       
 ## data/input/usc2010_001percent.csv
 \end{verbatim}
 
@@ -7533,20 +7521,19 @@ checks first to understand what you loaded.
 
 \begin{verbatim}
 ## # A tibble: 1,035 x 10
-##    polis_number Name  Latitude Longitude Hellenicity  Fame Size  Colonies
-##           <dbl> <chr>    <dbl>     <dbl> <chr>       <dbl> <chr>    <dbl>
-##  1            1 Alal~     42.1      9.51 most Greek   1.12 100-~        0
-##  2            2 Empo~     42.1      3.11 most barba~  2.12 25-1~        0
-##  3            3 Mass~     43.3      5.38 most Greek   4    25-1~        2
-##  4            4 Rhode     42.3      3.17 most Greek   0.87 <NA>         0
-##  5            5 Abak~     38.1     15.1  most barba~  1    <NA>         0
-##  6            6 Adra~     37.7     14.8  most Greek   1    <NA>         0
-##  7            7 Agyr~     37.7     14.5  most Greek   1.25 <NA>         0
-##  8            8 Aitna     38.2     15.6  most Greek   3.25 200-~        1
-##  9            9 Akra~     37.3     13.6  most Greek   6.37 500 ~        0
-## 10           10 Akrai     37.1     14.9  most Greek   1.25 <NA>         0
-## # ... with 1,025 more rows, and 2 more variables: Regime <chr>,
-## #   Delian <chr>
+##    polis_number Name  Latitude Longitude Hellenicity  Fame Size  Colonies Regime
+##           <dbl> <chr>    <dbl>     <dbl> <chr>       <dbl> <chr>    <dbl> <chr> 
+##  1            1 Alal~     42.1      9.51 most Greek   1.12 100-~        0 <NA>  
+##  2            2 Empo~     42.1      3.11 most barba~  2.12 25-1~        0 <NA>  
+##  3            3 Mass~     43.3      5.38 most Greek   4    25-1~        2 no ev~
+##  4            4 Rhode     42.3      3.17 most Greek   0.87 <NA>         0 <NA>  
+##  5            5 Abak~     38.1     15.1  most barba~  1    <NA>         0 <NA>  
+##  6            6 Adra~     37.7     14.8  most Greek   1    <NA>         0 <NA>  
+##  7            7 Agyr~     37.7     14.5  most Greek   1.25 <NA>         0 no ev~
+##  8            8 Aitna     38.2     15.6  most Greek   3.25 200-~        1 no ev~
+##  9            9 Akra~     37.3     13.6  most Greek   6.37 500 ~        0 evide~
+## 10           10 Akrai     37.1     14.9  most Greek   1.25 <NA>         0 <NA>  
+## # ... with 1,025 more rows, and 1 more variable: Delian <chr>
 \end{verbatim}
 
 \begin{Shaded}
@@ -8411,37 +8398,32 @@ Each observation is a respondent from the Afrobarometer survey.
 
 \begin{verbatim}
 ## # A tibble: 6 x 59
-##   respno ethnicity murdock_name isocode region district townvill
-##   <chr>  <chr>     <chr>        <chr>   <chr>  <chr>    <chr>   
-## 1 BEN00~ fon       FON          BEN     atlna~ KPOMASSE TOKPA-D~
-## 2 BEN00~ fon       FON          BEN     atlna~ KPOMASSE TOKPA-D~
-## 3 BEN00~ fon       FON          BEN     atlna~ OUIDAH   3ARROND 
-## 4 BEN00~ fon       FON          BEN     atlna~ OUIDAH   3ARROND 
-## 5 BEN00~ fon       FON          BEN     atlna~ OUIDAH   PAHOU   
-## 6 BEN00~ fon       FON          BEN     atlna~ OUIDAH   PAHOU   
-## # ... with 52 more variables: location_id <dbl>, trust_relatives <dbl>,
-## #   trust_neighbors <dbl>, intra_group_trust <dbl>,
-## #   inter_group_trust <dbl>, trust_local_council <dbl>,
-## #   ln_export_area <dbl>, export_area <dbl>, export_pop <dbl>,
-## #   ln_export_pop <dbl>, age <dbl>, age2 <dbl>, male <dbl>,
-## #   urban_dum <dbl>, occupation <dbl>, religion <dbl>,
-## #   living_conditions <dbl>, education <dbl>, near_dist <dbl>,
-## #   distsea <dbl>, loc_murdock_name <chr>, loc_ln_export_area <dbl>,
-## #   local_council_performance <dbl>, council_listen <dbl>,
-## #   corrupt_local_council <dbl>, school_present <dbl>,
-## #   electricity_present <dbl>, piped_water_present <dbl>,
-## #   sewage_present <dbl>, health_clinic_present <dbl>,
-## #   district_ethnic_frac <dbl>, frac_ethnicity_in_district <dbl>,
-## #   townvill_nonethnic_mean_exports <dbl>,
-## #   district_nonethnic_mean_exports <dbl>,
-## #   region_nonethnic_mean_exports <dbl>,
+##   respno ethnicity murdock_name isocode region district townvill location_id
+##   <chr>  <chr>     <chr>        <chr>   <chr>  <chr>    <chr>          <dbl>
+## 1 BEN00~ fon       FON          BEN     atlna~ KPOMASSE TOKPA-D~          30
+## 2 BEN00~ fon       FON          BEN     atlna~ KPOMASSE TOKPA-D~          30
+## 3 BEN00~ fon       FON          BEN     atlna~ OUIDAH   3ARROND           31
+## 4 BEN00~ fon       FON          BEN     atlna~ OUIDAH   3ARROND           31
+## 5 BEN00~ fon       FON          BEN     atlna~ OUIDAH   PAHOU             32
+## 6 BEN00~ fon       FON          BEN     atlna~ OUIDAH   PAHOU             32
+## # ... with 51 more variables: trust_relatives <dbl>, trust_neighbors <dbl>,
+## #   intra_group_trust <dbl>, inter_group_trust <dbl>,
+## #   trust_local_council <dbl>, ln_export_area <dbl>, export_area <dbl>,
+## #   export_pop <dbl>, ln_export_pop <dbl>, age <dbl>, age2 <dbl>, male <dbl>,
+## #   urban_dum <dbl>, occupation <dbl>, religion <dbl>, living_conditions <dbl>,
+## #   education <dbl>, near_dist <dbl>, distsea <dbl>, loc_murdock_name <chr>,
+## #   loc_ln_export_area <dbl>, local_council_performance <dbl>,
+## #   council_listen <dbl>, corrupt_local_council <dbl>, school_present <dbl>,
+## #   electricity_present <dbl>, piped_water_present <dbl>, sewage_present <dbl>,
+## #   health_clinic_present <dbl>, district_ethnic_frac <dbl>,
+## #   frac_ethnicity_in_district <dbl>, townvill_nonethnic_mean_exports <dbl>,
+## #   district_nonethnic_mean_exports <dbl>, region_nonethnic_mean_exports <dbl>,
 ## #   country_nonethnic_mean_exports <dbl>, murdock_centr_dist_coast <dbl>,
 ## #   centroid_lat <dbl>, centroid_long <dbl>, explorer_contact <dbl>,
-## #   railway_contact <dbl>, dist_Saharan_node <dbl>,
-## #   dist_Saharan_line <dbl>, malaria_ecology <dbl>, v30 <dbl+lbl>,
-## #   v33 <dbl+lbl>, fishing <dbl>, exports <dbl>, ln_exports <dbl>,
-## #   total_missions_area <dbl>, ln_init_pop_density <dbl>,
-## #   cities_1400_dum <dbl>
+## #   railway_contact <dbl>, dist_Saharan_node <dbl>, dist_Saharan_line <dbl>,
+## #   malaria_ecology <dbl>, v30 <dbl+lbl>, v33 <dbl+lbl>, fishing <dbl>,
+## #   exports <dbl>, ln_exports <dbl>, total_missions_area <dbl>,
+## #   ln_init_pop_density <dbl>, cities_1400_dum <dbl>
 \end{verbatim}
 
 \begin{Shaded}
@@ -8570,7 +8552,7 @@ whereas --- in a matrix --- all columns must be of the same type
 
 \begin{verbatim}
 ##    user  system elapsed 
-##   0.312   0.040   0.352
+##   0.243   0.000   0.242
 \end{verbatim}
 
 \begin{Shaded}
@@ -8581,7 +8563,7 @@ whereas --- in a matrix --- all columns must be of the same type
 
 \begin{verbatim}
 ##    user  system elapsed 
-##   3.389   0.024   3.413
+##   2.738   0.016   2.754
 \end{verbatim}
 
 \section{\texorpdfstring{Handling matricies in
@@ -8652,8 +8634,8 @@ What are all the values of ``exports''? (i.e.~return the whole
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   0.3883497   0.6311236   0.9941893 182.5891266   0.0000000
-##  [6]   0.0000000 665.9652100   0.3476418   0.4349871   0.0000000
+##  [1]   0.3883497   0.6311236   0.9941893 182.5891266   0.0000000   0.0000000
+##  [7] 665.9652100   0.3476418   0.4349871   0.0000000
 \end{verbatim}
 
 What is the first observation (i.e.~first row)?
@@ -8665,10 +8647,8 @@ What is the first observation (i.e.~first row)?
 \end{Shaded}
 
 \begin{verbatim}
-## trust_neighbors         exports      ln_exports     export_area 
-##     3.000000000     0.388349682     0.328115761     0.004067405 
-##  ln_export_area 
-##     0.004059155
+## trust_neighbors         exports      ln_exports     export_area  ln_export_area 
+##     3.000000000     0.388349682     0.328115761     0.004067405     0.004059155
 \end{verbatim}
 
 What is the value of the first variable of the first observation?
@@ -8779,28 +8759,17 @@ Some more manipulation
 \end{Shaded}
 
 \begin{verbatim}
-##       trust_neighbors     exports ln_exports  export_area ln_export_area
-##  [1,]               3   0.3883497  0.3281158  0.004067405    0.004059155
-##  [2,]               3   0.6311236  0.4892691  0.097059444    0.092633367
-##  [3,]               3   0.9941893  0.6902376  0.012524694    0.012446908
-##  [4,]               0 182.5891266  5.2127004  1.824284434    1.038255095
-##  [5,]               3   0.0000000  0.0000000  0.000000000    0.000000000
-##  [6,]               2   0.0000000  0.0000000  0.000000000    0.000000000
-##  [7,]               2 665.9652100  6.5027380 13.975566864    2.706419945
-##  [8,]               0   0.3476418  0.2983562  0.006082553    0.006064130
-##  [9,]               3   0.4349871  0.3611559  0.038332380    0.037615947
-## [10,]               3   0.0000000  0.0000000  0.000000000    0.000000000
-##         
-##  [1,]  1
-##  [2,]  2
-##  [3,]  3
-##  [4,]  4
-##  [5,]  5
-##  [6,]  6
-##  [7,]  7
-##  [8,]  8
-##  [9,]  9
-## [10,] 10
+##       trust_neighbors     exports ln_exports  export_area ln_export_area   
+##  [1,]               3   0.3883497  0.3281158  0.004067405    0.004059155  1
+##  [2,]               3   0.6311236  0.4892691  0.097059444    0.092633367  2
+##  [3,]               3   0.9941893  0.6902376  0.012524694    0.012446908  3
+##  [4,]               0 182.5891266  5.2127004  1.824284434    1.038255095  4
+##  [5,]               3   0.0000000  0.0000000  0.000000000    0.000000000  5
+##  [6,]               2   0.0000000  0.0000000  0.000000000    0.000000000  6
+##  [7,]               2 665.9652100  6.5027380 13.975566864    2.706419945  7
+##  [8,]               0   0.3476418  0.2983562  0.006082553    0.006064130  8
+##  [9,]               3   0.4349871  0.3611559  0.038332380    0.037615947  9
+## [10,]               3   0.0000000  0.0000000  0.000000000    0.000000000 10
 \end{verbatim}
 
 \begin{Shaded}
@@ -10662,217 +10631,164 @@ powerful tool to show the relationship between multiple variables.
 
 \begin{verbatim}
 ##                       
-##                        American Indian or Alaska Native Black/Negro
-##   Alabama                                             2         128
-##   Alaska                                             11           6
-##   Arizona                                            28          23
-##   Arkansas                                            1          45
-##   California                                         42         253
-##   Colorado                                            7          26
-##   Connecticut                                         1          39
-##   Delaware                                            3          28
-##   District of Columbia                                0          35
-##   Florida                                             9         304
-##   Georgia                                             2         304
-##   Hawaii                                              0           0
-##   Idaho                                               2           0
-##   Illinois                                            5         194
-##   Indiana                                             2          66
-##   Iowa                                                0           9
-##   Kansas                                              2          24
-##   Kentucky                                            2          35
-##   Louisiana                                           3         161
-##   Maine                                               0           4
-##   Maryland                                            2         177
-##   Massachusetts                                       5          38
-##   Michigan                                            5         147
-##   Minnesota                                           6          25
-##   Mississippi                                         1         116
-##   Missouri                                            4          74
-##   Montana                                             8           0
-##   Nebraska                                            2          11
-##   Nevada                                              6          15
-##   New Hampshire                                       1           1
-##   New Jersey                                          0         130
-##   New Mexico                                         21           3
-##   New York                                           13         305
-##   North Carolina                                     12         220
-##   North Dakota                                        4           1
-##   Ohio                                                1         122
-##   Oklahoma                                           21          20
-##   Oregon                                              5           5
-##   Pennsylvania                                        2         156
-##   Rhode Island                                        2           3
-##   South Carolina                                      2         120
-##   South Dakota                                        7           1
-##   Tennessee                                           0          97
-##   Texas                                              14         316
-##   Utah                                                8           0
-##   Vermont                                             0           2
-##   Virginia                                            0         171
-##   Washington                                         14          20
-##   West Virginia                                       0           5
-##   Wisconsin                                           6          27
-##   Wyoming                                             1           1
+##                        American Indian or Alaska Native Black/Negro Chinese
+##   Alabama                                             2         128       1
+##   Alaska                                             11           6       0
+##   Arizona                                            28          23       1
+##   Arkansas                                            1          45       0
+##   California                                         42         253     141
+##   Colorado                                            7          26       3
+##   Connecticut                                         1          39       7
+##   Delaware                                            3          28       1
+##   District of Columbia                                0          35       0
+##   Florida                                             9         304       4
+##   Georgia                                             2         304       5
+##   Hawaii                                              0           0       2
+##   Idaho                                               2           0       0
+##   Illinois                                            5         194       6
+##   Indiana                                             2          66       3
+##   Iowa                                                0           9       1
+##   Kansas                                              2          24       2
+##   Kentucky                                            2          35       2
+##   Louisiana                                           3         161       1
+##   Maine                                               0           4       1
+##   Maryland                                            2         177       4
+##   Massachusetts                                       5          38      15
+##   Michigan                                            5         147       8
+##   Minnesota                                           6          25       5
+##   Mississippi                                         1         116       0
+##   Missouri                                            4          74       2
+##   Montana                                             8           0       0
+##   Nebraska                                            2          11       0
+##   Nevada                                              6          15       6
+##   New Hampshire                                       1           1       1
+##   New Jersey                                          0         130      19
+##   New Mexico                                         21           3       1
+##   New York                                           13         305      55
+##   North Carolina                                     12         220       4
+##   North Dakota                                        4           1       0
+##   Ohio                                                1         122       5
+##   Oklahoma                                           21          20       0
+##   Oregon                                              5           5       4
+##   Pennsylvania                                        2         156      10
+##   Rhode Island                                        2           3       0
+##   South Carolina                                      2         120       1
+##   South Dakota                                        7           1       0
+##   Tennessee                                           0          97       0
+##   Texas                                              14         316      15
+##   Utah                                                8           0       1
+##   Vermont                                             0           2       0
+##   Virginia                                            0         171       8
+##   Washington                                         14          20       9
+##   West Virginia                                       0           5       0
+##   Wisconsin                                           6          27       0
+##   Wyoming                                             1           1       0
 ##                       
-##                        Chinese Japanese Other Asian or Pacific Islander
-##   Alabama                    1        0                               3
-##   Alaska                     0        0                               5
-##   Arizona                    1        0                              12
-##   Arkansas                   0        0                               1
-##   California               141       27                             359
-##   Colorado                   3        0                              10
-##   Connecticut                7        0                              16
-##   Delaware                   1        0                               4
-##   District of Columbia       0        0                               1
-##   Florida                    4        1                              24
-##   Georgia                    5        0                              35
-##   Hawaii                     2       16                              35
-##   Idaho                      0        1                               0
-##   Illinois                   6        3                              53
-##   Indiana                    3        0                               8
-##   Iowa                       1        0                               4
-##   Kansas                     2        0                               8
-##   Kentucky                   2        0                               4
-##   Louisiana                  1        0                               5
-##   Maine                      1        0                               1
-##   Maryland                   4        1                              12
-##   Massachusetts             15        2                              28
-##   Michigan                   8        1                              23
-##   Minnesota                  5        1                              28
-##   Mississippi                0        0                               3
-##   Missouri                   2        0                               9
-##   Montana                    0        0                               0
-##   Nebraska                   0        0                               5
-##   Nevada                     6        2                              15
-##   New Hampshire              1        1                               3
-##   New Jersey                19        2                              65
-##   New Mexico                 1        1                               1
-##   New York                  55        3                              68
-##   North Carolina             4        1                              12
-##   North Dakota               0        0                               0
-##   Ohio                       5        2                              17
-##   Oklahoma                   0        0                               5
-##   Oregon                     4        0                              11
-##   Pennsylvania              10        1                              28
-##   Rhode Island               0        0                               4
-##   South Carolina             1        0                               4
-##   South Dakota               0        1                               1
-##   Tennessee                  0        0                              13
-##   Texas                     15        2                              92
-##   Utah                       1        1                               6
-##   Vermont                    0        0                               0
-##   Virginia                   8        2                              29
-##   Washington                 9        4                              46
-##   West Virginia              0        0                               0
-##   Wisconsin                  0        1                              11
-##   Wyoming                    0        0                               2
+##                        Japanese Other Asian or Pacific Islander Other race, nec
+##   Alabama                     0                               3               8
+##   Alaska                      0                               5               2
+##   Arizona                     0                              12              74
+##   Arkansas                    0                               1              11
+##   California                 27                             359             585
+##   Colorado                    0                              10              28
+##   Connecticut                 0                              16              20
+##   Delaware                    0                               4               5
+##   District of Columbia        0                               1               1
+##   Florida                     1                              24              72
+##   Georgia                     0                              35              35
+##   Hawaii                     16                              35               0
+##   Idaho                       1                               0               8
+##   Illinois                    3                              53              75
+##   Indiana                     0                               8              20
+##   Iowa                        0                               4              10
+##   Kansas                      0                               8               6
+##   Kentucky                    0                               4               5
+##   Louisiana                   0                               5               7
+##   Maine                       0                               1               0
+##   Maryland                    1                              12              28
+##   Massachusetts               2                              28              26
+##   Michigan                    1                              23               8
+##   Minnesota                   1                              28              13
+##   Mississippi                 0                               3               2
+##   Missouri                    0                               9               6
+##   Montana                     0                               0               1
+##   Nebraska                    0                               5               6
+##   Nevada                      2                              15              41
+##   New Hampshire               1                               3               1
+##   New Jersey                  2                              65              69
+##   New Mexico                  1                               1              23
+##   New York                    3                              68             154
+##   North Carolina              1                              12              40
+##   North Dakota                0                               0               0
+##   Ohio                        2                              17               7
+##   Oklahoma                    0                               5              15
+##   Oregon                      0                              11              21
+##   Pennsylvania                1                              28              30
+##   Rhode Island                0                               4               6
+##   South Carolina              0                               4               6
+##   South Dakota                1                               1               2
+##   Tennessee                   0                              13              13
+##   Texas                       2                              92             253
+##   Utah                        1                               6              14
+##   Vermont                     0                               0               1
+##   Virginia                    2                              29              29
+##   Washington                  4                              46              37
+##   West Virginia               0                               0               0
+##   Wisconsin                   1                              11              13
+##   Wyoming                     0                               2               2
 ##                       
-##                        Other race, nec Three or more major races
-##   Alabama                            8                         1
-##   Alaska                             2                         0
-##   Arizona                           74                         2
-##   Arkansas                          11                         1
-##   California                       585                        14
-##   Colorado                          28                         1
-##   Connecticut                       20                         1
-##   Delaware                           5                         1
-##   District of Columbia               1                         0
-##   Florida                           72                         2
-##   Georgia                           35                         1
-##   Hawaii                             0                        14
-##   Idaho                              8                         1
-##   Illinois                          75                         2
-##   Indiana                           20                         1
-##   Iowa                              10                         0
-##   Kansas                             6                         0
-##   Kentucky                           5                         1
-##   Louisiana                          7                         0
-##   Maine                              0                         0
-##   Maryland                          28                         1
-##   Massachusetts                     26                         0
-##   Michigan                           8                         2
-##   Minnesota                         13                         1
-##   Mississippi                        2                         2
-##   Missouri                           6                         2
-##   Montana                            1                         0
-##   Nebraska                           6                         0
-##   Nevada                            41                         1
-##   New Hampshire                      1                         0
-##   New Jersey                        69                         3
-##   New Mexico                        23                         1
-##   New York                         154                         8
-##   North Carolina                    40                         2
-##   North Dakota                       0                         0
-##   Ohio                               7                         3
-##   Oklahoma                          15                         3
-##   Oregon                            21                         4
-##   Pennsylvania                      30                         1
-##   Rhode Island                       6                         1
-##   South Carolina                     6                         1
-##   South Dakota                       2                         0
-##   Tennessee                         13                         0
-##   Texas                            253                         2
-##   Utah                              14                         0
-##   Vermont                            1                         0
-##   Virginia                          29                         4
-##   Washington                        37                         2
-##   West Virginia                      0                         0
-##   Wisconsin                         13                         1
-##   Wyoming                            2                         0
-##                       
-##                        Two major races White
-##   Alabama                            8   344
-##   Alaska                            15    37
-##   Arizona                           11   485
-##   Arkansas                           2   247
-##   California                       174  2168
-##   Colorado                          22   401
-##   Connecticut                        7   284
-##   Delaware                           1    66
-##   District of Columbia               2    21
-##   Florida                           42  1435
-##   Georgia                           21   587
-##   Hawaii                            27    39
-##   Idaho                              6   129
-##   Illinois                          35   856
-##   Indiana                            6   514
-##   Iowa                               8   287
-##   Kansas                             8   237
-##   Kentucky                           9   357
-##   Louisiana                          6   273
-##   Maine                              1   117
-##   Maryland                          13   302
-##   Massachusetts                     18   515
-##   Michigan                          23   792
-##   Minnesota                         10   483
-##   Mississippi                        1   167
-##   Missouri                          14   516
-##   Montana                            0    88
-##   Nebraska                           5   155
-##   Nevada                            16   171
-##   New Hampshire                      1   129
-##   New Jersey                        25   589
-##   New Mexico                         6   146
-##   New York                          51  1220
-##   North Carolina                    20   648
-##   North Dakota                       1    46
-##   Ohio                              20   931
-##   Oklahoma                          24   266
-##   Oregon                             9   279
-##   Pennsylvania                      27  1045
-##   Rhode Island                       4    74
-##   South Carolina                     6   325
-##   South Dakota                       2    72
-##   Tennessee                          9   474
-##   Texas                             71  1792
-##   Utah                               8   255
-##   Vermont                            4    59
-##   Virginia                          24   548
-##   Washington                        33   524
-##   West Virginia                      3   168
-##   Wisconsin                          8   497
-##   Wyoming                            2    47
+##                        Three or more major races Two major races White
+##   Alabama                                      1               8   344
+##   Alaska                                       0              15    37
+##   Arizona                                      2              11   485
+##   Arkansas                                     1               2   247
+##   California                                  14             174  2168
+##   Colorado                                     1              22   401
+##   Connecticut                                  1               7   284
+##   Delaware                                     1               1    66
+##   District of Columbia                         0               2    21
+##   Florida                                      2              42  1435
+##   Georgia                                      1              21   587
+##   Hawaii                                      14              27    39
+##   Idaho                                        1               6   129
+##   Illinois                                     2              35   856
+##   Indiana                                      1               6   514
+##   Iowa                                         0               8   287
+##   Kansas                                       0               8   237
+##   Kentucky                                     1               9   357
+##   Louisiana                                    0               6   273
+##   Maine                                        0               1   117
+##   Maryland                                     1              13   302
+##   Massachusetts                                0              18   515
+##   Michigan                                     2              23   792
+##   Minnesota                                    1              10   483
+##   Mississippi                                  2               1   167
+##   Missouri                                     2              14   516
+##   Montana                                      0               0    88
+##   Nebraska                                     0               5   155
+##   Nevada                                       1              16   171
+##   New Hampshire                                0               1   129
+##   New Jersey                                   3              25   589
+##   New Mexico                                   1               6   146
+##   New York                                     8              51  1220
+##   North Carolina                               2              20   648
+##   North Dakota                                 0               1    46
+##   Ohio                                         3              20   931
+##   Oklahoma                                     3              24   266
+##   Oregon                                       4               9   279
+##   Pennsylvania                                 1              27  1045
+##   Rhode Island                                 1               4    74
+##   South Carolina                               1               6   325
+##   South Dakota                                 0               2    72
+##   Tennessee                                    0               9   474
+##   Texas                                        2              71  1792
+##   Utah                                         0               8   255
+##   Vermont                                      0               4    59
+##   Virginia                                     4              24   548
+##   Washington                                   2              33   524
+##   West Virginia                                0               3   168
+##   Wisconsin                                    1               8   497
+##   Wyoming                                      0               2    47
 \end{verbatim}
 
 Another function to make a cross-tab is the \texttt{xtabs} command,
@@ -10980,19 +10896,19 @@ does each row represent?
 
 \begin{verbatim}
 ## # A tibble: 746 x 7
-##     term justice_id justice idealpt idealpt_sd median_idealpt
-##    <dbl>      <dbl> <chr>     <dbl>      <dbl>          <dbl>
-##  1  1937         67 McReyn~   3.44       0.54          -0.568
-##  2  1937         68 Brande~  -0.612      0.271         -0.568
-##  3  1937         71 Suther~   1.59       0.549         -0.568
-##  4  1937         72 Butler    2.06       0.426         -0.568
-##  5  1937         74 Stone    -0.774      0.259         -0.568
-##  6  1937         75 Hughes2  -0.368      0.232         -0.568
-##  7  1937         76 O. Rob~   0.008      0.228         -0.568
-##  8  1937         77 Cardozo  -1.59       0.634         -0.568
-##  9  1937         78 Black    -2.90       0.334         -0.568
-## 10  1937         79 Reed     -1.06       0.342         -0.568
-## # ... with 736 more rows, and 1 more variable: median_justice <chr>
+##     term justice_id justice    idealpt idealpt_sd median_idealpt median_justice
+##    <dbl>      <dbl> <chr>        <dbl>      <dbl>          <dbl> <chr>         
+##  1  1937         67 McReynolds   3.44       0.54          -0.568 Brandeis      
+##  2  1937         68 Brandeis    -0.612      0.271         -0.568 Brandeis      
+##  3  1937         71 Sutherland   1.59       0.549         -0.568 Brandeis      
+##  4  1937         72 Butler       2.06       0.426         -0.568 Brandeis      
+##  5  1937         74 Stone       -0.774      0.259         -0.568 Brandeis      
+##  6  1937         75 Hughes2     -0.368      0.232         -0.568 Brandeis      
+##  7  1937         76 O. Roberts   0.008      0.228         -0.568 Brandeis      
+##  8  1937         77 Cardozo     -1.59       0.634         -0.568 Brandeis      
+##  9  1937         78 Black       -2.90       0.334         -0.568 Brandeis      
+## 10  1937         79 Reed        -1.06       0.342         -0.568 Brandeis      
+## # ... with 736 more rows
 \end{verbatim}
 
 As you might have guessed, these data can be shown in a time trend from
@@ -11433,6 +11349,15 @@ Reshape the dataset long to wide
                   \DataTypeTok{value.var =} \StringTok{"polity2"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## Warning in dcast(data = p_m, formula = ccode ~ year, value.var = "polity2"): The
+## dcast generic in data.table has been passed a spec_tbl_df and will attempt to
+## redirect to the reshape2::dcast; please note that reshape2 is deprecated, and
+## this redirection is now deprecated as well. Please do this redirection yourself
+## like reshape2::dcast(p_m). In the next version, this warning will become an
+## error.
+\end{verbatim}
 
 \section{Main Project}\label{main-project}
 
@@ -14413,6 +14338,5 @@ Simulation}\label{chapter-refsimulation-simulation}
 \KeywordTok{mean}\NormalTok{(ests)}
 \end{Highlighting}
 \end{Shaded}
-
 
 \end{document}
