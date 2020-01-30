@@ -4,7 +4,7 @@
 ```{r, include = FALSE}
 library(ggplot2)
 library(tibble)
-library(gridExtra)
+library(patchwork)
 ```
 
 To optimize, we use derivatives and calculus. Optimization is to find the maximum or minimum of a functon, and to find what value of an input gives that extremum. This has obvious uses in engineering. Many tools in the statistical toolkit use optimization. One of the most common ways of estimating a model is through "Maximum Likelihood Estimation", done via optimizing a function (the likelihood). 
@@ -112,7 +112,7 @@ fx <- fx0 +
 fprimex <- fx0 + stat_function(fun = function(x) 2*x, size = 0.5, linetype = "dashed") +
   labs(x = expression(x), y = expression(f~plain("'")~(x)))
 
-grid.arrange(fx, fprimex, nrow = 1)
+fx + fprimex + plot_layout(nrow = 1)
 ```
 
 
@@ -202,7 +202,7 @@ fx2 <- ggplot(range1, aes(x = x)) +
   stat_function(fun = function(x) x^2, size = 0.5) +
   labs(y = expression(f(x)), title = "Convex")
 
-grid.arrange(fx1, fx2, nrow = 1)
+fx1 + fx2 + plot_layout(nrow = 1)
 ```
 
 

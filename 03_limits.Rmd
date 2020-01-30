@@ -5,7 +5,7 @@ library(ggplot2)
 library(tibble)
 library(scales)
 library(glue)
-library(gridExtra)
+library(patchwork)
 ```
 
 
@@ -95,7 +95,7 @@ gA <- g0 + labs(y = expression(A[n]))
 gB <- g0 + aes(y = B) + labs(y = expression(B[n]))
 gC <- g0 + aes(y = C) + labs(y = expression(C[n]))
 
-grid.arrange(gA, gB, gC, nrow = 1)
+gA + gB + gC + plot_layout(nrow = 1)
 
 ```
 
@@ -246,7 +246,7 @@ fx2 <-
   stat_function(fun = function(x) ifelse(x == 0, NA, 1/x), size = 0.5) +
   labs(x = expression(x), y = expression(f(x)), title = expression(f(x)==frac(1,x)))
 
-grid.arrange(fx1, fx2, nrow = 1)
+fx1 + fx2 + plot_layout(nrow = 1)
 ```
 
 
@@ -306,7 +306,7 @@ fx4 <- ggplot(range4, aes(x = x)) +
 
 
 
-grid.arrange(fx1, fx2, fx3, fx4, ncol = 2)
+fx1 + fx2 + fx3 + fx4 + plot_layout(ncol = 2)
 ```
 
 
