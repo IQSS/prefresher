@@ -17,7 +17,7 @@ The [__Harvard Gov Prefresher__](https://projects.iq.harvard.edu/prefresher) is 
 
 This booklet serves as the text for the Prefresher, available as a [webpage](https://iqss.github.io/prefresher/) and as a [printable PDF](https://github.com/IQSS/prefresher/releases). It is the product of generations of Prefresher instructors. See below for a full list of instructors and contributors. 
 
-
+For information about the role of the prefresher (or "math camp") as a introduction to graduate school, you  may also be interested in ["The Math Prefresher and The Collective Future of Political Science Graduate Training"](https://gking.harvard.edu/prefresher), in _PS: Political Science & Politics_, by Gary King, Shiro Kuriwaki, and Yon Soo Park.
 
 
 ### Authors and Contributors {-}
