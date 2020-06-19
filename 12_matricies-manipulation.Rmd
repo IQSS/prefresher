@@ -23,7 +23,246 @@ Today we'll cover
 * And other `R` tips
 
 
-## Basics - Matrices
+## Motivation
+
+[Nunn and Wantchekon (2011)](https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf) --  "The Slave Trade and the Origins of Mistrust in Africa"^[[Nunn, Nathan, and Leonard Wantchekon. 2011. “The Slave Trade and the Origins of Mistrust in Africa.” American Economic Review 101(7): 3221–52.](https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf)] --  argues that across African countries, the distrust of co-ethnics fueled by the slave trade has had long-lasting effects on modern day trust in these territories. They argued that the slave trade created distrust in these societies in part because as some African groups were employed by European traders to capture their neighbors and bring them to the slave ships.
+
+Nunn and Wantchekon use a variety of statistical tools to make their case (adding controls, ordered logit, instrumental variables, falsification tests, causal mechanisms), many of which will be covered in future courses. In this module we will only touch on their first set of analysis that use Ordinary Least Squares (OLS). OLS is likely the most common application of linear algebra in the social sciences. We will cover some linear algebra, matrix manipulation, and vector manipulation from this data. 
+
+
+
+## Read Data
+
+
+```{r}
+library(haven)
+nunn_full <- read_dta("data/input/Nunn_Wantchekon_AER_2011.dta")
+```
+
+
+Nunn and Wantchekon's main dataset has more than 20,000 observations. Each observation is a respondent from the Afrobarometer survey.
+```{r}
+head(nunn_full)
+colnames(nunn_full)
+```
+
+
+
+First, let's consider a small subset of this dataset. 
+```{r, include = FALSE, eval = FALSE}
+set.seed(02138)
+sample <- sample_n(nunn_full, 10)
+sample <- select(sample, trust_neighbors, exports, ln_exports, export_area, ln_export_area)
+write_dta(sample, "data/input/Nunn_Wantchekon_sample.dta")
+```
+
+```{r}
+nunn <- read_dta("data/input/Nunn_Wantchekon_sample.dta")
+```
+
+```{r}
+nunn
+```
+
+
+
+## data.frame vs. matricies
+This is a `data.frame` object. 
+```{r}
+class(nunn)
+```
+
+
+But it can be also consider a matrix in the linear algebra sense. What are the dimensions of this matrix?
+```{r}
+nrow(nunn)
+```
+
+`data.frame`s and matrices have much overlap in `R`, but to explicitly treat an object as a matrix, you'd need to coerce its class. Let's call this matrix `X`.
+
+```{r}
+X <- as.matrix(nunn)
+```
+
+
+What is the difference between a `data.frame` and a matrix? A `data.frame` can have columns that are of different types, whereas --- in a matrix --- all columns must be of the same type (usually either "numeric" or "character").
+
+## Speed considerations 
+```{r}
+Nrow <- 100
+Ncol <- 5
+Xmat <- matrix(rnorm(Nrow * Ncol), nrow = Nrow, ncol = Ncol)
+Xdf <- as.data.frame(Xmat)
+
+system.time(replicate(50000, colMeans(Xmat)))
+system.time(replicate(50000, colMeans(Xdf)))
+```
+
+
+You can think of data frames maybe as matrices-plus, because a column can take on characters as well as numbers. As we just saw, this is often useful for real data analyses.
+```{r}
+cen10
+```
+
+
+Another way to think about data frames is that it is a type of list. Try the `str()` code below and notice how it is organized in slots. Each slot is a vector. They can be vectors of numbers or characters.
+```{r, eval = FALSE}
+# enter this on your console
+str(cen10)
+```
+
+
+
+
+
+## Handling matricies in `R`
+
+You can easily transpose a matrix
+```{r}
+X
+t(X)
+```
+
+
+What are the values of all rows in the first column? 
+```{r}
+X[, 1]
+```
+
+What are all the values of "exports"? (i.e. return the whole "exports" column)
+```{r}
+X[, "exports"]
+```
+
+What is the first observation (i.e. first row)?
+```{r}
+X[1, ]
+```
+
+What is the value of the first variable of the first observation?
+```{r}
+X[1, 1]
+```
+
+Pause and consider the following problem on your own. What is the following code doing? 
+```{r}
+X[X[, "trust_neighbors"] == 0, "export_area"]
+```
+Why does it give the same output as the following? 
+```{r}
+X[which(X[, "trust_neighbors"] == 0), "export_area"]
+```
+
+
+
+Some more manipulation 
+```{r}
+X + X
+```
+
+```{r}
+X - X
+```
+
+```{r}
+t(X) %*% X
+```
+
+```{r}
+cbind(X, 1:10)
+```
+
+```{r}
+cbind(X, 1)
+```
+
+
+```{r}
+colnames(X)
+```
+
+
+## Variable Transformations
+
+`exports` is the total number of slaves that were taken from the individual's ethnic group between Africa's four slave trades between 1400-1900. 
+
+What is `ln_exports`? The article describes this as the natural log of one plus the `exports`. This is a transformation of one column by a particular function
+
+```{r}
+log(1 + X[, "exports"])
+```
+Question for you: why add the 1? 
+
+Verify that this is the same as `X[, "ln_exports"]`
+
+
+## Linear Combinations
+
+In Table 1 we see "OLS Estimates". These are estimates of OLS coefficients and standard errors. You do not need to know what these are for now, but it doesn't hurt to getting used to seeing them. 
+
+![](images/nunn_wantchekon_table1.png)
+
+A very crude way to describe regression is through linear combinations. The simplest linear combination is a one-to-one transformation.
+
+Take the first number in Table 1, which is -0.00068. Now, multiply this by `exports`
+
+```{r}
+-0.00068 * X[, "exports"]
+```
+
+
+Now, just one more step. Make a new matrix with just exports and the value 1
+```{r}
+X2 <- cbind(1, X[, "exports"])
+```
+
+name this new column "intercept"
+
+```{r}
+colnames(X2)
+```
+
+```{r}
+colnames(X2) <- c("intercept", "exports")
+```
+
+
+What are the dimensions of the matrix `X2`?
+```{r}
+dim(X2)
+```
+
+
+Now consider a new matrix, called `B`.
+
+```{r}
+B <- matrix(c(1.62, -0.00068))
+```
+
+What are the dimensions of `B`?
+```{r}
+dim(B)
+```
+
+
+What is the product of `X2` and `B`? From the dimensions, can you tell if it will be conformable?
+```{r}
+X2 %*% B
+```
+
+What is this multiplication doing in terms of equations?
+
+
+```{r, echo = FALSE, eval = FALSE}
+## FYI regression in Table 1 (without cluster SEs)
+
+form <- "trust_neighbors ~ exports + age + age2 +  male + urban_dum + factor(education) + factor(occupation) + factor(religion) + factor(living_conditions) + district_ethnic_frac + frac_ethnicity_in_district + isocode"
+lm_1_1 <- lm(as.formula(form), nunn_full)
+summary(lm_1_1)
+```
+
+
+## Matrix Basics
 
 
 Let's take a look at Matrices in the context of R
@@ -176,242 +415,6 @@ Get all the serial numbers for black, male individuals who don't live in Ohio or
 ```{r}
 # Enter here
 ```
-
-
-### data frames
-You can think of data frames maybe as matrices-plus, because a column can take on characters as well as numbers. As we just saw, this is often useful for real data analyses.
-```{r}
-cen10
-```
-
-
-Another way to think about data frames is that it is a type of list. Try the `str()` code below and notice how it is organized in slots. Each slot is a vector. They can be vectors of numbers or characters.
-```{r, eval = FALSE}
-# enter this on your console
-str(cen10)
-```
-
-## Motivation
-
-[Nunn and Wantchekon (2011)](https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf) --  "The Slave Trade and the Origins of Mistrust in Africa"^[[Nunn, Nathan, and Leonard Wantchekon. 2011. “The Slave Trade and the Origins of Mistrust in Africa.” American Economic Review 101(7): 3221–52.](https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf)] --  argues that across African countries, the distrust of co-ethnics fueled by the slave trade has had long-lasting effects on modern day trust in these territories. They argued that the slave trade created distrust in these societies in part because as some African groups were employed by European traders to capture their neighbors and bring them to the slave ships.
-
-Nunn and Wantchekon use a variety of statistical tools to make their case (adding controls, ordered logit, instrumental variables, falsification tests, causal mechanisms), many of which will be covered in future courses. In this module we will only touch on their first set of analysis that use Ordinary Least Squares (OLS). OLS is likely the most common application of linear algebra in the social sciences. We will cover some linear algebra, matrix manipulation, and vector manipulation from this data. 
-
-
-
-## Read Data
-```{r}
-library(haven)
-nunn_full <- read_dta("data/input/Nunn_Wantchekon_AER_2011.dta")
-```
-
-
-Nunn and Wantchekon's main dataset has more than 20,000 observations. Each observation is a respondent from the Afrobarometer survey.
-```{r}
-head(nunn_full)
-colnames(nunn_full)
-```
-
-
-
-First, let's consider a small subset of this dataset. 
-```{r, include = FALSE, eval = FALSE}
-set.seed(02138)
-sample <- sample_n(nunn_full, 10)
-sample <- select(sample, trust_neighbors, exports, ln_exports, export_area, ln_export_area)
-write_dta(sample, "data/input/Nunn_Wantchekon_sample.dta")
-```
-
-```{r}
-nunn <- read_dta("data/input/Nunn_Wantchekon_sample.dta")
-```
-
-```{r}
-nunn
-```
-
-
-
-## data.frame vs. matricies
-This is a `data.frame` object. 
-```{r}
-class(nunn)
-```
-
-
-But it can be also consider a matrix in the linear algebra sense. What are the dimensions of this matrix?
-```{r}
-nrow(nunn)
-```
-
-`data.frame`s and matrices have much overlap in `R`, but to explicitly treat an object as a matrix, you'd need to coerce its class. Let's call this matrix `X`.
-
-```{r}
-X <- as.matrix(nunn)
-```
-
-
-What is the difference between a `data.frame` and a matrix? A `data.frame` can have columns that are of different types, whereas --- in a matrix --- all columns must be of the same type (usually either "numeric" or "character").
-
-## Speed considerations 
-```{r}
-Nrow <- 100
-Ncol <- 5
-Xmat <- matrix(rnorm(Nrow * Ncol), nrow = Nrow, ncol = Ncol)
-Xdf <- as.data.frame(Xmat)
-
-system.time(replicate(50000, colMeans(Xmat)))
-system.time(replicate(50000, colMeans(Xdf)))
-```
-
-## Handling matricies in `R`
-
-
-You can easily transpose a matrix
-```{r}
-X
-t(X)
-```
-
-
-What are the values of all rows in the first column? 
-```{r}
-X[, 1]
-```
-
-What are all the values of "exports"? (i.e. return the whole "exports" column)
-```{r}
-X[, "exports"]
-```
-
-What is the first observation (i.e. first row)?
-```{r}
-X[1, ]
-```
-
-What is the value of the first variable of the first observation?
-```{r}
-X[1, 1]
-```
-
-Pause and consider the following problem on your own. What is the following code doing? 
-```{r}
-X[X[, "trust_neighbors"] == 0, "export_area"]
-```
-Why does it give the same output as the following? 
-```{r}
-X[which(X[, "trust_neighbors"] == 0), "export_area"]
-```
-
-
-
-Some more manipulation 
-```{r}
-X + X
-```
-
-```{r}
-X - X
-```
-
-```{r}
-t(X) %*% X
-```
-
-```{r}
-cbind(X, 1:10)
-```
-
-```{r}
-cbind(X, 1)
-```
-
-
-```{r}
-colnames(X)
-```
-
-
-## Variable Transformations
-
-`exports` is the total number of slaves that were taken from the individual's ethnic group between Africa's four slave trades between 1400-1900. 
-
-What is `ln_exports`? The article describes this as the natural log of one plus the `exports`. This is a transformation of one column by a particular function
-
-```{r}
-log(1 + X[, "exports"])
-```
-Question for you: why add the 1? 
-
-Verify that this is the same as `X[, "ln_exports"]`
-
-
-## Linear Combinations
-
-In Table 1 we see "OLS Estimates". These are estimates of OLS coefficients and standard errors. You do not need to know what these are for now, but it doesn't hurt to getting used to seeing them. 
-
-![](images/nunn_wantchekon_table1.png)
-
-A very crude way to describe regression is through linear combinations. The simplest linear combination is a one-to-one transformation.
-
-Take the first number in Table 1, which is -0.00068. Now, multiply this by `exports`
-
-```{r}
--0.00068 * X[, "exports"]
-```
-
-
-Now, just one more step. Make a new matrix with just exports and the value 1
-```{r}
-X2 <- cbind(1, X[, "exports"])
-```
-
-name this new column "intercept"
-
-```{r}
-colnames(X2)
-```
-
-```{r}
-colnames(X2) <- c("intercept", "exports")
-```
-
-
-What are the dimensions of the matrix `X2`?
-```{r}
-dim(X2)
-```
-
-
-Now consider a new matrix, called `B`.
-
-```{r}
-B <- matrix(c(1.62, -0.00068))
-```
-
-What are the dimensions of `B`?
-```{r}
-dim(B)
-```
-
-
-What is the product of `X2` and `B`? From the dimensions, can you tell if it will be conformable?
-```{r}
-X2 %*% B
-```
-
-What is this multiplication doing in terms of equations?
-
-
-```{r, echo = FALSE, eval = FALSE}
-## FYI regression in Table 1 (without cluster SEs)
-
-form <- "trust_neighbors ~ exports + age + age2 +  male + urban_dum + factor(education) + factor(occupation) + factor(religion) + factor(living_conditions) + district_ethnic_frac + frac_ethnicity_in_district + isocode"
-lm_1_1 <- lm(as.formula(form), nunn_full)
-summary(lm_1_1)
-```
-
-
 
 
 
