@@ -5518,6 +5518,14 @@ Welcome to the first in-class session for programming. Up till this point, you s
   Successfully signed up for the University wi-fi: \url{https://getonline.harvard.edu/} (Access Harvard Secure with your HarvardKey. Try to get a HarvardKey as soon as possible.)
 \end{itemize}
 
+\hypertarget{motivation-data-and-you}{%
+\section*{Motivation: Data and You}\label{motivation-data-and-you}}
+\addcontentsline{toc}{section}{Motivation: Data and You}
+
+The modal social science project starts by importing existing datasets. Datasets come in all shapes and sizes. As you search for new data you may encounter dozens of file extensions -- csv, xlsx, dta, sav, por, Rdata, Rds, txt, xml, json, shp \ldots{} the list continues. Although these files can often be cumbersome, its a good to be able to find a way to encounter any file that your research may call for.
+
+Reviewing data import will allow us to get on the same page on how computer systems work.
+
 \hypertarget{where-are-we-where-are-we-headed}{%
 \subsection*{Where are we? Where are we headed?}\label{where-are-we-where-are-we-headed}}
 \addcontentsline{toc}{subsection}{Where are we? Where are we headed?}
@@ -5557,13 +5565,6 @@ Today we'll cover:
 \item
   How would you read in a \texttt{csv} file, a \texttt{dta} file, a \texttt{sav} file?
 \end{itemize}
-
-\hypertarget{motivation-data-and-you}{%
-\section{Motivation: Data and You}\label{motivation-data-and-you}}
-
-The modal social science project starts by importing existing datasets. Datasets come in all shapes and sizes. As you search for new data you may encounter dozens of file extensions -- csv, xlsx, dta, sav, por, Rdata, Rds, txt, xml, json, shp \ldots{} the list continues. Although these files can often be cumbersome, its a good to be able to find a way to encounter any file that your research may call for.
-
-Reviewing data import will allow us to get on the same page on how computer systems work.
 
 \hypertarget{orienting}{%
 \section{Orienting}\label{orienting}}
@@ -6242,6 +6243,14 @@ This is day 1 and we covered a lot of material. Some of you might have found thi
 \hypertarget{rmatrices}{%
 \chapter[Manipulating Vectors and Matrices]{\texorpdfstring{Manipulating Vectors and Matrices\footnote{Module originally written by Shiro Kuriwaki and Yon Soo Park}}{Manipulating Vectors and Matrices}}\label{rmatrices}}
 
+\hypertarget{motivation}{%
+\subsection*{Motivation}\label{motivation}}
+\addcontentsline{toc}{subsection}{Motivation}
+
+\href{https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf}{Nunn and Wantchekon (2011)} -- ``The Slave Trade and the Origins of Mistrust in Africa''\footnote{\href{https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf}{Nunn, Nathan, and Leonard Wantchekon. 2011. ``The Slave Trade and the Origins of Mistrust in Africa.'' American Economic Review 101(7): 3221--52.}} -- argues that across African countries, the distrust of co-ethnics fueled by the slave trade has had long-lasting effects on modern day trust in these territories. They argued that the slave trade created distrust in these societies in part because as some African groups were employed by European traders to capture their neighbors and bring them to the slave ships.
+
+Nunn and Wantchekon use a variety of statistical tools to make their case (adding controls, ordered logit, instrumental variables, falsification tests, causal mechanisms), many of which will be covered in future courses. In this module we will only touch on their first set of analysis that use Ordinary Least Squares (OLS). OLS is likely the most common application of linear algebra in the social sciences. We will cover some linear algebra, matrix manipulation, and vector manipulation from this data.
+
 \hypertarget{where-are-we-where-are-we-headed-1}{%
 \subsection*{Where are we? Where are we headed?}\label{where-are-we-where-are-we-headed-1}}
 \addcontentsline{toc}{subsection}{Where are we? Where are we headed?}
@@ -6269,13 +6278,6 @@ Today we'll cover
 \item
   And other \texttt{R} tips
 \end{itemize}
-
-\hypertarget{motivation}{%
-\section{Motivation}\label{motivation}}
-
-\href{https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf}{Nunn and Wantchekon (2011)} -- ``The Slave Trade and the Origins of Mistrust in Africa''\footnote{\href{https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf}{Nunn, Nathan, and Leonard Wantchekon. 2011. ``The Slave Trade and the Origins of Mistrust in Africa.'' American Economic Review 101(7): 3221--52.}} -- argues that across African countries, the distrust of co-ethnics fueled by the slave trade has had long-lasting effects on modern day trust in these territories. They argued that the slave trade created distrust in these societies in part because as some African groups were employed by European traders to capture their neighbors and bring them to the slave ships.
-
-Nunn and Wantchekon use a variety of statistical tools to make their case (adding controls, ordered logit, instrumental variables, falsification tests, causal mechanisms), many of which will be covered in future courses. In this module we will only touch on their first set of analysis that use Ordinary Least Squares (OLS). OLS is likely the most common application of linear algebra in the social sciences. We will cover some linear algebra, matrix manipulation, and vector manipulation from this data.
 
 \hypertarget{read-data-1}{%
 \section{Read Data}\label{read-data-1}}
@@ -6431,35 +6433,16 @@ But it can be also consider a matrix in the linear algebra sense. What are the d
 
 What is the difference between a \texttt{data.frame} and a matrix? A \texttt{data.frame} can have columns that are of different types, whereas --- in a matrix --- all columns must be of the same type (usually either ``numeric'' or ``character'').
 
-\hypertarget{speed-considerations}{%
-\section{Speed considerations}\label{speed-considerations}}
+You can think of data frames maybe as matrices-plus, because a column can take on characters as well as numbers. As we just saw, this is often useful for real data analyses.
+
+Another way to think about data frames is that it is a type of list. Try the \texttt{str()} code below and notice how it is organized in slots. Each slot is a vector. They can be vectors of numbers or characters.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{Nrow <{-}}\StringTok{ }\DecValTok{100}
-\NormalTok{Ncol <{-}}\StringTok{ }\DecValTok{5}
-\NormalTok{Xmat <{-}}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{rnorm}\NormalTok{(Nrow }\OperatorTok{*}\StringTok{ }\NormalTok{Ncol), }\DataTypeTok{nrow =}\NormalTok{ Nrow, }\DataTypeTok{ncol =}\NormalTok{ Ncol)}
-\NormalTok{Xdf <{-}}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(Xmat)}
-
-\KeywordTok{system.time}\NormalTok{(}\KeywordTok{replicate}\NormalTok{(}\DecValTok{50000}\NormalTok{, }\KeywordTok{colMeans}\NormalTok{(Xmat)))}
+\CommentTok{\# enter this on your console}
+\KeywordTok{str}\NormalTok{(cen10)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-##    user  system elapsed 
-##   0.236   0.001   0.237
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{system.time}\NormalTok{(}\KeywordTok{replicate}\NormalTok{(}\DecValTok{50000}\NormalTok{, }\KeywordTok{colMeans}\NormalTok{(Xdf)))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##    user  system elapsed 
-##   2.355   0.006   2.366
-\end{verbatim}
 
 \hypertarget{handling-matricies-in-r}{%
 \section{\texorpdfstring{Handling matricies in \texttt{R}}{Handling matricies in R}}\label{handling-matricies-in-r}}
@@ -7333,43 +7316,6 @@ Get all the serial numbers for black, male individuals who don't live in Ohio or
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{data-frames}{%
-\subsection{data frames}\label{data-frames}}
-
-You can think of data frames maybe as matrices-plus, because a column can take on characters as well as numbers. As we just saw, this is often useful for real data analyses.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{cen10}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## # A tibble: 30,871 x 4
-##    state         sex      age race       
-##    <chr>         <chr>  <dbl> <chr>      
-##  1 New York      Female     8 White      
-##  2 Ohio          Male      24 White      
-##  3 Nevada        Male      37 White      
-##  4 Michigan      Female    12 White      
-##  5 Maryland      Female    18 Black/Negro
-##  6 New Hampshire Male      50 White      
-##  7 Iowa          Female    51 White      
-##  8 Missouri      Female    41 White      
-##  9 New Jersey    Male      62 White      
-## 10 California    Male      25 White      
-## # ... with 30,861 more rows
-\end{verbatim}
-
-Another way to think about data frames is that it is a type of list. Try the \texttt{str()} code below and notice how it is organized in slots. Each slot is a vector. They can be vectors of numbers or characters.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# enter this on your console}
-\KeywordTok{str}\NormalTok{(cen10)}
-\end{Highlighting}
-\end{Shaded}
-
 \hypertarget{exercises-1}{%
 \section*{Exercises}\label{exercises-1}}
 \addcontentsline{toc}{section}{Exercises}
@@ -7896,7 +7842,7 @@ Anything can be an object! Even graphs (in \texttt{ggplot}) can be assigned, re-
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-187-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-185-1.pdf}
 
 You can change the orientation
 
@@ -8585,6 +8531,16 @@ Instead of printing the percentage of each race in each state, create a datafram
 \hypertarget{dataviz}{%
 \chapter[Visualization]{\texorpdfstring{Visualization\footnote{Module originally written by Shiro Kuriwaki}}{Visualization}}\label{dataviz}}
 
+\hypertarget{motivation-the-law-of-the-census}{%
+\subsection*{Motivation: The Law of the Census}\label{motivation-the-law-of-the-census}}
+\addcontentsline{toc}{subsection}{Motivation: The Law of the Census}
+
+In this module, let's visualize some cross-sectional stats with an actual Census. Then, we'll do an example on time trends with Supreme Court ideal points.
+
+Why care about the Census? The Census is one of the fundamental acts of a government. See the Law Review article by \href{http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf}{Persily (2011)}, ``The Law of the Census.''\footnote{\href{http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf}{Persily, Nathaniel. 2011. ``The Law of the Census: How to Count, What to Count, Whom to Count, and Where to Count Them.''}. \emph{Cardozo Law Review} 32(3): 755--91.} The Census is government's primary tool for apportionment (allocating seats to districts), appropriations (allocating federal funding), and tracking demographic change. See for example \href{https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2}{Hochschild and Powell (2008)} on how the categorizations of race in the Census during 1850-1930.\footnote{\href{https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2}{Hochschild, Jennifer L., and Brenna Marea Powell. 2008. ``Racial Reorganization and the United States Census 1850--1930: Mulattoes, Half-Breeds, Mixed Parentage, Hindoos, and the Mexican Race.''}. \emph{Studies in American Political Development} 22(1): 59--96.} Notice also that both of these pieces are not inherently ``quantitative'' --- the Persily article is a Law Review and the Hochschild and Powell article is on American Historical Development --- but data analysis would be certainly relevant.
+
+Time series data is a common form of data in social science data, and there is growing methodological work on making causal inferences with time series.\footnote{\href{https://doi.org/10.1017/S0003055418000357}{Blackwell, Matthew, and Adam Glynn. 2018. ``How to Make Causal Inferences with Time-Series Cross-Sectional Data under Selection on Observables.''} \emph{American Political Science Review}} We will use the the ideological estimates of the Supreme court.
+
 \hypertarget{where-are-we-where-are-we-headed-3}{%
 \subsection*{Where are we? Where are we headed?}\label{where-are-we-where-are-we-headed-3}}
 \addcontentsline{toc}{subsection}{Where are we? Where are we headed?}
@@ -8642,15 +8598,6 @@ Today we'll cover:
 \includegraphics{images/Martin-Quinn_Wikipedia.png}
 \caption{By Randy Schutt - Own work, CC BY-SA 3.0, \href{https://commons.wikimedia.org/w/index.php?curid=29585342}{Wikimedia.}}
 \end{figure}
-
-\hypertarget{motivation-the-law-of-the-census}{%
-\section{Motivation: The Law of the Census}\label{motivation-the-law-of-the-census}}
-
-In this module, let's visualize some cross-sectional stats with an actual Census. Then, we'll do an example on time trends with Supreme Court ideal points.
-
-Why care about the Census? The Census is one of the fundamental acts of a government. See the Law Review article by \href{http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf}{Persily (2011)}, ``The Law of the Census.''\footnote{\href{http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf}{Persily, Nathaniel. 2011. ``The Law of the Census: How to Count, What to Count, Whom to Count, and Where to Count Them.''}. \emph{Cardozo Law Review} 32(3): 755--91.} The Census is government's primary tool for apportionment (allocating seats to districts), appropriations (allocating federal funding), and tracking demographic change. See\footnote{\href{https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2}{Hochschild, Jennifer L., and Brenna Marea Powell. 2008. ``Racial Reorganization and the United States Census 1850--1930: Mulattoes, Half-Breeds, Mixed Parentage, Hindoos, and the Mexican Race.''}. \emph{Studies in American Political Development} 22(1): 59--96.} for example \href{https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2}{Hochschild and Powell (2008)} on how the categorizations of race in the Census during 1850-1930. Notice also that both of these pieces are not inherently ``quantitative'' --- the Persily article is a Law Review and the Hochschild and Powell article is on American Historical Development --- but data analysis would be certainly relevant.
-
-Time series data is a common form of data in social science data, and there is growing methodological work on making causal inferences with time series.\footnote{\href{https://doi.org/10.1017/S0003055418000357}{Blackwell, Matthew, and Adam Glynn. 2018. ``How to Make Causal Inferences with Time-Series Cross-Sectional Data under Selection on Observables.''} \emph{American Political Science Review}} We will use the the ideological estimates of the Supreme court.
 
 \hypertarget{read-data-2}{%
 \section{Read data}\label{read-data-2}}
@@ -8823,7 +8770,7 @@ then put it in the \texttt{barplot()} function.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-231-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-229-1.pdf}
 
 \hypertarget{ggplot}{%
 \subsection{ggplot}\label{ggplot}}
@@ -8861,7 +8808,7 @@ What is the right geometry layer to make a barplot? Turns out:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-233-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-231-1.pdf}
 
 \hypertarget{improving-your-graphics}{%
 \section{Improving your graphics}\label{improving-your-graphics}}
@@ -8880,7 +8827,7 @@ Adjusting your graphics to make the point clear is an important skill. Here is a
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-234-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-232-1.pdf}
 
 Notice that we applied the \texttt{sort()} function to order the bars in terms of their counts. The default ordering of a categorical variable / factor is alphabetical. Alphabetical ordering is uninformative and almost never the way you should order variables.
 
@@ -8902,7 +8849,7 @@ In ggplot you might do this by:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-235-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-233-1.pdf}
 
 The data ink ratio was popularized by Ed Tufte (originally a political economy scholar who has recently become well known for his data visualization work). See Tufte (2001), \emph{The Visual Display of Quantitative Information} and his website \url{https://www.edwardtufte.com/tufte/}. For a R and ggplot focused example using social science examples, check out Healy (2018), \emph{Data Visualization: A Practical Introduction} with a draft at \url{https://socviz.co/}\footnote{Healy, Kieran. forthcoming. \emph{Data Visualization: A Practical Introduction}. Princeton University Press}. There are a growing number of excellent books on data visualization.
 
@@ -9139,7 +9086,7 @@ Now, we want to tell \texttt{ggplot2} something like the following: I want bars 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-241-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-239-1.pdf}
 
 \hypertarget{line-graphs}{%
 \section{Line graphs}\label{line-graphs}}
@@ -9190,7 +9137,7 @@ As you might have guessed, these data can be shown in a time trend from the rang
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-244-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-242-1.pdf}
 Why does the above graph not look like the the put in the beginning? Fix it by adding just one aesthetic to the graph.
 
 \begin{Shaded}
@@ -9284,6 +9231,14 @@ As a student of politics our goal is not necessarily to make pretty pictures, bu
 \hypertarget{dempeace}{%
 \chapter[Joins and Merges, Wide and Long]{\texorpdfstring{Joins and Merges, Wide and Long\footnote{Module originally written by Shiro Kuriwaki, Connor Jerzak, and Yon Soo Park}}{Joins and Merges, Wide and Long}}\label{dempeace}}
 
+\hypertarget{motivation-1}{%
+\subsection*{Motivation}\label{motivation-1}}
+\addcontentsline{toc}{subsection}{Motivation}
+
+The ``Democratic Peace'' is one of the most widely discussed propositions in political science, covering the fields of International Relations and Comparative Politics, with insights to domestic politics of democracies (e.g.~American Politics). The one-sentence idea is that democracies do not fight with each other. There have been much theoretical debate -- for example in earlier work, \href{https://blackboard.angelo.edu/bbcswebdav/institution/LFA/CSS/Course\%20Material/SEC6302/Readings/Lesson_3/Oneal-Russett.pdf}{Oneal and Russet (1999)} argue that the democratic peace is not due to the hegemony of strong democracies like the U.S. and attempt to distinguish between realist and what they call Kantian propositions (e.g.~democratic governance, international organizations)\footnote{\href{https://blackboard.angelo.edu/bbcswebdav/institution/LFA/CSS/Course\%20Material/SEC6302/Readings/Lesson_3/Oneal-Russett.pdf}{The Kantian Peace: The Pacific Benefits of Democracy, Interdependence, and International Organizations, 1885-1992. \emph{World Politics} 52(1):1-37}}.
+
+An empirical demonstration of the democratic peace is also a good example of a \textbf{Time Series Cross Sectional} (or panel) dataset, where the same units (in this case countries) are observed repeatedly for multiple time periods. Experience in assembling and analyzing a TSCS dataset will prepare you for any future research in this area.
+
 \hypertarget{where-are-we-where-are-we-headed-4}{%
 \section*{Where are we? Where are we headed?}\label{where-are-we-where-are-we-headed-4}}
 \addcontentsline{toc}{section}{Where are we? Where are we headed?}
@@ -9307,13 +9262,6 @@ Up till now, you should have covered:
 \end{itemize}
 
 Today you will work on your own, but feel free to ask a fellow classmate nearby or the instructor. The objective for this session is to get more experience using R, but in the process (a) test a prominent theory in the political science literature and (b) explore related ideas of interest to you.
-
-\hypertarget{motivation-1}{%
-\section{Motivation}\label{motivation-1}}
-
-The ``Democratic Peace'' is one of the most widely discussed propositions in political science, covering the fields of International Relations and Comparative Politics, with insights to domestic politics of democracies (e.g.~American Politics). The one-sentence idea is that democracies do not fight with each other. There have been much theoretical debate -- for example in earlier work, \href{https://blackboard.angelo.edu/bbcswebdav/institution/LFA/CSS/Course\%20Material/SEC6302/Readings/Lesson_3/Oneal-Russett.pdf}{Oneal and Russet (1999)} argue that the democratic peace is not due to the hegemony of strong democracies like the U.S. and attempt to distinguish between realist and what they call Kantian propositions (e.g.~democratic governance, international organizations)\footnote{\href{https://blackboard.angelo.edu/bbcswebdav/institution/LFA/CSS/Course\%20Material/SEC6302/Readings/Lesson_3/Oneal-Russett.pdf}{The Kantian Peace: The Pacific Benefits of Democracy, Interdependence, and International Organizations, 1885-1992. \emph{World Politics} 52(1):1-37}}.
-
-An empirical demonstration of the democratic peace is also a good example of a \textbf{Time Series Cross Sectional} (or panel) dataset, where the same units (in this case countries) are observed repeatedly for multiple time periods. Experience in assembling and analyzing a TSCS dataset will prepare you for any future research in this area.
 
 \hypertarget{setting-up}{%
 \section{Setting up}\label{setting-up}}
@@ -9384,7 +9332,7 @@ What does \texttt{polity} look like?
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-251-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-249-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9574,6 +9522,35 @@ To start, let's download and merge some data.
 \hypertarget{simulation}{%
 \chapter[Simulation]{\texorpdfstring{Simulation\footnote{Module originally written by Connor Jerzak and Shiro Kuriwaki}}{Simulation}}\label{simulation}}
 
+\hypertarget{motivation-simulation-as-an-analytical-tool}{%
+\subsection*{Motivation: Simulation as an Analytical Tool}\label{motivation-simulation-as-an-analytical-tool}}
+\addcontentsline{toc}{subsection}{Motivation: Simulation as an Analytical Tool}
+
+An increasing amount of political science contributions now include a simulation.
+
+\begin{itemize}
+\tightlist
+\item
+  \href{http://www-personal.umich.edu/~axe/research/Dissemination.pdf}{Axelrod (1977)} demonstrated via simulation how atomized individuals evolve to be grouped in similar clusters or countries, a model of culture.\footnote{\href{http://www-personal.umich.edu/~axe/research/Dissemination.pdf}{Axelrod, Robert. 1997. ``The Dissemination of Culture.'' \emph{Journal of Conflict Resolution} 41(2): 203--26.}}
+\item
+  \href{http://www-personal.umich.edu/~jowei/florida.pdf}{Chen and Rodden (2013)} argued in a 2013 article that the vote-seat inequality in U.S. elections that is often attributed to intentional partisan gerrymandering can actually attributed to simply the reality of ``human geography'' -- Democratic voters tend to be concentrated in smaller area. Put another way, no feasible form of gerrymandering could spread out Democratic voters in such a way to equalize their vote-seat translation effectiveness. After demonstrating the empirical pattern of human geography, they advance their key claim by simulating thousands of redistricting plans and record the vote-seat ratio.\footnote{\href{http://www-personal.umich.edu/~jowei/florida.pdf}{Chen, Jowei, and Jonathan Rodden. ``Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures. \emph{Quarterly Journal of Political Science}, 8:239-269''}}
+\item
+  \href{https://gking.harvard.edu/files/abs/evil-abs.shtml}{Gary King, James Honaker, and multiple other authors} propose a way to analyze missing data with a method of multiple imputation, which uses a lot of simulation from a researcher's observed dataset.\footnote{\href{https://gking.harvard.edu/files/abs/evil-abs.shtml}{King, Gary, et al.~``Analyzing Incomplete Political Science Data: An Alternative Algorithm for Multiple Imputation''. \emph{American Political Science Review}, 95: 49-69.}} (Software: Amelia\footnote{\href{http://www.jstatsoft.org/v45/i07/}{James Honaker, Gary King, Matthew Blackwell (2011). Amelia II: A Program for Missing Data. Journal of
+    Statistical Software, 45(7), 1-47.}})
+\end{itemize}
+
+Statistical methods also incorporate simulation:
+
+\begin{itemize}
+\tightlist
+\item
+  The bootstrap: a statistical method for estimating uncertainty around some parameter by re-sampling observations.
+\item
+  Bagging: a method for improving machine learning predictions by re-sampling observations, storing the estimate across many re-samples, and averaging these estimates to form the final estimate. A variance reduction technique.
+\item
+  Statistical reasoning: if you are trying to understand a quantitative problem, a wonderful first-step to understand the problem better is to simulate it! The analytical solution is often very hard (or impossible), but the simulation is often much easier :-)
+\end{itemize}
+
 \hypertarget{where-are-we-where-are-we-headed-5}{%
 \subsection*{Where are we? Where are we headed?}\label{where-are-we-where-are-we-headed-5}}
 \addcontentsline{toc}{subsection}{Where are we? Where are we headed?}
@@ -9628,34 +9605,6 @@ Check if you have an idea of how you might code the following tasks:
 
 We're going to learn about this today!
 
-\hypertarget{motivation-simulation-as-an-analytical-tool}{%
-\section{Motivation: Simulation as an Analytical Tool}\label{motivation-simulation-as-an-analytical-tool}}
-
-An increasing amount of political science contributions now include a simulation.
-
-\begin{itemize}
-\tightlist
-\item
-  \href{http://www-personal.umich.edu/~axe/research/Dissemination.pdf}{Axelrod (1977)} demonstrated via simulation how atomized individuals evolve to be grouped in similar clusters or countries, a model of culture.\footnote{\href{http://www-personal.umich.edu/~axe/research/Dissemination.pdf}{Axelrod, Robert. 1997. ``The Dissemination of Culture.'' \emph{Journal of Conflict Resolution} 41(2): 203--26.}}
-\item
-  \href{http://www-personal.umich.edu/~jowei/florida.pdf}{Chen and Rodden (2013)} argued in a 2013 article that the vote-seat inequality in U.S. elections that is often attributed to intentional partisan gerrymandering can actually attributed to simply the reality of ``human geography'' -- Democratic voters tend to be concentrated in smaller area. Put another way, no feasible form of gerrymandering could spread out Democratic voters in such a way to equalize their vote-seat translation effectiveness. After demonstrating the empirical pattern of human geography, they advance their key claim by simulating thousands of redistricting plans and record the vote-seat ratio.\footnote{\href{http://www-personal.umich.edu/~jowei/florida.pdf}{Chen, Jowei, and Jonathan Rodden. ``Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures. \emph{Quarterly Journal of Political Science}, 8:239-269''}}
-\item
-  \href{https://gking.harvard.edu/files/abs/evil-abs.shtml}{Gary King, James Honaker, and multiple other authors} propose a way to analyze missing data with a method of multiple imputation, which uses a lot of simulation from a researcher's observed dataset.\footnote{\href{https://gking.harvard.edu/files/abs/evil-abs.shtml}{King, Gary, et al.~``Analyzing Incomplete Political Science Data: An Alternative Algorithm for Multiple Imputation''. \emph{American Political Science Review}, 95: 49-69.}} (Software: Amelia\footnote{\href{http://www.jstatsoft.org/v45/i07/}{James Honaker, Gary King, Matthew Blackwell (2011). Amelia II: A Program for Missing Data. Journal of
-    Statistical Software, 45(7), 1-47.}})
-\end{itemize}
-
-Statistical methods also incorporate simulation:
-
-\begin{itemize}
-\tightlist
-\item
-  The bootstrap: a statistical method for estimating uncertainty around some parameter by re-sampling observations.
-\item
-  Bagging: a method for improving machine learning predictions by re-sampling observations, storing the estimate across many re-samples, and averaging these estimates to form the final estimate. A variance reduction technique.
-\item
-  Statistical reasoning: if you are trying to understand a quantitative problem, a wonderful first-step to understand the problem better is to simulate it! The analytical solution is often very hard (or impossible), but the simulation is often much easier :-)
-\end{itemize}
-
 \hypertarget{pick-a-sample-any-sample}{%
 \section{Pick a sample, any sample}\label{pick-a-sample-any-sample}}
 
@@ -9673,7 +9622,7 @@ Suppose you have a vector of values \texttt{x} and from it you want to randomly 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 3 1 2 6 8
+## [1]  8  7  9 10  6
 \end{verbatim}
 
 There are two subtypes of sampling -- with and without replacement.
@@ -9692,7 +9641,7 @@ There are two subtypes of sampling -- with and without replacement.
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 10  1  9  5  2  4  8  3  6  7
+##  [1]  4  3 10  7  6  8  2  9  1  5
 \end{verbatim}
 
 \begin{enumerate}
@@ -9710,7 +9659,7 @@ There are two subtypes of sampling -- with and without replacement.
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 6 2 6 6 1 7 3 1 5 6
+##  [1] 9 6 6 3 1 1 4 1 7 3
 \end{verbatim}
 
 It follows then that you cannot sample without replacement a sample that is larger than the pool.
@@ -9736,8 +9685,8 @@ For example, this simulates 20 fair coin tosses (each outcome is equally likely 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Tail" "Head" "Head" "Head" "Tail" "Tail" "Tail" "Head" "Tail" "Tail"
-## [11] "Tail" "Head" "Head" "Head" "Tail" "Tail" "Tail" "Tail" "Head" "Head"
+##  [1] "Head" "Head" "Tail" "Head" "Head" "Tail" "Head" "Head" "Tail" "Tail"
+## [11] "Tail" "Head" "Tail" "Tail" "Tail" "Head" "Head" "Head" "Tail" "Tail"
 \end{verbatim}
 
 But this simulates 20 biased coin tosses, where say the probability of Tails is 4 times more likely than the number of Heads
@@ -9749,8 +9698,8 @@ But this simulates 20 biased coin tosses, where say the probability of Tails is 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Tail" "Head" "Tail" "Tail" "Tail" "Tail" "Tail" "Tail" "Tail" "Head"
-## [11] "Tail" "Tail" "Head" "Tail" "Tail" "Tail" "Head" "Tail" "Tail" "Head"
+##  [1] "Tail" "Tail" "Tail" "Head" "Tail" "Tail" "Tail" "Tail" "Tail" "Tail"
+## [11] "Head" "Tail" "Tail" "Tail" "Tail" "Tail" "Tail" "Tail" "Tail" "Tail"
 \end{verbatim}
 
 \hypertarget{sampling-rows-from-a-dataframe}{%
@@ -9811,10 +9760,10 @@ sample\_n picks a user-specified number of rows from the dataset:
 \end{Shaded}
 
 \begin{verbatim}
-##                     mpg cyl  disp  hp drat   wt  qsec vs am gear carb
-## Porsche 914-2      26.0   4 120.3  91 4.43 2.14 16.70  0  1    5    2
-## Volvo 142E         21.4   4 121.0 109 4.11 2.78 18.60  1  1    4    2
-## Cadillac Fleetwood 10.4   8 472.0 205 2.93 5.25 17.98  0  0    3    4
+##                mpg cyl  disp  hp drat   wt qsec vs am gear carb
+## Merc 450SE    16.4   8 275.8 180 3.07 4.07 17.4  0  0    3    3
+## Porsche 914-2 26.0   4 120.3  91 4.43 2.14 16.7  0  1    5    2
+## Merc 240D     24.4   4 146.7  62 3.69 3.19 20.0  1  0    4    2
 \end{verbatim}
 
 Sometimes you want a X percent sample of your dataset. In this case use \texttt{sample\_frac()}
@@ -9826,10 +9775,10 @@ Sometimes you want a X percent sample of your dataset. In this case use \texttt{
 \end{Shaded}
 
 \begin{verbatim}
-##             mpg cyl  disp  hp drat   wt  qsec vs am gear carb
-## Merc 280   19.2   6 167.6 123 3.92 3.44 18.30  1  0    4    4
-## Duster 360 14.3   8 360.0 245 3.21 3.57 15.84  0  0    3    4
-## Merc 280C  17.8   6 167.6 123 3.92 3.44 18.90  1  0    4    4
+##                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Cadillac Fleetwood 10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lotus Europa       30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Mazda RX4 Wag      21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
 \end{verbatim}
 
 As a side-note, these functions have very practical uses for any type of data analysis:
@@ -9860,7 +9809,7 @@ For example, I want to know how many Heads I would get if I flipped a fair coin 
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 49
+## [1] 50
 \end{verbatim}
 
 Now imagine this I wanted to do this experiment 10 times, which would require I flip the coin 10 x 100 = 1000 times! Helpfully, we can do this in one line
@@ -9872,7 +9821,7 @@ Now imagine this I wanted to do this experiment 10 times, which would require I 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 44 49 55 54 50 50 51 57 45 53
+##  [1] 48 51 59 54 51 59 49 52 50 44
 \end{verbatim}
 
 \hypertarget{runif}{%
@@ -9890,7 +9839,7 @@ The intuition to emphasize here is that one can generate potentially infinite am
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.2468074 0.4173707 0.5889004 0.4548374 0.9548947
+## [1] 0.198848957 0.333367717 0.009064493 0.503594777 0.744089354
 \end{verbatim}
 
 \hypertarget{rnorm}{%
@@ -9906,7 +9855,7 @@ The intuition to emphasize here is that one can generate potentially infinite am
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -0.2752280 -0.9084678  0.9390441  0.1000015 -1.0508537
+## [1] -0.9168349 -0.5256658  0.2999925 -2.2437300 -0.4587616
 \end{verbatim}
 
 To better visualize the difference between the output of \texttt{runif} and \texttt{rnorm}, let's generate lots of each and plot a histogram.
@@ -9922,7 +9871,7 @@ To better visualize the difference between the output of \texttt{runif} and \tex
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-274-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-272-1.pdf}
 
 \hypertarget{r-p-and-d}{%
 \section{r, p, and d}\label{r-p-and-d}}
@@ -11714,7 +11663,7 @@ Plot points
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-327-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-325-1.pdf}
 
 \hypertarget{swing-justice}{%
 \subsection*{2 Swing Justice}\label{swing-justice}}
@@ -11773,7 +11722,7 @@ All together
 ## Warning: Removed 19 row(s) containing missing values (geom_path).
 \end{verbatim}
 
-\includegraphics{prefresher_files/figure-latex/unnamed-chunk-330-1.pdf}
+\includegraphics{prefresher_files/figure-latex/unnamed-chunk-328-1.pdf}
 
 \hypertarget{chapter-refrobjloops-objects-and-loops}{%
 \section{Chapter \ref{robjloops}: Objects and Loops}\label{chapter-refrobjloops-objects-and-loops}}
