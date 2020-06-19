@@ -7,6 +7,13 @@ library(haven)
 library(ggplot2)
 ```
 
+### Motivation {-}
+
+[Nunn and Wantchekon (2011)](https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf) --  "The Slave Trade and the Origins of Mistrust in Africa"^[[Nunn, Nathan, and Leonard Wantchekon. 2011. “The Slave Trade and the Origins of Mistrust in Africa.” American Economic Review 101(7): 3221–52.](https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf)] --  argues that across African countries, the distrust of co-ethnics fueled by the slave trade has had long-lasting effects on modern day trust in these territories. They argued that the slave trade created distrust in these societies in part because as some African groups were employed by European traders to capture their neighbors and bring them to the slave ships.
+
+Nunn and Wantchekon use a variety of statistical tools to make their case (adding controls, ordered logit, instrumental variables, falsification tests, causal mechanisms), many of which will be covered in future courses. In this module we will only touch on their first set of analysis that use Ordinary Least Squares (OLS). OLS is likely the most common application of linear algebra in the social sciences. We will cover some linear algebra, matrix manipulation, and vector manipulation from this data. 
+
+
 ### Where are we? Where are we headed? {-}
 
 Up till now, you should have covered:
@@ -22,12 +29,6 @@ Today we'll cover
 * Manipulating variables 
 * And other `R` tips
 
-
-## Motivation
-
-[Nunn and Wantchekon (2011)](https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf) --  "The Slave Trade and the Origins of Mistrust in Africa"^[[Nunn, Nathan, and Leonard Wantchekon. 2011. “The Slave Trade and the Origins of Mistrust in Africa.” American Economic Review 101(7): 3221–52.](https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf)] --  argues that across African countries, the distrust of co-ethnics fueled by the slave trade has had long-lasting effects on modern day trust in these territories. They argued that the slave trade created distrust in these societies in part because as some African groups were employed by European traders to capture their neighbors and bring them to the slave ships.
-
-Nunn and Wantchekon use a variety of statistical tools to make their case (adding controls, ordered logit, instrumental variables, falsification tests, causal mechanisms), many of which will be covered in future courses. In this module we will only touch on their first set of analysis that use Ordinary Least Squares (OLS). OLS is likely the most common application of linear algebra in the social sciences. We will cover some linear algebra, matrix manipulation, and vector manipulation from this data. 
 
 
 
@@ -87,22 +88,8 @@ X <- as.matrix(nunn)
 
 What is the difference between a `data.frame` and a matrix? A `data.frame` can have columns that are of different types, whereas --- in a matrix --- all columns must be of the same type (usually either "numeric" or "character").
 
-## Speed considerations 
-```{r}
-Nrow <- 100
-Ncol <- 5
-Xmat <- matrix(rnorm(Nrow * Ncol), nrow = Nrow, ncol = Ncol)
-Xdf <- as.data.frame(Xmat)
-
-system.time(replicate(50000, colMeans(Xmat)))
-system.time(replicate(50000, colMeans(Xdf)))
-```
-
 
 You can think of data frames maybe as matrices-plus, because a column can take on characters as well as numbers. As we just saw, this is often useful for real data analyses.
-```{r}
-cen10
-```
 
 
 Another way to think about data frames is that it is a type of list. Try the `str()` code below and notice how it is organized in slots. Each slot is a vector. They can be vectors of numbers or characters.
@@ -110,7 +97,6 @@ Another way to think about data frames is that it is a type of list. Try the `st
 # enter this on your console
 str(cen10)
 ```
-
 
 
 

@@ -4,11 +4,20 @@
 # Orientation and Reading in Data^[Module originally written by Shiro Kuriwaki] {#dataimport}
 
 
+
 Welcome to the first in-class session for programming. Up till this point, you should have already:
 
 * Completed the R Visualization and Programming primers (under "The Basics") on your own at <https://rstudio.cloud/learn/primers/>,
 * Made an account at RStudio Cloud and join the Math Prefresher 2019 Space, and
 * Successfully signed up for the University wi-fi: <https://getonline.harvard.edu/> (Access Harvard Secure with your HarvardKey. Try to get a HarvardKey as soon as possible.)
+
+
+## Motivation: Data and You {-}
+
+The modal social science project starts by importing existing datasets. Datasets come in all shapes and sizes. As you search for new data you may encounter dozens of file extensions -- csv, xlsx, dta, sav, por, Rdata, Rds, txt, xml, json, shp ... the list continues. Although these files can often be cumbersome, its a good to be able to find a way to encounter any file that your research may call for. 
+
+Reviewing data import will allow us to get on the same page on how computer systems work.
+
 
 ### Where are we? Where are we headed? {-}
 
@@ -35,12 +44,6 @@ library(ggplot2)
 library(dplyr)
 library(fs)
 ```
-
-## Motivation: Data and You 
-
-The modal social science project starts by importing existing datasets. Datasets come in all shapes and sizes. As you search for new data you may encounter dozens of file extensions -- csv, xlsx, dta, sav, por, Rdata, Rds, txt, xml, json, shp ... the list continues. Although these files can often be cumbersome, its a good to be able to find a way to encounter any file that your research may call for. 
-
-Reviewing data import will allow us to get on the same page on how computer systems work.
 
 
 ## Orienting

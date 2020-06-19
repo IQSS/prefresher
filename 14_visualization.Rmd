@@ -10,7 +10,20 @@ library(scales)
 ```
 
 
+### Motivation: The Law of the Census {-}
+
+In this module, let's visualize some cross-sectional stats with an actual Census. Then, we'll do an example on time trends with Supreme Court ideal points. 
+
+
+Why care about the Census? The Census is one of the fundamental acts of a government. See the Law Review article by [Persily (2011)](http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf), "The Law of the Census."^[[Persily, Nathaniel. 2011. "The Law of the Census: How to Count, What to Count, Whom to Count, and Where to Count Them.”](http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf). _Cardozo Law Review_ 32(3): 755–91.] The Census is government's primary tool for apportionment (allocating seats to districts), appropriations (allocating federal funding), and tracking demographic change.  See for example [Hochschild and Powell (2008)](https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2) on how the categorizations of race in the Census during 1850-1930.^[[Hochschild, Jennifer L., and Brenna Marea Powell. 2008. "Racial Reorganization and the United States Census 1850–1930: Mulattoes, Half-Breeds, Mixed Parentage, Hindoos, and the Mexican Race."](https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2). _Studies in American Political Development_ 22(1): 59–96.] Notice also that both of these pieces are not inherently "quantitative" --- the Persily article is a Law Review and the Hochschild and Powell article is on American Historical Development --- but data analysis would be certainly relevant.
+
+
+Time series data is a common form of data in social science data, and there is growing methodological work on making causal inferences with time series.^[[Blackwell, Matthew,  and Adam Glynn. 2018. "How to Make Causal Inferences with Time-Series Cross-Sectional Data under Selection on Observables."](https://doi.org/10.1017/S0003055418000357)  _American Political Science Review_]  We will use the the ideological estimates of the Supreme court. 
+
+
+
 ### Where are we? Where are we headed? {-}
+
 
 Up till now, you should have covered:
 
@@ -36,17 +49,6 @@ Today we'll cover:
 
 ![By Randy Schutt - Own work, CC BY-SA 3.0, [Wikimedia.]( https://commons.wikimedia.org/w/index.php?curid=29585342)](images/Martin-Quinn_Wikipedia.png)
 
-
-
-## Motivation: The Law of the Census
-
-In this module, let's visualize some cross-sectional stats with an actual Census. Then, we'll do an example on time trends with Supreme Court ideal points. 
-
-
-Why care about the Census? The Census is one of the fundamental acts of a government. See the Law Review article by [Persily (2011)](http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf), "The Law of the Census."^[[Persily, Nathaniel. 2011. "The Law of the Census: How to Count, What to Count, Whom to Count, and Where to Count Them.”](http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf). _Cardozo Law Review_ 32(3): 755–91.] The Census is government's primary tool for apportionment (allocating seats to districts), appropriations (allocating federal funding), and tracking demographic change.  See^[[Hochschild, Jennifer L., and Brenna Marea Powell. 2008. "Racial Reorganization and the United States Census 1850–1930: Mulattoes, Half-Breeds, Mixed Parentage, Hindoos, and the Mexican Race."](https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2). _Studies in American Political Development_ 22(1): 59–96.] for example [Hochschild and Powell (2008)](https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2) on how the categorizations of race in the Census during 1850-1930. Notice also that both of these pieces are not inherently "quantitative" --- the Persily article is a Law Review and the Hochschild and Powell article is on American Historical Development --- but data analysis would be certainly relevant.
-
-
-Time series data is a common form of data in social science data, and there is growing methodological work on making causal inferences with time series.^[[Blackwell, Matthew,  and Adam Glynn. 2018. "How to Make Causal Inferences with Time-Series Cross-Sectional Data under Selection on Observables."](https://doi.org/10.1017/S0003055418000357)  _American Political Science Review_]  We will use the the ideological estimates of the Supreme court. 
 
 
 

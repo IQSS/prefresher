@@ -19,6 +19,7 @@ Up till now, you should have covered:
 * Matrix algebra. 
 
 ## Review
+
 * `"` and `'` are usually equivalent.
 * `<-` and `=` are usually interchangeable^[Only equal signs are allowed to define the values of a functions' argument]. (`x <- 3` is equivalent to `x = 3`, although the former is more preferred because it explicitly states the assignment). 
 * Use `(` `)` when you are giving input to a function: 
