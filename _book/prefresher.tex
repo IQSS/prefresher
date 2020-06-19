@@ -139,11 +139,21 @@
 }
 \makeatother
 
+% link colors in pdf?
+\usepackage{xcolor}  
+\definecolor{crimson}{RGB}{204,0,0}
+\hypersetup{
+  colorlinks = true,
+  urlcolor = crimson,
+  linkbordercolor = {white},
+  linkcolor = crimson
+}
+
 
 % Title format
 \usepackage{titling}
 \pretitle{\Huge\sffamily}
-\posttitle{\par\vskip 0.5em}
+\posttitle{\par\vskip 1em}
 \predate{\LARGE\sffamily}
 \postdate{\par}
 
@@ -5494,12 +5504,6 @@ Answer to Exercise \ref{exr:calcinverse}:
 
 \(\begin{pmatrix}  \frac{2}{41} & \frac{-5}{41}\\  \frac{7}{41} & \frac{3}{41}\\  \end{pmatrix}\)
 
-\hypertarget{causal}{%
-\chapter{Causal Inference}\label{causal}}
-
-Topics:
-TBD
-
 \hypertarget{part-programming}{%
 \part{Programming}\label{part-programming}}
 
@@ -9271,7 +9275,6 @@ Today you will work on your own, but feel free to ask a fellow classmate nearby 
 \KeywordTok{library}\NormalTok{(dplyr)}
 \KeywordTok{library}\NormalTok{(tidyr)}
 \KeywordTok{library}\NormalTok{(readr)}
-\KeywordTok{library}\NormalTok{(data.table)}
 \KeywordTok{library}\NormalTok{(ggplot2)}
 \end{Highlighting}
 \end{Shaded}
@@ -9382,7 +9385,7 @@ MID is a dataset that captures a \texttt{dispute} for a given country and year.
 
 Notice that in the \texttt{mid} data, we have a start of a dispute vs.~an end of a dispute.In order to combine this into the \texttt{polity} data, we want a way to give each of the interval years a row.
 
-There are many ways to do this, but one is a loop. We go through one row at a time, and then for each we make a new dataset. that has \texttt{year} as a sequence of each year.
+There are many ways to do this, but one is a loop. We go through one row at a time, and then for each we make a new dataset. that has \texttt{year} as a sequence of each year. A lengthy loop like this is typically slow, and you'd want to recast the task so you can do things with functions. But, a loop is a good place to start.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9456,19 +9459,23 @@ Reshape the dataset long to wide
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{p\_m\_wide <{-}}\StringTok{ }\KeywordTok{dcast}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ p\_m,}
-                  \DataTypeTok{formula =}\NormalTok{ ccode }\OperatorTok{\textasciitilde{}}\StringTok{ }\NormalTok{year,}
-                  \DataTypeTok{value.var =} \StringTok{"polity2"}\NormalTok{)}
+\NormalTok{p\_m\_wide <{-}}\StringTok{ }\KeywordTok{pivot\_wider}\NormalTok{(p\_m, }
+                        \DataTypeTok{id\_cols =} \KeywordTok{c}\NormalTok{(scode, ccode, country),}
+                        \DataTypeTok{names\_from =}\NormalTok{ year,}
+                        \DataTypeTok{values\_from =}\NormalTok{ polity2)}
+
+\KeywordTok{select}\NormalTok{(p\_m\_wide, }\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## Warning in dcast(data = p_m, formula = ccode ~ year, value.var = "polity2"): The
-## dcast generic in data.table has been passed a spec_tbl_df and will attempt to
-## redirect to the reshape2::dcast; please note that reshape2 is deprecated, and
-## this redirection is now deprecated as well. Please do this redirection yourself
-## like reshape2::dcast(p_m). In the next version, this warning will become an
-## error.
+## # A tibble: 4 x 10
+##   scode ccode country       `1800` `1801` `1802` `1803` `1804` `1805` `1806`
+##   <chr> <dbl> <chr>          <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>
+## 1 FRN     220 France            -8     -8     -8     -8     -8     -8     -8
+## 2 GMY     255 Prussia          -10    -10    -10    -10    -10    -10     NA
+## 3 GMY     255 Germany           NA     NA     NA     NA     NA     NA     NA
+## 4 USA       2 United States      4      4      4      4      4      4      4
 \end{verbatim}
 
 \hypertarget{main-project}{%
@@ -11118,7 +11125,6 @@ Running this command in a Mac (\texttt{dir} in Windows) should show you a list o
 ## 05_optimization.Rmd
 ## 06_probability.Rmd
 ## 07_linear-algebra.Rmd
-## 08_causal.Rmd
 ## 11_data-handling_counting.Rmd
 ## 12_matricies-manipulation.Rmd
 ## 13_functions_obj_loops.Rmd
