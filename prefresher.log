@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.5.8)  19 JUN 2020 16:52
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.5.8)  19 JUN 2020 17:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1457,7 +1457,7 @@ File: images/11_2_rstudio-script.png Graphic file (type bmp)
 File: images/11_3_rstudio-files.png Graphic file (type bmp)
 <images/11_3_rstudio-files.png>
 
-Overfull \hbox (2542.515pt too wide) in paragraph at lines 5649--5649
+Overfull \hbox (2542.515pt too wide) in paragraph at lines 5650--5650
 []\TU/lmtt/m/n/10 The Rmarkdown facilitates is the use of __code chunks__, whic
 h are used here. These start and end with three back-ticks. In the beginning, w
 e can add options in curly braces ([]{}[]). Specifying []r[] in the beginning t
@@ -1472,7 +1472,7 @@ File: images/11_4_codechunk.png Graphic file (type bmp)
 <images/11_4_codechunk.png>
 [134] [135]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 5683.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 5684.
 [136]
 File: images/tidyverse-packages.png Graphic file (type bmp)
 <images/tidyverse-packages.png>
@@ -1480,88 +1480,88 @@ File: images/tidyverse-packages.png Graphic file (type bmp)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [138]
-Overfull \hbox (22.515pt too wide) in paragraph at lines 5974--5974
+Overfull \hbox (22.515pt too wide) in paragraph at lines 5975--5975
 []\TU/lmtt/m/n/10 ## data/input/Nunn_Wantchekon_AER_2011.dta data/input/Nunn_Wa
 ntchekon_sample.dta 
  []
 
 
-Overfull \hbox (1.515pt too wide) in paragraph at lines 5979--5979
+Overfull \hbox (1.515pt too wide) in paragraph at lines 5980--5980
 []\TU/lmtt/m/n/10 ## data/input/upshot-siena-polls.csv       data/input/usc2010
 _001percent.Rds[] 
  []
 
 
-LaTeX Warning: Reference `@' on page 139 undefined on input line 5983.
+LaTeX Warning: Reference `@' on page 139 undefined on input line 5984.
 
 [139]
-Overfull \hbox (38.265pt too wide) in paragraph at lines 6040--6040
+Overfull \hbox (38.265pt too wide) in paragraph at lines 6041--6041
 []\TU/lmtt/m/n/10 ##    polis_number Name  Latitude Longitude Hellenicity  Fame
  Size  Colonies Regime[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 6041--6041
+Overfull \hbox (33.015pt too wide) in paragraph at lines 6042--6042
 []\TU/lmtt/m/n/10 ##           <dbl> <chr>    <dbl>     <dbl> <chr>       <dbl>
  <chr>    <dbl> <chr>[] 
  []
 
 
-Overfull \hbox (27.765pt too wide) in paragraph at lines 6042--6042
+Overfull \hbox (27.765pt too wide) in paragraph at lines 6043--6043
 []\TU/lmtt/m/n/10 ##  1            1 Alal~     42.1      9.51 most Greek   1.12
  100-~        0 <NA>[] 
  []
 
 
-Overfull \hbox (27.765pt too wide) in paragraph at lines 6043--6043
+Overfull \hbox (27.765pt too wide) in paragraph at lines 6044--6044
 []\TU/lmtt/m/n/10 ##  2            2 Empo~     42.1      3.11 most barba~  2.12
  25-1~        0 <NA>[] 
  []
 
 
-Overfull \hbox (38.265pt too wide) in paragraph at lines 6044--6044
+Overfull \hbox (38.265pt too wide) in paragraph at lines 6045--6045
 []\TU/lmtt/m/n/10 ##  3            3 Mass~     43.3      5.38 most Greek   4   
  25-1~        2 no ev~[] 
  []
 
 
-Overfull \hbox (27.765pt too wide) in paragraph at lines 6045--6045
+Overfull \hbox (27.765pt too wide) in paragraph at lines 6046--6046
 []\TU/lmtt/m/n/10 ##  4            4 Rhode     42.3      3.17 most Greek   0.87
  <NA>         0 <NA>[] 
  []
 
 
-Overfull \hbox (27.765pt too wide) in paragraph at lines 6046--6046
+Overfull \hbox (27.765pt too wide) in paragraph at lines 6047--6047
 []\TU/lmtt/m/n/10 ##  5            5 Abak~     38.1     15.1  most barba~  1   
  <NA>         0 <NA>[] 
  []
 
 
-Overfull \hbox (27.765pt too wide) in paragraph at lines 6047--6047
+Overfull \hbox (27.765pt too wide) in paragraph at lines 6048--6048
 []\TU/lmtt/m/n/10 ##  6            6 Adra~     37.7     14.8  most Greek   1   
  <NA>         0 <NA>[] 
  []
 
 
-Overfull \hbox (38.265pt too wide) in paragraph at lines 6048--6048
+Overfull \hbox (38.265pt too wide) in paragraph at lines 6049--6049
 []\TU/lmtt/m/n/10 ##  7            7 Agyr~     37.7     14.5  most Greek   1.25
  <NA>         0 no ev~[] 
  []
 
 
-Overfull \hbox (38.265pt too wide) in paragraph at lines 6049--6049
+Overfull \hbox (38.265pt too wide) in paragraph at lines 6050--6050
 []\TU/lmtt/m/n/10 ##  8            8 Aitna     38.2     15.6  most Greek   3.25
  200-~        1 no ev~[] 
  []
 
 
-Overfull \hbox (38.265pt too wide) in paragraph at lines 6050--6050
+Overfull \hbox (38.265pt too wide) in paragraph at lines 6051--6051
 []\TU/lmtt/m/n/10 ##  9            9 Akra~     37.3     13.6  most Greek   6.37
  500 ~        0 evide~[] 
  []
 
 
-Overfull \hbox (27.765pt too wide) in paragraph at lines 6051--6051
+Overfull \hbox (27.765pt too wide) in paragraph at lines 6052--6052
 []\TU/lmtt/m/n/10 ## 10           10 Akrai     37.1     14.9  most Greek   1.25
  <NA>         0 <NA>[] 
  []
@@ -1590,348 +1590,351 @@ Underfull \vbox (badness 1590) has occurred while \output is active []
 ]
 Chapter 9.
 [147]
-Overfull \hbox (17.265pt too wide) in paragraph at lines 6300--6300
+Overfull \hbox (17.265pt too wide) in paragraph at lines 6302--6302
 []\TU/lmtt/m/n/10 ##   respno ethnicity murdock_name isocode region district to
 wnvill location_id[] 
  []
 
 
-Overfull \hbox (17.265pt too wide) in paragraph at lines 6301--6301
+Overfull \hbox (17.265pt too wide) in paragraph at lines 6303--6303
 []\TU/lmtt/m/n/10 ##   <chr>  <chr>     <chr>        <chr>   <chr>  <chr>    <c
 hr>          <dbl>[] 
  []
 
 
-Overfull \hbox (17.265pt too wide) in paragraph at lines 6302--6302
+Overfull \hbox (17.265pt too wide) in paragraph at lines 6304--6304
 []\TU/lmtt/m/n/10 ## 1 BEN00~ fon       FON          BEN     atlna~ KPOMASSE TO
 KPA-D~          30[] 
  []
 
 
-Overfull \hbox (17.265pt too wide) in paragraph at lines 6303--6303
+Overfull \hbox (17.265pt too wide) in paragraph at lines 6305--6305
 []\TU/lmtt/m/n/10 ## 2 BEN00~ fon       FON          BEN     atlna~ KPOMASSE TO
 KPA-D~          30[] 
  []
 
 
-Overfull \hbox (17.265pt too wide) in paragraph at lines 6304--6304
+Overfull \hbox (17.265pt too wide) in paragraph at lines 6306--6306
 []\TU/lmtt/m/n/10 ## 3 BEN00~ fon       FON          BEN     atlna~ OUIDAH   3A
 RROND           31[] 
  []
 
 
-Overfull \hbox (17.265pt too wide) in paragraph at lines 6305--6305
+Overfull \hbox (17.265pt too wide) in paragraph at lines 6307--6307
 []\TU/lmtt/m/n/10 ## 4 BEN00~ fon       FON          BEN     atlna~ OUIDAH   3A
 RROND           31[] 
  []
 
 
-Overfull \hbox (17.265pt too wide) in paragraph at lines 6306--6306
+Overfull \hbox (17.265pt too wide) in paragraph at lines 6308--6308
 []\TU/lmtt/m/n/10 ## 5 BEN00~ fon       FON          BEN     atlna~ OUIDAH   PA
 HOU             32[] 
  []
 
 
-Overfull \hbox (17.265pt too wide) in paragraph at lines 6307--6307
+Overfull \hbox (17.265pt too wide) in paragraph at lines 6309--6309
 []\TU/lmtt/m/n/10 ## 6 BEN00~ fon       FON          BEN     atlna~ OUIDAH   PA
 HOU             32[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 6308--6308
+Overfull \hbox (12.015pt too wide) in paragraph at lines 6310--6310
 []\TU/lmtt/m/n/10 ## # ... with 51 more variables: trust_relatives <dbl>, trust
 _neighbors <dbl>,[] 
  []
 
 
-Overfull \hbox (22.515pt too wide) in paragraph at lines 6311--6311
+Overfull \hbox (22.515pt too wide) in paragraph at lines 6313--6313
 []\TU/lmtt/m/n/10 ## #   export_pop <dbl>, ln_export_pop <dbl>, age <dbl>, age2
  <dbl>, male <dbl>,[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 6312--6312
+Overfull \hbox (33.015pt too wide) in paragraph at lines 6314--6314
 []\TU/lmtt/m/n/10 ## #   urban_dum <dbl>, occupation <dbl>, religion <dbl>, liv
 ing_conditions <dbl>,[] 
  []
 
 
-Overfull \hbox (17.265pt too wide) in paragraph at lines 6313--6313
+Overfull \hbox (17.265pt too wide) in paragraph at lines 6315--6315
 []\TU/lmtt/m/n/10 ## #   education <dbl>, near_dist <dbl>, distsea <dbl>, loc_m
 urdock_name <chr>,[] 
  []
 
 
-Overfull \hbox (17.265pt too wide) in paragraph at lines 6315--6315
+Overfull \hbox (17.265pt too wide) in paragraph at lines 6317--6317
 []\TU/lmtt/m/n/10 ## #   council_listen <dbl>, corrupt_local_council <dbl>, sch
 ool_present <dbl>,[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 6316--6316
+Overfull \hbox (33.015pt too wide) in paragraph at lines 6318--6318
 []\TU/lmtt/m/n/10 ## #   electricity_present <dbl>, piped_water_present <dbl>, 
 sewage_present <dbl>,[] 
  []
 
 
-Overfull \hbox (17.265pt too wide) in paragraph at lines 6318--6318
+Overfull \hbox (17.265pt too wide) in paragraph at lines 6320--6320
 []\TU/lmtt/m/n/10 ## #   frac_ethnicity_in_district <dbl>, townvill_nonethnic_m
 ean_exports <dbl>,[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 6319--6319
+Overfull \hbox (33.015pt too wide) in paragraph at lines 6321--6321
 []\TU/lmtt/m/n/10 ## #   district_nonethnic_mean_exports <dbl>, region_nonethni
 c_mean_exports <dbl>,[] 
  []
 
 
-Overfull \hbox (1.515pt too wide) in paragraph at lines 6320--6320
+Overfull \hbox (1.515pt too wide) in paragraph at lines 6322--6322
 []\TU/lmtt/m/n/10 ## #   country_nonethnic_mean_exports <dbl>, murdock_centr_di
 st_coast <dbl>,[] 
  []
 
 
-Overfull \hbox (17.265pt too wide) in paragraph at lines 6322--6322
+Overfull \hbox (17.265pt too wide) in paragraph at lines 6324--6324
 []\TU/lmtt/m/n/10 ## #   railway_contact <dbl>, dist_Saharan_node <dbl>, dist_S
 aharan_line <dbl>,[] 
  []
 
 [148] [149]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 6465.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 6448.
 [150]
-Overfull \hbox (17.265pt too wide) in paragraph at lines 6531--6531
+Overfull \hbox (17.265pt too wide) in paragraph at lines 6514--6514
 []\TU/lmtt/m/n/10 ##  [1]   0.3883497   0.6311236   0.9941893 182.5891266   0.0
 000000   0.0000000 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 6544--6544
+Overfull \hbox (33.015pt too wide) in paragraph at lines 6527--6527
 []\TU/lmtt/m/n/10 ## trust_neighbors         exports      ln_exports     export
 _area  ln_export_area 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 6545--6545
+Overfull \hbox (33.015pt too wide) in paragraph at lines 6528--6528
 []\TU/lmtt/m/n/10 ##     3.000000000     0.388349682     0.328115761     0.0040
 67405     0.004059155[] 
  []
 
-[151]
-Overfull \hbox (1.515pt too wide) in paragraph at lines 6594--6594
+
+Overfull \hbox (1.515pt too wide) in paragraph at lines 6577--6577
 []\TU/lmtt/m/n/10 ##       trust_neighbors      exports ln_exports  export_area
  ln_export_area 
  []
 
 
-Overfull \hbox (1.515pt too wide) in paragraph at lines 6595--6595
+Overfull \hbox (1.515pt too wide) in paragraph at lines 6578--6578
 []\TU/lmtt/m/n/10 ##  [1,]               6    0.7766994  0.6562315  0.008134809
      0.00811831[] 
  []
 
 
-Overfull \hbox (1.515pt too wide) in paragraph at lines 6596--6596
+Overfull \hbox (1.515pt too wide) in paragraph at lines 6579--6579
 []\TU/lmtt/m/n/10 ##  [2,]               6    1.2622472  0.9785382  0.194118887
      0.18526673[] 
  []
 
 
-Overfull \hbox (1.515pt too wide) in paragraph at lines 6597--6597
+Overfull \hbox (1.515pt too wide) in paragraph at lines 6580--6580
 []\TU/lmtt/m/n/10 ##  [3,]               6    1.9883785  1.3804752  0.025049388
      0.02489382[] 
  []
 
 
-Overfull \hbox (1.515pt too wide) in paragraph at lines 6598--6598
+Overfull \hbox (1.515pt too wide) in paragraph at lines 6581--6581
 []\TU/lmtt/m/n/10 ##  [4,]               0  365.1782532 10.4254007  3.648568869
      2.07651019[] 
  []
 
 
-Overfull \hbox (1.515pt too wide) in paragraph at lines 6599--6599
+Overfull \hbox (1.515pt too wide) in paragraph at lines 6582--6582
 []\TU/lmtt/m/n/10 ##  [5,]               6    0.0000000  0.0000000  0.000000000
      0.00000000[] 
  []
 
 
-Overfull \hbox (1.515pt too wide) in paragraph at lines 6600--6600
+Overfull \hbox (1.515pt too wide) in paragraph at lines 6583--6583
 []\TU/lmtt/m/n/10 ##  [6,]               4    0.0000000  0.0000000  0.000000000
      0.00000000[] 
  []
 
 
-Overfull \hbox (1.515pt too wide) in paragraph at lines 6601--6601
+Overfull \hbox (1.515pt too wide) in paragraph at lines 6584--6584
 []\TU/lmtt/m/n/10 ##  [7,]               4 1331.9304199 13.0054760 27.951133728
      5.41283989[] 
  []
 
 
-Overfull \hbox (1.515pt too wide) in paragraph at lines 6602--6602
+Overfull \hbox (1.515pt too wide) in paragraph at lines 6585--6585
 []\TU/lmtt/m/n/10 ##  [8,]               0    0.6952835  0.5967125  0.012165107
      0.01212826[] 
  []
 
 
-Overfull \hbox (1.515pt too wide) in paragraph at lines 6603--6603
+Overfull \hbox (1.515pt too wide) in paragraph at lines 6586--6586
 []\TU/lmtt/m/n/10 ##  [9,]               6    0.8699743  0.7223117  0.076664761
      0.07523189[] 
  []
 
-
-Overfull \hbox (1.515pt too wide) in paragraph at lines 6604--6604
+[151]
+Overfull \hbox (1.515pt too wide) in paragraph at lines 6587--6587
 []\TU/lmtt/m/n/10 ## [10,]               6    0.0000000  0.0000000  0.000000000
      0.00000000[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 6656--6656
+Overfull \hbox (12.015pt too wide) in paragraph at lines 6639--6639
 []\TU/lmtt/m/n/10 ##  [1,]               3   0.3883497  0.3281158  0.004067405 
    0.004059155  1[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 6657--6657
+Overfull \hbox (12.015pt too wide) in paragraph at lines 6640--6640
 []\TU/lmtt/m/n/10 ##  [2,]               3   0.6311236  0.4892691  0.097059444 
    0.092633367  2[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 6658--6658
+Overfull \hbox (12.015pt too wide) in paragraph at lines 6641--6641
 []\TU/lmtt/m/n/10 ##  [3,]               3   0.9941893  0.6902376  0.012524694 
    0.012446908  3[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 6659--6659
+Overfull \hbox (12.015pt too wide) in paragraph at lines 6642--6642
 []\TU/lmtt/m/n/10 ##  [4,]               0 182.5891266  5.2127004  1.824284434 
    1.038255095  4[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 6660--6660
+Overfull \hbox (12.015pt too wide) in paragraph at lines 6643--6643
 []\TU/lmtt/m/n/10 ##  [5,]               3   0.0000000  0.0000000  0.000000000 
    0.000000000  5[] 
  []
 
-[152]
-Overfull \hbox (12.015pt too wide) in paragraph at lines 6661--6661
+
+Overfull \hbox (12.015pt too wide) in paragraph at lines 6644--6644
 []\TU/lmtt/m/n/10 ##  [6,]               2   0.0000000  0.0000000  0.000000000 
    0.000000000  6[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 6662--6662
+Overfull \hbox (12.015pt too wide) in paragraph at lines 6645--6645
 []\TU/lmtt/m/n/10 ##  [7,]               2 665.9652100  6.5027380 13.975566864 
    2.706419945  7[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 6663--6663
+Overfull \hbox (12.015pt too wide) in paragraph at lines 6646--6646
 []\TU/lmtt/m/n/10 ##  [8,]               0   0.3476418  0.2983562  0.006082553 
    0.006064130  8[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 6664--6664
+Overfull \hbox (12.015pt too wide) in paragraph at lines 6647--6647
 []\TU/lmtt/m/n/10 ##  [9,]               3   0.4349871  0.3611559  0.038332380 
    0.037615947  9[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 6665--6665
+Overfull \hbox (12.015pt too wide) in paragraph at lines 6648--6648
 []\TU/lmtt/m/n/10 ## [10,]               3   0.0000000  0.0000000  0.000000000 
    0.000000000 10[] 
  []
 
 
-Overfull \hbox (6.765pt too wide) in paragraph at lines 6676--6676
+Overfull \hbox (6.765pt too wide) in paragraph at lines 6659--6659
 []\TU/lmtt/m/n/10 ##  [1,]               3   0.3883497  0.3281158  0.004067405 
    0.004059155 1[] 
  []
 
 
-Overfull \hbox (6.765pt too wide) in paragraph at lines 6677--6677
+Overfull \hbox (6.765pt too wide) in paragraph at lines 6660--6660
 []\TU/lmtt/m/n/10 ##  [2,]               3   0.6311236  0.4892691  0.097059444 
    0.092633367 1[] 
  []
 
 
-Overfull \hbox (6.765pt too wide) in paragraph at lines 6678--6678
+Overfull \hbox (6.765pt too wide) in paragraph at lines 6661--6661
 []\TU/lmtt/m/n/10 ##  [3,]               3   0.9941893  0.6902376  0.012524694 
    0.012446908 1[] 
  []
 
-
-Overfull \hbox (6.765pt too wide) in paragraph at lines 6679--6679
+[152]
+Overfull \hbox (6.765pt too wide) in paragraph at lines 6662--6662
 []\TU/lmtt/m/n/10 ##  [4,]               0 182.5891266  5.2127004  1.824284434 
    1.038255095 1[] 
  []
 
 
-Overfull \hbox (6.765pt too wide) in paragraph at lines 6680--6680
+Overfull \hbox (6.765pt too wide) in paragraph at lines 6663--6663
 []\TU/lmtt/m/n/10 ##  [5,]               3   0.0000000  0.0000000  0.000000000 
    0.000000000 1[] 
  []
 
 
-Overfull \hbox (6.765pt too wide) in paragraph at lines 6681--6681
+Overfull \hbox (6.765pt too wide) in paragraph at lines 6664--6664
 []\TU/lmtt/m/n/10 ##  [6,]               2   0.0000000  0.0000000  0.000000000 
    0.000000000 1[] 
  []
 
 
-Overfull \hbox (6.765pt too wide) in paragraph at lines 6682--6682
+Overfull \hbox (6.765pt too wide) in paragraph at lines 6665--6665
 []\TU/lmtt/m/n/10 ##  [7,]               2 665.9652100  6.5027380 13.975566864 
    2.706419945 1[] 
  []
 
 
-Overfull \hbox (6.765pt too wide) in paragraph at lines 6683--6683
+Overfull \hbox (6.765pt too wide) in paragraph at lines 6666--6666
 []\TU/lmtt/m/n/10 ##  [8,]               0   0.3476418  0.2983562  0.006082553 
    0.006064130 1[] 
  []
 
 
-Overfull \hbox (6.765pt too wide) in paragraph at lines 6684--6684
+Overfull \hbox (6.765pt too wide) in paragraph at lines 6667--6667
 []\TU/lmtt/m/n/10 ##  [9,]               3   0.4349871  0.3611559  0.038332380 
    0.037615947 1[] 
  []
 
 
-Overfull \hbox (6.765pt too wide) in paragraph at lines 6685--6685
+Overfull \hbox (6.765pt too wide) in paragraph at lines 6668--6668
 []\TU/lmtt/m/n/10 ## [10,]               3   0.0000000  0.0000000  0.000000000 
    0.000000000 1[] 
  []
 
 
-Overfull \hbox (6.765pt too wide) in paragraph at lines 6713--6713
+Overfull \hbox (6.765pt too wide) in paragraph at lines 6696--6696
 []\TU/lmtt/m/n/10 ##  [1] 0.3281158 0.4892691 0.6902376 5.2127003 0.0000000 0.0
 000000 6.5027379 
  []
 
 File: images/nunn_wantchekon_table1.png Graphic file (type bmp)
 <images/nunn_wantchekon_table1.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 [153]
-Overfull \hbox (6.765pt too wide) in paragraph at lines 6739--6739
+Overfull \hbox (6.765pt too wide) in paragraph at lines 6722--6722
 []\TU/lmtt/m/n/10 ##  [1] -0.0002640778 -0.0004291640 -0.0006760487 -0.12416060
 61  0.0000000000 
  []
 
 
-Overfull \hbox (6.765pt too wide) in paragraph at lines 6740--6740
+Overfull \hbox (6.765pt too wide) in paragraph at lines 6723--6723
 []\TU/lmtt/m/n/10 ##  [6]  0.0000000000 -0.4528563428 -0.0002363964 -0.00029579
 12  0.0000000000[] 
  []
 
 [154] [155]
-Overfull \hbox (1.515pt too wide) in paragraph at lines 6913--6913
+Overfull \hbox (1.515pt too wide) in paragraph at lines 6896--6896
 []\TU/lmtt/m/n/10 ## [1] "White"       "White"       "White"       "White"     
   "Black/Negro" 
  []
 
 
-Overfull \hbox (1.515pt too wide) in paragraph at lines 6938--6938
+Overfull \hbox (1.515pt too wide) in paragraph at lines 6921--6921
 []\TU/lmtt/m/n/10 ## [37] "Louisiana"            "Alabama"              "Distri
 ct of Columbia"[] 
  []
@@ -1939,123 +1942,126 @@ ct of Columbia"[]
 [156] [157]
 Underfull \vbox (badness 2617) has occurred while \output is active []
 
-[158] [159] [160] [161] [162] [163]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[158] [159] [160] [161] [162]
+Underfull \vbox (badness 1515) has occurred while \output is active []
+
+[163]
+Underfull \vbox (badness 1527) has occurred while \output is active []
 
 [164] [165] [166
 
 ]
 Chapter 10.
 [167] [168] [169] [170]
-File: prefresher_files/figure-latex/unnamed-chunk-187-1.pdf Graphic file (type 
+File: prefresher_files/figure-latex/unnamed-chunk-185-1.pdf Graphic file (type 
 pdf)
-<use prefresher_files/figure-latex/unnamed-chunk-187-1.pdf>
+<use prefresher_files/figure-latex/unnamed-chunk-185-1.pdf>
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 7910.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 7856.
 
-Overfull \hbox (285.015pt too wide) in paragraph at lines 7922--7922
+Overfull \hbox (285.015pt too wide) in paragraph at lines 7868--7868
 []\TU/lmtt/m/n/10 ##  $       : chr [1:5] "subitem 1 in slot 1 of my_list" "sub
 item 1 in slot 2 of my_list" "subitem 1 in slot 3 of my_list" "4" ...[] 
  []
 
 [171]
-Overfull \hbox (1.515pt too wide) in paragraph at lines 7995--7995
+Overfull \hbox (1.515pt too wide) in paragraph at lines 7941--7941
 []\TU/lmtt/m/n/10 ## [3] "Other race, nec"                  "American Indian or
  Alaska Native"[] 
  []
 
 [172] [173] [174] [175] [176] [177]
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8460--8460
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8406--8406
 []\TU/lmtt/m/n/10 ## [1] "Percentage of  American Indian or Alaska Native in Ca
 lifornia is 1.12"[] 
  []
 
 
-Overfull \hbox (6.765pt too wide) in paragraph at lines 8462--8462
+Overfull \hbox (6.765pt too wide) in paragraph at lines 8408--8408
 []\TU/lmtt/m/n/10 ## [1] "Percentage of  Other Asian or Pacific Islander in Cal
 ifornia is 9.54"[] 
  []
 
 
-Overfull \hbox (27.765pt too wide) in paragraph at lines 8469--8469
+Overfull \hbox (27.765pt too wide) in paragraph at lines 8415--8415
 []\TU/lmtt/m/n/10 ## [1] "Percentage of  American Indian or Alaska Native in Ma
 ssachusetts is 0.77"[] 
  []
 
 [178]
-Overfull \hbox (22.515pt too wide) in paragraph at lines 8471--8471
+Overfull \hbox (22.515pt too wide) in paragraph at lines 8417--8417
 []\TU/lmtt/m/n/10 ## [1] "Percentage of  Other Asian or Pacific Islander in Mas
 sachusetts is 4.33"[] 
  []
 
 
-Overfull \hbox (27.765pt too wide) in paragraph at lines 8478--8478
+Overfull \hbox (27.765pt too wide) in paragraph at lines 8424--8424
 []\TU/lmtt/m/n/10 ## [1] "Percentage of  American Indian or Alaska Native in Ne
 w Hampshire is 0.72"[] 
  []
 
 
-Overfull \hbox (22.515pt too wide) in paragraph at lines 8480--8480
+Overfull \hbox (22.515pt too wide) in paragraph at lines 8426--8426
 []\TU/lmtt/m/n/10 ## [1] "Percentage of  Other Asian or Pacific Islander in New
  Hampshire is 2.17"[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8487--8487
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8433--8433
 []\TU/lmtt/m/n/10 ## [1] "Percentage of  American Indian or Alaska Native in Wa
 shington is 2.03"[] 
  []
 
 
-Overfull \hbox (6.765pt too wide) in paragraph at lines 8489--8489
+Overfull \hbox (6.765pt too wide) in paragraph at lines 8435--8435
 []\TU/lmtt/m/n/10 ## [1] "Percentage of  Other Asian or Pacific Islander in Was
 hington is 6.68"[] 
  []
 
 [179]
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8548--8548
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8494--8494
 []\TU/lmtt/m/n/10 ## [1] "Percentage of  American Indian or Alaska Native in Ca
 lifornia is 1.12"[] 
  []
 
 
-Overfull \hbox (6.765pt too wide) in paragraph at lines 8550--8550
+Overfull \hbox (6.765pt too wide) in paragraph at lines 8496--8496
 []\TU/lmtt/m/n/10 ## [1] "Percentage of  Other Asian or Pacific Islander in Cal
 ifornia is 9.54"[] 
  []
 
 
-Overfull \hbox (27.765pt too wide) in paragraph at lines 8557--8557
+Overfull \hbox (27.765pt too wide) in paragraph at lines 8503--8503
 []\TU/lmtt/m/n/10 ## [1] "Percentage of  American Indian or Alaska Native in Ma
 ssachusetts is 0.77"[] 
  []
 
 
-Overfull \hbox (22.515pt too wide) in paragraph at lines 8559--8559
+Overfull \hbox (22.515pt too wide) in paragraph at lines 8505--8505
 []\TU/lmtt/m/n/10 ## [1] "Percentage of  Other Asian or Pacific Islander in Mas
 sachusetts is 4.33"[] 
  []
 
 
-Overfull \hbox (27.765pt too wide) in paragraph at lines 8566--8566
+Overfull \hbox (27.765pt too wide) in paragraph at lines 8512--8512
 []\TU/lmtt/m/n/10 ## [1] "Percentage of  American Indian or Alaska Native in Ne
 w Hampshire is 0.72"[] 
  []
 
 
-Overfull \hbox (22.515pt too wide) in paragraph at lines 8568--8568
+Overfull \hbox (22.515pt too wide) in paragraph at lines 8514--8514
 []\TU/lmtt/m/n/10 ## [1] "Percentage of  Other Asian or Pacific Islander in New
  Hampshire is 2.17"[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8575--8575
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8521--8521
 []\TU/lmtt/m/n/10 ## [1] "Percentage of  American Indian or Alaska Native in Wa
 shington is 2.03"[] 
  []
 
 
-Overfull \hbox (6.765pt too wide) in paragraph at lines 8577--8577
+Overfull \hbox (6.765pt too wide) in paragraph at lines 8523--8523
 []\TU/lmtt/m/n/10 ## [1] "Percentage of  Other Asian or Pacific Islander in Was
 hington is 6.68"[] 
  []
@@ -2064,337 +2070,341 @@ hington is 6.68"[]
 
 ]
 Chapter 11.
+[183]
 File: images/Martin-Quinn_Wikipedia.png Graphic file (type bmp)
 <images/Martin-Quinn_Wikipedia.png>
-[183] [184] [185] [186]
+[184] [185]
+Underfull \vbox (badness 1365) has occurred while \output is active []
+
+[186]
+File: prefresher_files/figure-latex/unnamed-chunk-229-1.pdf Graphic file (type 
+pdf)
+<use prefresher_files/figure-latex/unnamed-chunk-229-1.pdf>
+[187]
 File: prefresher_files/figure-latex/unnamed-chunk-231-1.pdf Graphic file (type 
 pdf)
 <use prefresher_files/figure-latex/unnamed-chunk-231-1.pdf>
-[187]
-File: prefresher_files/figure-latex/unnamed-chunk-233-1.pdf Graphic file (type 
+File: prefresher_files/figure-latex/unnamed-chunk-232-1.pdf Graphic file (type 
 pdf)
-<use prefresher_files/figure-latex/unnamed-chunk-233-1.pdf>
-File: prefresher_files/figure-latex/unnamed-chunk-234-1.pdf Graphic file (type 
-pdf)
-<use prefresher_files/figure-latex/unnamed-chunk-234-1.pdf>
+<use prefresher_files/figure-latex/unnamed-chunk-232-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [188]
-File: prefresher_files/figure-latex/unnamed-chunk-235-1.pdf Graphic file (type 
+File: prefresher_files/figure-latex/unnamed-chunk-233-1.pdf Graphic file (type 
 pdf)
-<use prefresher_files/figure-latex/unnamed-chunk-235-1.pdf>
+<use prefresher_files/figure-latex/unnamed-chunk-233-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [189]
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8925--8925
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8872--8872
 []\TU/lmtt/m/n/10 ##                        American Indian or Alaska Native Bl
 ack/Negro Chinese[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8926--8926
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8873--8873
 []\TU/lmtt/m/n/10 ##   Alabama                                             2   
       128       1[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8927--8927
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8874--8874
 []\TU/lmtt/m/n/10 ##   Alaska                                             11   
         6       0[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8928--8928
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8875--8875
 []\TU/lmtt/m/n/10 ##   Arizona                                            28   
        23       1[] 
  []
 
 [190]
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8929--8929
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8876--8876
 []\TU/lmtt/m/n/10 ##   Arkansas                                            1   
        45       0[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8930--8930
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8877--8877
 []\TU/lmtt/m/n/10 ##   California                                         42   
       253     141[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8931--8931
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8878--8878
 []\TU/lmtt/m/n/10 ##   Colorado                                            7   
        26       3[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8932--8932
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8879--8879
 []\TU/lmtt/m/n/10 ##   Connecticut                                         1   
        39       7[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8933--8933
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8880--8880
 []\TU/lmtt/m/n/10 ##   Delaware                                            3   
        28       1[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8934--8934
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8881--8881
 []\TU/lmtt/m/n/10 ##   District of Columbia                                0   
        35       0[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8935--8935
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8882--8882
 []\TU/lmtt/m/n/10 ##   Florida                                             9   
       304       4[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8936--8936
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8883--8883
 []\TU/lmtt/m/n/10 ##   Georgia                                             2   
       304       5[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8937--8937
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8884--8884
 []\TU/lmtt/m/n/10 ##   Hawaii                                              0   
         0       2[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8938--8938
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8885--8885
 []\TU/lmtt/m/n/10 ##   Idaho                                               2   
         0       0[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8939--8939
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8886--8886
 []\TU/lmtt/m/n/10 ##   Illinois                                            5   
       194       6[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8940--8940
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8887--8887
 []\TU/lmtt/m/n/10 ##   Indiana                                             2   
        66       3[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8941--8941
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8888--8888
 []\TU/lmtt/m/n/10 ##   Iowa                                                0   
         9       1[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8942--8942
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8889--8889
 []\TU/lmtt/m/n/10 ##   Kansas                                              2   
        24       2[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8943--8943
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8890--8890
 []\TU/lmtt/m/n/10 ##   Kentucky                                            2   
        35       2[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8944--8944
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8891--8891
 []\TU/lmtt/m/n/10 ##   Louisiana                                           3   
       161       1[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8945--8945
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8892--8892
 []\TU/lmtt/m/n/10 ##   Maine                                               0   
         4       1[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8946--8946
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8893--8893
 []\TU/lmtt/m/n/10 ##   Maryland                                            2   
       177       4[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8947--8947
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8894--8894
 []\TU/lmtt/m/n/10 ##   Massachusetts                                       5   
        38      15[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8948--8948
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8895--8895
 []\TU/lmtt/m/n/10 ##   Michigan                                            5   
       147       8[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8949--8949
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8896--8896
 []\TU/lmtt/m/n/10 ##   Minnesota                                           6   
        25       5[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8950--8950
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8897--8897
 []\TU/lmtt/m/n/10 ##   Mississippi                                         1   
       116       0[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8951--8951
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8898--8898
 []\TU/lmtt/m/n/10 ##   Missouri                                            4   
        74       2[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8952--8952
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8899--8899
 []\TU/lmtt/m/n/10 ##   Montana                                             8   
         0       0[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8953--8953
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8900--8900
 []\TU/lmtt/m/n/10 ##   Nebraska                                            2   
        11       0[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8954--8954
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8901--8901
 []\TU/lmtt/m/n/10 ##   Nevada                                              6   
        15       6[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8955--8955
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8902--8902
 []\TU/lmtt/m/n/10 ##   New Hampshire                                       1   
         1       1[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8956--8956
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8903--8903
 []\TU/lmtt/m/n/10 ##   New Jersey                                          0   
       130      19[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8957--8957
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8904--8904
 []\TU/lmtt/m/n/10 ##   New Mexico                                         21   
         3       1[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8958--8958
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8905--8905
 []\TU/lmtt/m/n/10 ##   New York                                           13   
       305      55[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8959--8959
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8906--8906
 []\TU/lmtt/m/n/10 ##   North Carolina                                     12   
       220       4[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8960--8960
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8907--8907
 []\TU/lmtt/m/n/10 ##   North Dakota                                        4   
         1       0[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8961--8961
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8908--8908
 []\TU/lmtt/m/n/10 ##   Ohio                                                1   
       122       5[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8962--8962
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8909--8909
 []\TU/lmtt/m/n/10 ##   Oklahoma                                           21   
        20       0[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8963--8963
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8910--8910
 []\TU/lmtt/m/n/10 ##   Oregon                                              5   
         5       4[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8964--8964
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8911--8911
 []\TU/lmtt/m/n/10 ##   Pennsylvania                                        2   
       156      10[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8965--8965
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8912--8912
 []\TU/lmtt/m/n/10 ##   Rhode Island                                        2   
         3       0[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8966--8966
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8913--8913
 []\TU/lmtt/m/n/10 ##   South Carolina                                      2   
       120       1[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8967--8967
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8914--8914
 []\TU/lmtt/m/n/10 ##   South Dakota                                        7   
         1       0[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8968--8968
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8915--8915
 []\TU/lmtt/m/n/10 ##   Tennessee                                           0   
        97       0[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8969--8969
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8916--8916
 []\TU/lmtt/m/n/10 ##   Texas                                              14   
       316      15[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8970--8970
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8917--8917
 []\TU/lmtt/m/n/10 ##   Utah                                                8   
         0       1[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8971--8971
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8918--8918
 []\TU/lmtt/m/n/10 ##   Vermont                                             0   
         2       0[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8972--8972
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8919--8919
 []\TU/lmtt/m/n/10 ##   Virginia                                            0   
       171       8[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8973--8973
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8920--8920
 []\TU/lmtt/m/n/10 ##   Washington                                         14   
        20       9[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8974--8974
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8921--8921
 []\TU/lmtt/m/n/10 ##   West Virginia                                       0   
         5       0[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8975--8975
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8922--8922
 []\TU/lmtt/m/n/10 ##   Wisconsin                                           6   
        27       0[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 8976--8976
+Overfull \hbox (12.015pt too wide) in paragraph at lines 8923--8923
 []\TU/lmtt/m/n/10 ##   Wyoming                                             1   
         1       0[] 
  []
@@ -2403,283 +2413,283 @@ Overfull \hbox (12.015pt too wide) in paragraph at lines 8976--8976
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [191]
-Overfull \hbox (33.015pt too wide) in paragraph at lines 8978--8978
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8925--8925
 []\TU/lmtt/m/n/10 ##                        Japanese Other Asian or Pacific Isl
 ander Other race, nec[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 8979--8979
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8926--8926
 []\TU/lmtt/m/n/10 ##   Alabama                     0                           
     3               8[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 8980--8980
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8927--8927
 []\TU/lmtt/m/n/10 ##   Alaska                      0                           
     5               2[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 8981--8981
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8928--8928
 []\TU/lmtt/m/n/10 ##   Arizona                     0                           
    12              74[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 8982--8982
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8929--8929
 []\TU/lmtt/m/n/10 ##   Arkansas                    0                           
     1              11[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 8983--8983
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8930--8930
 []\TU/lmtt/m/n/10 ##   California                 27                           
   359             585[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 8984--8984
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8931--8931
 []\TU/lmtt/m/n/10 ##   Colorado                    0                           
    10              28[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 8985--8985
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8932--8932
 []\TU/lmtt/m/n/10 ##   Connecticut                 0                           
    16              20[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 8986--8986
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8933--8933
 []\TU/lmtt/m/n/10 ##   Delaware                    0                           
     4               5[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 8987--8987
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8934--8934
 []\TU/lmtt/m/n/10 ##   District of Columbia        0                           
     1               1[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 8988--8988
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8935--8935
 []\TU/lmtt/m/n/10 ##   Florida                     1                           
    24              72[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 8989--8989
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8936--8936
 []\TU/lmtt/m/n/10 ##   Georgia                     0                           
    35              35[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 8990--8990
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8937--8937
 []\TU/lmtt/m/n/10 ##   Hawaii                     16                           
    35               0[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 8991--8991
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8938--8938
 []\TU/lmtt/m/n/10 ##   Idaho                       1                           
     0               8[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 8992--8992
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8939--8939
 []\TU/lmtt/m/n/10 ##   Illinois                    3                           
    53              75[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 8993--8993
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8940--8940
 []\TU/lmtt/m/n/10 ##   Indiana                     0                           
     8              20[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 8994--8994
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8941--8941
 []\TU/lmtt/m/n/10 ##   Iowa                        0                           
     4              10[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 8995--8995
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8942--8942
 []\TU/lmtt/m/n/10 ##   Kansas                      0                           
     8               6[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 8996--8996
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8943--8943
 []\TU/lmtt/m/n/10 ##   Kentucky                    0                           
     4               5[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 8997--8997
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8944--8944
 []\TU/lmtt/m/n/10 ##   Louisiana                   0                           
     5               7[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 8998--8998
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8945--8945
 []\TU/lmtt/m/n/10 ##   Maine                       0                           
     1               0[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 8999--8999
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8946--8946
 []\TU/lmtt/m/n/10 ##   Maryland                    1                           
    12              28[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9000--9000
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8947--8947
 []\TU/lmtt/m/n/10 ##   Massachusetts               2                           
    28              26[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9001--9001
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8948--8948
 []\TU/lmtt/m/n/10 ##   Michigan                    1                           
    23               8[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9002--9002
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8949--8949
 []\TU/lmtt/m/n/10 ##   Minnesota                   1                           
    28              13[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9003--9003
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8950--8950
 []\TU/lmtt/m/n/10 ##   Mississippi                 0                           
     3               2[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9004--9004
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8951--8951
 []\TU/lmtt/m/n/10 ##   Missouri                    0                           
     9               6[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9005--9005
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8952--8952
 []\TU/lmtt/m/n/10 ##   Montana                     0                           
     0               1[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9006--9006
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8953--8953
 []\TU/lmtt/m/n/10 ##   Nebraska                    0                           
     5               6[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9007--9007
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8954--8954
 []\TU/lmtt/m/n/10 ##   Nevada                      2                           
    15              41[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9008--9008
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8955--8955
 []\TU/lmtt/m/n/10 ##   New Hampshire               1                           
     3               1[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9009--9009
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8956--8956
 []\TU/lmtt/m/n/10 ##   New Jersey                  2                           
    65              69[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9010--9010
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8957--8957
 []\TU/lmtt/m/n/10 ##   New Mexico                  1                           
     1              23[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9011--9011
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8958--8958
 []\TU/lmtt/m/n/10 ##   New York                    3                           
    68             154[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9012--9012
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8959--8959
 []\TU/lmtt/m/n/10 ##   North Carolina              1                           
    12              40[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9013--9013
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8960--8960
 []\TU/lmtt/m/n/10 ##   North Dakota                0                           
     0               0[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9014--9014
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8961--8961
 []\TU/lmtt/m/n/10 ##   Ohio                        2                           
    17               7[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9015--9015
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8962--8962
 []\TU/lmtt/m/n/10 ##   Oklahoma                    0                           
     5              15[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9016--9016
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8963--8963
 []\TU/lmtt/m/n/10 ##   Oregon                      0                           
    11              21[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9017--9017
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8964--8964
 []\TU/lmtt/m/n/10 ##   Pennsylvania                1                           
    28              30[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9018--9018
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8965--8965
 []\TU/lmtt/m/n/10 ##   Rhode Island                0                           
     4               6[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9019--9019
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8966--8966
 []\TU/lmtt/m/n/10 ##   South Carolina              0                           
     4               6[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9020--9020
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8967--8967
 []\TU/lmtt/m/n/10 ##   South Dakota                1                           
     1               2[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9021--9021
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8968--8968
 []\TU/lmtt/m/n/10 ##   Tennessee                   0                           
    13              13[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9022--9022
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8969--8969
 []\TU/lmtt/m/n/10 ##   Texas                       2                           
    92             253[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9023--9023
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8970--8970
 []\TU/lmtt/m/n/10 ##   Utah                        1                           
     6              14[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9024--9024
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8971--8971
 []\TU/lmtt/m/n/10 ##   Vermont                     0                           
     0               1[] 
  []
@@ -2688,31 +2698,31 @@ Overfull \hbox (33.015pt too wide) in paragraph at lines 9024--9024
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [192]
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9025--9025
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8972--8972
 []\TU/lmtt/m/n/10 ##   Virginia                    2                           
    29              29[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9026--9026
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8973--8973
 []\TU/lmtt/m/n/10 ##   Washington                  4                           
    46              37[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9027--9027
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8974--8974
 []\TU/lmtt/m/n/10 ##   West Virginia               0                           
     0               0[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9028--9028
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8975--8975
 []\TU/lmtt/m/n/10 ##   Wisconsin                   1                           
    11              13[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9029--9029
+Overfull \hbox (33.015pt too wide) in paragraph at lines 8976--8976
 []\TU/lmtt/m/n/10 ##   Wyoming                     0                           
     2               2[] 
  []
@@ -2721,81 +2731,81 @@ Overfull \hbox (33.015pt too wide) in paragraph at lines 9029--9029
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [193] [194]
-File: prefresher_files/figure-latex/unnamed-chunk-241-1.pdf Graphic file (type 
+File: prefresher_files/figure-latex/unnamed-chunk-239-1.pdf Graphic file (type 
 pdf)
-<use prefresher_files/figure-latex/unnamed-chunk-241-1.pdf>
+<use prefresher_files/figure-latex/unnamed-chunk-239-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [195] [196]
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9169--9169
+Overfull \hbox (33.015pt too wide) in paragraph at lines 9116--9116
 []\TU/lmtt/m/n/10 ##     term justice_id justice    idealpt idealpt_sd median_i
 dealpt median_justice[] 
  []
 
 
-Overfull \hbox (1.515pt too wide) in paragraph at lines 9171--9171
+Overfull \hbox (1.515pt too wide) in paragraph at lines 9118--9118
 []\TU/lmtt/m/n/10 ##  1  1937         67 McReynolds   3.44       0.54          
 -0.568 Brandeis[] 
  []
 
 
-Overfull \hbox (1.515pt too wide) in paragraph at lines 9172--9172
+Overfull \hbox (1.515pt too wide) in paragraph at lines 9119--9119
 []\TU/lmtt/m/n/10 ##  2  1937         68 Brandeis    -0.612      0.271         
 -0.568 Brandeis[] 
  []
 
 
-Overfull \hbox (1.515pt too wide) in paragraph at lines 9173--9173
+Overfull \hbox (1.515pt too wide) in paragraph at lines 9120--9120
 []\TU/lmtt/m/n/10 ##  3  1937         71 Sutherland   1.59       0.549         
 -0.568 Brandeis[] 
  []
 
 
-Overfull \hbox (1.515pt too wide) in paragraph at lines 9174--9174
+Overfull \hbox (1.515pt too wide) in paragraph at lines 9121--9121
 []\TU/lmtt/m/n/10 ##  4  1937         72 Butler       2.06       0.426         
 -0.568 Brandeis[] 
  []
 
 
-Overfull \hbox (1.515pt too wide) in paragraph at lines 9175--9175
+Overfull \hbox (1.515pt too wide) in paragraph at lines 9122--9122
 []\TU/lmtt/m/n/10 ##  5  1937         74 Stone       -0.774      0.259         
 -0.568 Brandeis[] 
  []
 
 
-Overfull \hbox (1.515pt too wide) in paragraph at lines 9176--9176
+Overfull \hbox (1.515pt too wide) in paragraph at lines 9123--9123
 []\TU/lmtt/m/n/10 ##  6  1937         75 Hughes2     -0.368      0.232         
 -0.568 Brandeis[] 
  []
 
 
-Overfull \hbox (1.515pt too wide) in paragraph at lines 9177--9177
+Overfull \hbox (1.515pt too wide) in paragraph at lines 9124--9124
 []\TU/lmtt/m/n/10 ##  7  1937         76 O. Roberts   0.008      0.228         
 -0.568 Brandeis[] 
  []
 
 
-Overfull \hbox (1.515pt too wide) in paragraph at lines 9178--9178
+Overfull \hbox (1.515pt too wide) in paragraph at lines 9125--9125
 []\TU/lmtt/m/n/10 ##  8  1937         77 Cardozo     -1.59       0.634         
 -0.568 Brandeis[] 
  []
 
 
-Overfull \hbox (1.515pt too wide) in paragraph at lines 9179--9179
+Overfull \hbox (1.515pt too wide) in paragraph at lines 9126--9126
 []\TU/lmtt/m/n/10 ##  9  1937         78 Black       -2.90       0.334         
 -0.568 Brandeis[] 
  []
 
 
-Overfull \hbox (1.515pt too wide) in paragraph at lines 9180--9180
+Overfull \hbox (1.515pt too wide) in paragraph at lines 9127--9127
 []\TU/lmtt/m/n/10 ## 10  1937         79 Reed        -1.06       0.342         
 -0.568 Brandeis[] 
  []
 
-File: prefresher_files/figure-latex/unnamed-chunk-244-1.pdf Graphic file (type 
+File: prefresher_files/figure-latex/unnamed-chunk-242-1.pdf Graphic file (type 
 pdf)
-<use prefresher_files/figure-latex/unnamed-chunk-244-1.pdf>
+<use prefresher_files/figure-latex/unnamed-chunk-242-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -2807,38 +2817,38 @@ Chapter 12.
 [201
 
 ] [202]
-File: prefresher_files/figure-latex/unnamed-chunk-251-1.pdf Graphic file (type 
+File: prefresher_files/figure-latex/unnamed-chunk-249-1.pdf Graphic file (type 
 pdf)
-<use prefresher_files/figure-latex/unnamed-chunk-251-1.pdf>
+<use prefresher_files/figure-latex/unnamed-chunk-249-1.pdf>
 [203] [204]
 File: images/dplyr-joins.png Graphic file (type bmp)
 <images/dplyr-joins.png>
 [205]
-Overfull \hbox (38.265pt too wide) in paragraph at lines 9518--9518
+Overfull \hbox (38.265pt too wide) in paragraph at lines 9466--9466
 []\TU/lmtt/m/n/10 ## Warning in dcast(data = p_m, formula = ccode ~ year, value
 .var = "polity2"): The 
  []
 
 
-Overfull \hbox (22.515pt too wide) in paragraph at lines 9519--9519
+Overfull \hbox (22.515pt too wide) in paragraph at lines 9467--9467
 []\TU/lmtt/m/n/10 ## dcast generic in data.table has been passed a spec_tbl_df 
 and will attempt to[] 
  []
 
 
-Overfull \hbox (22.515pt too wide) in paragraph at lines 9520--9520
+Overfull \hbox (22.515pt too wide) in paragraph at lines 9468--9468
 []\TU/lmtt/m/n/10 ## redirect to the reshape2::dcast; please note that reshape2
  is deprecated, and[] 
  []
 
 
-Overfull \hbox (33.015pt too wide) in paragraph at lines 9521--9521
+Overfull \hbox (33.015pt too wide) in paragraph at lines 9469--9469
 []\TU/lmtt/m/n/10 ## this redirection is now deprecated as well. Please do this
  redirection yourself[] 
  []
 
 
-Overfull \hbox (12.015pt too wide) in paragraph at lines 9522--9522
+Overfull \hbox (12.015pt too wide) in paragraph at lines 9470--9470
 []\TU/lmtt/m/n/10 ## like reshape2::dcast(p_m). In the next version, this warni
 ng will become an[] 
  []
@@ -2848,39 +2858,39 @@ ng will become an[]
 ]
 Chapter 13.
 [209] [210]
-Overfull \hbox (264.015pt too wide) in paragraph at lines 9725--9725
+Overfull \hbox (264.015pt too wide) in paragraph at lines 9674--9674
 []\TU/lmtt/m/n/10 ## Error in sample.int(length(x), size, replace, prob): canno
 t take a sample larger than the population when []replace = FALSE[] 
  []
 
 
-Overfull \hbox (6.765pt too wide) in paragraph at lines 9739--9739
-[]\TU/lmtt/m/n/10 ##  [1] "Tail" "Head" "Head" "Head" "Tail" "Tail" "Tail" "Hea
+Overfull \hbox (6.765pt too wide) in paragraph at lines 9688--9688
+[]\TU/lmtt/m/n/10 ##  [1] "Head" "Head" "Tail" "Head" "Head" "Tail" "Head" "Hea
 d" "Tail" "Tail" 
  []
 
 
-Overfull \hbox (6.765pt too wide) in paragraph at lines 9740--9740
-[]\TU/lmtt/m/n/10 ## [11] "Tail" "Head" "Head" "Head" "Tail" "Tail" "Tail" "Tai
-l" "Head" "Head"[] 
+Overfull \hbox (6.765pt too wide) in paragraph at lines 9689--9689
+[]\TU/lmtt/m/n/10 ## [11] "Tail" "Head" "Tail" "Tail" "Tail" "Head" "Head" "Hea
+d" "Tail" "Tail"[] 
  []
 
 
-Overfull \hbox (6.765pt too wide) in paragraph at lines 9752--9752
-[]\TU/lmtt/m/n/10 ##  [1] "Tail" "Head" "Tail" "Tail" "Tail" "Tail" "Tail" "Tai
-l" "Tail" "Head" 
+Overfull \hbox (6.765pt too wide) in paragraph at lines 9701--9701
+[]\TU/lmtt/m/n/10 ##  [1] "Tail" "Tail" "Tail" "Head" "Tail" "Tail" "Tail" "Tai
+l" "Tail" "Tail" 
  []
 
 
-Overfull \hbox (6.765pt too wide) in paragraph at lines 9753--9753
-[]\TU/lmtt/m/n/10 ## [11] "Tail" "Tail" "Head" "Tail" "Tail" "Tail" "Head" "Tai
-l" "Tail" "Head"[] 
+Overfull \hbox (6.765pt too wide) in paragraph at lines 9702--9702
+[]\TU/lmtt/m/n/10 ## [11] "Head" "Tail" "Tail" "Tail" "Tail" "Tail" "Tail" "Tai
+l" "Tail" "Tail"[] 
  []
 
 [211] [212] [213]
-File: prefresher_files/figure-latex/unnamed-chunk-274-1.pdf Graphic file (type 
+File: prefresher_files/figure-latex/unnamed-chunk-272-1.pdf Graphic file (type 
 pdf)
-<use prefresher_files/figure-latex/unnamed-chunk-274-1.pdf>
+<use prefresher_files/figure-latex/unnamed-chunk-272-1.pdf>
 [214] [215] [216] [217] [218
 
 ]
@@ -2889,13 +2899,13 @@ Chapter 14.
 File: images/RMarkdownFlow.png Graphic file (type bmp)
 <images/RMarkdownFlow.png>
 [221]
-Underfull \hbox (badness 1102) in paragraph at lines 10330--10331
+Underfull \hbox (badness 1102) in paragraph at lines 10279--10280
 \TU/lmtt/m/n/10 stargazer\TU/lmr/m/n/10 , and then called into LaTeX by \TU/lmt
 t/m/n/10 \input{regression_table.tex} \TU/lmr/m/n/10 where
  []
 
 [222]
-Overfull \hbox (479.265pt too wide) in paragraph at lines 10380--10380
+Overfull \hbox (479.265pt too wide) in paragraph at lines 10329--10329
 []  \TU/lmtt/m/n/10 \textcite{nunn2011slave} argue that current variation in th
 e trust among citizens of African countries has historical roots in the Europea
 n slave trade in the 1600s. 
@@ -2912,28 +2922,28 @@ Missing character: There is no 吉 in font [lmroman10-regular]:mapping=tex-text;
 Missing character: There is no 娜 in font [lmroman10-regular]:mapping=tex-text;!
 
 Package natbib Warning: Citation `DGTam86' on page 225 undefined on input line 
-10453.
+10402.
 
 
 Package natbib Warning: Citation `amitabhchandra2' on page 225 undefined on inp
-ut line 10459.
+ut line 10408.
 
 
 Package natbib Warning: Citation `EmilyRiederer' on page 225 undefined on input
- line 10465.
+ line 10414.
 
 [225] [226
 
 ]
 Chapter 15.
 [227] [228] [229]
-Overfull \hbox (54.015pt too wide) in paragraph at lines 10716--10716
+Overfull \hbox (54.015pt too wide) in paragraph at lines 10665--10665
 []\TU/lmtt/m/n/10 ## [2] "Share AAAAur lAAAAve in IndAAAAnesia and in the WAAAA
 rld. RT if yAAAAu agree."[] 
  []
 
 [230] [231] [232]
-Overfull \hbox (85.515pt too wide) in paragraph at lines 11002--11002
+Overfull \hbox (85.515pt too wide) in paragraph at lines 10951--10951
 []\TU/lmtt/m/n/10 ## [1] "15.03322123 of spontaneous events are puzzles in the 
 mind. \n        Really, 15.03?" 
  []
@@ -2943,19 +2953,19 @@ Chapter 16.
 [235
 
 ] [236]
-Overfull \hbox (4.227pt too wide) in paragraph at lines 11262--11263
+Overfull \hbox (4.227pt too wide) in paragraph at lines 11211--11212
 \TU/lmr/m/n/10 called relative paths. In contrast, \TU/lmtt/m/n/10 /Users/shiro
 kuriwaki/project1/figures/figure1.pdf
  []
 
 
-Underfull \hbox (badness 1448) in paragraph at lines 11264--11265
+Underfull \hbox (badness 1448) in paragraph at lines 11213--11214
 []\TU/lmr/m/n/10 Relative paths are nice if you have a shared Dropbox, for exam
 ple, and I had
  []
 
 
-Overfull \hbox (72.545pt too wide) in paragraph at lines 11264--11265
+Overfull \hbox (72.545pt too wide) in paragraph at lines 11213--11214
 \TU/lmtt/m/n/10 /Users/shirokuriwaki/mathcamp \TU/lmr/m/n/10 but Connor’s path 
 to the same folder is \TU/lmtt/m/n/10 /Users/connorjerzak/mathcamp\TU/lmr/m/n/1
 0 .
@@ -2966,7 +2976,7 @@ to the same folder is \TU/lmtt/m/n/10 /Users/connorjerzak/mathcamp\TU/lmr/m/n/1
 ] [241] [242] [243
 
 ] [244] [245]
-Overfull \hbox (1.45883pt too wide) in paragraph at lines 11648--11650
+Overfull \hbox (1.45883pt too wide) in paragraph at lines 11597--11599
 []\TU/lmr/m/n/10 Let $[] [] [][][] [][] [][] [][] [][]$ and $[] [] [][][] [][] 
 [][] [][] [][][] [][][]$. Then $[] [] [] [] [][][] [][] [][] [][] [][] [][] [][
 ] [][][] [][][]$,
@@ -2975,50 +2985,50 @@ Overfull \hbox (1.45883pt too wide) in paragraph at lines 11648--11650
 [246] [247] [248
 
 ] [249]
-File: prefresher_files/figure-latex/unnamed-chunk-327-1.pdf Graphic file (type 
+File: prefresher_files/figure-latex/unnamed-chunk-325-1.pdf Graphic file (type 
 pdf)
-<use prefresher_files/figure-latex/unnamed-chunk-327-1.pdf>
+<use prefresher_files/figure-latex/unnamed-chunk-325-1.pdf>
 [250]
-File: prefresher_files/figure-latex/unnamed-chunk-330-1.pdf Graphic file (type 
+File: prefresher_files/figure-latex/unnamed-chunk-328-1.pdf Graphic file (type 
 pdf)
-<use prefresher_files/figure-latex/unnamed-chunk-330-1.pdf>
+<use prefresher_files/figure-latex/unnamed-chunk-328-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-LaTeX Warning: Reference `ROBJLOOPS' on page 251 undefined on input line 11792.
+LaTeX Warning: Reference `ROBJLOOPS' on page 251 undefined on input line 11741.
 
 
 [251] [252]
 
-LaTeX Warning: Reference `ROBJLOOPS' on page 253 undefined on input line 11916.
+LaTeX Warning: Reference `ROBJLOOPS' on page 253 undefined on input line 11865.
 
 
 [253] [254]
 
-LaTeX Warning: Reference `SIMULATION' on page 255 undefined on input line 12061
+LaTeX Warning: Reference `SIMULATION' on page 255 undefined on input line 12010
 .
 
 [255]
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 12078.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 12027.
 [256]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 12078.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 12027.
 (./prefresher.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 12078.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 12078.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 12027.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 12027.
 
 LaTeX Warning: There were undefined references.
 
  )
 (\end occurred when \ifx on line 161 was incomplete) 
 Here is how much of TeX's memory you used:
- 30892 strings out of 492916
- 563234 string characters out of 6133346
- 830317 words of memory out of 5000000
- 34521 multiletter control sequences out of 15000+600000
+ 30885 strings out of 492916
+ 563164 string characters out of 6133346
+ 829200 words of memory out of 5000000
+ 34514 multiletter control sequences out of 15000+600000
  578771 words of font info for 154 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  57i,15n,115p,1553b,563s stack positions out of 5000i,500n,10000p,200000b,80000s
