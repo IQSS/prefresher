@@ -153,7 +153,7 @@
 
 \title{Math Prefresher for Political Scientists}
 \author{}
-\date{\vspace{-2.5em}January 2020}
+\date{\vspace{-2.5em}June 2020}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -170,7 +170,6 @@
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
 \newtheorem*{solution}{Solution}
-\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
 \maketitle
 
@@ -525,7 +524,7 @@ Other Useful Functions
   \(100 \ \% \ 30 = 10\)
 \end{itemize}
 
-\BeginKnitrBlock{example}[Operators]
+\begin{example}[Operators]
 \protect\hypertarget{exm:operators}{}{\label{exm:operators} \iffalse (Operators) \fi{} }
 
 \begin{enumerate}
@@ -539,9 +538,9 @@ Other Useful Functions
 \item
   \(4! =\)
 \end{enumerate}
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{exercise}[Operators]
+\begin{exercise}[Operators]
 \protect\hypertarget{exr:operators1}{}{\label{exr:operators1} \iffalse (Operators) \fi{} }Let \(x_1 = 4, x_2 = 3, x_3 = 7, x_4 = 11, x_5 = 2\)
 
 \begin{enumerate}
@@ -553,7 +552,7 @@ Other Useful Functions
 \item
   \(\prod\limits_{i=3}^{5} (2)x_i\)
 \end{enumerate}
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{introduction-to-functions}{%
 \section{Introduction to Functions}\label{introduction-to-functions}}
@@ -606,7 +605,7 @@ Function of two variables: \(f: {\bf R}^2\to{\bf R}^1\).
 
 We often use variable \(x\) as input and another \(y\) as output, e.g.~\(y=x+1\)
 
-\BeginKnitrBlock{example}[Functions]
+\begin{example}[Functions]
 \protect\hypertarget{exm:functions}{}{\label{exm:functions} \iffalse (Functions) \fi{} }
 For each of the following, state whether they are one-to-one or many-to-one functions.
 
@@ -617,9 +616,9 @@ For each of the following, state whether they are one-to-one or many-to-one func
 \item
   For \(x \in [-\infty, \infty]\), \(f: x \rightarrow x^2\).
 \end{enumerate}
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{exercise}[Functions]
+\begin{exercise}[Functions]
 \protect\hypertarget{exr:functions1}{}{\label{exr:functions1} \iffalse (Functions) \fi{} }
 For each of the following, state whether they are one-to-one or many-to-one functions.
 
@@ -630,7 +629,7 @@ For each of the following, state whether they are one-to-one or many-to-one func
 \item
   For \(x \in [0, \infty]\), \(f: x \rightarrow \sqrt{x}\)
 \end{enumerate}
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 Some functions are defined only on proper subsets of \({\bf R}^n\).
 
@@ -743,7 +742,7 @@ Therefore, you can see that the log of a product is equal to the sum of the logs
             &=& n \log(c) +  \sum\limits_{i=1}^n \log (x_i)\\
 \end{eqnarray*}
 
-\BeginKnitrBlock{example}[Logarithmic Functions]
+\begin{example}[Logarithmic Functions]
 \protect\hypertarget{exm:log}{}{\label{exm:log} \iffalse (Logarithmic Functions) \fi{} }
 Evaluate each of the following logarithms
 
@@ -764,9 +763,9 @@ Simplify the following logarithm. By ``simplify'', we actually really mean - use
 \item
   \(\log_4(x^3y^5)\)
 \end{enumerate}
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{exercise}[Logarithmic Functions]
+\begin{exercise}[Logarithmic Functions]
 \protect\hypertarget{exr:log1}{}{\label{exr:log1} \iffalse (Logarithmic Functions) \fi{} }
 
 Evaluate each of the following logarithms
@@ -788,7 +787,7 @@ Simplify each of the following logarithms. By ``simplify'', we actually really m
 \item
   \(\ln{\sqrt{xy}}\)
 \end{enumerate}
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{graphing-functions}{%
 \section{Graphing Functions}\label{graphing-functions}}
@@ -820,7 +819,7 @@ What can a graph tell you about a function?
 
 Sometimes we're given a function \(y=f(x)\) and we want to find how \(x\) varies as a function of \(y\). Use algebra to move \(x\) to the left hand side (LHS) of the equation and so that the right hand side (RHS) is only a function of \(y\).
 
-\BeginKnitrBlock{example}[Solving for Variables]
+\begin{example}[Solving for Variables]
 \protect\hypertarget{exm:solvevar}{}{\label{exm:solvevar} \iffalse (Solving for Variables) \fi{} }
 
 Solve for x:
@@ -832,7 +831,7 @@ Solve for x:
 \item
   \(y=e^x\)
 \end{enumerate}
-\EndKnitrBlock{example}
+\end{example}
 
 Solving for variables is especially important when we want to find the \textbf{roots} of an equation: those values of variables that cause an equation to equal zero. Especially important in finding equilibria and in doing maximum likelihood estimation.
 
@@ -843,7 +842,7 @@ Multiple Roots:
 
 \textbf{Quadratic Formula:} For quadratic equations \(ax^2+bx+c=0\), use the quadratic formula: \[x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\]
 
-\BeginKnitrBlock{exercise}[Finding Roots]
+\begin{exercise}[Finding Roots]
 \protect\hypertarget{exr:solvevar1}{}{\label{exr:solvevar1} \iffalse (Finding Roots) \fi{} }
 Solve for x:
 
@@ -856,7 +855,7 @@ Solve for x:
 \item
   \(f(x)=e^{-x}-10 = 0\)
 \end{enumerate}
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{sets}{%
 \section{Sets}\label{sets}}
@@ -1032,7 +1031,7 @@ Solving limits, i.e.~finding out the value of functions as its input moves close
 
 Perhaps the most important theorem in statistics is the Central Limit Theorem,
 
-\BeginKnitrBlock{theorem}[Central Limit Theorem (i.i.d. case)]
+\begin{theorem}[Central Limit Theorem (i.i.d. case)]
 \protect\hypertarget{thm:clt-lim}{}{\label{thm:clt-lim} \iffalse (Central Limit Theorem (i.i.d. case)) \fi{} }For any series of independent and identically distributed random variables \(X_1, X_2, \cdots\), we know the distribution of its sum even if we do not know the distribution of \(X\). The distribution of the sum is a Normal distribution.
 
 \[\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \xrightarrow{d} \text{Normal}(0, 1),\]
@@ -1040,7 +1039,7 @@ Perhaps the most important theorem in statistics is the Central Limit Theorem,
 where \(\mu\) is the mean of \(X\) and \(\sigma\) is the standard deviation of \(X\). The arrow is read as ``converges in distribution to''. \(\text{Normal}(0, 1)\) indicates a Normal Distribution with mean 0 and variance 1.
 
 That is, the limit of the distribution of the lefthand side is the distribution of the righthand side.
-\EndKnitrBlock{theorem}
+\end{theorem}
 
 The sign of a limit is the arrow ``\(\rightarrow\)''. Although we have not yet covered probability (in Section \ref{probability-theory}) so we have not described what distributions and random variables are, it is worth foreshadowing the Central Limit Theorem. The Central Limit Theorem is powerful because it gives us a \emph{guarantee} of what would happen if \(n \rightarrow \infty\), which in this case means we collected more data.
 
@@ -1050,13 +1049,13 @@ The sign of a limit is the arrow ``\(\rightarrow\)''. Although we have not yet c
 
 A finding that perhaps rivals the Central Limit Theorem is the Law of Large Numbers:
 
-\BeginKnitrBlock{theorem}[(Weak) Law of Large Numbers]
+\begin{theorem}[(Weak) Law of Large Numbers]
 \protect\hypertarget{thm:lln-lim}{}{\label{thm:lln-lim} \iffalse ((Weak) Law of Large Numbers) \fi{} }For any draw of identically distributed independent variables with mean \(\mu\), the sample average after \(n\) draws, \(\bar{X}_n\), converges in probability to the true mean as \(n \rightarrow \infty\):
 
 \[\lim\limits_{n\to \infty} P(|\bar{X}_n - \mu | > \varepsilon) = 0\]
 
 A shorthand of which is \(\bar{X}_n \xrightarrow{p} \mu\), where the arrow is read as ``converges in probability to''.
-\EndKnitrBlock{theorem}
+\end{theorem}
 
 Intuitively, the more data, the more accurate is your guess. For example, the Figure \ref{fig:llnsim} shows how the sample average from many coin tosses converges to the true value : 0.5.
 
@@ -1075,7 +1074,7 @@ A \textbf{sequence} \[\{x_n\}=\{x_1, x_2, x_3, \ldots, x_n\}\] is an ordered set
 
 where the subscript and superscript are read together as ``from 1 to infinity.''
 
-\BeginKnitrBlock{example}[Sequences]
+\begin{example}[Sequences]
 \protect\hypertarget{exm:seqbehav}{}{\label{exm:seqbehav} \iffalse (Sequences) \fi{} }
 How does these sequence behave?
 
@@ -1089,7 +1088,7 @@ How does these sequence behave?
 \item
   \(\{C_n\}=\left\{(-1)^n \left(1-\frac{1}{n}\right) \right\}\)
 \end{enumerate}
-\EndKnitrBlock{example}
+\end{example}
 
 We find the sequence by simply ``plugging in'' the integers into each \(n\). The important thing is to get a sense of how these numbers are going to change. Example 1's numbers seem to come closer and closer to 2, but will it ever surpass 2? Example 2's numbers are also increasing each time, but will it hit a limit? What is the pattern in Example 3? Graphing helps you make this point more clearly. See the sequence of \(n = 1, ...20\) for each of the three examples in Figure \ref{fig:seqabc}.
 
@@ -1115,9 +1114,9 @@ The notion of ``converging to a limit'' is the behavior of the points in Example
   Sequences like 3 above that neither converge nor increase without bound --- alternating over the number line.
 \end{enumerate}
 
-\BeginKnitrBlock{definition}
+\begin{definition}
 \protect\hypertarget{def:unnamed-chunk-2}{}{\label{def:unnamed-chunk-2} }The sequence \(\{y_n\}\) has the limit \(L\), which we write as \[\lim\limits_{n \to \infty} y_n =L\], if for any \(\epsilon>0\) there is an integer \(N\) (which depends on \(\epsilon\)) with the property that \(|y_n -L|<\epsilon\) for each \(n>N\). \(\{y_n\}\) is said to converge to \(L\). If the above does not hold, then \(\{y_n\}\) diverges.
-\EndKnitrBlock{definition}
+\end{definition}
 
 We can also express the behavior of a sequence as bounded or not:
 
@@ -1151,22 +1150,22 @@ This looks reasonable enough. The harder question, obviously is when the parts o
 
 It is nice for a sequence to converge in limit. We want to know if complex-looking sequences converge or not. The name of the game here is to break that complex sequence up into sums of simple fractions where \(n\) only appears in the denominator: \(\frac{1}{n}, \frac{1}{n^2}\), and so on. Each of these will converge to 0, because the denominator gets larger and larger. Then, because of the properties above, we can then find the final sequence.
 
-\BeginKnitrBlock{example}[Simplifying a Fraction into Sums]
+\begin{example}[Simplifying a Fraction into Sums]
 \protect\hypertarget{exm:unnamed-chunk-3}{}{\label{exm:unnamed-chunk-3} \iffalse (Simplifying a Fraction into Sums) \fi{} }Find the limit of
 \[\lim_{n\to \infty} \frac{n + 3}{n},\]
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{solution}
+\begin{solution}
 \iffalse{} {Solution. } \fi{}At first glance, \(n + 3\) and \(n\) both grow to \(\infty\), so it looks like we need to divide infinity by infinity. However, we can express this fraction as a sum, then the limits apply separately:
 
 \[\lim_{n\to \infty} \frac{n + 3}{n} = \lim_{n\to \infty} \left(1 + \frac{3}{n}\right) =  \underbrace{\lim_{n\to \infty}1}_{1} +  \underbrace{\lim_{n\to \infty}\left(\frac{3}{n}\right)}_{0}\]
 
 so, the limit is actually 1.
-\EndKnitrBlock{solution}
+\end{solution}
 
 After some practice, the key to intuition is whether one part of the fraction grows ``faster'' than another. If the denominator grows faster to infinity than the numerator, then the fraction will converge to 0, even if the numerator will also increase to infinity. In a sense, limits show how not all infinities are the same.
 
-\BeginKnitrBlock{exercise}
+\begin{exercise}
 \protect\hypertarget{exr:limseq2}{}{\label{exr:limseq2} }Find the following limits of sequences, then explain in English the intuition for why that is the case.
 
 \begin{enumerate}
@@ -1177,7 +1176,7 @@ After some practice, the key to intuition is whether one part of the fraction gr
 \item
   \(\lim\limits_{n\to\infty} (n^3 - 100n^2)\)
 \end{enumerate}
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{limitsfun}{%
 \section{Limits of a Function}\label{limitsfun}}
@@ -1188,9 +1187,9 @@ A function \(f\) is a compact representation of some behavior we care about. Lik
 
 For a limit \(L\) to exist, the function \(f(x)\) must approach \(L\) from both the left (increasing) and the right (decreasing).
 
-\BeginKnitrBlock{definition}[Limit of a function]
+\begin{definition}[Limit of a function]
 \protect\hypertarget{def:unnamed-chunk-5}{}{\label{def:unnamed-chunk-5} \iffalse (Limit of a function) \fi{} }Let \(f(x)\) be defined at each point in some open interval containing the point \(c\). Then \(L\) equals \(\lim\limits_{x \to c} f(x)\) if for any (small positive) number \(\epsilon\), there exists a corresponding number \(\delta>0\) such that if \(0<|x-c|<\delta\), then \(|f(x)-L|<\epsilon\).
-\EndKnitrBlock{definition}
+\end{definition}
 
 A neat, if subtle result is that \(f(x)\) does not necessarily have to be defined at \(c\) for \(\lim\limits_{x \to c}\) to exist.
 
@@ -1211,7 +1210,7 @@ Properties: Let \(f\) and \(g\) be functions with \(\lim\limits_{x \to c} f(x)=k
 
 Simple limits of functions can be solved as we did limits of sequences. Just be careful which part of the function is changing.
 
-\BeginKnitrBlock{example}[Limits of Functions]
+\begin{example}[Limits of Functions]
 \protect\hypertarget{exm:limfun1}{}{\label{exm:limfun1} \iffalse (Limits of Functions) \fi{} }Find the limit of the following functions.
 
 \begin{enumerate}
@@ -1226,22 +1225,22 @@ Simple limits of functions can be solved as we did limits of sequences. Just be 
 \item
   \(\lim_{x \to c} x^n\)
 \end{enumerate}
-\EndKnitrBlock{example}
+\end{example}
 
 Limits can get more complex in roughly two ways. First, the functions may become large polynomials with many moving pieces. Second,the functions may become discontinuous.
 
 The function can be thought of as a more general or ``smooth'' version of sequences. For example,
 
-\BeginKnitrBlock{exercise}[Limits of a Fraction of Functions]
+\begin{exercise}[Limits of a Fraction of Functions]
 \protect\hypertarget{exr:limfunmax}{}{\label{exr:limfunmax} \iffalse (Limits of a Fraction of Functions) \fi{} }
 Find the limit of
 
 \[\lim_{x\to\infty} \frac{(x^4 +3x−99)(2−x^5)}{(18x^7 +9x^6 −3x^2 −1)(x+1)}\]
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 Now, the functions will become a bit more complex:
 
-\BeginKnitrBlock{exercise}
+\begin{exercise}
 \protect\hypertarget{exr:discontlim}{}{\label{exr:discontlim} }Solve the following limits of functions
 
 \begin{enumerate}
@@ -1252,7 +1251,7 @@ Now, the functions will become a bit more complex:
 \item
   \(\lim\limits_{x\to 0} \left(1+\frac{1}{x^2}\right)\)
 \end{enumerate}
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 So there are a few more alternatives about what a limit of a function could be:
 
@@ -1282,13 +1281,13 @@ The distinction between left and right becomes important when the function is no
 
 To repeat a finding from the limits of functions: \(f(x)\) does not necessarily have to be defined at \(c\) for \(\lim\limits_{x \to c}\) to exist. Functions that have breaks in their lines are called discontinuous. Functions that have no breaks are called continuous. Continuity is a concept that is more fundamental to, but related to that of ``differentiability'', which we will cover next in calculus.
 
-\BeginKnitrBlock{definition}[Continuity]
+\begin{definition}[Continuity]
 \protect\hypertarget{def:unnamed-chunk-7}{}{\label{def:unnamed-chunk-7} \iffalse (Continuity) \fi{} }Suppose that the domain of the function \(f\) includes an open interval containing the point \(c\). Then \(f\) is continuous at \(c\) if \(\lim\limits_{x \to c} f(x)\) exists and if \(\lim\limits_{x \to c} f(x)=f(c)\). Further, \(f\) is continuous on an open interval \((a,b)\) if it is continuous at each point in the interval.
-\EndKnitrBlock{definition}
+\end{definition}
 
 To prove that a function is continuous for all points is beyond this practical introduction to math, but the general intuition can be grasped by graphing.
 
-\BeginKnitrBlock{example}[Continuous and Discontinuous Functions]
+\begin{example}[Continuous and Discontinuous Functions]
 \protect\hypertarget{exm:contdiscont}{}{\label{exm:contdiscont} \iffalse (Continuous and Discontinuous Functions) \fi{} }
 For each function, determine if it is continuous or discontinuous.
 
@@ -1306,11 +1305,11 @@ For each function, determine if it is continuous or discontinuous.
 \end{enumerate}
 
 The floor is the smaller of the two integers bounding a number. So \(\text{floor}(x = 2.999) = 2\), \(\text{floor}(x = 2.0001) = 2\), and \(\text{floor}(x = 2) = 2.\)
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{solution}
+\begin{solution}
 \iffalse{} {Solution. } \fi{}In Figure \ref{fig:fig-contdiscont}, we can see that the first two functions are continuous, and the next two are discontinuous. \(f(x) = 1 + \frac{1}{x^2}\) is discontinuous at \(x= 0\), and \(f(x) = \text{floor}(x)\) is discontinuous at each whole number.
-\EndKnitrBlock{solution}
+\end{solution}
 
 \begin{figure}
 \centering
@@ -1331,7 +1330,7 @@ Some properties of continuous functions:
   Max/Min: If \(f\) is continuous on the closed bounded interval \([a,b]\), then \(f\) has a maximum and a minimum on \([a,b]\). They may be located at the end points.
 \end{enumerate}
 
-\BeginKnitrBlock{exercise}[Limit when Denominator converges to 0]
+\begin{exercise}[Limit when Denominator converges to 0]
 \protect\hypertarget{exr:discontdraw}{}{\label{exr:discontdraw} \iffalse (Limit when Denominator converges to 0) \fi{} }
 Let \[f(x) = \frac{x^2 + 2x}{x}.\]
 
@@ -1343,7 +1342,7 @@ Let \[f(x) = \frac{x^2 + 2x}{x}.\]
 \item
   What is the functions limit at \(x \rightarrow 0\)?
 \end{enumerate}
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{answers-to-examples}{%
 \section*{Answers to Examples}\label{answers-to-examples}}
@@ -1351,7 +1350,7 @@ Let \[f(x) = \frac{x^2 + 2x}{x}.\]
 
 Example \ref{exm:seqbehav}
 
-\BeginKnitrBlock{solution}
+\begin{solution}
 \iffalse{} {Solution. } \fi{}
 
 \begin{enumerate}
@@ -1364,13 +1363,13 @@ Example \ref{exm:seqbehav}
 \item
   \(\{C_n\}=\left\{(-1)^n \left(1-\frac{1}{n}\right) \right\} = \left\{0, \frac{1}{2}, -\frac{2}{3}, \frac{3}{4}, -\frac{4}{5}\right\}\)
 \end{enumerate}
-\EndKnitrBlock{solution}
+\end{solution}
 
 Exercise \ref{exr:limseq2}
 
 Example \ref{exm:limfun1}
 
-\BeginKnitrBlock{solution}
+\begin{solution}
 \iffalse{} {Solution. } \fi{}
 
 \begin{enumerate}
@@ -1385,11 +1384,11 @@ Example \ref{exm:limfun1}
 \item
   \(\lim_{x \to c} x^n = \lim\limits_{x \to c} x \cdots[\lim\limits_{x \to c} x] = c\cdots c =c^n\)
 \end{enumerate}
-\EndKnitrBlock{solution}
+\end{solution}
 
 Exercise \ref{exr:limfunmax}
 
-\BeginKnitrBlock{solution}
+\begin{solution}
 \iffalse{} {Solution. } \fi{}Although this function seems large, the thing our eyes should focus on is where the highest order polynomial remains. That will grow the fastest, so if the highest order term is on the denominator, the fraction will converge to 0, if it is on the numerator it will converge to negative infinity. Previewing the multiplication by hand, we can see that the \(-x^9\) on the numerator will be the largest power. So the answer will be \(-\infty\). We can also confirm this by writing out fractions:
 
 \begin{align*}  
@@ -1397,16 +1396,16 @@ Exercise \ref{exr:limfunmax}
 &\times \frac{x^4}{1} \times -\frac{x^5}{1} \times \frac{1}{18x^7}\times \frac{1}{x}\\
 =& 1 \times \lim_{-x\to\infty} \frac{x}{18}
 \end{align*}
-\EndKnitrBlock{solution}
+\end{solution}
 
 Exercise \ref{exr:discontdraw}
 
-\BeginKnitrBlock{solution}
+\begin{solution}
 \iffalse{} {Solution. } \fi{}
 See Figure \ref{fig:fig-hole-0}.
 
 Divide each part by \(x\), and we get \(x + \frac{2}{x}\) on the numerator, \(1\) on the denominator. So, without worrying about a function being not defined, we can say \(\lim_{x\to 0}f(x) = 0\).
-\EndKnitrBlock{solution}
+\end{solution}
 
 \begin{figure}
 \centering
@@ -1444,7 +1443,7 @@ even more concretely, if the potential values of \(X\) are finite, then we can w
 
 The derivative of \(f\) at \(x\) is its rate of change at \(x\): how much \(f(x)\) changes with a change in \(x\). The rate of change is a fraction --- rise over run --- but because not all lines are straight and the rise over run formula will give us different values depending on the range we examine, we need to take a limit (Section \ref{limits-precalc}).
 
-\BeginKnitrBlock{definition}[Derivative]
+\begin{definition}[Derivative]
 \protect\hypertarget{def:unnamed-chunk-15}{}{\label{def:unnamed-chunk-15} \iffalse (Derivative) \fi{} }Let \(f\) be a function whose domain includes an open interval containing the point \(x\). The derivative of \(f\) at \(x\) is given by
 
 \[\frac{d}{dx}f(x) =\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{(x+h)-x} = \lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{h}
@@ -1459,7 +1458,7 @@ There are a two main ways to denote a derivate:
 \item
   Prime or Lagrange Notation: \(f'(x)\)
 \end{itemize}
-\EndKnitrBlock{definition}
+\end{definition}
 
 If \(f(x)\) is a straight line, the derivative is the slope. For a curve, the slope changes by the values of \(x\), so the derivative is the slope of the line tangent to the curve at \(x\). See, For example, Figure \ref{fig:derivsimple}.
 
@@ -1493,7 +1492,7 @@ Finally, one way to think of the power of derivatives is that it takes a functio
 
 For any real number \(k\) (that is, both whole numbers and fractions). The power rule is proved \textbf{by induction}, a neat method of proof used in many fundamental applications to prove that a general statement holds for every possible case, even if there are countably infinite cases. We'll show a simple case where \(k\) is an integer here.
 
-\BeginKnitrBlock{proof}[Proof of Power Rule by Induction]
+\begin{proof}[Proof of Power Rule by Induction]
 \iffalse{} {Proof (Proof of Power Rule by Induction). } \fi{}
 We would like to prove that
 
@@ -1523,11 +1522,11 @@ Then, for the case \(m + 1\), using the product rule above, we can simplify
 Therefore, the rule holds for the case \(k = m + 1\) once we have assumed it holds for \(k = m\). Combined with the first case, this completes proof by induction -- we have now proved that the statement holds for all integers \(k = 1, 2, 3, \cdots\).
 
 To show that it holds for real fractions as well, we can prove expressing that exponent by a fraction of two integers.
-\EndKnitrBlock{proof}
+\end{proof}
 
 These ``rules'' become apparent by applying the definition of the derivative above to each of the things to be ``derived'', but these come up so frequently that it is best to repeat until it is muscle memory.
 
-\BeginKnitrBlock{exercise}[Derivative of Polynomials]
+\begin{exercise}[Derivative of Polynomials]
 \protect\hypertarget{exr:introderivatives}{}{\label{exr:introderivatives} \iffalse (Derivative of Polynomials) \fi{} }
 For each of the following functions, find the first-order derivative \(f^\prime(x)\).
 
@@ -1555,7 +1554,7 @@ For each of the following functions, find the first-order derivative \(f^\prime(
 \item
   \(f(x)=\frac{x^2+1}{x^2-1}\)
 \end{enumerate}
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{derivpoly}{%
 \section{Higher-Order Derivatives (Derivatives of Derivatives of Derivatives)}\label{derivpoly}}
@@ -1570,7 +1569,7 @@ We can keep applying the differentiation process to functions that are themselve
 
 Similarly, the derivative of \(f''(x)\) would be called the third derivative and is denoted \(f'''(x)\). And by extension, the \textbf{nth derivative} is expressed as \(\frac{d^n}{dx^n}f(x)\), \(\frac{d^ny}{dx^n}\).
 
-\BeginKnitrBlock{example}[Succession of Derivatives]
+\begin{example}[Succession of Derivatives]
 \protect\hypertarget{exm:unnamed-chunk-16}{}{\label{exm:unnamed-chunk-16} \iffalse (Succession of Derivatives) \fi{} }\begin{align*}
 f(x) &=x^3\\
 f^{\prime}(x) &=3x^2\\
@@ -1578,7 +1577,7 @@ f^{\prime\prime}(x) &=6x \\
 f^{\prime\prime\prime}(x) &=6\\
 f^{\prime\prime\prime\prime}(x) &=0\\
 \end{align*}
-\EndKnitrBlock{example}
+\end{example}
 
 Earlier, in Section \ref{derivintro}, we said that if a function differentiable at a given point, then it must be continuous. Further, if \(f'(x)\) is itself continuous, then \(f(x)\) is called continuously differentiable. All of this matters because many of our findings about optimization (Section \ref{optim}) rely on differentiation, and so we want our function to be differentiable in as many layers. A function that is continuously differentiable infinitly is called ``smooth''. Some examples: \(f(x) = x^2\), \(f(x) = e^x\).
 
@@ -1589,7 +1588,7 @@ As useful as the above rules are, many functions you'll see won't fit neatly in 
 
 \textbf{Composite functions} are formed by substituting one function into another and are denoted by \[(f\circ g)(x)=f[g(x)].\] To form \(f[g(x)]\), the range of \(g\) must be contained (at least in part) within the domain of \(f\). The domain of \(f\circ g\) consists of all the points in the domain of \(g\) for which \(g(x)\) is in the domain of \(f\).
 
-\BeginKnitrBlock{example}
+\begin{example}
 \protect\hypertarget{exm:unnamed-chunk-17}{}{\label{exm:unnamed-chunk-17} }Let \(f(x)=\log x\) for \(0<x<\infty\) and \(g(x)=x^2\) for \(-\infty<x<\infty\).
 
 Then
@@ -1599,7 +1598,7 @@ Also
 \[(g\circ f)(x)=[\log x]^2, 0<x<\infty\]
 
 Notice that \(f\circ g\) and \(g\circ f\) are not the same functions.
-\EndKnitrBlock{example}
+\end{example}
 
 With the notation of composite functions in place, now we can introduce a helpful additional rule that will deal with a derivative of composite functions as a chain of concentric derivatives.
 
@@ -1617,9 +1616,9 @@ The chain rule can be thought of as the derivative of the ``outside'' times the 
   The chain rule can also be written as \[\frac{dy}{dx}=\frac{dy}{dg(x)} \frac{dg(x)}{dx}\] This expression does not imply that the \(dg(x)\)'s cancel out, as in fractions. They are part of the derivative notation and you can't separate them out or cancel them.)
 \end{itemize}
 
-\BeginKnitrBlock{example}[Composite Exponent]
+\begin{example}[Composite Exponent]
 \protect\hypertarget{exm:tothesix}{}{\label{exm:tothesix} \iffalse (Composite Exponent) \fi{} }Find \(f^\prime(x)\) for \(f(x) = (3x^2+5x-7)^6\).
-\EndKnitrBlock{example}
+\end{example}
 
 The direct use of a chain rule is when the exponent of is itself a function, so the power rule could not have applied generaly:
 
@@ -1632,7 +1631,7 @@ If \(f(x)=[g(x)]^p\) for any rational number \(p\), \[f^\prime(x) =p[g(x)]^{p-1}
 
 Natural logs and exponents (they are inverses of each other; see Section \ref{logexponents}) crop up everywhere in statistics. Their derivative is a special case from the above, but quite elegant.
 
-\BeginKnitrBlock{theorem}
+\begin{theorem}
 \protect\hypertarget{thm:derivexplog}{}{\label{thm:derivexplog} }
 The functions \(e^x\) and the natural logarithm \(\log(x)\) are continuous and differentiable in their domains, and their first derivate is
 \[(e^x)^\prime = e^x\]
@@ -1642,7 +1641,7 @@ Also, when these are composite functions, it follows by the generalized power ru
 
 \[\left(e^{g(x)}\right)^\prime = e^{g(x)} \cdot g^\prime(x)\]
 \[\left(\log g(x)\right)^\prime = \frac{g^\prime(x)}{g(x)}, ~~\text{if}~~ g(x) > 0\]
-\EndKnitrBlock{theorem}
+\end{theorem}
 
 We will relegate the proofs to small excerpts.
 
@@ -1671,7 +1670,7 @@ To repeat the main rule in Theorem \ref{thm:derivexplog}, the intuition is that
 \caption{\label{fig:fig-derivexponent}Derivative of the Exponential Function}
 \end{figure}
 
-\BeginKnitrBlock{example}[Derivative of exponents]
+\begin{example}[Derivative of exponents]
 \protect\hypertarget{exm:exmderivexp}{}{\label{exm:exmderivexp} \iffalse (Derivative of exponents) \fi{} }Find the derivative for the following.
 
 \begin{enumerate}
@@ -1684,7 +1683,7 @@ To repeat the main rule in Theorem \ref{thm:derivexplog}, the intuition is that
 \item
   \(f(x)=(x-1)e^x\)
 \end{enumerate}
-\EndKnitrBlock{example}
+\end{example}
 
 \hypertarget{derivatives-of-log}{%
 \subsection*{\texorpdfstring{Derivatives of \(\log\)}{Derivatives of \textbackslash log}}\label{derivatives-of-log}}
@@ -1711,7 +1710,7 @@ The natural log is the mirror image of the natural exponent and has mirroring pr
 \caption{\label{fig:fig-derivlog}Derivative of the Natural Log}
 \end{figure}
 
-\BeginKnitrBlock{example}[Derivative of logs]
+\begin{example}[Derivative of logs]
 \protect\hypertarget{exm:exmderivlog}{}{\label{exm:exmderivlog} \iffalse (Derivative of logs) \fi{} }Find \(dy/dx\) for the following.
 
 \begin{enumerate}
@@ -1726,7 +1725,7 @@ The natural log is the mirror image of the natural exponent and has mirroring pr
 \item
   \(f(x)=\log e^x\)
 \end{enumerate}
-\EndKnitrBlock{example}
+\end{example}
 
 \hypertarget{outline-of-proof}{%
 \subsection*{Outline of Proof}\label{outline-of-proof}}
@@ -1780,7 +1779,7 @@ Only the \(i\)th variable changes --- the others are treated as constants.
 
 We can take higher-order partial derivatives, like we did with functions of a single variable, except now the higher-order partials can be with respect to multiple variables.
 
-\BeginKnitrBlock{example}[More than one type of partial]
+\begin{example}[More than one type of partial]
 \protect\hypertarget{exm:unnamed-chunk-18}{}{\label{exm:unnamed-chunk-18} \iffalse (More than one type of partial) \fi{} }Notice that you can take partials with regard to different variables.
 
 Suppose \(f(x,y)=x^2+y^2\). Then
@@ -1791,9 +1790,9 @@ Suppose \(f(x,y)=x^2+y^2\). Then
 \frac{\partial^2 f}{\partial x^2}(x,y) &=\\
 \frac{\partial^2 f}{\partial x \partial y}(x,y) &=
 \end{align*}
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{exercise}
+\begin{exercise}
 \protect\hypertarget{exr:unnamed-chunk-19}{}{\label{exr:unnamed-chunk-19} }Let \(f(x,y)=x^3 y^4 +e^x -\log y\). What are the following partial derivaitves?
 
 \begin{align*}
@@ -1802,7 +1801,7 @@ Suppose \(f(x,y)=x^2+y^2\). Then
 \frac{\partial^2 f}{\partial x^2}(x,y) &=\\
 \frac{\partial^2 f}{\partial x \partial y}(x,y) &= 
 \end{align*}
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{taylorapprox}{%
 \section{Taylor Series Approximation}\label{taylorapprox}}
@@ -1835,17 +1834,17 @@ The more derivatives that are added, the smaller the remainder \(R\) and the mor
 
 So far, we've been interested in finding the derivative \(f=F'\) of a function \(F\). However, sometimes we're interested in exactly the reverse: finding the function \(F\) for which \(f\) is its derivative. We refer to \(F\) as the antiderivative of \(f\).
 
-\BeginKnitrBlock{definition}[Antiderivative]
+\begin{definition}[Antiderivative]
 \protect\hypertarget{def:unnamed-chunk-20}{}{\label{def:unnamed-chunk-20} \iffalse (Antiderivative) \fi{} }The antiverivative of a function \(f(x)\) is a differentiable function \(F\) whose derivative is \(f\).
 
 \[F^\prime = f.\]
-\EndKnitrBlock{definition}
+\end{definition}
 
 Another way to describe is through the inverse formula. Let \(DF\) be the derivative of \(F\). And let \(DF(x)\) be the derivative of \(F\) evaluated at \(x\). Then the antiderivative is denoted by \(D^{-1}\) (i.e., the inverse derivative). If \(DF=f\), then \(F=D^{-1}f\).
 
 This definition bolsters the main takeaway about integrals and derivatives: They are inverses of each other.
 
-\BeginKnitrBlock{exercise}[Antiderivative]
+\begin{exercise}[Antiderivative]
 \protect\hypertarget{exr:unnamed-chunk-21}{}{\label{exr:unnamed-chunk-21} \iffalse (Antiderivative) \fi{} }Find the antiderivative of the following:
 
 \begin{enumerate}
@@ -1856,27 +1855,27 @@ This definition bolsters the main takeaway about integrals and derivatives: They
 \item
   \(f(x) = 3e^{3x}\)
 \end{enumerate}
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 We know from derivatives how to manipulate \(F\) to get \(f\). But how do you express the procedure to manipulate \(f\) to get \(F\)? For that, we need a new symbol, which we will call indefinite integration.
 
-\BeginKnitrBlock{definition}[Indefinite Integral]
+\begin{definition}[Indefinite Integral]
 \protect\hypertarget{def:unnamed-chunk-22}{}{\label{def:unnamed-chunk-22} \iffalse (Indefinite Integral) \fi{} }The indefinite integral of \(f(x)\) is written
 
 \[\int f(x) dx \]
 
 and is equal to the antiderivative of \(f\).
-\EndKnitrBlock{definition}
+\end{definition}
 
-\BeginKnitrBlock{example}
+\begin{example}
 \protect\hypertarget{exm:unnamed-chunk-23}{}{\label{exm:unnamed-chunk-23} }Draw the function \(f(x)\) and its indefinite integral, \(\int\limits f(x) dx\)
 
 \[f(x) = (x^2-4)\]
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{solution}
+\begin{solution}
 \iffalse{} {Solution. } \fi{}The Indefinite Integral of the function \(f(x) = (x^2-4)\) can, for example, be \(F(x) = \frac{1}{3}x^3 - 4x.\) But it can also be \(F(x) = \frac{1}{3}x^3 - 4x + 1\), because the constant 1 disappears when taking the derivative.
-\EndKnitrBlock{solution}
+\end{solution}
 
 Some of these functions are plotted in the bottom panel of Figure \ref{fig:integralc} as dotted lines.
 
@@ -1915,7 +1914,7 @@ Some common rules of integrals follow by virtue of being the inverse of a deriva
   Remember the derivative of a log of a function: \(\int \frac{f^\prime(x)}{f(x)}dx=\log f(x) + c\)
 \end{enumerate}
 
-\BeginKnitrBlock{example}[Common Integration]
+\begin{example}[Common Integration]
 \protect\hypertarget{exm:unnamed-chunk-25}{}{\label{exm:unnamed-chunk-25} \iffalse (Common Integration) \fi{} }Simplify the following indefinite integrals:
 
 \begin{itemize}
@@ -1927,7 +1926,7 @@ Some common rules of integrals follow by virtue of being the inverse of a deriva
 \item
   \(\int e^x e^{e^x} dx\)
 \end{itemize}
-\EndKnitrBlock{example}
+\end{example}
 
 \hypertarget{the-definite-integral-the-area-under-the-curve}{%
 \section{The Definite Integral: The Area under the Curve}\label{the-definite-integral-the-area-under-the-curve}}
@@ -1951,30 +1950,30 @@ Figure \ref{fig:defintfig} shows that illustration. The curve depicted is \(f(x)
 
 This is how we define the ``Definite'' Integral:
 
-\BeginKnitrBlock{definition}[The Definite Integral (Riemann)]
+\begin{definition}[The Definite Integral (Riemann)]
 \protect\hypertarget{def:unnamed-chunk-26}{}{\label{def:unnamed-chunk-26} \iffalse (The Definite Integral (Riemann)) \fi{} }If for a given function \(f\) the Riemann sum approaches a limit as \(\Delta x \to 0\), then that limit is called the Riemann integral of \(f\) from \(a\) to \(b\). We express this with the \(\int\), symbol, and write \[\int\limits_a^b f(x) dx= \lim\limits_{\Delta x\to 0} \sum\limits_{i=1}^n f(x_i)\Delta x\]
 
 The most straightforward of a definite integral is the definite integral. That is, we read
 \[\int\limits_a^b f(x) dx\] as the definite integral of \(f\) from \(a\) to \(b\) and we defined as the area under the ``curve'' \(f(x)\) from point \(x=a\) to \(x=b\).
-\EndKnitrBlock{definition}
+\end{definition}
 
 The fundamental theorem of calculus shows us that this sum is, in fact, the antiderivative.
 
-\BeginKnitrBlock{theorem}[First Fundamental Theorem of Calculus]
+\begin{theorem}[First Fundamental Theorem of Calculus]
 \protect\hypertarget{thm:unnamed-chunk-27}{}{\label{thm:unnamed-chunk-27} \iffalse (First Fundamental Theorem of Calculus) \fi{} }Let the function \(f\) be bounded on \([a,b]\) and continuous on \((a,b)\). Then, suggestively, use the symbol \(F(x)\) to denote the definite integral from \(a\) to \(x\):
 \[F(x)=\int\limits_a^x f(t)dt, \quad a\le x\le b\]
 
 Then \(F(x)\) has a derivative at each point in \((a,b)\) and \[F^\prime(x)=f(x), \quad a<x<b\]
 That is, the definite integral function of \(f\) \emph{is} the one of the antiderivatives of some \(f\).
-\EndKnitrBlock{theorem}
+\end{theorem}
 
 This is again a long way of saying that that differentiation is the inverse of integration. But now, we've covered definite integrals.
 
 The second theorem gives us a simple way of computing a definite integral as a function of indefinite integrals.
 
-\BeginKnitrBlock{theorem}[Second Fundamental Theorem of Calculus]
+\begin{theorem}[Second Fundamental Theorem of Calculus]
 \protect\hypertarget{thm:unnamed-chunk-28}{}{\label{thm:unnamed-chunk-28} \iffalse (Second Fundamental Theorem of Calculus) \fi{} }Let the function \(f\) be bounded on \([a,b]\) and continuous on \((a,b)\). Let \(F\) be any function that is continuous on \([a,b]\) such that \(F^\prime(x)=f(x)\) on \((a,b)\). Then \[\int\limits_a^bf(x)dx = F(b)-F(a)\]
-\EndKnitrBlock{theorem}
+\end{theorem}
 
 So the procedure to calculate a simple definite integral \(\int\limits_a^b f(x)dx\) is then
 
@@ -1987,15 +1986,15 @@ So the procedure to calculate a simple definite integral \(\int\limits_a^b f(x)d
   Evaluate \(F(b)-F(a)\).
 \end{enumerate}
 
-\BeginKnitrBlock{example}[Definite Integral of a monomial]
+\begin{example}[Definite Integral of a monomial]
 \protect\hypertarget{exm:defintmon}{}{\label{exm:defintmon} \iffalse (Definite Integral of a monomial) \fi{} }Solve \(\int\limits_1^3 3x^2 dx.\)
 
 Let \(f(x) = 3x^2\).
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{exercise}
+\begin{exercise}
 \protect\hypertarget{exr:unnamed-chunk-29}{}{\label{exr:unnamed-chunk-29} }What is the value of \(\int\limits_{-2}^2 e^x e^{e^x} dx\)?
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{common-rules-for-definite-integrals}{%
 \subsection*{Common Rules for Definite Integrals}\label{common-rules-for-definite-integrals}}
@@ -2016,7 +2015,7 @@ The area-interpretation of the definite integral provides some rules for simplif
   Areas can be combined as long as limits are linked: \[\int\limits_a^b f(x) dx +\int\limits_b^c f(x)dx = \int\limits_a^c f(x)dx\]
 \end{enumerate}
 
-\BeginKnitrBlock{exercise}[Definite integral shortcuts]
+\begin{exercise}[Definite integral shortcuts]
 \protect\hypertarget{exr:unnamed-chunk-30}{}{\label{exr:unnamed-chunk-30} \iffalse (Definite integral shortcuts) \fi{} }Simplify the following definite intergrals.
 
 \begin{enumerate}
@@ -2029,7 +2028,7 @@ The area-interpretation of the definite integral provides some rules for simplif
 \item
   \(\int\limits_{-2}^0 e^x e^{e^x} dx + \int\limits_0^2 e^x e^{e^x} dx =\)
 \end{enumerate}
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{integration-by-substitution}{%
 \section{Integration by Substitution}\label{integration-by-substitution}}
@@ -2060,18 +2059,18 @@ To summarize, the procedure to determine the indefinite integral \(\int g(x)dx\)
 Substitution can also be used to calculate a definite integral. Using the same procedure as above, \[\int\limits_a^b g(x)dx=\int\limits_c^d f(u)du = F(d)-F(c)\]
 where \(c=u(a)\) and \(d=u(b)\).
 
-\BeginKnitrBlock{example}[Integration by Substitution I]
+\begin{example}[Integration by Substitution I]
 \protect\hypertarget{exm:intsub1}{}{\label{exm:intsub1} \iffalse (Integration by Substitution I) \fi{} }
 Solve the indefinite integral \[\int x^2 \sqrt{x+1}dx.\]
-\EndKnitrBlock{example}
+\end{example}
 
 For the above problem, we could have also used the substitution \(u=\sqrt{x+1}\). Then \(x=u^2-1\) and \(dx=2u du\). Substituting these in, we get \[\int x^2\sqrt{x+1}dx=\int (u^2-1)^2 u 2u du\] which when expanded is again a polynomial and gives the same result as above.
 
 Another case in which integration by substitution is is useful is with a fraction.
 
-\BeginKnitrBlock{example}[Integration by Substitutiton II]
+\begin{example}[Integration by Substitutiton II]
 \protect\hypertarget{exm:intsub2}{}{\label{exm:intsub2} \iffalse (Integration by Substitutiton II) \fi{} }Simplify \[\int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx.\]
-\EndKnitrBlock{example}
+\end{example}
 
 \hypertarget{integration-by-parts}{%
 \section{Integration by Parts}\label{integration-by-parts}}
@@ -2085,13 +2084,13 @@ For definite integrals, this is simply
 
 Our goal here is to find expressions for \(u\) and \(dv\) that, when substituted into the above equation, yield an expression that's more easily evaluated.
 
-\BeginKnitrBlock{example}[Integration by Parts]
+\begin{example}[Integration by Parts]
 \protect\hypertarget{exm:unnamed-chunk-31}{}{\label{exm:unnamed-chunk-31} \iffalse (Integration by Parts) \fi{} }Simplify the following integrals. These seemingly obscure forms of integrals come up often when integrating distributions.
 
 \[\int x e^{ax} dx\]
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{solution}
+\begin{solution}
 \iffalse{} {Solution. } \fi{}
 Let \(u=x\) and \(\frac{dv}{dx} = e^{ax}\). Then \(du=dx\) and \(v=(1/a)e^{ax}\). Substituting this into the integration by parts formula, we obtain\\
 \begin{eqnarray}
@@ -2099,9 +2098,9 @@ Let \(u=x\) and \(\frac{dv}{dx} = e^{ax}\). Then \(du=dx\) and \(v=(1/a)e^{ax}\)
                 &=&x\left( \frac{1}{a}e^{ax}\right) -\int\frac{1}{a}e^{ax}dx\nonumber\\
                 &=&\frac{1}{a}xe^{ax}-\frac{1}{a^2}e^{ax}+c\nonumber
 \end{eqnarray}
-\EndKnitrBlock{solution}
+\end{solution}
 
-\BeginKnitrBlock{exercise}[Integration by Parts II]
+\begin{exercise}[Integration by Parts II]
 \protect\hypertarget{exr:intparts-adv}{}{\label{exr:intparts-adv} \iffalse (Integration by Parts II) \fi{} }
 1. Integrate
 \[\int x^n e^{ax} dx\]
@@ -2114,7 +2113,7 @@ Let \(u=x\) and \(\frac{dv}{dx} = e^{ax}\). Then \(du=dx\) and \(v=(1/a)e^{ax}\)
   Integrate
   \[\int x^3 e^{-x^2} dx\]
 \end{enumerate}
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{answers-to-examples-and-exercises-1}{%
 \section*{Answers to Examples and Exercises}\label{answers-to-examples-and-exercises-1}}
@@ -2122,7 +2121,7 @@ Let \(u=x\) and \(\frac{dv}{dx} = e^{ax}\). Then \(du=dx\) and \(v=(1/a)e^{ax}\)
 
 Exercise \ref{exr:introderivatives}
 
-\BeginKnitrBlock{solution}
+\begin{solution}
 \iffalse{} {Solution. } \fi{}
 
 \begin{enumerate}
@@ -2149,22 +2148,22 @@ Exercise \ref{exr:introderivatives}
 \item
   \(f\prime(x)= \frac{-4x}{x^4 - 2x^2 + 1}\)
 \end{enumerate}
-\EndKnitrBlock{solution}
+\end{solution}
 
 Example \ref{exm:tothesix}
 
-\BeginKnitrBlock{solution}
+\begin{solution}
 \iffalse{} {Solution. } \fi{}For convenience, define \(f(z) = z^6\) and \(z = g(x) = 3x^2+5x-7\). Then, \(y=f[g(x)]\) and
 
 \begin{align*}
 \frac{d}{dx}y&= f^\prime(z) g^\prime(x) \\
 &= 6(3x^2+5x-7)^5 (6x + 5)
 \end{align*}
-\EndKnitrBlock{solution}
+\end{solution}
 
 Example \ref{exm:exmderivexp}
 
-\BeginKnitrBlock{solution}
+\begin{solution}
 \iffalse{} {Solution. } \fi{}
 
 \begin{enumerate}
@@ -2175,11 +2174,11 @@ Example \ref{exm:exmderivexp}
 \item
   Let \(u(x)=x^2\). Then \(u^\prime(x)=2x\) and \(f^\prime(x)=2xe^{x^2}\).
 \end{enumerate}
-\EndKnitrBlock{solution}
+\end{solution}
 
 Example \ref{exm:exmderivlog}
 
-\BeginKnitrBlock{solution}
+\begin{solution}
 \iffalse{} {Solution. } \fi{}
 
 \begin{enumerate}
@@ -2194,11 +2193,11 @@ Example \ref{exm:exmderivlog}
 \item
   We know that \(\log e^x=x\) and that \(dx/dx=1\), but we can double check. Let \(u(x)=e^x\). Then \(u^\prime(x)=e^x\) and \(\frac{dy}{dx} = \frac{u^\prime(x)}{u(x)} = \frac{e^x}{e^x} = 1.\)
 \end{enumerate}
-\EndKnitrBlock{solution}
+\end{solution}
 
 Example \ref{exm:defintmon}
 
-\BeginKnitrBlock{solution}
+\begin{solution}
 \iffalse{} {Solution. } \fi{}What is \(F(x)\)? From the power rule, recognize \(\frac{d}{dx}x^3 = 3x^2\) so
 
 \begin{align*}
@@ -2207,10 +2206,10 @@ F(x) &= x^3\\
 &= 3^3 - 1^3\\
 &=26
 \end{align*}
-\EndKnitrBlock{solution}
+\end{solution}
 
 Example \ref{exm:intsub1}
-\BeginKnitrBlock{solution}
+\begin{solution}
 \iffalse{} {Solution. } \fi{}The problem here is the \(\sqrt{x+1}\) term. However, if the integrand had \(\sqrt{x}\) times some polynomial, then we'd be in business. Let's try \(u=x+1\). Then \(x=u-1\) and \(dx=du\). Substituting these into the above equation, we get
 
 \begin{align*}
@@ -2221,10 +2220,10 @@ Example \ref{exm:intsub1}
 
 We can easily integrate this, since it is just a polynomial. Doing so and substituting \(u=x+1\) back in, we get \[\int x^2\sqrt{x+1}dx=2(x+1)^{3/2}\left[\frac{1}{7}(x+1)^2 -
 \frac{2}{5}(x+1)+\frac{1}{3}\right]+c\]
-\EndKnitrBlock{solution}
+\end{solution}
 
 Example \ref{exm:intsub2}
-\BeginKnitrBlock{solution}
+\begin{solution}
 \iffalse{} {Solution. } \fi{}When an expression is raised to a power, it is often helpful to use this expression as the basis for a substitution. So, let \(u=1+e^{2x}\). Then \(du=2e^{2x}dx\) and we can set \(5e^{2x}dx=5du/2\). Additionally, \(u=2\) when \(x=0\) and \(u=1+e^2\) when \(x=1\). Substituting all of this in, we get
 
 \begin{align*}
@@ -2234,12 +2233,12 @@ Example \ref{exm:intsub2}
             &= \left. \frac{15}{4} u^{2/3} \right|_2^{1+e^2}\\
             &= 9.53
 \end{align*}
-\EndKnitrBlock{solution}
+\end{solution}
 
 Exercise \ref{exr:intparts-adv}
 
 1. \[\int x^n e^{ax} dx\]
-\BeginKnitrBlock{solution}
+\begin{solution}
 \iffalse{} {Solution. } \fi{}
 As in the first problem, let
 \[u=x^n, dv=e^{ax}dx\]
@@ -2255,11 +2254,11 @@ Substituting these into the integration by parts formula gives
 Notice that we now have an integral similar to the previous one, but with \(x^{n-1}\) instead of \(x^n\).
 
 For a given \(n\), we would repeat the integration by parts procedure until the integrand was directly integratable --- e.g., when the integral became \(\int e^{ax}dx\).
-\EndKnitrBlock{solution}
+\end{solution}
 
 2. \[\int x^3 e^{-x^2} dx\]
 
-\BeginKnitrBlock{solution}
+\begin{solution}
 \iffalse{} {Solution. } \fi{}We could, as before, choose \(u=x^3\) and \(dv=e^{-x^2}dx\). But we can't then find \(v\) --- i.e., integrating \(e^{-x^2}dx\) isn't possible. Instead, notice that \[\frac{d}{dx}e^{-x^2} = -2xe^{-x^2},\] which can be factored out of the original integrand \[\int x^3 e^{-x^2} dx = \int x^2 (xe^{-x^2})dx.\]
 
 We can then let \(u=x^2\) and \(dv=x e^{-x^2}dx\). The\(du=2x dx\) and \(v=-\frac{1}{2}e^{-x^2}\). Substituting these in, we have
@@ -2269,7 +2268,7 @@ We can then let \(u=x^2\) and \(dv=x e^{-x^2}dx\). The\(du=2x dx\) and \(v=-\fra
                 &=& -\frac{1}{2}x^2 e^{-x^2}+\int x e^{-x^2}dx\nonumber\\
                 &=& -\frac{1}{2}x^2 e^{-x^2}-\frac{1}{2}e^{-x^2}+c\nonumber
 \end{eqnarray}
-\EndKnitrBlock{solution}
+\end{solution}
 
 \hypertarget{optim}{%
 \chapter{Optimization}\label{optim}}
@@ -2386,9 +2385,9 @@ So for example, \(f(x) = x^2 + 2\) and \(f^\prime(x) = 2x\)
 \caption{\label{fig:unnamed-chunk-43}Maxima and Minima}
 \end{figure}
 
-\BeginKnitrBlock{exercise}[Plotting a mazimum and minimum]
+\begin{exercise}[Plotting a mazimum and minimum]
 \protect\hypertarget{exr:unnamed-chunk-44}{}{\label{exr:unnamed-chunk-44} \iffalse (Plotting a mazimum and minimum) \fi{} }Plot \(f(x)=x^3+ x^2 + 2\), plot its derivative, and identifiy where the derivative is zero. Is there a maximum or minimum?
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 The second derivative \(f''(x)\) identifies whether the function \(f(x)\) at the point \(x\) is
 
@@ -2444,7 +2443,7 @@ The maxima and minima will be a subset of the critical points.
   \textbf{Functions over closed and bounded intervals} must have both a global maximum and a global minimum.
 \end{enumerate}
 
-\BeginKnitrBlock{example}[Maxima and Minima by drawing]
+\begin{example}[Maxima and Minima by drawing]
 \protect\hypertarget{exm:unnamed-chunk-46}{}{\label{exm:unnamed-chunk-46} \iffalse (Maxima and Minima by drawing) \fi{} }
 Find any critical points and identify whether they are a max, min, or saddle point:
 
@@ -2458,25 +2457,25 @@ Find any critical points and identify whether they are a max, min, or saddle poi
 \item
   \(f(x)=|x^2-1|\), \(x\in [-2,2]\)
 \end{enumerate}
-\EndKnitrBlock{example}
+\end{example}
 
 \hypertarget{concavity-of-a-function}{%
 \section{Concavity of a Function}\label{concavity-of-a-function}}
 
 Concavity helps identify the curvature of a function, \(f(x)\), in 2 dimensional space.
 
-\BeginKnitrBlock{definition}[Concave Function]
+\begin{definition}[Concave Function]
 \protect\hypertarget{def:unnamed-chunk-47}{}{\label{def:unnamed-chunk-47} \iffalse (Concave Function) \fi{} }A function \(f\) is strictly concave over the set S \underline{if} \(\forall x_1,x_2 \in S\) and \(\forall a \in (0,1)\), \[f(ax_1 + (1-a)x_2) > af(x_1) + (1-a)f(x_2)\]
 \textit{Any} line connecting two points on a concave function will lie \textit{below} the function.
-\EndKnitrBlock{definition}
+\end{definition}
 
 \includegraphics{prefresher_files/figure-latex/unnamed-chunk-48-1.pdf}
 
-\BeginKnitrBlock{definition}[Convex Function]
+\begin{definition}[Convex Function]
 \protect\hypertarget{def:unnamed-chunk-49}{}{\label{def:unnamed-chunk-49} \iffalse (Convex Function) \fi{} }Convex: A function f is strictly convex over the set S \underline{if} \(\forall x_1,x_2 \in S\) and \(\forall a \in (0,1)\), \[f(ax_1 + (1-a)x_2) < af(x_1) + (1-a)f(x_2)\]
 
 Any line connecting two points on a convex function will lie above the function.
-\EndKnitrBlock{definition}
+\end{definition}
 
 \begin{comment}
   \parbox{2in}{\includegraphics[scale=.4]{Convex.pdf}}
@@ -2484,20 +2483,20 @@ Any line connecting two points on a convex function will lie above the function.
 
 Sometimes, concavity and convexity are strict of a requirement. For most purposes of getting solutions, what we call quasi-concavity is enough.
 
-\BeginKnitrBlock{definition}[Quasiconcave Function]
+\begin{definition}[Quasiconcave Function]
 \protect\hypertarget{def:unnamed-chunk-50}{}{\label{def:unnamed-chunk-50} \iffalse (Quasiconcave Function) \fi{} }A function f is quasiconcave over the set S if \(\forall x_1,x_2 \in S\) and \(\forall a \in (0,1)\), \[f(ax_1 + (1-a)x_2) \ge \min(f(x_1),f(x_2))\]
 
 No matter what two points you select, the \textit{lowest} valued point will always be an end point.
-\EndKnitrBlock{definition}
+\end{definition}
 
 \begin{comment}
   \parbox{2in}{\includegraphics[scale=.4]{Quasiconcave.pdf}}
 \end{comment}
 
-\BeginKnitrBlock{definition}[Quasiconvex]
+\begin{definition}[Quasiconvex]
 \protect\hypertarget{def:unnamed-chunk-51}{}{\label{def:unnamed-chunk-51} \iffalse (Quasiconvex) \fi{} }A function f is quasiconvex over the set \(S\) if \(\forall x_1,x_2 \in S\) and \(\forall a \in (0,1)\), \[f(ax_1 + (1-a)x_2) \le \max(f(x_1),f(x_2))\]
 No matter what two points you select, the \textit{highest} valued point will always be an end point.
-\EndKnitrBlock{definition}
+\end{definition}
 
 \begin{comment}
   \parbox{1.8in}{\includegraphics[scale=.4]{Quasiconvex.pdf}}
@@ -2586,28 +2585,28 @@ When we examined functions of one variable \(x\), we found critical points by ta
 
 In a derivative, we only took the derivative with respect to one variable at a time. When we take the derivative separately with respect to all variables in the elements of \(\mathbf{x}\) and then express the result as a vector, we use the term Gradient and Hessian.
 
-\BeginKnitrBlock{definition}[Gradient]
+\begin{definition}[Gradient]
 \protect\hypertarget{def:unnamed-chunk-52}{}{\label{def:unnamed-chunk-52} \iffalse (Gradient) \fi{} }
 Given a function \(f(\textbf{x})\) in \(n\) variables, the gradient \(\nabla f(\mathbf{x})\) (the greek letter nabla ) is a column vector, where the \(i\)th element is the partial derivative of \(f(\textbf{x})\) with respect to \(x_i\):
 
 \[\nabla f(\mathbf{x}) = \begin{pmatrix}
 \frac{\partial f(\mathbf{x})}{\partial x_1}\\ \frac{\partial f(\mathbf{x})}{\partial x_2}\\
   \vdots \\ \frac{\partial f(\mathbf{x})}{\partial x_n} \end{pmatrix}\]
-\EndKnitrBlock{definition}
+\end{definition}
 
 Before we know whether a point is a maxima or minima, if it meets the FOC it is a ``Critical Point''.
 
-\BeginKnitrBlock{definition}[Critical Point]
+\begin{definition}[Critical Point]
 \protect\hypertarget{def:unnamed-chunk-53}{}{\label{def:unnamed-chunk-53} \iffalse (Critical Point) \fi{} }
 \(\mathbf{x}^*\) is a critical point if and only if \(\nabla f(\mathbf{x}^*)=0\). If the partial derivative of f(x) with respect to \(x^*\) is 0, then \(\mathbf{x}^*\) is a critical point. To solve for \(\mathbf{x}^*\), find the gradient, set each element equal to 0, and solve the system of equations. \[\mathbf{x}^* = \begin{pmatrix} x_1^*\\x_2^*\\ \vdots \\ x_n^*\end{pmatrix}\]
-\EndKnitrBlock{definition}
+\end{definition}
 
-\BeginKnitrBlock{example}
+\begin{example}
 \protect\hypertarget{exm:unnamed-chunk-54}{}{\label{exm:unnamed-chunk-54} }
 Example: Given a function \(f(\mathbf{x})=(x_1-1)^2+x_2^2+1\), find the (1) Gradient and (2) Critical point of \(f(\mathbf{x})\).
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{solution}
+\begin{solution}
 \iffalse{} {Solution. } \fi{}Gradient
 
 \begin{align*}
@@ -2625,7 +2624,7 @@ Critical Point \(\mathbf{x}^* =\)
 \end{align*}
 
 So \[\mathbf{x}^* = (1,0)\]
-\EndKnitrBlock{solution}
+\end{solution}
 
 \hypertarget{second-order-conditions}{%
 \subsection*{Second Order Conditions}\label{second-order-conditions}}
@@ -2633,7 +2632,7 @@ So \[\mathbf{x}^* = (1,0)\]
 
 When we found a critical point for a function of one variable, we used the second derivative as a indicator of the curvature at the point in order to determine whether the point was a min, max, or saddle (second derivative test of concavity). For functions of \(n\) variables, we use \emph{second order partial derivatives} as an indicator of curvature.
 
-\BeginKnitrBlock{definition}[Hessian]
+\begin{definition}[Hessian]
 \protect\hypertarget{def:unnamed-chunk-56}{}{\label{def:unnamed-chunk-56} \iffalse (Hessian) \fi{} }
 Given a function \(f(\mathbf{x})\) in \(n\) variables, the hessian \(\mathbf{H(x)}\) is
 an \(n\times n\) matrix, where the \((i,j)\)th element is the second order
@@ -2647,7 +2646,7 @@ partial derivative of \(f(\mathbf{x})\) with respect to \(x_i\) and \(x_j\):
 \vdots & \vdots & \ddots & \vdots \\[3pt]
 \frac{\partial^2 f(\mathbf{x})}{\partial x_n \partial x_1}&\frac{\partial^2f(\mathbf{x})}{\partial x_n \partial x_2}&
 \cdots & \frac{\partial^2 f(\mathbf{x})}{\partial x_n^2}\end{pmatrix}\]
-\EndKnitrBlock{definition}
+\end{definition}
 
 Note that the hessian will be a symmetric matrix because \(\frac{\partial f(\mathbf{x})}{\partial x_1\partial x_2} = \frac{\partial f(\mathbf{x})}{\partial x_2\partial x_1}\).
 
@@ -2672,14 +2671,14 @@ Given a function \(f(\mathbf{x})\) and a point \(\mathbf{x}^*\) such that \(\nab
   Hessian is Indefinite \(\quad \Longrightarrow \quad\) Saddle Point
 \end{enumerate}
 
-\BeginKnitrBlock{example}[Max and min with two dimensions]
+\begin{example}[Max and min with two dimensions]
 \protect\hypertarget{exm:unnamed-chunk-57}{}{\label{exm:unnamed-chunk-57} \iffalse (Max and min with two dimensions) \fi{} }
 We found that the only critical point of
 \(f(\mathbf{x})=(x_1-1)^2+x_2^2+1\) is at \(\mathbf{x}^*=(1,0)\). Is it a min, max, or
 saddle point?
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{solution}
+\begin{solution}
 \iffalse{} {Solution. } \fi{}
 The Hessian is
 \begin{align*}
@@ -2698,7 +2697,7 @@ Note: Alternate check of definiteness. Is \(\mathbf{H(x^*)} \geq \leq 0 \quad \f
 \end{align*}
 
 For any \(\mathbf{x}\ne 0\), \(2(x_1^2+x_2^2)>0\), so the Hessian is positive definite and \(\mathbf{x}^*\) is a strict local minimum.
-\EndKnitrBlock{solution}
+\end{solution}
 
 \hypertarget{definiteness-and-concavity}{%
 \subsection*{Definiteness and Concavity}\label{definiteness-and-concavity}}
@@ -2744,9 +2743,9 @@ and \(f''_2(x)\le 0\) --- i.e., \(f_1(x)\) is globally convex and \(f_2(x)\)
 is globally concave. So \(x=0\) is a global min of \(f_1(x)\) and a
 global max of \(f_2(x)\).
 
-\BeginKnitrBlock{exercise}
+\begin{exercise}
 \protect\hypertarget{exr:unnamed-chunk-59}{}{\label{exr:unnamed-chunk-59} }Given \(f(\mathbf{x})=x_1^3-x_2^3+9x_1x_2\), find any maxima or minima.
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \begin{enumerate}
   \item First order conditions.  
@@ -2883,13 +2882,13 @@ We can then solve this system of equations, because there are \(n+k\) equations 
 
 \textbf{Second-order Conditions and Unconstrained Optimization:} There may be more than one critical point, i.e.~we need to verify that the critical point we find is a maximum/minimum. Similar to unconstrained optimization, we can do this by checking the second-order conditions.
 
-\BeginKnitrBlock{example}[Constrained optimization with two goods and a budget constraint]
+\begin{example}[Constrained optimization with two goods and a budget constraint]
 \protect\hypertarget{exm:unnamed-chunk-60}{}{\label{exm:unnamed-chunk-60} \iffalse (Constrained optimization with two goods and a budget constraint) \fi{} }
 Find the constrained optimization of
 \[\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } x_1 + x_2 = 4\]
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{solution}
+\begin{solution}
 \iffalse{} {Solution. } \fi{}
 1. Begin by writing the Lagrangian:
 \[L(x_1, x_2, \lambda) =  -(x_1^2 + 2x_2^2) - \lambda(x_1 + x_2 - 4)\]
@@ -2913,7 +2912,7 @@ Find the constrained optimization of
 \item
   This gives \(f(\frac{8}{3}, \frac{4}{3}) = -\frac{96}{9}\), which is less than the unconstrained optimum \(f(0,0) = 0\)
 \end{enumerate}
-\EndKnitrBlock{solution}
+\end{solution}
 
 Notice that when we take the partial derivative of L with respect to the Lagrangian multiplier and set it equal to 0, we return exactly our constraint! This is why signs matter.
 
@@ -3021,7 +3020,7 @@ This shows that there are two critical points: \((0,0)\) and \((\frac{8}{3},\fra
   Looking at the values of \(f(x_1,x_2)\) at the critical points, we see that \(f(x_1,x_2)\) is maximized at \(x_1^* = 0\) and \(x_2^*=0\).
 \end{enumerate}
 
-\BeginKnitrBlock{exercise}
+\begin{exercise}
 \protect\hypertarget{exr:unnamed-chunk-62}{}{\label{exr:unnamed-chunk-62} }Example: Find the critical points for the following constrained optimization:
 \[\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } 
 \begin{array}{l}
@@ -3029,7 +3028,7 @@ x_1 + x_2 \le 4\\
 x_1 \ge 0\\
 x_2 \ge 0
 \end{array}\]
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -3159,7 +3158,7 @@ In a two-dimensional set-up, this means we must check the following cases:
   \(x_1 \neq 0, x_2 \neq 0\) Interior Solution
 \end{enumerate}
 
-\BeginKnitrBlock{example}[Kuhn-Tucker with two variables]
+\begin{example}[Kuhn-Tucker with two variables]
 \protect\hypertarget{exm:unnamed-chunk-63}{}{\label{exm:unnamed-chunk-63} \iffalse (Kuhn-Tucker with two variables) \fi{} }Solve the following optimization problem with inequality constraints
 \[\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2)\]
 
@@ -3171,7 +3170,7 @@ In a two-dimensional set-up, this means we must check the following cases:
 &x_2 *\ge 0
 \end{cases}
 \end{align*}
-\EndKnitrBlock{example}
+\end{example}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -3227,7 +3226,7 @@ x_2 & \geq 0\\
   Three of the critical points violate the requirement that \(\lambda \geq 0\), so the point \((0,0,0)\) is the maximum.
 \end{enumerate}
 
-\BeginKnitrBlock{exercise}[Kuhn-Tucker with logs]
+\begin{exercise}[Kuhn-Tucker with logs]
 \protect\hypertarget{exr:unnamed-chunk-64}{}{\label{exr:unnamed-chunk-64} \iffalse (Kuhn-Tucker with logs) \fi{} }Solve the constrained optimization problem,
 
 \[\max_{x_1,x_2} f(x) = \frac{1}{3}\log (x_1 + 1) + \frac{2}{3}\log (x_2 + 1) \text{ s.t. }  
@@ -3236,7 +3235,7 @@ x_1 + 2x_2 \leq 4\\
      x_1 \geq 0\\
     x_2 \geq 0
 \end{array}\]
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \begin{enumerate}
 \item Write the Lagrangian:
@@ -3360,7 +3359,7 @@ If \textbf{\emph{order doesn't matter}} AND we are sampling \textbf{\emph{withou
 
 Expression \(\binom{n}{k}\) is read as ``n choose k'' and denotes \(\frac{n!}{(n-k)!k!}\). Also, note that \(0! = 1\).
 
-\BeginKnitrBlock{example}[Counting]
+\begin{example}[Counting]
 \protect\hypertarget{exm:counting}{}{\label{exm:counting} \iffalse (Counting) \fi{} }
 There are five balls numbered from 1 through 5 in a jar. Three balls are chosen. How many possible choices are there?
 
@@ -3373,12 +3372,12 @@ There are five balls numbered from 1 through 5 in a jar. Three balls are chosen.
 \item
   Unordered, without replacement \(=\)
 \end{enumerate}
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{exercise}[Counting]
+\begin{exercise}[Counting]
 \protect\hypertarget{exr:counting1}{}{\label{exr:counting1} \iffalse (Counting) \fi{} }
 Four cards are selected from a deck of 52 cards. Once a card has been drawn, it is not reshuffled back into the deck. Moreover, we care only about the complete hand that we get (i.e.~we care about the set of selected cards, not the sequence in which it was drawn). How many possible outcomes are there?
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{setoper}{%
 \section{Sets}\label{setoper}}
@@ -3431,7 +3430,7 @@ Properties of set operations:
   \textbf{Disjointness}: Sets are disjoint when they do not intersect, such that \(A \cap B = \emptyset\). A collection of sets is pairwise disjoint (\textbf{mutually exclusive}) if, for all \(i \neq j\), \(A_i \cap A_j = \emptyset\). A collection of sets form a partition of set \(S\) if they are pairwise disjoint and they cover set \(S\), such that \(\bigcup_{i = 1}^k A_i = S\).
 \end{itemize}
 
-\BeginKnitrBlock{example}[Sets]
+\begin{example}[Sets]
 \protect\hypertarget{exm:sets}{}{\label{exm:sets} \iffalse (Sets) \fi{} }
 Let set \(A\) be \{1, 2, 3, 4\}, \(B\) be \{3, 4, 5, 6\}, and \(C\) be \{5, 6, 7, 8\}. Sets \(A\), \(B\), and \(C\) are all subsets of the sample space \(S\) which is \{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}
 
@@ -3449,9 +3448,9 @@ Write out the following sets:
 \item
   \(A \cap (B \cup C)\)
 \end{enumerate}
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{exercise}[Sets]
+\begin{exercise}[Sets]
 \protect\hypertarget{exr:sets1}{}{\label{exr:sets1} \iffalse (Sets) \fi{} }
 
 Suppose you had a pair of four-sided dice. You sum the results from a single toss.
@@ -3468,7 +3467,7 @@ Consider subsets A \{2, 8\} and B \{2,3,7\} of the sample space you found. What 
 \item
   \((A \cup B)^c\)
 \end{enumerate}
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{probdef}{%
 \section{Probability}\label{probdef}}
@@ -3490,14 +3489,14 @@ Many things in the world are uncertain. In everyday speech, we say that we are \
 
 Formally,
 
-\BeginKnitrBlock{definition}[Probability]
+\begin{definition}[Probability]
 \protect\hypertarget{def:unnamed-chunk-66}{}{\label{def:unnamed-chunk-66} \iffalse (Probability) \fi{} }
 Probability is a function that maps events to a real number, obeying the axioms of probability.
-\EndKnitrBlock{definition}
+\end{definition}
 
 The axioms of probability make sure that the separate events add up in terms of probability, and -- for standardization purposes -- that they add up to 1.
 
-\BeginKnitrBlock{definition}[Axioms of Probability]
+\begin{definition}[Axioms of Probability]
 \protect\hypertarget{def:unnamed-chunk-67}{}{\label{def:unnamed-chunk-67} \iffalse (Axioms of Probability) \fi{} }
 
 \begin{enumerate}
@@ -3517,7 +3516,7 @@ The last axiom is an extension of a union to infinite sets. When there are only 
 \begin{align*}
 P(A_1 \cup A_2) = P(A_1) + P(A_2) \quad\text{for disjoint } A_1, A_2
 \end{align*}
-\EndKnitrBlock{definition}
+\end{definition}
 
 \hypertarget{probability-operations}{%
 \subsection*{Probability Operations}\label{probability-operations}}
@@ -3542,7 +3541,7 @@ Using these three axioms, we can define all of the common rules of probability.
   Boole's Inequality: For any sequence of \(n\) events (which need not be disjoint) \(A_1,A_2,\ldots,A_n\), then \(P\left( \bigcup\limits_{i=1}^n A_i\right) \leq \sum\limits_{i=1}^n P(A_i)\).
 \end{enumerate}
 
-\BeginKnitrBlock{example}[Probability]
+\begin{example}[Probability]
 \protect\hypertarget{exm:prob}{}{\label{exm:prob} \iffalse (Probability) \fi{} }
 Assume we have an evenly-balanced, six-sided die.
 
@@ -3566,9 +3565,9 @@ Then,
 \item
   Let \(A=\{ 1, 2, 3 \}\) and \(B=\{ 2, 4, 6 \}\). Then \(A\cup B\)? \(A\cap B\)? \(P(A \cup B)\)?
 \end{enumerate}
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{exercise}[Probability]
+\begin{exercise}[Probability]
 \protect\hypertarget{exr:prob1}{}{\label{exr:prob1} \iffalse (Probability) \fi{} }
 Suppose you had a pair of four-sided dice. You sum the results from a single toss. Let us call this sum, or the outcome, X.
 
@@ -3579,7 +3578,7 @@ Suppose you had a pair of four-sided dice. You sum the results from a single tos
 \item
   What is \(P(X=5 \cup X = 3)^C\)?
 \end{enumerate}
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{conditional-probability-and-bayes-rule}{%
 \section{Conditional Probability and Bayes Rule}\label{conditional-probability-and-bayes-rule}}
@@ -3590,7 +3589,7 @@ Suppose you had a pair of four-sided dice. You sum the results from a single tos
 
 Note that conditional probabilities are probabilities and must also follow the Kolmagorov axioms of probability.
 
-\BeginKnitrBlock{example}[Conditional Probability 1]
+\begin{example}[Conditional Probability 1]
 \protect\hypertarget{exm:condprobexm1}{}{\label{exm:condprobexm1} \iffalse (Conditional Probability 1) \fi{} }
 Assume \(A\) and \(B\) occur with the following frequencies: \(\quad\)
 
@@ -3620,25 +3619,25 @@ and let \(n_{ab}+n_{a^Cb}+n_{ab^C}+n_{(ab)^C}=N\). Then
 \item
   \(P(B|A)= \frac{P(A\cap B)}{P(A)}=\)
 \end{enumerate}
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{example}[Conditional Probability 2]
+\begin{example}[Conditional Probability 2]
 \protect\hypertarget{exm:condprobexm2}{}{\label{exm:condprobexm2} \iffalse (Conditional Probability 2) \fi{} }
 A six-sided die is rolled. What is the probability of a 1, given the outcome is an odd number?
-\EndKnitrBlock{example}
+\end{example}
 
 You could rearrange the fraction to highlight how a joint probability could be expressed as the product of a conditional probability.
 
-\BeginKnitrBlock{definition}[Multiplicative Law of Probability]
+\begin{definition}[Multiplicative Law of Probability]
 \protect\hypertarget{def:unnamed-chunk-68}{}{\label{def:unnamed-chunk-68} \iffalse (Multiplicative Law of Probability) \fi{} }
 The probability of the intersection of two events \(A\) and \(B\) is \(P(A\cap B)=P(A)P(B|A)=P(B)P(A|B)\) which follows directly from the definition of conditional probability. More generally,
 
 \[P(A_1\cap \cdots\cap A_k) = P(A_k| A_{k-1}\cap \cdots \cap A_1)\times P(A_{k-1}|A_{k-2}\cap \cdots A_1) \times \ldots \times P(A_2|A_1)\times P(A_1)\]
 
 Sometimes it is easier to calculate these conditional probabilities and sum them than it is to calculate \(P(A)\) directly.
-\EndKnitrBlock{definition}
+\end{definition}
 
-\BeginKnitrBlock{definition}[Law of Total Probability]
+\begin{definition}[Law of Total Probability]
 \protect\hypertarget{def:unnamed-chunk-69}{}{\label{def:unnamed-chunk-69} \iffalse (Law of Total Probability) \fi{} }Let \(S\) be the sample space of some experiment and let the disjoint \(k\) events \(B_1,\ldots,B_k\) partition \(S\), such that \(P(B_1\cup ... \cup B_k) = P(S) = 1\). If \(A\) is some other event in \(S\), then the events \(A\cap B_1, A\cap B_2, \ldots, A\cap B_k\) will form a partition of \(A\) and we can write \(A\) as \[A=(A\cap B_1)\cup\cdots\cup (A\cap B_k)\].
 
 Since the \(k\) events are disjoint,
@@ -3647,7 +3646,7 @@ Since the \(k\) events are disjoint,
 P(A)&=&\sum\limits_{i=1}^k P(A \cap B_i)\\
       &=&\sum\limits_{i=1}^k P(B_i)P(A|B_i)
 \end{eqnarray*}
-\EndKnitrBlock{definition}
+\end{definition}
 
 \textbf{Bayes Rule}: Assume that events \(B_1,\ldots,B_k\) form a partition of the space \(S\). Then by the Law of Total Probability
 
@@ -3660,23 +3659,23 @@ Bayes' rule determines the posterior probability of a state \(P(B_j|A)\) by calc
 
 \textbf{Prior and Posterior Probabilities}: Above, \(P(B_1)\) is often called the prior probability, since it's the probability of \(B_1\) before anything else is known. \(P(B_1|A)\) is called the posterior probability, since it's the probability after other information is taken into account.
 
-\BeginKnitrBlock{example}[Bayes' Rule]
+\begin{example}[Bayes' Rule]
 \protect\hypertarget{exm:bayesrule}{}{\label{exm:bayesrule} \iffalse (Bayes' Rule) \fi{} }
 In a given town, 40\% of the voters are Democrat and 60\% are Republican. The president's budget is supported by 50\% of the Democrats and 90\% of the Republicans. If a randomly (equally likely) selected voter is found to support the president's budget, what is the probability that they are a Democrat?
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{exercise}[Conditional Probability]
+\begin{exercise}[Conditional Probability]
 \protect\hypertarget{exr:condprobexr}{}{\label{exr:condprobexr} \iffalse (Conditional Probability) \fi{} }
 
 Assume that 2\% of the population of the U.S. are members of some extremist militia group. We develop a survey that positively classifies someone as being a member of a militia group given that they are a member 95\% of the time and negatively classifies someone as not being a member of a militia group given that they are not a member 97\% of the time. What is the probability that someone positively classified as being a member of a militia group is actually a militia member?
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{independence}{%
 \section{Independence}\label{independence}}
 
-\BeginKnitrBlock{definition}[Independence]
+\begin{definition}[Independence]
 \protect\hypertarget{def:unnamed-chunk-70}{}{\label{def:unnamed-chunk-70} \iffalse (Independence) \fi{} } If the occurrence or nonoccurrence of either events \(A\) and \(B\) have no effect on the occurrence or nonoccurrence of the other, then \(A\) and \(B\) are independent.
-\EndKnitrBlock{definition}
+\end{definition}
 
 If \(A\) and \(B\) are independent, then
 
@@ -3727,10 +3726,10 @@ Most questions in the social sciences involve events, rather than numbers per se
 \caption{\label{fig:rv-image}The Random Variable as a Real-Valued Function}
 \end{figure}
 
-\BeginKnitrBlock{definition}[Random Variable]
+\begin{definition}[Random Variable]
 \protect\hypertarget{def:unnamed-chunk-71}{}{\label{def:unnamed-chunk-71} \iffalse (Random Variable) \fi{} }
 A random variable is a measurable function \(X\) that maps from the sample space \(S\) to the set of real numbers \(R.\) It assigns a real number to every outcome \(s \in S\).
-\EndKnitrBlock{definition}
+\end{definition}
 
 Figure \ref{fig:rv-image} shows a image of the function. It might seem strange to define a random variable as a function -- which is neither random nor variable. The randomness comes from the realization of an event from the sample space \(s\).
 
@@ -3751,20 +3750,20 @@ We now have two main concepts in this section -- probability and random variable
 
 The concept of distributions is the natural bridge between these two concepts.
 
-\BeginKnitrBlock{definition}[Distribution of a random variable]
+\begin{definition}[Distribution of a random variable]
 \protect\hypertarget{def:unnamed-chunk-72}{}{\label{def:unnamed-chunk-72} \iffalse (Distribution of a random variable) \fi{} }A distribution of a random variable is a function that specifies the probabilities of all events associated with that random variable. There are several types of distributions: A probability mass function for a discrete random variable and probability density function for a continuous random variable.
-\EndKnitrBlock{definition}
+\end{definition}
 
 Notice how the definition of distributions combines two ideas of random variables and probabilities of events. First, the distribution considers a random variable, call it \(X\). \(X\) can take a number of possible numeric values.
 
-\BeginKnitrBlock{example}[Total Number of Occurrences]
+\begin{example}[Total Number of Occurrences]
 \protect\hypertarget{exm:unnamed-chunk-73}{}{\label{exm:unnamed-chunk-73} \iffalse (Total Number of Occurrences) \fi{} }
 Consider three binary outcomes, one for each patient recovering from a disease: \(R_i\) denotes the event in which patient \(i\) (\(i = 1, 2, 3\)) recovers from a disease. \(R_1\), \(R_2\), and \(R_3\). How would we represent the total number of people who end up recovering from the disease?
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{solution}
+\begin{solution}
 \iffalse{} {Solution. } \fi{}Define the random variable \(X\) be the total number of people (out of three) who recover from the disease. Random variables are functions, that take as an input a set of events (in the sample space \(S\)) and deterministically assigns them to a number of the analyst's choice.
-\EndKnitrBlock{solution}
+\end{solution}
 
 Recall that with each of these numerical values there is a class of \emph{events}. In the previous example, for \(X = 3\) there is one outcome (\(R_1, R_2, R_3\)) and for \(X = 1\) there are multiple (\(\{(R_1, R_2^c, R_3^c), (R_1^c, R_2, R_3^c), (R_1^c, R_2^c, R_3), \}\)). Now, the thing to notice here is that each of these events naturally come with a probability associated with them. That is, \(P(R_1, R_2, R_3)\) is a number from 0 to 1, as is \(P(R_1, R_2^c, R_3^c)\). These all have probabilities because they are in the sample space \(S\). The function that tells us these probabilities that are associated with a numerical value of a random variable is called a distribution.
 
@@ -3776,13 +3775,13 @@ In other words, a random variable \(X\) \emph{induces a probability distribution
 
 The formal definition of a random variable is easier to given by separating out two cases: discrete random variables when the numeric summaries of the events are discrete, and continuous random variables when they are continuous.
 
-\BeginKnitrBlock{definition}[Discrete Random Variable]
+\begin{definition}[Discrete Random Variable]
 \protect\hypertarget{def:unnamed-chunk-75}{}{\label{def:unnamed-chunk-75} \iffalse (Discrete Random Variable) \fi{} }\(X\) is a discrete random variable if it can assume only a finite or countably infinite number of distinct values. Examples: number of wars per year, heads or tails.
-\EndKnitrBlock{definition}
+\end{definition}
 
 The distribution of a discrete r.v. is a PMF:
 
-\BeginKnitrBlock{definition}[Probability Mass Function]
+\begin{definition}[Probability Mass Function]
 \protect\hypertarget{def:unnamed-chunk-76}{}{\label{def:unnamed-chunk-76} \iffalse (Probability Mass Function) \fi{} }
 For a discrete random variable \(X\), the probability mass function (Also referred to simply as the ``probability distribution.'') (PMF), \(p(x)=P(X=x)\), assigns probabilities to a countable number of distinct \(x\) values such that
 
@@ -3794,7 +3793,7 @@ For a discrete random variable \(X\), the probability mass function (Also referr
 \item
   \(\sum\limits_y p(x)=1\)
 \end{enumerate}
-\EndKnitrBlock{definition}
+\end{definition}
 
 Example: For a fair six-sided die, there is an equal probability of rolling any number. Since there are six sides, the probability mass function is then \(p(y)=1/6\) for \(y=1,\ldots,6\), 0 otherwise.\}
 
@@ -3819,7 +3818,7 @@ Properties a CDF must satisfy:
 
 Note that \(P(X > x) = 1 - P(X \le x)\).
 
-\BeginKnitrBlock{example}
+\begin{example}
 \protect\hypertarget{exm:unnamed-chunk-77}{}{\label{exm:unnamed-chunk-77} }For a fair die with its value as \(Y\), What are the following?
 
 \begin{enumerate}
@@ -3832,7 +3831,7 @@ Note that \(P(X > x) = 1 - P(X \le x)\).
 \item
   \(P(Y\le 6)\)
 \end{enumerate}
-\EndKnitrBlock{example}
+\end{example}
 
 \hypertarget{continuous-random-variables}{%
 \subsection*{Continuous Random Variables}\label{continuous-random-variables}}
@@ -3840,19 +3839,19 @@ Note that \(P(X > x) = 1 - P(X \le x)\).
 
 We also have a similar definition for \emph{continuous} random variables.
 
-\BeginKnitrBlock{definition}[Continuous Random Variable]
+\begin{definition}[Continuous Random Variable]
 \protect\hypertarget{def:unnamed-chunk-78}{}{\label{def:unnamed-chunk-78} \iffalse (Continuous Random Variable) \fi{} }
 \(X\) is a continuous random variable if there exists a nonnegative function \(f(x)\) defined for all real \(x\in (-\infty,\infty)\), such that for any interval \(A\), \(P(X\in A)=\int\limits_A f(x)dx\). Examples: age, income, GNP, temperature.
-\EndKnitrBlock{definition}
+\end{definition}
 
-\BeginKnitrBlock{definition}[Probability Density Function]
+\begin{definition}[Probability Density Function]
 \protect\hypertarget{def:unnamed-chunk-79}{}{\label{def:unnamed-chunk-79} \iffalse (Probability Density Function) \fi{} }
 The function \(f\) above is called the probability density function (pdf) of \(X\) and must satisfy
 \[f(x)\ge 0\]
 \[\int\limits_{-\infty}^\infty f(x)dx=1\]
 
 Note also that \(P(X = x)=0\) --- i.e., the probability of any point \(y\) is zero.
-\EndKnitrBlock{definition}
+\end{definition}
 
 \begin{comment}
 \item[] \parbox[t]{4.5in}{Example: $f(y)=1, \quad 0\le y \le1$}\parbox{1.5in}{\hfill
@@ -3861,19 +3860,19 @@ Note also that \(P(X = x)=0\) --- i.e., the probability of any point \(y\) is ze
 
 For both discrete and continuous random variables, we have a unifying concept of another measure: the cumulative distribution:
 
-\BeginKnitrBlock{definition}[Cumulative Density Function]
+\begin{definition}[Cumulative Density Function]
 \protect\hypertarget{def:unnamed-chunk-80}{}{\label{def:unnamed-chunk-80} \iffalse (Cumulative Density Function) \fi{} }Because the probability that a continuous random variable will assume any particular value is zero, we can only make statements about the probability of a continuous random variable being within an interval. The cumulative distribution gives the probability that \(Y\) lies on the interval \((-\infty,y)\) and is defined as \[F(x)=P(X\le x)=\int\limits_{-\infty}^x f(s)ds\] Note that \(F(x)\) has similar properties with continuous distributions as it does with discrete - non-decreasing, continuous (not just right-continuous), and \(\lim\limits_{x \to -\infty} F(x) = 0\) and \(\lim\limits_{x \to \infty} F(x) = 1\).
-\EndKnitrBlock{definition}
+\end{definition}
 
 We can also make statements about the probability of \(Y\) falling in an interval \(a\le y\le b\).
 \[P(a\le x\le b)=\int\limits_a^b f(x)dx\]
 
 The PDF and CDF are linked by the integral: The CDF of the integral of the PDF: \[f(x) = F'(x)=\frac{dF(x)}{dx}\]
 
-\BeginKnitrBlock{example}
+\begin{example}
 \protect\hypertarget{exm:unnamed-chunk-81}{}{\label{exm:unnamed-chunk-81} }
 For \(f(y)=1, \quad 0<y<1\), find: (1) The CDF \(F(y)\) and (2) The probability \(P(0.5<y<0.75)\).
-\EndKnitrBlock{example}
+\end{example}
 
 \hypertarget{joint-distributions}{%
 \section{Joint Distributions}\label{joint-distributions}}
@@ -3918,7 +3917,7 @@ If X and Y are independent, then \(P(X=x,Y=y) = P(X=x)P(Y=y)\) and \(f(x,y) = f(
   Continuous: \(f_{Y|X}(y|x) = \frac{f(x,y)}{f_X(x)},\quad f_X(x) > 0\)
 \end{itemize}
 
-\BeginKnitrBlock{exercise}[Discrete Outcomes]
+\begin{exercise}[Discrete Outcomes]
 \protect\hypertarget{exr:unnamed-chunk-82}{}{\label{exr:unnamed-chunk-82} \iffalse (Discrete Outcomes) \fi{} }Suppose we are interested in the outcomes of flipping a coin and rolling a 6-sided die at the same time. The sample space for this process contains 12 elements: \[\{(H, 1), (H, 2), (H, 3), (H, 4), (H, 5), (H, 6), (T, 1), (T, 2), (T, 3), (T, 4), (T, 5), (T, 6)\}\] We can define two random variables \(X\) and \(Y\) such that \(X = 1\) if heads and \(X = 0\) if tails, while \(Y\) equals the number on the die.
 
 We can then make statements about the joint distribution of \(X\) and \(Y\). What are the following?
@@ -3937,23 +3936,23 @@ We can then make statements about the joint distribution of \(X\) and \(Y\). Wha
 \item
   Are X and Y independent?
 \end{enumerate}
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{expectation}{%
 \section{Expectation}\label{expectation}}
 
 We often want to summarize some characteristics of the distribution of a random variable. The most important summary is the expectation (or expected value, or mean), in which the possible values of a random variable are weighted by their probabilities.
 
-\BeginKnitrBlock{definition}[Expectation of a Discrete Random Variable]
+\begin{definition}[Expectation of a Discrete Random Variable]
 \protect\hypertarget{def:unnamed-chunk-83}{}{\label{def:unnamed-chunk-83} \iffalse (Expectation of a Discrete Random Variable) \fi{} }The expected value of a discrete random variable \(Y\) is \[E(Y)=\sum\limits_{y} y P(Y=y)= \sum\limits_{y} y p(y)\]\\
 In words, it is the weighted average of all possible values of \(Y\), weighted by the probability that \(y\) occurs. It is not necessarily the number we would expect \(Y\) to take on, but the average value of \(Y\) after a large number of repetitions of an experiment.
-\EndKnitrBlock{definition}
+\end{definition}
 
-\BeginKnitrBlock{example}[Expectation of a Discrete Random Variable]
+\begin{example}[Expectation of a Discrete Random Variable]
 \protect\hypertarget{exm:expectdiscrete}{}{\label{exm:expectdiscrete} \iffalse (Expectation of a Discrete Random Variable) \fi{} }
 
 What is the expectation of a fair, six-sided die?
-\EndKnitrBlock{example}
+\end{example}
 
 \textbf{Expectation of a Continuous Random Variable}: The expected
 value of a continuous random variable is similar in concept to that of
@@ -3962,11 +3961,11 @@ probabilities as weights, we integrate using the density to weight.
 Hence, the expected value of the continuous variable \(Y\) is defined by
 \[E(Y)=\int\limits_{y} y f(y) dy\]
 
-\BeginKnitrBlock{example}[Expectation of a Continuous Random Variable]
+\begin{example}[Expectation of a Continuous Random Variable]
 \protect\hypertarget{exm:expectconti}{}{\label{exm:expectconti} \iffalse (Expectation of a Continuous Random Variable) \fi{} }
 
 Find \(E(Y)\) for \(f(y)=\frac{1}{1.5}, \quad 0<y<1.5\).
-\EndKnitrBlock{example}
+\end{example}
 
 \hypertarget{expected-value-of-a-function}{%
 \subsection*{Expected Value of a Function}\label{expected-value-of-a-function}}
@@ -4023,15 +4022,15 @@ The conditional expectation is often used for prediction when one knows the valu
 
 We can also look at other summaries of the distribution, which build on the idea of taking expectations. Variance tells us about the ``spread'' of the distribution; it is the expected value of the squared deviations from the mean of the distribution. The standard deviation is simply the square root of the variance.
 
-\BeginKnitrBlock{definition}[Variance]
+\begin{definition}[Variance]
 \protect\hypertarget{def:unnamed-chunk-84}{}{\label{def:unnamed-chunk-84} \iffalse (Variance) \fi{} }The Variance of a Random Variable \(Y\) is
 
 \[\text{Var}(Y) = E[(Y - E(Y))^2] =  E(Y^2)-[E(Y)]^2\]
 
 The Standard Deviation is the square root of the variance : \[SD(Y) = \sigma_Y= \sqrt{\text{Var}(Y)}\]
-\EndKnitrBlock{definition}
+\end{definition}
 
-\BeginKnitrBlock{example}[Variance]
+\begin{example}[Variance]
 \protect\hypertarget{exm:var}{}{\label{exm:var} \iffalse (Variance) \fi{} }
 
 Given the following PMF:
@@ -4044,9 +4043,9 @@ Given the following PMF:
 What is \(\text{Var}(x)\)?
 
 \textbf{Hint:} First calculate \(E(X)\) and \(E(X^2)\)
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{definition}[Covariance and Correlation]
+\begin{definition}[Covariance and Correlation]
 \protect\hypertarget{def:unnamed-chunk-85}{}{\label{def:unnamed-chunk-85} \iffalse (Covariance and Correlation) \fi{} }
 The covariance measures the degree to which two random variables vary together; if the covariance between \(X\) and \(Y\) is positive, X tends to be larger than its mean when Y is larger than its mean.
 
@@ -4058,17 +4057,17 @@ We can also write this as
 &= E(XY) - E(X)E(Y) - E(X)E(Y) + E(X)E(Y)\\
 &= E(XY) - E(X)E(Y)
 \end{align*}
-\EndKnitrBlock{definition}
+\end{definition}
 
 The covariance of a variable with itself is the variance of that variable.
 
 The Covariance is unfortunately hard to interpret in magnitude. The correlation is a standardized version of the covariance, and always ranges from -1 to 1.
 
-\BeginKnitrBlock{definition}[Correlation]
+\begin{definition}[Correlation]
 \protect\hypertarget{def:unnamed-chunk-86}{}{\label{def:unnamed-chunk-86} \iffalse (Correlation) \fi{} }The correlation coefficient is the covariance divided by the standard deviations of \(X\) and \(Y\). It is a unitless measure and always takes on values in the interval \([-1,1]\).
 
 \[\text{Corr}(X, Y) = \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}} = \frac{\text{Cov}(X,Y)}{SD(X)SD(Y)}\]
-\EndKnitrBlock{definition}
+\end{definition}
 
 \textbf{\emph{Properties of Variance and Covariance:}}
 
@@ -4093,7 +4092,7 @@ The Covariance is unfortunately hard to interpret in magnitude. The correlation 
   \(\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y) + 2\text{Cov}(X,Y)\)
 \end{enumerate}
 
-\BeginKnitrBlock{exercise}[Expectation and Variance]
+\begin{exercise}[Expectation and Variance]
 \protect\hypertarget{exr:expvar}{}{\label{exr:expvar} \iffalse (Expectation and Variance) \fi{} }
 Suppose we have a PMF with the following characteristics:
 \begin{eqnarray*}
@@ -4121,9 +4120,9 @@ Define the random variable \(Y = X^2\).
 \item
   Calculate the variance of X.
 \end{enumerate}
-\EndKnitrBlock{exercise}
+\end{exercise}
 
-\BeginKnitrBlock{exercise}[Expectation and Variance 2]
+\begin{exercise}[Expectation and Variance 2]
 \protect\hypertarget{exr:expvar2}{}{\label{exr:expvar2} \iffalse (Expectation and Variance 2) \fi{} }
 
 \begin{enumerate}
@@ -4139,9 +4138,9 @@ Given the following PDF:
                0 \quad otherwise
             \end{cases}
                \]
-\EndKnitrBlock{exercise}
+\end{exercise}
 
-\BeginKnitrBlock{exercise}[Expectation and Variance 3]
+\begin{exercise}[Expectation and Variance 3]
 \protect\hypertarget{exr:expvar3}{}{\label{exr:expvar3} \iffalse (Expectation and Variance 3) \fi{} }
 
 \begin{enumerate}
@@ -4165,41 +4164,41 @@ Given the following PDF:
 \item
   Next, calculate \(P(X < \mu - \sigma)\) Remember, \(\mu\) is the mean and \(\sigma\) is the standard deviation
 \end{enumerate}
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{special-distributions}{%
 \section{Special Distributions}\label{special-distributions}}
 
 Two \emph{discrete} distributions used often are:
 
-\BeginKnitrBlock{definition}[Binomial Distribution]
+\begin{definition}[Binomial Distribution]
 \protect\hypertarget{def:unnamed-chunk-87}{}{\label{def:unnamed-chunk-87} \iffalse (Binomial Distribution) \fi{} }\(Y\) is distributed binomial if it represents the number of ``successes'' observed in \(n\) independent, identical ``trials,'' where the probability of success in any trial is \(p\) and the probability of failure is \(q=1-p\).
-\EndKnitrBlock{definition}
+\end{definition}
 
 For any particular sequence of \(y\) successes and \(n-y\) failures, the probability of obtaining that sequence is \(p^y q^{n-y}\) (by the multiplicative law and independence). However, there are \(\binom{n}{y}=\frac{n!}{(n-y)!y!}\) ways of obtaining a sequence with \(y\) successes and \(n-y\) failures. So the binomial distribution is given by \[p(y)=\binom{n}{y}p^y q^{n-y}, \quad y=0,1,2,\ldots,n\] with mean \(\mu=E(Y)=np\) and variance \(\sigma^2=\text{Var}(Y)=npq\).
 
-\BeginKnitrBlock{example}
+\begin{example}
 \protect\hypertarget{exm:unnamed-chunk-88}{}{\label{exm:unnamed-chunk-88} }Republicans vote for Democrat-sponsored bills 2\% of the time. What is the probability that out of 10 Republicans questioned, half voted for a particular Democrat-sponsored bill? What is the mean number of Republicans voting for Democrat-sponsored bills? The variance?
 1. \(P(Y=5)=\)
 1. \(E(Y)=\)
 1. \(\text{Var}(Y)=6\)
-\EndKnitrBlock{example}
+\end{example}
 
 \begin{comment}
   \parbox{1.5in}{\hfill \epsffile{binopmf.eps}}
   \end{comment}
 
-\BeginKnitrBlock{definition}[Poisson Distribution]
+\begin{definition}[Poisson Distribution]
 \protect\hypertarget{def:unnamed-chunk-89}{}{\label{def:unnamed-chunk-89} \iffalse (Poisson Distribution) \fi{} }A random variable \(Y\) has a Poisson distribution if
 
 \[P(Y = y)=\frac{\lambda^y}{y!}e^{-\lambda}, \quad y=0,1,2,\ldots, \quad \lambda>0\]
 
 The Poisson has the unusual feature that its expectation equals its variance: \(E(Y)=\text{Var}(Y)=\lambda\). The Poisson distribution is often used to model rare event counts: counts of the number of events that occur during some unit of time. \(\lambda\) is often called the ``arrival rate.''
-\EndKnitrBlock{definition}
+\end{definition}
 
-\BeginKnitrBlock{example}
+\begin{example}
 \protect\hypertarget{exm:unnamed-chunk-90}{}{\label{exm:unnamed-chunk-90} }Border disputes occur between two countries through a Poisson Distribution, at a rate of 2 per month. What is the probability of 0, 2, and less than 5 disputes occurring in a month?
-\EndKnitrBlock{example}
+\end{example}
 
 \begin{comment}
  \parbox{1.5in}{\hfill \epsffile{poispmf.eps}}
@@ -4207,11 +4206,11 @@ The Poisson has the unusual feature that its expectation equals its variance: \(
 
 Two \emph{continuous} distributions used often are:
 
-\BeginKnitrBlock{definition}[Uniform Distribution]
+\begin{definition}[Uniform Distribution]
 \protect\hypertarget{def:unnamed-chunk-91}{}{\label{def:unnamed-chunk-91} \iffalse (Uniform Distribution) \fi{} }A random variable \(Y\) has a continuous uniform distribution on the interval \((\alpha,\beta)\) if its density is given by \[f(y)=\frac{1}{\beta-\alpha}, \quad \alpha\le y\le \beta\] The mean and variance of \(Y\) are \(E(Y)=\frac{\alpha+\beta}{2}\) and \(\text{Var}(Y)=\frac{(\beta-\alpha)^2}{12}\).
-\EndKnitrBlock{definition}
+\end{definition}
 
-\BeginKnitrBlock{example}
+\begin{example}
 \protect\hypertarget{exm:unnamed-chunk-92}{}{\label{exm:unnamed-chunk-92} }For \(Y\) uniformly distributed over \((1,3)\), what are the following probabilities?
 
 \begin{enumerate}
@@ -4226,18 +4225,18 @@ Two \emph{continuous} distributions used often are:
 \item
   \(P(Y > 2)\)
 \end{enumerate}
-\EndKnitrBlock{example}
+\end{example}
 
 \begin{comment}
 \parbox{1.5in}{\hfill \epsffile{unifpdf.eps}}
 \end{comment}
 
-\BeginKnitrBlock{definition}[Normal Distribution]
+\begin{definition}[Normal Distribution]
 \protect\hypertarget{def:unnamed-chunk-93}{}{\label{def:unnamed-chunk-93} \iffalse (Normal Distribution) \fi{} }
 A random variable \(Y\) is normally distributed with mean \(E(Y)=\mu\) and variance \(\text{Var}(Y)=\sigma^2\) if its density is
 
 \[f(y)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(y-\mu)^2}{2\sigma^2}}\]
-\EndKnitrBlock{definition}
+\end{definition}
 
 See Figure \ref{fig:normaldens} are various Normal Distributions with the same \(\mu = 1\) and two versions of the variance.
 
@@ -4304,7 +4303,7 @@ Example: Using table above, calculate:
   \textbf{Sample correlation}: \(\hat{\text{Corr}} = \frac{\hat{\text{Cov}}(X,Y)}{\sqrt{\hat{\text{Var}}(X)\hat{\text{Var}}(Y)}}\)
 \end{enumerate}
 
-\BeginKnitrBlock{example}
+\begin{example}
 \protect\hypertarget{exm:unnamed-chunk-94}{}{\label{exm:unnamed-chunk-94} }Example: Using the above table, calculate the sample versions of:
 
 \begin{enumerate}
@@ -4315,7 +4314,7 @@ Example: Using table above, calculate:
 \item
   \(\text{Corr}(X, Y)\)
 \end{enumerate}
-\EndKnitrBlock{example}
+\end{example}
 
 \hypertarget{asymptotic-theory}{%
 \section{Asymptotic Theory}\label{asymptotic-theory}}
@@ -4331,7 +4330,7 @@ Why is this important? We rarely know the true process governing the events we s
 
 We are now finally ready to revisit, with a bit more precise terms, the two pillars of statistical theory we motivated Section \ref{limitsfun} with.
 
-\BeginKnitrBlock{theorem}[Central Limit Theorem (i.i.d. case)]
+\begin{theorem}[Central Limit Theorem (i.i.d. case)]
 \protect\hypertarget{thm:clt}{}{\label{thm:clt} \iffalse (Central Limit Theorem (i.i.d. case)) \fi{} }Let \(\{X_n\} = \{X_1, X_2, \ldots\}\) be a sequence of i.i.d. random variables with finite mean (\(\mu\)) and variance (\(\sigma^2\)). Then, the sample mean \(\bar{X}_n = \frac{X_1 + X_2 + \cdots + X_n}{n}\) increasingly converges into a Normal distribution.
 
 \[\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \xrightarrow{d} \text{Normal}(0, 1),\]
@@ -4345,15 +4344,15 @@ This result means that, as \(n\) grows, the distribution of the sample mean \(\b
 \[\bar{X}_n \approx \mathcal{N}\bigg(\mu, \frac{\sigma^2}{n}\bigg).\] The standard deviation of \(\bar X_n\) (which is roughly a measure of the precision of \(\bar X_n\) as an estimator of \(\mu\)) decreases at the rate \(1/\sqrt{n}\), so, for example, to increase its precision by \(10\) (i.e., to get one more digit right), one needs to collect \(10^2=100\) times more units of data.
 
 Intuitively, this result also justifies that whenever a lot of small, independent processes somehow combine together to form the realized observations, practitioners often feel comfortable assuming Normality.
-\EndKnitrBlock{theorem}
+\end{theorem}
 
-\BeginKnitrBlock{theorem}[Law of Large Numbers (LLN)]
+\begin{theorem}[Law of Large Numbers (LLN)]
 \protect\hypertarget{thm:lln}{}{\label{thm:lln} \iffalse (Law of Large Numbers (LLN)) \fi{} }For any draw of independent random variables with the same mean \(\mu\), the sample average after \(n\) draws, \(\bar{X}_n = \frac{1}{n}(X_1 + X_2 + \ldots + X_n)\), converges in probability to the expected value of \(X\), \(\mu\) as \(n \rightarrow \infty\):
 
 \[\lim\limits_{n\to \infty} P(|\bar{X}_n - \mu | > \varepsilon) = 0\]
 
 A shorthand of which is \(\bar{X}_n \xrightarrow{p} \mu\), where the arrow is read as ``converges in probability to''.
-\EndKnitrBlock{theorem}
+\end{theorem}
 
 as \(n\to \infty\). In other words, \(P( \lim_{n\to\infty}\bar{X}_n = \mu) = 1\). This is an important motivation for the widespread use of the sample mean, as well as the intuition link between averages and expected values.
 
@@ -4601,7 +4600,7 @@ If \({\bf u} \cdot {\bf v} = 0\), the two vectors are orthogonal (or perpendicul
 \textbf{Vector Norm}: The norm of a vector is a measure of its length. There are many different ways to calculate the norm, but the most common is the Euclidean norm (which corresponds to our usual conception of distance in three-dimensional space):
 \[ ||{\bf v}|| = \sqrt{{\bf v}\cdot{\bf v}} = \sqrt{ v_1v_1 + v_2v_2 + \cdots + v_nv_n}\]
 
-\BeginKnitrBlock{example}[Vector Algebra]
+\begin{example}[Vector Algebra]
 \protect\hypertarget{exm:vectors}{}{\label{exm:vectors} \iffalse (Vector Algebra) \fi{} }
 Let \(a = \begin{pmatrix} 2&1&2\end{pmatrix}\), \(b = \begin{pmatrix} 3&4&5 \end{pmatrix}\). Calculate the following:
 
@@ -4612,9 +4611,9 @@ Let \(a = \begin{pmatrix} 2&1&2\end{pmatrix}\), \(b = \begin{pmatrix} 3&4&5 \end
 \item
   \(a \cdot b\)
 \end{enumerate}
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{exercise}[Vector Algebra]
+\begin{exercise}[Vector Algebra]
 \protect\hypertarget{exr:vectors1}{}{\label{exr:vectors1} \iffalse (Vector Algebra) \fi{} }
 Let \(u = \begin{pmatrix} 7&1&-5&3\end{pmatrix}\), \(v = \begin{pmatrix} 9&-3&2&8 \end{pmatrix}\), \(w = \begin{pmatrix} 1&13& -7&2 &15 \end{pmatrix}\), and \(c = 2\). Calculate the following:
 
@@ -4629,7 +4628,7 @@ Let \(u = \begin{pmatrix} 7&1&-5&3\end{pmatrix}\), \(v = \begin{pmatrix} 9&-3&2&
 \item
   \(w \cdot v\)
 \end{enumerate}
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{linearindependence}{%
 \section{Linear Independence}\label{linearindependence}}
@@ -4649,7 +4648,7 @@ Linear independence is only defined for sets of vectors with the same number of 
 
 Since \(\begin{pmatrix}9 & 13 & 17 \end{pmatrix}\) is a linear combination of \(\begin{pmatrix}1 & 2 & 3 \end{pmatrix}\), \(\begin{pmatrix} 2 & 3& 4\end{pmatrix}\), and \(\begin{pmatrix} 3 & 4 & 5 \end{pmatrix}\), these 4 vectors constitute a linearly dependent set.
 
-\BeginKnitrBlock{example}[Linear Independence]
+\begin{example}[Linear Independence]
 \protect\hypertarget{exm:linearindep}{}{\label{exm:linearindep} \iffalse (Linear Independence) \fi{} }
 Are the following sets of vectors linearly independent?
 
@@ -4661,9 +4660,9 @@ Are the following sets of vectors linearly independent?
 \item
   \(\begin{pmatrix}1 & 0 & 0 \end{pmatrix}\), \(\begin{pmatrix}0 & 5 & 0 \end{pmatrix}\), and \(\begin{pmatrix}10 & 10 & 0 \end{pmatrix}\)
 \end{enumerate}
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{exercise}[Linear Independence]
+\begin{exercise}[Linear Independence]
 \protect\hypertarget{exr:linearindep1}{}{\label{exr:linearindep1} \iffalse (Linear Independence) \fi{} }
 Are the following sets of vectors linearly independent?
 
@@ -4674,7 +4673,7 @@ Are the following sets of vectors linearly independent?
 \item
   \[{\bf v}_1 = \begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} -4 \\ 6 \\ 5 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} -2 \\ 8 \\ 6 \end{pmatrix} \]
 \end{enumerate}
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{matrixbasics}{%
 \section{Basics of Matrix Algebra}\label{matrixbasics}}
@@ -4703,11 +4702,11 @@ It's also useful to think of matrices as being made up of a collection of row or
 
 Note that matrices \({\bf A}\) and \({\bf B}\) must have the same dimensionality, in which case they are \textbf{conformable for addition}.
 
-\BeginKnitrBlock{example}
+\begin{example}
 \protect\hypertarget{exm:matrixaddition}{}{\label{exm:matrixaddition} }\[{\bf A}=\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}, \qquad
             {\bf B}=\begin{pmatrix} 1 & 2 & 1 \\ 2 & 1 & 2 \end{pmatrix}\]
 \({\bf A+B}=\)
-\EndKnitrBlock{example}
+\end{example}
 
 \textbf{Scalar Multiplication}: Given the scalar \(s\), the scalar multiplication of \(s {\bf A}\) is
 \[ s {\bf A}=  s \begin{pmatrix}
@@ -4723,18 +4722,18 @@ Note that matrices \({\bf A}\) and \({\bf B}\) must have the same dimensionality
             s a_{m1} & s a_{m2} & \cdots & s a_{mn}
         \end{pmatrix}\]
 
-\BeginKnitrBlock{example}
+\begin{example}
 \protect\hypertarget{exm:scalarmulti}{}{\label{exm:scalarmulti} }
 
 \(s=2, \qquad {\bf A}=\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}\)
 
 \(s {\bf A} =\)
-\EndKnitrBlock{example}
+\end{example}
 
 \textbf{Matrix Multiplication}: If \({\bf A}\) is an \(m\times k\) matrix and \(\bf B\) is a \(k\times n\) matrix, then their product \(\bf C = A B\) is the \(m\times n\) matrix where
 \[c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{ik}b_{kj}\]
 
-\BeginKnitrBlock{example}
+\begin{example}
 \protect\hypertarget{exm:matrixmulti}{}{\label{exm:matrixmulti} }
 
 \begin{enumerate}
@@ -4744,7 +4743,7 @@ Note that matrices \({\bf A}\) and \({\bf B}\) must have the same dimensionality
 \item
   \(\begin{pmatrix} 1&2&-1\\3&1&4 \end{pmatrix} \begin{pmatrix} -2&5\\4&-3\\2&1\end{pmatrix} =\)
 \end{enumerate}
-\EndKnitrBlock{example}
+\end{example}
 
 Note that the number of columns of the first matrix must equal the number of rows of the second matrix, in which case they are \textbf{conformable for multiplication}. The sizes of the matrices (including the resulting product) must be \[(m\times k)(k\times n)=(m\times n)\]
 
@@ -4791,7 +4790,7 @@ Example of \(({\bf AB})^T = {\bf B}^T{\bf A}^T\):
 \[ ({\bf AB})^T = \left[ \begin{pmatrix} 1&3&2\\2&-1&3\end{pmatrix} \begin{pmatrix} 0&1\\2&2\\3&-1\end{pmatrix} \right]^T = \begin{pmatrix} 12&7\\5&-3 \end{pmatrix}\]
 \[ {\bf B}^T{\bf A}^T= \begin{pmatrix} 0&2&3\\1&2&-1 \end{pmatrix}  \begin{pmatrix} 1&2\\3&-1\\2&3 \end{pmatrix} = \begin{pmatrix} 12&7\\5&-3 \end{pmatrix}\]
 
-\BeginKnitrBlock{exercise}[Matrix Multiplication]
+\begin{exercise}[Matrix Multiplication]
 \protect\hypertarget{exr:matrixmulti1}{}{\label{exr:matrixmulti1} \iffalse (Matrix Multiplication) \fi{} }
 
 Let \[A =  \begin{pmatrix} 2&0&-1&1\\1&2&0&1 \end{pmatrix}\]
@@ -4814,7 +4813,7 @@ Calculate the following:
 \item
   \[BC^T\]
 \end{enumerate}
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{systems-of-linear-equations}{%
 \section{Systems of Linear Equations}\label{systems-of-linear-equations}}
@@ -4870,7 +4869,7 @@ Methods to solve linear systems:
   Matrix methods
 \end{enumerate}
 
-\BeginKnitrBlock{exercise}[Linear Equations]
+\begin{exercise}[Linear Equations]
 \protect\hypertarget{exr:lineareq}{}{\label{exr:lineareq} \iffalse (Linear Equations) \fi{} }
 
 Provide a system of 2 equations with 2 unknowns that has
@@ -4884,7 +4883,7 @@ Provide a system of 2 equations with 2 unknowns that has
 \item
   infinite solutions
 \end{enumerate}
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{systems-of-equations-as-matrices}{%
 \section{Systems of Equations as Matrices}\label{systems-of-equations-as-matrices}}
@@ -4919,7 +4918,7 @@ The right hand side of the linear system is represented by the vector \({\bf b}=
             a_{m1} & a_{m2} & \cdots & a_{mn} & | & b_m
             \end{pmatrix}\]
 
-\BeginKnitrBlock{exercise}[Augmented Matrix]
+\begin{exercise}[Augmented Matrix]
 \protect\hypertarget{exr:augmatrix}{}{\label{exr:augmatrix} \iffalse (Augmented Matrix) \fi{} }
 
 Create an augmented matrix that represent the following system of equations:
@@ -4927,7 +4926,7 @@ Create an augmented matrix that represent the following system of equations:
 \[2x_1 -7x_2 + 9x_3 -4x_4 = 8\]
 \[41x_2 + 9x_3 -5x_6 = 11\]
 \[x_1 -15x_2 -11x_5 = 9\]
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{finding-solutions-to-augmented-matrices-and-systems-of-equations}{%
 \section{Finding Solutions to Augmented Matrices and Systems of Equations}\label{finding-solutions-to-augmented-matrices-and-systems-of-equations}}
@@ -4983,15 +4982,15 @@ which represents a linear system equivalent to that represented by matrix \(\wid
             \end{pmatrix}\]
 which represents a linear system equivalent to that represented by matrix \(\widehat{\bf A}\).
 
-\BeginKnitrBlock{example}
+\begin{example}
 \protect\hypertarget{exm:solvesys}{}{\label{exm:solvesys} }
 
 Solve the following system of equations by using elementary row operations:
 
 \(\begin{matrix}  x & - & 3y & = & -3\\  2x & + & y & = & 8  \end{matrix}\)
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{exercise}[Solving Systems of Equations]
+\begin{exercise}[Solving Systems of Equations]
 \protect\hypertarget{exr:solvesys1}{}{\label{exr:solvesys1} \iffalse (Solving Systems of Equations) \fi{} }
 
 Put the following system of equations into augmented matrix form. Then, using Gaussian or Gauss-Jordan elimination, solve the system of equations by putting the matrix into row echelon or reduced row echelon form.
@@ -5011,7 +5010,7 @@ Put the following system of equations into augmented matrix form. Then, using Ga
              -x -4y + z = -6
             \end{cases}
                \]
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{rank-and-whether-a-system-has-one-infinite-or-no-solutions}{%
 \section{Rank --- and Whether a System Has One, Infinite, or No Solutions}\label{rank-and-whether-a-system-has-one-infinite-or-no-solutions}}
@@ -5030,7 +5029,7 @@ Rank = 3
 
 Rank = 2
 
-\BeginKnitrBlock{exercise}[Rank of Matrices]
+\begin{exercise}[Rank of Matrices]
 \protect\hypertarget{exr:rank}{}{\label{exr:rank} \iffalse (Rank of Matrices) \fi{} }
 
 Find the rank of each matrix below:
@@ -5042,7 +5041,7 @@ Find the rank of each matrix below:
 \bigskip
 
 2.\(\begin{pmatrix} 1 & 3 & 3 & -3 & 3\\ 1 & 3 & 1 & 1 & 3 \\ 1 & 3 & 2 & -1 & -2 \\ 1 & 3 & 0 & 3 & -2 \end{pmatrix}\)
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 Answer to Exercise \ref{exr:rank}:
 
@@ -5107,7 +5106,7 @@ To summarize: To calculate the inverse of \({\bf A}\)
   \end{enumerate}
 \end{enumerate}
 
-\BeginKnitrBlock{example}
+\begin{example}
 \protect\hypertarget{exm:inverse}{}{\label{exm:inverse} }
 Find the inverse of the following matricies:
 
@@ -5117,9 +5116,9 @@ Find the inverse of the following matricies:
 \item
   \({\bf A}=\begin{pmatrix} 1&1&1\\0&2&3\\5&5&1 \end{pmatrix}\)
 \end{enumerate}
-\EndKnitrBlock{example}
+\end{example}
 
-\BeginKnitrBlock{exercise}[Finding the inverse of matrices]
+\begin{exercise}[Finding the inverse of matrices]
 \protect\hypertarget{exr:inverse1}{}{\label{exr:inverse1} \iffalse (Finding the inverse of matrices) \fi{} }
 
 Find the inverse of the following matrix:
@@ -5130,7 +5129,7 @@ Find the inverse of the following matrix:
 \item
   \({\bf A}=\begin{pmatrix} 1&0&4\\0&2&0\\0&0&1 \end{pmatrix}\)
 \end{enumerate}
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{linear-systems-and-inverses}{%
 \section{Linear Systems and Inverses}\label{linear-systems-and-inverses}}
@@ -5150,7 +5149,7 @@ If \(\bf{A}\) is an \(n\times n\) matrix,then \(\bf{Ax}=\bf{b}\) is a system of 
 
 Hence, given \(\bf{A}\) and \(\bf{b}\) and given that \(\bf{A}\) is nonsingular, then \(\bf{x} = \bf{A}^{-1} \bf{b}\) is a unique solution to this system.
 
-\BeginKnitrBlock{exercise}[Solve linear system using inverses]
+\begin{exercise}[Solve linear system using inverses]
 \protect\hypertarget{exr:invlinsys}{}{\label{exr:invlinsys} \iffalse (Solve linear system using inverses) \fi{} }
 Use the inverse matrix to solve the following linear system:
 
@@ -5168,7 +5167,7 @@ given \[\textbf{A} = \begin{pmatrix} -3&4\\2&-1 \end{pmatrix},\]
 \[\textbf{z} = \begin{pmatrix} x\\y \end{pmatrix},\]
 and
 \[\textbf{b} = \begin{pmatrix} 5\\-10 \end{pmatrix}\]
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{determinants}{%
 \section{Determinants}\label{determinants}}
@@ -5215,7 +5214,7 @@ For example, in figuring out whether the following matrix has an inverse?
 \end{eqnarray}
 2. Since \(|{\bf A}|\ne 0\), we conclude that \({\bf A}\) has an inverse.
 
-\BeginKnitrBlock{exercise}[Determinants and Inverses]
+\begin{exercise}[Determinants and Inverses]
 \protect\hypertarget{exr:determinants}{}{\label{exr:determinants} \iffalse (Determinants and Inverses) \fi{} }
 
 Determine whether the following matrices are nonsingular:
@@ -5231,7 +5230,7 @@ Determine whether the following matrices are nonsingular:
             1 & 0 & 1\\
             4 & 1 & 4
         \end{pmatrix}\]
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{getting-inverse-of-a-matrix-using-its-determinant}{%
 \section{Getting Inverse of a Matrix using its Determinant}\label{getting-inverse-of-a-matrix-using-its-determinant}}
@@ -5288,7 +5287,7 @@ Recall,
             \frac{2}{5} & \frac{3}{5}\\
         \end{pmatrix}\]
 
-\BeginKnitrBlock{exercise}[Calculate Inverse using Determinant Formula]
+\begin{exercise}[Calculate Inverse using Determinant Formula]
 \protect\hypertarget{exr:calcinverse}{}{\label{exr:calcinverse} \iffalse (Calculate Inverse using Determinant Formula) \fi{} }
 
 Caculate the inverse of A
@@ -5297,7 +5296,7 @@ Caculate the inverse of A
             3 & 5\\
             -7 & 2\\
         \end{pmatrix}\]
-\EndKnitrBlock{exercise}
+\end{exercise}
 
 \hypertarget{answers-to-examples-and-exercises-3}{%
 \section*{Answers to Examples and Exercises}\label{answers-to-examples-and-exercises-3}}
@@ -6271,8 +6270,560 @@ Today we'll cover
   And other \texttt{R} tips
 \end{itemize}
 
-\hypertarget{basics---matrices}{%
-\section{Basics - Matrices}\label{basics---matrices}}
+\hypertarget{motivation}{%
+\section{Motivation}\label{motivation}}
+
+\href{https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf}{Nunn and Wantchekon (2011)} -- ``The Slave Trade and the Origins of Mistrust in Africa''\footnote{\href{https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf}{Nunn, Nathan, and Leonard Wantchekon. 2011. ``The Slave Trade and the Origins of Mistrust in Africa.'' American Economic Review 101(7): 3221--52.}} -- argues that across African countries, the distrust of co-ethnics fueled by the slave trade has had long-lasting effects on modern day trust in these territories. They argued that the slave trade created distrust in these societies in part because as some African groups were employed by European traders to capture their neighbors and bring them to the slave ships.
+
+Nunn and Wantchekon use a variety of statistical tools to make their case (adding controls, ordered logit, instrumental variables, falsification tests, causal mechanisms), many of which will be covered in future courses. In this module we will only touch on their first set of analysis that use Ordinary Least Squares (OLS). OLS is likely the most common application of linear algebra in the social sciences. We will cover some linear algebra, matrix manipulation, and vector manipulation from this data.
+
+\hypertarget{read-data-1}{%
+\section{Read Data}\label{read-data-1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(haven)}
+\NormalTok{nunn\_full <{-}}\StringTok{ }\KeywordTok{read\_dta}\NormalTok{(}\StringTok{"data/input/Nunn\_Wantchekon\_AER\_2011.dta"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Nunn and Wantchekon's main dataset has more than 20,000 observations. Each observation is a respondent from the Afrobarometer survey.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{head}\NormalTok{(nunn\_full)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 59
+##   respno ethnicity murdock_name isocode region district townvill location_id
+##   <chr>  <chr>     <chr>        <chr>   <chr>  <chr>    <chr>          <dbl>
+## 1 BEN00~ fon       FON          BEN     atlna~ KPOMASSE TOKPA-D~          30
+## 2 BEN00~ fon       FON          BEN     atlna~ KPOMASSE TOKPA-D~          30
+## 3 BEN00~ fon       FON          BEN     atlna~ OUIDAH   3ARROND           31
+## 4 BEN00~ fon       FON          BEN     atlna~ OUIDAH   3ARROND           31
+## 5 BEN00~ fon       FON          BEN     atlna~ OUIDAH   PAHOU             32
+## 6 BEN00~ fon       FON          BEN     atlna~ OUIDAH   PAHOU             32
+## # ... with 51 more variables: trust_relatives <dbl>, trust_neighbors <dbl>,
+## #   intra_group_trust <dbl>, inter_group_trust <dbl>,
+## #   trust_local_council <dbl>, ln_export_area <dbl>, export_area <dbl>,
+## #   export_pop <dbl>, ln_export_pop <dbl>, age <dbl>, age2 <dbl>, male <dbl>,
+## #   urban_dum <dbl>, occupation <dbl>, religion <dbl>, living_conditions <dbl>,
+## #   education <dbl>, near_dist <dbl>, distsea <dbl>, loc_murdock_name <chr>,
+## #   loc_ln_export_area <dbl>, local_council_performance <dbl>,
+## #   council_listen <dbl>, corrupt_local_council <dbl>, school_present <dbl>,
+## #   electricity_present <dbl>, piped_water_present <dbl>, sewage_present <dbl>,
+## #   health_clinic_present <dbl>, district_ethnic_frac <dbl>,
+## #   frac_ethnicity_in_district <dbl>, townvill_nonethnic_mean_exports <dbl>,
+## #   district_nonethnic_mean_exports <dbl>, region_nonethnic_mean_exports <dbl>,
+## #   country_nonethnic_mean_exports <dbl>, murdock_centr_dist_coast <dbl>,
+## #   centroid_lat <dbl>, centroid_long <dbl>, explorer_contact <dbl>,
+## #   railway_contact <dbl>, dist_Saharan_node <dbl>, dist_Saharan_line <dbl>,
+## #   malaria_ecology <dbl>, v30 <dbl+lbl>, v33 <dbl+lbl>, fishing <dbl>,
+## #   exports <dbl>, ln_exports <dbl>, total_missions_area <dbl>,
+## #   ln_init_pop_density <dbl>, cities_1400_dum <dbl>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{colnames}\NormalTok{(nunn\_full)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "respno"                          "ethnicity"                      
+##  [3] "murdock_name"                    "isocode"                        
+##  [5] "region"                          "district"                       
+##  [7] "townvill"                        "location_id"                    
+##  [9] "trust_relatives"                 "trust_neighbors"                
+## [11] "intra_group_trust"               "inter_group_trust"              
+## [13] "trust_local_council"             "ln_export_area"                 
+## [15] "export_area"                     "export_pop"                     
+## [17] "ln_export_pop"                   "age"                            
+## [19] "age2"                            "male"                           
+## [21] "urban_dum"                       "occupation"                     
+## [23] "religion"                        "living_conditions"              
+## [25] "education"                       "near_dist"                      
+## [27] "distsea"                         "loc_murdock_name"               
+## [29] "loc_ln_export_area"              "local_council_performance"      
+## [31] "council_listen"                  "corrupt_local_council"          
+## [33] "school_present"                  "electricity_present"            
+## [35] "piped_water_present"             "sewage_present"                 
+## [37] "health_clinic_present"           "district_ethnic_frac"           
+## [39] "frac_ethnicity_in_district"      "townvill_nonethnic_mean_exports"
+## [41] "district_nonethnic_mean_exports" "region_nonethnic_mean_exports"  
+## [43] "country_nonethnic_mean_exports"  "murdock_centr_dist_coast"       
+## [45] "centroid_lat"                    "centroid_long"                  
+## [47] "explorer_contact"                "railway_contact"                
+## [49] "dist_Saharan_node"               "dist_Saharan_line"              
+## [51] "malaria_ecology"                 "v30"                            
+## [53] "v33"                             "fishing"                        
+## [55] "exports"                         "ln_exports"                     
+## [57] "total_missions_area"             "ln_init_pop_density"            
+## [59] "cities_1400_dum"
+\end{verbatim}
+
+First, let's consider a small subset of this dataset.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nunn <{-}}\StringTok{ }\KeywordTok{read\_dta}\NormalTok{(}\StringTok{"data/input/Nunn\_Wantchekon\_sample.dta"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nunn}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 10 x 5
+##    trust_neighbors exports ln_exports export_area ln_export_area
+##              <dbl>   <dbl>      <dbl>       <dbl>          <dbl>
+##  1               3   0.388      0.328     0.00407        0.00406
+##  2               3   0.631      0.489     0.0971         0.0926 
+##  3               3   0.994      0.690     0.0125         0.0124 
+##  4               0 183.         5.21      1.82           1.04   
+##  5               3   0          0         0              0      
+##  6               2   0          0         0              0      
+##  7               2 666.         6.50     14.0            2.71   
+##  8               0   0.348      0.298     0.00608        0.00606
+##  9               3   0.435      0.361     0.0383         0.0376 
+## 10               3   0          0         0              0
+\end{verbatim}
+
+\hypertarget{data.frame-vs.-matricies}{%
+\section{data.frame vs.~matricies}\label{data.frame-vs.-matricies}}
+
+This is a \texttt{data.frame} object.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{(nunn)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "tbl_df"     "tbl"        "data.frame"
+\end{verbatim}
+
+But it can be also consider a matrix in the linear algebra sense. What are the dimensions of this matrix?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{nrow}\NormalTok{(nunn)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10
+\end{verbatim}
+
+\texttt{data.frame}s and matrices have much overlap in \texttt{R}, but to explicitly treat an object as a matrix, you'd need to coerce its class. Let's call this matrix \texttt{X}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X <{-}}\StringTok{ }\KeywordTok{as.matrix}\NormalTok{(nunn)}
+\end{Highlighting}
+\end{Shaded}
+
+What is the difference between a \texttt{data.frame} and a matrix? A \texttt{data.frame} can have columns that are of different types, whereas --- in a matrix --- all columns must be of the same type (usually either ``numeric'' or ``character'').
+
+\hypertarget{speed-considerations}{%
+\section{Speed considerations}\label{speed-considerations}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Nrow <{-}}\StringTok{ }\DecValTok{100}
+\NormalTok{Ncol <{-}}\StringTok{ }\DecValTok{5}
+\NormalTok{Xmat <{-}}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{rnorm}\NormalTok{(Nrow }\OperatorTok{*}\StringTok{ }\NormalTok{Ncol), }\DataTypeTok{nrow =}\NormalTok{ Nrow, }\DataTypeTok{ncol =}\NormalTok{ Ncol)}
+\NormalTok{Xdf <{-}}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(Xmat)}
+
+\KeywordTok{system.time}\NormalTok{(}\KeywordTok{replicate}\NormalTok{(}\DecValTok{50000}\NormalTok{, }\KeywordTok{colMeans}\NormalTok{(Xmat)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    user  system elapsed 
+##   0.236   0.001   0.237
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{system.time}\NormalTok{(}\KeywordTok{replicate}\NormalTok{(}\DecValTok{50000}\NormalTok{, }\KeywordTok{colMeans}\NormalTok{(Xdf)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    user  system elapsed 
+##   2.355   0.006   2.366
+\end{verbatim}
+
+\hypertarget{handling-matricies-in-r}{%
+\section{\texorpdfstring{Handling matricies in \texttt{R}}{Handling matricies in R}}\label{handling-matricies-in-r}}
+
+You can easily transpose a matrix
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       trust_neighbors     exports ln_exports  export_area ln_export_area
+##  [1,]               3   0.3883497  0.3281158  0.004067405    0.004059155
+##  [2,]               3   0.6311236  0.4892691  0.097059444    0.092633367
+##  [3,]               3   0.9941893  0.6902376  0.012524694    0.012446908
+##  [4,]               0 182.5891266  5.2127004  1.824284434    1.038255095
+##  [5,]               3   0.0000000  0.0000000  0.000000000    0.000000000
+##  [6,]               2   0.0000000  0.0000000  0.000000000    0.000000000
+##  [7,]               2 665.9652100  6.5027380 13.975566864    2.706419945
+##  [8,]               0   0.3476418  0.2983562  0.006082553    0.006064130
+##  [9,]               3   0.4349871  0.3611559  0.038332380    0.037615947
+## [10,]               3   0.0000000  0.0000000  0.000000000    0.000000000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{t}\NormalTok{(X)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                        [,1]       [,2]       [,3]       [,4] [,5] [,6]
+## trust_neighbors 3.000000000 3.00000000 3.00000000   0.000000    3    2
+## exports         0.388349682 0.63112360 0.99418926 182.589127    0    0
+## ln_exports      0.328115761 0.48926911 0.69023758   5.212700    0    0
+## export_area     0.004067405 0.09705944 0.01252469   1.824284    0    0
+## ln_export_area  0.004059155 0.09263337 0.01244691   1.038255    0    0
+##                       [,7]        [,8]       [,9] [,10]
+## trust_neighbors   2.000000 0.000000000 3.00000000     3
+## exports         665.965210 0.347641766 0.43498713     0
+## ln_exports        6.502738 0.298356235 0.36115587     0
+## export_area      13.975567 0.006082553 0.03833238     0
+## ln_export_area    2.706420 0.006064130 0.03761595     0
+\end{verbatim}
+
+What are the values of all rows in the first column?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X[, }\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 3 3 3 0 3 2 2 0 3 3
+\end{verbatim}
+
+What are all the values of ``exports''? (i.e.~return the whole ``exports'' column)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X[, }\StringTok{"exports"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]   0.3883497   0.6311236   0.9941893 182.5891266   0.0000000   0.0000000
+##  [7] 665.9652100   0.3476418   0.4349871   0.0000000
+\end{verbatim}
+
+What is the first observation (i.e.~first row)?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X[}\DecValTok{1}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## trust_neighbors         exports      ln_exports     export_area  ln_export_area 
+##     3.000000000     0.388349682     0.328115761     0.004067405     0.004059155
+\end{verbatim}
+
+What is the value of the first variable of the first observation?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## trust_neighbors 
+##               3
+\end{verbatim}
+
+Pause and consider the following problem on your own. What is the following code doing?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X[X[, }\StringTok{"trust\_neighbors"}\NormalTok{] }\OperatorTok{==}\StringTok{ }\DecValTok{0}\NormalTok{, }\StringTok{"export\_area"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.824284434 0.006082553
+\end{verbatim}
+
+Why does it give the same output as the following?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X[}\KeywordTok{which}\NormalTok{(X[, }\StringTok{"trust\_neighbors"}\NormalTok{] }\OperatorTok{==}\StringTok{ }\DecValTok{0}\NormalTok{), }\StringTok{"export\_area"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.824284434 0.006082553
+\end{verbatim}
+
+Some more manipulation
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X }\OperatorTok{+}\StringTok{ }\NormalTok{X}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       trust_neighbors      exports ln_exports  export_area ln_export_area
+##  [1,]               6    0.7766994  0.6562315  0.008134809     0.00811831
+##  [2,]               6    1.2622472  0.9785382  0.194118887     0.18526673
+##  [3,]               6    1.9883785  1.3804752  0.025049388     0.02489382
+##  [4,]               0  365.1782532 10.4254007  3.648568869     2.07651019
+##  [5,]               6    0.0000000  0.0000000  0.000000000     0.00000000
+##  [6,]               4    0.0000000  0.0000000  0.000000000     0.00000000
+##  [7,]               4 1331.9304199 13.0054760 27.951133728     5.41283989
+##  [8,]               0    0.6952835  0.5967125  0.012165107     0.01212826
+##  [9,]               6    0.8699743  0.7223117  0.076664761     0.07523189
+## [10,]               6    0.0000000  0.0000000  0.000000000     0.00000000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X }\OperatorTok{{-}}\StringTok{ }\NormalTok{X}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       trust_neighbors exports ln_exports export_area ln_export_area
+##  [1,]               0       0          0           0              0
+##  [2,]               0       0          0           0              0
+##  [3,]               0       0          0           0              0
+##  [4,]               0       0          0           0              0
+##  [5,]               0       0          0           0              0
+##  [6,]               0       0          0           0              0
+##  [7,]               0       0          0           0              0
+##  [8,]               0       0          0           0              0
+##  [9,]               0       0          0           0              0
+## [10,]               0       0          0           0              0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{t}\NormalTok{(X) }\OperatorTok{\%*\%}\StringTok{ }\NormalTok{X}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                 trust_neighbors    exports ln_exports export_area
+## trust_neighbors       62.000000   1339.276   18.61181    28.40709
+## exports             1339.276369 476850.298 5283.76294  9640.42990
+## ln_exports            18.611811   5283.763   70.50077   100.46202
+## export_area           28.407085   9640.430  100.46202   198.65558
+## ln_export_area         5.853106   1992.047   23.08189    39.72847
+##                 ln_export_area
+## trust_neighbors       5.853106
+## exports            1992.046502
+## ln_exports           23.081893
+## export_area          39.728468
+## ln_export_area        8.412887
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cbind}\NormalTok{(X, }\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       trust_neighbors     exports ln_exports  export_area ln_export_area   
+##  [1,]               3   0.3883497  0.3281158  0.004067405    0.004059155  1
+##  [2,]               3   0.6311236  0.4892691  0.097059444    0.092633367  2
+##  [3,]               3   0.9941893  0.6902376  0.012524694    0.012446908  3
+##  [4,]               0 182.5891266  5.2127004  1.824284434    1.038255095  4
+##  [5,]               3   0.0000000  0.0000000  0.000000000    0.000000000  5
+##  [6,]               2   0.0000000  0.0000000  0.000000000    0.000000000  6
+##  [7,]               2 665.9652100  6.5027380 13.975566864    2.706419945  7
+##  [8,]               0   0.3476418  0.2983562  0.006082553    0.006064130  8
+##  [9,]               3   0.4349871  0.3611559  0.038332380    0.037615947  9
+## [10,]               3   0.0000000  0.0000000  0.000000000    0.000000000 10
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cbind}\NormalTok{(X, }\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       trust_neighbors     exports ln_exports  export_area ln_export_area  
+##  [1,]               3   0.3883497  0.3281158  0.004067405    0.004059155 1
+##  [2,]               3   0.6311236  0.4892691  0.097059444    0.092633367 1
+##  [3,]               3   0.9941893  0.6902376  0.012524694    0.012446908 1
+##  [4,]               0 182.5891266  5.2127004  1.824284434    1.038255095 1
+##  [5,]               3   0.0000000  0.0000000  0.000000000    0.000000000 1
+##  [6,]               2   0.0000000  0.0000000  0.000000000    0.000000000 1
+##  [7,]               2 665.9652100  6.5027380 13.975566864    2.706419945 1
+##  [8,]               0   0.3476418  0.2983562  0.006082553    0.006064130 1
+##  [9,]               3   0.4349871  0.3611559  0.038332380    0.037615947 1
+## [10,]               3   0.0000000  0.0000000  0.000000000    0.000000000 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{colnames}\NormalTok{(X)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "trust_neighbors" "exports"         "ln_exports"      "export_area"    
+## [5] "ln_export_area"
+\end{verbatim}
+
+\hypertarget{variable-transformations}{%
+\section{Variable Transformations}\label{variable-transformations}}
+
+\texttt{exports} is the total number of slaves that were taken from the individual's ethnic group between Africa's four slave trades between 1400-1900.
+
+What is \texttt{ln\_exports}? The article describes this as the natural log of one plus the \texttt{exports}. This is a transformation of one column by a particular function
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{log}\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{X[, }\StringTok{"exports"}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 0.3281158 0.4892691 0.6902376 5.2127003 0.0000000 0.0000000 6.5027379
+##  [8] 0.2983562 0.3611559 0.0000000
+\end{verbatim}
+
+Question for you: why add the 1?
+
+Verify that this is the same as \texttt{X{[},\ "ln\_exports"{]}}
+
+\hypertarget{linear-combinations}{%
+\section{Linear Combinations}\label{linear-combinations}}
+
+In Table 1 we see ``OLS Estimates''. These are estimates of OLS coefficients and standard errors. You do not need to know what these are for now, but it doesn't hurt to getting used to seeing them.
+
+\includegraphics{images/nunn_wantchekon_table1.png}
+
+A very crude way to describe regression is through linear combinations. The simplest linear combination is a one-to-one transformation.
+
+Take the first number in Table 1, which is -0.00068. Now, multiply this by \texttt{exports}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FloatTok{{-}0.00068} \OperatorTok{*}\StringTok{ }\NormalTok{X[, }\StringTok{"exports"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] -0.0002640778 -0.0004291640 -0.0006760487 -0.1241606061  0.0000000000
+##  [6]  0.0000000000 -0.4528563428 -0.0002363964 -0.0002957912  0.0000000000
+\end{verbatim}
+
+Now, just one more step. Make a new matrix with just exports and the value 1
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X2 <{-}}\StringTok{ }\KeywordTok{cbind}\NormalTok{(}\DecValTok{1}\NormalTok{, X[, }\StringTok{"exports"}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+name this new column ``intercept''
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{colnames}\NormalTok{(X2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## NULL
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{colnames}\NormalTok{(X2) <{-}}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"intercept"}\NormalTok{, }\StringTok{"exports"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+What are the dimensions of the matrix \texttt{X2}?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dim}\NormalTok{(X2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10  2
+\end{verbatim}
+
+Now consider a new matrix, called \texttt{B}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{B <{-}}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\FloatTok{1.62}\NormalTok{, }\FloatTok{{-}0.00068}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+What are the dimensions of \texttt{B}?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dim}\NormalTok{(B)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2 1
+\end{verbatim}
+
+What is the product of \texttt{X2} and \texttt{B}? From the dimensions, can you tell if it will be conformable?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X2 }\OperatorTok{\%*\%}\StringTok{ }\NormalTok{B}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           [,1]
+##  [1,] 1.619736
+##  [2,] 1.619571
+##  [3,] 1.619324
+##  [4,] 1.495839
+##  [5,] 1.620000
+##  [6,] 1.620000
+##  [7,] 1.167144
+##  [8,] 1.619764
+##  [9,] 1.619704
+## [10,] 1.620000
+\end{verbatim}
+
+What is this multiplication doing in terms of equations?
+
+\hypertarget{matrix-basics}{%
+\section{Matrix Basics}\label{matrix-basics}}
 
 Let's take a look at Matrices in the context of R
 
@@ -6819,558 +7370,6 @@ Another way to think about data frames is that it is a type of list. Try the \te
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{motivation}{%
-\section{Motivation}\label{motivation}}
-
-\href{https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf}{Nunn and Wantchekon (2011)} -- ``The Slave Trade and the Origins of Mistrust in Africa''\footnote{\href{https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf}{Nunn, Nathan, and Leonard Wantchekon. 2011. ``The Slave Trade and the Origins of Mistrust in Africa.'' American Economic Review 101(7): 3221--52.}} -- argues that across African countries, the distrust of co-ethnics fueled by the slave trade has had long-lasting effects on modern day trust in these territories. They argued that the slave trade created distrust in these societies in part because as some African groups were employed by European traders to capture their neighbors and bring them to the slave ships.
-
-Nunn and Wantchekon use a variety of statistical tools to make their case (adding controls, ordered logit, instrumental variables, falsification tests, causal mechanisms), many of which will be covered in future courses. In this module we will only touch on their first set of analysis that use Ordinary Least Squares (OLS). OLS is likely the most common application of linear algebra in the social sciences. We will cover some linear algebra, matrix manipulation, and vector manipulation from this data.
-
-\hypertarget{read-data-1}{%
-\section{Read Data}\label{read-data-1}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(haven)}
-\NormalTok{nunn\_full <{-}}\StringTok{ }\KeywordTok{read\_dta}\NormalTok{(}\StringTok{"data/input/Nunn\_Wantchekon\_AER\_2011.dta"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-Nunn and Wantchekon's main dataset has more than 20,000 observations. Each observation is a respondent from the Afrobarometer survey.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{head}\NormalTok{(nunn\_full)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## # A tibble: 6 x 59
-##   respno ethnicity murdock_name isocode region district townvill location_id
-##   <chr>  <chr>     <chr>        <chr>   <chr>  <chr>    <chr>          <dbl>
-## 1 BEN00~ fon       FON          BEN     atlna~ KPOMASSE TOKPA-D~          30
-## 2 BEN00~ fon       FON          BEN     atlna~ KPOMASSE TOKPA-D~          30
-## 3 BEN00~ fon       FON          BEN     atlna~ OUIDAH   3ARROND           31
-## 4 BEN00~ fon       FON          BEN     atlna~ OUIDAH   3ARROND           31
-## 5 BEN00~ fon       FON          BEN     atlna~ OUIDAH   PAHOU             32
-## 6 BEN00~ fon       FON          BEN     atlna~ OUIDAH   PAHOU             32
-## # ... with 51 more variables: trust_relatives <dbl>, trust_neighbors <dbl>,
-## #   intra_group_trust <dbl>, inter_group_trust <dbl>,
-## #   trust_local_council <dbl>, ln_export_area <dbl>, export_area <dbl>,
-## #   export_pop <dbl>, ln_export_pop <dbl>, age <dbl>, age2 <dbl>, male <dbl>,
-## #   urban_dum <dbl>, occupation <dbl>, religion <dbl>, living_conditions <dbl>,
-## #   education <dbl>, near_dist <dbl>, distsea <dbl>, loc_murdock_name <chr>,
-## #   loc_ln_export_area <dbl>, local_council_performance <dbl>,
-## #   council_listen <dbl>, corrupt_local_council <dbl>, school_present <dbl>,
-## #   electricity_present <dbl>, piped_water_present <dbl>, sewage_present <dbl>,
-## #   health_clinic_present <dbl>, district_ethnic_frac <dbl>,
-## #   frac_ethnicity_in_district <dbl>, townvill_nonethnic_mean_exports <dbl>,
-## #   district_nonethnic_mean_exports <dbl>, region_nonethnic_mean_exports <dbl>,
-## #   country_nonethnic_mean_exports <dbl>, murdock_centr_dist_coast <dbl>,
-## #   centroid_lat <dbl>, centroid_long <dbl>, explorer_contact <dbl>,
-## #   railway_contact <dbl>, dist_Saharan_node <dbl>, dist_Saharan_line <dbl>,
-## #   malaria_ecology <dbl>, v30 <dbl+lbl>, v33 <dbl+lbl>, fishing <dbl>,
-## #   exports <dbl>, ln_exports <dbl>, total_missions_area <dbl>,
-## #   ln_init_pop_density <dbl>, cities_1400_dum <dbl>
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{colnames}\NormalTok{(nunn\_full)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##  [1] "respno"                          "ethnicity"                      
-##  [3] "murdock_name"                    "isocode"                        
-##  [5] "region"                          "district"                       
-##  [7] "townvill"                        "location_id"                    
-##  [9] "trust_relatives"                 "trust_neighbors"                
-## [11] "intra_group_trust"               "inter_group_trust"              
-## [13] "trust_local_council"             "ln_export_area"                 
-## [15] "export_area"                     "export_pop"                     
-## [17] "ln_export_pop"                   "age"                            
-## [19] "age2"                            "male"                           
-## [21] "urban_dum"                       "occupation"                     
-## [23] "religion"                        "living_conditions"              
-## [25] "education"                       "near_dist"                      
-## [27] "distsea"                         "loc_murdock_name"               
-## [29] "loc_ln_export_area"              "local_council_performance"      
-## [31] "council_listen"                  "corrupt_local_council"          
-## [33] "school_present"                  "electricity_present"            
-## [35] "piped_water_present"             "sewage_present"                 
-## [37] "health_clinic_present"           "district_ethnic_frac"           
-## [39] "frac_ethnicity_in_district"      "townvill_nonethnic_mean_exports"
-## [41] "district_nonethnic_mean_exports" "region_nonethnic_mean_exports"  
-## [43] "country_nonethnic_mean_exports"  "murdock_centr_dist_coast"       
-## [45] "centroid_lat"                    "centroid_long"                  
-## [47] "explorer_contact"                "railway_contact"                
-## [49] "dist_Saharan_node"               "dist_Saharan_line"              
-## [51] "malaria_ecology"                 "v30"                            
-## [53] "v33"                             "fishing"                        
-## [55] "exports"                         "ln_exports"                     
-## [57] "total_missions_area"             "ln_init_pop_density"            
-## [59] "cities_1400_dum"
-\end{verbatim}
-
-First, let's consider a small subset of this dataset.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{nunn <{-}}\StringTok{ }\KeywordTok{read\_dta}\NormalTok{(}\StringTok{"data/input/Nunn\_Wantchekon\_sample.dta"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{nunn}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## # A tibble: 10 x 5
-##    trust_neighbors exports ln_exports export_area ln_export_area
-##              <dbl>   <dbl>      <dbl>       <dbl>          <dbl>
-##  1               3   0.388      0.328     0.00407        0.00406
-##  2               3   0.631      0.489     0.0971         0.0926 
-##  3               3   0.994      0.690     0.0125         0.0124 
-##  4               0 183.         5.21      1.82           1.04   
-##  5               3   0          0         0              0      
-##  6               2   0          0         0              0      
-##  7               2 666.         6.50     14.0            2.71   
-##  8               0   0.348      0.298     0.00608        0.00606
-##  9               3   0.435      0.361     0.0383         0.0376 
-## 10               3   0          0         0              0
-\end{verbatim}
-
-\hypertarget{data.frame-vs.-matricies}{%
-\section{data.frame vs.~matricies}\label{data.frame-vs.-matricies}}
-
-This is a \texttt{data.frame} object.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{class}\NormalTok{(nunn)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "tbl_df"     "tbl"        "data.frame"
-\end{verbatim}
-
-But it can be also consider a matrix in the linear algebra sense. What are the dimensions of this matrix?
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{nrow}\NormalTok{(nunn)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 10
-\end{verbatim}
-
-\texttt{data.frame}s and matrices have much overlap in \texttt{R}, but to explicitly treat an object as a matrix, you'd need to coerce its class. Let's call this matrix \texttt{X}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{X <{-}}\StringTok{ }\KeywordTok{as.matrix}\NormalTok{(nunn)}
-\end{Highlighting}
-\end{Shaded}
-
-What is the difference between a \texttt{data.frame} and a matrix? A \texttt{data.frame} can have columns that are of different types, whereas --- in a matrix --- all columns must be of the same type (usually either ``numeric'' or ``character'').
-
-\hypertarget{speed-considerations}{%
-\section{Speed considerations}\label{speed-considerations}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{Nrow <{-}}\StringTok{ }\DecValTok{100}
-\NormalTok{Ncol <{-}}\StringTok{ }\DecValTok{5}
-\NormalTok{Xmat <{-}}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{rnorm}\NormalTok{(Nrow }\OperatorTok{*}\StringTok{ }\NormalTok{Ncol), }\DataTypeTok{nrow =}\NormalTok{ Nrow, }\DataTypeTok{ncol =}\NormalTok{ Ncol)}
-\NormalTok{Xdf <{-}}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(Xmat)}
-
-\KeywordTok{system.time}\NormalTok{(}\KeywordTok{replicate}\NormalTok{(}\DecValTok{50000}\NormalTok{, }\KeywordTok{colMeans}\NormalTok{(Xmat)))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##    user  system elapsed 
-##   0.227   0.000   0.228
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{system.time}\NormalTok{(}\KeywordTok{replicate}\NormalTok{(}\DecValTok{50000}\NormalTok{, }\KeywordTok{colMeans}\NormalTok{(Xdf)))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##    user  system elapsed 
-##   2.548   0.005   2.555
-\end{verbatim}
-
-\hypertarget{handling-matricies-in-r}{%
-\section{\texorpdfstring{Handling matricies in \texttt{R}}{Handling matricies in R}}\label{handling-matricies-in-r}}
-
-You can easily transpose a matrix
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{X}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##       trust_neighbors     exports ln_exports  export_area ln_export_area
-##  [1,]               3   0.3883497  0.3281158  0.004067405    0.004059155
-##  [2,]               3   0.6311236  0.4892691  0.097059444    0.092633367
-##  [3,]               3   0.9941893  0.6902376  0.012524694    0.012446908
-##  [4,]               0 182.5891266  5.2127004  1.824284434    1.038255095
-##  [5,]               3   0.0000000  0.0000000  0.000000000    0.000000000
-##  [6,]               2   0.0000000  0.0000000  0.000000000    0.000000000
-##  [7,]               2 665.9652100  6.5027380 13.975566864    2.706419945
-##  [8,]               0   0.3476418  0.2983562  0.006082553    0.006064130
-##  [9,]               3   0.4349871  0.3611559  0.038332380    0.037615947
-## [10,]               3   0.0000000  0.0000000  0.000000000    0.000000000
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{t}\NormalTok{(X)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##                        [,1]       [,2]       [,3]       [,4] [,5] [,6]
-## trust_neighbors 3.000000000 3.00000000 3.00000000   0.000000    3    2
-## exports         0.388349682 0.63112360 0.99418926 182.589127    0    0
-## ln_exports      0.328115761 0.48926911 0.69023758   5.212700    0    0
-## export_area     0.004067405 0.09705944 0.01252469   1.824284    0    0
-## ln_export_area  0.004059155 0.09263337 0.01244691   1.038255    0    0
-##                       [,7]        [,8]       [,9] [,10]
-## trust_neighbors   2.000000 0.000000000 3.00000000     3
-## exports         665.965210 0.347641766 0.43498713     0
-## ln_exports        6.502738 0.298356235 0.36115587     0
-## export_area      13.975567 0.006082553 0.03833238     0
-## ln_export_area    2.706420 0.006064130 0.03761595     0
-\end{verbatim}
-
-What are the values of all rows in the first column?
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{X[, }\DecValTok{1}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##  [1] 3 3 3 0 3 2 2 0 3 3
-\end{verbatim}
-
-What are all the values of ``exports''? (i.e.~return the whole ``exports'' column)
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{X[, }\StringTok{"exports"}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##  [1]   0.3883497   0.6311236   0.9941893 182.5891266   0.0000000   0.0000000
-##  [7] 665.9652100   0.3476418   0.4349871   0.0000000
-\end{verbatim}
-
-What is the first observation (i.e.~first row)?
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{X[}\DecValTok{1}\NormalTok{, ]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## trust_neighbors         exports      ln_exports     export_area  ln_export_area 
-##     3.000000000     0.388349682     0.328115761     0.004067405     0.004059155
-\end{verbatim}
-
-What is the value of the first variable of the first observation?
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{X[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## trust_neighbors 
-##               3
-\end{verbatim}
-
-Pause and consider the following problem on your own. What is the following code doing?
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{X[X[, }\StringTok{"trust\_neighbors"}\NormalTok{] }\OperatorTok{==}\StringTok{ }\DecValTok{0}\NormalTok{, }\StringTok{"export\_area"}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 1.824284434 0.006082553
-\end{verbatim}
-
-Why does it give the same output as the following?
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{X[}\KeywordTok{which}\NormalTok{(X[, }\StringTok{"trust\_neighbors"}\NormalTok{] }\OperatorTok{==}\StringTok{ }\DecValTok{0}\NormalTok{), }\StringTok{"export\_area"}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 1.824284434 0.006082553
-\end{verbatim}
-
-Some more manipulation
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{X }\OperatorTok{+}\StringTok{ }\NormalTok{X}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##       trust_neighbors      exports ln_exports  export_area ln_export_area
-##  [1,]               6    0.7766994  0.6562315  0.008134809     0.00811831
-##  [2,]               6    1.2622472  0.9785382  0.194118887     0.18526673
-##  [3,]               6    1.9883785  1.3804752  0.025049388     0.02489382
-##  [4,]               0  365.1782532 10.4254007  3.648568869     2.07651019
-##  [5,]               6    0.0000000  0.0000000  0.000000000     0.00000000
-##  [6,]               4    0.0000000  0.0000000  0.000000000     0.00000000
-##  [7,]               4 1331.9304199 13.0054760 27.951133728     5.41283989
-##  [8,]               0    0.6952835  0.5967125  0.012165107     0.01212826
-##  [9,]               6    0.8699743  0.7223117  0.076664761     0.07523189
-## [10,]               6    0.0000000  0.0000000  0.000000000     0.00000000
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{X }\OperatorTok{{-}}\StringTok{ }\NormalTok{X}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##       trust_neighbors exports ln_exports export_area ln_export_area
-##  [1,]               0       0          0           0              0
-##  [2,]               0       0          0           0              0
-##  [3,]               0       0          0           0              0
-##  [4,]               0       0          0           0              0
-##  [5,]               0       0          0           0              0
-##  [6,]               0       0          0           0              0
-##  [7,]               0       0          0           0              0
-##  [8,]               0       0          0           0              0
-##  [9,]               0       0          0           0              0
-## [10,]               0       0          0           0              0
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{t}\NormalTok{(X) }\OperatorTok{\%*\%}\StringTok{ }\NormalTok{X}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##                 trust_neighbors    exports ln_exports export_area
-## trust_neighbors       62.000000   1339.276   18.61181    28.40709
-## exports             1339.276369 476850.298 5283.76294  9640.42990
-## ln_exports            18.611811   5283.763   70.50077   100.46202
-## export_area           28.407085   9640.430  100.46202   198.65558
-## ln_export_area         5.853106   1992.047   23.08189    39.72847
-##                 ln_export_area
-## trust_neighbors       5.853106
-## exports            1992.046502
-## ln_exports           23.081893
-## export_area          39.728468
-## ln_export_area        8.412887
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{cbind}\NormalTok{(X, }\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##       trust_neighbors     exports ln_exports  export_area ln_export_area   
-##  [1,]               3   0.3883497  0.3281158  0.004067405    0.004059155  1
-##  [2,]               3   0.6311236  0.4892691  0.097059444    0.092633367  2
-##  [3,]               3   0.9941893  0.6902376  0.012524694    0.012446908  3
-##  [4,]               0 182.5891266  5.2127004  1.824284434    1.038255095  4
-##  [5,]               3   0.0000000  0.0000000  0.000000000    0.000000000  5
-##  [6,]               2   0.0000000  0.0000000  0.000000000    0.000000000  6
-##  [7,]               2 665.9652100  6.5027380 13.975566864    2.706419945  7
-##  [8,]               0   0.3476418  0.2983562  0.006082553    0.006064130  8
-##  [9,]               3   0.4349871  0.3611559  0.038332380    0.037615947  9
-## [10,]               3   0.0000000  0.0000000  0.000000000    0.000000000 10
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{cbind}\NormalTok{(X, }\DecValTok{1}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##       trust_neighbors     exports ln_exports  export_area ln_export_area  
-##  [1,]               3   0.3883497  0.3281158  0.004067405    0.004059155 1
-##  [2,]               3   0.6311236  0.4892691  0.097059444    0.092633367 1
-##  [3,]               3   0.9941893  0.6902376  0.012524694    0.012446908 1
-##  [4,]               0 182.5891266  5.2127004  1.824284434    1.038255095 1
-##  [5,]               3   0.0000000  0.0000000  0.000000000    0.000000000 1
-##  [6,]               2   0.0000000  0.0000000  0.000000000    0.000000000 1
-##  [7,]               2 665.9652100  6.5027380 13.975566864    2.706419945 1
-##  [8,]               0   0.3476418  0.2983562  0.006082553    0.006064130 1
-##  [9,]               3   0.4349871  0.3611559  0.038332380    0.037615947 1
-## [10,]               3   0.0000000  0.0000000  0.000000000    0.000000000 1
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{colnames}\NormalTok{(X)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "trust_neighbors" "exports"         "ln_exports"      "export_area"    
-## [5] "ln_export_area"
-\end{verbatim}
-
-\hypertarget{variable-transformations}{%
-\section{Variable Transformations}\label{variable-transformations}}
-
-\texttt{exports} is the total number of slaves that were taken from the individual's ethnic group between Africa's four slave trades between 1400-1900.
-
-What is \texttt{ln\_exports}? The article describes this as the natural log of one plus the \texttt{exports}. This is a transformation of one column by a particular function
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{log}\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{X[, }\StringTok{"exports"}\NormalTok{])}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##  [1] 0.3281158 0.4892691 0.6902376 5.2127003 0.0000000 0.0000000 6.5027379
-##  [8] 0.2983562 0.3611559 0.0000000
-\end{verbatim}
-
-Question for you: why add the 1?
-
-Verify that this is the same as \texttt{X{[},\ "ln\_exports"{]}}
-
-\hypertarget{linear-combinations}{%
-\section{Linear Combinations}\label{linear-combinations}}
-
-In Table 1 we see ``OLS Estimates''. These are estimates of OLS coefficients and standard errors. You do not need to know what these are for now, but it doesn't hurt to getting used to seeing them.
-
-\includegraphics{images/nunn_wantchekon_table1.png}
-
-A very crude way to describe regression is through linear combinations. The simplest linear combination is a one-to-one transformation.
-
-Take the first number in Table 1, which is -0.00068. Now, multiply this by \texttt{exports}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FloatTok{{-}0.00068} \OperatorTok{*}\StringTok{ }\NormalTok{X[, }\StringTok{"exports"}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##  [1] -0.0002640778 -0.0004291640 -0.0006760487 -0.1241606061  0.0000000000
-##  [6]  0.0000000000 -0.4528563428 -0.0002363964 -0.0002957912  0.0000000000
-\end{verbatim}
-
-Now, just one more step. Make a new matrix with just exports and the value 1
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{X2 <{-}}\StringTok{ }\KeywordTok{cbind}\NormalTok{(}\DecValTok{1}\NormalTok{, X[, }\StringTok{"exports"}\NormalTok{])}
-\end{Highlighting}
-\end{Shaded}
-
-name this new column ``intercept''
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{colnames}\NormalTok{(X2)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## NULL
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{colnames}\NormalTok{(X2) <{-}}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"intercept"}\NormalTok{, }\StringTok{"exports"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-What are the dimensions of the matrix \texttt{X2}?
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{dim}\NormalTok{(X2)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 10  2
-\end{verbatim}
-
-Now consider a new matrix, called \texttt{B}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{B <{-}}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\FloatTok{1.62}\NormalTok{, }\FloatTok{{-}0.00068}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-What are the dimensions of \texttt{B}?
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{dim}\NormalTok{(B)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 2 1
-\end{verbatim}
-
-What is the product of \texttt{X2} and \texttt{B}? From the dimensions, can you tell if it will be conformable?
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{X2 }\OperatorTok{\%*\%}\StringTok{ }\NormalTok{B}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##           [,1]
-##  [1,] 1.619736
-##  [2,] 1.619571
-##  [3,] 1.619324
-##  [4,] 1.495839
-##  [5,] 1.620000
-##  [6,] 1.620000
-##  [7,] 1.167144
-##  [8,] 1.619764
-##  [9,] 1.619704
-## [10,] 1.620000
-\end{verbatim}
-
-What is this multiplication doing in terms of equations?
-
 \hypertarget{exercises-1}{%
 \section*{Exercises}\label{exercises-1}}
 \addcontentsline{toc}{section}{Exercises}
@@ -7876,7 +7875,15 @@ Anything can be an object! Even graphs (in \texttt{ggplot}) can be assigned, re-
 \begin{Highlighting}[]
 \NormalTok{grp\_race <{-}}\StringTok{ }\KeywordTok{group\_by}\NormalTok{(cen10, race)}\OperatorTok{\%>\%}
 \StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{count =} \KeywordTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{grp\_race\_ordered <{-}}\StringTok{ }\KeywordTok{arrange}\NormalTok{(grp\_race, count) }\OperatorTok{\%>\%}\StringTok{ }
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{race =}\NormalTok{ forcats}\OperatorTok{::}\KeywordTok{as\_factor}\NormalTok{(race))}
 
@@ -8636,8 +8643,6 @@ Today we'll cover:
 \caption{By Randy Schutt - Own work, CC BY-SA 3.0, \href{https://commons.wikimedia.org/w/index.php?curid=29585342}{Wikimedia.}}
 \end{figure}
 
-Other review
-
 \hypertarget{motivation-the-law-of-the-census}{%
 \section{Motivation: The Law of the Census}\label{motivation-the-law-of-the-census}}
 
@@ -8777,6 +8782,10 @@ We can check out the arguments of \texttt{count} and see that there is a \texttt
 \StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{n =} \KeywordTok{n}\NormalTok{())}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
 
 \begin{verbatim}
 ## # A tibble: 9 x 2
@@ -9802,10 +9811,10 @@ sample\_n picks a user-specified number of rows from the dataset:
 \end{Shaded}
 
 \begin{verbatim}
-##    mpg cyl  disp  hp drat   wt  qsec vs am gear carb
-## 1 26.0   4 120.3  91 4.43 2.14 16.70  0  1    5    2
-## 2 21.4   4 121.0 109 4.11 2.78 18.60  1  1    4    2
-## 3 10.4   8 472.0 205 2.93 5.25 17.98  0  0    3    4
+##                     mpg cyl  disp  hp drat   wt  qsec vs am gear carb
+## Porsche 914-2      26.0   4 120.3  91 4.43 2.14 16.70  0  1    5    2
+## Volvo 142E         21.4   4 121.0 109 4.11 2.78 18.60  1  1    4    2
+## Cadillac Fleetwood 10.4   8 472.0 205 2.93 5.25 17.98  0  0    3    4
 \end{verbatim}
 
 Sometimes you want a X percent sample of your dataset. In this case use \texttt{sample\_frac()}
@@ -9817,10 +9826,10 @@ Sometimes you want a X percent sample of your dataset. In this case use \texttt{
 \end{Shaded}
 
 \begin{verbatim}
-##    mpg cyl  disp  hp drat   wt  qsec vs am gear carb
-## 1 19.2   6 167.6 123 3.92 3.44 18.30  1  0    4    4
-## 2 14.3   8 360.0 245 3.21 3.57 15.84  0  0    3    4
-## 3 17.8   6 167.6 123 3.92 3.44 18.90  1  0    4    4
+##             mpg cyl  disp  hp drat   wt  qsec vs am gear carb
+## Merc 280   19.2   6 167.6 123 3.92 3.44 18.30  1  0    4    4
+## Duster 360 14.3   8 360.0 245 3.21 3.57 15.84  0  0    3    4
+## Merc 280C  17.8   6 167.6 123 3.92 3.44 18.90  1  0    4    4
 \end{verbatim}
 
 As a side-note, these functions have very practical uses for any type of data analysis:
@@ -11234,15 +11243,19 @@ Or you can go up to your parent directory. The syntax for that are two periods, 
 
 \begin{verbatim}
 ## Applications
+## Box
 ## Desktop
 ## Documents
 ## Downloads
 ## Dropbox
+## Google Drive File Stream
 ## Library
 ## Movies
 ## Music
 ## Pictures
+## Projects
 ## Public
+## go
 ## opt
 \end{verbatim}
 
@@ -11681,6 +11694,10 @@ Group by state, noting that the mean of a set of logicals is a mean of 1s (\text
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
+
 Plot points
 
 \begin{Shaded}
@@ -11753,7 +11770,7 @@ All together
 \end{Shaded}
 
 \begin{verbatim}
-## Warning: Removed 19 rows containing missing values (geom_path).
+## Warning: Removed 19 row(s) containing missing values (geom_path).
 \end{verbatim}
 
 \includegraphics{prefresher_files/figure-latex/unnamed-chunk-330-1.pdf}
@@ -11781,6 +11798,10 @@ All together
 \StringTok{  }\KeywordTok{slice}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## `summarise()` ungrouping output (override with `.groups` argument)
+\end{verbatim}
 
 \begin{verbatim}
 ## # A tibble: 10 x 2
