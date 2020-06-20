@@ -30,7 +30,6 @@ Today you will work on your own, but feel free to ask a fellow classmate nearby 
 library(dplyr)
 library(tidyr)
 library(readr)
-library(data.table)
 library(ggplot2)
 ```
 
@@ -81,9 +80,11 @@ mid
 
 
 ## Loops
+
+
 Notice that in the `mid` data, we have a start of a dispute vs. an end of a dispute.In order to combine this into the `polity` data, we want a way to give each of the interval years a row. 
 
-There are many ways to do this, but one is a loop. We go through one row at a time, and then for each we make a new dataset. that has `year` as a sequence of each year.
+There are many ways to do this, but one is a loop. We go through one row at a time, and then for each we make a new dataset. that has `year` as a sequence of each year. A lengthy loop like this is typically slow, and you'd want to recast the task so you can do things with functions. But, a loop is a good place to start.
 
 
 ```{r}
@@ -126,9 +127,12 @@ p_m$dispute[is.na(p_m$dispute)] <- 0
 
 Reshape the dataset long to wide
 ```{r}
-p_m_wide <- dcast(data = p_m,
-                  formula = ccode ~ year,
-                  value.var = "polity2")
+p_m_wide <- pivot_wider(p_m, 
+                        id_cols = c(scode, ccode, country),
+                        names_from = year,
+                        values_from = polity2)
+
+select(p_m_wide, 1:10)
 ```
 
 ## Main Project

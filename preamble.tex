@@ -30,11 +30,21 @@
 }
 \makeatother
 
+% link colors in pdf?
+\usepackage{xcolor}  
+\definecolor{crimson}{RGB}{204,0,0}
+\hypersetup{
+  colorlinks = true,
+  urlcolor = crimson,
+  linkbordercolor = {white},
+  linkcolor = crimson
+}
+
 
 % Title format
 \usepackage{titling}
 \pretitle{\Huge\sffamily}
-\posttitle{\par\vskip 0.5em}
+\posttitle{\par\vskip 1em}
 \predate{\LARGE\sffamily}
 \postdate{\par}
 
