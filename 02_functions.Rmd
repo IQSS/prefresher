@@ -41,7 +41,7 @@ $$\prod\limits_{i=1}^n x_i = x_1 x_2 x_3 \cdots x_n$$
 Properties:
 
 * $\prod\limits_{i=1}^n c x_i = c^n \prod\limits_{i=1}^n x_i$
-* $\prod\limits_{i=k}^n c x_k = c^{n-k} \prod\limits_{i=k}^n x_i$
+* $\prod\limits_{i=k}^n c x_i = c^{n-k+1} \prod\limits_{i=k}^n x_i$
 * $\prod\limits_{i=1}^n (x_i + y_i) =$ a total mess
 * $\prod\limits_{i=1}^n c = c^n$
 
