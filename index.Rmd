@@ -13,16 +13,16 @@ cover-image: "./images/logo.png"
 ---
 # About this Booklet {-}
 
-The [__Harvard Gov Prefresher__](https://projects.iq.harvard.edu/prefresher) is held each year in August. All relevant information is on our website, including the day-to-day schedule. The 2019 Prefresher instructors are [Shannon Parker](https://wcfia.harvard.edu/shannon-lynn-parker) and [Meg Schwenzfeier](http://schwenzfeier.github.io/), and the faculty sponsor is  [Gary King](https://gking.harvard.edu).
+The [__Harvard Gov Prefresher__](https://projects.iq.harvard.edu/prefresher) is held each year in August. All relevant information is on our website, including the day-to-day schedule. The 2020 Prefresher instructors are [Laura Royden](https://gov.harvard.edu/people/laura-royden) and [Hunter Rendleman](https://hunterrendleman.com), and the faculty sponsor is  [Gary King](https://gking.harvard.edu).
 
-This booklet serves as the text for the Prefresher, available as a [webpage](https://iqss.github.io/prefresher/) and as a [printable PDF](https://github.com/IQSS/prefresher/releases). It is the product of generations of Prefresher instructors. See below for a full list of instructors and contributors. 
+This booklet serves as the text for the Prefresher, available as a [webpage](https://iqss.github.io/prefresher/) updated automatically and as a [printable PDF](https://github.com/IQSS/prefresher/releases) updated manually. It is the product of generations of Prefresher instructors. See below for a full list of instructors and contributors. 
 
 For information about the role of the prefresher (or "math camp") as a introduction to graduate school, you  may also be interested in ["The Math Prefresher and The Collective Future of Political Science Graduate Training"](https://gking.harvard.edu/prefresher), in _PS: Political Science & Politics_, by Gary King, Shiro Kuriwaki, and Yon Soo Park.
 
 
 ### Authors and Contributors {-}
 
-- Authors and Instructors:  Curt Signorino 1996-1997; Ken Scheve 1997-1998; Eric Dickson 1998-2000; Orit Kedar 1999; James Fowler 2000-2001; Kosuke Imai 2001-2002; Jacob Kline 2002; Dan Epstein 2003; Ben Ansell 2003-2004; Ryan Moore 2004-2005; Mike Kellermann 2005-2006; Ellie Powell 2006-2007; Jen Katkin 2007-2008; Patrick Lam 2008-2009; Viridiana Rios 2009-2010; Jennifer Pan 2010-2011; Konstantin Kashin 2011-2012; Soledad Prillaman 2013; Stephen Pettigrew 2013-2014; Anton Strezhnev 2014-2015; Mayya Komisarchik 2015-2016; Connor Jerzak 2016-2017; Shiro Kuriwaki 2017-2018; Yon Soo Park 2018
+- Past Authors and Instructors:  Curt Signorino 1996-1997; Ken Scheve 1997-1998; Eric Dickson 1998-2000; Orit Kedar 1999; James Fowler 2000-2001; Kosuke Imai 2001-2002; Jacob Kline 2002; Dan Epstein 2003; Ben Ansell 2003-2004; Ryan Moore 2004-2005; Mike Kellermann 2005-2006; Ellie Powell 2006-2007; Jen Katkin 2007-2008; Patrick Lam 2008-2009; Viridiana Rios 2009-2010; Jennifer Pan 2010-2011; Konstantin Kashin 2011-2012; Soledad Prillaman 2013; Stephen Pettigrew 2013-2014; Anton Strezhnev 2014-2015; Mayya Komisarchik 2015-2016; Connor Jerzak 2016-2017; Shiro Kuriwaki 2017-2018; Yon Soo Park 2018; Meg Schwenzfeier (2019); Shannon Parker (2019).
 - Repository Maintainer: Shiro Kuriwaki ([kuriwaki](https://github.com/kuriwaki))
 - Contributors: Thanks to Juan Dodyk ([juandodyk](https://github.com/juandodyk)), Hunter Rendleman ([hrendleman](https://github.com/hrendleman)), and Tyler Simko ([tylersimko](https://github.com/tylersimko)) for contributing to the booklet for corrections and improvements as students.
 
