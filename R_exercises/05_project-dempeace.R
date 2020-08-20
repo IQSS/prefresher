@@ -35,7 +35,6 @@
 library(dplyr)
 library(tidyr)
 library(readr)
-library(data.table)
 library(ggplot2)
 
 
@@ -142,9 +141,10 @@ p_m$dispute[is.na(p_m$dispute)] <- 0
 
 # Reshape the dataset long to wide
 
-p_m_wide <- dcast(data = p_m,
-                  formula = ccode ~ year,
-                  value.var = "polity2")
+p_m_wide <- pivot_wider(p_m, 
+                        id_cols = c(scode, ccode, country), 
+                        names_from = year, 
+                        values_from = polity2)
 
 
 ## Main Project

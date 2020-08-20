@@ -11,7 +11,7 @@ Imports:
     scales, 
     haven,
     readxl, 
-    tidyr, 
+    tidyr (>= 1.0.0), 
     fs,
     data.table,
     ggrepel,

@@ -73,7 +73,7 @@ where the subscript and superscript are read together as "from 1 to infinity."
 
 ```{example, seqbehav, name = "Sequences"}
 
-How does these sequence behave?
+How do these sequences behave?
   
 1. $\{A_n\}=\left\{ 2-\frac{1}{n^2} \right\}$
 2. $\{B_n\}=\left\{\frac{n^2+1}{n} \right\}$
