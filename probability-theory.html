@@ -490,23 +490,32 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Probability and Inferences are mirror images of each other, and both are integral to social science. Probability quantifies uncertainty, which is important because many things in the social world are at first uncertain. Inference is then the study of how to learn about facts you don't observe from facts you do observe.</p>
 <div id="counting-rules" class="section level2">
 <h2><span class="header-section-number">5.1</span> Counting rules</h2>
+<p>Probability in high school is usually really about combinatorics: the probability of event <em>A</em> is the number of ways in which <em>A</em> can occur divided by the number of all other possibilities. This is a very simplified version of probability, which we can call the &quot;counting definition of probability&quot;, essentially because each possible event to count is often equally likely and discrete. But it is still good to review the underlying rules here.</p>
 <p><strong>Fundamental Theorem of Counting</strong>: If an object has <span class="math inline">\(j\)</span> different characteristics that are independent of each other, and each characteristic <span class="math inline">\(i\)</span> has <span class="math inline">\(n_i\)</span> ways of being expressed, then there are <span class="math inline">\(\prod_{i = 1}^j n_i\)</span> possible unique objects.</p>
-<p>Example: Cards can be either red or black and can take on any of 13 values.</p>
-<p><span class="math inline">\(j =\)</span></p>
-<p><span class="math inline">\(n_{\text{color}} =\)</span></p>
-<p><span class="math inline">\(n_{\text{number}} =\)</span></p>
-<p>Number of Outcomes <span class="math inline">\(=\)</span></p>
+
+<div class="example">
+<p><span id="exm:countingrules" class="example"><strong>Example 5.1  (Counting Possibilities)  </strong></span> Suppose we are given a stack of cards. Cards can be either red or black and can take on any of 13 values. There is only one of each color-number combination. In this case,</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(j =\)</span></p></li>
+<li><p><span class="math inline">\(n_{\text{color}} =\)</span></p></li>
+<li><p><span class="math inline">\(n_{\text{number}} =\)</span></p></li>
+<li><p>Number of Outcomes <span class="math inline">\(=\)</span></p></li>
+</ol>
+</div>
+
 <p>We often need to count the number of ways to choose a subset from some set of possibilities. The number of outcomes depends on two characteristics of the process: does the order matter and is replacement allowed?</p>
-<p><strong>Sampling Table</strong>: If there are <span class="math inline">\(n\)</span> objects which are numbered 1 to <span class="math inline">\(n\)</span> and we select <span class="math inline">\(k &lt; n\)</span> of them, how many different outcomes are possible?</p>
+<p>It is useful to think of any problem concretely, e.g. through a <strong>sampling table</strong>: If there are <span class="math inline">\(n\)</span> objects which are numbered 1 to <span class="math inline">\(n\)</span> and we select <span class="math inline">\(k &lt; n\)</span> of them, how many different outcomes are possible?</p>
 <p>If the order in which a given object is selected matters, selecting 4 numbered objects in the following order (1, 3, 7, 2) and selecting the same four objects but in a different order such as (7, 2, 1, 3) will be counted as different outcomes.</p>
 <p>If replacement is allowed, there are always the same <span class="math inline">\(n\)</span> objects to select from. However, if replacement is not allowed, there is always one less option than the previous round when making a selection. For example, if replacement is not allowed and I am selecting 3 elements from the following set {1, 2, 3, 4, 5, 6}, I will have 6 options at first, 5 options as I make my second selection, and 4 options as I make my third.</p>
-<p>So in counting how many different outcomes are possible, if <strong><em>order matters</em></strong> AND we are sampling <strong><em>with replacement</em></strong>, the number of different outcomes is <span class="math inline">\(n^k\)</span>.</p>
-<p>If <strong><em>order matters</em></strong> AND we are sampling <strong><em>without replacement</em></strong>, the number of different outcomes is <span class="math inline">\(n(n-1)(n-2)...(n-k+1)=\frac{n!}{(n-k)!}\)</span>.</p>
-<p>If <strong><em>order doesn't matter</em></strong> AND we are sampling <strong><em>without replacement</em></strong>, the number of different outcomes is <span class="math inline">\(\binom{n}{k} = \frac{n!}{(n-k)!k!}\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p>So if <strong><em>order matters</em></strong> AND we are sampling <strong><em>with replacement</em></strong>, the number of different outcomes is <span class="math inline">\(n^k\)</span>.</p></li>
+<li><p>If <strong><em>order matters</em></strong> AND we are sampling <strong><em>without replacement</em></strong>, the number of different outcomes is <span class="math inline">\(n(n-1)(n-2)...(n-k+1)=\frac{n!}{(n-k)!}\)</span>.</p></li>
+<li><p>If <strong><em>order doesn't matter</em></strong> AND we are sampling <strong><em>without replacement</em></strong>, the number of different outcomes is <span class="math inline">\(\binom{n}{k} = \frac{n!}{(n-k)!k!}\)</span>.</p></li>
+</ol>
 <p>Expression <span class="math inline">\(\binom{n}{k}\)</span> is read as &quot;n choose k&quot; and denotes <span class="math inline">\(\frac{n!}{(n-k)!k!}\)</span>. Also, note that <span class="math inline">\(0! = 1\)</span>.</p>
 
 <div class="example">
-<p><span id="exm:counting" class="example"><strong>Example 5.1  (Counting)  </strong></span> There are five balls numbered from 1 through 5 in a jar. Three balls are chosen. How many possible choices are there?</p>
+<p><span id="exm:counting" class="example"><strong>Example 5.2  (Counting)  </strong></span> There are five balls numbered from 1 through 5 in a jar. Three balls are chosen. How many possible choices are there?</p>
 <ol style="list-style-type: decimal">
 <li><p>Ordered, with replacement <span class="math inline">\(=\)</span></p></li>
 <li><p>Ordered, without replacement <span class="math inline">\(=\)</span></p></li>
@@ -522,6 +531,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="setoper" class="section level2">
 <h2><span class="header-section-number">5.2</span> Sets</h2>
+<p>Probability is about quantifying the uncertainty of events. <em>Sets</em> (set theory) are the mathematical way we choose to formalize those events. Events are not inherently numerical: the onset of war or the stock market crashing is not inherently a number. Sets can define such events, and we wrap math around so that we have a transparent language to communicate about those events. <em>Measure theory</em> might sound mysterious or hard, but it is also just a mathematical way to quantify things like length, volume, and mass. Probability can be thought of as a particular application of measure theory where we want to quantify the measure of a set.</p>
 <p><strong>Set</strong> : A set is any well defined collection of elements. If <span class="math inline">\(x\)</span> is an element of <span class="math inline">\(S\)</span>, <span class="math inline">\(x \in S\)</span>.</p>
 <p><strong>Sample Space (S)</strong>: A set or collection of all possible outcomes from some process. Outcomes in the set can be discrete elements (countable) or points along a continuous interval (uncountable).</p>
 <p>Examples:</p>
@@ -547,7 +557,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 
 <div class="example">
-<p><span id="exm:sets" class="example"><strong>Example 5.2  (Sets)  </strong></span> Let set <span class="math inline">\(A\)</span> be {1, 2, 3, 4}, <span class="math inline">\(B\)</span> be {3, 4, 5, 6}, and <span class="math inline">\(C\)</span> be {5, 6, 7, 8}. Sets <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> are all subsets of the sample space <span class="math inline">\(S\)</span> which is {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}</p>
+<p><span id="exm:sets" class="example"><strong>Example 5.3  (Sets)  </strong></span> Let set <span class="math inline">\(A\)</span> be {1, 2, 3, 4}, <span class="math inline">\(B\)</span> be {3, 4, 5, 6}, and <span class="math inline">\(C\)</span> be {5, 6, 7, 8}. Sets <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> are all subsets of the sample space <span class="math inline">\(S\)</span> which is {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}</p>
 <p>Write out the following sets:</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(A \cup B\)</span></li>
@@ -618,7 +628,7 @@ P(A_1 \cup A_2) = P(A_1) + P(A_2) \quad\text{for disjoint } A_1, A_2
 </ol>
 
 <div class="example">
-<p><span id="exm:prob" class="example"><strong>Example 5.3  (Probability)  </strong></span> Assume we have an evenly-balanced, six-sided die.</p>
+<p><span id="exm:prob" class="example"><strong>Example 5.4  (Probability)  </strong></span> Assume we have an evenly-balanced, six-sided die.</p>
 <p>Then,</p>
 <ol style="list-style-type: decimal">
 <li>Sample space S =</li>
@@ -649,7 +659,7 @@ P(A_1 \cup A_2) = P(A_1) + P(A_2) \quad\text{for disjoint } A_1, A_2
 <p>Note that conditional probabilities are probabilities and must also follow the Kolmagorov axioms of probability.</p>
 
 <div class="example">
-<p><span id="exm:condprobexm1" class="example"><strong>Example 5.4  (Conditional Probability 1)  </strong></span> Assume <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> occur with the following frequencies: <span class="math inline">\(\quad\)</span></p>
+<p><span id="exm:condprobexm1" class="example"><strong>Example 5.5  (Conditional Probability 1)  </strong></span> Assume <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> occur with the following frequencies: <span class="math inline">\(\quad\)</span></p>
 <table>
 <thead>
 <tr class="header">
@@ -683,7 +693,7 @@ P(A_1 \cup A_2) = P(A_1) + P(A_2) \quad\text{for disjoint } A_1, A_2
 
 
 <div class="example">
-<span id="exm:condprobexm2" class="example"><strong>Example 5.5  (Conditional Probability 2)  </strong></span> A six-sided die is rolled. What is the probability of a 1, given the outcome is an odd number?
+<span id="exm:condprobexm2" class="example"><strong>Example 5.6  (Conditional Probability 2)  </strong></span> A six-sided die is rolled. What is the probability of a 1, given the outcome is an odd number?
 </div>
 
 <p>You could rearrange the fraction to highlight how a joint probability could be expressed as the product of a conditional probability.</p>
@@ -711,7 +721,7 @@ P(A)&amp;=&amp;\sum\limits_{i=1}^k P(A \cap B_i)\\
 <p><strong>Prior and Posterior Probabilities</strong>: Above, <span class="math inline">\(P(B_1)\)</span> is often called the prior probability, since it's the probability of <span class="math inline">\(B_1\)</span> before anything else is known. <span class="math inline">\(P(B_1|A)\)</span> is called the posterior probability, since it's the probability after other information is taken into account.</p>
 
 <div class="example">
-<p><span id="exm:bayesrule" class="example"><strong>Example 5.6  (Bayes' Rule)  </strong></span> In a given town, 40% of the voters are Democrat and 60% are Republican. The president's budget is supported by 50% of the Democrats and 90% of the Republicans. If a randomly (equally likely) selected voter is found to support the president's budget, what is the probability that they are a Democrat?</p>
+<p><span id="exm:bayesrule" class="example"><strong>Example 5.7  (Bayes' Rule)  </strong></span> In a given town, 40% of the voters are Democrat and 60% are Republican. The president's budget is supported by 50% of the Democrats and 90% of the Republicans. If a randomly (equally likely) selected voter is found to support the president's budget, what is the probability that they are a Democrat?</p>
 </div>
 
 
@@ -780,7 +790,7 @@ Figure 5.2: The Random Variable as a Real-Valued Function
 <p>Notice how the definition of distributions combines two ideas of random variables and probabilities of events. First, the distribution considers a random variable, call it <span class="math inline">\(X\)</span>. <span class="math inline">\(X\)</span> can take a number of possible numeric values.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-73" class="example"><strong>Example 5.7  (Total Number of Occurrences)  </strong></span> Consider three binary outcomes, one for each patient recovering from a disease: <span class="math inline">\(R_i\)</span> denotes the event in which patient <span class="math inline">\(i\)</span> (<span class="math inline">\(i = 1, 2, 3\)</span>) recovers from a disease. <span class="math inline">\(R_1\)</span>, <span class="math inline">\(R_2\)</span>, and <span class="math inline">\(R_3\)</span>. How would we represent the total number of people who end up recovering from the disease?</p>
+<p><span id="exm:unnamed-chunk-73" class="example"><strong>Example 5.8  (Total Number of Occurrences)  </strong></span> Consider three binary outcomes, one for each patient recovering from a disease: <span class="math inline">\(R_i\)</span> denotes the event in which patient <span class="math inline">\(i\)</span> (<span class="math inline">\(i = 1, 2, 3\)</span>) recovers from a disease. <span class="math inline">\(R_1\)</span>, <span class="math inline">\(R_2\)</span>, and <span class="math inline">\(R_3\)</span>. How would we represent the total number of people who end up recovering from the disease?</p>
 </div>
 
 
@@ -820,7 +830,7 @@ Figure 5.2: The Random Variable as a Real-Valued Function
 <p>Note that <span class="math inline">\(P(X &gt; x) = 1 - P(X \le x)\)</span>.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-77" class="example"><strong>Example 5.8  </strong></span>For a fair die with its value as <span class="math inline">\(Y\)</span>, What are the following?</p>
+<p><span id="exm:unnamed-chunk-77" class="example"><strong>Example 5.9  </strong></span>For a fair die with its value as <span class="math inline">\(Y\)</span>, What are the following?</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(P(Y\le 1)\)</span></li>
 <li><span class="math inline">\(P(Y\le 3)\)</span></li>
@@ -854,7 +864,7 @@ Note also that <span class="math inline">\(P(X = x)=0\)</span> --- i.e., the pro
 <p>The PDF and CDF are linked by the integral: The CDF of the integral of the PDF: <span class="math display">\[f(x) = F&#39;(x)=\frac{dF(x)}{dx}\]</span></p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-81" class="example"><strong>Example 5.9  </strong></span> For <span class="math inline">\(f(y)=1, \quad 0&lt;y&lt;1\)</span>, find: (1) The CDF <span class="math inline">\(F(y)\)</span> and (2) The probability <span class="math inline">\(P(0.5&lt;y&lt;0.75)\)</span>.</p>
+<p><span id="exm:unnamed-chunk-81" class="example"><strong>Example 5.10  </strong></span> For <span class="math inline">\(f(y)=1, \quad 0&lt;y&lt;1\)</span>, find: (1) The CDF <span class="math inline">\(F(y)\)</span> and (2) The probability <span class="math inline">\(P(0.5&lt;y&lt;0.75)\)</span>.</p>
 </div>
 
 </div>
@@ -906,14 +916,14 @@ In words, it is the weighted average of all possible values of <span class="math
 
 
 <div class="example">
-<p><span id="exm:expectdiscrete" class="example"><strong>Example 5.10  (Expectation of a Discrete Random Variable)  </strong></span></p>
+<p><span id="exm:expectdiscrete" class="example"><strong>Example 5.11  (Expectation of a Discrete Random Variable)  </strong></span></p>
 <p>What is the expectation of a fair, six-sided die?</p>
 </div>
 
 <p><strong>Expectation of a Continuous Random Variable</strong>: The expected value of a continuous random variable is similar in concept to that of the discrete random variable, except that instead of summing using probabilities as weights, we integrate using the density to weight. Hence, the expected value of the continuous variable <span class="math inline">\(Y\)</span> is defined by <span class="math display">\[E(Y)=\int\limits_{y} y f(y) dy\]</span></p>
 
 <div class="example">
-<p><span id="exm:expectconti" class="example"><strong>Example 5.11  (Expectation of a Continuous Random Variable)  </strong></span></p>
+<p><span id="exm:expectconti" class="example"><strong>Example 5.12  (Expectation of a Continuous Random Variable)  </strong></span></p>
 <p>Find <span class="math inline">\(E(Y)\)</span> for <span class="math inline">\(f(y)=\frac{1}{1.5}, \quad 0&lt;y&lt;1.5\)</span>.</p>
 </div>
 
@@ -956,7 +966,7 @@ In words, it is the weighted average of all possible values of <span class="math
 
 
 <div class="example">
-<p><span id="exm:var" class="example"><strong>Example 5.12  (Variance)  </strong></span></p>
+<p><span id="exm:var" class="example"><strong>Example 5.13  (Variance)  </strong></span></p>
 <p>Given the following PMF: <span class="math display">\[f(x) =  \begin{cases}
               \frac{3!}{x!(3-x)!}(\frac{1}{2})^3 \quad x = 0,1,2,3\\
                0 \quad otherwise
@@ -1058,7 +1068,7 @@ In words, it is the weighted average of all possible values of <span class="math
 <p>For any particular sequence of <span class="math inline">\(y\)</span> successes and <span class="math inline">\(n-y\)</span> failures, the probability of obtaining that sequence is <span class="math inline">\(p^y q^{n-y}\)</span> (by the multiplicative law and independence). However, there are <span class="math inline">\(\binom{n}{y}=\frac{n!}{(n-y)!y!}\)</span> ways of obtaining a sequence with <span class="math inline">\(y\)</span> successes and <span class="math inline">\(n-y\)</span> failures. So the binomial distribution is given by <span class="math display">\[p(y)=\binom{n}{y}p^y q^{n-y}, \quad y=0,1,2,\ldots,n\]</span> with mean <span class="math inline">\(\mu=E(Y)=np\)</span> and variance <span class="math inline">\(\sigma^2=\text{Var}(Y)=npq\)</span>.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-88" class="example"><strong>Example 5.13  </strong></span>Republicans vote for Democrat-sponsored bills 2% of the time. What is the probability that out of 10 Republicans questioned, half voted for a particular Democrat-sponsored bill? What is the mean number of Republicans voting for Democrat-sponsored bills? The variance? 1. <span class="math inline">\(P(Y=5)=\)</span> 1. <span class="math inline">\(E(Y)=\)</span> 1. <span class="math inline">\(\text{Var}(Y)=6\)</span>
+<span id="exm:unnamed-chunk-88" class="example"><strong>Example 5.14  </strong></span>Republicans vote for Democrat-sponsored bills 2% of the time. What is the probability that out of 10 Republicans questioned, half voted for a particular Democrat-sponsored bill? What is the mean number of Republicans voting for Democrat-sponsored bills? The variance? 1. <span class="math inline">\(P(Y=5)=\)</span> 1. <span class="math inline">\(E(Y)=\)</span> 1. <span class="math inline">\(\text{Var}(Y)=6\)</span>
 </div>
 
 
@@ -1071,7 +1081,7 @@ In words, it is the weighted average of all possible values of <span class="math
 
 
 <div class="example">
-<span id="exm:unnamed-chunk-90" class="example"><strong>Example 5.14  </strong></span>Border disputes occur between two countries through a Poisson Distribution, at a rate of 2 per month. What is the probability of 0, 2, and less than 5 disputes occurring in a month?
+<span id="exm:unnamed-chunk-90" class="example"><strong>Example 5.15  </strong></span>Border disputes occur between two countries through a Poisson Distribution, at a rate of 2 per month. What is the probability of 0, 2, and less than 5 disputes occurring in a month?
 </div>
 
 
@@ -1083,7 +1093,7 @@ In words, it is the weighted average of all possible values of <span class="math
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-92" class="example"><strong>Example 5.15  </strong></span>For <span class="math inline">\(Y\)</span> uniformly distributed over <span class="math inline">\((1,3)\)</span>, what are the following probabilities?</p>
+<p><span id="exm:unnamed-chunk-92" class="example"><strong>Example 5.16  </strong></span>For <span class="math inline">\(Y\)</span> uniformly distributed over <span class="math inline">\((1,3)\)</span>, what are the following probabilities?</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(P(Y=2)\)</span></li>
 <li>Its density evaluated at 2, or <span class="math inline">\(f(2)\)</span></li>
@@ -1124,7 +1134,7 @@ Figure 5.3: Normal Distribution Density
 </ol>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-94" class="example"><strong>Example 5.16  </strong></span>Example: Using the above table, calculate the sample versions of:</p>
+<p><span id="exm:unnamed-chunk-94" class="example"><strong>Example 5.17  </strong></span>Example: Using the above table, calculate the sample versions of:</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(\text{Cov}(X,Y)\)</span></li>
 <li><span class="math inline">\(\text{Corr}(X, Y)\)</span></li>
@@ -1172,7 +1182,7 @@ A shorthand of which is <span class="math inline">\(\bar{X}_n \xrightarrow{p} \m
 </div>
 <div id="answers-to-examples-and-exercises" class="section level2 unnumbered">
 <h2>Answers to Examples and Exercises</h2>
-<p>Answer to Example <a href="probability-theory.html#exm:counting">5.1</a>:</p>
+<p>Answer to Example <a href="probability-theory.html#exm:counting">5.2</a>:</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(5 \times 5 \times 5 = 125\)</span></p></li>
 <li><p><span class="math inline">\(5 \times 4 \times 3 = 60\)</span></p></li>
@@ -1182,7 +1192,7 @@ A shorthand of which is <span class="math inline">\(\bar{X}_n \xrightarrow{p} \m
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(\binom{52}{4} = \frac{52!}{(52-4)!4!} = 270725\)</span></li>
 </ol>
-<p>Answer to Example <a href="probability-theory.html#exm:sets">5.2</a>:</p>
+<p>Answer to Example <a href="probability-theory.html#exm:sets">5.3</a>:</p>
 <ol style="list-style-type: decimal">
 <li>{1, 2, 3, 4, 5, 6}</li>
 <li>{5, 6}</li>
@@ -1195,7 +1205,7 @@ A shorthand of which is <span class="math inline">\(\bar{X}_n \xrightarrow{p} \m
 <li>{3, 4, 5, 6, 7}</li>
 <li>{4, 5, 6}</li>
 </ol>
-<p>Answer to Example <a href="probability-theory.html#exm:prob">5.3</a>:</p>
+<p>Answer to Example <a href="probability-theory.html#exm:prob">5.4</a>:</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\({1, 2, 3, 4, 5, 6}\)</span></p></li>
 <li><p><span class="math inline">\(\frac{1}{6}\)</span></p></li>
@@ -1210,7 +1220,7 @@ A shorthand of which is <span class="math inline">\(\bar{X}_n \xrightarrow{p} \m
 <li><p><span class="math inline">\(P(X = 5) = \frac{4}{16}\)</span>, <span class="math inline">\(P(X = 3) = \frac{2}{16}\)</span>, <span class="math inline">\(P(X = 6) = \frac{3}{16}\)</span></p></li>
 <li><p>What is <span class="math inline">\(P(X=5 \cup X = 3)^C = \frac{10}{16}\)</span>?</p></li>
 </ol>
-<p>Answer to Example <a href="probability-theory.html#exm:condprobexm1">5.4</a>:</p>
+<p>Answer to Example <a href="probability-theory.html#exm:condprobexm1">5.5</a>:</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(\frac{n_{ab} + n_{ab^c}}{N}\)</span></p></li>
 <li><p><span class="math inline">\(\frac{n_{ab} + n_{a^cb}}{N}\)</span></p></li>
@@ -1218,9 +1228,9 @@ A shorthand of which is <span class="math inline">\(\bar{X}_n \xrightarrow{p} \m
 <li><p><span class="math inline">\(\frac{\frac{n_{ab}}{N}}{\frac{n_{ab} + n_{a^cb}}{N}} = \frac{n_{ab}}{n_{ab} + n_{a^cb}}\)</span></p></li>
 <li><p><span class="math inline">\(\frac{\frac{n_{ab}}{N}}{\frac{n_{ab} + n_{ab^c}}{N}} = \frac{n_{ab}}{n_{ab} + n_{ab^c}}\)</span></p></li>
 </ol>
-<p>Answer to Example <a href="probability-theory.html#exm:condprobexm2">5.5</a>:</p>
+<p>Answer to Example <a href="probability-theory.html#exm:condprobexm2">5.6</a>:</p>
 <p><span class="math inline">\(P(1|Odd) = \frac{P(1 \cap Odd)}{P(Odd)} = \frac{\frac{1}{6}}{\frac{1}{2}} = \frac{1}{3}\)</span></p>
-<p>Answer to Example <a href="probability-theory.html#exm:bayesrule">5.6</a>:</p>
+<p>Answer to Example <a href="probability-theory.html#exm:bayesrule">5.7</a>:</p>
 <p>We are given that <span class="math display">\[P(D) = .4, P(D^c) = .6, P(S|D) = .5, P(S|D^c) = .9\]</span> Using this, Bayes' Law and the Law of Total Probability, we know:</p>
 <p><span class="math display">\[P(D|S) = \frac{P(D)P(S|D)}{P(D)P(S|D) + P(D^c)P(S|D^c)}\]</span> <span class="math display">\[P(D|S) = \frac{.4 \times .5}{.4 \times .5 + .6 \times .9 } = .27\]</span></p>
 <p>Answer to Exercise <a href="probability-theory.html#exr:condprobexr">5.4</a>:</p>
@@ -1229,12 +1239,12 @@ A shorthand of which is <span class="math inline">\(\bar{X}_n \xrightarrow{p} \m
 <p><span class="math display">\[P(M|C) = \frac{P(C|M)P(M)}{P(C)}\]</span></p>
 <p><span class="math display">\[= \frac{P(C|M)P(M)}{P(C|M)P(M) + P(C|M^c)P(M^c)}\]</span></p>
 <p><span class="math display">\[= \frac{P(C|M)P(M)}{P(C|M)P(M) + [1-P(C^c|M^c)]P(M^c)}\]</span> <span class="math display">\[ = \frac{.95 \times .02}{.95 \times .02 + .03 \times .98} = .38\]</span></p>
-<p>Answer to Example <a href="probability-theory.html#exm:expectdiscrete">5.10</a>:</p>
+<p>Answer to Example <a href="probability-theory.html#exm:expectdiscrete">5.11</a>:</p>
 <p><span class="math inline">\(E(Y)=7/2\)</span></p>
 <p>We would never expect the result of a rolled die to be <span class="math inline">\(7/2\)</span>, but that would be the average over a large number of rolls of the die.</p>
-<p>Answer to Example <a href="probability-theory.html#exm:expectconti">5.11</a></p>
+<p>Answer to Example <a href="probability-theory.html#exm:expectconti">5.12</a></p>
 <p>0.75</p>
-<p>Answer to Example <a href="probability-theory.html#exm:var">5.12</a>:</p>
+<p>Answer to Example <a href="probability-theory.html#exm:var">5.13</a>:</p>
 <p><span class="math inline">\(E(X) = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 2 \times \frac{3}{8} + 3 \times \frac{1}{8} = \frac{3}{2}\)</span></p>
 <p>Since there is a 1 to 1 mapping from <span class="math inline">\(X\)</span> to <span class="math inline">\(X^2:\)</span> <span class="math inline">\(E(X^2) = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 4 \times \frac{3}{8} + 9 \times \frac{1}{8} = \frac{24}{8} = 3\)</span></p>
 <span class="math display">\[\begin{align*}
