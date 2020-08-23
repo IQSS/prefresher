@@ -11,34 +11,43 @@ options(knitr.graphics.auto_pdf = TRUE) # use pdf for images
 
 ## Counting rules
 
+Probability in high school is usually really about combinatorics: the probability of event _A_ is the number of ways in which _A_ can occur divided by the number of all other possibilities. This is a very simplified version of probability, which we can call the "counting definition of probability", essentially because each possible event to count is often equally likely and discrete. But it is still good to review the underlying rules here.
+
+
 __Fundamental Theorem of Counting__: If an object has $j$ different characteristics that are independent of each other, and each characteristic $i$ has $n_i$ ways of being expressed, then there are $\prod_{i = 1}^j n_i$ possible unique objects.
 
-Example: Cards can be either red or black and can take on any of 13 values.
+```{example, name = "Counting Possibilities", countingrules}
 
-$j =$
+Suppose we are given a stack of cards. Cards can be either red or black and can take on any of 13 values. There is only one of each color-number combination. In this case,
 
-$n_{\text{color}} =$ 
+1. $j =$
 
-$n_{\text{number}} =$ 
+2. $n_{\text{color}} =$ 
 
-Number of Outcomes $=$
+3. $n_{\text{number}} =$ 
+
+4. Number of Outcomes $=$
+
+
+```
+
+
 
 
 We often need to count the number of ways to choose a subset from some set of possibilities.  The number of outcomes depends on two characteristics of the process: does the order matter and is replacement allowed?
 
-__Sampling Table__: If there are $n$ objects which are numbered 1 to $n$ and we select $k < n$ of them, how many different outcomes are possible?
+It is useful to think of any problem concretely, e.g. through a __sampling table__: If there are $n$ objects which are numbered 1 to $n$ and we select $k < n$ of them, how many different outcomes are possible?
 
 If the order in which a given object is selected matters, selecting 4 numbered objects in the following order (1, 3, 7, 2) and selecting the same four objects but in a different order such as (7, 2, 1, 3) will be counted as different outcomes. 
 
 If replacement is allowed, there are always the same $n$ objects to select from. However, if replacement is not allowed, there is always one less option than the previous round when making a selection. For example, if replacement is not allowed and I am selecting 3 elements from the following set {1, 2, 3, 4, 5, 6}, I will have 6 options at first, 5 options as I make my second selection, and 4 options as I make my third. 
 
 
-So in counting how many different outcomes are possible, if ___order matters___ AND we are sampling ___with replacement___, the number of different outcomes is $n^k$.
+1. So if ___order matters___ AND we are sampling ___with replacement___, the number of different outcomes is $n^k$.
 
-If  ___order matters___ AND we are sampling ___without replacement___, the number of different outcomes is $n(n-1)(n-2)...(n-k+1)=\frac{n!}{(n-k)!}$.
+2. If  ___order matters___ AND we are sampling ___without replacement___, the number of different outcomes is $n(n-1)(n-2)...(n-k+1)=\frac{n!}{(n-k)!}$.
 
-
-If  ___order doesn't matter___ AND we are sampling ___without replacement___, the number of different outcomes is $\binom{n}{k} = \frac{n!}{(n-k)!k!}$.
+3. If  ___order doesn't matter___ AND we are sampling ___without replacement___, the number of different outcomes is $\binom{n}{k} = \frac{n!}{(n-k)!k!}$.
 
 
 Expression $\binom{n}{k}$ is read as "n choose k" and denotes $\frac{n!}{(n-k)!k!}$. Also, note that $0! = 1$.
@@ -68,6 +77,8 @@ Four cards are selected from a deck of 52 cards. Once a card has been drawn, it 
 
 
 ## Sets {#setoper}
+
+Probability is about quantifying the uncertainty of events. _Sets_ (set theory) are the mathematical way we choose to formalize those events. Events are not inherently numerical: the onset of war or the stock market crashing is not inherently a number. Sets can define such events, and we wrap math around so that we have a transparent language to communicate about those events. _Measure theory_ might sound mysterious or hard, but it is also just a mathematical way to quantify things like length, volume, and mass. Probability can be thought of as a particular application of measure theory where we want to quantify the measure of a set. 
 
 
 __Set__ : A set is any well defined collection of elements.  If $x$ is an element of $S$, $x \in S$.
