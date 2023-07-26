@@ -74,6 +74,8 @@ RStudio makes it easy to compile your very first markdown file by giving you tem
 Rmd is actually a slight modification of real markdown. It is a type of file that R reads and turns into a proper `md` file. Then, it uses a document-conversion called pandoc to compile your `md` into documents like PDF or HTML.
 
 ![How Rmds become PDFs or HTMLs](images/RMarkdownFlow.png)
+### Quarto
+
 
 
 
@@ -88,7 +90,12 @@ Multiple software exist where you can edit plain-text (roughly speaking, text th
 * [Sublime Text](https://www.sublimetext.com) (general)
 
 Each has their own keyboard shortcuts and special features. You can browse a couple and see which one(s) you like.
- 
+
+Since June 2021, RStudio has offered a visual editor which tries to bridge the gap between plain-text and WYSIWYG.
+While writing, it transforms plain markdown, RMarkdown, or Quarto documents into a "WYSISWYM" version, What You See Is What You Mean.
+Formatting choices, like bold or italicized text are shown as **bold** or *italicized* text, rather than as intermediate markdown.
+Lists, enumerations, and images are shown inline, rather than the code that includes them.
+This is not a final form though, as styling still occurs when rendering the final document.
 
 ## LaTeX
 
