@@ -74,16 +74,28 @@ RStudio makes it easy to compile your very first markdown file by giving you tem
 Rmd is actually a slight modification of real markdown. It is a type of file that R reads and turns into a proper `md` file. Then, it uses a document-conversion called pandoc to compile your `md` into documents like PDF or HTML.
 
 ![How Rmds become PDFs or HTMLs](images/RMarkdownFlow.png)
+
 ### Quarto
 
+R Markdown (`.Rmd`) files have long been the go-to for reproducible writing workflows for R users.
+In 2022, [Posit, PBC](https://posit.co/), who created R Markdown announced a new generation of markdown extensions, with Quarto.
+Quarto (`.qmd`) files are a variation on R Markdown which allows for including R, python, Observable, Julia, and more within a document.
+Quarto is largely compatible with older `.Rmd` files, just by changing the extension.
+As such, you can integrate LaTeX and markdown seamlessly.
 
+Some benefits of using Quarto include:
+
+* [ease of customization with template partials](https://quarto.org/docs/journals/templates.html#template-partials)
+* [journal submission templates for many journals](https://quarto.org/docs/extensions/listing-journals.html)
+* [dozen of output types](https://quarto.org/docs/reference/)
+* [the ability to make websites interacting only with Quarto](https://quarto.org/docs/websites/)
 
 
 ### A note on plain-text editors
 
 Multiple software exist where you can edit plain-text (roughly speaking, text that is not WYSIWYG). 
 
-* RStudio (especially for R-related links)
+* [RStudio](https://posit.co/products/open-source/rstudio/) (especially for R-related links)
 * TeXMaker, TeXShop (especially for TeX)
 * [emacs](https://www.gnu.org/software/emacs/), aquamacs (general)
 * [vim](http://www.vim.org/download.php) (general)
