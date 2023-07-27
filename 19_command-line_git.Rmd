@@ -137,6 +137,15 @@ The tutorial <https://try.github.io/> is quite good. You'd want to have familiar
 
 RStudio Projects has a great git GUI as well. 
 
+### GitHub Desktop
+
+If you are using GitHub for managing git repositories, one option is to use a desktop version, [GitHub Desktop](https://desktop.github.com/).
+It offers an in-between step to ease into the git lingo.
+Repositories become a drop-down menu.
+"push"ing, "pull"ing, and "fetch"ing all become a big button.
+It also provides a visual difference interface, which shows the changes you are making to files before you "push" them.
+It can't do everything, but it provides a way to become familiar with GitHub without the (potentially) intimidating aspects of diving full-on into the command line.
+
 
 ### is git worth it?
 
