@@ -75,20 +75,39 @@ Rmd is actually a slight modification of real markdown. It is a type of file tha
 
 ![How Rmds become PDFs or HTMLs](images/RMarkdownFlow.png)
 
+### Quarto
+
+R Markdown (`.Rmd`) files have long been the go-to for reproducible writing workflows for R users.
+In 2022, [Posit, PBC](https://posit.co/), who created R Markdown announced a new generation of markdown extensions, with Quarto.
+Quarto (`.qmd`) files are a variation on R Markdown which allows for including R, python, Observable, Julia, and more within a document.
+Quarto is largely compatible with older `.Rmd` files, just by changing the extension.
+As such, you can integrate LaTeX and markdown seamlessly.
+
+Some benefits of using Quarto include:
+
+* [ease of customization with template partials](https://quarto.org/docs/journals/templates.html#template-partials)
+* [journal submission templates for many journals](https://quarto.org/docs/extensions/listing-journals.html)
+* [dozen of output types](https://quarto.org/docs/reference/)
+* [the ability to make websites interacting only with Quarto](https://quarto.org/docs/websites/)
 
 
 ### A note on plain-text editors
 
 Multiple software exist where you can edit plain-text (roughly speaking, text that is not WYSIWYG). 
 
-* RStudio (especially for R-related links)
+* [RStudio](https://posit.co/products/open-source/rstudio/) (especially for R-related links)
 * TeXMaker, TeXShop (especially for TeX)
 * [emacs](https://www.gnu.org/software/emacs/), aquamacs (general)
 * [vim](http://www.vim.org/download.php) (general)
 * [Sublime Text](https://www.sublimetext.com) (general)
 
 Each has their own keyboard shortcuts and special features. You can browse a couple and see which one(s) you like.
- 
+
+Since June 2021, RStudio has offered a visual editor which tries to bridge the gap between plain-text and WYSIWYG.
+While writing, it transforms plain markdown, RMarkdown, or Quarto documents into a "WYSISWYM" version, What You See Is What You Mean.
+Formatting choices, like bold or italicized text are shown as **bold** or *italicized* text, rather than as intermediate markdown.
+Lists, enumerations, and images are shown inline, rather than the code that includes them.
+This is not a final form though, as styling still occurs when rendering the final document.
 
 ## LaTeX
 
