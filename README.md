@@ -6,7 +6,7 @@ _(view this book on a [browser](https://iqss.github.io/prefresher/) or in a [PDF
 
 The [__Harvard Gov Prefresher__](https://projects.iq.harvard.edu/prefresher) is held each year in August. All relevant information is on our website, including the day-to-day schedule and the current instructors.
 
-The booklet maintained in this repository is the text for the Prefresher, and is the accumulation of continuous improvements by previous instructors for the past 25 years (See the [title page](https://iqss.github.io/prefresher/) for the full list). [Shiro Kuriwaki](https://github.com/kuriwaki) is the repository maintainer. 
+The booklet maintained in this repository is the text for the Prefresher, and is the accumulation of continuous improvements by previous instructors for the past 25 years (See the [title page](https://iqss.github.io/prefresher/) for the full list). Christopher T. Kenny is the repository maintainer. [Shiro Kuriwaki](https://github.com/kuriwaki) was the repository maintainer from 2018 to 2023.
 
 
 ## Technical: How the book is compiled
