@@ -1,12 +1,12 @@
-# (PART) Solutions {-}
+# (PART) Solutions {.unnumbered}
 
-# Solutions to Warmup Questions {-}
+# Solutions to Warmup Questions {.unnumbered}
 
 
 
-## Linear Algebra {-}
+## Linear Algebra {.unnumbered}
 
-### Vectors {-}
+### Vectors {.unnumbered}
 
 Define the vectors $u = \begin{pmatrix} 1 \\2 \\3 \end{pmatrix}$, $v = \begin{pmatrix} 4\\5\\6 \end{pmatrix}$, and the scalar $c = 2$. 
 
@@ -47,7 +47,7 @@ i.e., a linear combination of these three vectors that would amount to zero exis
 If you are having trouble with these problems, please review Section \@ref(linearindependence). 
 
 
-### Matrices {-}
+### Matrices {.unnumbered}
 
 \[{\bf A}=\begin{pmatrix}
 			7 & 5 & 1 \\
@@ -105,9 +105,9 @@ If you are having trouble with these problems, please review Section \@ref(matri
 
 
 
-## Operations {-}
+## Operations {.unnumbered}
 
-### Summation {-}
+### Summation {.unnumbered}
 
 Simplify the following
 
@@ -118,7 +118,7 @@ Simplify the following
 3. \(\sum\limits_{i= 1}^4 (3k + i + 2) = 3\sum\limits_{i= 1}^4k + \sum\limits_{i= 1}^4i + \sum\limits_{i= 1}^42 = 12k + 10 + 8 = 12k + 18\)
 
 
-### Products {-}
+### Products {.unnumbered}
 
 1. \(\prod\limits_{i= 1}^3 i = 1\cdot 2\cdot 3 = 6\)
 
@@ -128,7 +128,7 @@ Simplify the following
 To review this material, please see Section \@ref(sum-notation).
 
 
-### Logs and exponents {-}
+### Logs and exponents {.unnumbered}
 
 Simplify the following
 
@@ -147,7 +147,7 @@ To review this material, please see Section \@ref(logexponents)
 
 
 
-## Limits {-}
+## Limits {.unnumbered}
 
 Find the limit of the following.
 
@@ -158,7 +158,7 @@ Find the limit of the following.
 To review this material please see Section \@ref(limitsfun)
 
 
-## Calculus {-}
+## Calculus {.unnumbered}
 
 For each of the following functions $f(x)$, find the derivative $f'(x)$ or $\frac{d}{dx}f(x)$
 
@@ -171,7 +171,7 @@ For each of the following functions $f(x)$, find the derivative $f'(x)$ or $\fra
 
 For a review, please see Section \@ref(derivintro) - \@ref(derivpoly)
 
-## Optimization {-}
+## Optimization {.unnumbered}
 
 For each of the followng functions $f(x)$, does a maximum and minimum exist in the domain $x \in \mathbf{R}$? If so, for what are those values and for which values of $x$?
 
@@ -182,7 +182,7 @@ For each of the followng functions $f(x)$, does a maximum and minimum exist in t
 If you are stuck, please try sketching out a picture of each of the functions.
 	
 
-## Probability {-}
+## Probability {.unnumbered}
 
 1. If there are 12 cards, numbered 1 to 12, and 4 cards are chosen, $\binom{12}{4} = \frac{12\cdot 11\cdot 10\cdot 9}{4!} = 495$ possible hands exist (unordered, without replacement) .
 2. Let $A = \{1,3,5,7,8\}$ and $B = \{2,4,7,8,12,13\}$. Then $A \cup B = \{1, 2, 3, 4, 5, 7, 8, 12, 13\}$,  $A \cap B = \{7, 8\}$? If $A$ is a subset of the Sample Space $S = \{1,2,3,4,5,6,7,8,9,10\}$, then the complement $A^C = \{2, 4, 6, 9, 10\}$

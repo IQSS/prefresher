@@ -1,13 +1,13 @@
 
 # Joins and Merges, Wide and Long^[Module originally written by Shiro Kuriwaki, Connor Jerzak, and Yon Soo Park] {#dempeace}
 
-### Motivation {-}
+### Motivation {.unnumbered}
 
 The "Democratic Peace" is one of the most widely discussed propositions in political science, covering the fields of International Relations and Comparative Politics, with insights to domestic politics of democracies (e.g. American Politics). The one-sentence idea is that democracies do not fight with each other. There have been much theoretical debate -- for example in earlier work, [Oneal and Russet (1999)](https://blackboard.angelo.edu/bbcswebdav/institution/LFA/CSS/Course%20Material/SEC6302/Readings/Lesson_3/Oneal-Russett.pdf) argue that the democratic peace is not due to the hegemony of strong democracies like the U.S. and attempt to distinguish between realist and what they call Kantian propositions (e.g. democratic governance, international organizations)^[[The Kantian Peace: The Pacific Benefits of Democracy, Interdependence, and International Organizations, 1885-1992. _World Politics_ 52(1):1-37](https://blackboard.angelo.edu/bbcswebdav/institution/LFA/CSS/Course%20Material/SEC6302/Readings/Lesson_3/Oneal-Russett.pdf)]. 
 
 An empirical demonstration of the democratic peace is also a good example of a __Time Series Cross Sectional__ (or panel) dataset, where the same units (in this case countries) are observed repeatedly for multiple time periods. Experience in assembling and analyzing a TSCS dataset will prepare you for any future research in this area.
 
-## Where are we? Where are we headed? {-}
+## Where are we? Where are we headed? {.unnumbered}
 
 Up till now, you should have covered:
 
@@ -26,7 +26,9 @@ Today you will work on your own, but feel free to ask a fellow classmate nearby 
 
 ## Setting up
 
-```{r, message=FALSE, warning=FALSE}
+```{r}
+#| message: false
+#| warning: false
 library(dplyr)
 library(tidyr)
 library(readr)
@@ -56,7 +58,9 @@ Most projects you do will start with downloading data from elsewhere. For this t
 ## Example with 2 Datasets
 
 Let's read in a sample dataset. 
-```{r, warning = FALSE, message = FALSE}
+```{r}
+#| warning: false
+#| message: false
 polity <- read_csv("data/input/sample_polity.csv")
 mid <- read_csv("data/input/sample_mid.csv")
 ```
@@ -139,7 +143,7 @@ select(p_m_wide, 1:10)
 
 Try building a panel that would be useful in answering the Democratic Peace Question, perhaps in these steps.
 
-### Task 1: Data Input and Standardization {-}
+### Task 1: Data Input and Standardization {.unnumbered}
 
 Often, files we need are saved in the `.xls` or `xlsx` format. It is possible to read these files directly into `R`, but experience suggests that this process is slower than converting them first to `.csv` format and reading them in as `.csv` files. 
 
@@ -152,7 +156,7 @@ Often, files we need are saved in the `.xls` or `xlsx` format. It is possible to
 ```
 
 
-### Task 2: Data Merging {-}
+### Task 2: Data Merging {.unnumbered}
 We will use data to test a version of the Democratic Peace Thesis (DPS).  Democracies are said to go to war less because the leaders who wage wars are accountable to voters who have to bear the costs of war. Are democracies less likely to engage in militarized interstate disputes?
 
 To start, let's download and merge some data. 
@@ -167,7 +171,7 @@ To start, let's download and merge some data.
 ```
 
 
-### Task 3: Tabulations and Visualization {-}
+### Task 3: Tabulations and Visualization {.unnumbered}
 
 1.  Calculate the mean Polity2 score by year. Plot the result. Use graphical indicators of your choosing to show where key events fall in this timeline (such as 1914, 1929, 1939, 1989, 2008). Speculate on why the behavior from 1800 to 1920 seems to be qualitatively different than behavior afterwards.
 2. Do the same but only among state-years that were invovled in a MID. Plot this line together with your results from 1. 

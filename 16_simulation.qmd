@@ -1,11 +1,12 @@
 # Simulation^[Module originally written by Connor Jerzak and Shiro Kuriwaki] {#simulation}
 
 
-```{r, include=FALSE}
+```{r}
+#| include: false
 library(dplyr)
 ```
 
-### Motivation: Simulation as an Analytical Tool {-}
+### Motivation: Simulation as an Analytical Tool {.unnumbered}
 
 An increasing amount of political science contributions now include a simulation. 
 
@@ -22,7 +23,7 @@ Statistical methods also incorporate simulation:
 
 
 
-### Where are we? Where are we headed? {-}
+### Where are we? Where are we headed? {.unnumbered}
 
 Up till now, you should have covered:
 
@@ -36,7 +37,7 @@ Up till now, you should have covered:
 In this module, we will start to work with generating data within R, from thin air, as it were. Doing simulation also strengthens your understanding of Probability (Section \@ref{probability}).
 
 
-### Check your Understanding {-}
+### Check your Understanding {.unnumbered}
 
 * What does the `sample()` function do?
 * What does `runif()` stand for?
@@ -79,7 +80,8 @@ sample(x = 1:10, size = 10, replace = TRUE) ## any number can appear more than o
 ```
 
 It follows then that you cannot sample without replacement a sample that is larger than the pool.
-```{r, error = TRUE}
+```{r}
+#| error: true
 sample(x = 1:10, size = 100, replace = FALSE)
 ```
 
@@ -126,7 +128,7 @@ As a side-note, these functions have very practical uses for any type of data an
 
 ## Random numbers from specific distributions
 
-### `rbinom()` {-}
+### `rbinom()` {.unnumbered}
 `rbinom` builds upon `sample` as a tool to help you answer the question -- what is the _total number of successes_ I would get if I  sampled a binary (Bernoulli) result from a test with `size` number of trials each, with a event-wise probability of `prob`. The first argument `n` asks me how many such numbers I want.
 
 For example, I want to know how many Heads I would get if I flipped a fair coin 100 times. 
@@ -139,7 +141,7 @@ Now imagine this I wanted to do this experiment 10 times, which would require I 
 rbinom(n = 10, size = 100, prob = 0.5)
 ```
 
-### `runif()` {-}
+### `runif()` {.unnumbered}
 `runif` also simulates a stochastic scheme where each event has equal probability of getting chosen like `sample`, but is a continuous rather than discrete system.  We will cover this more in the next math module.
 
 The intuition to emphasize here is that one can generate potentially infinite amounts (size `n`) of noise that is a essentially random
@@ -150,7 +152,7 @@ runif(n = 5)
 ```
 
 
-### `rnorm()` {-}
+### `rnorm()` {.unnumbered}
 
 `rnorm` is also a continuous distribution, but draws from a Normal distribution -- perhaps the most important distribution in statistics. It runs the same way as `runif`
 
@@ -198,9 +200,9 @@ runif(n = 10)
 
 
 
-## Exercises {-}
+## Exercises {.unnumbered}
 
-### Census Sampling {-}
+### Census Sampling {.unnumbered}
 
 What can we learn from surveys of populations, and how wrong do we get if our sampling is biased?^[This example is inspired from [Meng, Xiao-Li  (2018). Statistical paradises and paradoxes in big data (I): Law of large populations, big data paradox, and the 2016 US presidential election. _Annals of  Applied Statistics_ 12:2, 685–726. doi:10.1214/18-AOAS1161SF.](https://statistics.fas.harvard.edu/files/statistics-2/files/statistical_paradises_and_paradoxes.pdf)]  Suppose we want to estimate the proportion of U.S. residents who are non-white (`race != "White"`). In reality, we do not have any population dataset to utilize and so we _only see the sample survey_. Here, however, to understand how sampling works, let's conveniently use the Census extract in some cases and pretend we didn't in others.
 
@@ -258,7 +260,7 @@ You can do this by creating a variable, e.g. `propensity`, that is 0.9 for non-W
 
 
 
-### Conditional Proportions {-}
+### Conditional Proportions {.unnumbered}
 
 This example is not on simulation, but is meant to reinforce some of the probability discussion from math lecture. 
 
@@ -297,7 +299,7 @@ In addition to some standard demographic questions, we will focus on one called 
 
 
 
-### The Birthday problem {-}
+### The Birthday problem {.unnumbered}
 
 Write code that will answer the well-known birthday problem via simulation.^[This exercise draws from Imai (2017)]
 

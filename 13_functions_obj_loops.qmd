@@ -1,7 +1,7 @@
 # Objects, Functions, Loops {#robjloops}
 
 
-### Where are we? Where are we headed? {-}
+### Where are we? Where are we headed? {.unnumbered}
 
 Up till now, you should have covered:
 
@@ -25,7 +25,9 @@ Now that we have covered some hands-on ways to use graphics, let's go into some 
 
 Let's first set up 
 
-```{r, message=FALSE, warning=FALSE}
+```{r}
+#| message: false
+#| warning: false
 library(dplyr)
 library(readr)
 library(haven)
@@ -160,7 +162,8 @@ class(ols)
 
 Anything can be an object! Even graphs (in `ggplot`) can be assigned, re-assigned, and edited. 
 
-```{r, warning=FALSE}
+```{r}
+#| warning: false
 
 grp_race <- group_by(cen10, race)%>%
   summarize(count = n())
@@ -201,7 +204,8 @@ str(pikachu)
 
 What does a `ggplot` object look like? Very complicated, but at least you can see it:
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 # enter this on your console
 str(gg_tab)
 ```
@@ -276,7 +280,8 @@ Most of what we do in R is executing a function. `read_csv()`, `nrow()`, `ggplot
 A function is a set of instructions with specified ingredients. It takes an __input__, then __manipulates__ it -- changes it in some way -- and then returns the manipulated product. 
 
 One way to see what a function actually does is to enter it without parentheses. 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 # enter this on your console
 table
 ```
@@ -287,7 +292,8 @@ You'll notice that functions contain other functions. _wrapper_ functions are fu
 
 ### Write your own function
 It's worth remembering the basic structure of a function. You create a new function, call it `my_fun` by this:
-```{r, eval = F}
+```{r}
+#| eval: !expr F
 my_fun <- function() {
   
 }
@@ -339,10 +345,10 @@ nw_in_state(cen10, "Massachusetts")
 ```
 
 
-## Checkpoint {-}
+## Checkpoint {.unnumbered}
 
 
-### 1 {-}
+### 1 {.unnumbered}
 
 Try making your own function, `average_age_in_state`, that will give you the average age of people in a given state.
 ```{r}
@@ -353,14 +359,14 @@ Try making your own function, `average_age_in_state`, that will give you the ave
 
 
 
-### 2 {-}
+### 2 {.unnumbered}
 
 Try making your own function, `asians_in_state`, that will give you the number of `Chinese`, `Japanese`, and `Other Asian or Pacific Islander` people in a given state.
 ```{r}
 # Enter on your own
 ```
 
-### 3 {-}
+### 3 {.unnumbered}
 
 Try making your own function, 'top_10_oldest_cities', that will give you the names of cities whose population's average age is top 10 oldest. 
 
@@ -380,7 +386,8 @@ help(package = "ggplot2")
 To use a package, you need to do two things: (1) install it, and then (2) load it. 
 
 Installing is a one-time thing
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 install.packages("ggplot2")
 ```
 
@@ -413,7 +420,8 @@ if (x >0) {
 
 You can wrap that whole things in a function 
 
-```{r, warning = FALSE}
+```{r}
+#| warning: false
 is_positive <- function(number) {
   if (number >0) {
     print("positive number")
@@ -506,10 +514,10 @@ for (state in states_of_interest) {
   }
 }
 ```
-## Exercises {-}
+## Exercises {.unnumbered}
 
 
-### Exercise 1: Write your own function {-}
+### Exercise 1: Write your own function {.unnumbered}
 Write your own function that makes some task of data analysis simpler. Ideally, it would be a function that helps you do either of the previous tasks in fewer lines of code. You can use the three lines of code that was provided in exercise 1 to wrap that into another function too!
 ```{r}
 # Enter yourself
@@ -518,7 +526,7 @@ Write your own function that makes some task of data analysis simpler. Ideally, 
 
 
 
-### Exercise 2: Using Loops {-}
+### Exercise 2: Using Loops {.unnumbered}
 
 
 Using a loop, create a crosstab of sex and race for each state in the set "states_of_interest"
@@ -530,7 +538,7 @@ states_of_interest <- c("California", "Massachusetts", "New Hampshire", "Washing
 
 
 
-### Exercise 3: Storing information derived within loops in a global dataframe {-}
+### Exercise 3: Storing information derived within loops in a global dataframe {.unnumbered}
 
 Recall the following nested loop
 ```{r}

@@ -36,7 +36,9 @@ __Vector Inner Product__: The inner product (also called the dot product or scal
 __Vector Norm__: The norm of a vector is a measure of its length.  There are many different ways to calculate the norm, but the most common is the Euclidean norm (which corresponds to our usual conception of distance in three-dimensional space):
 		$$ ||{\bf v}|| = \sqrt{{\bf v}\cdot{\bf v}} = \sqrt{ v_1v_1 + v_2v_2 + \cdots + v_nv_n}$$
 
-```{example, name = "Vector Algebra", vectors}
+```{example}
+#| name: Vector Algebra
+#| label: vectors
 
 Let  $a = \begin{pmatrix} 2&1&2\end{pmatrix}$, $b = \begin{pmatrix} 3&4&5 \end{pmatrix}$. Calculate the following:
 
@@ -49,7 +51,9 @@ Let  $a = \begin{pmatrix} 2&1&2\end{pmatrix}$, $b = \begin{pmatrix} 3&4&5 \end{p
 ```
 
 
-```{exercise, name = "Vector Algebra", vectors1}
+```{exercise}
+#| name: Vector Algebra
+#| label: vectors1
 
 Let $u = \begin{pmatrix} 7&1&-5&3\end{pmatrix}$, $v = \begin{pmatrix} 9&-3&2&8 \end{pmatrix}$, $w = \begin{pmatrix} 1&13& -7&2 &15 \end{pmatrix}$, and $c = 2$. Calculate the following: 
   
@@ -86,7 +90,9 @@ A set $S$ of vectors is linearly dependent if and only if at least one of the ve
  
  Since $\begin{pmatrix}9 & 13 & 17 \end{pmatrix}$ is a linear combination of $\begin{pmatrix}1 & 2 & 3 \end{pmatrix}$, $\begin{pmatrix} 2 & 3& 4\end{pmatrix}$, and $\begin{pmatrix} 3 & 4 & 5 \end{pmatrix}$, these 4 vectors constitute a linearly dependent set. 
 
-```{example, name = "Linear Independence", linearindep} 
+```{example} 
+#| name: Linear Independence
+#| label: linearindep
 
 Are the following sets of vectors linearly independent?
   
@@ -99,7 +105,9 @@ Are the following sets of vectors linearly independent?
 
 
 
-```{exercise, name = "Linear Independence", linearindep1}
+```{exercise}
+#| name: Linear Independence
+#| label: linearindep1
 
 Are the following sets of vectors linearly independent?
   
@@ -140,7 +148,8 @@ __Matrix Addition__: Let $\bf A$ and $\bf B$ be two $m\times n$ matrices.
 
 Note that matrices ${\bf A}$ and ${\bf B}$ must have the same dimensionality, in which case they are __conformable for addition__.
 	
-```{example, matrixaddition}
+```{example}
+#| label: matrixaddition
 $${\bf A}=\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}, \qquad
 			{\bf B}=\begin{pmatrix} 1 & 2 & 1 \\ 2 & 1 & 2 \end{pmatrix}$$
 		${\bf A+B}=$
@@ -164,7 +173,8 @@ __Scalar Multiplication__:  Given the scalar $s$, the scalar multiplication of $
 			s a_{m1} & s a_{m2} & \cdots & s a_{mn}
 		\end{pmatrix}$$
 
-```{example, scalarmulti}
+```{example}
+#| label: scalarmulti
 
 
 $s=2, \qquad {\bf A}=\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}$
@@ -179,7 +189,8 @@ $s {\bf A} =$
 __Matrix Multiplication__:  If ${\bf A}$ is an $m\times k$ matrix and $\bf B$ is a $k\times n$ matrix, then their product $\bf C = A B$ is the $m\times n$ matrix where
 		$$c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{ik}b_{kj}$$
 
-```{example, matrixmulti}
+```{example}
+#| label: matrixmulti
 
 
 1.  $\begin{pmatrix} a&b\\c&d\\e&f \end{pmatrix} \begin{pmatrix} A&B\\C&D \end{pmatrix}
@@ -242,7 +253,9 @@ Example of $({\bf AB})^T = {\bf B}^T{\bf A}^T$:
 
 
 
-```{exercise, name = "Matrix Multiplication", matrixmulti1}
+```{exercise}
+#| name: Matrix Multiplication
+#| label: matrixmulti1
 
 
 Let $$A =  \begin{pmatrix} 2&0&-1&1\\1&2&0&1 \end{pmatrix}$$
@@ -324,7 +337,9 @@ Methods to solve linear systems:
 2.  Elimination of variables
 3.  Matrix methods
 
-```{exercise, name = "Linear Equations", lineareq}
+```{exercise}
+#| name: Linear Equations
+#| label: lineareq
 
 
 Provide a system of 2 equations with 2 unknowns that has
@@ -375,7 +390,9 @@ __Augmented Matrix__:  When we append $\bf b$ to the coefficient matrix $\bf A$,
 			\end{pmatrix}$$
 
 
-```{exercise, name="Augmented Matrix", augmatrix}
+```{exercise}
+#| name: Augmented Matrix
+#| label: augmatrix
 
 
 Create an augmented matrix that represent the following system of equations:
@@ -446,7 +463,8 @@ __Adding (subtracting) Rows__:  If we add (subtract) the first row of matrix $\w
 			\end{pmatrix}$$
 		which represents a linear system equivalent to that represented by matrix $\widehat{\bf A}$.
 
-```{example, solvesys}
+```{example}
+#| label: solvesys
 
 
 Solve the following system of equations by using elementary row operations:
@@ -463,7 +481,9 @@ $\begin{matrix}
 
 
 			
-```{exercise, name = "Solving Systems of Equations", solvesys1}
+```{exercise}
+#| name: Solving Systems of Equations
+#| label: solvesys1
 
 
 Put the following system of equations into augmented matrix form. Then, using Gaussian or Gauss-Jordan elimination, solve the system of equations by putting the matrix into row echelon or reduced row echelon form.
@@ -514,7 +534,9 @@ $\begin{pmatrix} 1 & 2 & 3 \\
 Rank = 2
 
 
-```{exercise, name = "Rank of Matrices", rank}
+```{exercise}
+#| name: Rank of Matrices
+#| label: rank
 
 
 Find the rank of each matrix below:
@@ -589,7 +611,8 @@ To summarize:  To calculate the inverse of ${\bf A}$
 	b. If ${\bf C}\ne{\bf I}_n$, then $\bf C$ has a row of zeros. This means ${\bf A}$ is singular and ${\bf A}^{-1}$ does not exist.
 
 
-```{example, inverse}
+```{example}
+#| label: inverse
 
 Find the inverse of the following matricies:
   
@@ -603,7 +626,9 @@ Find the inverse of the following matricies:
 
 
 
-```{exercise, name = "Finding the inverse of matrices", inverse1}
+```{exercise}
+#| name: Finding the inverse of matrices
+#| label: inverse1
 
 
 Find the inverse of the following matrix:
@@ -636,7 +661,9 @@ Hence, given $\bf{A}$ and $\bf{b}$ and given that $\bf{A}$ is nonsingular, then 
 
 
 
-```{exercise, invlinsys, name = "Solve linear system using inverses"}
+```{exercise}
+#| label: invlinsys
+#| name: Solve linear system using inverses
 
 Use the inverse matrix to solve the following linear system:
 
@@ -712,7 +739,9 @@ For example, in figuring out whether the following matrix has an inverse?
 
 
 
-```{exercise, name = "Determinants and Inverses", determinants}
+```{exercise}
+#| name: Determinants and Inverses
+#| label: determinants
 
 
 Determine whether the following matrices are nonsingular:
@@ -787,7 +816,9 @@ Recall,
 		\end{pmatrix}\]
 
 
-```{exercise, name = "Calculate Inverse using Determinant Formula", calcinverse}
+```{exercise}
+#| name: Calculate Inverse using Determinant Formula
+#| label: calcinverse
 
 
 Caculate the inverse of A
@@ -804,7 +835,7 @@ $$A = \begin{pmatrix}
 
 
 
-## Answers to Examples and Exercises {-}
+## Answers to Examples and Exercises {.unnumbered}
 
 
 

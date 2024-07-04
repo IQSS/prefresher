@@ -1,20 +1,23 @@
 #  Manipulating Vectors and  Matrices^[Module originally written by Shiro Kuriwaki and Yon Soo Park] {#rmatrices}
 
-```{r, include=FALSE, message = FALSE, warning = FALSE}
+```{r}
+#| include: false
+#| message: false
+#| warning: false
 library(dplyr)
 library(readr)
 library(haven)
 library(ggplot2)
 ```
 
-### Motivation {-}
+### Motivation {.unnumbered}
 
 [Nunn and Wantchekon (2011)](https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf) --  "The Slave Trade and the Origins of Mistrust in Africa"^[[Nunn, Nathan, and Leonard Wantchekon. 2011. “The Slave Trade and the Origins of Mistrust in Africa.” American Economic Review 101(7): 3221–52.](https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf)] --  argues that across African countries, the distrust of co-ethnics fueled by the slave trade has had long-lasting effects on modern day trust in these territories. They argued that the slave trade created distrust in these societies in part because as some African groups were employed by European traders to capture their neighbors and bring them to the slave ships.
 
 Nunn and Wantchekon use a variety of statistical tools to make their case (adding controls, ordered logit, instrumental variables, falsification tests, causal mechanisms), many of which will be covered in future courses. In this module we will only touch on their first set of analysis that use Ordinary Least Squares (OLS). OLS is likely the most common application of linear algebra in the social sciences. We will cover some linear algebra, matrix manipulation, and vector manipulation from this data. 
 
 
-### Where are we? Where are we headed? {-}
+### Where are we? Where are we headed? {.unnumbered}
 
 Up till now, you should have covered:
 
@@ -50,7 +53,9 @@ colnames(nunn_full)
 
 
 First, let's consider a small subset of this dataset. 
-```{r, include = FALSE, eval = FALSE}
+```{r}
+#| include: false
+#| eval: false
 set.seed(02138)
 sample <- sample_n(nunn_full, 10)
 sample <- select(sample, trust_neighbors, exports, ln_exports, export_area, ln_export_area)
@@ -93,7 +98,8 @@ You can think of data frames maybe as matrices-plus, because a column can take o
 
 
 Another way to think about data frames is that it is a type of list. Try the `str()` code below and notice how it is organized in slots. Each slot is a vector. They can be vectors of numbers or characters.
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 # enter this on your console
 str(cen10)
 ```
@@ -239,7 +245,9 @@ X2 %*% B
 What is this multiplication doing in terms of equations?
 
 
-```{r, echo = FALSE, eval = FALSE}
+```{r}
+#| echo: false
+#| eval: false
 ## FYI regression in Table 1 (without cluster SEs)
 
 form <- "trust_neighbors ~ exports + age + age2 +  male + urban_dum + factor(education) + factor(occupation) + factor(religion) + factor(living_conditions) + district_ethnic_frac + frac_ethnicity_in_district + isocode"
@@ -253,13 +261,15 @@ summary(lm_1_1)
 
 Let's take a look at Matrices in the context of R
 
-```{r, message = FALSE}
+```{r}
+#| message: false
 cen10 <- read_csv("data/input/usc2010_001percent.csv")
 head(cen10)
 ```
 
 What is the dimension of this dataframe? What does the number of rows represent? What does the number of columns represent?
-```{r, message = FALSE}
+```{r}
+#| message: false
 dim(cen10)
 nrow(cen10)
 ncol(cen10)
@@ -268,13 +278,15 @@ ncol(cen10)
 
 What variables does this dataset hold? What kind of information does it have?
 
-```{r, message = FALSE}
+```{r}
+#| message: false
 colnames(cen10)
 ```
 
 We can access column vectors, or vectors that contain values of variables by using the $ sign
 
-```{r, message = FALSE}
+```{r}
+#| message: false
 head(cen10$state)
 
 head(cen10$race)
@@ -283,13 +295,15 @@ head(cen10$race)
 We can look at a unique set of variable values by calling the unique function
 
 
-```{r, message = FALSE}
+```{r}
+#| message: false
 unique(cen10$state)
 ```
 
 How many different states are represented (this dataset includes DC as a state)? 
 
-```{r, message = FALSE}
+```{r}
+#| message: false
 length(unique(cen10$state))
 ```
 
@@ -311,7 +325,8 @@ cross_tab[6, 2]
 But a subset of your data -- individual values-- can be considered a matrix too. 
 
 
-```{r, warning = FALSE}
+```{r}
+#| warning: false
 # First 20 rows of the entire data
 # Below two lines of code do the same thing
 cen10[1:20, ]
@@ -380,23 +395,23 @@ s8 <- cen10 %>% filter(!state %in% c("California", "Ohio", "Nevada", "Michigan")
 all_equal(s7, s8)
 ```
 
-## Checkpoint {-}
+## Checkpoint {.unnumbered}
 
 
-### 1 {-}
+### 1 {.unnumbered}
 Get the subset of cen10 for non-white individuals (Hint: look at the set of values for the race variable by using the unique function)
 ```{r}
 # Enter here
 ```
 
-### 2 {-}
+### 2 {.unnumbered}
 Get the subset of cen10 for females over the age of 40
 ```{r}
 # Enter here
 ```
 
 
-### 3 {-}
+### 3 {.unnumbered}
 Get all the serial numbers for black, male individuals who don't live in Ohio or Nevada.
 ```{r}
 # Enter here
@@ -404,9 +419,9 @@ Get all the serial numbers for black, male individuals who don't live in Ohio or
 
 
 
-## Exercises {-}
+## Exercises {.unnumbered}
 
-### 1 {-}
+### 1 {.unnumbered}
 
 Let
 \[\mathbf{A} = \left[\begin{array}
@@ -426,7 +441,7 @@ Use R to write code that will create the matrix $A$, and then  consecutively mul
 Note that R notation of matrices is different from the math notation. Simply trying `X^n` where `X` is a matrix will only take the power of each element to `n`. Instead, this problem asks you to perform matrix multiplication.
 
 
-### 2 {-}
+### 2 {.unnumbered}
 Let's apply what we learned about subsetting or filtering/selecting. Use the `nunn_full` dataset you have already loaded
 
 a) First, show all observations (rows) that have a `"male"` variable higher than 0.5
@@ -447,18 +462,18 @@ c) Lastly, show all values of `"trust_neighbors"` and `"age"` for observations (
 ## Enter yourself
 ```
 
-### 3 {-}
+### 3 {.unnumbered}
 
 Find a way to generate a vector of "column averages" of the matrix `X` from the Nunn and Wantchekon data in one line of code. Each entry in the vector should contain the sample average of the values in the column. So a 100 by 4 matrix should generate a length-4 matrix.
 
 
 
-### 4 {-}
+### 4 {.unnumbered}
 
 Similarly, generate a vector of "column medians". 
 
 
-### 5 {-}
+### 5 {.unnumbered}
 
 Consider the regression that was run to generate Table 1:
 ```{r}

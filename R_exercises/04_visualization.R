@@ -8,7 +8,7 @@ library(scales)
 
 
 
-### Where are we? Where are we headed? {-}
+### Where are we? Where are we headed? {.unnumbered}
 
 # Up till now, you should have covered:
 #   

@@ -1,7 +1,17 @@
-book_filename: "prefresher"
-repo: https://github.com/IQSS/prefresher/
+project:
+  type: book
+
+book:
+  title: "Math Prefresher for Political Scientists"
+  site-url: https://iqss.github.io/prefresher/
+  chapters:
+    - index.qmd
+    - 01_warmup.qmd
+    - 02_functions.qmd
+  
 output_dir: _book
 delete_merged_file: true
+
 language:
   ui:
     chapter_name: "Chapter "

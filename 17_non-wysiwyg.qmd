@@ -1,7 +1,7 @@
 #  LaTeX and markdown^[Module originally written by Shiro Kuriwaki] {#nonwysiwyg}
 
 
-### Where are we? Where are we headed? {-}
+### Where are we? Where are we headed? {.unnumbered}
 
 Up till now, you should have covered:
 
@@ -25,7 +25,7 @@ command-line are a basic set of tools that you may have to use from time to time
 
 
 
-### Check your understanding {-}
+### Check your understanding {.unnumbered}
 
 Check if you have an idea of how you might code the following tasks:
 
@@ -120,7 +120,7 @@ LaTeX is a typesetting program. You'd engage with LaTeX much like you engage wit
 3. Let's discuss the default template.
 4. Make a new document, and set it as your main document. Then type in the Minimal Working Example (MWE):
 
-```{bash, eval = FALSE}
+```tex
 \documentclass{article}
 \begin{document}
 Hello World
@@ -134,7 +134,7 @@ LaTeX is a very stable system, and few changes to it have been made since the 19
 
 1. Open a plain text editor. Then type in the MWE
 
-```{bash, eval = FALSE}
+```tex
 \documentclass{article}
 \begin{document}
 Hello World
@@ -192,7 +192,7 @@ For some LaTeX commands you might need to load a separate package that someone e
 where `package` is the name of the package and `options` are options specific to the package. 
 
 
-### Further Guides {-}
+### Further Guides {.unnumbered}
 
 For a more comprehensive listing of LaTeX commands, Mayya Komisarchik has a great tutorial set of folders: <https://scholar.harvard.edu/mkomisarchik/tutorials-0>
 
@@ -206,7 +206,7 @@ BibTeX is a reference system for bibliographical tests. We have a `.bib` file se
 ### what is a `.bib` file?
 For example, here is the Nunn and Wantchekon article entry in `.bib` form.
 
-```{}
+```tex
 @article{nunn2011slave,
   title={The Slave Trade and the Origins of Mistrust in Africa},
   author={Nunn, Nathan and Wantchekon, Leonard},
@@ -246,7 +246,7 @@ For example, Gary's BibTeX file is here: <https://github.com/iqss-research/gkbib
 
 Citation management software (Mendeley or Zotero) automatically generates .bib entries from your library of PDFs for you, provided you have the bibliography attributes right. 
 
-## Exercise {-}
+## Exercise {.unnumbered}
 
 Create a LaTeX document for a hypothetical research paper on your laptop and, once you've verified it compiles into a PDF, come show it to either one of the instructors. 
 
@@ -272,7 +272,7 @@ Depending on your subfield or interests, try to implement some of the following:
 
 
 
-## Concluding the Prefresher {-}
+## Concluding the Prefresher {.unnumbered}
 
 Math may not be the perfect tool for every aspiring political scientist, but hopefully it was useful background to have at the least:
 
@@ -294,7 +294,7 @@ Keep on learning, trying new techniques to improve your work, and learn from oth
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
-### Your Feedback Matters {-}
+### Your Feedback Matters {.unnumbered}
 
 _Please tell us how we can improve the Prefresher_: The Prefresher is a work in progress, with material mainly driven by graduate students. Please tell us how we should change (or not change) each of its elements:
 

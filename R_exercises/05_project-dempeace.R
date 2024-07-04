@@ -182,7 +182,7 @@ p_m_wide <- pivot_wider(p_m,
 # Merge data here:
 
 
-### Task 3: Tabulations and Visualization {-}
+### Task 3: Tabulations and Visualization {.unnumbered}
 
 # 1.Calculate the mean Polity2 score by year. Plot the result. Use graphical indicators of 
 #   your choosing to show where key events fall in this timeline (such as 1914, 1929, 1939, 1989, 2008). 

@@ -1,4 +1,4 @@
-# (PART) Math {-}
+# (PART) Math {.unnumbered}
 
 # Functions and Operations
 
@@ -60,7 +60,9 @@ __Modulo:__ Tells you the remainder when you divide the first number by the seco
 
 
 
-```{example, name = "Operators", operators}
+```{example}
+#| name: Operators
+#| label: operators
 
 
 1. $\sum\limits_{i=1}^{5} i =$
@@ -75,7 +77,9 @@ __Modulo:__ Tells you the remainder when you divide the first number by the seco
 
 ```
 
-```{exercise, name = "Operators", operators1}
+```{exercise}
+#| name: Operators
+#| label: operators1
 Let $x_1 = 4, x_2 = 3, x_3 = 7, x_4 = 11, x_5 = 2$
 
 1. $\sum\limits_{i=1}^{3} (7)x_i$
@@ -123,7 +127,9 @@ Function of two variables: $f: {\bf R}^2\to{\bf R}^1$.
 We often use variable $x$ as input and another $y$ as output, e.g. $y=x+1$
 
 
-```{example, name = "Functions", functions}
+```{example}
+#| name: Functions
+#| label: functions
 
 For each of the following, state whether they are one-to-one or many-to-one functions. 
 
@@ -136,7 +142,9 @@ For each of the following, state whether they are one-to-one or many-to-one func
 ```
 
 
-```{exercise, name = "Functions", functions1}
+```{exercise}
+#| name: Functions
+#| label: functions1
 
 For each of the following, state whether they are one-to-one or many-to-one functions. 
 
@@ -247,7 +255,9 @@ Therefore, you can see that the log of a product is equal to the sum of the logs
 
 
 
-```{example, name = "Logarithmic Functions", log}
+```{example}
+#| name: Logarithmic Functions
+#| label: log
 
 Evaluate each of the following logarithms
 
@@ -265,7 +275,9 @@ Simplify the following logarithm. By "simplify", we actually really mean - use a
 ```
 
 
-```{exercise, name = "Logarithmic Functions", log1}
+```{exercise}
+#| name: Logarithmic Functions
+#| label: log1
 
 
 Evaluate each of the following logarithms
@@ -302,7 +314,9 @@ What can a graph tell you about a function?
 	
 Sometimes we're given a function $y=f(x)$ and we want to find how $x$ varies as a function of $y$. Use algebra to move $x$ to the left hand side (LHS) of the equation and so that the right hand side (RHS) is only a function of $y$.
 
-```{example, name = "Solving for Variables", solvevar} 
+```{example} 
+#| name: Solving for Variables
+#| label: solvevar
 
 
 Solve for x:
@@ -328,7 +342,9 @@ __Quadratic Formula:__ For quadratic equations $ax^2+bx+c=0$, use the quadratic 
 	
 
 
-```{exercise, name = "Finding Roots", solvevar1}
+```{exercise}
+#| name: Finding Roots
+#| label: solvevar1
 
 Solve for x:
   
@@ -380,7 +396,7 @@ __Empty__: The empty (or null) set is a unique set that has no elements, denoted
 * Examples: The set of squares with 5 sides; the set of countries south of the South Pole.
 
 
-## Answers to Examples and Exercises  {-}
+## Answers to Examples and Exercises  {.unnumbered}
 
 Answer to Example \@ref(exm:operators):
   

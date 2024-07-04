@@ -1,7 +1,8 @@
 # Optimization {#optim}
 
 
-```{r, include = FALSE}
+```{r}
+#| include: false
 library(ggplot2)
 library(tibble)
 library(patchwork)
@@ -12,7 +13,7 @@ To optimize, we use derivatives and calculus. Optimization is to find the maximu
 Optimization also comes up in Economics, Formal Theory, and Political Economy all the time. A go-to model of human behavior is that they optimize a certain utility function. Humans are not pure utility maximizers, of course, but nuanced models of optimization -- for example, adding constraints and adding uncertainty -- will prove to be quite useful.
 
 
-## Example: Meltzer-Richard {-}
+## Example: Meltzer-Richard {.unnumbered}
 
 A standard backdrop in comparative political economy, the Meltzer-Richard (1981) model states that redistribution of wealth should be higher in societies where the median income is much smaller than the average income. More to the point, typically income distributions wher ethe median is very different from the average is one of high inequality. In other words, the Meltzer-Richard model says that highly unequal economies will have more re-distribution of wealth.  Why is that the case? Here is a simplified example that is not the exact model by Meltzer and Richard^[Allan H. Meltzer and Scott F. Richard. ["A Rational Theory of the Size of Government"](https://www.jstor.org/stable/1830813).  _Journal of Political Economy_
 89:5 (1981), p. 914-927], but adapted from Persson and Tabellini^[Adapted from Torsten Persson and Guido Tabellini, _Political Economics: Explaining Economic Policy_. MIT Press. ]
@@ -100,7 +101,9 @@ The first derivative, $f'(x)$, quantifies the slope of a function. Therefore, it
 So for example, $f(x) = x^2 + 2$ and $f^\prime(x) = 2x$ 
 
 
-```{r, echo = FALSE, fig.cap="Maxima and Minima"}
+```{r}
+#| echo: false
+#| fig-cap: Maxima and Minima
 range <- tibble::tibble(x = c(-3, 3))
 fx0 <- ggplot(range, aes(x = x)) +
   labs(x = expression(x), y = expression(f(x)),
@@ -116,13 +119,16 @@ fx + fprimex + plot_layout(nrow = 1)
 ```
 
 
-```{exercise, name = "Plotting a mazimum and minimum"}
+```{exercise}
+#| name: Plotting a mazimum and minimum
 Plot $f(x)=x^3+ x^2 + 2$, plot its derivative, and identifiy where the derivative is zero. Is there a maximum or minimum?
 
 ```
 
 
-```{r, echo = FALSE, eval = FALSE}
+```{r}
+#| echo: false
+#| eval: false
 range <- tibble::tibble(x = c(-3, 3))
 fx0 <- ggplot(range, aes(x = x)) +
   labs(x = expression(x), y = expression(f(x))) +
@@ -169,7 +175,8 @@ __Global Maxima and Minima__ Sometimes no global max or min exists --- e.g., $f(
 
 
 
-```{example, name = "Maxima and Minima by drawing"}
+```{example}
+#| name: Maxima and Minima by drawing
 
 Find any critical points and identify whether they are a max, min, or saddle point:
 
@@ -187,13 +194,15 @@ Find any critical points and identify whether they are a max, min, or saddle poi
 
 Concavity helps identify the curvature of a function, $f(x)$, in 2 dimensional space.
 
-```{definition, name = "Concave Function"}
+```{definition}
+#| name: Concave Function
 A function $f$ is strictly concave over the set S \underline{if} $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) > af(x_1) + (1-a)f(x_2)$$
 \textit{Any} line connecting two points on a concave function will lie \textit{below} the function.
 ```
 
 
-```{r, echo = FALSE}
+```{r}
+#| echo: false
 range1 <- tibble(x = c(-4, 4))
 fx1 <- ggplot(range1, aes(x = x)) +
   stat_function(fun = function(x) -x^2, size = 0.5) +
@@ -206,7 +215,8 @@ fx1 + fx2 + plot_layout(nrow = 1)
 ```
 
 
-```{definition, name = "Convex Function"}
+```{definition}
+#| name: Convex Function
 Convex: A function f is strictly convex over the set S \underline{if} $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) < af(x_1) + (1-a)f(x_2)$$
 
   Any line connecting two points on a convex function will lie above the function.
@@ -219,7 +229,8 @@ Convex: A function f is strictly convex over the set S \underline{if} $\forall x
 
 Sometimes, concavity and convexity are strict of a requirement. For most purposes of getting solutions, what we call quasi-concavity is enough.
 
-```{definition, name = "Quasiconcave Function"}
+```{definition}
+#| name: Quasiconcave Function
 A function f is quasiconcave over the set S if $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) \ge \min(f(x_1),f(x_2))$$
 
   No matter what two points you select, the \textit{lowest} valued point will always be an end point.
@@ -230,7 +241,8 @@ A function f is quasiconcave over the set S if $\forall x_1,x_2 \in S$ and $\for
   \parbox{2in}{\includegraphics[scale=.4]{Quasiconcave.pdf}}
 \end{comment}
 
-```{definition, name = "Quasiconvex"}
+```{definition}
+#| name: Quasiconvex
 A function f is quasiconvex over the set $S$ if $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) \le \max(f(x_1),f(x_2))$$
 No matter what two points you select, the \textit{highest} valued point will always be an end point.
 ```
@@ -249,7 +261,7 @@ f''(x) > 0 & \Rightarrow & \text{Convex}
 \end{array}\]
 
 
-### Quadratic Forms {-}
+### Quadratic Forms {.unnumbered}
 
 Quadratic forms is shorthand for a way to summarize a function. This is important for finding concavity because
 
@@ -295,7 +307,7 @@ For example, the  Quadratic on $\mathbf{R}^2$:
 
 
 
-### Definiteness of Quadratic Forms {-}
+### Definiteness of Quadratic Forms {.unnumbered}
 
 
 When the function $f(\mathbf{x})$ has more than two inputs, determining whether it has a maxima and minima (remember, functions may have many inputs but they have only one output) is a bit more tedious.  Definiteness helps identify the curvature of a function, $Q(\textbf{x})$, in n dimensional space.
@@ -310,13 +322,14 @@ zero, or sometimes both over all $\mathbf{x}\ne 0$.
 
 We can see from a graphical representation that if a point is a local maxima or minima, it must meet certain conditions regarding its derivative. These are so commonly used that we refer these to "First Order Conditions" (FOCs) and "Second Order Conditions" (SOCs) in the economic tradition.
 
-### First Order Conditions {-}
+### First Order Conditions {.unnumbered}
 
 When we examined functions of one variable $x$, we found critical points by taking the first derivative,  setting it to zero, and solving for $x$.  For functions of $n$ variables, the critical points are found in much the same way, except now we set the partial derivatives equal to zero. Note: We will only consider critical points on the interior of a function's domain. 
 
 In a derivative, we only took the derivative with respect to one variable at a time. When we take the derivative separately with respect to all variables in the elements of $\mathbf{x}$ and then express the result as a vector, we use the term Gradient and Hessian. 
 
-```{definition, name = "Gradient"}
+```{definition}
+#| name: Gradient
 
 Given a function $f(\textbf{x})$ in $n$ variables, the gradient $\nabla f(\mathbf{x})$ (the greek letter nabla ) is a column vector, where the $i$th element is the partial derivative of $f(\textbf{x})$ with respect to $x_i$: 
 
@@ -328,7 +341,8 @@ Given a function $f(\textbf{x})$ in $n$ variables, the gradient $\nabla f(\mathb
 
 Before we know whether a point is a maxima or minima, if it meets the FOC it is a "Critical Point".
 
-```{definition, name = "Critical Point"}
+```{definition}
+#| name: Critical Point
 
 $\mathbf{x}^*$ is a critical point if and only if $\nabla f(\mathbf{x}^*)=0$. If the partial derivative of f(x) with respect to $x^*$ is 0, then $\mathbf{x}^*$ is a critical point. To solve for $\mathbf{x}^*$, find the gradient, set each element equal to 0, and solve the system of equations. $$\mathbf{x}^* = \begin{pmatrix} x_1^*\\x_2^*\\ \vdots \\ x_n^*\end{pmatrix}$$
   
@@ -371,10 +385,11 @@ So \[\mathbf{x}^* = (1,0)\]
 
 
 
-### Second Order Conditions {-}
+### Second Order Conditions {.unnumbered}
 When we found a critical point for a function of one variable, we used the second derivative as a indicator of the curvature at the point in order to determine whether the point was a min, max, or saddle (second derivative test of concavity).  For functions of $n$ variables, we use _second order partial derivatives_ as an indicator of curvature.
 
-```{definition, name = "Hessian"}
+```{definition}
+#| name: Hessian
 
 Given a function $f(\mathbf{x})$ in $n$ variables, the hessian $\mathbf{H(x)}$ is
 an $n\times n$ matrix, where the $(i,j)$th element is the second order
@@ -411,7 +426,8 @@ Given a function $f(\mathbf{x})$ and a point $\mathbf{x}^*$ such that $\nabla f(
 
 
 
-```{example, name = "Max and min with two dimensions"}
+```{example}
+#| name: Max and min with two dimensions
 
 We found that the only critical point of
 $f(\mathbf{x})=(x_1-1)^2+x_2^2+1$ is at $\mathbf{x}^*=(1,0)$.  Is it a min, max, or
@@ -446,7 +462,7 @@ For any $\mathbf{x}\ne 0$, $2(x_1^2+x_2^2)>0$, so the Hessian is 	positive defin
 
 
 
-### Definiteness and Concavity {-}
+### Definiteness and Concavity {.unnumbered}
 
 Although definiteness helps us to understand the curvature of an n-dimensional function, it does not necessarily tell us whether the function is globally concave or convex.
 
@@ -585,7 +601,7 @@ It is easy to see that the \textit{unconstrained} maximum occurs at $(x_1, x_2) 
 
 
 
-### Equality Constraints {-}
+### Equality Constraints {.unnumbered}
 
 Equality constraints are the easiest to deal with because we know that the maximum or minimum has to lie on the (intersection of the) constraint(s).
 
@@ -624,7 +640,8 @@ We can then solve this system of equations, because there are $n+k$ equations an
 
 **Second-order Conditions and Unconstrained Optimization:** There may be more than one critical point, i.e. we need to verify that the critical point we find is a maximum/minimum.  Similar to unconstrained optimization, we can do this by checking the second-order conditions.
 
-```{example, name = "Constrained optimization with two goods and a budget constraint"}
+```{example}
+#| name: Constrained optimization with two goods and a budget constraint
 
 Find the constrained optimization of 
 $$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } x_1 + x_2 = 4$$
@@ -860,7 +877,8 @@ In a two-dimensional set-up, this means we must check the following cases:
 
 
 
-```{example, name = "Kuhn-Tucker with two variables"}
+```{example}
+#| name: Kuhn-Tucker with two variables
 Solve the following optimization problem with inequality constraints
 \[\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2)\]
 
@@ -921,7 +939,8 @@ Three of the critical points violate the requirement that $\lambda \geq 0$, so t
 
 
 
-```{exercise, name = "Kuhn-Tucker with logs"}
+```{exercise}
+#| name: Kuhn-Tucker with logs
 Solve the constrained optimization problem,
 
 

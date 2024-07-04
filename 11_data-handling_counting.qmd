@@ -1,4 +1,4 @@
-# (PART) Programming {-}
+# (PART) Programming {.unnumbered}
 
 
 # Orientation and Reading in Data^[Module originally written by Shiro Kuriwaki] {#dataimport}
@@ -12,14 +12,14 @@ Welcome to the first in-class session for programming. Up till this point, you s
 * Successfully signed up for the University wi-fi: <https://getonline.harvard.edu/> (Access Harvard Secure with your HarvardKey. Try to get a HarvardKey as soon as possible.)
 
 
-## Motivation: Data and You {-}
+## Motivation: Data and You {.unnumbered}
 
 The modal social science project starts by importing existing datasets. Datasets come in all shapes and sizes. As you search for new data you may encounter dozens of file extensions -- csv, xlsx, dta, sav, por, Rdata, Rds, txt, xml, json, shp ... the list continues. Although these files can often be cumbersome, its a good to be able to find a way to encounter any file that your research may call for. 
 
 Reviewing data import will allow us to get on the same page on how computer systems work.
 
 
-### Where are we? Where are we headed? {-}
+### Where are we? Where are we headed? {.unnumbered}
 
 Today we'll cover:
 
@@ -28,7 +28,7 @@ Today we'll cover:
 * How to read in data 
 * Comment on coding style on the way
 
-### Check your understanding  {-}
+### Check your understanding  {.unnumbered}
 
 * What is the difference between a file and a folder?
 * In the RStudio windows, what is the difference between the "Source" Pane and the "Console"? What is a "code chunk"?
@@ -39,7 +39,9 @@ Today we'll cover:
 * How would you read in a `csv` file, a `dta` file, a `sav` file?
 
 
-```{r, include = FALSE, message = FALSE}
+```{r}
+#| include: false
+#| message: false
 library(ggplot2)
 library(dplyr)
 library(fs)
@@ -160,7 +162,7 @@ Although you do not need to choose one over the other, for beginners it is confu
 
 The following side-by-side comparison of commands for a particular function compares some tidyverse and non-tidyverse functions (which we refer to loosely as base-R). This list is not meant to be comprehensive and more to give you a quick rule of thumb.
 
-### Dataframe subsetting {-}
+### Dataframe subsetting {.unnumbered}
 
 | In order to ...        | in tidyverse: | in base-R:  |
 |----------------------|:------------------------|:----------------------|
@@ -177,7 +179,7 @@ The following side-by-side comparison of commands for a particular function comp
 Remember that tidyverse applies to _dataframes_ only, not vectors. For subsetting vectors, use the base-R functions with the square brackets.
 
 
-### Read data {-}
+### Read data {.unnumbered}
 
 Some non-tidyverse functions are not quite "base-R" but have similar relationships to tidyverse. For these, we recommend using the _tidyverse_ functions as a general rule due to their common format, simplicity, and scalability. 
 
@@ -191,7 +193,7 @@ Some non-tidyverse functions are not quite "base-R" but have similar relationshi
 | Merge `data1` and `data2` on variables  `x1` and `x2` | `left_join(data1, data2, by = c("x1", "x2"))` | `merge(data1, data2, by.x = "x1", by.y = "x2", all.x = TRUE)` |
 
 
-### Visualization {-}
+### Visualization {.unnumbered}
 
 Plotting by ggplot2 (from your tutorials) is also a tidyverse family.
 
@@ -214,7 +216,8 @@ This POLIS dataset was generously provided by Professor Josiah Ober of Stanford 
 ### Locating the Data 
 What files do we have in the `data/input` folder?
 
-```{r, echo = FALSE}
+```{r}
+#| echo: false
 dir_ls("data/input")
 ```
 
@@ -228,19 +231,22 @@ A typical file format is Microsoft Excel. Although this is not usually the best 
 In Rstudio, a good way to start is to use the GUI and the Import tool. Once you click a file, an option to "Import Dataset" comes up. RStudio picks the right function for you, and you can copy that code, but it's important to eventually be able to write that code yourself. 
 
 For the first time using an outside package, you first need to install it. 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 install.packages("readxl")
 ```
 
 After that, you don't need to install it again. But you __do__ need to load it each time. 
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 library(readxl)
 ```
 
 The package `readxl` has a website: https://readxl.tidyverse.org/. Other packages are not as user-friendly, but they have a help page with a table of contents of all their functions. 
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 help(package = readxl)
 ```
 
@@ -300,12 +306,18 @@ These `tidyverse` commands from the `dplyr` package are newer and not built-in, 
 Although this is a bit beyond our current stage, it's hard to resist the temptation to see what you can do with data like this.  For example, you can map it.^[In mid-2018, changes in Google's services made it no longer possible to render maps on the fly. Therefore, the map is not currently rendered automatically (but can be rendered once the user registers their API).  Instead, you now need to register with Google. See the [change](https://github.com/dkahle/ggmap/blob/e55c0b22b0d16a010b4b45dd2fce800ff0ef19b8/NEWS#L6-L12) to the pacakge ggmap.]
 
 Using the `ggmap` package
-```{r message=FALSE, warning=FALSE, eval = FALSE}
+```{r}
+#| message: false
+#| warning: false
+#| eval: false
 library(ggmap)
 ```
 
 First get a map of the Greek world.
-```{r, message=FALSE, warning=FALSE, eval = FALSE}
+```{r}
+#| message: false
+#| warning: false
+#| eval: false
 greece <- get_map(location = c(lon = 22.6382849, lat = 39.543287),
                   zoom = 5, 
                   source = "stamen",
@@ -319,7 +331,9 @@ I chose the specifications for arguments `zoom` and `maptype` by looking at the 
 
 Ober's data has the latitude and longitude of each polis. Because the map of Greece has the same coordinates, we can add the polei on the same map. 
 
-```{r, warning=FALSE, eval = FALSE}
+```{r}
+#| warning: false
+#| eval: false
 gg_ober <- ggmap(greece) +
   geom_point(data = ober, 
              aes(y = Latitude, x = Longitude), 
@@ -335,9 +349,9 @@ gg_ober +
 
 
 
-## Exercises {-}
+## Exercises {.unnumbered}
 
-### 1 {-}
+### 1 {.unnumbered}
 
 What is the Fame value of Delphoi?
 
@@ -346,7 +360,7 @@ What is the Fame value of Delphoi?
 ```
 
 
-### 2 {-}
+### 2 {.unnumbered}
 
 Find the polis with the top 10 Fame values.
 
@@ -356,7 +370,7 @@ Find the polis with the top 10 Fame values.
 
 
 
-### 3 {-}
+### 3 {.unnumbered}
 
 Make a scatterplot with the number of colonies on the x-axis and Fame on the y-axis.
 
@@ -365,7 +379,7 @@ Make a scatterplot with the number of colonies on the x-axis and Fame on the y-a
 ```
 
 
-### 4 {-}
+### 4 {.unnumbered}
 Find the correct function to read the following datasets (available in your rstudio.cloud session) into your R window.
 
 
@@ -383,7 +397,7 @@ Our Recommendations: Look at the packages `haven` and `readr`
 ```
 
 
-### 5 {-}
+### 5 {.unnumbered}
 Read Ober's codebook and find a variable that you think is interesting. Check the distribution of that variable in your data, get a couple of statistics, and summarize it in English.
 
 ```{r}
@@ -391,7 +405,7 @@ Read Ober's codebook and find a variable that you think is interesting. Check th
 ```
 
 
-### 6 {-}
+### 6 {.unnumbered}
 This is day 1 and we covered a lot of material. Some of you might have found this completely new; others not so. Please click through this survey before you leave so we can adjust accordingly on the next few days.
 
 <https://harvard.az1.qualtrics.com/jfe/form/SV_8As7Y7C83iBiQzH>

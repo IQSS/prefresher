@@ -1,6 +1,7 @@
-# Suggested Programming Solutions {-}
+# Suggested Programming Solutions {.unnumbered}
 
-```{r, message = FALSE}
+```{r}
+#| message: false
 library(dplyr)
 library(readr)
 library(ggplot2)
@@ -14,7 +15,7 @@ library(scales)
 ## Chapter \@ref(dataviz): Visualization
 
 
-### 1 State Proportions {-}
+### 1 State Proportions {.unnumbered}
 
 ```{r}
 cen10 <- readRDS("data/input/usc2010_001percent.Rds")
@@ -49,10 +50,11 @@ ggplot(grp_st, aes(x = state, y = prop)) +
 
 
 
-### 2 Swing Justice {-}
+### 2 Swing Justice {.unnumbered}
 
 
-```{r, message = FALSE}
+```{r}
+#| message: false
 justices <- read_csv("data/input/justices_court-median.csv")
 ```
 
@@ -93,13 +95,14 @@ ggplot(df_indicator, aes(x = term, y = idealpt, group = justice_id)) +
 ## Chapter \@ref(robjloops): Objects and Loops
 
 
-```{r, message=FALSE}
+```{r}
+#| message: false
 cen10 <- read_csv("data/input/usc2010_001percent.csv")
 sample_acs <- read_csv("data/input/acs2015_1percent.csv")
 ```
 
 
-### Checkpoint #3 {-}
+### Checkpoint #3 {.unnumbered}
 
 
 ```{r}
@@ -112,7 +115,7 @@ cen10 %>%
 
 
 
-### Exercise 2 {-}
+### Exercise 2 {.unnumbered}
 
 
 ```{r}
@@ -129,7 +132,7 @@ for (state_i in states_of_interest) {
 
 
 
-### Exercise 3 {-}
+### Exercise 3 {.unnumbered}
 
 
 ```{r}
@@ -156,9 +159,10 @@ for (state in states_of_interest) {
 
 ## Chapter \@ref(dempeace): Demoratic Peace Project
 
-### Task 1: Data Input and Standardization {-}
+### Task 1: Data Input and Standardization {.unnumbered}
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 mid_b <- read_csv("data/input/MIDB_4.2.csv")
 polity <- read_excel("data/input/p4v2017.xls")
 
@@ -166,9 +170,10 @@ polity <- read_excel("data/input/p4v2017.xls")
 
 
 
-### Task 2: Data Merging {-}
+### Task 2: Data Merging {.unnumbered}
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 mid_y_by_y <- data_frame(ccode = numeric(),
                                year = numeric(),
                                dispute = numeric())
@@ -186,10 +191,11 @@ merged_mid_polity <- left_join(polity,
 ```
 
 
-### Task 3: Tabulations and Visualization {-}
+### Task 3: Tabulations and Visualization {.unnumbered}
 
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 
 #don't include the -88, -77, -66 values in calculating the mean of polity
 mean_polity_by_year <- merged_mid_polity %>% group_by(year) %>% summarise(mean_polity = mean(polity[which(polity <11 & polity > -11)]))
@@ -236,7 +242,8 @@ mean(samp$race != "White")
 ```
 
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 ests <- c()
 set.seed(1669482)
 
@@ -255,7 +262,8 @@ mean(ests)
 pop_with_prop <- mutate(pop, propensity = ifelse(race != "White", 0.9, 1))
 ```
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 ests <- c()
 set.seed(1669482)
 
@@ -268,7 +276,8 @@ mean(ests)
 ```
 
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 ests <- c()
 set.seed(1669482)
 

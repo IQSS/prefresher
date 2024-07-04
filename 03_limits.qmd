@@ -1,6 +1,7 @@
 # Limits {#limits-precalc}
 
-```{r, include = FALSE}
+```{r}
+#| include: false
 library(ggplot2)
 library(tibble)
 library(scales)
@@ -11,11 +12,13 @@ library(patchwork)
 
 Solving limits, i.e. finding out the value of functions as its input moves  closer to some value, is important for the social scientist's mathematical toolkit for two related tasks. The first is for the study of calculus, which will be in turn useful to show where certain functions are maximized or minimized. The second is for the study of statistical inference, which is the study of inferring things about things you cannot see by using things you can see. 
 
-## Example: The Central Limit Theorem {-}
+## Example: The Central Limit Theorem {.unnumbered}
 
 Perhaps the most important theorem in statistics is the Central Limit Theorem, 
 
-```{theorem, clt-lim, name = "Central Limit Theorem (i.i.d. case)"}
+```{theorem}
+#| label: clt-lim
+#| name: Central Limit Theorem (i.i.d. case)
 For any series of independent and identically distributed random variables $X_1, X_2, \cdots$, we know the distribution of its sum even if we do not know the distribution of $X$. The distribution of the sum is a Normal distribution. 
 
 \[\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \xrightarrow{d} \text{Normal}(0, 1),\]
@@ -28,11 +31,13 @@ That is,  the limit of the distribution of the lefthand side is the distribution
 The sign of a limit is the arrow "$\rightarrow$". Although we have not yet covered probability (in Section \@ref(probability-theory)) so we have not described what distributions and random variables are, it is worth foreshadowing the Central Limit Theorem. The Central Limit Theorem is powerful because it gives us a _guarantee_ of what would happen if $n \rightarrow \infty$, which in this case means we collected more data.
 
 
-## Example: The Law of Large Numbers {-}
+## Example: The Law of Large Numbers {.unnumbered}
 
 A finding that perhaps rivals the Central Limit Theorem is the Law of Large Numbers:
 
-```{theorem, lln-lim, name = "(Weak) Law of Large Numbers"}
+```{theorem}
+#| label: lln-lim
+#| name: (Weak) Law of Large Numbers
 For any draw of identically distributed independent variables with mean $\mu$, the sample average after $n$ draws, $\bar{X}_n$, converges in probability to the true mean as $n \rightarrow \infty$:
   
 \[\lim\limits_{n\to \infty} P(|\bar{X}_n - \mu | > \varepsilon) = 0\]
@@ -44,7 +49,11 @@ A shorthand of which is  \(\bar{X}_n \xrightarrow{p} \mu\), where the arrow is r
 
 Intuitively, the more data, the more accurate is your guess.  For example, the Figure \@ref(fig:llnsim) shows how the sample average from many coin tosses converges to the true value : 0.5.
 
-```{r, llnsim, fig.cap="As the number of coin tosses goes to infinity, the average probabiity of heads converges to 0.5", echo= FALSE}
+```{r}
+#| label: llnsim
+#| echo: false
+#| fig-cap: As the number of coin tosses goes to infinity, the average probabiity of
+#|   heads converges to 0.5
 set.seed(02138)
 n <- 1e3
 Xs <- rbinom(n = n, size = 1, prob = 0.5)
@@ -71,7 +80,9 @@ A **sequence** \[\{x_n\}=\{x_1, x_2, x_3, \ldots, x_n\}\] is an ordered set of r
 where the subscript and superscript are read together as "from 1 to infinity."
 	
 
-```{example, seqbehav, name = "Sequences"}
+```{example}
+#| label: seqbehav
+#| name: Sequences
 
 How do these sequences behave?
   
@@ -85,7 +96,10 @@ How do these sequences behave?
 
 We find the sequence by simply "plugging in" the integers into each $n$. The important thing is to get a sense of how these numbers are going to change. Example 1's numbers seem to come closer and closer to 2, but will it ever surpass 2? Example 2's numbers are also increasing each time, but will it hit a limit? What is the pattern in Example 3? Graphing helps you make this point more clearly.  See the sequence of $n = 1, ...20$ for each of the three examples in Figure \@ref(fig:seqabc).
 
-```{r, seqabc, fig.cap = "Behavior of Some Sequences", echo = FALSE}
+```{r}
+#| label: seqabc
+#| echo: false
+#| fig-cap: Behavior of Some Sequences
 seq <- 1:20
 df <- tibble(n = seq, A = 2 - 1/(seq^2), B = (seq^2 + 1)/(seq), C = (-1)^seq * (1 - 1/seq))
 
@@ -135,7 +149,8 @@ This looks reasonable enough. The harder question, obviously is when the parts o
 
 It is nice for a sequence to converge in limit. We want to know if complex-looking sequences converge or not. The name of the game here is to break that complex sequence up into sums of simple fractions where $n$ only appears in the denominator: $\frac{1}{n}, \frac{1}{n^2}$, and so on. Each of these will converge to 0, because the denominator gets larger and larger. Then, because of the properties above, we can then find the final sequence.
 
-```{example, name = "Simplifying a Fraction into Sums"}
+```{example}
+#| name: Simplifying a Fraction into Sums
 Find the limit of 
 \[\lim_{n\to \infty} \frac{n + 3}{n},\]
 ```
@@ -150,7 +165,8 @@ so, the limit is actually 1.
 
 After some practice, the key to intuition is whether one part of the fraction grows "faster" than another. If the denominator grows faster to infinity than the numerator, then the fraction will converge to 0, even if the numerator will also increase to infinity. In a sense, limits show how not all infinities are the same.
 
-```{exercise, limseq2}
+```{exercise}
+#| label: limseq2
 Find the following limits of sequences, then explain in English the intuition for why that is the case. 
 
  1.  \(\lim\limits_{n\to\infty} \frac{2n}{n^2 + 1}\)
@@ -169,7 +185,8 @@ A function $f$ is a compact representation of some behavior we care about. Like 
 	
 For a limit $L$ to exist, the function $f(x)$ must approach $L$ from both the left (increasing) and the right (decreasing).
 	
-```{definition, name = "Limit of a function"}
+```{definition}
+#| name: Limit of a function
 Let $f(x)$ be defined at each point in some open interval containing the point $c$.  Then $L$ equals $\lim\limits_{x \to c} f(x)$ if for any (small positive) number $\epsilon$, there exists a corresponding number $\delta>0$ such that if $0<|x-c|<\delta$, then $|f(x)-L|<\epsilon$.
 ```
 
@@ -185,7 +202,9 @@ Properties: Let $f$ and $g$ be functions with $\lim\limits_{x \to c} f(x)=k$ and
 
 Simple limits of functions can be solved as we did limits of sequences. Just be careful which part of the function is changing.
 
-```{example, limfun1, name ="Limits of Functions"}
+```{example}
+#| label: limfun1
+#| name: Limits of Functions
 Find the limit of the following functions. 
 
 1. \(\lim_{x \to c} k\)
@@ -199,7 +218,9 @@ Limits can get more complex in roughly two ways. First, the functions may become
 
 The function can be thought of as a more general or "smooth" version of sequences.  For example, 
 
-```{exercise, limfunmax, name = "Limits of a Fraction of Functions"}
+```{exercise}
+#| label: limfunmax
+#| name: Limits of a Fraction of Functions
 
 Find the limit of
 
@@ -211,7 +232,8 @@ Find the limit of
 
 Now, the functions will become a bit more complex:
 
-```{exercise, discontlim}
+```{exercise}
+#| label: discontlim
 Solve the following limits of functions
 
 1. $\lim\limits_{x\to 0} |x|$
@@ -231,7 +253,10 @@ So there are a few more alternatives about what a limit of a function could be:
 
 The distinction between left and right becomes important when the function is not determined for some values of $x$. What are those cases in the examples below?
 
-```{r, echo=FALSE,fig.cap="Functions which are not defined in some areas", warning = FALSE}
+```{r}
+#| echo: false
+#| warning: false
+#| fig-cap: Functions which are not defined in some areas
 range1 <- tibble::tibble(x = c(-2, 16))
 range2 <- tibble::tibble(x = c(-2, 2))
 
@@ -255,13 +280,16 @@ fx1 + fx2 + plot_layout(nrow = 1)
 
 To repeat a finding from the limits of functions: $f(x)$ does not necessarily have to be defined at $c$ for $\lim\limits_{x \to c}$ to exist. Functions that have breaks in their lines are called discontinuous. Functions that have no breaks are called continuous. Continuity is a concept that is more fundamental to, but related to that of "differentiability", which we will cover next in calculus.  
 
-```{definition, name = "Continuity"}
+```{definition}
+#| name: Continuity
 Suppose that the domain of the function $f$ includes an open interval containing the point $c$.  Then $f$ is continuous at $c$ if $\lim\limits_{x \to c} f(x)$ exists and if $\lim\limits_{x \to c} f(x)=f(c)$. Further, $f$ is continuous on an open interval $(a,b)$ if it is continuous at each point in the interval.
 ```
 
 To prove that a function is continuous for all points is beyond this practical introduction to math, but the general intuition can be grasped by graphing.
 
-```{example, contdiscont, name = "Continuous and Discontinuous Functions"}
+```{example}
+#| label: contdiscont
+#| name: Continuous and Discontinuous Functions
 
 For each function, determine if it is continuous or discontinuous. 
 
@@ -279,7 +307,11 @@ In Figure \@ref(fig:fig-contdiscont), we can see that the first two functions ar
 ```
 
 
-```{r, fig-contdiscont, echo=FALSE,fig.cap="Continuous and Discontinuous Functions", warning = FALSE}
+```{r}
+#| label: fig-contdiscont
+#| echo: false
+#| warning: false
+#| fig-cap: Continuous and Discontinuous Functions
 range1 <- tibble(x = c(0, 10))
 range2 <- tibble(x = c(-2, 2))
 range3 <- tibble(x = c(-4, 4))
@@ -320,7 +352,9 @@ Some properties of continuous functions:
 
 
 
-```{exercise, discontdraw, name = "Limit when Denominator converges to 0"}
+```{exercise}
+#| label: discontdraw
+#| name: Limit when Denominator converges to 0
 
 Let \[f(x) = \frac{x^2 + 2x}{x}.\]
 
@@ -332,7 +366,7 @@ Let \[f(x) = \frac{x^2 + 2x}{x}.\]
 
 
 
-## Answers to Examples {-}
+## Answers to Examples {.unnumbered}
 
 Example \@ref(exm:seqbehav)
 
@@ -397,7 +431,10 @@ Divide each part by $x$, and we get $x + \frac{2}{x}$ on the numerator, $1$ on t
 ```
 
 
-```{r, fig-hole-0, fig.cap = "A function undedefined at x = 0", echo=FALSE}
+```{r}
+#| label: fig-hole-0
+#| echo: false
+#| fig-cap: A function undedefined at x = 0
 range0 <- tibble(x = c(-4, 2))
 
 ggplot(range0, aes(x = x)) +
