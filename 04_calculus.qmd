@@ -587,9 +587,9 @@ Some common rules of integrals follow by virtue of being the inverse of a deriva
 #| name: Common Integration
 Simplify the following indefinite integrals:
   
-* \(\int 3x^2 dx\)
-* \(\int (2x+1)dx\)
-* \(\int e^x e^{e^x} dx\)
+* $\int 3x^2 dx$
+* $\int (2x+1)dx$
+* $\int e^x e^{e^x} dx$
 
 
 ```

@@ -45,7 +45,7 @@ For any draw of identically distributed independent variables with mean $\mu$, t
 $$\lim\limits_{n\to \infty} P(|\bar{X}_n - \mu | > \varepsilon) = 0$$
   
   
-A shorthand of which is  \(\bar{X}_n \xrightarrow{p} \mu\), where the arrow is read as "converges in probability to".
+A shorthand of which is  $\bar{X}_n \xrightarrow{p} \mu$, where the arrow is read as "converges in probability to".
 :::
 
 
@@ -173,8 +173,8 @@ After some practice, the key to intuition is whether one part of the fraction gr
 
 Find the following limits of sequences, then explain in English the intuition for why that is the case. 
 
- 1.  \(\lim\limits_{n\to\infty} \frac{2n}{n^2 + 1}\)
- 2.  \(\lim\limits_{n\to\infty} (n^3 - 100n^2)\)
+ 1.  $\lim\limits_{n\to\infty} \frac{2n}{n^2 + 1}$
+ 2.  $\lim\limits_{n\to\infty} (n^3 - 100n^2)$
 
 :::
 
@@ -214,10 +214,10 @@ Simple limits of functions can be solved as we did limits of sequences. Just be 
 
 Find the limit of the following functions. 
 
-1. \(\lim_{x \to c} k\)
-1. \(\lim_{x \to c} x\)
-1. \(\lim_{x\to 2} (2x-3)\)
-1. \(\lim_{x \to c} x^n\)
+1. $\lim_{x \to c} k$
+1. $\lim_{x \to c} x$
+1. $\lim_{x\to 2} (2x-3)$
+1. $\lim_{x \to c} x^n$
 
 :::
 
@@ -403,8 +403,8 @@ Example @exm-limfun1
 
  1. $k$
  2. $c$
- 3. \(\lim_{x\to 2} (2x-3) = 2\lim\limits_{x\to 2} x - 3\lim\limits_{x\to 2} 1 = 1\)
- 4. \(\lim_{x \to c} x^n = \lim\limits_{x \to c} x \cdots[\lim\limits_{x \to c} x] = c\cdots c =c^n\)
+ 3. $\lim_{x\to 2} (2x-3) = 2\lim\limits_{x\to 2} x - 3\lim\limits_{x\to 2} 1 = 1$
+ 4. $\lim_{x \to c} x^n = \lim\limits_{x \to c} x \cdots[\lim\limits_{x \to c} x] = c\cdots c =c^n$
 
 
 :::
