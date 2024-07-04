@@ -1,6 +1,9 @@
+---
+execute:
+  eval: false
+---
+
 #  Command-line, git^[Module originally written by Shiro Kuriwaki] {#commandline-git}
-
-
 
 ## Where are we? Where are we headed?
 
@@ -31,12 +34,12 @@ Elementary programming operations are done on the command-line, or by entering c
 Open up `Terminal` in a Mac. (`Command Prompt` in Windows)
 
 Running this command in a Mac (`dir` in Windows) should show you a list of all files in the directory that you are currently in.
-```{bash}
+```bash
 ls
 ```
 
 `pwd` stands for present working directory (`cd` in Windows)
-```{bash}
+```bash
 pwd
 ```
 
@@ -44,14 +47,14 @@ pwd
 
 Or you can go up to your parent directory. The syntax for that are two periods, `..` . One period `.` refers to the current directory.
 
-```{bash}
+```bash
 cd ..
 pwd
 ```
 
 
 `~/` stands for your home directory defined by your computer. 
-```{bash}
+```bash
 cd ~/
 ls
 ```
@@ -71,7 +74,7 @@ cat("Hello World")
 
 Then in command-line, go to the directory that contains `hello_world.R` and enter
 
-```{bash, eval = FALSE}
+```bash
 Rscript hello_world.R
 ```
 
@@ -80,7 +83,7 @@ This should give you the output `Hello World`, which verifies that you "executed
 ### why do command-line?
 If you know exactly what you want to do your files and the changes are local, then command-line might be faster and be more sensible than navigating yourself through a GUI. For example, what if you wanted a single command that will run 10 R scripts successively at once (as Gentzkow and Shapiro suggest you should do in your research)? It is tedious to run each of your scripts on Rstudio, especially if running some take more than a few minutes. Instead you could write a "batch" script that you can run on the terminal,
 
-```{bash, eval = FALSE}
+```bash
 Rscript 01_read_data.R
 Rscript 02_merge_data.R
 Rscript 03_run_regressions.R
@@ -89,7 +92,7 @@ Rscript 05_maketable.R
 ```
 
 Then run this single file, call it `run_all_Rscripts.sh`, on your terminal as
-```{bash, eval = FALSE}
+```bash
 sh run_all_Rscripts.sh
 ```
 

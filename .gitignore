@@ -10,3 +10,4 @@ rsconnect
 .DS_Store
 
 prefresher\\.log
+/.quarto/
