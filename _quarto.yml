@@ -1,5 +1,6 @@
 project:
   type: book
+  output-dir: _book
 
 book:
   title: "Math Prefresher for Political Scientists"
@@ -7,11 +8,13 @@ book:
   chapters:
     - index.qmd
     - 01_warmup.qmd
-    - 02_functions.qmd
+    - part: Math
+      chapters: 
+        - 02_functions.qmd
+        - 03_limits.qmd
   
-output_dir: _book
-delete_merged_file: true
 
+delete_merged_file: true
 language:
   ui:
     chapter_name: "Chapter "

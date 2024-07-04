@@ -1,6 +1,6 @@
-# (PART) Math {.unnumbered}
-
-# Functions and Operations
+---
+title: Functions and Operations
+---
 
 __Topics__
  Dimensionality;
@@ -25,13 +25,13 @@ For this we use the summation operator $\sum$ and the product operator $\prod$.
 
 __Summation:__
 
-\[\sum\limits_{i=1}^{100} x_i = x_1+x_2+x_3+\cdots+x_{100}\]
+$$\sum\limits_{i=1}^{100} x_i = x_1+x_2+x_3+\cdots+x_{100}$$
 
 The bottom of the $\sum$ symbol indicates an index (here, $i$), and its start value $1$. At the top is where the index ends. The notion of "addition" is part of the $\sum$ symbol.  The content to the right of the summation is the meat of what we add. While you can pick your favorite index, start, and end values, the content must also have the index.
 
-* \(\sum\limits_{i=1}^n c x_i = c \sum\limits_{i=1}^n x_i \)
-* \(\sum\limits_{i=1}^n (x_i + y_i) =  \sum\limits_{i=1}^n x_i + \sum\limits_{i=1}^n y_i\) 
-* \(\sum\limits_{i=1}^n c = n c \)
+- $\sum\limits_{i=1}^n c x_i = c \sum\limits_{i=1}^n x_i$
+- $\sum\limits_{i=1}^n (x_i + y_i) =  \sum\limits_{i=1}^n x_i + \sum\limits_{i=1}^n y_i$ 
+- $\sum\limits_{i=1}^n c = n c$
 
 
 __Product:__
@@ -40,10 +40,10 @@ $$\prod\limits_{i=1}^n x_i = x_1 x_2 x_3 \cdots x_n$$
 
 Properties:
 
-* $\prod\limits_{i=1}^n c x_i = c^n \prod\limits_{i=1}^n x_i$
-* $\prod\limits_{i=k}^n c x_i = c^{n-k+1} \prod\limits_{i=k}^n x_i$
-* $\prod\limits_{i=1}^n (x_i + y_i) =$ a total mess
-* $\prod\limits_{i=1}^n c = c^n$
+- $\prod\limits_{i=1}^n c x_i = c^n \prod\limits_{i=1}^n x_i$
+- $\prod\limits_{i=k}^n c x_i = c^{n-k+1} \prod\limits_{i=k}^n x_i$
+- $\prod\limits_{i=1}^n (x_i + y_i) =$ a total mess
+- $\prod\limits_{i=1}^n c = c^n$
 
 
 
@@ -55,15 +55,14 @@ $$x! = x\cdot (x-1) \cdot (x-2) \cdots (1)$$
 
 __Modulo:__ Tells you the remainder when you divide the first number by the second. 
 
-* $17 \mod 3 = 2$
-* $100 \ \% \ 30 = 10$
+- $17\mod3 = 2$
+- $100 \ \% \ 30 = 10$
 
 
 
-```{example}
-#| name: Operators
-#| label: operators
+:::{#exm-operators}
 
+## Operators
 
 1. $\sum\limits_{i=1}^{5} i =$
   
@@ -73,13 +72,12 @@ __Modulo:__ Tells you the remainder when you divide the first number by the seco
   
 4. $4! =$
 
-  
+:::
 
-```
+:::{#exr-operators1}
 
-```{exercise}
-#| name: Operators
-#| label: operators1
+## Operators
+ 
 Let $x_1 = 4, x_2 = 3, x_3 = 7, x_4 = 11, x_5 = 2$
 
 1. $\sum\limits_{i=1}^{3} (7)x_i$
@@ -90,7 +88,7 @@ Let $x_1 = 4, x_2 = 3, x_3 = 7, x_4 = 11, x_5 = 2$
 
     
 
-```
+:::
 
 
 ## Introduction to Functions
@@ -100,36 +98,36 @@ A __function__ (in ${\bf R}^1$) is a mapping, or transformation, that relates me
 
 __Dimensionality__: ${\bf R}^1$ is the set of all real numbers extending from $-\infty$ to $+\infty$ --- i.e., the real number line. ${\bf R}^n$ is an $n$-dimensional space, where each of the $n$ axes extends from $-\infty$ to $+\infty$.
 
-* ${\bf R}^1$ is a one dimensional line.
-* ${\bf R}^2$ is a two dimensional plane.
-* ${\bf R}^3$ is a three dimensional space.
+- ${\bf R}^1$ is a one dimensional line.
+- ${\bf R}^2$ is a two dimensional plane.
+- ${\bf R}^3$ is a three dimensional space.
 
 Points in ${\bf R}^n$ are ordered $n$-tuples (just means an combination of $n$ elements where order matters), where each element of the $n$-tuple represents the coordinate along that dimension.
 
 
 For example:
 
-* ${\bf R}^1$: (3)
-* ${\bf R}^2$: (-15, 5)
-* ${\bf R}^3$: (86, 4, 0)
+- ${\bf R}^1$: (3)
+- ${\bf R}^2$: (-15, 5)
+- ${\bf R}^3$: (86, 4, 0)
 
 Examples of mapping notation: 
 
 Function of one variable: $f:{\bf R}^1\to{\bf R}^1$
 
-* $f(x)=x+1$. For each $x$ in ${\bf R}^1$, $f(x)$ assigns the number $x+1$.
+- $f(x)=x+1$. For each $x$ in ${\bf R}^1$, $f(x)$ assigns the number $x+1$.
     
 Function of two variables: $f: {\bf R}^2\to{\bf R}^1$. 
 
-* $f(x,y)=x^2+y^2$. For each ordered pair $(x,y)$ in ${\bf R}^2$, $f(x,y)$ assigns the number $x^2+y^2$.
+- $f(x,y)=x^2+y^2$. For each ordered pair $(x,y)$ in ${\bf R}^2$, $f(x,y)$ assigns the number $x^2+y^2$.
 
 
 We often use variable $x$ as input and another $y$ as output, e.g. $y=x+1$
 
 
-```{example}
-#| name: Functions
-#| label: functions
+:::{#exm-functions}
+
+## Functions
 
 For each of the following, state whether they are one-to-one or many-to-one functions. 
 
@@ -139,12 +137,12 @@ For each of the following, state whether they are one-to-one or many-to-one func
 
 
 
-```
+:::
 
 
-```{exercise}
-#| name: Functions
-#| label: functions1
+:::{#exr-functions1}
+
+## Functions
 
 For each of the following, state whether they are one-to-one or many-to-one functions. 
 
@@ -156,17 +154,17 @@ For each of the following, state whether they are one-to-one or many-to-one func
   
 
 
-```
+:::
 
 
 
 
 Some functions are defined only on proper subsets of ${\bf R}^n$.
 
-* __Domain__: the set of numbers in $X$ at which $f(x)$ is defined.
-* __Range__: elements of $Y$ assigned by $f(x)$ to elements of $X$, or $$f(X)=\{ y : y=f(x), x\in X\}$$
+- __Domain__: the set of numbers in $X$ at which $f(x)$ is defined.
+- __Range__: elements of $Y$ assigned by $f(x)$ to elements of $X$, or $$f(X)=\{ y : y=f(x), x\in X\}$$
 	Most often used when talking about a function $f:{\bf R}^1\to{\bf R}^1$.
-* __Image__: same as range, but more often used when talking about a function $f:{\bf R}^n\to{\bf R}^1$.
+- __Image__: same as range, but more often used when talking about a function $f:{\bf R}^n\to{\bf R}^1$.
 	
 
 Some General Types of Functions
@@ -207,11 +205,11 @@ __Common Bases__: The two most common logarithms are base 10 and base $e$.
 			
 __Properties of exponential functions:__
 	
-* $a^x a^y = a^{x+y}$
-* $a^{-x} = 1/a^x$
-* $a^x/a^y = a^{x-y}$
-* $(a^x)^y = a^{x y}$
-* $a^0 = 1$
+- $a^x a^y = a^{x+y}$
+- $a^{-x} = 1/a^x$
+- $a^x/a^y = a^{x-y}$
+- $(a^x)^y = a^{x y}$
+- $a^0 = 1$
 	
 	
 __Properties of logarithmic functions__ (any base):
@@ -221,11 +219,11 @@ Generally, when statisticians or social scientists write $\log(x)$ they mean $\l
 $$\log_a(a^x)=x$$ and 
 $$a^{\log_a(x)}=x$$
 	
-* $\log(x y)=\log(x)+\log(y)$
-* $\log(x^y)=y\log(x)$
-* $\log(1/x)=\log(x^{-1})=-\log(x)$
-* $\log(x/y)=\log(x\cdot y^{-1})=\log(x)+\log(y^{-1})=\log(x)-\log(y)$
-* $\log(1)=\log(e^0)=0$
+- $\log(x y)=\log(x)+\log(y)$
+- $\log(x^y)=y\log(x)$
+- $\log(1/x)=\log(x^{-1})=-\log(x)$
+- $\log(x/y)=\log(x\cdot y^{-1})=\log(x)+\log(y^{-1})=\log(x)-\log(y)$
+- $\log(1)=\log(e^0)=0$
 		
 		
 __Change of Base Formula__: Use the change of base formula to switch bases as necessary: 
@@ -255,9 +253,9 @@ Therefore, you can see that the log of a product is equal to the sum of the logs
 
 
 
-```{example}
-#| name: Logarithmic Functions
-#| label: log
+:::{#exm-log}
+
+## Logarithmic Functions
 
 Evaluate each of the following logarithms
 
@@ -272,13 +270,12 @@ Simplify the following logarithm. By "simplify", we actually really mean - use a
 
 
 
-```
+:::
 
 
-```{exercise}
-#| name: Logarithmic Functions
-#| label: log1
+:::{#exr-log1}
 
+## Logarithmic Functions
 
 Evaluate each of the following logarithms
 
@@ -294,30 +291,29 @@ Simplify each of the following logarithms. By "simplify", we actually really mea
   
 
 
-```
+:::
 
 
 ## Graphing Functions
 What can a graph tell you about a function?
 
-* Is the function increasing or decreasing?  Over what part of the domain?
-* How ``fast" does it increase or decrease?
-* Are there global or local maxima and minima?  Where?
-* Are there inflection points?
-* Is the function continuous?
-* Is the function differentiable?
-* Does the function tend to some limit?
-* Other questions related to the substance of the problem at hand.
+- Is the function increasing or decreasing?  Over what part of the domain?
+- How ``fast" does it increase or decrease?
+- Are there global or local maxima and minima?  Where?
+- Are there inflection points?
+- Is the function continuous?
+- Is the function differentiable?
+- Does the function tend to some limit?
+- Other questions related to the substance of the problem at hand.
 
 
 ## Solving for Variables and Finding Roots
 	
 Sometimes we're given a function $y=f(x)$ and we want to find how $x$ varies as a function of $y$. Use algebra to move $x$ to the left hand side (LHS) of the equation and so that the right hand side (RHS) is only a function of $y$.
 
-```{example} 
-#| name: Solving for Variables
-#| label: solvevar
+:::{#exm-solvevar} 
 
+## Solving for Variables
 
 Solve for x:
 
@@ -328,7 +324,7 @@ Solve for x:
 
   
 
-```
+:::
 
 
 Solving for variables is especially important when we want to find the __roots__ of an equation: those values of variables that cause an equation to equal zero. Especially important in finding equilibria and in doing maximum likelihood estimation.
@@ -342,9 +338,9 @@ __Quadratic Formula:__ For quadratic equations $ax^2+bx+c=0$, use the quadratic 
 	
 
 
-```{exercise}
-#| name: Finding Roots
-#| label: solvevar1
+:::{#exr-solvevar1}
+
+## Finding Roots
 
 Solve for x:
   
@@ -356,49 +352,49 @@ Solve for x:
   
 
 
-```
+:::
 
 
 ## Sets
 
 __Interior Point__: The point $\bf x$ is an interior point of the set $S$ if $\bf x$ is in $S$ and if there is some $\epsilon$-ball around $\bf x$ that contains only points in $S$.   The __interior__ of $S$ is the collection of all interior points in $S$.  The interior can also be defined as the union of all open sets in $S$.
 
-* If the set $S$ is circular, the interior points are everything inside of the circle, but not on the circle's rim.
-* Example: The interior of the set $\{ (x,y) : x^2+y^2\le 4 \}$ is $\{ (x,y) : x^2+y^2< 4 \}$ .
+- If the set $S$ is circular, the interior points are everything inside of the circle, but not on the circle's rim.
+- Example: The interior of the set $\{ (x,y) : x^2+y^2\le 4 \}$ is $\{ (x,y) : x^2+y^2< 4 \}$ .
 	
 __Boundary Point__: The point $\bf x$ is a boundary point of the set $S$ if every $\epsilon$-ball around $\bf x$ contains both points that are in $S$ and points that are outside $S$.  The __boundary__ is the collection of all boundary points.
 
-* If the set $S$ is circular, the boundary points are everything on the circle's rim.
-* Example: The boundary of $\{ (x,y) : x^2+y^2\le 4 \}$ is $\{ (x,y) : x^2+y^2 = 4 \}$.
+- If the set $S$ is circular, the boundary points are everything on the circle's rim.
+- Example: The boundary of $\{ (x,y) : x^2+y^2\le 4 \}$ is $\{ (x,y) : x^2+y^2 = 4 \}$.
 	
 __Open__: A set $S$ is open if for each point $\bf x$ in $S$, there exists an open $\epsilon$-ball around $\bf x$ completely contained in $S$.
 
-* If the set $S$ is circular and open, the points contained within the set get infinitely close to the circle's rim, but do not touch it.
-* Example: $\{ (x,y) : x^2+y^2<4 \}$
+- If the set $S$ is circular and open, the points contained within the set get infinitely close to the circle's rim, but do not touch it.
+- Example: $\{ (x,y) : x^2+y^2<4 \}$
 	
 __Closed__: A set $S$ is closed if it contains all of its boundary points.
 
-* Alternatively: A set is closed if its complement is open.
-* If the set $S$ is circular and closed, the set contains all points within the rim as well as the rim itself.
-* Example: $\{ (x,y) : x^2+y^2\le 4 \}$
-* Note: a set may be neither open nor closed. Example: $\{ (x,y) : 2 < x^2+y^2\le 4 \}$
+- Alternatively: A set is closed if its complement is open.
+- If the set $S$ is circular and closed, the set contains all points within the rim as well as the rim itself.
+- Example: $\{ (x,y) : x^2+y^2\le 4 \}$
+- Note: a set may be neither open nor closed. Example: $\{ (x,y) : 2 < x^2+y^2\le 4 \}$
 
 	
 __Complement__: The complement of set $S$ is everything outside of $S$.
 
-* If the set $S$ is circular, the complement of $S$ is everything outside of the circle.
-* Example: The complement of $\{ (x,y) : x^2+y^2\le 4 \}$ is $\{ (x,y) : x^2+y^2 > 4 \}$.
+- If the set $S$ is circular, the complement of $S$ is everything outside of the circle.
+- Example: The complement of $\{ (x,y) : x^2+y^2\le 4 \}$ is $\{ (x,y) : x^2+y^2 > 4 \}$.
 	
 	
 __Empty__: The empty (or null) set is a unique set that has no elements, denoted by \{\} or $\emptyset$. 
 
-* The empty set is an example of a set that is open and closed, or a "clopen" set.
-* Examples: The set of squares with 5 sides; the set of countries south of the South Pole.
+- The empty set is an example of a set that is open and closed, or a "clopen" set.
+- Examples: The set of squares with 5 sides; the set of countries south of the South Pole.
 
 
 ## Answers to Examples and Exercises  {.unnumbered}
 
-Answer to Example \@ref(exm:operators):
+Answer to Example @exm-operators:
   
   1. 1 + 2 + 3 + 4 + 5 = 15
   
@@ -408,7 +404,7 @@ Answer to Example \@ref(exm:operators):
   
   4. 4 * 3 * 2 * 1 = 24
   
-Answer to Exercise \@ref(exr:operators1):
+Answer to Exercise @exr-operators1:
     
   1. 7(4 + 3 + 7) = 98
   
@@ -417,19 +413,19 @@ Answer to Exercise \@ref(exr:operators1):
   3. $2^3(7)(11)(2)$ = 1232
   
   
-Answer to Example \@ref(exm:functions):
+Answer to Example @exm-functions:
 
 1. one-to-one
 
 2. many-to-one
 
-Answer to Exercise \@ref(exr:functions1):
+Answer to Exercise @exr-functions1:
 
 1. many-to-one
 
 2. one-to-one
 
-Answer to Example \@ref(exm:log):
+Answer to Example @exm-log:
 
 1. 2
 
@@ -438,7 +434,7 @@ Answer to Example \@ref(exm:log):
 3. $3\log_4(x) + 5\log_4(y)$
 
 
-Answer to Exercise \@ref(exr:log1):
+Answer to Exercise @exr-log1:
 
 1. 3
 
@@ -446,14 +442,14 @@ Answer to Exercise \@ref(exr:log1):
 
 3. $\frac{1}{2}(\ln{x} + \ln{y})$
 
-Answer to Example \@ref(exm:solvevar):
+Answer to Example @exm-solvevar:
 
 1. $y=3x+2 \quad\Longrightarrow\quad -3x=2-y \quad\Longrightarrow\quad 3x=y-2 \quad\Longrightarrow\quad x=\frac{1}{3}(y-2)$
 
 2. $x = \ln{y}$
 
 
-Answer to Exercise \@ref(exr:solvevar1):
+Answer to Exercise @exr-solvevar1:
 
 1. $\frac{-2}{3}$
 

@@ -16,17 +16,18 @@ Solving limits, i.e. finding out the value of functions as its input moves  clos
 
 Perhaps the most important theorem in statistics is the Central Limit Theorem, 
 
-```{theorem}
-#| label: clt-lim
-#| name: Central Limit Theorem (i.i.d. case)
+:::{#thm-clt-lim}
+
+## Central Limit Theorem (i.i.d. case)
+
 For any series of independent and identically distributed random variables $X_1, X_2, \cdots$, we know the distribution of its sum even if we do not know the distribution of $X$. The distribution of the sum is a Normal distribution. 
 
-\[\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \xrightarrow{d} \text{Normal}(0, 1),\]
+$$\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \xrightarrow{d} \text{Normal}(0, 1),$$
 
 where $\mu$ is the mean of $X$ and $\sigma$ is the standard deviation of $X$. The arrow is read as  "converges in distribution to". $\text{Normal}(0, 1)$ indicates a Normal Distribution with mean 0 and variance 1. 
 
 That is,  the limit of the distribution of the lefthand side is the distribution of the righthand side. 
-```
+:::
 
 The sign of a limit is the arrow "$\rightarrow$". Although we have not yet covered probability (in Section \@ref(probability-theory)) so we have not described what distributions and random variables are, it is worth foreshadowing the Central Limit Theorem. The Central Limit Theorem is powerful because it gives us a _guarantee_ of what would happen if $n \rightarrow \infty$, which in this case means we collected more data.
 
@@ -35,16 +36,17 @@ The sign of a limit is the arrow "$\rightarrow$". Although we have not yet cover
 
 A finding that perhaps rivals the Central Limit Theorem is the Law of Large Numbers:
 
-```{theorem}
-#| label: lln-lim
-#| name: (Weak) Law of Large Numbers
+:::{#thm-lln-lim}
+
+## (Weak) Law of Large Numbers
+
 For any draw of identically distributed independent variables with mean $\mu$, the sample average after $n$ draws, $\bar{X}_n$, converges in probability to the true mean as $n \rightarrow \infty$:
   
-\[\lim\limits_{n\to \infty} P(|\bar{X}_n - \mu | > \varepsilon) = 0\]
+$$\lim\limits_{n\to \infty} P(|\bar{X}_n - \mu | > \varepsilon) = 0$$
   
   
 A shorthand of which is  \(\bar{X}_n \xrightarrow{p} \mu\), where the arrow is read as "converges in probability to".
-```
+:::
 
 
 Intuitively, the more data, the more accurate is your guess.  For example, the Figure \@ref(fig:llnsim) shows how the sample average from many coin tosses converges to the true value : 0.5.
@@ -75,7 +77,7 @@ ggplot(tibble(n = 1:n, estimate = means), aes(x = n, y = estimate)) +
 
 We need a couple of steps until we get to limit theorems in probability. First we will introduce a "sequence", then we will think about the limit of a sequence, then we will think about the limit of a _function_.
 
-A **sequence** \[\{x_n\}=\{x_1, x_2, x_3, \ldots, x_n\}\] is an ordered set of real numbers, where $x_1$ is the first term in the sequence and $y_n$ is the $n$th term. Generally, a sequence is infinite, that is it extends to $n=\infty$. We can also write the sequence as \[\{x_n\}^\infty_{n=1}\]
+A **sequence** $$\{x_n\}=\{x_1, x_2, x_3, \ldots, x_n\}$$ is an ordered set of real numbers, where $x_1$ is the first term in the sequence and $y_n$ is the $n$th term. Generally, a sequence is infinite, that is it extends to $n=\infty$. We can also write the sequence as $$\{x_n\}^\infty_{n=1}$$
 
 where the subscript and superscript are read together as "from 1 to infinity."
 	
@@ -127,7 +129,7 @@ The notion of "converging to a limit" is the behavior of the points in Example \
 
 
 ```{definition}
-The sequence $\{y_n\}$ has the limit $L$, which we write as \[\lim\limits_{n \to \infty} y_n =L\], if for any $\epsilon>0$ there is an integer $N$ (which depends on $\epsilon$) with the property that $|y_n -L|<\epsilon$ for each $n>N$.  $\{y_n\}$ is said to converge to $L$.  If the above does not hold, then $\{y_n\}$ diverges.
+The sequence $\{y_n\}$ has the limit $L$, which we write as $$\lim\limits_{n \to \infty} y_n =L$$, if for any $\epsilon>0$ there is an integer $N$ (which depends on $\epsilon$) with the property that $|y_n -L|<\epsilon$ for each $n>N$.  $\{y_n\}$ is said to converge to $L$.  If the above does not hold, then $\{y_n\}$ diverges.
 ```
 
 We can also express the behavior of a sequence as bounded or not:
@@ -152,13 +154,13 @@ It is nice for a sequence to converge in limit. We want to know if complex-looki
 ```{example}
 #| name: Simplifying a Fraction into Sums
 Find the limit of 
-\[\lim_{n\to \infty} \frac{n + 3}{n},\]
+$$\lim_{n\to \infty} \frac{n + 3}{n},$$
 ```
 
 ```{solution}
 At first glance, $n + 3$ and $n$  both grow to $\infty$, so it looks like we need to divide infinity by infinity. However, we can express this fraction as a sum, then the limits apply separately:
   
-\[\lim_{n\to \infty} \frac{n + 3}{n} = \lim_{n\to \infty} \left(1 + \frac{3}{n}\right) =  \underbrace{\lim_{n\to \infty}1}_{1} +  \underbrace{\lim_{n\to \infty}\left(\frac{3}{n}\right)}_{0}\]
+$$\lim_{n\to \infty} \frac{n + 3}{n} = \lim_{n\to \infty} \left(1 + \frac{3}{n}\right) =  \underbrace{\lim_{n\to \infty}1}_{1} +  \underbrace{\lim_{n\to \infty}\left(\frac{3}{n}\right)}_{0}$$
 
 so, the limit is actually 1. 
 ```
@@ -224,7 +226,7 @@ The function can be thought of as a more general or "smooth" version of sequence
 
 Find the limit of
 
-\[\lim_{x\to\infty} \frac{(x^4 +3x−99)(2−x^5)}{(18x^7 +9x^6 −3x^2 −1)(x+1)}\]
+$$\lim_{x\to\infty} \frac{(x^4 +3x−99)(2−x^5)}{(18x^7 +9x^6 −3x^2 −1)(x+1)}$$
 ```
 
 
@@ -356,7 +358,7 @@ Some properties of continuous functions:
 #| label: discontdraw
 #| name: Limit when Denominator converges to 0
 
-Let \[f(x) = \frac{x^2 + 2x}{x}.\]
+Let $$f(x) = \frac{x^2 + 2x}{x}.$$
 
 1. Graph the function. Is it defined everywhere?
 2. What is the functions limit at $x \rightarrow 0$? 
