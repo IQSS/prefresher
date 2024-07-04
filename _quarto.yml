@@ -2,8 +2,10 @@ project:
   type: book
   output-dir: _book
 
+
 book:
   title: "Math Prefresher for Political Scientists"
+  description: "Text for Harvard Department of Government Math Prefresher"
   site-url: https://iqss.github.io/prefresher/
   chapters:
     - index.qmd
@@ -18,3 +20,9 @@ delete_merged_file: true
 language:
   ui:
     chapter_name: "Chapter "
+    
+github-repo: "IQSS/prefresher"
+geometry: "margin=1.5in"
+biblio-style: apalike
+link-citations: true
+cover-image: "./images/logo.png"

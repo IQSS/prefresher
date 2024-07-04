@@ -1,14 +1,5 @@
 --- 
-author: ""
 date: today
-description: "Text for Harvard Department of Government Math Prefresher"
-github-repo: "IQSS/prefresher"
-site: "bookdown::bookdown_site"
-documentclass: book
-geometry: "margin=1.5in"
-biblio-style: apalike
-link-citations: true
-cover-image: "./images/logo.png"
 ---
 
 # About this Booklet {.unnumbered}
