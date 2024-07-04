@@ -104,8 +104,8 @@ __Empty Set__: a set with no elements.  $S = \{\}$. It is denoted by the symbol 
 
 Set operations:
 
-1. __Union__: The union of two sets $A$ and $B$, $A \cup B$, is the set containing all of the elements in $A$ or $B$. \[A_1 \cup A_2  \cup \cdots \cup A_n = \bigcup_{i=1}^n A_i\]
-2. __Intersection__: The intersection of sets $A$ and $B$, $A \cap B$, is the set containing all of the elements in both $A$ and $B$. \[A_1 \cap A_2  \cap \cdots \cap A_n = \bigcap_{i=1}^n A_i\]
+1. __Union__: The union of two sets $A$ and $B$, $A \cup B$, is the set containing all of the elements in $A$ or $B$. $$A_1 \cup A_2  \cup \cdots \cup A_n = \bigcup_{i=1}^n A_i$$
+2. __Intersection__: The intersection of sets $A$ and $B$, $A \cap B$, is the set containing all of the elements in both $A$ and $B$. $$A_1 \cap A_2  \cap \cdots \cap A_n = \bigcap_{i=1}^n A_i$$
 3. __Complement__: If set $A$ is a subset of $S$, then the complement of $A$, denoted $A^C$, is the set containing all of the elements in $S$ that are not in $A$.
 
 
@@ -195,8 +195,8 @@ The axioms of probability make sure that the separate events add up in terms of 
 
 1. For any event $A$, $P(A)\ge 0$.
 2. $P(S)=1$
-3. The Countable Additivity Axiom: For any sequence of _disjoint_ (mutually exclusive) events $A_1,A_2,\ldots$ (of which there may be infinitely many), \[P\left( \bigcup\limits_{i=1}^k
-A_i\right)=\sum\limits_{i=1}^k P(A_i)\]
+3. The Countable Additivity Axiom: For any sequence of _disjoint_ (mutually exclusive) events $A_1,A_2,\ldots$ (of which there may be infinitely many), $$P\left( \bigcup\limits_{i=1}^k
+A_i\right)=\sum\limits_{i=1}^k P(A_i)$$
 
 
 The last axiom is an extension of a union to infinite sets. When there are only two events in the space, it boils down to:
@@ -266,7 +266,7 @@ Suppose you had a pair of four-sided dice. You sum the results from a single tos
 
 __Conditional Probability__:  The conditional probability $P(A|B)$ of an event $A$ is the probability of $A$, given that another event $B$ has occurred. Conditional probability allows for the inclusion of other information into the calculation of the probability of an event.  It is calculated as
 
-\[P(A|B)=\frac{P(A\cap B)}{P(B)}\]
+$$P(A|B)=\frac{P(A\cap B)}{P(B)}$$
 
 Note that conditional probabilities are probabilities and must also follow the Kolmagorov axioms of probability.
 
@@ -311,7 +311,7 @@ You could rearrange the fraction to highlight how a joint probability could be e
 
 The probability of the intersection of two events $A$ and $B$ is $P(A\cap B)=P(A)P(B|A)=P(B)P(A|B)$ which follows directly from the definition of conditional probability. More generally,
 
-\[P(A_1\cap \cdots\cap A_k) = P(A_k| A_{k-1}\cap \cdots \cap A_1)\times P(A_{k-1}|A_{k-2}\cap \cdots A_1) \times \ldots \times P(A_2|A_1)\times P(A_1)\]
+$$P(A_1\cap \cdots\cap A_k) = P(A_k| A_{k-1}\cap \cdots \cap A_1)\times P(A_{k-1}|A_{k-2}\cap \cdots A_1) \times \ldots \times P(A_2|A_1)\times P(A_1)$$
 
 Sometimes it is easier to calculate these conditional probabilities and sum them than it is to calculate $P(A)$ directly.
 
@@ -321,7 +321,7 @@ Sometimes it is easier to calculate these conditional probabilities and sum them
 
 ```{definition}
 #| name: Law of Total Probability
-Let $S$ be the sample space of some experiment and let the disjoint $k$ events $B_1,\ldots,B_k$ partition $S$, such that $P(B_1\cup ... \cup B_k) = P(S) = 1$.  If $A$ is some other event in $S$, then the events $A\cap B_1, A\cap B_2, \ldots, A\cap B_k$ will form a partition of $A$ and we can write $A$ as \[A=(A\cap B_1)\cup\cdots\cup (A\cap B_k)\].  
+Let $S$ be the sample space of some experiment and let the disjoint $k$ events $B_1,\ldots,B_k$ partition $S$, such that $P(B_1\cup ... \cup B_k) = P(S) = 1$.  If $A$ is some other event in $S$, then the events $A\cap B_1, A\cap B_2, \ldots, A\cap B_k$ will form a partition of $A$ and we can write $A$ as $$A=(A\cap B_1)\cup\cdots\cup (A\cap B_k)$$.  
 
 Since the $k$ events are disjoint,
 
@@ -335,10 +335,10 @@ P(A)&=&\sum\limits_{i=1}^k P(A \cap B_i)\\
 
 __Bayes Rule__: Assume that events $B_1,\ldots,B_k$ form a partition of the space $S$.  Then by the Law of Total Probability 
 
-\[P(B_j|A)= \frac{P(A \cap B_j)} {P(A)} = \frac{P(B_j) P(A|B_j)}{\sum\limits_{i=1}^k P(B_i)P(A|B_i)}\]
+$$P(B_j|A)= \frac{P(A \cap B_j)} {P(A)} = \frac{P(B_j) P(A|B_j)}{\sum\limits_{i=1}^k P(B_i)P(A|B_i)}$$
 
 If there are only two states of $B$, then this is just 
-\[P(B_1|A)=\frac{P(B_1)P(A|B_1)} {P(B_1)P(A|B_1)+P(B_2)P(A|B_2)}\]
+$$P(B_1|A)=\frac{P(B_1)P(A|B_1)} {P(B_1)P(A|B_1)+P(B_2)P(A|B_2)}$$
 
 
 Bayes' rule  determines the posterior probability of a state  $P(B_j|A)$ by calculating the probability $P(A \cap B_j)$ that both the event $A$ and the state $B_j$ will occur and dividing it by the probability that the event will occur regardless of the state (by summing across all $B_i$). The states could be something like Normal/Defective, Healthy/Diseased, Republican/Democrat/Independent, etc.  The event on which one conditions could be something like a sampling from a batch of components, a test for a disease, or a question about a policy position.
@@ -505,7 +505,7 @@ Example: For a fair six-sided die, there is an equal probability of rolling any 
 
 
 
-In a discrete random variable,  __cumulative density function__ (Also referred to simply as the "cumulative distribution" or previously as the "density function"), $F(x)$ or $P(X\le x)$, is the probability that $X$ is less than or equal to some value $x$, or \[P(X\le x)=\sum\limits_{i\le x} p(i)\]
+In a discrete random variable,  __cumulative density function__ (Also referred to simply as the "cumulative distribution" or previously as the "density function"), $F(x)$ or $P(X\le x)$, is the probability that $X$ is less than or equal to some value $x$, or $$P(X\le x)=\sum\limits_{i\le x} p(i)$$
 
 
 Properties a CDF must satisfy:
@@ -546,8 +546,8 @@ $X$ is a continuous random variable if there exists a nonnegative function $f(x)
 #| name: Probability Density Function
 
 The function $f$ above is called the probability density function (pdf) of $X$ and must satisfy
-\[f(x)\ge 0\]
-\[\int\limits_{-\infty}^\infty f(x)dx=1\]
+$$f(x)\ge 0$$
+$$\int\limits_{-\infty}^\infty f(x)dx=1$$
 
   Note also that $P(X = x)=0$ --- i.e., the probability of any point $y$ is zero.
 ```
@@ -568,9 +568,9 @@ Because the probability that a continuous random variable will assume any partic
 ```
 
 We can also make statements about the probability of $Y$ falling in an interval $a\le y\le b$. 
-\[P(a\le x\le b)=\int\limits_a^b f(x)dx\]
+$$P(a\le x\le b)=\int\limits_a^b f(x)dx$$
 
-The PDF and CDF are linked by the integral: The CDF of the integral of the PDF: \[f(x) = F'(x)=\frac{dF(x)}{dx}\]
+The PDF and CDF are linked by the integral: The CDF of the integral of the PDF: $$f(x) = F'(x)=\frac{dF(x)}{dx}$$
 
 
 ```{example}
@@ -590,18 +590,18 @@ __Joint Probability Distribution__: If both $X$ and $Y$ are random variable, the
 
 Discrete: 
 
-\[p(x, y) = P(X = x, Y = y)\]
+$$p(x, y) = P(X = x, Y = y)$$
 
-such that  $p(x,y) \in [0,1]$ and \[\sum\sum p(x,y) = 1\]
+such that  $p(x,y) \in [0,1]$ and $$\sum\sum p(x,y) = 1$$
 
 
 Continuous: 
 
-\[f(x,y);P((X,Y) \in A) = \int\!\!\!\int_A f(x,y)dx dy \]
+$$f(x,y);P((X,Y) \in A) = \int\!\!\!\int_A f(x,y)dx dy $$
 
 s.t. $f(x,y)\ge 0$ and 
 
-\[\int_{-\infty}^\infty\int_{-\infty}^\infty f(x,y)dxdy = 1\]
+$$\int_{-\infty}^\infty\int_{-\infty}^\infty f(x,y)dxdy = 1$$
 
 If X and Y are independent, then $P(X=x,Y=y) = P(X=x)P(Y=y)$ and $f(x,y) = f(x)f(y)$
 
@@ -645,7 +645,7 @@ We often want to summarize some characteristics of the distribution of a random 
 
 ```{definition}
 #| name: Expectation of a Discrete Random Variable
-The expected value of a discrete random variable $Y$ is \[E(Y)=\sum\limits_{y} y P(Y=y)= \sum\limits_{y} y p(y)\]  
+The expected value of a discrete random variable $Y$ is $$E(Y)=\sum\limits_{y} y P(Y=y)= \sum\limits_{y} y p(y)$$  
 In words, it is the weighted average of all possible values of $Y$, weighted by the probability that $y$ occurs.  It is not necessarily the number we would expect $Y$ to take on, but the average value of $Y$ after a large number of repetitions of an experiment.
 
 ```
@@ -668,7 +668,7 @@ value of a continuous random variable is similar in concept to that of
 the discrete random variable, except that instead of summing using
 probabilities as weights, we integrate using the density to weight.
 Hence, the expected value of the continuous variable $Y$ is defined by
-\[E(Y)=\int\limits_{y} y f(y) dy\]
+$$E(Y)=\int\limits_{y} y f(y) dy$$
 
 
 ```{example}
@@ -690,25 +690,25 @@ Remember: An Expected Value is a type of weighted average. We can extend this to
 
 If $Y$ is Discrete with PMF $p(y)$,  
 
-\[E[g(Y)]=\sum\limits_y g(y)p(y)\]
+$$E[g(Y)]=\sum\limits_y g(y)p(y)$$
 
 If $Y$ is Continuous with PDF $f(y)$,
 
-\[E[g(Y)]=\int\limits_{-\infty}^\infty g(y)f(y)dy\]
+$$E[g(Y)]=\int\limits_{-\infty}^\infty g(y)f(y)dy$$
 
 
 ### Properties of Expected Values {.unnumbered}
 
 Dealing with Expectations is easier when the thing inside is a sum. The intuition behind this that Expectation is an integral, which is a type of sum. 
 
-1. Expectation of a constant is a constant \[E(c)=c\]
-2. Constants come out \[E(c g(Y))= c E(g(Y))\]
-4. Expectation is Linear \[E(g(Y_1) + \cdots + g(Y_n))=E(g(Y_1)) +\cdots+E(g(Y_n)),\] regardless of independence
-2. Expected Value of Expected Values: \[E(E(Y)) = E(Y)\] (because the expected value of a random variable is a constant)
+1. Expectation of a constant is a constant $$E(c)=c$$
+2. Constants come out $$E(c g(Y))= c E(g(Y))$$
+4. Expectation is Linear $$E(g(Y_1) + \cdots + g(Y_n))=E(g(Y_1)) +\cdots+E(g(Y_n)),$$ regardless of independence
+2. Expected Value of Expected Values: $$E(E(Y)) = E(Y)$$ (because the expected value of a random variable is a constant)
 
 Finally, if $X$ and $Y$ are independent, even products are easy:
 
-\[E(XY) = E(X)E(Y)\]
+$$E(XY) = E(X)E(Y)$$
 
 
 
@@ -730,10 +730,10 @@ We can also look at other summaries of the distribution, which build on the idea
 #| name: Variance
 The Variance of a Random Variable $Y$ is
   
-  \[\text{Var}(Y) = E[(Y - E(Y))^2] =  E(Y^2)-[E(Y)]^2\]
+  $$\text{Var}(Y) = E[(Y - E(Y))^2] =  E(Y^2)-[E(Y)]^2$$
 
   
-The Standard Deviation is the square root of the variance : \[SD(Y) = \sigma_Y= \sqrt{\text{Var}(Y)}\]
+The Standard Deviation is the square root of the variance : $$SD(Y) = \sigma_Y= \sqrt{\text{Var}(Y)}$$
 
 ```
 
@@ -745,11 +745,11 @@ The Standard Deviation is the square root of the variance : \[SD(Y) = \sigma_Y= 
 
 
 Given the following PMF: 
-\[f(x) =  \begin{cases}
+$$f(x) =  \begin{cases}
               \frac{3!}{x!(3-x)!}(\frac{1}{2})^3 \quad x = 0,1,2,3\\
                0 \quad otherwise
             \end{cases}
-               \]
+               $$
 
 What is $\text{Var}(x)$?
   
@@ -767,7 +767,7 @@ __Hint:__ First calculate $E(X)$ and $E(X^2)$
 The covariance measures the degree to which two random variables vary together; if the covariance between $X$ and $Y$ is positive, X tends to be larger than its mean when Y is larger than its mean.  
 
 
-\[\text{Cov}(X,Y) = E[(X - E(X))(Y - E(Y))] \]
+$$\text{Cov}(X,Y) = E[(X - E(X))(Y - E(Y))] $$
 We can also write this as 
 
 \begin{align*}
@@ -787,7 +787,7 @@ The Covariance is unfortunately hard to interpret in magnitude. The correlation 
 #| name: Correlation
 The correlation coefficient is the covariance divided by the standard deviations of $X$ and $Y$.  It is a unitless measure and always takes on values in the interval $[-1,1]$.
 
-\[\text{Corr}(X, Y) = \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}} = \frac{\text{Cov}(X,Y)}{SD(X)SD(Y)}\]
+$$\text{Corr}(X, Y) = \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}} = \frac{\text{Cov}(X,Y)}{SD(X)SD(Y)}$$
 
 
 ```
@@ -840,11 +840,11 @@ Define the random variable $Y = X^2$.
 1. Find the expectation and variance
 
 Given the following PDF: 
-\[f(x) =  \begin{cases}
+$$f(x) =  \begin{cases}
               \frac{3}{10}(3x - x^2) \quad 0 \leq x \leq 2\\
                0 \quad otherwise
             \end{cases}
-               \]
+               $$
 
 
 
@@ -857,12 +857,12 @@ Given the following PDF:
 
 1. Find the mean and standard deviation of random variable X. The PDF of this X is as follows:
   
-  \[f(x) =  \begin{cases}
+  $$f(x) =  \begin{cases}
               \frac{1}{4}x \quad 0 \leq x \leq 2\\
                \frac{1}{4}(4 - x)  \quad 2 \leq x \leq 4\\
                0 \quad otherwise
             \end{cases}
-               \]
+               $$
 
 2. Next, calculate $P(X < \mu - \sigma)$ Remember, $\mu$ is the mean and $\sigma$ is the standard deviation
   
@@ -899,7 +899,7 @@ Republicans vote for Democrat-sponsored bills 2\% of the time. What is the proba
 #| name: Poisson Distribution
 A random variable $Y$ has a Poisson distribution if 
 
-\[P(Y = y)=\frac{\lambda^y}{y!}e^{-\lambda}, \quad y=0,1,2,\ldots, \quad \lambda>0\]
+$$P(Y = y)=\frac{\lambda^y}{y!}e^{-\lambda}, \quad y=0,1,2,\ldots, \quad \lambda>0$$
 
 The Poisson has the unusual feature that its expectation equals its variance: $E(Y)=\text{Var}(Y)=\lambda$. The Poisson distribution is often used to model rare event counts:  counts of the number of events that occur during some unit of time.  $\lambda$ is often called the "arrival rate."
 
@@ -945,7 +945,7 @@ For $Y$ uniformly distributed over $(1,3)$, what are the following probabilities
 
 A random variable $Y$ is normally distributed with mean $E(Y)=\mu$ and variance $\text{Var}(Y)=\sigma^2$ if its density is 
 
-\[f(y)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(y-\mu)^2}{2\sigma^2}}\]
+$$f(y)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(y-\mu)^2}{2\sigma^2}}$$
 
 
 ```
@@ -981,7 +981,7 @@ So far, we've talked about distributions in a theoretical sense, looking at diff
 
 
 __Sample mean__:  This is the most common measure of central tendency, calculated by summing across the observations and dividing by the number of observations.
-\[\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i\]
+$$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i$$
 The sample mean is an _estimate_ of the expected value of a distribution.
 
 
@@ -1062,15 +1062,15 @@ We are now finally ready to revisit, with a bit more precise terms, the two pill
 #| name: Central Limit Theorem (i.i.d. case)
 Let $\{X_n\} = \{X_1, X_2, \ldots\}$ be a sequence of i.i.d. random variables with finite mean ($\mu$) and variance ($\sigma^2$). Then, the sample mean $\bar{X}_n = \frac{X_1 + X_2 + \cdots + X_n}{n}$ increasingly converges into a Normal distribution. 
 
-\[\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \xrightarrow{d} \text{Normal}(0, 1),\]
+$$\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \xrightarrow{d} \text{Normal}(0, 1),$$
 
 Another way to write this as a probability statement is that for all real numbers $a$,
 
 $$P\left(\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \le a\right) \rightarrow \Phi(a)$$
-as $n\to \infty$, where \[\Phi(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} \, dx\] is the CDF of a Normal distribution with mean 0 and variance 1. 
+as $n\to \infty$, where $$\Phi(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} \, dx$$ is the CDF of a Normal distribution with mean 0 and variance 1. 
 
 This result means that, as $n$ grows, the distribution of the sample mean $\bar X_n = \frac{1}{n} (X_1 + X_2 + \cdots + X_n)$ is approximately normal with mean $\mu$ and standard deviation $\frac{\sigma}{\sqrt n}$, i.e.,
-\[\bar{X}_n \approx \mathcal{N}\bigg(\mu, \frac{\sigma^2}{n}\bigg).\] The standard deviation of $\bar X_n$ (which is roughly a measure of the precision of $\bar X_n$ as an estimator of $\mu$) decreases at the rate $1/\sqrt{n}$, so, for example, to increase its precision by $10$ (i.e., to get one more digit right), one needs to collect $10^2=100$ times more units of data.
+$$\bar{X}_n \approx \mathcal{N}\bigg(\mu, \frac{\sigma^2}{n}\bigg).$$ The standard deviation of $\bar X_n$ (which is roughly a measure of the precision of $\bar X_n$ as an estimator of $\mu$) decreases at the rate $1/\sqrt{n}$, so, for example, to increase its precision by $10$ (i.e., to get one more digit right), one needs to collect $10^2=100$ times more units of data.
  
 Intuitively, this result also justifies that whenever a lot of small, independent processes somehow combine together to form the realized observations, practitioners often feel comfortable assuming Normality. 
 
@@ -1080,7 +1080,7 @@ Intuitively, this result also justifies that whenever a lot of small, independen
 #| name: Law of Large Numbers (LLN)
 For any draw of independent random variables with the same mean $\mu$, the sample average after $n$ draws, $\bar{X}_n = \frac{1}{n}(X_1 + X_2 + \ldots + X_n)$, converges in probability to the expected value of $X$, $\mu$  as $n \rightarrow \infty$:
   
-\[\lim\limits_{n\to \infty} P(|\bar{X}_n - \mu | > \varepsilon) = 0\]
+$$\lim\limits_{n\to \infty} P(|\bar{X}_n - \mu | > \varepsilon) = 0$$
   
   
 A shorthand of which is  \(\bar{X}_n \xrightarrow{p} \mu\), where the arrow is read as "converges in probability to".
@@ -1103,9 +1103,9 @@ Example.
 
 
 What is $\mathcal{O}( 5\exp(0.5 n) + n^2 + n / 2)$? Answer: $\exp(n)$. Why? Because, for large $n$, 
-\[
+$$
 \frac{ 5\exp(0.5 n) + n^2 + n / 2 }{ \exp(n)} \leq \frac{ c \exp(n) }{ \exp(n)} = c. 
-\]
+$$
 whenever $n > 4$ and where $c = 1$. 
 
 \begin{comment}

@@ -18,17 +18,17 @@ The average of a quantity is a type of weighted mean, where the potential values
 
 If $X$ is a continuous random variable, its expected value $E(X)$ -- the center of mass -- is given by 
 
-\[E(X) = \int^{\infty}_{-\infty}x f(x) dx\]
+$$E(X) = \int^{\infty}_{-\infty}x f(x) dx$$
 
 where $f(x)$ is the probability density function of $X$. 
 
 This is a continuous version of the case where $X$ is discrete, in which case 
 
-\[E(X) = \sum^\infty_{j=1} x_j P(X = x_j)\]
+$$E(X) = \sum^\infty_{j=1} x_j P(X = x_j)$$
 
 even more concretely, if the potential values of $X$ are finite, then we can write out the expected value as a weighted mean, where the weights is the probability that the value occurs. 
 
-\[E(X) = \large \sum_{x} \quad\left( \underbrace{x}_{\text{value}}\cdot \underbrace{P(X = x)}_{\text{weight, or PMF}}\right)\]
+$$E(X) = \large \sum_{x} \quad\left( \underbrace{x}_{\text{value}}\cdot \underbrace{P(X = x)}_{\text{weight, or PMF}}\right)$$
 
 
 ## Derivatives {#derivintro}
@@ -40,8 +40,8 @@ The derivative of $f$ at $x$ is its rate of change at $x$: how much $f(x)$ chang
 #| name: Derivative
 Let $f$ be a function whose domain includes an open interval containing the point $x$.  The derivative of $f$ at $x$ is given by
 
-\[\frac{d}{dx}f(x) =\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{(x+h)-x} = \lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{h}
-\]
+$$\frac{d}{dx}f(x) =\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{(x+h)-x} = \lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{h}
+$$
 
 There are a two main ways to denote a derivate:
   
@@ -91,20 +91,20 @@ If $f'(x)$ exists at a point $x_0$, then $f$ is said to be __differentiable__ at
 ### Properties of derivatives  {.unnumbered}
 Suppose that $f$ and $g$ are differentiable at $x$ and that $\alpha$ is a constant.  Then the functions $f\pm g$, $\alpha f$, $f g$, and $f/g$ (provided $g(x)\ne 0$) are also differentiable at $x$.  Additionally,
 
-__Constant rule:__ \[\left[k f(x)\right]' = k f'(x)\]
+__Constant rule:__ $$\left[k f(x)\right]' = k f'(x)$$
 
-__Sum rule:__ \[\left[f(x)\pm g(x)\right]' = f'(x)\pm g'(x)\]
+__Sum rule:__ $$\left[f(x)\pm g(x)\right]' = f'(x)\pm g'(x)$$
 
 With a bit more algebra, we can apply the definition of derivatives to get a formula for of the derivative of a product and a derivative of a quotient.
 
-__Product rule:__ \[\left[f(x)g(x)\right]^\prime = f^\prime(x)g(x)+f(x)g^\prime(x)\]
+__Product rule:__ $$\left[f(x)g(x)\right]^\prime = f^\prime(x)g(x)+f(x)g^\prime(x)$$
 
-__Quotient rule:__  \[\left[f(x)/g(x)\right]^\prime = \frac{f^\prime(x)g(x) - f(x)g^\prime(x)}{[g(x)]^2}, ~g(x)\neq 0\]
+__Quotient rule:__  $$\left[f(x)/g(x)\right]^\prime = \frac{f^\prime(x)g(x) - f(x)g^\prime(x)}{[g(x)]^2}, ~g(x)\neq 0$$
 
 
 Finally,  one way to think of the power of derivatives is that it takes a function a notch down in complexity. The power rule applies to any higher-order function:
 
-__Power rule:__ \[\left[x^k\right]^\prime = k x^{k-1}\]
+__Power rule:__ $$\left[x^k\right]^\prime = k x^{k-1}$$
 
 For any real number $k$ (that is, both whole numbers and fractions). The power rule is proved __by induction__, a neat method of proof used in many fundamental applications to prove that a general statement holds for every possible case, even if there are countably infinite cases.  We'll show a simple case where $k$ is an integer here.
 
@@ -114,17 +114,17 @@ For any real number $k$ (that is, both whole numbers and fractions). The power r
 
 We would like to prove that 
 
-\[\left[x^k\right]^\prime = k x^{k-1}\]
+$$\left[x^k\right]^\prime = k x^{k-1}$$
 for any integer $k$.
 
 First, consider the first case (the base case) of $k = 1$. We can show by the definition of derivatives (setting $f(x) = x^1 = 1$) that 
 
-\[[x^1]^\prime = \lim_{h \rightarrow 0}\frac{(x + h) - x}{(x + h) - x}= 1.\]
+$$[x^1]^\prime = \lim_{h \rightarrow 0}\frac{(x + h) - x}{(x + h) - x}= 1.$$
 
 Because $1$ is also expressed as $1 x^{1- 1}$, the statement we want to prove holds for the case $k =1$.
 
 Now, \emph{assume} that the statement holds for some integer $m$. That is, assume 
-\[\left[x^m\right]^\prime = m x^{m-1}\]
+$$\left[x^m\right]^\prime = m x^{m-1}$$
 
 Then, for the case $m + 1$, using the product rule above, we can simplify
 
@@ -176,12 +176,12 @@ For each of the following functions, find the first-order derivative $f^\prime(x
 
 The first derivative is applying the definition of derivatives on the function, and it can be expressed as
 
-\[f'(x),  ~~ y',  ~~ \frac{d}{dx}f(x), ~~ \frac{dy}{dx}\]
+$$f'(x),  ~~ y',  ~~ \frac{d}{dx}f(x), ~~ \frac{dy}{dx}$$
 
 We can keep applying the differentiation process to functions that are themselves derivatives.  The derivative of $f'(x)$ with respect to $x$, would then be $$f''(x)=\lim\limits_{h\to 0}\frac{f'(x+h)-f'(x)}{h}$$ and we can therefore call it the __Second derivative:__ 
 
 
-\[f''(x), ~~ y'', ~~ \frac{d^2}{dx^2}f(x), ~~ \frac{d^2y}{dx^2}\]
+$$f''(x), ~~ y'', ~~ \frac{d^2}{dx^2}f(x), ~~ \frac{d^2y}{dx^2}$$
 
 
 Similarly, the derivative of $f''(x)$ would be called the third derivative and is denoted $f'''(x)$. And by extension, the __nth derivative__  is expressed as  $\frac{d^n}{dx^n}f(x)$, $\frac{d^ny}{dx^n}$.
@@ -206,16 +206,16 @@ Earlier, in Section \@ref(derivintro), we said that if a function differentiable
 
 As useful as the above rules are, many functions you'll see won't fit neatly in each case immediately. Instead, they will be functions of functions. For example, the difference between $x^2 + 1^2$ and $(x^2 + 1)^2$  may look trivial, but the sum rule can be easily applied to the former, while it's actually not obvious what do with the latter. 
 
-__Composite functions__ are formed by substituting one function into another and are denoted by \[(f\circ g)(x)=f[g(x)].\]  To form $f[g(x)]$, the range of $g$ must be contained (at least in part) within the domain of $f$. The domain of $f\circ g$ consists of all the points in the domain of $g$ for which $g(x)$ is in the domain of $f$.
+__Composite functions__ are formed by substituting one function into another and are denoted by $$(f\circ g)(x)=f[g(x)].$$  To form $f[g(x)]$, the range of $g$ must be contained (at least in part) within the domain of $f$. The domain of $f\circ g$ consists of all the points in the domain of $g$ for which $g(x)$ is in the domain of $f$.
 
 ```{example}
 Let $f(x)=\log x$ for  $0<x<\infty$ and  $g(x)=x^2$ for $-\infty<x<\infty$.
 
 Then 
-\[(f\circ g)(x)=\log x^2, -\infty<x<\infty - \{0\}\]
+$$(f\circ g)(x)=\log x^2, -\infty<x<\infty - \{0\}$$
 
 Also 
-\[(g\circ f)(x)=[\log x]^2, 0<x<\infty\]
+$$(g\circ f)(x)=[\log x]^2, 0<x<\infty$$
 
 Notice that $f\circ g$ and $g\circ f$ are not the same functions.
 ```
@@ -224,14 +224,14 @@ With the notation of composite functions in place, now we can introduce a helpfu
 
 __Chain Rule__:  
 
-Let $y=(f\circ g)(x)= f[g(x)]$. The derivative of $y$ with respect to $x$ is \[\frac{d}{dx} \{ f[g(x)] \} = f'[g(x)] g'(x)\] 
+Let $y=(f\circ g)(x)= f[g(x)]$. The derivative of $y$ with respect to $x$ is $$\frac{d}{dx} \{ f[g(x)] \} = f'[g(x)] g'(x)$$ 
 
 We can read this as: "the derivative of the composite function $y$ is the derivative of $f$ evaluated at $g(x)$, times the derivative of $g$. "
 
 The chain rule can be thought of as the derivative of the "outside" times the derivative of the "inside", remembering that the derivative of the outside function is evaluated at the value of the inside function.
 
 
-* The chain rule can also be written as \[\frac{dy}{dx}=\frac{dy}{dg(x)} \frac{dg(x)}{dx}\] This expression does not imply that the $dg(x)$'s cancel out, as in fractions.  They are part of the derivative notation and you can't separate them out or cancel them.)	
+* The chain rule can also be written as $$\frac{dy}{dx}=\frac{dy}{dg(x)} \frac{dg(x)}{dx}$$ This expression does not imply that the $dg(x)$'s cancel out, as in fractions.  They are part of the derivative notation and you can't separate them out or cancel them.)	
 	
 
 ```{example}
@@ -247,7 +247,7 @@ The direct use of a chain rule is when the exponent of is itself a function, so 
 
 __Generalized Power Rule__:  
 
-If $f(x)=[g(x)]^p$ for any rational number $p$, \[f^\prime(x) =p[g(x)]^{p-1}g^\prime(x)\]
+If $f(x)=[g(x)]^p$ for any rational number $p$, $$f^\prime(x) =p[g(x)]^{p-1}g^\prime(x)$$
 
 
 
@@ -261,13 +261,13 @@ Natural logs and exponents (they are inverses of each other; see Section \@ref(l
 #| label: derivexplog
 
 The functions $e^x$ and the natural logarithm $\log(x)$ are continuous and differentiable in their domains, and their first derivate is
-  \[(e^x)^\prime = e^x\]
-  \[\log(x)^\prime = \frac{1}{x}\]
+  $$(e^x)^\prime = e^x$$
+  $$\log(x)^\prime = \frac{1}{x}$$
 
 Also, when these are composite functions, it follows by the generalized power rule that
 
-\[\left(e^{g(x)}\right)^\prime = e^{g(x)} \cdot g^\prime(x)\]
-\[\left(\log g(x)\right)^\prime = \frac{g^\prime(x)}{g(x)}, ~~\text{if}~~ g(x) > 0\]
+$$\left(e^{g(x)}\right)^\prime = e^{g(x)} \cdot g^\prime(x)$$
+$$\left(\log g(x)\right)^\prime = \frac{g^\prime(x)}{g(x)}, ~~\text{if}~~ g(x) > 0$$
 
 
 ```
@@ -399,7 +399,7 @@ y &= a^x \\
 
 Then  in the special case where $a = e$, 
 
-\[(e^x)^\prime = (e^x)\]
+$$(e^x)^\prime = (e^x)$$
 
 
 
@@ -414,7 +414,7 @@ Suppose we have a function $f$ now of two (or more) variables and we want to det
 
 __Partial Derivative__:  Let $f$ be a function of the variables $(x_1,\ldots,x_n)$.  The partial derivative of $f$ with respect to $x_i$ is 
 
-\[\frac{\partial f}{\partial x_i} (x_1,\ldots,x_n) = \lim\limits_{h\to 0} \frac{f(x_1,\ldots,x_i+h,\ldots,x_n)-f(x_1,\ldots,x_i,\ldots,x_n)}{h}\]
+$$\frac{\partial f}{\partial x_i} (x_1,\ldots,x_n) = \lim\limits_{h\to 0} \frac{f(x_1,\ldots,x_i+h,\ldots,x_n)-f(x_1,\ldots,x_i,\ldots,x_n)}{h}$$
 
 Only the $i$th variable changes --- the others are treated as constants.
 
@@ -470,14 +470,14 @@ Specifically, a Taylor series of a real or complex function  $f(x)$ that is infi
   
 __Taylor Approximation__: We can often approximate the curvature of a function $f(x)$ at point $a$ using a 2nd order Taylor polynomial around point $a$: 
 
-\[f(x) = f(a) + \frac{f'(a)}{1!} (x-a) +  \frac{f''(a)}{2!} (x-a)^2
-+ R_2\]
+$$f(x) = f(a) + \frac{f'(a)}{1!} (x-a) +  \frac{f''(a)}{2!} (x-a)^2
++ R_2$$
 
 
 $R_2$ is the remainder (R for remainder, 2 for the fact that we took two derivatives) and often treated as negligible,
 giving us:
 
-\[f(x) \approx f(a) + f'(a)(x-a) +  \dfrac{f''(a)}{2} (x-a)^2\]
+$$f(x) \approx f(a) + f'(a)(x-a) +  \dfrac{f''(a)}{2} (x-a)^2$$
 
 The more derivatives that are added, the smaller the remainder $R$ and the more accurate the approximation. Proofs involving limits guarantee that the remainder converges to 0 as the order of derivation increases.  
 
@@ -493,7 +493,7 @@ So far, we've been interested in finding the derivative $f=F'$ of a function $F$
 #| name: Antiderivative
 The antiverivative of a function $f(x)$ is a differentiable function $F$ whose derivative is $f$. 
 
-\[F^\prime = f.\]
+$$F^\prime = f.$$
 
 ```
 
@@ -521,7 +521,7 @@ We know from derivatives how to manipulate $F$ to get $f$. But how do you expres
 #| name: Indefinite Integral
 The indefinite integral of $f(x)$ is written 
 
-\[\int f(x) dx \]
+$$\int f(x) dx $$
 
 and is equal to the antiderivative of $f$. 
 
@@ -532,7 +532,7 @@ and is equal to the antiderivative of $f$.
 Draw the function $f(x)$ and its indefinite integral, $\int\limits f(x) dx$
 
 
-\[f(x) = (x^2-4)\]
+$$f(x) = (x^2-4)$$
   
   
 ```
@@ -642,7 +642,7 @@ This is how we define the "Definite" Integral:
 If for a given function $f$ the Riemann sum approaches a limit as $\Delta x \to 0$, then that limit is called the Riemann integral of $f$ from $a$ to $b$.  We express this with the $\int$, symbol, and write $$\int\limits_a^b f(x) dx= \lim\limits_{\Delta x\to 0} \sum\limits_{i=1}^n f(x_i)\Delta x$$
   
 The most straightforward of a definite integral is the definite integral. That is, we read 
-\[\int\limits_a^b f(x) dx\] as the definite integral of $f$ from $a$ to $b$ and we defined as the  area under the "curve" $f(x)$ from point $x=a$ to $x=b$.
+$$\int\limits_a^b f(x) dx$$ as the definite integral of $f$ from $a$ to $b$ and we defined as the  area under the "curve" $f(x)$ from point $x=a$ to $x=b$.
 ```
 
 The fundamental theorem of calculus shows us that this sum is, in fact, the antiderivative.
@@ -650,9 +650,9 @@ The fundamental theorem of calculus shows us that this sum is, in fact, the anti
 ```{theorem}
 #| name: First Fundamental Theorem of Calculus
 Let the function $f$ be bounded on $[a,b]$ and continuous on $(a,b)$.  Then, suggestively, use the symbol $F(x)$ to denote the definite integral from $a$ to $x$: 
-\[F(x)=\int\limits_a^x f(t)dt, \quad a\le x\le b\] 
+$$F(x)=\int\limits_a^x f(t)dt, \quad a\le x\le b$$ 
 
-Then $F(x)$ has a derivative at each point in $(a,b)$ and \[F^\prime(x)=f(x), \quad a<x<b\]
+Then $F(x)$ has a derivative at each point in $(a,b)$ and $$F^\prime(x)=f(x), \quad a<x<b$$
 That is, the definite integral function of $f$ _is_ the one of the antiderivatives  of some $f$.
 
 ```
@@ -694,10 +694,10 @@ What is the value of $\int\limits_{-2}^2 e^x e^{e^x} dx$?
 The area-interpretation of the definite integral provides some rules for simplification.
 
 
-1. There is no area below a point: \[\int\limits_a^a f(x)dx=0\]
-2. Reversing the limits changes the sign of the integral: \[\int\limits_a^b f(x)dx=-\int\limits_b^a f(x)dx\]
-3. Sums can be separated into their own integrals: \[\int\limits_a^b [\alpha f(x)+\beta g(x)]dx = \alpha \int\limits_a^b f(x)dx + \beta \int\limits_a^b g(x)dx\]
-4. Areas can be combined as long as limits are linked: \[\int\limits_a^b f(x) dx +\int\limits_b^c f(x)dx = \int\limits_a^c f(x)dx\]
+1. There is no area below a point: $$\int\limits_a^a f(x)dx=0$$
+2. Reversing the limits changes the sign of the integral: $$\int\limits_a^b f(x)dx=-\int\limits_b^a f(x)dx$$
+3. Sums can be separated into their own integrals: $$\int\limits_a^b [\alpha f(x)+\beta g(x)]dx = \alpha \int\limits_a^b f(x)dx + \beta \int\limits_a^b g(x)dx$$
+4. Areas can be combined as long as limits are linked: $$\int\limits_a^b f(x) dx +\int\limits_b^c f(x)dx = \int\limits_a^c f(x)dx$$
 
 
 ```{exercise}
@@ -719,9 +719,9 @@ From the second fundamental theorem of calculus, we now that a quick way to get 
 
 Sometimes the integrand (the thing that we are trying to take an integral of) doesn't appear integrable using common rules and antiderivatives.  A method one might try is __integration by substitution__, which is related to the Chain Rule.
 
-Suppose we want to find the indefinite integral \[\int g(x)dx\] but $g(x)$ is complex and none of the formulas we have seen so far seem to apply immediately. The trick is to come up with a _new_ function $u(x)$ such that \[g(x)=f[u(x)]u'(x).\] 
+Suppose we want to find the indefinite integral $$\int g(x)dx$$ but $g(x)$ is complex and none of the formulas we have seen so far seem to apply immediately. The trick is to come up with a _new_ function $u(x)$ such that $$g(x)=f[u(x)]u'(x).$$ 
 
-Why does an introduction of yet another function end of simplifying things? Let's refer to the antiderivative of $f$ as $F$.  Then the chain rule tells us that \[\frac{d}{dx} F[u(x)]=f[u(x)]u'(x)\].  So, $F[u(x)]$ is the antiderivative of $g$.  We can then write $$\int g(x) dx= \int f[u(x)]u'(x)dx = \int \frac{d}{dx} F[u(x)]dx = F[u(x)]+c$$
+Why does an introduction of yet another function end of simplifying things? Let's refer to the antiderivative of $f$ as $F$.  Then the chain rule tells us that $$\frac{d}{dx} F[u(x)]=f[u(x)]u'(x)$$.  So, $F[u(x)]$ is the antiderivative of $g$.  We can then write $$\int g(x) dx= \int f[u(x)]u'(x)dx = \int \frac{d}{dx} F[u(x)]dx = F[u(x)]+c$$
 
 
 
@@ -733,7 +733,7 @@ To summarize, the procedure to determine the indefinite integral $\int g(x)dx$ b
 4. Substitute back in for $x$
 
 
-Substitution can also be used to calculate a definite integral. Using the same procedure as above, \[\int\limits_a^b g(x)dx=\int\limits_c^d f(u)du = F(d)-F(c)\]
+Substitution can also be used to calculate a definite integral. Using the same procedure as above, $$\int\limits_a^b g(x)dx=\int\limits_c^d f(u)du = F(d)-F(c)$$
 where $c=u(a)$ and $d=u(b)$.
 
 
@@ -742,7 +742,7 @@ where $c=u(a)$ and $d=u(b)$.
 #| label: intsub1
 #| name: Integration by Substitution I
 
-Solve the indefinite integral \[\int x^2 \sqrt{x+1}dx.\]
+Solve the indefinite integral $$\int x^2 \sqrt{x+1}dx.$$
 
 
 ```
@@ -758,7 +758,7 @@ Another case in which integration by substitution is is useful is with a fractio
 ```{example}
 #| label: intsub2
 #| name: Integration by Substitutiton II
-Simplify \[\int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx.\]
+Simplify $$\int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx.$$
 ```
 
 
@@ -774,7 +774,7 @@ More easily remembered with the mnemonic "Ultraviolet Voodoo": $$\int u dv = u v
 
 
 For definite integrals, this is simply
-\[\int\limits_a^b u\frac{dv}{dx}dx = \left. u v \right|_a^b - \int\limits_a^b v \frac{du}{dx}dx\]
+$$\int\limits_a^b u\frac{dv}{dx}dx = \left. u v \right|_a^b - \int\limits_a^b v \frac{du}{dx}dx$$
 
 Our goal here is to find expressions for $u$ and $dv$ that, when substituted into the above equation, yield an expression that's more easily evaluated.
 
@@ -784,7 +784,7 @@ Our goal here is to find expressions for $u$ and $dv$ that, when substituted int
 #| name: Integration by Parts
 Simplify the following integrals. These seemingly obscure forms of integrals come up often when integrating distributions.
 
-\[\int x e^{ax} dx\]
+$$\int x e^{ax} dx$$
   
 ```
 
@@ -804,11 +804,11 @@ Let $u=x$ and $\frac{dv}{dx} = e^{ax}$.  Then $du=dx$ and $v=(1/a)e^{ax}$. Subst
 #| name: Integration by Parts II
 
 1. Integrate
-\[\int x^n e^{ax} dx\]
+$$\int x^n e^{ax} dx$$
 
 
 2. Integrate 
-\[\int x^3 e^{-x^2} dx\]
+$$\int x^3 e^{-x^2} dx$$
 
 
 ```
@@ -866,9 +866,9 @@ Example \@ref(exm:exmderivlog)
 ```{solution}
 
 
-1. Let $u(x)=x^2+9$.  Then $u^\prime(x)=2x$ and \[\frac{dy}{dx}= \frac{u^\prime(x)}{u(x)} = \frac{2x}{(x^2+9)}\]
+1. Let $u(x)=x^2+9$.  Then $u^\prime(x)=2x$ and $$\frac{dy}{dx}= \frac{u^\prime(x)}{u(x)} = \frac{2x}{(x^2+9)}$$
 2. Let $u(x)=\log x$.  Then $u^\prime(x)=1/x$ and $\frac{dy}{dx} = \frac{1}{(x\log x)}$.
-3. Use the generalized power rule. \[\frac{dy}{dx} = \frac{(2 \log x)}{x}\]
+3. Use the generalized power rule. $$\frac{dy}{dx} = \frac{(2 \log x)}{x}$$
 4. We know that $\log e^x=x$ and that $dx/dx=1$, but we can double check.  Let $u(x)=e^x$.  Then $u^\prime(x)=e^x$ and $\frac{dy}{dx} = \frac{u^\prime(x)}{u(x)} = \frac{e^x}{e^x} = 1.$
 
   
@@ -899,8 +899,8 @@ The problem here is the $\sqrt{x+1}$ term.  However, if the integrand had $\sqrt
 			&= \int (u^{5/2}-2u^{3/2}+u^{1/2})du
 \end{align*}
 
-We can easily integrate this, since it is just a polynomial.  Doing so and substituting $u=x+1$ back in, we get \[\int x^2\sqrt{x+1}dx=2(x+1)^{3/2}\left[\frac{1}{7}(x+1)^2 -
-\frac{2}{5}(x+1)+\frac{1}{3}\right]+c\]
+We can easily integrate this, since it is just a polynomial.  Doing so and substituting $u=x+1$ back in, we get $$\int x^2\sqrt{x+1}dx=2(x+1)^{3/2}\left[\frac{1}{7}(x+1)^2 -
+\frac{2}{5}(x+1)+\frac{1}{3}\right]+c$$
 
 
 ```
@@ -922,11 +922,11 @@ When an expression is raised to a power, it is often helpful to use this express
 
 Exercise \@ref(exr:intparts-adv)
 
-1\. \[\int x^n e^{ax} dx\]
+1\. $$\int x^n e^{ax} dx$$
 ```{solution}
 
 As in the first problem, let 
-\[u=x^n, dv=e^{ax}dx\]
+$$u=x^n, dv=e^{ax}dx$$
 Then $du=n x^{n-1}dx$ and $v=(1/a)e^{ax}$.
 
 Substituting these into the integration by parts formula gives
@@ -941,10 +941,10 @@ Notice that we now have an integral similar to the previous one, but with $x^{n-
 For a given $n$, we would repeat the integration by parts procedure until the integrand was  directly integratable --- e.g., when the integral became $\int e^{ax}dx$.
 ```
 
-2\. \[\int x^3 e^{-x^2} dx\]
+2\. $$\int x^3 e^{-x^2} dx$$
 
 ```{solution}
-We could, as before, choose $u=x^3$ and $dv=e^{-x^2}dx$. But we can't then find $v$ --- i.e., integrating $e^{-x^2}dx$ isn't possible. Instead, notice that \[\frac{d}{dx}e^{-x^2} = -2xe^{-x^2},\] which can be factored out of the original integrand \[\int x^3 e^{-x^2} dx = \int x^2 (xe^{-x^2})dx.\] 
+We could, as before, choose $u=x^3$ and $dv=e^{-x^2}dx$. But we can't then find $v$ --- i.e., integrating $e^{-x^2}dx$ isn't possible. Instead, notice that $$\frac{d}{dx}e^{-x^2} = -2xe^{-x^2},$$ which can be factored out of the original integrand $$\int x^3 e^{-x^2} dx = \int x^2 (xe^{-x^2})dx.$$ 
   
 We can then let $u=x^2$ and $dv=x e^{-x^2}dx$. The$du=2x dx$ and $v=-\frac{1}{2}e^{-x^2}$.  Substituting these in, we have
 \begin{eqnarray}

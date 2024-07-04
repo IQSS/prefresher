@@ -164,9 +164,9 @@ Notice that each line starts with a backslash `\` -- in LaTeX this is the symbol
 
 The following syntax at the endpoints are shorthand for math equations.
 ```
-\[\int x^2 dx\]
+$$\int x^2 dx$$
 ```
-these compile math symbols: $\displaystyle \int x^2 dx.$^[Enclosing with `$$` instead of `\[` also has the same effect, so you may see it too. But this is now discouraged due to its inflexibility.]
+these compile math symbols: $\displaystyle \int x^2 dx.$^[Enclosing with `$$` instead of `$$` also has the same effect, so you may see it too. But this is now discouraged due to its inflexibility.]
 
 
 The `align` environment is useful to align your multi-line math, for example. 

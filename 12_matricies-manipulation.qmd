@@ -424,12 +424,12 @@ Get all the serial numbers for black, male individuals who don't live in Ohio or
 ### 1 {.unnumbered}
 
 Let
-\[\mathbf{A} = \left[\begin{array}
+$$\mathbf{A} = \left[\begin{array}
 {rrr}
 0.6 & 0.2\\
 0.4 & 0.8\\
 \end{array}\right]
-\]
+$$
 
 Use R to write code that will create the matrix $A$, and then  consecutively multiply $A$ to itself 4 times. What is the value of $A^{4}$? 
 

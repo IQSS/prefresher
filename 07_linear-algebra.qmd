@@ -126,12 +126,12 @@ Are the following sets of vectors linearly independent?
 
 __Matrix__: A matrix is an array of real numbers arranged in $m$ rows by $n$ columns. The dimensionality of the matrix is defined as the number of rows by the number of columns, $m \times n$. 
 
-\[{\bf A}=\begin{pmatrix}
+$${\bf A}=\begin{pmatrix}
 			a_{11} & a_{12} & \cdots & a_{1n} \\
 			a_{21} & a_{22} & \cdots & a_{2n} \\
 			\vdots & \vdots & \ddots & \vdots \\
 			a_{m1} & a_{m2} & \cdots & a_{mn}
-		\end{pmatrix}\]
+		\end{pmatrix}$$
 		
 Note that you can think of vectors as special cases of matrices; a column vector of length $k$ is a $k \times 1$ matrix, while a row vector of the same length is a $1 \times k$ matrix.
 
@@ -296,10 +296,10 @@ We are often interested in solving linear systems like
 
 
 
-\[\begin{matrix}
+$$\begin{matrix}
 			x  & - & 3y & = & -3\\
 			2x & + &  y & = &  8
-			\end{matrix}\]
+			\end{matrix}$$
 			
 \begin{comment}
 		\parbox[t]{1in}{\includegraphics[angle=270, width = 1in]{linsys.eps}}
@@ -307,12 +307,12 @@ We are often interested in solving linear systems like
 
 More generally, we might have a system of $m$ equations in $n$ unknowns
 
-\[\begin{matrix}
+$$\begin{matrix}
 			a_{11}x_1  & + & a_{12}x_2 & + & \cdots & + & a_{1n}x_n & = & b_1\\
 			a_{21}x_1  & + & a_{22}x_2 & + & \cdots & + & a_{2n}x_n & = & b_2\\
 			\vdots     &   &     &   & \vdots &   &     & \vdots & \\
 			a_{m1}x_1  & + & a_{m2}x_2 & + & \cdots & + & a_{mn}x_n & = & b_m
-			\end{matrix}\]
+			\end{matrix}$$
 
 A __solution__ to a linear system of $m$ equations in $n$ unknowns is a set of $n$ numbers $x_1, x_2, \cdots, x_n$ that satisfy each of the $m$ equations.
 
@@ -489,21 +489,21 @@ $\begin{matrix}
 Put the following system of equations into augmented matrix form. Then, using Gaussian or Gauss-Jordan elimination, solve the system of equations by putting the matrix into row echelon or reduced row echelon form.
 
 
-\[
+$$
   1. \begin{cases}
                x + y + 2z = 2\\
                3x - 2y + z = 1\\
                y - z = 3
             \end{cases}
-               \]
+               $$
 
-\[
+$$
   2. \begin{cases}
                2x + 3y - z = -8\\
                x + 2y - z = 12\\
              -x -4y + z = -6
             \end{cases}
-               \]
+               $$
 
 
 
@@ -646,7 +646,7 @@ Find the inverse of the following matrix:
 
 Let's return to the matrix representation of a linear system 
 		
-\[\bf{Ax} = \bf{b}\]
+$$\bf{Ax} = \bf{b}$$
 
 If $\bf{A}$ is an $n\times n$ matrix,then $\bf{Ax}=\bf{b}$ is a system of $n$ equations in $n$ unknowns.  Suppose $\bf{A}$ is nonsingular. Then $\bf{A}^{-1}$ exists.  To solve this system, we can multiply each side by $\bf{A}^{-1}$ and reduce it as follows:
 		
@@ -677,11 +677,11 @@ ___Hint: the linear system above can be written in the matrix form___
 
 $\textbf{A}\textbf{z} = \textbf{b}$ 
   
-given \[\textbf{A} = \begin{pmatrix} -3&4\\2&-1 \end{pmatrix},\] 
+given $$\textbf{A} = \begin{pmatrix} -3&4\\2&-1 \end{pmatrix},$$ 
 
-\[\textbf{z} = \begin{pmatrix} x\\y \end{pmatrix},\] 
+$$\textbf{z} = \begin{pmatrix} x\\y \end{pmatrix},$$ 
 and 
-\[\textbf{b} = \begin{pmatrix} 5\\-10 \end{pmatrix}\]
+$$\textbf{b} = \begin{pmatrix} 5\\-10 \end{pmatrix}$$
 
 
 
@@ -782,10 +782,10 @@ Hence, we can examine how changes in the parameters and $b_i$ affect the solutio
 __Determinant Formula for the Inverse of a $2 \times 2$__: 
 
 The determinant of a $2 \times 2$ matrix __A__ $\begin{pmatrix} a & b\\ c & d\\ \end{pmatrix}$ is defined as:
-\[\frac{1}{\det({\bf A})} \begin{pmatrix}
+$$\frac{1}{\det({\bf A})} \begin{pmatrix}
 			d & -b\\
 			-c & a\\
-		\end{pmatrix}\]
+		\end{pmatrix}$$
 		
 
 For example, Let's calculate the inverse of matrix A from Exercise \@ref(exr:invlinsys) using the determinant formula. 
@@ -793,27 +793,27 @@ For example, Let's calculate the inverse of matrix A from Exercise \@ref(exr:inv
 
 Recall, 
 
-\[A = \begin{pmatrix}
+$$A = \begin{pmatrix}
 			-3 & 4\\
 			2 & -1\\
-		\end{pmatrix}\]
+		\end{pmatrix}$$
 		
-\[\det({\bf A}) = (-3)(-1) - (4)(2) = 3 - 8  = -5\]
+$$\det({\bf A}) = (-3)(-1) - (4)(2) = 3 - 8  = -5$$
 
-\[\frac{1}{\det({\bf A})} \begin{pmatrix}
+$$\frac{1}{\det({\bf A})} \begin{pmatrix}
 			-1 & -4\\
 			-2 & -3\\
-		\end{pmatrix}\]
+		\end{pmatrix}$$
 		
-\[\frac{1}{-5} \begin{pmatrix}
+$$\frac{1}{-5} \begin{pmatrix}
 			-1 & -4\\
 			-2 & -3\\
-		\end{pmatrix}\]
+		\end{pmatrix}$$
 		
-\[ \begin{pmatrix}
+$$ \begin{pmatrix}
 			\frac{1}{5} & \frac{4}{5}\\
 			\frac{2}{5} & \frac{3}{5}\\
-		\end{pmatrix}\]
+		\end{pmatrix}$$
 
 
 ```{exercise}
@@ -895,20 +895,20 @@ Answer to Exercise \@ref(exr:lineareq):
 
 There are many answers to this. Some possible simple ones are as follows:
 
-1. One solution: \[\begin{matrix}
+1. One solution: $$\begin{matrix}
 			-x  & + & y & = & 0\\
 			x & + &  y & = &  2
-			\end{matrix}\]
+			\end{matrix}$$
 
-2.  No solution: \[\begin{matrix}
+2.  No solution: $$\begin{matrix}
 			-x  & + & y & = & 0\\
 			x & - &  y & = &  2
-			\end{matrix}\]
+			\end{matrix}$$
 
-3. Infinite solutions: \[\begin{matrix}
+3. Infinite solutions: $$\begin{matrix}
 			-x  & + & y & = & 0\\
 			2x & - &  2y & = &  0
-			\end{matrix}\]
+			\end{matrix}$$
 
 
 

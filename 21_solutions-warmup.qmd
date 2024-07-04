@@ -23,7 +23,7 @@ Are the following sets of vectors linearly independent?
 
 1. $u = \begin{pmatrix} 1\\ 2\end{pmatrix}$, $v = \begin{pmatrix} 2\\4\end{pmatrix}$
 
-$\leadsto$ No: \[2u = \begin{pmatrix} 2\\ 4\end{pmatrix}, v = \begin{pmatrix} 2\\ 4\end{pmatrix}\]
+$\leadsto$ No: $$2u = \begin{pmatrix} 2\\ 4\end{pmatrix}, v = \begin{pmatrix} 2\\ 4\end{pmatrix}$$
 so infinitely many linear combinations of $u$ and $v$ that amount to 0 exist.
 
 
@@ -36,10 +36,10 @@ $\leadsto$ Yes: we cannot find  linear combination of these two vectors that wou
 3. $a = \begin{pmatrix} 2\\ -1\\ 1 \end{pmatrix}$, $b = \begin{pmatrix} 3\\ -4\\ -2 \end{pmatrix}$, $c = \begin{pmatrix} 5\\ -10\\ -8 \end{pmatrix}$ 
 
 $\leadsto$ No: After playing around with some numbers, we can find that 
-\[-2a = \begin{pmatrix} -4\\ 2\\ -2 \end{pmatrix}, 3b = \begin{pmatrix} 9\\ -12\\ -6 \end{pmatrix}, -1c = \begin{pmatrix} -5\\ 10\\ 8 \end{pmatrix}\]
+$$-2a = \begin{pmatrix} -4\\ 2\\ -2 \end{pmatrix}, 3b = \begin{pmatrix} 9\\ -12\\ -6 \end{pmatrix}, -1c = \begin{pmatrix} -5\\ 10\\ 8 \end{pmatrix}$$
 
 So 
-\[-2a + 3b - c = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}\]
+$$-2a + 3b - c = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$$
 
 i.e., a linear combination of these three vectors that would amount to zero exists.
 
@@ -49,12 +49,12 @@ If you are having trouble with these problems, please review Section \@ref(linea
 
 ### Matrices {.unnumbered}
 
-\[{\bf A}=\begin{pmatrix}
+$${\bf A}=\begin{pmatrix}
 			7 & 5 & 1 \\
 			11 & 9 & 3 \\ 
 			2 & 14 & 21 \\ 
 			4 & 1 & 5
-		\end{pmatrix}\]
+		\end{pmatrix}$$
 		
 		
 What is the dimensionality of matrix ${\bf A}$?  4 $\times$ 3
@@ -63,43 +63,43 @@ What is the element $a_{23}$ of ${\bf A}$? 3
 
 Given that 
 		
-\[{\bf B}=\begin{pmatrix}
+$${\bf B}=\begin{pmatrix}
 			1 & 2 & 8 \\
 			3 & 9 & 11 \\ 
 			4 & 7 & 5 \\ 
 			5 & 1 & 9
-		\end{pmatrix}\]
+		\end{pmatrix}$$
 		
-\[\mathbf{A} + \mathbf{B} = \begin{pmatrix}
+$$\mathbf{A} + \mathbf{B} = \begin{pmatrix}
 			8 & 7 & 9 \\
 			14 & 18 & 14 \\ 
 			6 & 21 & 26 \\ 
 			9 & 2 & 14
-		\end{pmatrix}\]
+		\end{pmatrix}$$
 
 
 Given that 
 		
-\[{\bf C}=\begin{pmatrix}
+$${\bf C}=\begin{pmatrix}
 			1 & 2 & 8 \\
 			3 & 9 & 11 \\ 
 			4 & 7 & 5 \\ 
-		\end{pmatrix}\]
+		\end{pmatrix}$$
 		
-\[\mathbf{A} + \mathbf{C} = \text{No solution, matrices non-conformable}\]
+$$\mathbf{A} + \mathbf{C} = \text{No solution, matrices non-conformable}$$
 
 
 
 Given that 
 
-\[c = 2\]
+$$c = 2$$
 
-\[c\textbf{A} = \begin{pmatrix}
+$$c\textbf{A} = \begin{pmatrix}
 			14 & 10 & 2 \\
 			22 & 18 & 6 \\ 
 			4 & 28 & 42 \\ 
 			8 & 2 & 10
-		\end{pmatrix}\]
+		\end{pmatrix}$$
 
 If you are having trouble with these problems, please review Section \@ref(matrixbasics). 
 

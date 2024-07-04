@@ -33,11 +33,11 @@ Also, the government is democratically elected and sets the following redistribu
 - $g$, "g" for "goods", is the amount of public goods that the government provides. 
 
 Suppose an individual's welfare is given by:
-\[W_i = c_i + U(g)\]
+$$W_i = c_i + U(g)$$
 
 The consumption good is the person's post-tax income. 
 
-\[c_i = (1 - \tau) y_i\]
+$$c_i = (1 - \tau) y_i$$
 
 Income varies by person (In the next section we will cover probability, by then we will know that we can express this by saying that $y$ is a random variable with the cumulative distribution function $F$, i.e. $y \sim F$.). Every distribution has a mean and an median.
 
@@ -50,7 +50,7 @@ What will happen in this economy? What will the tax rate be set too? How much pu
 
 We've skipped ahead of some formal theory results of demoracy, but hopefully these are conceptually intuitive. First, if a democracy is competitive, there is no slack in the government's goods, and all tax revenue becomes a public good. So we can go ahead and set the constraint:
 
-\[g = \sum_{i} \tau y_i P(y_i) = \tau E(y)\]
+$$g = \sum_{i} \tau y_i P(y_i) = \tau E(y)$$
 
 We can do this trick because of the "normalizes to unity" setting, but this is a general property of the average. 
 
@@ -70,7 +70,7 @@ When is the individual's welfare maximized, __as a function of the public good__
 
 $\frac{d}{dg}W_i = 0$ when $\frac{d}{dg}U(g) = \frac{y_i}{E(y)}$, and so after expressing the derivative as $U_g = \frac{d}{dg}U(g)$ for simplicity,
 
-\[g_i^\star = {U_g}^{-1}\left(\frac{y_i}{E(y)}\right)\]
+$$g_i^\star = {U_g}^{-1}\left(\frac{y_i}{E(y)}\right)$$
 
 Now recall that because we assumed concavity, $U_g$ is a negative sloping function whose value is positive. It can be shown that the inverse of such a function is also decreasing. Thus an individual's preferred level of government is determined by a single continuum, the person's income divided by the average income, and the function is __decreasing__ in $y_i$. This is consistent with our intuition that richer people prefer less redistribution.
 
@@ -78,7 +78,7 @@ Now recall that because we assumed concavity, $U_g$ is a negative sloping functi
 That was the amount for any given person. The government has to set one value of $g$, however. So what will that be? Now we will use another result, the median voter theorem. This says that under certain general electoral conditions (single-peaked preferences, two parties, majority rule), the policy winner will be that preferred by the median person in the population. Because the only thing that determines a person's preferred level of government is $y_i / E(y)$, we can presume that the median voter, whose income is $\text{med}(y)$ will prevail in their preferred choice of government. Therefore, we wil see
 
 
-\[g^\star = {U_g}^{-1}\left(\frac{\text{med}(y)}{E(y)}\right)\]
+$$g^\star = {U_g}^{-1}\left(\frac{\text{med}(y)}{E(y)}\right)$$
 
 What does this say about the level of redistribution we observe in an economy? The higher the average income is than the median income, which often (but not always) means _more_ inequality, there should be _more_ redistribution.
 
@@ -255,10 +255,10 @@ No matter what two points you select, the \textit{highest} valued point will alw
 **Second Derivative Test of Concavity**: The second derivative can be used to understand concavity. 
 
 If
-\[\begin{array}{lll}
+$$\begin{array}{lll}
 f''(x) < 0 & \Rightarrow & \text{Concave}\\
 f''(x) > 0 & \Rightarrow & \text{Convex}
-\end{array}\]
+\end{array}$$
 
 
 ### Quadratic Forms {.unnumbered}
@@ -283,7 +283,7 @@ which can be written in matrix terms:
 
 One variable
 
-\[Q(\mathbf{x}) = x_1^\top a_{11} x_1\]
+$$Q(\mathbf{x}) = x_1^\top a_{11} x_1$$
 
 N variables: 
 \begin{align*}
@@ -333,9 +333,9 @@ In a derivative, we only took the derivative with respect to one variable at a t
 
 Given a function $f(\textbf{x})$ in $n$ variables, the gradient $\nabla f(\mathbf{x})$ (the greek letter nabla ) is a column vector, where the $i$th element is the partial derivative of $f(\textbf{x})$ with respect to $x_i$: 
 
-\[\nabla f(\mathbf{x}) = \begin{pmatrix}
+$$\nabla f(\mathbf{x}) = \begin{pmatrix}
 \frac{\partial f(\mathbf{x})}{\partial x_1}\\ \frac{\partial f(\mathbf{x})}{\partial x_2}\\
-  \vdots \\ \frac{\partial f(\mathbf{x})}{\partial x_n} \end{pmatrix}\]
+  \vdots \\ \frac{\partial f(\mathbf{x})}{\partial x_n} \end{pmatrix}$$
 
 ```
 
@@ -377,7 +377,7 @@ Critical Point $\mathbf{x}^* =$
 \end{align*}
 
 
-So \[\mathbf{x}^* = (1,0)\]
+So $$\mathbf{x}^* = (1,0)$$
 
 
 ```
@@ -395,14 +395,14 @@ Given a function $f(\mathbf{x})$ in $n$ variables, the hessian $\mathbf{H(x)}$ i
 an $n\times n$ matrix, where the $(i,j)$th element is the second order
 partial derivative of $f(\mathbf{x})$ with respect to $x_i$ and $x_j$:
 
-\[\mathbf{H(x)}=\begin{pmatrix}
+$$\mathbf{H(x)}=\begin{pmatrix}
 \frac{\partial^2 f(\mathbf{x})}{\partial x_1^2}&\frac{\partial^2f(\mathbf{x})}{\partial x_1 \partial x_2}&
-\cdots & \frac{\partial^2 f(\mathbf{x})}{\partial x_1 \partial x_n}\\[9pt]
+\cdots & \frac{\partial^2 f(\mathbf{x})}{\partial x_1 \partial x_n}\$$9pt]
 \frac{\partial^2 f(\mathbf{x})}{\partial x_2 \partial x_1}&\frac{\partial^2f(\mathbf{x})}{\partial x_2^2}&
 \cdots & \frac{\partial^2 f(\mathbf{x})}{\partial x_2 \partial x_n}\\
-\vdots & \vdots & \ddots & \vdots \\[3pt]
+\vdots & \vdots & \ddots & \vdots \$$3pt]
 \frac{\partial^2 f(\mathbf{x})}{\partial x_n \partial x_1}&\frac{\partial^2f(\mathbf{x})}{\partial x_n \partial x_2}&
-\cdots & \frac{\partial^2 f(\mathbf{x})}{\partial x_n^2}\end{pmatrix}\]
+\cdots & \frac{\partial^2 f(\mathbf{x})}{\partial x_n^2}\end{pmatrix}$$
 
 ```
 
@@ -662,7 +662,7 @@ $$L(x_1, x_2, \lambda) =  -(x_1^2 + 2x_2^2) - \lambda(x_1 + x_2 - 4)$$
 
 3. Solve the system of equations: Using the first two partials, we see that $\lambda = -2x_1$ and $\lambda = -4x_2$
   Set these equal to see that $x_1 = 2x_2$.
-  Using the third partial and the above equality, $4 = 2x_2 + x_2$ from which we get  \[x_2^* = 4/3, x_1^* = 8/3, \lambda = -16/3\]
+  Using the third partial and the above equality, $4 = 2x_2 + x_2$ from which we get  $$x_2^* = 4/3, x_1^* = 8/3, \lambda = -16/3$$
   
 4. Therefore, the only critical point is $x_1^* = \frac{8}{3}$ and $x_2^* = \frac{4}{3}$
 5. This gives $f(\frac{8}{3}, \frac{4}{3}) = -\frac{96}{9}$, which is less than the unconstrained optimum $f(0,0) = 0$
@@ -880,7 +880,7 @@ In a two-dimensional set-up, this means we must check the following cases:
 ```{example}
 #| name: Kuhn-Tucker with two variables
 Solve the following optimization problem with inequality constraints
-\[\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2)\]
+$$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2)$$
 
 \begin{align*}
 \text{ s.t. } 
