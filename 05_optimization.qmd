@@ -503,9 +503,17 @@ For example, the budget constraint binds when you spend your entire budget. This
 
 Any number of constraints can be placed on an optimization problem. When working with multiple constraints, always make sure that the set of constraints are not pathological; it must be possible for all of the constraints to be satisfied simultaneously.
 
-\textbf{Set-up for Constrained Optimization:} $$\max_{x_1,x_2} f(x_1,x_2) \text{ s.t. } c(x_1,x_2)$$ $$\min_{x_1,x_2} f(x_1,x_2) \text{ s.t. } c(x_1,x_2)$$ This tells us to maximize/minimize our function, $f(x_1,x_2)$, with respect to the choice variables, $x_1,x_2$, subject to the constraint.
+\textbf{Set-up for Constrained Optimization:}
 
-Example: $$\max_{x_1,x_2} f(x_1, x_2) = -(x_1^2 + 2x_2^2) \text{ s.t. }x_1 + x_2 = 4$$ It is easy to see that the \textit{unconstrained} maximum occurs at $(x_1, x_2) = (0,0)$, but that does not satisfy the constraint. How should we proceed?
+$$\max_{x_1,x_2} f(x_1,x_2) \text{ s.t. } c(x_1,x_2)$$ $$\min_{x_1,x_2} f(x_1,x_2) \text{ s.t. } c(x_1,x_2)$$
+
+This tells us to maximize/minimize our function, $f(x_1,x_2)$, with respect to the choice variables, $x_1,x_2$, subject to the constraint.
+
+Example:
+
+$$\max_{x_1,x_2} f(x_1, x_2) = -(x_1^2 + 2x_2^2) \text{ s.t. }x_1 + x_2 = 4$$
+
+It is easy to see that the \textit{unconstrained} maximum occurs at $(x_1, x_2) = (0,0)$, but that does not satisfy the constraint. How should we proceed?
 
 ### Equality Constraints {.unnumbered}
 
@@ -606,11 +614,17 @@ More generally, in n dimensions: $$ L(x_1, \dots, x_n, \lambda_1, \dots, \lambda
 2.  $\lambda_i \neq 0$ and $s_i = 0$: This implies that there is no slack in the constraint and *the constraint does bind*.
 3.  $\lambda_i = 0$ and $s_i = 0$: In this case, there is no slack but the *constraint binds trivially*, without changing the optimum.
 
-Example: Find the critical points for the following constrained optimization: $$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } x_1 + x_2 \le 4$$
+Example: Find the critical points for the following constrained optimization:
 
-1.  Rewrite with the slack variables: $$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } x_1 + x_2 \le 4 - s_1^2$$
+$$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } x_1 + x_2 \le 4$$
 
-2.  Write the Lagrangian: $$L(x_1,x_2,\lambda_1,s_1) = -(x_1^2 + 2x_2^2) - \lambda_1 (x_1 + x_2 + s_1^2 - 4)$$
+1.  Rewrite with the slack variables:
+
+$$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } x_1 + x_2 \le 4 - s_1^2$$
+
+2.  Write the Lagrangian:
+
+$$L(x_1,x_2,\lambda_1,s_1) = -(x_1^2 + 2x_2^2) - \lambda_1 (x_1 + x_2 + s_1^2 - 4)$$
 
 3.  Take the partial derivatives and set equal to 0:
 
@@ -654,12 +668,12 @@ x_2 \ge 0
 1.  Rewrite with the slack variables:
 
 ```{=latex}
-$$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t.  
+$$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. }
 \begin{array}{l}
 x_1 + x_2 \le 4 - s_1^2\\
 -x_1 \le 0 - s_2^2\\
 -x_2 \le 0 - s_3^2
-\end{array}}$$
+\end{array}$$
 ```
 2.  Write the Lagrangian:
 

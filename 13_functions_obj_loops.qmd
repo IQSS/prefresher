@@ -271,8 +271,7 @@ A function is a set of instructions with specified ingredients. It takes an **in
 
 One way to see what a function actually does is to enter it without parentheses.
 
-```{r}
-#| eval: false
+``` r
 # enter this on your console
 table
 ```
@@ -285,8 +284,7 @@ You'll notice that functions contain other functions. *wrapper* functions are fu
 
 It's worth remembering the basic structure of a function. You create a new function, call it `my_fun` by this:
 
-```{r}
-#| eval: !expr F
+``` r
 my_fun <- function() {
 
 }
@@ -368,7 +366,7 @@ Try making your own function, 'top_10_oldest_cities', that will give you the nam
 
 You can think of a package as a suite of functions that other people have already built for you to make your life easier.
 
-```{r}
+``` r
 help(package = "ggplot2")
 ```
 
@@ -376,8 +374,7 @@ To use a package, you need to do two things: (1) install it, and then (2) load i
 
 Installing is a one-time thing
 
-```{r}
-#| eval: false
+``` r
 install.packages("ggplot2")
 ```
 
