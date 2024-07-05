@@ -84,7 +84,7 @@ ggplot(df_indicator, aes(x = term, y = idealpt, group = justice_id)) +
   theme_bw()
 ```
 
-## Chapter \@ref(robjloops): Objects and Loops
+## Chapter @sec-robjloops: Objects and Loops
 
 ```{r}
 #| message: false
@@ -139,7 +139,7 @@ for (state in states_of_interest) {
 }
 ```
 
-## Chapter \@ref(dempeace): Demoratic Peace Project
+## Chapter @sec-dempeace: Demoratic Peace Project
 
 ### Task 1: Data Input and Standardization {.unnumbered}
 
@@ -197,7 +197,7 @@ answer + geom_line(data =mean_polity_no_mid, aes(x = year, y = mean_polity_mid),
 
 ```
 
-## Chapter \@ref(simulation): Simulation
+## Chapter @sec-simulation: Simulation
 
 ### Census Sampling
 

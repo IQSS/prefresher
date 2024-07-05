@@ -10,7 +10,7 @@ Define the vectors $u = \begin{pmatrix} 1 \\2 \\3 \end{pmatrix}$, $v = \begin{pm
 2.  $cv = \begin{pmatrix}8\\10\\12\end{pmatrix}$
 3.  $u \cdot v = 1(4) + 2(5) + 3(6) = 32$
 
-If you are having trouble with these problems, please review Section \@ref(vector-def) "Working with Vectors" in Chapter \@ref(linearalgebra).
+If you are having trouble with these problems, please review Section @sec-vector-def "Working with Vectors" in Chapter @sec-linearalgebra.
 
 Are the following sets of vectors linearly independent?
 
@@ -30,7 +30,7 @@ So $$-2a + 3b - c = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$$
 
 i.e., a linear combination of these three vectors that would amount to zero exists.
 
-If you are having trouble with these problems, please review Section \@ref(linearindependence).
+If you are having trouble with these problems, please review Section @sec-linearindependence.
 
 ### Matrices {.unnumbered}
 
@@ -82,7 +82,7 @@ $$c\textbf{A} = \begin{pmatrix}
             8 & 2 & 10
         \end{pmatrix}$$
 
-If you are having trouble with these problems, please review Section \@ref(matrixbasics).
+If you are having trouble with these problems, please review Section @sec-matrixbasics.
 
 ## Operations {.unnumbered}
 
@@ -102,7 +102,7 @@ Simplify the following
 
 2.  $\prod\limits_{k=1}^3(3k + 2) = (3 + 2)\cdot (6 + 2)\cdot (9 + 2) = 440$
 
-To review this material, please see Section \@ref(sum-notation).
+To review this material, please see Section @ref-sum-notation.
 
 ### Logs and exponents {.unnumbered}
 
@@ -119,7 +119,7 @@ Simplify the following
 9.  $e^1 = e$ -- any number raised to the 1 is always itself
 10. $\log e^2 = \log_e e^2 = 2$
 
-To review this material, please see Section \@ref(logexponents)
+To review this material, please see Section @sec-logexponents
 
 ## Limits {.unnumbered}
 
@@ -129,7 +129,7 @@ Find the limit of the following.
 2.  $\lim\limits_{x \to 2} \frac{(x - 2) (x - 1)}{(x - 2)} = 1$, though note that the original function $\frac{(x - 2) (x - 1)}{(x - 2)}$ would have been undefined at $x = 2$ because of a divide by zero problem; otherwise it would have been equal to $x - 1$.
 3.  $\lim\limits_{x \to 2}\frac{x^2 - 3x + 2}{x- 2} = 1$, same as above.
 
-To review this material please see Section \@ref(limitsfun)
+To review this material please see Section @sec-limitsfun
 
 ## Calculus {.unnumbered}
 
@@ -142,7 +142,7 @@ For each of the following functions $f(x)$, find the derivative $f'(x)$ or $\fra
 5.  $f(x)=3x^2+2x^{1/3}$, $f'(x) = 6x + \frac{2}{3}x^{-2/3}$
 6.  $f(x)=(x^3)(2x^4)$, $f'(x) = \frac{d}{dx}2x^7 = 14x^6$
 
-For a review, please see Section \@ref(derivintro) - \@ref(derivpoly)
+For a review, please see Section @sec-derivintro - @sec-derivpoly
 
 ## Optimization {.unnumbered}
 
@@ -164,4 +164,4 @@ If you are stuck, please try sketching out a picture of each of the functions.
 
 4.  If we roll two fair dice, what is the probability that their sum would be 12? $\leadsto \frac{1}{36}$. There are two independent dice, so $6^2 = 36$ options in total. While the previous question had two possibilities for a sum of 11 (5,6 and 6,5), there is only one possibility out of 36 for a sum of 12 (6,6).
 
-For a review, please see Sections \@ref(setoper) - \@ref(probdef)
+For a review, please see Sections @sec-setoper - @sec-probdef
