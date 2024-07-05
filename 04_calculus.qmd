@@ -210,7 +210,7 @@ The chain rule can be thought of as the derivative of the "outside" times the de
 Find $f^\prime(x)$ for $f(x) = (3x^2+5x-7)^6$.
 :::
 
-The direct use of a chain rule is when the exponent of is itself a function, so the power rule could not have applied generaly:
+The direct use of a chain rule is when the exponent of is itself a function, so the power rule could not have applied generally:
 
 **Generalized Power Rule**:
 
@@ -221,7 +221,7 @@ If $f(x)=[g(x)]^p$ for any rational number $p$, $$f^\prime(x) =p[g(x)]^{p-1}g^\p
 Natural logs and exponents (they are inverses of each other; see Section @sec-logexponents) crop up everywhere in statistics. Their derivative is a special case from the above, but quite elegant.
 
 ::: {#thm-derivexplog}
-The functions $e^x$ and the natural logarithm $\log(x)$ are continuous and differentiable in their domains, and their first derivate is $$(e^x)^\prime = e^x$$ $$\log(x)^\prime = \frac{1}{x}$$
+The functions $e^x$ and the natural logarithm $\log(x)$ are continuous and differentiable in their domains, and their first derivative is $$(e^x)^\prime = e^x$$ $$\log(x)^\prime = \frac{1}{x}$$
 
 Also, when these are composite functions, it follows by the generalized power rule that
 
@@ -380,7 +380,7 @@ Suppose $f(x,y)=x^2+y^2$. Then
 :::
 
 ::: {#exr-partialderivs}
-Let $f(x,y)=x^3 y^4 +e^x -\log y$. What are the following partial derivaitves?
+Let $f(x,y)=x^3 y^4 +e^x -\log y$. What are the following partial derivatives?
 
 ```{=tex}
 \begin{align*}
@@ -606,7 +606,7 @@ The area-interpretation of the definite integral provides some rules for simplif
 ::: {#exr-defintshort}
 ## Definite integral shortcuts
 
-Simplify the following definite intergrals.
+Simplify the following definite integrals.
 
 1.  $\int\limits_1^1 3x^2 dx =$
 2.  $\int\limits_0^4 (2x+1)dx=$

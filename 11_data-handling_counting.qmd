@@ -63,7 +63,7 @@ The **Console** is kind of a the core window through which you see your GUI actu
 
 4.  You can also open scripts that are in folders in your computer. A script is a type of File. Find your Files in the bottom-right "Files" pane.
 
-    To load a dataset, you need to specify where that file is. Computer files (data, documents, programs) are organized hiearchically, like a branching tree. Folders can contain files, and also other folders. The GUI toolbar makes this lineaer and hiearchical relationship apparent. When we turn to locate the file in our commands, we need another set of syntax. Importantly, denote the hierarchy of a folder by the `/` (slash) symbol. `data/input/2018-08` indicates the `2018-08` folder, which is included in the `input` folder, which is in turn included in the `data` folder.
+    To load a dataset, you need to specify where that file is. Computer files (data, documents, programs) are organized hierarchically, like a branching tree. Folders can contain files, and also other folders. The GUI toolbar makes this lineaer and hierarchical relationship apparent. When we turn to locate the file in our commands, we need another set of syntax. Importantly, denote the hierarchy of a folder by the `/` (slash) symbol. `data/input/2018-08` indicates the `2018-08` folder, which is included in the `input` folder, which is in turn included in the `data` folder.
 
     Files (but not folders) have "file extensions" which you are probably familiar with already: `.docx`, `.pdf`, and `.pdf`. The file extensions you will see in a stats or quantitative social science class are:
 
@@ -295,7 +295,7 @@ These `tidyverse` commands from the `dplyr` package are newer and not built-in, 
 
 Although this is a bit beyond our current stage, it's hard to resist the temptation to see what you can do with data like this. For example, you can map it.[^11_data-handling_counting-5]
 
-[^11_data-handling_counting-5]: In mid-2018, changes in Google's services made it no longer possible to render maps on the fly. Therefore, the map is not currently rendered automatically (but can be rendered once the user registers their API). Instead, you now need to register with Google. See the [change](https://github.com/dkahle/ggmap/blob/e55c0b22b0d16a010b4b45dd2fce800ff0ef19b8/NEWS#L6-L12) to the pacakge ggmap.
+[^11_data-handling_counting-5]: In mid-2018, changes in Google's services made it no longer possible to render maps on the fly. Therefore, the map is not currently rendered automatically (but can be rendered once the user registers their API). Instead, you now need to register with Google. See the [change](https://github.com/dkahle/ggmap/blob/e55c0b22b0d16a010b4b45dd2fce800ff0ef19b8/NEWS#L6-L12) to the package ggmap.
 
 Using the `ggmap` package
 

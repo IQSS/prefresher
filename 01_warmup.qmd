@@ -130,7 +130,7 @@ For a review, please see Section @sec-derivintro - @sec-derivpoly
 
 ## Optimization {.unnumbered}
 
-For each of the followng functions $f(x)$, does a maximum and minimum exist in the domain $x \in \mathbf{R}$? If so, for what are those values and for which values of $x$?
+For each of the following functions $f(x)$, does a maximum and minimum exist in the domain $x \in \mathbf{R}$? If so, for what are those values and for which values of $x$?
 
 1.  $f(x) = x$
 2.  $f(x) = x^2$
