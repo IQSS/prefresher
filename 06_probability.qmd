@@ -136,7 +136,7 @@ knitr::include_graphics('images/probability.png')
 
 ### Probability Definitions: Formal and Informal {.unnumbered}
 
-Many things in the world are uncertain. In everyday speech, we say that we are  _uncertain_ about the outcome of random events. Probability is a formal model of uncertainty which provides a measure of uncertainty governed by a particular set of rules (Figure \@ref(fig:prob-image)). A different model of uncertainty would, of course, have a set of rules different from anything we discuss here.  Our focus on probability is justified because it has proven to be a particularly useful model of uncertainty.
+Many things in the world are uncertain. In everyday speech, we say that we are  _uncertain_ about the outcome of random events. Probability is a formal model of uncertainty which provides a measure of uncertainty governed by a particular set of rules (Figure @fig-prob-image). A different model of uncertainty would, of course, have a set of rules different from anything we discuss here.  Our focus on probability is justified because it has proven to be a particularly useful model of uncertainty.
 
 __Probability Distribution Function__: a mapping of each event in the sample space $S$ to the real numbers that satisfy the following three axioms (also called Kolmogorov's Axioms).
 
@@ -343,7 +343,7 @@ A random variable is a measurable function $X$ that maps from the sample space $
 
 :::
 
-Figure \@ref(fig:rv-image) shows a image of the function. It might seem strange to define a random variable as a function -- which is neither random nor variable. The randomness comes from the realization of an event from the sample space $s$.
+Figure @fig-rv-image shows a image of the function. It might seem strange to define a random variable as a function -- which is neither random nor variable. The randomness comes from the realization of an event from the sample space $s$.
 
 __Randomness__  means that the outcome of some experiment is not deterministic, i.e. there is some probability ($0 < P(A) < 1$) that the event will occur.
 
@@ -866,7 +866,7 @@ Why is this important?  We rarely know the true process governing the events we 
 
 ### CLT and LLN
 
-We are now finally ready to revisit, with a bit more precise terms, the two pillars of statistical theory we motivated Section \@ref(limitsfun) with.
+We are now finally ready to revisit, with a bit more precise terms, the two pillars of statistical theory we motivated Section @sec-limitsfun with.
 
 :::{#thm-clt}
 ## Central Limit Theorem (i.i.d. case)
