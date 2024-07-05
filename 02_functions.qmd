@@ -138,7 +138,7 @@ The degree of a polynomial is the highest degree of its monomial terms. Also, it
 
 **Exponential Functions**: Example: $y=2^x$
 
-## $\log$ and $\exp$ {#logexponents}
+## $\log$ and $\exp$ {#sec-logexponents}
 
 **Relationship of logarithmic and exponential functions**: $$y=\log_a(x) \iff a^y=x$$
 

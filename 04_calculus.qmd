@@ -28,7 +28,7 @@ even more concretely, if the potential values of $X$ are finite, then we can wri
 
 $$E(X) = \large \sum_{x} \quad\left( \underbrace{x}_{\text{value}}\cdot \underbrace{P(X = x)}_{\text{weight, or PMF}}\right)$$
 
-## Derivatives {#derivintro}
+## Derivatives {#sec-derivintro}
 
 The derivative of $f$ at $x$ is its rate of change at $x$: how much $f(x)$ changes with a change in $x$. The rate of change is a fraction --- rise over run --- but because not all lines are straight and the rise over run formula will give us different values depending on the range we examine, we need to take a limit (Section @sec-limits-precalc).
 
@@ -148,7 +148,7 @@ For each of the following functions, find the first-order derivative $f^\prime(x
 10. $f(x)=\frac{x^2+1}{x^2-1}$
 :::
 
-## Higher-Order Derivatives (Derivatives of Derivatives of Derivatives) {#derivpoly}
+## Higher-Order Derivatives (Derivatives of Derivatives of Derivatives) {#sec-derivpoly}
 
 The first derivative is applying the definition of derivatives on the function, and it can be expressed as
 

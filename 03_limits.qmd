@@ -155,7 +155,7 @@ Find the following limits of sequences, then explain in English the intuition fo
 2.  $\lim\limits_{n\to\infty} (n^3 - 100n^2)$
 :::
 
-## Limits of a Function {#limitsfun}
+## Limits of a Function {#sec-limitsfun}
 
 We've now covered functions and just covered limits of sequences, so now is the time to combine the two.
 

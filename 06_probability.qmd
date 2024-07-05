@@ -62,7 +62,7 @@ There are five balls numbered from 1 through 5 in a jar. Three balls are chosen.
 Four cards are selected from a deck of 52 cards. Once a card has been drawn, it is not reshuffled back into the deck. Moreover, we care only about the complete hand that we get (i.e. we care about the set of selected cards, not the sequence in which it was drawn). How many possible outcomes are there?
 :::
 
-## Sets {#setoper}
+## Sets {#sec-setoper}
 
 Probability is about quantifying the uncertainty of events. *Sets* (set theory) are the mathematical way we choose to formalize those events. Events are not inherently numerical: the onset of war or the stock market crashing is not inherently a number. Sets can define such events, and we wrap math around so that we have a transparent language to communicate about those events. *Measure theory* might sound mysterious or hard, but it is also just a mathematical way to quantify things like length, volume, and mass. Probability can be thought of as a particular application of measure theory where we want to quantify the measure of a set.
 
@@ -119,10 +119,10 @@ Consider subsets A {2, 8} and B {2,3,7} of the sample space you found. What is
 2.  $(A \cup B)^c$
 :::
 
-## Probability {#probdef}
+## Probability {#sec-probdef}
 
 ```{r}
-#| label: prob-image
+#| label: fig-prob-image
 #| echo: false
 #| fig-cap: Probablity as a Measure^[Images of Probability and Random Variables drawn
 #|   by Shiro Kuriwaki and inspired by Blitzstein and Morris]
@@ -321,7 +321,7 @@ Perhaps more counter-intuitively: If two events are already independent, then it
 Most questions in the social sciences involve events, rather than numbers per se. To analyze and reason about events quantitatively, we need a way of mapping events to numbers. A random variable does exactly that.
 
 ```{r}
-#| label: rv-image
+#| label: fig-rv-image
 #| echo: false
 #| fig-cap: The Random Variable as a Real-Valued Function
 knitr::include_graphics('images/rv.png')
