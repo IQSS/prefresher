@@ -10,7 +10,7 @@ library(forcats)
 library(scales)
 ```
 
-## Chapter \@ref(dataviz): Visualization
+## Chapter @sec-dataviz: Visualization
 
 ### 1 State Proportions {.unnumbered}
 
@@ -29,6 +29,7 @@ grp_st <- cen10 %>%
 ```
 
 Plot points
+
 ```{r}
 ggplot(grp_st, aes(x = state, y = prop)) +
   geom_point() +
@@ -48,7 +49,8 @@ ggplot(grp_st, aes(x = state, y = prop)) +
 justices <- read_csv("data/input/justices_court-median.csv")
 ```
 
-Keep justices who are in the dataset in 2016, 
+Keep justices who are in the dataset in 2016,
+
 ```{r}
 in_2017 <- justices %>%
   filter(term >= 2016) %>%
@@ -59,7 +61,8 @@ df_indicator <- justices %>%
   left_join(in_2017)
 ```
 
-All together 
+All together
+
 ```{r}
 ggplot(df_indicator, aes(x = term, y = idealpt, group = justice_id)) +
   geom_line(aes(y = median_idealpt), color = "red", size = 2, alpha = 0.1) +
@@ -122,7 +125,7 @@ proportion_d <- c()
 answer <- data.frame(race_d, state_d, proportion_d)
 ```
 
-Then 
+Then
 
 ```{r}
 for (state in states_of_interest) {
@@ -254,4 +257,3 @@ for (i in 1:20) {
 
 mean(ests)
 ```
-

@@ -29,6 +29,10 @@ book:
         - 17_non-wysiwyg.qmd
         - 18_text.qmd
         - 19_command-line_git.qmd
+    - part: Solutions
+      chapters:
+        - 21_solutions-warmup.qmd
+        - 23_solution_programming.qmd
         
 delete_merged_file: true
 language:
