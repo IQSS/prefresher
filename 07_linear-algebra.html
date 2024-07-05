@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.53">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Text for Harvard Department of Government Math Prefresher">
+
+<title>6&nbsp; Linear Algebra – Math Prefresher for Political Scientists</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./11_data-handling_counting.html" rel="next">
+<link href="./06_probability.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02_functions.html">Math</a></li><li class="breadcrumb-item"><a href="./07_linear-algebra.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Algebra</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Math Prefresher for Political Scientists</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/IQSS/prefresher" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./Math-Prefresher-for-Political-Scientists.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About this Booklet</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_warmup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pre-Prefresher Exercises</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Math</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Functions and Operations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_limits.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Limits</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_calculus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Calculus</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Optimization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Probability Theory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_linear-algebra.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Algebra</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Programming</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_data-handling_counting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Orientation and Reading in Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_matricies-manipulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Manipulating Vectors and Matrices</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13_functions_obj_loops.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Objects, Functions, Loops</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14_visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Visualization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15_project-dempeace.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Joins and Merges, Wide and Long</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16_simulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Simulation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17_non-wysiwyg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">LaTeX and markdown</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18_text.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Text</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19_command-line_git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Command-line, git</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Solutions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21_solutions-warmup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solutions to Warmup Questions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23_solution_programming.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Suggested Programming Solutions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-vector-def" id="toc-sec-vector-def" class="nav-link active" data-scroll-target="#sec-vector-def"><span class="header-section-number">6.1</span> Working with Vectors</a></li>
+  <li><a href="#sec-linearindependence" id="toc-sec-linearindependence" class="nav-link" data-scroll-target="#sec-linearindependence"><span class="header-section-number">6.2</span> Linear Independence</a></li>
+  <li><a href="#sec-matrixbasics" id="toc-sec-matrixbasics" class="nav-link" data-scroll-target="#sec-matrixbasics"><span class="header-section-number">6.3</span> Basics of Matrix Algebra</a></li>
+  <li><a href="#systems-of-linear-equations" id="toc-systems-of-linear-equations" class="nav-link" data-scroll-target="#systems-of-linear-equations"><span class="header-section-number">6.4</span> Systems of Linear Equations</a></li>
+  <li><a href="#systems-of-equations-as-matrices" id="toc-systems-of-equations-as-matrices" class="nav-link" data-scroll-target="#systems-of-equations-as-matrices"><span class="header-section-number">6.5</span> Systems of Equations as Matrices</a></li>
+  <li><a href="#finding-solutions-to-augmented-matrices-and-systems-of-equations" id="toc-finding-solutions-to-augmented-matrices-and-systems-of-equations" class="nav-link" data-scroll-target="#finding-solutions-to-augmented-matrices-and-systems-of-equations"><span class="header-section-number">6.6</span> Finding Solutions to Augmented Matrices and Systems of Equations</a></li>
+  <li><a href="#rank-and-whether-a-system-has-one-infinite-or-no-solutions" id="toc-rank-and-whether-a-system-has-one-infinite-or-no-solutions" class="nav-link" data-scroll-target="#rank-and-whether-a-system-has-one-infinite-or-no-solutions"><span class="header-section-number">6.7</span> Rank — and Whether a System Has One, Infinite, or No Solutions</a></li>
+  <li><a href="#the-inverse-of-a-matrix" id="toc-the-inverse-of-a-matrix" class="nav-link" data-scroll-target="#the-inverse-of-a-matrix"><span class="header-section-number">6.8</span> The Inverse of a Matrix</a></li>
+  <li><a href="#linear-systems-and-inverses" id="toc-linear-systems-and-inverses" class="nav-link" data-scroll-target="#linear-systems-and-inverses"><span class="header-section-number">6.9</span> Linear Systems and Inverses</a></li>
+  <li><a href="#determinants" id="toc-determinants" class="nav-link" data-scroll-target="#determinants"><span class="header-section-number">6.10</span> Determinants</a></li>
+  <li><a href="#getting-inverse-of-a-matrix-using-its-determinant" id="toc-getting-inverse-of-a-matrix-using-its-determinant" class="nav-link" data-scroll-target="#getting-inverse-of-a-matrix-using-its-determinant"><span class="header-section-number">6.11</span> Getting Inverse of a Matrix using its Determinant</a></li>
+  <li><a href="#answers-to-examples-and-exercises" id="toc-answers-to-examples-and-exercises" class="nav-link" data-scroll-target="#answers-to-examples-and-exercises">Answers to Examples and Exercises</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02_functions.html">Math</a></li><li class="breadcrumb-item"><a href="./07_linear-algebra.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Algebra</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-linearalgebra" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Algebra</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Topics:</p>
+<ul>
+<li>Working with Vectors</li>
+<li>Linear Independence</li>
+<li>Basics of Matrix Algebra</li>
+<li>Square Matrices</li>
+<li>Linear Equations</li>
+<li>Systems of Linear Equations</li>
+<li>Systems of Equations as Matrices</li>
+<li>Solving Augmented Matrices and Systems of Equations</li>
+<li>Rank</li>
+<li>The Inverse of a Matrix</li>
+<li>Inverse of Larger Matrices</li>
+</ul>
+<section id="sec-vector-def" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="sec-vector-def"><span class="header-section-number">6.1</span> Working with Vectors</h2>
+<p><strong>Vector</strong>: A vector in <span class="math inline">\(n\)</span>-space is an ordered list of <span class="math inline">\(n\)</span> numbers. These numbers can be represented as either a row vector or a column vector: <span class="math display">\[ {\bf v} \begin{pmatrix} v_1 &amp; v_2 &amp; \dots &amp; v_n\end{pmatrix} , {\bf v} = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}\]</span></p>
+<p>We can also think of a vector as defining a point in <span class="math inline">\(n\)</span>-dimensional space, usually <span class="math inline">\({\bf R}^n\)</span>; each element of the vector defines the coordinate of the point in a particular direction.</p>
+<p><strong>Vector Addition and Subtraction</strong>: If two vectors, <span class="math inline">\({\bf u}\)</span> and <span class="math inline">\({\bf v}\)</span>, have the same length (i.e.&nbsp;have the same number of elements), they can be added (subtracted) together: <span class="math display">\[ {\bf u} + {\bf v} = \begin{pmatrix} u_1 + v_1 &amp; u_2 + v_2 &amp; \cdots &amp; u_k + v_n \end{pmatrix}\]</span> <span class="math display">\[ {\bf u} - {\bf v} = \begin{pmatrix} u_1 - v_1 &amp; u_2 - v_2 &amp; \cdots &amp; u_k - v_n \end{pmatrix}\]</span></p>
+<p><strong>Scalar Multiplication</strong>: The product of a scalar <span class="math inline">\(c\)</span> (i.e.&nbsp;a constant) and vector <span class="math inline">\({\bf v}\)</span> is:<br>
+<span class="math display">\[ c{\bf v} =  \begin{pmatrix} cv_1 &amp; cv_2 &amp; \dots &amp; cv_n \end{pmatrix} \]</span></p>
+<p><strong>Vector Inner Product</strong>: The inner product (also called the dot product or scalar product) of two vectors <span class="math inline">\({\bf u}\)</span> and <span class="math inline">\({\bf v}\)</span> is again defined if and only if they have the same number of elements <span class="math display">\[ {\bf u} \cdot {\bf v} = u_1v_1 + u_2v_2 + \cdots + u_nv_n = \sum_{i = 1}^n u_iv_i\]</span> If <span class="math inline">\({\bf u} \cdot {\bf v} = 0\)</span>, the two vectors are orthogonal (or perpendicular).</p>
+<p><strong>Vector Norm</strong>: The norm of a vector is a measure of its length. There are many different ways to calculate the norm, but the most common is the Euclidean norm (which corresponds to our usual conception of distance in three-dimensional space): <span class="math display">\[ ||{\bf v}|| = \sqrt{{\bf v}\cdot{\bf v}} = \sqrt{ v_1v_1 + v_2v_2 + \cdots + v_nv_n}\]</span></p>
+<div id="exm-vectors" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6.1 (Vector Algebra)</strong></span> Let <span class="math inline">\(a = \begin{pmatrix} 2&amp;1&amp;2\end{pmatrix}\)</span>, <span class="math inline">\(b = \begin{pmatrix} 3&amp;4&amp;5 \end{pmatrix}\)</span>. Calculate the following:</p>
+<ol type="1">
+<li><p><span class="math inline">\(a - b\)</span></p></li>
+<li><p><span class="math inline">\(a \cdot b\)</span></p></li>
+</ol>
+</div>
+<div id="exr-vectors1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.1 (Vector Algebra)</strong></span> Let <span class="math inline">\(u = \begin{pmatrix} 7&amp;1&amp;-5&amp;3\end{pmatrix}\)</span>, <span class="math inline">\(v = \begin{pmatrix} 9&amp;-3&amp;2&amp;8 \end{pmatrix}\)</span>, <span class="math inline">\(w = \begin{pmatrix} 1&amp;13&amp; -7&amp;2 &amp;15 \end{pmatrix}\)</span>, and <span class="math inline">\(c = 2\)</span>. Calculate the following:</p>
+<ol type="1">
+<li><p><span class="math inline">\(u-v\)</span></p></li>
+<li><p><span class="math inline">\(cw\)</span></p></li>
+<li><p><span class="math inline">\(u \cdot v\)</span></p></li>
+<li><p><span class="math inline">\(w \cdot v\)</span></p></li>
+</ol>
+</div>
+</section>
+<section id="sec-linearindependence" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="sec-linearindependence"><span class="header-section-number">6.2</span> Linear Independence</h2>
+<p><strong>Linear combinations</strong>: The vector <span class="math inline">\({\bf u}\)</span> is a linear combination of the vectors <span class="math inline">\({\bf v}_1, {\bf v}_2,  \cdots , {\bf v}_k\)</span> if <span class="math display">\[{\bf u} = c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k\]</span></p>
+<p>For example, <span class="math inline">\(\begin{pmatrix}9 &amp; 13 &amp; 17 \end{pmatrix}\)</span> is a linear combination of the following three vectors: <span class="math inline">\(\begin{pmatrix}1 &amp; 2 &amp; 3 \end{pmatrix}\)</span>, <span class="math inline">\(\begin{pmatrix} 2 &amp; 3&amp; 4\end{pmatrix}\)</span>, and <span class="math inline">\(\begin{pmatrix} 3 &amp; 4 &amp; 5 \end{pmatrix}\)</span>. This is because <span class="math inline">\(\begin{pmatrix}9 &amp; 13 &amp; 17 \end{pmatrix}\)</span> = <span class="math inline">\((2)\begin{pmatrix}1 &amp; 2 &amp; 3 \end{pmatrix}\)</span> <span class="math inline">\(+ (-1)\begin{pmatrix} 2 &amp; 3&amp; 4\end{pmatrix}\)</span> + <span class="math inline">\(3\begin{pmatrix} 3 &amp; 4 &amp; 5 \end{pmatrix}\)</span></p>
+<p><strong>Linear independence</strong>: A set of vectors <span class="math inline">\({\bf v}_1, {\bf v}_2,  \cdots , {\bf v}_k\)</span> is linearly independent if the only solution to the equation <span class="math display">\[c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k = 0\]</span> is <span class="math inline">\(c_1 = c_2 = \cdots = c_k = 0\)</span>. If another solution exists, the set of vectors is linearly dependent.</p>
+<p>A set <span class="math inline">\(S\)</span> of vectors is linearly dependent if and only if at least one of the vectors in <span class="math inline">\(S\)</span> can be written as a linear combination of the other vectors in <span class="math inline">\(S\)</span>.</p>
+<p>Linear independence is only defined for sets of vectors with the same number of elements; any linearly independent set of vectors in <span class="math inline">\(n\)</span>-space contains at most <span class="math inline">\(n\)</span> vectors.</p>
+<p>Since <span class="math inline">\(\begin{pmatrix}9 &amp; 13 &amp; 17 \end{pmatrix}\)</span> is a linear combination of <span class="math inline">\(\begin{pmatrix}1 &amp; 2 &amp; 3 \end{pmatrix}\)</span>, <span class="math inline">\(\begin{pmatrix} 2 &amp; 3&amp; 4\end{pmatrix}\)</span>, and <span class="math inline">\(\begin{pmatrix} 3 &amp; 4 &amp; 5 \end{pmatrix}\)</span>, these 4 vectors constitute a linearly dependent set.</p>
+<div id="exm-linearindep" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6.2 (Linear Independence)</strong></span> Are the following sets of vectors linearly independent?</p>
+<ol type="1">
+<li><span class="math inline">\(\begin{pmatrix}2 &amp; 3 &amp; 1 \end{pmatrix}\)</span> and <span class="math inline">\(\begin{pmatrix}4 &amp; 6 &amp; 1 \end{pmatrix}\)</span></li>
+<li><span class="math inline">\(\begin{pmatrix}1 &amp; 0 &amp; 0 \end{pmatrix}\)</span>, <span class="math inline">\(\begin{pmatrix}0 &amp; 5 &amp; 0 \end{pmatrix}\)</span>, and <span class="math inline">\(\begin{pmatrix}10 &amp; 10 &amp; 0 \end{pmatrix}\)</span></li>
+</ol>
+</div>
+<div id="exr-linearindep1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.2 (Linear Independence)</strong></span> Are the following sets of vectors linearly independent?</p>
+<ol type="1">
+<li><p><span class="math display">\[{\bf v}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \]</span></p></li>
+<li><p><span class="math display">\[{\bf v}_1 = \begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} -4 \\ 6 \\ 5 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} -2 \\ 8 \\ 6 \end{pmatrix} \]</span></p></li>
+</ol>
+</div>
+</section>
+<section id="sec-matrixbasics" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="sec-matrixbasics"><span class="header-section-number">6.3</span> Basics of Matrix Algebra</h2>
+<p><strong>Matrix</strong>: A matrix is an array of real numbers arranged in <span class="math inline">\(m\)</span> rows by <span class="math inline">\(n\)</span> columns. The dimensionality of the matrix is defined as the number of rows by the number of columns, <span class="math inline">\(m \times n\)</span>.</p>
+<p><span class="math display">\[{\bf A}=\begin{pmatrix}
+            a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
+            a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
+            \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+            a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
+        \end{pmatrix}\]</span></p>
+<p>Note that you can think of vectors as special cases of matrices; a column vector of length <span class="math inline">\(k\)</span> is a <span class="math inline">\(k \times 1\)</span> matrix, while a row vector of the same length is a <span class="math inline">\(1 \times k\)</span> matrix.</p>
+<p>It’s also useful to think of matrices as being made up of a collection of row or column vectors. For example, <span class="math display">\[\bf A = \begin{pmatrix} {\bf a}_1 &amp; {\bf a}_2 &amp;  \cdots &amp; {\bf a}_m \end{pmatrix}\]</span></p>
+<p><strong>Matrix Addition</strong>: Let <span class="math inline">\(\bf A\)</span> and <span class="math inline">\(\bf B\)</span> be two <span class="math inline">\(m\times n\)</span> matrices. <span class="math display">\[{\bf A+B}=\begin{pmatrix}
+            a_{11}+b_{11} &amp; a_{12}+b_{12} &amp; \cdots &amp; a_{1n}+b_{1n} \\
+            a_{21}+b_{21} &amp; a_{22}+b_{22} &amp; \cdots &amp; a_{2n}+b_{2n} \\
+            \vdots &amp; \vdots  &amp; \ddots &amp; \vdots \\
+            a_{m1}+b_{m1} &amp; a_{m2}+b_{m2} &amp; \cdots &amp; a_{mn}+b_{mn}
+        \end{pmatrix}\]</span></p>
+<p>Note that matrices <span class="math inline">\({\bf A}\)</span> and <span class="math inline">\({\bf B}\)</span> must have the same dimensionality, in which case they are <strong>conformable for addition</strong>.</p>
+<div id="exm-matrixaddition" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6.3</strong></span> <span class="math display">\[{\bf A}=\begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \end{pmatrix}, \qquad
+            {\bf B}=\begin{pmatrix} 1 &amp; 2 &amp; 1 \\ 2 &amp; 1 &amp; 2 \end{pmatrix}\]</span> <span class="math inline">\({\bf A+B}=\)</span></p>
+</div>
+<p><strong>Scalar Multiplication</strong>: Given the scalar <span class="math inline">\(s\)</span>, the scalar multiplication of <span class="math inline">\(s {\bf A}\)</span> is <span class="math display">\[ s {\bf A}=  s \begin{pmatrix}
+            a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
+            a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
+            \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+            a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
+        \end{pmatrix}
+        = \begin{pmatrix}
+            s a_{11} &amp; s a_{12} &amp; \cdots &amp; s a_{1n} \\
+            s a_{21} &amp; s a_{22} &amp; \cdots &amp; s a_{2n} \\
+            \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+            s a_{m1} &amp; s a_{m2} &amp; \cdots &amp; s a_{mn}
+        \end{pmatrix}\]</span></p>
+<div id="exm-scalarmulti" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6.4</strong></span> <span class="math inline">\(s=2, \qquad {\bf A}=\begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \end{pmatrix}\)</span></p>
+<p><span class="math inline">\(s {\bf A} =\)</span></p>
+</div>
+<p><strong>Matrix Multiplication</strong>: If <span class="math inline">\({\bf A}\)</span> is an <span class="math inline">\(m\times k\)</span> matrix and <span class="math inline">\(\bf B\)</span> is a <span class="math inline">\(k\times n\)</span> matrix, then their product <span class="math inline">\(\bf C = A B\)</span> is the <span class="math inline">\(m\times n\)</span> matrix where <span class="math display">\[c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{ik}b_{kj}\]</span></p>
+<div id="exm-matrixmulti" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6.5</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p><span class="math inline">\(\begin{pmatrix} a&amp;b\\c&amp;d\\e&amp;f \end{pmatrix} \begin{pmatrix} A&amp;B\\C&amp;D \end{pmatrix}
+        =\)</span></p></li>
+<li><p><span class="math inline">\(\begin{pmatrix} 1&amp;2&amp;-1\\3&amp;1&amp;4 \end{pmatrix} \begin{pmatrix} -2&amp;5\\4&amp;-3\\2&amp;1\end{pmatrix} =\)</span></p></li>
+</ol>
+</div>
+<p>Note that the number of columns of the first matrix must equal the number of rows of the second matrix, in which case they are <strong>conformable for multiplication</strong>. The sizes of the matrices (including the resulting product) must be <span class="math display">\[(m\times k)(k\times n)=(m\times n)\]</span></p>
+<p>Also note that if <strong>AB</strong> exists, <strong>BA</strong> exists only if <span class="math inline">\(\dim({\bf A}) = m \times n\)</span> and <span class="math inline">\(\dim({\bf B}) = n \times m\)</span>.</p>
+<p>This does not mean that <strong>AB</strong> = <strong>BA</strong>. <strong>AB</strong> = <strong>BA</strong> is true only in special circumstances, like when <span class="math inline">\({\bf A}\)</span> or <span class="math inline">\({\bf B}\)</span> is an identity matrix or <span class="math inline">\({\bf A} = {\bf B}^{-1}\)</span>.</p>
+<p><strong>Laws of Matrix Algebra</strong>:</p>
+<p>Commutative law for multiplication does not hold – the order of multiplication matters: <span class="math display">\[\bf AB\ne BA\]</span></p>
+<p>For example, <span class="math display">\[{\bf A}=\begin{pmatrix} 1&amp;2\\-1&amp;3\end{pmatrix}, \qquad {\bf B}=\begin{pmatrix} 2&amp;1\\0&amp;1\end{pmatrix}\]</span> <span class="math display">\[{\bf AB}=\begin{pmatrix} 2&amp;3\\-2&amp;2\end{pmatrix}, \qquad {\bf BA}=\begin{pmatrix} 1&amp;7\\-1&amp;3\end{pmatrix}\]</span></p>
+<p><strong>Transpose</strong>: The transpose of the <span class="math inline">\(m\times n\)</span> matrix <span class="math inline">\(\bf A\)</span> is the <span class="math inline">\(n\times m\)</span> matrix <span class="math inline">\({\bf A}^T\)</span> (also written <span class="math inline">\({\bf A}'\)</span>) obtained by interchanging the rows and columns of <span class="math inline">\(\bf A\)</span>.</p>
+<p>For example,</p>
+<p><span class="math inline">\({\bf A}=\begin{pmatrix} 4&amp;-2&amp;3\\0&amp;5&amp;-1\end{pmatrix}, \qquad {\bf A}^T=\begin{pmatrix} 4&amp;0\\-2&amp;5\\3&amp;-1 \end{pmatrix}\)</span></p>
+<p><span class="math inline">\({\bf B}=\begin{pmatrix} 2\\-1\\3 \end{pmatrix}, \qquad {\bf B}^T=\begin{pmatrix} 2&amp;-1&amp;3\end{pmatrix}\)</span></p>
+<p>The following rules apply for transposed matrices:</p>
+<p>Example of <span class="math inline">\(({\bf AB})^T = {\bf B}^T{\bf A}^T\)</span>: <span class="math display">\[{\bf A}=\begin{pmatrix} 1&amp;3&amp;2\\2&amp;-1&amp;3\end{pmatrix}, \qquad {\bf B}=\begin{pmatrix} 0&amp;1\\2&amp;2\\3&amp;-1\end{pmatrix}\]</span> <span class="math display">\[ ({\bf AB})^T = \left[ \begin{pmatrix} 1&amp;3&amp;2\\2&amp;-1&amp;3\end{pmatrix} \begin{pmatrix} 0&amp;1\\2&amp;2\\3&amp;-1\end{pmatrix} \right]^T = \begin{pmatrix} 12&amp;7\\5&amp;-3 \end{pmatrix}\]</span> <span class="math display">\[ {\bf B}^T{\bf A}^T= \begin{pmatrix} 0&amp;2&amp;3\\1&amp;2&amp;-1 \end{pmatrix}  \begin{pmatrix} 1&amp;2\\3&amp;-1\\2&amp;3 \end{pmatrix} = \begin{pmatrix} 12&amp;7\\5&amp;-3 \end{pmatrix}\]</span></p>
+<div id="exr-matrixmulti1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.3 (Matrix Multiplication)</strong></span> Let <span class="math display">\[A =  \begin{pmatrix} 2&amp;0&amp;-1&amp;1\\1&amp;2&amp;0&amp;1 \end{pmatrix}\]</span></p>
+<p><span class="math display">\[B = \begin{pmatrix} 1&amp;5&amp;-7\\1&amp;1&amp;0\\0&amp;-1&amp;1\\2&amp;0&amp;0\end{pmatrix} \]</span></p>
+<p><span class="math display">\[C =  \begin{pmatrix} 3&amp;2&amp;-1\\0&amp;4&amp;6 \end{pmatrix}\]</span></p>
+<p>Calculate the following:</p>
+<ol type="1">
+<li><span class="math display">\[AB\]</span></li>
+<li><span class="math display">\[BA\]</span></li>
+<li><span class="math display">\[(BC)^T\]</span></li>
+<li><span class="math display">\[BC^T\]</span></li>
+</ol>
+</div>
+</section>
+<section id="systems-of-linear-equations" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="systems-of-linear-equations"><span class="header-section-number">6.4</span> Systems of Linear Equations</h2>
+<p><strong>Linear Equation</strong>: <span class="math inline">\(a_1 x_1 + a_2 x_2 + \cdots + a_n x_n = b\)</span></p>
+<p><span class="math inline">\(a_i\)</span> are parameters or coefficients. <span class="math inline">\(x_i\)</span> are variables or unknowns.</p>
+<p>Linear because only one variable per term and degree is at most 1.</p>
+<p>We are often interested in solving linear systems like</p>
+<p><span class="math display">\[\begin{matrix}
+            x  &amp; - &amp; 3y &amp; = &amp; -3\\
+            2x &amp; + &amp;  y &amp; = &amp;  8
+            \end{matrix}\]</span></p>
+<p>More generally, we might have a system of <span class="math inline">\(m\)</span> equations in <span class="math inline">\(n\)</span> unknowns</p>
+<p><span class="math display">\[\begin{matrix}
+            a_{11}x_1  &amp; + &amp; a_{12}x_2 &amp; + &amp; \cdots &amp; + &amp; a_{1n}x_n &amp; = &amp; b_1\\
+            a_{21}x_1  &amp; + &amp; a_{22}x_2 &amp; + &amp; \cdots &amp; + &amp; a_{2n}x_n &amp; = &amp; b_2\\
+            \vdots     &amp;   &amp;     &amp;   &amp; \vdots &amp;   &amp;     &amp; \vdots &amp; \\
+            a_{m1}x_1  &amp; + &amp; a_{m2}x_2 &amp; + &amp; \cdots &amp; + &amp; a_{mn}x_n &amp; = &amp; b_m
+            \end{matrix}\]</span></p>
+<p>A <strong>solution</strong> to a linear system of <span class="math inline">\(m\)</span> equations in <span class="math inline">\(n\)</span> unknowns is a set of <span class="math inline">\(n\)</span> numbers <span class="math inline">\(x_1, x_2, \cdots, x_n\)</span> that satisfy each of the <span class="math inline">\(m\)</span> equations.</p>
+<p>Example: <span class="math inline">\(x=3\)</span> and <span class="math inline">\(y=2\)</span> is the solution to the above <span class="math inline">\(2\times 2\)</span> linear system. If you graph the two lines, you will find that they intersect at <span class="math inline">\((3,2)\)</span>.</p>
+<p>Does a linear system have one, no, or multiple solutions? For a system of 2 equations with 2 unknowns (i.e., two lines): _<br>
+<strong>One solution:</strong> The lines intersect at exactly one point.</p>
+<p><strong>No solution:</strong> The lines are parallel.</p>
+<p><strong>Infinite solutions:</strong> The lines coincide.</p>
+<p>Methods to solve linear systems:</p>
+<ol type="1">
+<li>Substitution</li>
+<li>Elimination of variables</li>
+<li>Matrix methods</li>
+</ol>
+<div id="exr-lineareq" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.4 (Linear Equations)</strong></span> Provide a system of 2 equations with 2 unknowns that has</p>
+<ol type="1">
+<li><p>one solution</p></li>
+<li><p>no solution</p></li>
+<li><p>infinite solutions</p></li>
+</ol>
+</div>
+</section>
+<section id="systems-of-equations-as-matrices" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="systems-of-equations-as-matrices"><span class="header-section-number">6.5</span> Systems of Equations as Matrices</h2>
+<p>Matrices provide an easy and efficient way to represent linear systems such as <span class="math display">\[\begin{matrix}
+        a_{11}x_1  &amp; + &amp; a_{12}x_2 &amp; + &amp; \cdots &amp; + &amp; a_{1n}x_n &amp; = &amp; b_1\\
+        a_{21}x_1  &amp; + &amp; a_{22}x_2 &amp; + &amp; \cdots &amp; + &amp; a_{2n}x_n &amp; = &amp; b_2\\
+        \vdots     &amp;   &amp;     &amp;   &amp; \vdots &amp;   &amp;     &amp; \vdots &amp; \\
+        a_{m1}x_1  &amp; + &amp; a_{m2}x_2 &amp; + &amp; \cdots &amp; + &amp; a_{mn}x_n &amp; = &amp; b_m
+        \end{matrix}\]</span></p>
+<p>as <span class="math display">\[{\bf A x = b}\]</span> where</p>
+<p>The <span class="math inline">\(m \times n\)</span> <span class="math inline">\({\bf A}\)</span> is an array of <span class="math inline">\(m n\)</span> real numbers arranged in <span class="math inline">\(m\)</span> rows by <span class="math inline">\(n\)</span> columns: <span class="math display">\[{\bf A}=\begin{pmatrix}
+            a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
+            a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
+            \vdots &amp;  &amp; \ddots &amp; \vdots \\
+            a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
+            \end{pmatrix}\]</span></p>
+<p>The unknown quantities are represented by the vector <span class="math inline">\({\bf x}=\begin{pmatrix} x_1\\x_2\\\vdots\\x_n \end{pmatrix}\)</span>.</p>
+<p>The right hand side of the linear system is represented by the vector <span class="math inline">\({\bf b}=\begin{pmatrix} b_1\\b_2\\\vdots\\b_m \end{pmatrix}\)</span>.</p>
+<p><strong>Augmented Matrix</strong>: When we append <span class="math inline">\(\bf b\)</span> to the coefficient matrix <span class="math inline">\(\bf A\)</span>, we get the augmented matrix <span class="math inline">\(\widehat{\bf A}=[\bf A | b]\)</span> <span class="math display">\[\begin{pmatrix}
+            a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} &amp; | &amp; b_1\\
+            a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} &amp; | &amp; b_2\\
+            \vdots &amp;  &amp; \ddots &amp; \vdots &amp; | &amp; \vdots\\
+            a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn} &amp; | &amp; b_m
+            \end{pmatrix}\]</span></p>
+<div id="exr-augmatrix" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.5 (Augmented Matrix)</strong></span> Create an augmented matrix that represent the following system of equations:</p>
+<p><span class="math display">\[2x_1 -7x_2 + 9x_3 -4x_4 = 8\]</span> <span class="math display">\[41x_2 + 9x_3 -5x_6 = 11\]</span> <span class="math display">\[x_1 -15x_2 -11x_5 = 9\]</span></p>
+</div>
+</section>
+<section id="finding-solutions-to-augmented-matrices-and-systems-of-equations" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="finding-solutions-to-augmented-matrices-and-systems-of-equations"><span class="header-section-number">6.6</span> Finding Solutions to Augmented Matrices and Systems of Equations</h2>
+<p><strong>Row Echelon Form</strong>: Our goal is to translate our augmented matrix or system of equations into row echelon form. This will provide us with the values of the vector <strong>x</strong> which solve the system. We use the row operations to change coefficients in the lower triangle of the augmented matrix to 0. An augmented matrix of the form</p>
+<p><span class="math display">\[\begin{pmatrix}
+            \fbox{$a'_{11}$}&amp; a'_{12} &amp; a'_{13}&amp; \cdots &amp; a'_{1n} &amp; | &amp; b'_1\\
+            0 &amp; \fbox{$a'_{22}$} &amp; a'_{23}&amp; \cdots &amp; a'_{2n} &amp; | &amp; b'_2\\
+            0 &amp; 0 &amp; \fbox{$a'_{33}$}&amp; \cdots &amp; a'_{3n} &amp; | &amp; b'_3\\
+            0 &amp; 0 &amp;0 &amp; \ddots &amp; \vdots  &amp; | &amp; \vdots \\
+            0 &amp; 0 &amp;0 &amp;0 &amp; \fbox{$a'_{mn}$} &amp; | &amp; b'_m
+            \end{pmatrix}\]</span></p>
+<p>is said to be in row echelon form — each row has more leading zeros than the row preceding it.</p>
+<p><strong>Reduced Row Echelon Form</strong>: We can go one step further and put the matrix into reduced row echelon form. Reduced row echelon form makes the value of <strong>x</strong> which solves the system very obvious. For a system of <span class="math inline">\(m\)</span> equations in <span class="math inline">\(m\)</span> unknowns, with no all-zero rows, the reduced row echelon form would be</p>
+<p><span class="math display">\[\begin{pmatrix}
+            \fbox{$1$}  &amp;  0 &amp;   0 &amp;    0  &amp;   0 &amp; | &amp; b^*_1\\
+            0  &amp;  \fbox{$1$} &amp;   0 &amp;    0  &amp;   0 &amp; | &amp; b^*_2\\
+            0  &amp;  0 &amp;   \fbox{$1$} &amp;    0  &amp;   0 &amp; | &amp; b^*_3\\
+            0  &amp;  0 &amp;   0 &amp;\ddots &amp;   0 &amp; | &amp;\vdots\\
+            0  &amp;  0 &amp;   0 &amp;    0  &amp;   \fbox{$1$} &amp; | &amp; b^*_m
+            \end{pmatrix}\]</span></p>
+<p><strong>Gaussian and Gauss-Jordan elimination</strong>: We can conduct elementary row operations to get our augmented matrix into row echelon or reduced row echelon form. The methods of transforming a matrix or system into row echelon and reduced row echelon form are referred to as Gaussian elimination and Gauss-Jordan elimination, respectively.</p>
+<p><strong>Elementary Row Operations</strong>: To do Gaussian and Gauss-Jordan elimination, we use three basic operations to transform the augmented matrix into another augmented matrix that represents an equivalent linear system – equivalent in the sense that the same values of <span class="math inline">\(x_j\)</span> solve both the original and transformed matrix/system:</p>
+<p><strong>Interchanging Rows</strong>: Suppose we have the augmented matrix <span class="math display">\[{\widehat{\bf A}}=\begin{pmatrix} a_{11} &amp; a_{12} &amp; | &amp; b_1\\
+            a_{21} &amp; a_{22} &amp; | &amp; b_2
+            \end{pmatrix}\]</span> If we interchange the two rows, we get the augmented matrix <span class="math display">\[\begin{pmatrix}
+            a_{21} &amp; a_{22} &amp; | &amp; b_2\\
+            a_{11} &amp; a_{12} &amp; | &amp; b_1
+            \end{pmatrix}\]</span> which represents a linear system equivalent to that represented by matrix <span class="math inline">\(\widehat{\bf A}\)</span>.</p>
+<p><strong>Multiplying by a Constant</strong>: If we multiply the second row of matrix <span class="math inline">\(\widehat{\bf A}\)</span> by a constant <span class="math inline">\(c\)</span>, we get the augmented matrix <span class="math display">\[\begin{pmatrix}
+            a_{11} &amp; a_{12} &amp; | &amp; b_1\\
+            c a_{21} &amp; c a_{22} &amp; | &amp; c b_2
+            \end{pmatrix}\]</span> which represents a linear system equivalent to that represented by matrix <span class="math inline">\(\widehat{\bf A}\)</span>.</p>
+<p><strong>Adding (subtracting) Rows</strong>: If we add (subtract) the first row of matrix <span class="math inline">\(\widehat{\bf A}\)</span> to the second, we obtain the augmented matrix <span class="math display">\[\begin{pmatrix}
+            a_{11} &amp; a_{12} &amp; | &amp; b_1\\
+            a_{11}+a_{21} &amp; a_{12}+a_{22} &amp; | &amp; b_1+b_2
+            \end{pmatrix}\]</span> which represents a linear system equivalent to that represented by matrix <span class="math inline">\(\widehat{\bf A}\)</span>.</p>
+<div id="exm-solvesys" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6.6</strong></span> Solve the following system of equations by using elementary row operations:</p>
+<p><span class="math inline">\(\begin{matrix}
+            x  &amp; - &amp; 3y &amp; = &amp; -3\\
+            2x &amp; + &amp;  y &amp; = &amp;  8
+            \end{matrix}\)</span></p>
+</div>
+<div id="exr-solvesys1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.6 (Solving Systems of Equations)</strong></span> Put the following system of equations into augmented matrix form. Then, using Gaussian or Gauss-Jordan elimination, solve the system of equations by putting the matrix into row echelon or reduced row echelon form.</p>
+<p><span class="math display">\[
+  1. \begin{cases}
+               x + y + 2z = 2\\
+               3x - 2y + z = 1\\
+               y - z = 3
+            \end{cases}
+               \]</span></p>
+<p><span class="math display">\[
+  2. \begin{cases}
+               2x + 3y - z = -8\\
+               x + 2y - z = 12\\
+             -x -4y + z = -6
+            \end{cases}
+               \]</span></p>
+</div>
+</section>
+<section id="rank-and-whether-a-system-has-one-infinite-or-no-solutions" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="rank-and-whether-a-system-has-one-infinite-or-no-solutions"><span class="header-section-number">6.7</span> Rank — and Whether a System Has One, Infinite, or No Solutions</h2>
+<p>To determine how many solutions exist, we can use information about (1) the number of equations <span class="math inline">\(m\)</span>, (2) the number of unknowns <span class="math inline">\(n\)</span>, and (3) the <strong>rank</strong> of the matrix representing the linear system.</p>
+<p><strong>Rank</strong>: The maximum number of linearly independent row or column vectors in the matrix. This is equivalent to the number of nonzero rows of a matrix in row echelon form. For any matrix <strong>A</strong>, the row rank always equals column rank, and we refer to this number as the rank of <strong>A</strong>.</p>
+<p>For example</p>
+<p><span class="math inline">\(\begin{pmatrix} 1 &amp; 2 &amp; 3 \\
+            0 &amp; 4 &amp; 5 \\
+            0 &amp; 0 &amp; 6 \end{pmatrix}\)</span></p>
+<p>Rank = 3</p>
+<p><span class="math inline">\(\begin{pmatrix} 1 &amp; 2 &amp; 3 \\
+0 &amp; 4 &amp; 5 \\
+0 &amp; 0 &amp; 0 \end{pmatrix}\)</span></p>
+<p>Rank = 2</p>
+<div id="exr-rank" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.7 (Rank of Matrices)</strong></span> Find the rank of each matrix below:</p>
+<p>(Hint: transform the matrices into row echelon form. Remember that the number of nonzero rows of a matrix in row echelon form is the rank of that matrix)</p>
+<p>1.<span class="math inline">\(\begin{pmatrix} 1 &amp; 1 &amp; 2 \\
+2 &amp; 1 &amp; 3 \\
+1 &amp; 2 &amp; 3 \end{pmatrix}\)</span></p>
+<p>2.<span class="math inline">\(\begin{pmatrix} 1 &amp; 3 &amp; 3 &amp; -3 &amp; 3\\
+1 &amp; 3 &amp; 1 &amp; 1 &amp; 3 \\
+1 &amp; 3 &amp; 2 &amp; -1 &amp; -2 \\
+1 &amp; 3 &amp; 0 &amp; 3 &amp; -2 \end{pmatrix}\)</span></p>
+</div>
+<p>Answer to Exercise <a href="#exr-rank" class="quarto-xref">Exercise&nbsp;<span>6.7</span></a>:</p>
+<ol type="1">
+<li><p>rank is 2</p></li>
+<li><p>rank is 3</p></li>
+</ol>
+</section>
+<section id="the-inverse-of-a-matrix" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="the-inverse-of-a-matrix"><span class="header-section-number">6.8</span> The Inverse of a Matrix</h2>
+<p><strong>Identity Matrix</strong>: The <span class="math inline">\(n\times n\)</span> identity matrix <span class="math inline">\({\bf I}_n\)</span> is the matrix whose diagonal elements are 1 and all off-diagonal elements are 0. Examples: <span class="math display">\[ {\bf I}_2=\begin{pmatrix} 1&amp;0\\0&amp;1 \end{pmatrix}, \qquad {\bf I}_3=\begin{pmatrix} 1&amp;0&amp;0\\ 0&amp;1&amp;0\\
+            0&amp;0&amp;1 \end{pmatrix}\]</span></p>
+<p><strong>Inverse Matrix</strong>: An <span class="math inline">\(n\times n\)</span> matrix <span class="math inline">\({\bf A}\)</span> is <strong>nonsingular</strong> or <strong>invertible</strong> if there exists an <span class="math inline">\(n\times n\)</span> matrix <span class="math inline">\({\bf A}^{-1}\)</span> such that <span class="math display">\[{\bf A} {\bf A}^{-1} = {\bf A}^{-1} {\bf A} = {\bf I}_n\]</span> where <span class="math inline">\({\bf A}^{-1}\)</span> is the inverse of <span class="math inline">\({\bf A}\)</span>. If there is no such <span class="math inline">\({\bf A}^{-1}\)</span>, then <span class="math inline">\({\bf A}\)</span> is singular or not invertible.</p>
+<p>Example: Let <span class="math display">\[{\bf A} = \begin{pmatrix} 2&amp;3\\2&amp;2 \end{pmatrix}, \qquad {\bf B}=\begin{pmatrix} -1&amp;\frac{3}{2}\\ 1&amp;-1
+        \end{pmatrix}\]</span> Since <span class="math display">\[{\bf A} {\bf B} = {\bf B} {\bf A} = {\bf I}_n\]</span> we conclude that <span class="math inline">\({\bf B}\)</span> is the inverse, <span class="math inline">\({\bf A}^{-1}\)</span>, of <span class="math inline">\({\bf A}\)</span> and that <span class="math inline">\({\bf A}\)</span> is nonsingular.</p>
+<p><strong>Properties of the Inverse</strong>:</p>
+<ul>
+<li><p>If the inverse exists, it is unique.</p></li>
+<li><p>If <span class="math inline">\({\bf A}\)</span> is nonsingular, then <span class="math inline">\({\bf A}^{-1}\)</span> is nonsingular.</p></li>
+<li><p><span class="math inline">\(({\bf A}^{-1})^{-1} = {\bf A}\)</span></p></li>
+<li><p>If <span class="math inline">\({\bf A}\)</span> and <span class="math inline">\({\bf B}\)</span> are nonsingular, then <span class="math inline">\({\bf A}{\bf B}\)</span> is nonsingular</p></li>
+<li><p><span class="math inline">\(({\bf A}{\bf B})^{-1} = {\bf B}^{-1}{\bf A}^{-1}\)</span></p></li>
+<li><p>If <span class="math inline">\({\bf A}\)</span> is nonsingular, then <span class="math inline">\(({\bf A}^T)^{-1}=({\bf A}^{-1})^T\)</span></p></li>
+</ul>
+<p><strong>Procedure to Find</strong> <span class="math inline">\({\bf A}^{-1}\)</span>: We know that if <span class="math inline">\({\bf B}\)</span> is the inverse of <span class="math inline">\({\bf A}\)</span>, then <span class="math display">\[{\bf A} {\bf B} = {\bf B} {\bf A} = {\bf I}_n\]</span> Looking only at the first and last parts of this <span class="math display">\[{\bf A} {\bf B} = {\bf I}_n\]</span> Solving for <span class="math inline">\({\bf B}\)</span> is equivalent to solving for <span class="math inline">\(n\)</span> linear systems, where each column of <span class="math inline">\({\bf B}\)</span> is solved for the corresponding column in <span class="math inline">\({\bf I}_n\)</span>. We can solve the systems simultaneously by augmenting <span class="math inline">\({\bf A}\)</span> with <span class="math inline">\({\bf I}_n\)</span> and performing Gauss-Jordan elimination on <span class="math inline">\({\bf A}\)</span>. If Gauss-Jordan elimination on <span class="math inline">\([{\bf A} | {\bf I}_n]\)</span> results in <span class="math inline">\([{\bf I}_n | {\bf B} ]\)</span>, then <span class="math inline">\({\bf B}\)</span> is the inverse of <span class="math inline">\({\bf A}\)</span>. Otherwise, <span class="math inline">\({\bf A}\)</span> is singular.</p>
+<p>To summarize: To calculate the inverse of <span class="math inline">\({\bf A}\)</span></p>
+<ol type="1">
+<li><p>Form the augmented matrix <span class="math inline">\([ {\bf A} | {\bf I}_n]\)</span></p></li>
+<li><p>Using elementary row operations, transform the augmented matrix to reduced row echelon form.</p></li>
+<li><p>The result of step 2 is an augmented matrix <span class="math inline">\([ {\bf C} | {\bf B} ]\)</span>.</p>
+<ol type="a">
+<li><p>If <span class="math inline">\({\bf C}={\bf I}_n\)</span>, then <span class="math inline">\({\bf B}={\bf A}^{-1}\)</span>.</p></li>
+<li><p>If <span class="math inline">\({\bf C}\ne{\bf I}_n\)</span>, then <span class="math inline">\(\bf C\)</span> has a row of zeros. This means <span class="math inline">\({\bf A}\)</span> is singular and <span class="math inline">\({\bf A}^{-1}\)</span> does not exist.</p></li>
+</ol></li>
+</ol>
+<div id="exm-inverse" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6.7</strong></span> Find the inverse of the following matricies:</p>
+<ol type="1">
+<li><span class="math inline">\({\bf A}=\begin{pmatrix} 1&amp;1&amp;1\\0&amp;2&amp;3\\5&amp;5&amp;1 \end{pmatrix}\)</span></li>
+</ol>
+</div>
+<div id="exr-inverse1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.8 (Finding the inverse of matrices)</strong></span> Find the inverse of the following matrix:</p>
+<ol type="1">
+<li><span class="math inline">\({\bf A}=\begin{pmatrix} 1&amp;0&amp;4\\0&amp;2&amp;0\\0&amp;0&amp;1 \end{pmatrix}\)</span></li>
+</ol>
+</div>
+</section>
+<section id="linear-systems-and-inverses" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="linear-systems-and-inverses"><span class="header-section-number">6.9</span> Linear Systems and Inverses</h2>
+<p>Let’s return to the matrix representation of a linear system</p>
+<p><span class="math display">\[\bf{Ax} = \bf{b}\]</span></p>
+<p>If <span class="math inline">\(\bf{A}\)</span> is an <span class="math inline">\(n\times n\)</span> matrix,then <span class="math inline">\(\bf{Ax}=\bf{b}\)</span> is a system of <span class="math inline">\(n\)</span> equations in <span class="math inline">\(n\)</span> unknowns. Suppose <span class="math inline">\(\bf{A}\)</span> is nonsingular. Then <span class="math inline">\(\bf{A}^{-1}\)</span> exists. To solve this system, we can multiply each side by <span class="math inline">\(\bf{A}^{-1}\)</span> and reduce it as follows:</p>
+<span class="math display">\[\begin{eqnarray*}
+\bf{A}^{-1} (\bf{A} \bf{x}) &amp; = &amp; \bf{A}^{-1} \bf{b} \\
+(\bf{A}^{-1} \bf{A})\bf{x} &amp; = &amp; \bf{A}^{-1} \bf{b}\\
+\bf{I}_n \bf{x}     &amp; = &amp; \bf{A}^{-1} \bf{b}\\
+\bf{x} &amp; = &amp; \bf{A}^{-1} \bf{b}
+\end{eqnarray*}\]</span>
+<p>Hence, given <span class="math inline">\(\bf{A}\)</span> and <span class="math inline">\(\bf{b}\)</span> and given that <span class="math inline">\(\bf{A}\)</span> is nonsingular, then <span class="math inline">\(\bf{x} = \bf{A}^{-1} \bf{b}\)</span> is a unique solution to this system.</p>
+<div id="exr-invlinsys" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.9 (Solve linear system using inverses)</strong></span> Use the inverse matrix to solve the following linear system:</p>
+<span class="math display">\[\begin{align*}
+-3x + 4y &amp;= 5 \\
+2x - y &amp;= -10
+\end{align*}\]</span>
+<p><strong><em>Hint: the linear system above can be written in the matrix form</em></strong></p>
+<p><span class="math inline">\(\textbf{A}\textbf{z} = \textbf{b}\)</span></p>
+<p>given <span class="math display">\[\textbf{A} = \begin{pmatrix} -3&amp;4\\2&amp;-1 \end{pmatrix},\]</span></p>
+<p><span class="math display">\[\textbf{z} = \begin{pmatrix} x\\y \end{pmatrix},\]</span> and <span class="math display">\[\textbf{b} = \begin{pmatrix} 5\\-10 \end{pmatrix}\]</span></p>
+</div>
+</section>
+<section id="determinants" class="level2" data-number="6.10">
+<h2 data-number="6.10" class="anchored" data-anchor-id="determinants"><span class="header-section-number">6.10</span> Determinants</h2>
+<p><strong>Singularity</strong>: Determinants can be used to determine whether a square matrix is nonsingular.</p>
+<p>A square matrix is nonsingular if and only if its determinant is not zero.</p>
+<p>Determinant of a <span class="math inline">\(1 \times 1\)</span> matrix, <strong>A</strong>, equals <span class="math inline">\(a_{11}\)</span></p>
+<p>Determinant of a <span class="math inline">\(2 \times 2\)</span> matrix, <strong>A</strong>, <span class="math inline">\(\begin{vmatrix} a_{11}&amp;a_{12}\\
+            a_{21}&amp;a_{22} \end{vmatrix}\)</span>:</p>
+<span class="math display">\[\begin{eqnarray*}
+\det({\bf A}) &amp;=&amp; |{\bf A}|\\
+            &amp;=&amp; a_{11}|a_{22}| - a_{12}|a_{21}|\\
+            &amp;=&amp; a_{11}a_{22} - a_{12}a_{21}
+\end{eqnarray*}\]</span>
+<p>We can extend the second to last equation above to get the definition of the determinant of a <span class="math inline">\(3 \times 3\)</span> matrix:</p>
+<span class="math display">\[\begin{eqnarray*}
+            \begin{vmatrix} a_{11}&amp;a_{12}&amp;a_{13}\\  a_{21} &amp; a_{22}&amp;a_{23}\\ a_{31}&amp;a_{32}&amp;a_{33} \end{vmatrix}
+                &amp;=&amp;
+                a_{11} \begin{vmatrix} a_{22}&amp;a_{23}\\ a_{32}&amp;a_{33} \end{vmatrix}
+                - a_{12} \begin{vmatrix} a_{21}&amp;a_{23}\\ a_{31}&amp;a_{33} \end{vmatrix}
+                + a_{13} \begin{vmatrix} a_{21}&amp;a_{22}\\ a_{31}&amp;a_{32}
+                \end{vmatrix}\\
+                &amp;=&amp; a_{11}(a_{22}a_{33} - a_{23}a_{32}) - a_{12}(a_{21}a_{33} - a_{23}a_{31}) + a_{13}(a_{21}a_{32} - a_{22}a_{31})
+\end{eqnarray*}\]</span>
+<p>Let’s extend this now to any <span class="math inline">\(n\times n\)</span> matrix. Let’s define <span class="math inline">\({\bf A}_{ij}\)</span> as the <span class="math inline">\((n-1)\times (n-1)\)</span> submatrix of <span class="math inline">\({\bf A}\)</span> obtained by deleting row <span class="math inline">\(i\)</span> and column <span class="math inline">\(j\)</span>. Let the <span class="math inline">\((i,j)\)</span>th <strong>minor</strong> of <span class="math inline">\({\bf A}\)</span> be the determinant of <span class="math inline">\({\bf A}_{ij}\)</span>: <span class="math display">\[M_{ij}=|{\bf A}_{ij}|\]</span> Then for any <span class="math inline">\(n\times n\)</span> matrix <span class="math inline">\({\bf A}\)</span> <span class="math display">\[|{\bf A}|= a_{11}M_{11} - a_{12}M_{12} + \cdots + (-1)^{n+1} a_{1n} M_{1n}\]</span></p>
+<p>For example, in figuring out whether the following matrix has an inverse? <span class="math display">\[{\bf A}=\begin{pmatrix} 1&amp;1&amp;1\\0&amp;2&amp;3\\5&amp;5&amp;1 \end{pmatrix}\]</span> 1. Calculate its determinant. <span class="math display">\[\begin{eqnarray}
+                &amp;=&amp; 1(2-15) - 1(0-15) + 1(0-10) \nonumber\\
+                &amp;=&amp; -13+15-10 \nonumber\\
+                &amp;=&amp; -8\nonumber
+\end{eqnarray}\]</span> 2. Since <span class="math inline">\(|{\bf A}|\ne 0\)</span>, we conclude that <span class="math inline">\({\bf A}\)</span> has an inverse.</p>
+<div id="exr-determinants" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.10 (Determinants and Inverses)</strong></span> Determine whether the following matrices are nonsingular:</p>
+<p><span class="math display">\[1. \begin{pmatrix}
+            1 &amp; 0 &amp; 1\\
+            2 &amp; 1 &amp; 2\\
+            1 &amp; 0 &amp; -1
+        \end{pmatrix}\]</span></p>
+<p><span class="math display">\[2. \begin{pmatrix}
+            2 &amp; 1 &amp; 2\\
+            1 &amp; 0 &amp; 1\\
+            4 &amp; 1 &amp; 4
+        \end{pmatrix}\]</span></p>
+</div>
+</section>
+<section id="getting-inverse-of-a-matrix-using-its-determinant" class="level2" data-number="6.11">
+<h2 data-number="6.11" class="anchored" data-anchor-id="getting-inverse-of-a-matrix-using-its-determinant"><span class="header-section-number">6.11</span> Getting Inverse of a Matrix using its Determinant</h2>
+<p>Thus far, we have a number of algorithms to</p>
+<ol type="1">
+<li>Find the solution of a linear system,</li>
+<li>Find the inverse of a matrix</li>
+</ol>
+<p>but these remain just that — algorithms. At this point, we have no way of telling how the solutions <span class="math inline">\(x_j\)</span> change as the parameters <span class="math inline">\(a_{ij}\)</span> and <span class="math inline">\(b_i\)</span> change, except by changing the values and “rerunning” the algorithms.</p>
+<p>With determinants, we can provide an explicit formula for the inverse and therefore provide an explicit formula for the solution of an <span class="math inline">\(n\times n\)</span> linear system.</p>
+<p>Hence, we can examine how changes in the parameters and <span class="math inline">\(b_i\)</span> affect the solutions <span class="math inline">\(x_j\)</span>.</p>
+<p><strong>Determinant Formula for the Inverse of a</strong> <span class="math inline">\(2 \times 2\)</span>:</p>
+<p>The determinant of a <span class="math inline">\(2 \times 2\)</span> matrix <strong>A</strong> <span class="math inline">\(\begin{pmatrix} a &amp; b\\ c &amp; d\\ \end{pmatrix}\)</span> is defined as: <span class="math display">\[\frac{1}{\det({\bf A})} \begin{pmatrix}
+            d &amp; -b\\
+            -c &amp; a\\
+        \end{pmatrix}\]</span></p>
+<p>For example, Let’s calculate the inverse of matrix A from Exercise <a href="#exr-invlinsys" class="quarto-xref">Exercise&nbsp;<span>6.9</span></a> using the determinant formula.</p>
+<p>Recall,</p>
+<p><span class="math display">\[A = \begin{pmatrix}
+            -3 &amp; 4\\
+            2 &amp; -1\\
+        \end{pmatrix}\]</span></p>
+<p><span class="math display">\[\det({\bf A}) = (-3)(-1) - (4)(2) = 3 - 8  = -5\]</span></p>
+<p><span class="math display">\[\frac{1}{\det({\bf A})} \begin{pmatrix}
+            -1 &amp; -4\\
+            -2 &amp; -3\\
+        \end{pmatrix}\]</span></p>
+<p><span class="math display">\[\frac{1}{-5} \begin{pmatrix}
+            -1 &amp; -4\\
+            -2 &amp; -3\\
+        \end{pmatrix}\]</span></p>
+<p><span class="math display">\[ \begin{pmatrix}
+            \frac{1}{5} &amp; \frac{4}{5}\\
+            \frac{2}{5} &amp; \frac{3}{5}\\
+        \end{pmatrix}\]</span></p>
+<div id="exr-calcinverse" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 6.11 (Calculate Inverse using Determinant Formula)</strong></span> Caculate the inverse of A</p>
+<p><span class="math display">\[A = \begin{pmatrix}
+            3 &amp; 5\\
+            -7 &amp; 2\\
+        \end{pmatrix}\]</span></p>
+</div>
+</section>
+<section id="answers-to-examples-and-exercises" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="answers-to-examples-and-exercises">Answers to Examples and Exercises</h2>
+<p>Answer to Example <a href="#exm-vectors" class="quarto-xref">Example&nbsp;<span>6.1</span></a>:</p>
+<ol type="1">
+<li><span class="math inline">\(\begin{pmatrix} -1 &amp;-3&amp;-3 \end{pmatrix}\)</span></li>
+<li>6 + 4 + 10 = 20</li>
+</ol>
+<p>Answer to Exercise <a href="#exr-vectors1" class="quarto-xref">Exercise&nbsp;<span>6.1</span></a>:</p>
+<ol type="1">
+<li><span class="math inline">\(\begin{pmatrix} -2 &amp;4&amp;-7&amp;-5 \end{pmatrix}\)</span></li>
+<li><span class="math inline">\(\begin{pmatrix} 2 &amp;26&amp;-14&amp;4&amp;30 \end{pmatrix}\)</span></li>
+<li>63 -3 -10 + 24 = 74</li>
+<li>undefined</li>
+</ol>
+<p>Answer to Example <a href="#exm-linearindep" class="quarto-xref">Example&nbsp;<span>6.2</span></a>:</p>
+<ol type="1">
+<li>yes</li>
+<li>no</li>
+</ol>
+<p>Answer to Exercise <a href="#exr-linearindep1" class="quarto-xref">Exercise&nbsp;<span>6.2</span></a>:</p>
+<ol type="1">
+<li>yes</li>
+<li>no (<span class="math inline">\(-v_1 -v_2 + v_3  = 0\)</span>)</li>
+</ol>
+<p>Answer to Example <a href="#exm-matrixaddition" class="quarto-xref">Example&nbsp;<span>6.3</span></a>:</p>
+<p><span class="math inline">\({\bf A+B}=\begin{pmatrix} 2 &amp; 4 &amp; 4 \\ 6 &amp; 6 &amp; 8 \end{pmatrix}\)</span></p>
+<p>Answer to Example <a href="#exm-scalarmulti" class="quarto-xref">Example&nbsp;<span>6.4</span></a>:</p>
+<p><span class="math inline">\(s {\bf A} = \begin{pmatrix} 2 &amp; 4 &amp; 6 \\ 8 &amp; 10 &amp; 12 \end{pmatrix}\)</span></p>
+<p>Answer to Example <a href="#exm-matrixmulti" class="quarto-xref">Example&nbsp;<span>6.5</span></a>:</p>
+<ol type="1">
+<li><p><span class="math inline">\(\begin{pmatrix} aA+bC&amp;aB+bD\\cA+dC&amp;cB+dD\\eA+fC&amp;eB+fD \end{pmatrix}\)</span></p></li>
+<li><p><span class="math inline">\(\begin{pmatrix} 1(-2)+2(4)-1(2)&amp;1(5)+2(-3)-1(1)\\
+             3(-2)+1(4)+4(2)&amp;3(5)+1(-3)+4(1)\end{pmatrix} =
+         \begin{pmatrix} 4&amp;-2\\6&amp;16\end{pmatrix}\)</span></p></li>
+</ol>
+<p>Answer to Exercise <a href="#exr-matrixmulti1" class="quarto-xref">Exercise&nbsp;<span>6.3</span></a>:</p>
+<ol type="1">
+<li><p><span class="math inline">\(AB = \begin{pmatrix} 4 &amp; 11 &amp; -15 \\ 5 &amp; 7 &amp; -7 \end{pmatrix}\)</span></p></li>
+<li><p><span class="math inline">\(BA =\)</span> undefined</p></li>
+<li><p><span class="math inline">\((BC)^T =\)</span> undefined</p></li>
+<li><p><span class="math inline">\(BC^T = \begin{pmatrix} 1&amp;5&amp;-7\\1&amp;1&amp;0\\0&amp;-1&amp;1\\2&amp;0&amp;0\end{pmatrix}\begin{pmatrix} 3&amp;0\\2&amp;4\\-1&amp;6 \end{pmatrix} =\begin{pmatrix}20 &amp; -22 \\ 5 &amp; 4 \\ -3 &amp;2 \\6 &amp; 0\end{pmatrix}\)</span></p></li>
+</ol>
+<p>Answer to Exercise <a href="#exr-lineareq" class="quarto-xref">Exercise&nbsp;<span>6.4</span></a>:</p>
+<p>There are many answers to this. Some possible simple ones are as follows:</p>
+<ol type="1">
+<li><p>One solution: <span class="math display">\[\begin{matrix}
+         -x  &amp; + &amp; y &amp; = &amp; 0\\
+         x &amp; + &amp;  y &amp; = &amp;  2
+         \end{matrix}\]</span></p></li>
+<li><p>No solution: <span class="math display">\[\begin{matrix}
+        -x  &amp; + &amp; y &amp; = &amp; 0\\
+        x &amp; - &amp;  y &amp; = &amp;  2
+        \end{matrix}\]</span></p></li>
+<li><p>Infinite solutions: <span class="math display">\[\begin{matrix}
+         -x  &amp; + &amp; y &amp; = &amp; 0\\
+         2x &amp; - &amp;  2y &amp; = &amp;  0
+         \end{matrix}\]</span></p></li>
+</ol>
+<p>Answer to Exercise <a href="#exr-augmatrix" class="quarto-xref">Exercise&nbsp;<span>6.5</span></a>:</p>
+<p><span class="math inline">\(\begin{pmatrix}
+            2 &amp; -7 &amp; 9 &amp; -4 &amp; 0 &amp; 0| &amp; 8\\
+            0 &amp; 41 &amp; 9 &amp; 0 &amp; 0 &amp; 5 | &amp; 11\\
+            1 &amp; -15 &amp; 0 &amp; 0 &amp; -11 &amp; 0 | &amp; 9
+            \end{pmatrix}\)</span></p>
+<p>Answer to Example <a href="#exm-solvesys" class="quarto-xref">Example&nbsp;<span>6.6</span></a>:</p>
+<p><span class="math display">\[\begin{matrix}
+            x  &amp; - &amp; 3y &amp; = &amp; -3\\
+            2x &amp; + &amp;  y &amp; = &amp;  8
+            \end{matrix}\]</span></p>
+<p><span class="math display">\[\begin{matrix}
+            x  &amp; - &amp; 3y &amp; = &amp; -3\\
+               &amp;   &amp; 7y &amp; = &amp; 14\\          
+            \end{matrix}\]</span></p>
+<p><span class="math display">\[\begin{matrix}
+            x  &amp; - &amp; 3y &amp; = &amp; -3\\
+               &amp;   &amp; y &amp; = &amp; 2\\            
+            \end{matrix}\]</span></p>
+<p><span class="math display">\[\begin{matrix}
+            x &amp; = &amp; 3\\
+            y &amp; = &amp; 2\\         
+            \end{matrix}\]</span></p>
+<p>Answer to Exercise <a href="#exr-solvesys1" class="quarto-xref">Exercise&nbsp;<span>6.6</span></a>:</p>
+<ol type="1">
+<li><p>x = 2, y = 2, z = -1</p></li>
+<li><p>x = -17, y = -3, z = -35</p></li>
+</ol>
+<p>Answer to Exercise <a href="#exr-rank" class="quarto-xref">Exercise&nbsp;<span>6.7</span></a>:</p>
+<ol type="1">
+<li><p>rank is 2</p></li>
+<li><p>rank is 3</p></li>
+</ol>
+<p>Answer to Example <a href="#exm-inverse" class="quarto-xref">Example&nbsp;<span>6.7</span></a>:</p>
+<p><span class="math inline">\(\left(\begin{array}{ccc|ccc}
+    1&amp;1&amp;1&amp;1&amp;0&amp;0\\
+    0&amp;2&amp;3&amp;0&amp;1&amp;0\\
+    5&amp;5&amp;1&amp;0&amp;0&amp;1
+\end{array} \right)\)</span></p>
+<p><span class="math inline">\(\left(\begin{array}{ccc|ccc}
+    1&amp;1&amp;1 &amp;1 &amp;0&amp;0\\
+    0&amp;2&amp;3 &amp;0 &amp;1&amp;0\\
+    0&amp;0&amp;-4&amp;-5&amp;0&amp;1
+\end{array} \right)\)</span></p>
+<p><span class="math inline">\(\left(\begin{array}{ccc|ccc}
+    1&amp;1&amp;1&amp;1  &amp;0&amp;0\\
+    0&amp;2&amp;3&amp;0  &amp;1&amp;0\\
+    0&amp;0&amp;1&amp;5/4&amp;0&amp;-1/4
+\end{array} \right)\)</span></p>
+<p><span class="math inline">\(\left(\begin{array}{ccc|ccc}
+    1&amp;1&amp;0&amp;-1/4 &amp;0&amp;1/4\\
+    0&amp;2&amp;0&amp;-15/4&amp;1&amp;3/4\\
+    0&amp;0&amp;1&amp;5/4  &amp;0&amp;-1/4
+\end{array} \right)\)</span></p>
+<p><span class="math inline">\(\left(\begin{array}{ccc|ccc}
+    1&amp;1&amp;0&amp;-1/4 &amp;0  &amp;1/4\\
+    0&amp;1&amp;0&amp;-15/8&amp;1/2&amp;3/8\\
+    0&amp;0&amp;1&amp;5/4  &amp;0 &amp;-1/4
+\end{array} \right)\)</span></p>
+<p><span class="math inline">\(\left(\begin{array}{ccc|ccc}
+    1&amp;0&amp;0&amp;13/8 &amp;-1/2&amp;-1/8\\
+    0&amp;1&amp;0&amp;-15/8&amp;1/2 &amp;3/8\\
+    0&amp;0&amp;1&amp;5/4  &amp;0   &amp;-1/4
+\end{array} \right)\)</span></p>
+<p><span class="math inline">\({\bf A}^{-1} = \left(\begin{array}{ccc}
+    13/8 &amp;-1/2&amp;-1/8\\
+    -15/8&amp;1/2 &amp;3/8\\
+    5/4  &amp;0   &amp;-1/4
+\end{array} \right)\)</span></p>
+<p>Answer to Exercise <a href="#exr-inverse1" class="quarto-xref">Exercise&nbsp;<span>6.8</span></a>:</p>
+<ol type="1">
+<li><span class="math inline">\({\bf A}^{-1}=\begin{pmatrix} 1&amp;0&amp;-4\\0&amp;\frac{1}{2}&amp;0\\0&amp;0&amp;1 \end{pmatrix}\)</span></li>
+</ol>
+<p>Answer to Exercise <a href="#exr-invlinsys" class="quarto-xref">Exercise&nbsp;<span>6.9</span></a>:</p>
+<p><span class="math inline">\(\textbf{z} = \bf{A}^{-1} \bf{b} = \begin{pmatrix}
+    1/5 &amp;4/5\\
+    2/5&amp;3/5
+\end{pmatrix} \begin{pmatrix}
+    5 \\
+    -10
+\end{pmatrix}= \begin{pmatrix}
+    -7 \\
+    -4
+\end{pmatrix} = \begin{pmatrix}
+    x \\
+    y
+\end{pmatrix}\)</span></p>
+<p>Answer to Exercise <a href="#exr-determinants" class="quarto-xref">Exercise&nbsp;<span>6.10</span></a>:</p>
+<ol type="1">
+<li><p>nonsingular</p></li>
+<li><p>singular</p></li>
+</ol>
+<p>Answer to Exercise <a href="#exr-calcinverse" class="quarto-xref">Exercise&nbsp;<span>6.11</span></a>:</p>
+<p><span class="math inline">\(\begin{pmatrix}
+            \frac{2}{41} &amp; \frac{-5}{41}\\
+            \frac{7}{41} &amp; \frac{3}{41}\\
+        \end{pmatrix}\)</span></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/iqss\.github\.io\/prefresher\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./06_probability.html" class="pagination-link" aria-label="Probability Theory">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Probability Theory</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./11_data-handling_counting.html" class="pagination-link" aria-label="Orientation and Reading in Data">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Orientation and Reading in Data</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

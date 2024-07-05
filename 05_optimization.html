@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.53">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Text for Harvard Department of Government Math Prefresher">
+
+<title>4&nbsp; Optimization – Math Prefresher for Political Scientists</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./06_probability.html" rel="next">
+<link href="./04_calculus.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02_functions.html">Math</a></li><li class="breadcrumb-item"><a href="./05_optimization.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Optimization</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Math Prefresher for Political Scientists</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/IQSS/prefresher" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./Math-Prefresher-for-Political-Scientists.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About this Booklet</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_warmup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pre-Prefresher Exercises</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Math</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Functions and Operations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_limits.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Limits</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_calculus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Calculus</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_optimization.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Optimization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Probability Theory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_linear-algebra.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Algebra</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Programming</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_data-handling_counting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Orientation and Reading in Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_matricies-manipulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Manipulating Vectors and Matrices</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13_functions_obj_loops.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Objects, Functions, Loops</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14_visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Visualization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15_project-dempeace.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Joins and Merges, Wide and Long</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16_simulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Simulation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17_non-wysiwyg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">LaTeX and markdown</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18_text.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Text</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19_command-line_git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Command-line, git</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Solutions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21_solutions-warmup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solutions to Warmup Questions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23_solution_programming.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Suggested Programming Solutions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#example-meltzer-richard" id="toc-example-meltzer-richard" class="nav-link active" data-scroll-target="#example-meltzer-richard">Example: Meltzer-Richard</a></li>
+  <li><a href="#maxima-and-minima" id="toc-maxima-and-minima" class="nav-link" data-scroll-target="#maxima-and-minima"><span class="header-section-number">4.1</span> Maxima and Minima</a></li>
+  <li><a href="#concavity-of-a-function" id="toc-concavity-of-a-function" class="nav-link" data-scroll-target="#concavity-of-a-function"><span class="header-section-number">4.2</span> Concavity of a Function</a>
+  <ul class="collapse">
+  <li><a href="#quadratic-forms" id="toc-quadratic-forms" class="nav-link" data-scroll-target="#quadratic-forms">Quadratic Forms</a></li>
+  <li><a href="#definiteness-of-quadratic-forms" id="toc-definiteness-of-quadratic-forms" class="nav-link" data-scroll-target="#definiteness-of-quadratic-forms">Definiteness of Quadratic Forms</a></li>
+  </ul></li>
+  <li><a href="#foc-and-soc" id="toc-foc-and-soc" class="nav-link" data-scroll-target="#foc-and-soc"><span class="header-section-number">4.3</span> FOC and SOC</a>
+  <ul class="collapse">
+  <li><a href="#first-order-conditions" id="toc-first-order-conditions" class="nav-link" data-scroll-target="#first-order-conditions">First Order Conditions</a></li>
+  <li><a href="#second-order-conditions" id="toc-second-order-conditions" class="nav-link" data-scroll-target="#second-order-conditions">Second Order Conditions</a></li>
+  <li><a href="#definiteness-and-concavity" id="toc-definiteness-and-concavity" class="nav-link" data-scroll-target="#definiteness-and-concavity">Definiteness and Concavity</a></li>
+  </ul></li>
+  <li><a href="#global-maxima-and-minima" id="toc-global-maxima-and-minima" class="nav-link" data-scroll-target="#global-maxima-and-minima"><span class="header-section-number">4.4</span> Global Maxima and Minima</a></li>
+  <li><a href="#constrained-optimization" id="toc-constrained-optimization" class="nav-link" data-scroll-target="#constrained-optimization"><span class="header-section-number">4.5</span> Constrained Optimization</a>
+  <ul class="collapse">
+  <li><a href="#equality-constraints" id="toc-equality-constraints" class="nav-link" data-scroll-target="#equality-constraints">Equality Constraints</a></li>
+  </ul></li>
+  <li><a href="#inequality-constraints" id="toc-inequality-constraints" class="nav-link" data-scroll-target="#inequality-constraints"><span class="header-section-number">4.6</span> Inequality Constraints</a></li>
+  <li><a href="#kuhn-tucker-conditions" id="toc-kuhn-tucker-conditions" class="nav-link" data-scroll-target="#kuhn-tucker-conditions"><span class="header-section-number">4.7</span> Kuhn-Tucker Conditions</a></li>
+  <li><a href="#applications-of-quadratic-forms" id="toc-applications-of-quadratic-forms" class="nav-link" data-scroll-target="#applications-of-quadratic-forms"><span class="header-section-number">4.8</span> Applications of Quadratic Forms</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02_functions.html">Math</a></li><li class="breadcrumb-item"><a href="./05_optimization.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Optimization</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-optim" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Optimization</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>To optimize, we use derivatives and calculus. Optimization is to find the maximum or minimum of a functon, and to find what value of an input gives that extremum. This has obvious uses in engineering. Many tools in the statistical toolkit use optimization. One of the most common ways of estimating a model is through “Maximum Likelihood Estimation”, done via optimizing a function (the likelihood).</p>
+<p>Optimization also comes up in Economics, Formal Theory, and Political Economy all the time. A go-to model of human behavior is that they optimize a certain utility function. Humans are not pure utility maximizers, of course, but nuanced models of optimization – for example, adding constraints and adding uncertainty – will prove to be quite useful.</p>
+<section id="example-meltzer-richard" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="example-meltzer-richard">Example: Meltzer-Richard</h2>
+<p>A standard backdrop in comparative political economy, the Meltzer-Richard (1981) model states that redistribution of wealth should be higher in societies where the median income is much smaller than the average income. More to the point, typically income distributions wher ethe median is very different from the average is one of high inequality. In other words, the Meltzer-Richard model says that highly unequal economies will have more re-distribution of wealth. Why is that the case? Here is a simplified example that is not the exact model by Meltzer and Richard<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, but adapted from Persson and Tabellini<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>We will set the following things about our model human and model democracy.</p>
+<ul>
+<li>Individuals are indexed by <span class="math inline">\(i\)</span>, and the total population is normalized to unity (“1”) without loss of generality.</li>
+<li><span class="math inline">\(U(\cdot)\)</span>, u for “utility”, is a function that is concave and increasing, and expresses the utility gained from public goods. This tells us that its first derivative is <em>positive</em>, and its second derivative is <strong>negative</strong>.</li>
+<li><span class="math inline">\(y_i\)</span> is the income of person <span class="math inline">\(i\)</span></li>
+<li><span class="math inline">\(W_i\)</span>, w for “welfare”, is the welfare of person <span class="math inline">\(i\)</span></li>
+<li><span class="math inline">\(c_i\)</span>, c for “consumption”, is the consumption utility of person <span class="math inline">\(i\)</span></li>
+</ul>
+<p>Also, the government is democratically elected and sets the following redistribution output:</p>
+<ul>
+<li><span class="math inline">\(\tau\)</span>, t for “tax”, is a flat tax rate between 0 and 1 that is applied to everyone’s income.</li>
+<li><span class="math inline">\(g\)</span>, “g” for “goods”, is the amount of public goods that the government provides.</li>
+</ul>
+<p>Suppose an individual’s welfare is given by: <span class="math display">\[W_i = c_i + U(g)\]</span></p>
+<p>The consumption good is the person’s post-tax income.</p>
+<p><span class="math display">\[c_i = (1 - \tau) y_i\]</span></p>
+<p>Income varies by person (In the next section we will cover probability, by then we will know that we can express this by saying that <span class="math inline">\(y\)</span> is a random variable with the cumulative distribution function <span class="math inline">\(F\)</span>, i.e.&nbsp;<span class="math inline">\(y \sim F\)</span>.). Every distribution has a mean and an median.</p>
+<ul>
+<li><span class="math inline">\(E(y)\)</span> is the average income of the society.</li>
+<li><span class="math inline">\(\text{med}(y)\)</span> is the <strong>median income</strong> of the society.</li>
+</ul>
+<p>What will happen in this economy? What will the tax rate be set too? How much public goods will be provided?</p>
+<p>We’ve skipped ahead of some formal theory results of demoracy, but hopefully these are conceptually intuitive. First, if a democracy is competitive, there is no slack in the government’s goods, and all tax revenue becomes a public good. So we can go ahead and set the constraint:</p>
+<p><span class="math display">\[g = \sum_{i} \tau y_i P(y_i) = \tau E(y)\]</span></p>
+<p>We can do this trick because of the “normalizes to unity” setting, but this is a general property of the average.</p>
+<p>Now given this constraint we can re-write an individual’s welfare as</p>
+<span class="math display">\[\begin{align*}
+W_i &amp;= \left(1 - \frac{g}{E(y)}\right)y_i + U(g)\\
+&amp;= \left(E(y) - g\right) \frac{1}{E(y)} y_i + U(g)\\
+&amp;= \left(E(y) - g\right) \frac{y_i}{E(y)} + U(g)\\
+\end{align*}\]</span>
+<p>When is the individual’s welfare maximized, <strong>as a function of the public good</strong>? <span class="math display">\[\begin{align*}
+\frac{d}{dg}W_i &amp;=  - \frac{y_i}{E(y)} + \frac{d}{dg}U(g)\\
+\end{align*}\]</span></p>
+<p><span class="math inline">\(\frac{d}{dg}W_i = 0\)</span> when <span class="math inline">\(\frac{d}{dg}U(g) = \frac{y_i}{E(y)}\)</span>, and so after expressing the derivative as <span class="math inline">\(U_g = \frac{d}{dg}U(g)\)</span> for simplicity,</p>
+<p><span class="math display">\[g_i^\star = {U_g}^{-1}\left(\frac{y_i}{E(y)}\right)\]</span></p>
+<p>Now recall that because we assumed concavity, <span class="math inline">\(U_g\)</span> is a negative sloping function whose value is positive. It can be shown that the inverse of such a function is also decreasing. Thus an individual’s preferred level of government is determined by a single continuum, the person’s income divided by the average income, and the function is <strong>decreasing</strong> in <span class="math inline">\(y_i\)</span>. This is consistent with our intuition that richer people prefer less redistribution.</p>
+<p>That was the amount for any given person. The government has to set one value of <span class="math inline">\(g\)</span>, however. So what will that be? Now we will use another result, the median voter theorem. This says that under certain general electoral conditions (single-peaked preferences, two parties, majority rule), the policy winner will be that preferred by the median person in the population. Because the only thing that determines a person’s preferred level of government is <span class="math inline">\(y_i / E(y)\)</span>, we can presume that the median voter, whose income is <span class="math inline">\(\text{med}(y)\)</span> will prevail in their preferred choice of government. Therefore, we wil see</p>
+<p><span class="math display">\[g^\star = {U_g}^{-1}\left(\frac{\text{med}(y)}{E(y)}\right)\]</span></p>
+<p>What does this say about the level of redistribution we observe in an economy? The higher the average income is than the median income, which often (but not always) means <em>more</em> inequality, there should be <em>more</em> redistribution.</p>
+</section>
+<section id="maxima-and-minima" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="maxima-and-minima"><span class="header-section-number">4.1</span> Maxima and Minima</h2>
+<p>The first derivative, <span class="math inline">\(f'(x)\)</span>, quantifies the slope of a function. Therefore, it can be used to check whether the function <span class="math inline">\(f(x)\)</span> at the point <span class="math inline">\(x\)</span> is increasing or decreasing at <span class="math inline">\(x\)</span>.</p>
+<ol type="1">
+<li><strong>Increasing:</strong> <span class="math inline">\(f'(x)&gt;0\)</span></li>
+<li><strong>Decreasing:</strong> <span class="math inline">\(f'(x)&lt;0\)</span></li>
+<li><strong>Neither increasing nor decreasing</strong>: <span class="math inline">\(f'(x)=0\)</span> i.e.&nbsp;a maximum, minimum, or saddle point</li>
+</ol>
+<p>So for example, <span class="math inline">\(f(x) = x^2 + 2\)</span> and <span class="math inline">\(f^\prime(x) = 2x\)</span></p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="05_optimization_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Maxima and Minima</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div id="exr-maxminplot" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4.1 (Plotting a maximum and minimum)</strong></span> Plot <span class="math inline">\(f(x)=x^3+ x^2 + 2\)</span>, plot its derivative, and identify where the derivative is zero. Is there a maximum or minimum?</p>
+</div>
+<p>The second derivative <span class="math inline">\(f''(x)\)</span> identifies whether the function <span class="math inline">\(f(x)\)</span> at the point <span class="math inline">\(x\)</span> is</p>
+<ol type="1">
+<li>Concave down: <span class="math inline">\(f''(x)&lt;0\)</span></li>
+<li>Concave up: <span class="math inline">\(f''(x)&gt;0\)</span></li>
+</ol>
+<p><strong>Maximum (Minimum)</strong>: <span class="math inline">\(x_0\)</span> is a <strong>local maximum (minimum)</strong> if <span class="math inline">\(f(x_0)&gt;f(x)\)</span> (<span class="math inline">\(f(x_0)&lt;f(x))\)</span> for all <span class="math inline">\(x\)</span> within some open interval containing <span class="math inline">\(x_0\)</span>. <span class="math inline">\(x_0\)</span> is a <strong>global maximum (minimum)</strong> if <span class="math inline">\(f(x_0)&gt;f(x)\)</span> (<span class="math inline">\(f(x_0)&lt;f(x))\)</span> for all <span class="math inline">\(x\)</span> in the domain of <span class="math inline">\(f\)</span>.</p>
+<p>Given the function <span class="math inline">\(f\)</span> defined over domain <span class="math inline">\(D\)</span>, all of the following are defined as <strong>critical points</strong>:</p>
+<ol type="1">
+<li>Any interior point of <span class="math inline">\(D\)</span> where <span class="math inline">\(f'(x)=0\)</span>.</li>
+<li>Any interior point of <span class="math inline">\(D\)</span> where <span class="math inline">\(f'(x)\)</span> does not exist.</li>
+<li>Any endpoint that is in <span class="math inline">\(D\)</span>.</li>
+</ol>
+<p>The maxima and minima will be a subset of the critical points.</p>
+<p><strong>Second Derivative Test of Maxima/Minima</strong>: We can use the second derivative to tell us whether a point is a maximum or minimum of <span class="math inline">\(f(x)\)</span>.</p>
+<ol type="1">
+<li>Local Maximum: <span class="math inline">\(f'(x)=0\)</span> and <span class="math inline">\(f''(x)&lt;0\)</span></li>
+<li>Local Minimum: <span class="math inline">\(f'(x)=0\)</span> and <span class="math inline">\(f''(x)&gt;0\)</span></li>
+<li>Need more info: <span class="math inline">\(f'(x)=0\)</span> and <span class="math inline">\(f''(x)=0\)</span></li>
+</ol>
+<p><strong>Global Maxima and Minima</strong> Sometimes no global max or min exists — e.g., <span class="math inline">\(f(x)\)</span> not bounded above or below. However, there are three situations where we can fairly easily identify global max or min.</p>
+<ol type="1">
+<li><strong>Functions with only one critical point.</strong> If <span class="math inline">\(x_0\)</span> is a local max or min of <span class="math inline">\(f\)</span> and it is the only critical point, then it is the global max or min.</li>
+<li><strong>Globally concave up or concave down functions.</strong> If <span class="math inline">\(f''(x)\)</span> is never zero, then there is at most one critical point. That critical point is a global maximum if <span class="math inline">\(f''&lt;0\)</span> and a global minimum if <span class="math inline">\(f''&gt;0\)</span>.</li>
+<li><strong>Functions over closed and bounded intervals</strong> must have both a global maximum and a global minimum.</li>
+</ol>
+<div id="exm-maxmindraw" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4.1 (Maxima and Minima by drawing)</strong></span> Find any critical points and identify whether they are a max, min, or saddle point:</p>
+<ol type="1">
+<li><span class="math inline">\(f(x)=x^2+2\)</span></li>
+<li><span class="math inline">\(f(x)=x^3+2\)</span></li>
+<li><span class="math inline">\(f(x)=|x^2-1|\)</span>, <span class="math inline">\(x\in [-2,2]\)</span></li>
+</ol>
+</div>
+</section>
+<section id="concavity-of-a-function" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="concavity-of-a-function"><span class="header-section-number">4.2</span> Concavity of a Function</h2>
+<p>Concavity helps identify the curvature of a function, <span class="math inline">\(f(x)\)</span>, in 2 dimensional space.</p>
+<div id="def-concave" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4.1 (Concave Function)</strong></span> A function <span class="math inline">\(f\)</span> is strictly concave over the set S <span class="math inline">\(\forall x_1,x_2 \in S\)</span> and <span class="math inline">\(\forall a \in (0,1)\)</span>, <span class="math display">\[f(ax_1 + (1-a)x_2) &gt; af(x_1) + (1-a)f(x_2)\]</span> line connecting two points on a concave function will lie the function.</p>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05_optimization_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="def-convex" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4.2 (Convex Function)</strong></span> Convex: A function f is strictly convex over the set S <span class="math inline">\(\forall x_1,x_2 \in S\)</span> and <span class="math inline">\(\forall a \in (0,1)\)</span>, <span class="math display">\[f(ax_1 + (1-a)x_2) &lt; af(x_1) + (1-a)f(x_2)\]</span></p>
+<p>Any line connecting two points on a convex function will lie above the function.</p>
+</div>
+<p>Sometimes, concavity and convexity are strict of a requirement. For most purposes of getting solutions, what we call quasi-concavity is enough.</p>
+<div id="def-quasiconcave" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4.3 (Quasiconcave Function)</strong></span> A function f is quasiconcave over the set S if <span class="math inline">\(\forall x_1,x_2 \in S\)</span> and <span class="math inline">\(\forall a \in (0,1)\)</span>, <span class="math display">\[f(ax_1 + (1-a)x_2) \ge \min(f(x_1),f(x_2))\]</span></p>
+<p>No matter what two points you select, the valued point will always be an end point.</p>
+</div>
+<div id="def-quasiconvex" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4.4 (Quasiconvex)</strong></span> A function f is quasiconvex over the set <span class="math inline">\(S\)</span> if <span class="math inline">\(\forall x_1,x_2 \in S\)</span> and <span class="math inline">\(\forall a \in (0,1)\)</span>, <span class="math display">\[f(ax_1 + (1-a)x_2) \le \max(f(x_1),f(x_2))\]</span> No matter what two points you select, the valued point will always be an end point.</p>
+</div>
+<p><strong>Second Derivative Test of Concavity</strong>: The second derivative can be used to understand concavity.</p>
+<p>If <span class="math display">\[\begin{array}{lll}
+f''(x) &lt; 0 &amp; \Rightarrow &amp; \text{Concave}\\
+f''(x) &gt; 0 &amp; \Rightarrow &amp; \text{Convex}
+\end{array}\]</span></p>
+<section id="quadratic-forms" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="quadratic-forms">Quadratic Forms</h3>
+<p>Quadratic forms is shorthand for a way to summarize a function. This is important for finding concavity because</p>
+<ol type="1">
+<li>Approximates local curvature around a point — e.g., used to identify max vs min vs saddle point.</li>
+<li>They are simple to express even in <span class="math inline">\(n\)</span> dimensions:</li>
+<li>Have a matrix representation.</li>
+</ol>
+<p><strong>Quadratic Form</strong>: A polynomial where each term is a monomial of degree 2 in any number of variables:</p>
+<span class="math display">\[\begin{align*}
+\text{One variable: }&amp; Q(x_1) = a_{11}x_1^2\\
+\text{Two variables: }&amp; Q(x_1,x_2) = a_{11}x_1^2 + a_{12}x_1x_2 + a_{22}x_2^2\\
+\text{N variables: }&amp; Q(x_1,\cdots,x_n)=\sum\limits_{i\le j} a_{ij}x_i x_j
+\end{align*}\]</span>
+<p>which can be written in matrix terms:</p>
+<p>One variable</p>
+<p><span class="math display">\[Q(\mathbf{x}) = x_1^\top a_{11} x_1\]</span></p>
+<p>N variables: <span class="math display">\[\begin{align*}
+Q(\mathbf{x}) &amp;=\begin{pmatrix} x_1 &amp; x_2 &amp; \cdots &amp; x_n \end{pmatrix}\begin{pmatrix}
+a_{11}&amp;\frac{1}{2}a_{12}&amp;\cdots&amp;\frac{1}{2}a_{1n}\\
+\frac{1}{2}a_{12}&amp;a_{22}&amp;\cdots&amp;\frac{1}{2}a_{2n}\\
+\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\
+\frac{1}{2}a_{1n}&amp;\frac{1}{2}a_{2n}&amp;\cdots&amp;a_{nn}
+\end{pmatrix}
+\begin{pmatrix} x_1\\x_2\\\vdots\\x_n\end{pmatrix}\\
+&amp;= \mathbf{x}^\top\mathbf{Ax}
+\end{align*}\]</span></p>
+<p>For example, the Quadratic on <span class="math inline">\(\mathbf{R}^2\)</span>: <span class="math display">\[\begin{align*}
+  Q(x_1,x_2)&amp;=\begin{pmatrix} x_1&amp; x_2 \end{pmatrix} \begin{pmatrix} a_{11}&amp;\frac{1}{2} a_{12}\\
+  \frac{1}{2}a_{12}&amp;a_{22}\end{pmatrix} \begin{pmatrix} x_1\\x_2 \end{pmatrix} \\
+  &amp;= a_{11}x_1^2 + a_{12}x_1x_2 + a_{22}x_2^2
+\end{align*}\]</span></p>
+</section>
+<section id="definiteness-of-quadratic-forms" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="definiteness-of-quadratic-forms">Definiteness of Quadratic Forms</h3>
+<p>When the function <span class="math inline">\(f(\mathbf{x})\)</span> has more than two inputs, determining whether it has a maxima and minima (remember, functions may have many inputs but they have only one output) is a bit more tedious. Definiteness helps identify the curvature of a function, <span class="math inline">\(Q(\textbf{x})\)</span>, in n dimensional space.</p>
+<p><strong>Definiteness</strong>: By definition, a quadratic form always takes on the value of zero when <span class="math inline">\(x = 0\)</span>, <span class="math inline">\(Q(\textbf{x})=0\)</span> at <span class="math inline">\(\textbf{x}=0\)</span>. The definiteness of the matrix <span class="math inline">\(\textbf{A}\)</span> is determined by whether the quadratic form <span class="math inline">\(Q(\textbf{x})=\textbf{x}^\top\textbf{A}\textbf{x}\)</span> is greater than zero, less than zero, or sometimes both over all <span class="math inline">\(\mathbf{x}\ne 0\)</span>.</p>
+</section>
+</section>
+<section id="foc-and-soc" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="foc-and-soc"><span class="header-section-number">4.3</span> FOC and SOC</h2>
+<p>We can see from a graphical representation that if a point is a local maxima or minima, it must meet certain conditions regarding its derivative. These are so commonly used that we refer these to “First Order Conditions” (FOCs) and “Second Order Conditions” (SOCs) in the economic tradition.</p>
+<section id="first-order-conditions" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="first-order-conditions">First Order Conditions</h3>
+<p>When we examined functions of one variable <span class="math inline">\(x\)</span>, we found critical points by taking the first derivative, setting it to zero, and solving for <span class="math inline">\(x\)</span>. For functions of <span class="math inline">\(n\)</span> variables, the critical points are found in much the same way, except now we set the partial derivatives equal to zero. Note: We will only consider critical points on the interior of a function’s domain.</p>
+<p>In a derivative, we only took the derivative with respect to one variable at a time. When we take the derivative separately with respect to all variables in the elements of <span class="math inline">\(\mathbf{x}\)</span> and then express the result as a vector, we use the term Gradient and Hessian.</p>
+<div id="def-gradient" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4.5 (Gradient)</strong></span> Given a function <span class="math inline">\(f(\textbf{x})\)</span> in <span class="math inline">\(n\)</span> variables, the gradient <span class="math inline">\(\nabla f(\mathbf{x})\)</span> (the greek letter nabla ) is a column vector, where the <span class="math inline">\(i\)</span>th element is the partial derivative of <span class="math inline">\(f(\textbf{x})\)</span> with respect to <span class="math inline">\(x_i\)</span>:</p>
+<p><span class="math display">\[\nabla f(\mathbf{x}) = \begin{pmatrix}
+\frac{\partial f(\mathbf{x})}{\partial x_1}\\ \frac{\partial f(\mathbf{x})}{\partial x_2}\\
+  \vdots \\ \frac{\partial f(\mathbf{x})}{\partial x_n} \end{pmatrix}\]</span></p>
+</div>
+<p>Before we know whether a point is a maxima or minima, if it meets the FOC it is a “Critical Point”.</p>
+<div id="def-criticalpoint" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4.6 (Critical Point)</strong></span> <span class="math inline">\(\mathbf{x}^*\)</span> is a critical point if and only if <span class="math inline">\(\nabla f(\mathbf{x}^*)=0\)</span>. If the partial derivative of f(x) with respect to <span class="math inline">\(x^*\)</span> is 0, then <span class="math inline">\(\mathbf{x}^*\)</span> is a critical point. To solve for <span class="math inline">\(\mathbf{x}^*\)</span>, find the gradient, set each element equal to 0, and solve the system of equations. <span class="math display">\[\mathbf{x}^* = \begin{pmatrix} x_1^*\\x_2^*\\ \vdots \\ x_n^*\end{pmatrix}\]</span></p>
+</div>
+<div id="exm-gradcp" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4.2</strong></span> Example: Given a function <span class="math inline">\(f(\mathbf{x})=(x_1-1)^2+x_2^2+1\)</span>, find the (1) Gradient and (2) Critical point of <span class="math inline">\(f(\mathbf{x})\)</span>.</p>
+</div>
+<div id="sol-gradcp" class="proof solution">
+<p><span class="proof-title"><em>Solution 4.1</em>. </span>Gradient</p>
+<span class="math display">\[\begin{align*}
+\nabla f(\mathbf{x}) &amp;= \begin{pmatrix}\frac{\partial f(\mathbf{x})}{\partial x_1}\\ \frac{\partial f(\mathbf{x})}{\partial x_2} \end{pmatrix}\\
+&amp;= \begin{pmatrix} 2(x_1-1)\\ 2x_2 \end{pmatrix}
+\end{align*}\]</span>
+<p>Critical Point <span class="math inline">\(\mathbf{x}^* =\)</span></p>
+<span class="math display">\[\begin{align*}
+&amp;\frac{\partial f(\mathbf{x})}{\partial x_1} = 2(x_1-1) = 0\\
+&amp;\Rightarrow x_1^* = 1\\
+&amp;\frac{\partial f(\mathbf{x})}{\partial x_2} = 2x_2 = 0\\
+&amp;\Rightarrow   x_2^* = 0\\
+\end{align*}\]</span>
+<p>So <span class="math display">\[\mathbf{x}^* = (1,0)\]</span></p>
+</div>
+</section>
+<section id="second-order-conditions" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="second-order-conditions">Second Order Conditions</h3>
+<p>When we found a critical point for a function of one variable, we used the second derivative as a indicator of the curvature at the point in order to determine whether the point was a min, max, or saddle (second derivative test of concavity). For functions of <span class="math inline">\(n\)</span> variables, we use <em>second order partial derivatives</em> as an indicator of curvature.</p>
+<div id="def-hessian" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4.7 (Hessian)</strong></span> Given a function <span class="math inline">\(f(\mathbf{x})\)</span> in <span class="math inline">\(n\)</span> variables, the hessian <span class="math inline">\(\mathbf{H(x)}\)</span> is an <span class="math inline">\(n\times n\)</span> matrix, where the <span class="math inline">\((i,j)\)</span>th element is the second order partial derivative of <span class="math inline">\(f(\mathbf{x})\)</span> with respect to <span class="math inline">\(x_i\)</span> and <span class="math inline">\(x_j\)</span>:</p>
+<p><span class="math display">\[\mathbf{H(x)}=\begin{pmatrix} \frac{\partial^2 f(\mathbf{x})}{\partial x_1^2}&amp;\frac{\partial^2f(\mathbf{x})}{\partial x_1 \partial x_2}&amp; \cdots &amp; \frac{\partial^2 f(\mathbf{x})}{\partial x_1 \partial x_n} \\
+\frac{\partial^2 f(\mathbf{x})}{\partial x_2 \partial x_1}&amp;\frac{\partial^2f(\mathbf{x})}{\partial x_2^2}&amp;
+\cdots &amp; \frac{\partial^2 f(\mathbf{x})}{\partial x_2 \partial x_n}\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+\frac{\partial^2 f(\mathbf{x})}{\partial x_n \partial x_1}&amp;\frac{\partial^2f(\mathbf{x})}{\partial x_n \partial x_2}&amp;
+\cdots &amp; \frac{\partial^2 f(\mathbf{x})}{\partial x_n^2}\end{pmatrix}\]</span></p>
+</div>
+<p>Note that the hessian will be a symmetric matrix because <span class="math inline">\(\frac{\partial f(\mathbf{x})}{\partial x_1\partial x_2} = \frac{\partial f(\mathbf{x})}{\partial x_2\partial x_1}\)</span>.</p>
+<p>Also note that given that <span class="math inline">\(f(\mathbf{x})\)</span> is of quadratic form, each element of the hessian will be a constant.</p>
+<p>These definitions will be employed when we determine the <strong>Second Order Conditions</strong> of a function:</p>
+<p>Given a function <span class="math inline">\(f(\mathbf{x})\)</span> and a point <span class="math inline">\(\mathbf{x}^*\)</span> such that <span class="math inline">\(\nabla f(\mathbf{x}^*)=0\)</span>,</p>
+<ol type="1">
+<li>Hessian is Positive Definite <span class="math inline">\(\quad \Longrightarrow \quad\)</span> Strict Local Min</li>
+<li>Hessian is Positive Semidefinite <span class="math inline">\(\forall \mathbf{x}\in B(\mathbf{x}^*,\epsilon)\)</span>} <span class="math inline">\(\quad \Longrightarrow \quad\)</span> Local Min</li>
+<li>Hessian is Negative Definite <span class="math inline">\(\quad \Longrightarrow \quad\)</span> Strict Local Max</li>
+<li>Hessian is Negative Semidefinite <span class="math inline">\(\forall \mathbf{x}\in B(\mathbf{x}^*,\epsilon)\)</span>} <span class="math inline">\(\quad \Longrightarrow \quad\)</span> Local Max</li>
+<li>Hessian is Indefinite <span class="math inline">\(\quad \Longrightarrow \quad\)</span> Saddle Point</li>
+</ol>
+<div id="exm-maxmin2d" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4.3 (Max and min with two dimensions)</strong></span> We found that the only critical point of <span class="math inline">\(f(\mathbf{x})=(x_1-1)^2+x_2^2+1\)</span> is at <span class="math inline">\(\mathbf{x}^*=(1,0)\)</span>. Is it a min, max, or saddle point?</p>
+</div>
+<div id="sol-maxmin2d" class="proof solution">
+<p><span class="proof-title"><em>Solution 4.2</em>. </span>The Hessian is <span class="math display">\[\begin{align*}
+\mathbf{H(x)} &amp;= \begin{pmatrix} 2&amp;0\\0&amp;2 \end{pmatrix}
+\end{align*}\]</span> The Leading principal minors of the Hessian are <span class="math inline">\(M_1=2; M_2=4\)</span>. Now we consider Definiteness. Since both leading principal minors are positive, the Hessian is positive definite.</p>
+<p>Maxima, Minima, or Saddle Point? Since the Hessian is positive definite and the gradient equals 0, <span class="math inline">\(x^\star = (1,0)\)</span> is a strict local minimum.</p>
+<p>Note: Alternate check of definiteness. Is <span class="math inline">\(\mathbf{H(x^*)} \geq \leq 0 \quad \forall \quad \mathbf{x}\ne 0\)</span></p>
+<span class="math display">\[\begin{align*}
+\mathbf{x}^\top H(\mathbf{x}^*) \mathbf{x} &amp;= \begin{pmatrix} x_1 &amp; x_2 \end{pmatrix}\\
+&amp;= \begin{pmatrix} 2&amp;0\\0&amp;2 \end{pmatrix}\\
+\begin{pmatrix} x_1\\x_2\end{pmatrix} &amp;= 2x_1^2+2x_2^2
+\end{align*}\]</span>
+<p>For any <span class="math inline">\(\mathbf{x}\ne 0\)</span>, <span class="math inline">\(2(x_1^2+x_2^2)&gt;0\)</span>, so the Hessian is positive definite and <span class="math inline">\(\mathbf{x}^*\)</span> is a strict local minimum.</p>
+</div>
+</section>
+<section id="definiteness-and-concavity" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="definiteness-and-concavity">Definiteness and Concavity</h3>
+<p>Although definiteness helps us to understand the curvature of an n-dimensional function, it does not necessarily tell us whether the function is globally concave or convex.</p>
+<p>We need to know whether a function is globally concave or convex to determine whether a critical point is a global min or max. We can use the definiteness of the Hessian to determine whether a function is globally concave or convex:</p>
+<ol type="1">
+<li>Hessian is Positive Semidefinite <span class="math inline">\(\forall \mathbf{x}\)</span>} <span class="math inline">\(\quad \Longrightarrow \quad\)</span> Globally Convex</li>
+<li>Hessian is Negative Semidefinite <span class="math inline">\(\forall \mathbf{x}\)</span>} <span class="math inline">\(\quad \Longrightarrow \quad\)</span> Globally Concave</li>
+</ol>
+<p>Notice that the definiteness conditions must be satisfied over the entire domain.</p>
+</section>
+</section>
+<section id="global-maxima-and-minima" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="global-maxima-and-minima"><span class="header-section-number">4.4</span> Global Maxima and Minima</h2>
+<p><strong>Global Max/Min Conditions</strong>: Given a function <span class="math inline">\(f(\mathbf{x})\)</span> and a point <span class="math inline">\(\mathbf{x}^*\)</span> such that <span class="math inline">\(\nabla f(\mathbf{x}^*)=0\)</span>,</p>
+<p>Note that showing that <span class="math inline">\(\mathbf{H(x^*)}\)</span> is negative semidefinite is not enough to guarantee <span class="math inline">\(\mathbf{x}^*\)</span> is a local max. However, showing that <span class="math inline">\(\mathbf{H(x)}\)</span> is negative semidefinite for all <span class="math inline">\(\mathbf{x}\)</span> guarantees that <span class="math inline">\(x^*\)</span> is a global max. (The same goes for positive semidefinite and minima.)\</p>
+<p>Example: Take <span class="math inline">\(f_1(x)=x^4\)</span> and <span class="math inline">\(f_2(x)=-x^4\)</span>. Both have <span class="math inline">\(x=0\)</span> as a critical point. Unfortunately, <span class="math inline">\(f''_1(0)=0\)</span> and <span class="math inline">\(f''_2(0)=0\)</span>, so we can’t tell whether <span class="math inline">\(x=0\)</span> is a min or max for either. However, <span class="math inline">\(f''_1(x)=12x^2\)</span> and <span class="math inline">\(f''_2(x)=-12x^2\)</span>. For all <span class="math inline">\(x\)</span>, <span class="math inline">\(f''_1(x)\ge 0\)</span> and <span class="math inline">\(f''_2(x)\le 0\)</span> — i.e., <span class="math inline">\(f_1(x)\)</span> is globally convex and <span class="math inline">\(f_2(x)\)</span> is globally concave. So <span class="math inline">\(x=0\)</span> is a global min of <span class="math inline">\(f_1(x)\)</span> and a global max of <span class="math inline">\(f_2(x)\)</span>.</p>
+<div id="exr-maxmin" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4.2</strong></span> Given <span class="math inline">\(f(\mathbf{x})=x_1^3-x_2^3+9x_1x_2\)</span>, find any maxima or minima.</p>
+</div>
+</section>
+<section id="constrained-optimization" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="constrained-optimization"><span class="header-section-number">4.5</span> Constrained Optimization</h2>
+<p>We have already looked at optimizing a function in one or more dimensions over the whole domain of the function. Often, however, we want to find the maximum or minimum of a function over some restricted part of its domain.</p>
+<p>ex: Maximizing utility subject to a budget constraint</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/constraint.png" class="img-fluid figure-img"></p>
+<figcaption>A typical Utility Function with a Budget Constraint</figcaption>
+</figure>
+</div>
+<p><strong>Types of Constraints</strong>: For a function <span class="math inline">\(f(x_1, \dots, x_n)\)</span>, there are two types of constraints that can be imposed:</p>
+<p>In any constrained optimization problem, the constrained maximum will always be less than or equal to the unconstrained maximum. If the constrained maximum is less than the unconstrained maximum, then the constraint is binding. Essentially, this means that you can treat your constraint as an equality constraint rather than an inequality constraint.</p>
+<p>For example, the budget constraint binds when you spend your entire budget. This generally happens because we believe that utility is strictly increasing in consumption, i.e.&nbsp;you always want more so you spend everything you have.</p>
+<p>Any number of constraints can be placed on an optimization problem. When working with multiple constraints, always make sure that the set of constraints are not pathological; it must be possible for all of the constraints to be satisfied simultaneously.</p>
+<p></p>
+<p><span class="math display">\[\max_{x_1,x_2} f(x_1,x_2) \text{ s.t. } c(x_1,x_2)\]</span> <span class="math display">\[\min_{x_1,x_2} f(x_1,x_2) \text{ s.t. } c(x_1,x_2)\]</span></p>
+<p>This tells us to maximize/minimize our function, <span class="math inline">\(f(x_1,x_2)\)</span>, with respect to the choice variables, <span class="math inline">\(x_1,x_2\)</span>, subject to the constraint.</p>
+<p>Example:</p>
+<p><span class="math display">\[\max_{x_1,x_2} f(x_1, x_2) = -(x_1^2 + 2x_2^2) \text{ s.t. }x_1 + x_2 = 4\]</span></p>
+<p>It is easy to see that the maximum occurs at <span class="math inline">\((x_1, x_2) = (0,0)\)</span>, but that does not satisfy the constraint. How should we proceed?</p>
+<section id="equality-constraints" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="equality-constraints">Equality Constraints</h3>
+<p>Equality constraints are the easiest to deal with because we know that the maximum or minimum has to lie on the (intersection of the) constraint(s).</p>
+<p>The trick is to change the problem from a constrained optimization problem in <span class="math inline">\(n\)</span> variables to an unconstrained optimization problem in <span class="math inline">\(n + k\)</span> variables, adding <em>one</em> variable for <em>each</em> equality constraint. We do this using a lagrangian multiplier.</p>
+<p><strong>Lagrangian function</strong>: The Lagrangian function allows us to combine the function we want to optimize and the constraint function into a single function. Once we have this single function, we can proceed as if this were an <em>unconstrained</em> optimization problem.</p>
+<p>For each constraint, we must include a <strong>Lagrange multiplier</strong> (<span class="math inline">\(\lambda_i\)</span>) as an additional variable in the analysis. These terms are the link between the constraint and the Lagrangian function.</p>
+<p>Given a <em>two dimensional</em> set-up: <span class="math display">\[\max_{x_1,x_2}/\min_{x_1,x_2} f(x_1,x_2) \text{ s.t. } c(x_1,x_2) = a\]</span></p>
+<p>We define the Lagrangian function <span class="math inline">\(L(x_1,x_2,\lambda_1)\)</span> as follows: <span class="math display">\[L(x_1,x_2,\lambda_1) = f(x_1,x_2) - \lambda_1 (c(x_1,x_2) - a)\]</span></p>
+<p>More generally, in <em>n dimensions</em>: <span class="math display">\[ L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k) = f(x_1, \dots, x_n) - \sum_{i=1}^k\lambda_i(c_i(x_1,\dots, x_n) - r_i)\]</span></p>
+<p><strong>Getting the sign right:</strong> Note that above we subtract the lagrangian term <em>and</em> we subtract the constraint constant from the constraint function. Occasionally, you may see the following alternative form of the Lagrangian, which is <em>equivalent</em>: <span class="math display">\[ L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k) = f(x_1, \dots, x_n) + \sum_{i=1}^k\lambda_i(r_i - c_i(x_1,\dots, x_n))\]</span> Here we add the lagrangian term <em>and</em> we subtract the constraining function from the constraint constant.</p>
+<p><strong>Using the Lagrangian to Find the Critical Points</strong>: To find the critical points, we take the partial derivatives of lagrangian function, <span class="math inline">\(L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k)\)</span>, with respect to each of its variables (all choice variables <span class="math inline">\(\mathbf{x}\)</span> <em>and</em> all lagrangian multipliers <span class="math inline">\(\mathbf{\lambda}\)</span>). At a critical point, each of these partial derivatives must be equal to zero, so we obtain a system of <span class="math inline">\(n + k\)</span> equations in <span class="math inline">\(n + k\)</span> unknowns:</p>
+<span class="math display">\[\begin{align*}
+\frac{\partial L}{\partial x_1} &amp;= \frac{\partial f}{\partial x_1} - \sum_{i = 1}^k\lambda_i\frac{\partial c_i}{\partial x_1} = 0\\
+\vdots &amp;= \vdots \nonumber \\
+\frac{\partial L}{\partial x_n}  &amp;= \frac{\partial f}{\partial x_n} - \sum_{i = 1}^k\lambda_i\frac{\partial c_i}{\partial x_n} = 0\\
+\frac{\partial L}{\partial \lambda_1} &amp;= c_1(x_i, \dots, x_n) - r_1 =  0\\
+\vdots &amp;= \vdots \nonumber \\
+\frac{\partial L}{\partial \lambda_k} &amp;= c_k(x_i, \dots, x_n) - r_k = 0
+\end{align*}\]</span>
+<p>We can then solve this system of equations, because there are <span class="math inline">\(n+k\)</span> equations and <span class="math inline">\(n+k\)</span> unknowns, to calculate the critical point <span class="math inline">\((x_1^*,\dots,x_n^*,\lambda_1^*,\dots,\lambda_k^*)\)</span>.</p>
+<p><strong>Second-order Conditions and Unconstrained Optimization:</strong> There may be more than one critical point, i.e.&nbsp;we need to verify that the critical point we find is a maximum/minimum. Similar to unconstrained optimization, we can do this by checking the second-order conditions.</p>
+<div id="exm-constropt" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4.4 (Constrained optimization with two goods and a budget constraint)</strong></span> Find the constrained optimization of <span class="math display">\[\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } x_1 + x_2 = 4\]</span></p>
+</div>
+<div id="sol-constropt" class="proof solution">
+<p><span class="proof-title"><em>Solution 4.3</em>. </span></p>
+<ol type="1">
+<li>Begin by writing the Lagrangian: <span class="math display">\[L(x_1, x_2, \lambda) =  -(x_1^2 + 2x_2^2) - \lambda(x_1 + x_2 - 4)\]</span></li>
+<li>Take the partial derivatives and set equal to zero:</li>
+</ol>
+<span class="math display">\[\begin{align*}
+\frac{\partial L}{\partial x_1} = -2x_1 - \lambda \quad \quad \quad &amp;= 0\\
+\frac{\partial L}{\partial x_2}  = -4x_2 - \lambda \quad \quad \quad &amp;= 0\\
+\frac{\partial L}{\partial \lambda} = -(x_1 + x_2 - 4) \quad &amp; = &amp; 0\\
+\end{align*}\]</span>
+<ol start="3" type="1">
+<li><p>Solve the system of equations: Using the first two partials, we see that <span class="math inline">\(\lambda = -2x_1\)</span> and <span class="math inline">\(\lambda = -4x_2\)</span> Set these equal to see that <span class="math inline">\(x_1 = 2x_2\)</span>. Using the third partial and the above equality, <span class="math inline">\(4 = 2x_2 + x_2\)</span> from which we get <span class="math display">\[x_2^* = 4/3, x_1^* = 8/3, \lambda = -16/3\]</span></p></li>
+<li><p>Therefore, the only critical point is <span class="math inline">\(x_1^* = \frac{8}{3}\)</span> and <span class="math inline">\(x_2^* = \frac{4}{3}\)</span></p></li>
+<li><p>This gives <span class="math inline">\(f(\frac{8}{3}, \frac{4}{3}) = -\frac{96}{9}\)</span>, which is less than the unconstrained optimum <span class="math inline">\(f(0,0) = 0\)</span></p></li>
+</ol>
+</div>
+<p>Notice that when we take the partial derivative of L with respect to the Lagrangian multiplier and set it equal to 0, we return exactly our constraint! This is why signs matter.</p>
+</section>
+</section>
+<section id="inequality-constraints" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="inequality-constraints"><span class="header-section-number">4.6</span> Inequality Constraints</h2>
+<p>Inequality constraints define the boundary of a region over which we seek to optimize the function. This makes inequality constraints more challenging because we do not know if the maximum/minimum lies along one of the constraints (the constraint binds) or in the interior of the region.</p>
+<p>We must introduce more variables in order to turn the problem into an unconstrained optimization.</p>
+<p><strong>Slack:</strong> For each inequality constraint <span class="math inline">\(c_i(x_1, \dots, x_n) \leq a_i\)</span>, we define a slack variable <span class="math inline">\(s_i^2\)</span> for which the expression <span class="math inline">\(c_i(x_1, \dots, x_n) \leq a_i - s_i^2\)</span> would hold with equality. These slack variables capture how close the constraint comes to binding. We use <span class="math inline">\(s^2\)</span> rather than <span class="math inline">\(s\)</span> to ensure that the slack is positive.</p>
+<p>Slack is just a way to transform our constraints.</p>
+<p>Given a two-dimensional set-up and these edited constraints: <span class="math display">\[\max_{x_1,x_2}/\min_{x_1,x_2} f(x_1,x_2) \text{ s.t. } c(x_1,x_2) \le a_1\]</span></p>
+<p>Adding in Slack: <span class="math display">\[\max_{x_1,x_2}/\min_{x_1,x_2} f(x_1,x_2) \text{ s.t. } c(x_1,x_2) \le a_1 - s_1^2\]</span></p>
+<p>We define the Lagrangian function <span class="math inline">\(L(x_1,x_2,\lambda_1,s_1)\)</span> as follows: <span class="math display">\[L(x_1,x_2,\lambda_1,s_1) = f(x_1,x_2) - \lambda_1 ( c(x_1,x_2) + s_1^2 - a_1)\]</span></p>
+<p>More generally, in n dimensions: <span class="math display">\[ L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k, s_1, \dots, s_k) = f(x_1, \dots, x_n) - \sum_{i = 1}^k \lambda_i(c_i(x_1,\dots, x_n) + s_i^2 - a_i)\]</span></p>
+<p><strong>Finding the Critical Points</strong>: To find the critical points, we take the partial derivatives of the lagrangian function, <span class="math inline">\(L(x_1,\dots,x_n,\lambda_1,\dots,\lambda_k,s_1,\dots,s_k)\)</span>, with respect to each of its variables (all choice variables <span class="math inline">\(x\)</span>, all lagrangian multipliers <span class="math inline">\(\lambda\)</span>, and all slack variables <span class="math inline">\(s\)</span>). At a critical point, <em>each</em> of these partial derivatives must be equal to zero, so we obtain a system of <span class="math inline">\(n + 2k\)</span> equations in <span class="math inline">\(n + 2k\)</span> unknowns:</p>
+<span class="math display">\[\begin{align*}
+\frac{\partial L}{\partial x_1} &amp;= \frac{\partial f}{\partial x_1} - \sum_{i = 1}^k\lambda_i\frac{\partial c_i}{\partial x_1} = 0\\
+\vdots &amp; =  \vdots  \\
+\frac{\partial L}{\partial x_n}  &amp;= \frac{\partial f}{\partial x_n} - \sum_{i = 1}^k\lambda_i\frac{\partial c_i}{\partial x_n} = 0\\
+\frac{\partial L}{\partial \lambda_1} &amp;= c_1(x_i, \dots, x_n) + s_1^2 - b_1 = 0\\
+\vdots &amp; = \vdots \\
+\frac{\partial L}{\partial \lambda_k} &amp;= c_k(x_i, \dots, x_n) + s_k^2 - b_k = 0\\
+\frac{\partial L}{\partial s_1} &amp;= 2s_1\lambda_1 = 0\\
+\vdots =\vdots \\
+\frac{\partial L}{\partial s_k} &amp;= 2s_k\lambda_k = 0
+\end{align*}\]</span>
+<p><strong>Complementary slackness conditions</strong>: The last set of first order conditions of the form <span class="math inline">\(2s_i\lambda_i = 0\)</span> (the partials taken with respect to the slack variables) are known as complementary slackness conditions. These conditions can be satisfied one of three ways:</p>
+<ol type="1">
+<li><span class="math inline">\(\lambda_i = 0\)</span> and <span class="math inline">\(s_i \neq 0\)</span>: This implies that the slack is positive and thus <em>the constraint does not bind</em>.</li>
+<li><span class="math inline">\(\lambda_i \neq 0\)</span> and <span class="math inline">\(s_i = 0\)</span>: This implies that there is no slack in the constraint and <em>the constraint does bind</em>.</li>
+<li><span class="math inline">\(\lambda_i = 0\)</span> and <span class="math inline">\(s_i = 0\)</span>: In this case, there is no slack but the <em>constraint binds trivially</em>, without changing the optimum.</li>
+</ol>
+<p>Example: Find the critical points for the following constrained optimization:</p>
+<p><span class="math display">\[\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } x_1 + x_2 \le 4\]</span></p>
+<ol type="1">
+<li>Rewrite with the slack variables:</li>
+</ol>
+<p><span class="math display">\[\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } x_1 + x_2 \le 4 - s_1^2\]</span></p>
+<ol start="2" type="1">
+<li>Write the Lagrangian:</li>
+</ol>
+<p><span class="math display">\[L(x_1,x_2,\lambda_1,s_1) = -(x_1^2 + 2x_2^2) - \lambda_1 (x_1 + x_2 + s_1^2 - 4)\]</span></p>
+<ol start="3" type="1">
+<li>Take the partial derivatives and set equal to 0:</li>
+</ol>
+<span class="math display">\[\begin{align*}
+\frac{\partial L}{\partial x_1} = -2x_1 - \lambda_1  &amp;= 0\\
+\frac{\partial L}{\partial x_2}  = -4x_2 - \lambda_1 &amp;=  0\\
+\frac{\partial L}{\partial \lambda_1} = -(x_1 + x_2 + s_1^2 - 4)&amp;= 0\\
+\frac{\partial L}{\partial s_1} = -2s_1\lambda_1 &amp;= 0\\
+\end{align*}\]</span>
+<ol start="4" type="1">
+<li>Consider all ways that the complementary slackness conditions are solved:</li>
+</ol>
+<p>This shows that there are two critical points: <span class="math inline">\((0,0)\)</span> and <span class="math inline">\((\frac{8}{3},\frac{4}{3})\)</span>.</p>
+<ol start="5" type="1">
+<li>Find maximum: Looking at the values of <span class="math inline">\(f(x_1,x_2)\)</span> at the critical points, we see that <span class="math inline">\(f(x_1,x_2)\)</span> is maximized at <span class="math inline">\(x_1^* = 0\)</span> and <span class="math inline">\(x_2^*=0\)</span>.</li>
+</ol>
+<div id="exr-critical-points-constrained-optimization" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4.3</strong></span> Example: Find the critical points for the following constrained optimization: <span class="math display">\[\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. }
+\begin{array}{l}
+x_1 + x_2 \le 4\\
+x_1 \ge 0\\
+x_2 \ge 0
+\end{array}\]</span></p>
+</div>
+<ol type="1">
+<li>Rewrite with the slack variables:</li>
+</ol>
+<ol start="2" type="1">
+<li>Write the Lagrangian:</li>
+</ol>
+<p><span class="math display">\[L(x_1, x_2, \lambda_1, \lambda_2, \lambda_3, s_1, s_2, s_3) =  -(x_1^2 + 2x_2^2) - \lambda_1(x_1 + x_2 + s_1^2  - 4) - \lambda_2(-x_1 + s_2^2) - \lambda_3(-x_2 + s_3^2)\]</span> 3. Take the partial derivatives and set equal to zero:</p>
+<p><span class="math inline">\(\frac{\partial L}{\partial x_1} = -2x_1 - \lambda_1 + \lambda_2  =  0\)</span>\ <span class="math inline">\(\frac{\partial L}{\partial x_2}  = -4x_2 - \lambda_1 + \lambda_3  =   0\)</span>\ <span class="math inline">\(\frac{\partial L}{\partial \lambda_1} = -(x_1 + x_2 + s_1^2 - 4) =  0\)</span>\ <span class="math inline">\(\frac{\partial L}{\partial \lambda_2} = -(-x_1 + s_2^2)  =  0\)</span>\ <span class="math inline">\(\frac{\partial L}{\partial \lambda_3} = -(-x_2 + s_3^2)  =  0\)</span>\ <span class="math inline">\(\frac{\partial L}{\partial s_1} = 2s_1\lambda_1  =  0\)</span>\ <span class="math inline">\(\frac{\partial L}{\partial s_2} = 2s_2\lambda_2  =  0\)</span>\ <span class="math inline">\(\frac{\partial L}{\partial s_3} = 2s_3\lambda_3  =  0\)</span></p>
+<ol start="3" type="1">
+<li>Consider all ways that the complementary slackness conditions are solved:</li>
+</ol>
+<p>This shows that there are four critical points: <span class="math inline">\((0,0)\)</span>, <span class="math inline">\((4,0)\)</span>, <span class="math inline">\((0,4)\)</span>, and <span class="math inline">\((\frac{8}{3},\frac{4}{3})\)</span></p>
+<ol start="4" type="1">
+<li>Find maximum: Looking at the values of <span class="math inline">\(f(x_1,x_2)\)</span> at the critical points, we see that the constrained maximum is located at <span class="math inline">\((x_1, x_2) = (0,0)\)</span>, which is the same as the unconstrained max. The constrained minimum is located at <span class="math inline">\((x_1, x_2) = (0,4)\)</span>, while there is no unconstrained minimum for this problem.</li>
+</ol>
+</section>
+<section id="kuhn-tucker-conditions" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="kuhn-tucker-conditions"><span class="header-section-number">4.7</span> Kuhn-Tucker Conditions</h2>
+<p>As you can see, this can be a pain. When dealing explicitly with <em>non-negativity constraints</em>, this process is simplified by using the Kuhn-Tucker method.</p>
+<p>Because the problem of maximizing a function subject to inequality and non-negativity constraints arises frequently in economics, the <strong>Kuhn-Tucker conditions</strong> provides a method that often makes it easier to both calculate the critical points and identify points that are (local) maxima.</p>
+<p>Given a <em>two-dimensional set-up</em>: <span class="math display">\[\max_{x_1,x_2}/\min_{x_1,x_2} f(x_1,x_2) \text{ s.t. }
+\begin{array}{l}
+c(x_1,x_2) \le a_1\\
+x_1 \ge 0 \\
+gx_2 \ge 0
+\end{array}\]</span></p>
+<p>We define the Lagrangian function <span class="math inline">\(L(x_1,x_2,\lambda_1)\)</span> the same as if we did not have the non-negativity constraints: <span class="math display">\[L(x_1,x_2,\lambda_2) = f(x_1,x_2) - \lambda_1(c(x_1,x_2) - a_1)\]</span></p>
+<p>More generally, in n dimensions: <span class="math display">\[ L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k) = f(x_1, \dots, x_n) - \sum_{i=1}^k\lambda_i(c_i(x_1,\dots, x_n) - a_i)\]</span></p>
+<p><strong>Kuhn-Tucker and Complementary Slackness Conditions</strong>: To find the critical points, we first calculate the Kuhn-Tucker conditions by taking the partial derivatives of the lagrangian function, <span class="math inline">\(L(x_1,\dots,x_n,\lambda_1,\dots,\lambda_k)\)</span>, with respect to each of its variables (all choice variable s<span class="math inline">\(x\)</span> and all lagrangian multipliers <span class="math inline">\(\lambda\)</span>) and we calculate the <em>complementary slackness conditions</em> by multiplying each partial derivative by its respective variable <em>and</em> include non-negativity conditions for all variables (choice variables <span class="math inline">\(x\)</span> and lagrangian multipliers <span class="math inline">\(\lambda\)</span>).</p>
+<p><strong>Kuhn-Tucker Conditions</strong></p>
+<span class="math display">\[\begin{align*}
+\frac{\partial L}{\partial x_1} \leq 0, &amp; \dots, \frac{\partial L}{\partial x_n} \leq 0\\
+\frac{\partial L}{\partial \lambda_1} \geq 0, &amp; \dots, \frac{\partial L}{\partial \lambda_m} \geq 0
+\end{align*}\]</span>
+<p><strong>Complementary Slackness Conditions</strong></p>
+<span class="math display">\[\begin{align*}
+x_1\frac{\partial L}{\partial x_1} = 0, &amp; \dots, x_n\frac{\partial L}{\partial x_n} = 0\\
+\lambda_1\frac{\partial L}{\partial \lambda_1} = 0, &amp; \dots, \lambda_m \frac{\partial L}{\partial \lambda_m} = 0
+\end{align*}\]</span>
+<p><strong>Non-negativity Conditions</strong> <span class="math display">\[\begin{eqnarray*}
+x_1 \geq 0 &amp; \dots &amp; x_n \geq 0\\
+\lambda_1 \geq 0 &amp; \dots &amp; \lambda_m \geq 0
+\end{eqnarray*}\]</span></p>
+<p>Note that some of these conditions are set equal to 0, while others are set as inequalities!</p>
+<p>Note also that to minimize the function <span class="math inline">\(f(x_1, \dots, x_n)\)</span>, the simplest thing to do is maximize the function <span class="math inline">\(-f(x_1, \dots, x_n)\)</span>; all of the conditions remain the same after reformulating as a maximization problem.</p>
+<p>There are additional assumptions (notably, f(x) is quasi-concave and the constraints are convex) that are sufficient to ensure that a point satisfying the Kuhn-Tucker conditions is a global max; if these assumptions do not hold, you may have to check more than one point.</p>
+<p><strong>Finding the Critical Points with Kuhn-Tucker Conditions</strong>: Given the above conditions, to find the critical points we solve the above system of equations. To do so, we must check border and interior solutions to see if they satisfy the above conditions.</p>
+<p>In a two-dimensional set-up, this means we must check the following cases:</p>
+<ol type="1">
+<li><span class="math inline">\(x_1 = 0, x_2 = 0\)</span> Border Solution</li>
+<li><span class="math inline">\(x_1 = 0, x_2 \neq 0\)</span> Border Solution</li>
+<li><span class="math inline">\(x_1 \neq 0, x_2 = 0\)</span> Border Solution</li>
+<li><span class="math inline">\(x_1 \neq 0, x_2 \neq 0\)</span> Interior Solution</li>
+</ol>
+<div id="exm-k-t-2" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4.5 (Kuhn-Tucker with two variables)</strong></span> Solve the following optimization problem with inequality constraints <span class="math display">\[\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2)\]</span></p>
+<span class="math display">\[\begin{align*}
+\text{ s.t. }
+\begin{cases}
+&amp;x_1 + x_2 *\le 4\\
+&amp;x_1 *\ge 0\\
+&amp;x_2 *\ge 0
+\end{cases}
+\end{align*}\]</span>
+</div>
+<ol type="1">
+<li><p>Write the Lagrangian: <span class="math display">\[L(x_1, x_2, \lambda) =  -(x_1^2 + 2x_2^2) - \lambda(x_1 + x_2 - 4)\]</span></p></li>
+<li><p>Find the First Order Conditions:</p></li>
+</ol>
+<p>Kuhn-Tucker Conditions <span class="math display">\[\begin{align*}
+\frac{\partial L}{\partial x_1} = -2x_1 - \lambda  &amp;\leq 0\\
+\frac{\partial L}{\partial x_2}  = -4x_2 - \lambda &amp; \leq  0\\
+\frac{\partial L}{\partial \lambda} = -(x_1 + x_2 - 4)&amp; \geq 0
+\end{align*}\]</span></p>
+<p>Complementary Slackness Conditions <span class="math display">\[\begin{align*}
+x_1\frac{\partial L}{\partial x_2} = x_1(-2x_1 - \lambda)  &amp;= 0\\
+x_2\frac{\partial L}{\partial x_2} = x_2(-4x_2 - \lambda)  &amp;= 0\\
+\lambda\frac{\partial L}{\partial \lambda} = -\lambda(x_1 + x_2 - 4)&amp;= 0
+\end{align*}\]</span></p>
+<p>Non-negativity Conditions <span class="math display">\[\begin{align*}
+x_1 &amp; \geq  0\\
+x_2 &amp; \geq 0\\
+\lambda &amp; \geq 0
+\end{align*}\]</span></p>
+<ol start="3" type="1">
+<li>Consider all border and interior cases:</li>
+</ol>
+<ol start="4" type="1">
+<li>Find Maximum: Three of the critical points violate the requirement that <span class="math inline">\(\lambda \geq 0\)</span>, so the point <span class="math inline">\((0,0,0)\)</span> is the maximum.</li>
+</ol>
+<div id="exr-ktlogs" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4.4 (Kuhn-Tucker with logs)</strong></span> Solve the constrained optimization problem,</p>
+<p><span class="math display">\[\max_{x_1,x_2} f(x) = \frac{1}{3}\log (x_1 + 1) + \frac{2}{3}\log (x_2 + 1) \text{ s.t. }  
+\begin{array}{l}
+x_1 + 2x_2 \leq 4\\
+     x_1 \geq 0\\
+    x_2 \geq 0
+\end{array}\]</span></p>
+</div>
+<ol type="1">
+<li><p>Write the Lagrangian: <span class="math display">\[L(x_1, x_2, \lambda) =  \frac{1}{3}\log(x_1+1) + \frac{2}{3}\log(x_2+1) - \lambda(x_1 + 2x_2 - 4)\]</span></p></li>
+<li><p>Find the First Order Conditions:</p></li>
+</ol>
+<p>Kuhn-Tucker Conditions</p>
+<p><span class="math inline">\(\frac{\partial L}{\partial x_1} = \frac{1}{3(x_1+1)} - \lambda   \leq  0\)</span>\ <span class="math inline">\(\frac{\partial L}{\partial x_2}  = \frac{2}{3(x_2+1)} - \lambda  \leq   0\)</span>\ <span class="math inline">\(\frac{\partial L}{\partial \lambda} = -(x_1 + 2x_2 - 4) \geq  0\)</span>\</p>
+<p>Complementary Slackness Conditions</p>
+<p><span class="math inline">\(x_1\frac{\partial L}{\partial x_2} = x_1(\frac{1}{3(x_1+1)} - \lambda)  =  0\)</span>\ <span class="math inline">\(x_2\frac{\partial L}{\partial x_2} = x_2(\frac{2}{3(x_2+1)} - \lambda)   =  0\)</span>\ <span class="math inline">\(\lambda\frac{\partial L}{\partial \lambda} = -\lambda(x_1 + 2x_2 - 4) =  0\)</span>\</p>
+<p>Non-negativity Conditions</p>
+<p><span class="math inline">\(x_1  \geq  0\)</span>\ <span class="math inline">\(x_2  \geq  0\)</span>\ $\geq $0\</p>
+<ol start="3" type="1">
+<li>Consider all border and interior cases:</li>
+</ol>
+<ol start="4" type="1">
+<li>Find Maximum:</li>
+</ol>
+<p>Three of the critical points violate the constraints, so the point <span class="math inline">\((\frac{4}{3},\frac{4}{3})\)</span> is the maximum.\</p>
+</section>
+<section id="applications-of-quadratic-forms" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="applications-of-quadratic-forms"><span class="header-section-number">4.8</span> Applications of Quadratic Forms</h2>
+<p><strong>Curvature and The Taylor Polynomial as a Quadratic Form</strong>: The Hessian is used in a Taylor polynomial approximation to <span class="math inline">\(f(\mathbf{x})\)</span> and provides information about the curvature of <span class="math inline">\(f({\bf x})\)</span> at <span class="math inline">\(\mathbf{x}\)</span> — e.g., which tells us whether a critical point <span class="math inline">\(\mathbf{x}^*\)</span> is a min, max, or saddle point.</p>
+<ol type="1">
+<li>The second order Taylor polynomial about the critical point <span class="math inline">\({\bf x}^*\)</span> is <span class="math display">\[f({\bf x}^*+\bf h)=f({\bf x}^*)+\nabla f({\bf x}^*) \bf h +\frac{1}{2} \bf h^\top {\bf H(x^*)} \bf h + R(\bf h)\]</span></li>
+<li>Since we’re looking at a critical point, <span class="math inline">\(\nabla f({\bf x}^*)=0\)</span>; and for small <span class="math inline">\(\bf h\)</span>, <span class="math inline">\(R(\bf h)\)</span> is negligible. Rearranging, we get <span class="math display">\[f({\bf x}^*+\bf h)-f({\bf x}^*)\approx \frac{1}{2} \bf h^\top {\bf H(x^*)} \bf h \]</span></li>
+<li>The Righthand side here is a quadratic form and we can determine the definiteness of <span class="math inline">\(\bf H(x^*)\)</span>.</li>
+</ol>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Allan H. Meltzer and Scott F. Richard. <a href="https://www.jstor.org/stable/1830813">“A Rational Theory of the Size of Government”</a>. <em>Journal of Political Economy</em> 89:5 (1981), p.&nbsp;914-927<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Adapted from Torsten Persson and Guido Tabellini, <em>Political Economics: Explaining Economic Policy</em>. MIT Press.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/iqss\.github\.io\/prefresher\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./04_calculus.html" class="pagination-link" aria-label="Calculus">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Calculus</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./06_probability.html" class="pagination-link" aria-label="Probability Theory">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Probability Theory</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

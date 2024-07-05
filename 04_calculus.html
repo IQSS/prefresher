@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.53">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Text for Harvard Department of Government Math Prefresher">
+
+<title>3&nbsp; Calculus – Math Prefresher for Political Scientists</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./05_optimization.html" rel="next">
+<link href="./03_limits.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02_functions.html">Math</a></li><li class="breadcrumb-item"><a href="./04_calculus.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Calculus</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Math Prefresher for Political Scientists</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/IQSS/prefresher" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./Math-Prefresher-for-Political-Scientists.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About this Booklet</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_warmup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pre-Prefresher Exercises</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Math</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Functions and Operations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_limits.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Limits</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_calculus.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Calculus</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Optimization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Probability Theory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_linear-algebra.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Algebra</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Programming</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_data-handling_counting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Orientation and Reading in Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_matricies-manipulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Manipulating Vectors and Matrices</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13_functions_obj_loops.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Objects, Functions, Loops</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14_visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Visualization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15_project-dempeace.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Joins and Merges, Wide and Long</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16_simulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Simulation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17_non-wysiwyg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">LaTeX and markdown</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18_text.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Text</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19_command-line_git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Command-line, git</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Solutions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21_solutions-warmup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solutions to Warmup Questions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23_solution_programming.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Suggested Programming Solutions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#example-the-mean-is-a-type-of-integral" id="toc-example-the-mean-is-a-type-of-integral" class="nav-link active" data-scroll-target="#example-the-mean-is-a-type-of-integral">Example: The Mean is a Type of Integral</a></li>
+  <li><a href="#sec-derivintro" id="toc-sec-derivintro" class="nav-link" data-scroll-target="#sec-derivintro"><span class="header-section-number">3.1</span> Derivatives</a>
+  <ul class="collapse">
+  <li><a href="#properties-of-derivatives" id="toc-properties-of-derivatives" class="nav-link" data-scroll-target="#properties-of-derivatives">Properties of derivatives</a></li>
+  </ul></li>
+  <li><a href="#sec-derivpoly" id="toc-sec-derivpoly" class="nav-link" data-scroll-target="#sec-derivpoly"><span class="header-section-number">3.2</span> Higher-Order Derivatives (Derivatives of Derivatives of Derivatives)</a></li>
+  <li><a href="#composite-functions-and-the-chain-rule" id="toc-composite-functions-and-the-chain-rule" class="nav-link" data-scroll-target="#composite-functions-and-the-chain-rule"><span class="header-section-number">3.3</span> Composite Functions and the Chain Rule</a></li>
+  <li><a href="#derivatives-of-natural-logs-and-the-exponent" id="toc-derivatives-of-natural-logs-and-the-exponent" class="nav-link" data-scroll-target="#derivatives-of-natural-logs-and-the-exponent"><span class="header-section-number">3.4</span> Derivatives of natural logs and the exponent</a>
+  <ul class="collapse">
+  <li><a href="#derivatives-of-natural-exponential-function-e" id="toc-derivatives-of-natural-exponential-function-e" class="nav-link" data-scroll-target="#derivatives-of-natural-exponential-function-e">Derivatives of natural exponential function (<span class="math inline">\(e\)</span>)</a></li>
+  <li><a href="#derivatives-of-log" id="toc-derivatives-of-log" class="nav-link" data-scroll-target="#derivatives-of-log">Derivatives of <span class="math inline">\(\log\)</span></a></li>
+  <li><a href="#outline-of-proof" id="toc-outline-of-proof" class="nav-link" data-scroll-target="#outline-of-proof">Outline of Proof</a></li>
+  </ul></li>
+  <li><a href="#partial-derivatives" id="toc-partial-derivatives" class="nav-link" data-scroll-target="#partial-derivatives"><span class="header-section-number">3.5</span> Partial Derivatives</a></li>
+  <li><a href="#taylorapprox" id="toc-taylorapprox" class="nav-link" data-scroll-target="#taylorapprox"><span class="header-section-number">3.6</span> Taylor Series Approximation</a></li>
+  <li><a href="#the-indefinite-integration" id="toc-the-indefinite-integration" class="nav-link" data-scroll-target="#the-indefinite-integration"><span class="header-section-number">3.7</span> The Indefinite Integration</a>
+  <ul class="collapse">
+  <li><a href="#common-rules-of-integration" id="toc-common-rules-of-integration" class="nav-link" data-scroll-target="#common-rules-of-integration">Common Rules of Integration</a></li>
+  </ul></li>
+  <li><a href="#the-definite-integral-the-area-under-the-curve" id="toc-the-definite-integral-the-area-under-the-curve" class="nav-link" data-scroll-target="#the-definite-integral-the-area-under-the-curve"><span class="header-section-number">3.8</span> The Definite Integral: The Area under the Curve</a>
+  <ul class="collapse">
+  <li><a href="#common-rules-for-definite-integrals" id="toc-common-rules-for-definite-integrals" class="nav-link" data-scroll-target="#common-rules-for-definite-integrals">Common Rules for Definite Integrals</a></li>
+  </ul></li>
+  <li><a href="#integration-by-substitution" id="toc-integration-by-substitution" class="nav-link" data-scroll-target="#integration-by-substitution"><span class="header-section-number">3.9</span> Integration by Substitution</a></li>
+  <li><a href="#integration-by-parts" id="toc-integration-by-parts" class="nav-link" data-scroll-target="#integration-by-parts"><span class="header-section-number">3.10</span> Integration by Parts</a></li>
+  <li><a href="#answers-to-examples-and-exercises" id="toc-answers-to-examples-and-exercises" class="nav-link" data-scroll-target="#answers-to-examples-and-exercises">Answers to Examples and Exercises</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02_functions.html">Math</a></li><li class="breadcrumb-item"><a href="./04_calculus.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Calculus</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-derivatives" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Calculus</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Calculus is a fundamental part of any type of statistics exercise. Although you may not be taking derivatives and integral in your daily work as an analyst, calculus undergirds many concepts we use: maximization, expectation, and cumulative probability.</p>
+<section id="example-the-mean-is-a-type-of-integral" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="example-the-mean-is-a-type-of-integral">Example: The Mean is a Type of Integral</h2>
+<p>The average of a quantity is a type of weighted mean, where the potential values are weighted by their likelihood, loosely speaking. The integral is actually a general way to describe this weighted average when there are conceptually an infinite number of potential values.</p>
+<p>If <span class="math inline">\(X\)</span> is a continuous random variable, its expected value <span class="math inline">\(E(X)\)</span> – the center of mass – is given by</p>
+<p><span class="math display">\[E(X) = \int^{\infty}_{-\infty}x f(x) dx\]</span></p>
+<p>where <span class="math inline">\(f(x)\)</span> is the probability density function of <span class="math inline">\(X\)</span>.</p>
+<p>This is a continuous version of the case where <span class="math inline">\(X\)</span> is discrete, in which case</p>
+<p><span class="math display">\[E(X) = \sum^\infty_{j=1} x_j P(X = x_j)\]</span></p>
+<p>even more concretely, if the potential values of <span class="math inline">\(X\)</span> are finite, then we can write out the expected value as a weighted mean, where the weights is the probability that the value occurs.</p>
+<p><span class="math display">\[E(X) = \large \sum_{x} \quad\left( \underbrace{x}_{\text{value}}\cdot \underbrace{P(X = x)}_{\text{weight, or PMF}}\right)\]</span></p>
+</section>
+<section id="sec-derivintro" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-derivintro"><span class="header-section-number">3.1</span> Derivatives</h2>
+<p>The derivative of <span class="math inline">\(f\)</span> at <span class="math inline">\(x\)</span> is its rate of change at <span class="math inline">\(x\)</span>: how much <span class="math inline">\(f(x)\)</span> changes with a change in <span class="math inline">\(x\)</span>. The rate of change is a fraction — rise over run — but because not all lines are straight and the rise over run formula will give us different values depending on the range we examine, we need to take a limit (Section <a href="03_limits.html" class="quarto-xref"><span>Chapter 2</span></a>).</p>
+<div id="def-derivative" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.1 (Derivative)</strong></span> Let <span class="math inline">\(f\)</span> be a function whose domain includes an open interval containing the point <span class="math inline">\(x\)</span>. The derivative of <span class="math inline">\(f\)</span> at <span class="math inline">\(x\)</span> is given by</p>
+<p><span class="math display">\[\frac{d}{dx}f(x) =\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{(x+h)-x} = \lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{h}\]</span></p>
+<p>There are a two main ways to denote a derivative:</p>
+<ul>
+<li>Leibniz Notation: <span class="math inline">\(\frac{d}{dx}(f(x))\)</span></li>
+<li>Prime or Lagrange Notation: <span class="math inline">\(f'(x)\)</span></li>
+</ul>
+</div>
+<p>If <span class="math inline">\(f(x)\)</span> is a straight line, the derivative is the slope. For a curve, the slope changes by the values of <span class="math inline">\(x\)</span>, so the derivative is the slope of the line tangent to the curve at <span class="math inline">\(x\)</span>. See, For example, Figure <a href="#fig-derivsimple" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>.</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="fig-derivsimple" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-derivsimple-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04_calculus_files/figure-html/fig-derivsimple-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-derivsimple-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: The Derivative as a Slope
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>If <span class="math inline">\(f'(x)\)</span> exists at a point <span class="math inline">\(x_0\)</span>, then <span class="math inline">\(f\)</span> is said to be <strong>differentiable</strong> at <span class="math inline">\(x_0\)</span>. That also implies that <span class="math inline">\(f(x)\)</span> is continuous at <span class="math inline">\(x_0\)</span>.</p>
+<section id="properties-of-derivatives" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="properties-of-derivatives">Properties of derivatives</h3>
+<p>Suppose that <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are differentiable at <span class="math inline">\(x\)</span> and that <span class="math inline">\(\alpha\)</span> is a constant. Then the functions <span class="math inline">\(f\pm g\)</span>, <span class="math inline">\(\alpha f\)</span>, <span class="math inline">\(f g\)</span>, and <span class="math inline">\(f/g\)</span> (provided <span class="math inline">\(g(x)\ne 0\)</span>) are also differentiable at <span class="math inline">\(x\)</span>. Additionally,</p>
+<p><strong>Constant rule:</strong> <span class="math display">\[\left[k f(x)\right]' = k f'(x)\]</span></p>
+<p><strong>Sum rule:</strong> <span class="math display">\[\left[f(x)\pm g(x)\right]' = f'(x)\pm g'(x)\]</span></p>
+<p>With a bit more algebra, we can apply the definition of derivatives to get a formula for of the derivative of a product and a derivative of a quotient.</p>
+<p><strong>Product rule:</strong> <span class="math display">\[\left[f(x)g(x)\right]^\prime = f^\prime(x)g(x)+f(x)g^\prime(x)\]</span></p>
+<p><strong>Quotient rule:</strong> <span class="math display">\[\left[f(x)/g(x)\right]^\prime = \frac{f^\prime(x)g(x) - f(x)g^\prime(x)}{[g(x)]^2}, ~g(x)\neq 0\]</span></p>
+<p>Finally, one way to think of the power of derivatives is that it takes a function a notch down in complexity. The power rule applies to any higher-order function:</p>
+<p><strong>Power rule:</strong> <span class="math display">\[\left[x^k\right]^\prime = k x^{k-1}\]</span></p>
+<p>For any real number <span class="math inline">\(k\)</span> (that is, both whole numbers and fractions). The power rule is proved <strong>by induction</strong>, a neat method of proof used in many fundamental applications to prove that a general statement holds for every possible case, even if there are countably infinite cases. We’ll show a simple case where <span class="math inline">\(k\)</span> is an integer here.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em> (Proof of Power Rule by Induction). </span>We would like to prove that</p>
+<p><span class="math display">\[\left[x^k\right]^\prime = k x^{k-1}\]</span> for any integer <span class="math inline">\(k\)</span>.</p>
+<p>First, consider the first case (the base case) of <span class="math inline">\(k = 1\)</span>. We can show by the definition of derivatives (setting <span class="math inline">\(f(x) = x^1 = 1\)</span>) that</p>
+<p><span class="math display">\[[x^1]^\prime = \lim_{h \rightarrow 0}\frac{(x + h) - x}{(x + h) - x}= 1.\]</span></p>
+<p>Because <span class="math inline">\(1\)</span> is also expressed as <span class="math inline">\(1 x^{1- 1}\)</span>, the statement we want to prove holds for the case <span class="math inline">\(k =1\)</span>.</p>
+<p>Now, that the statement holds for some integer <span class="math inline">\(m\)</span>. That is, assume <span class="math display">\[\left[x^m\right]^\prime = m x^{m-1}\]</span></p>
+<p>Then, for the case <span class="math inline">\(m + 1\)</span>, using the product rule above, we can simplify</p>
+<span class="math display">\[\begin{align*}
+\left[x^{m + 1}\right]^\prime &amp;= [x^{m}\cdot x]^\prime\\
+&amp;= (x^m)^\prime\cdot x + (x^m)\cdot (x)^\prime\\
+&amp;= m x^{m - 1}\cdot x + x^m ~~\because \text{by previous assumption}\\
+&amp;= mx^m + x^m\\
+&amp;= (m + 1)x^m\\
+&amp;= (m + 1)x^{(m + 1) - 1}
+\end{align*}\]</span>
+<p>Therefore, the rule holds for the case <span class="math inline">\(k = m + 1\)</span> once we have assumed it holds for <span class="math inline">\(k = m\)</span>. Combined with the first case, this completes proof by induction – we have now proved that the statement holds for all integers <span class="math inline">\(k = 1, 2, 3, \cdots\)</span>.</p>
+<p>To show that it holds for real fractions as well, we can prove expressing that exponent by a fraction of two integers.</p>
+</div>
+<p>These “rules” become apparent by applying the definition of the derivative above to each of the things to be “derived”, but these come up so frequently that it is best to repeat until it is muscle memory.</p>
+<div id="exr-introderivatives" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3.1 (Derivative of Polynomials)</strong></span> For each of the following functions, find the first-order derivative <span class="math inline">\(f^\prime(x)\)</span>.</p>
+<ol type="1">
+<li><span class="math inline">\(f(x)=c\)</span></li>
+<li><span class="math inline">\(f(x)=x\)</span></li>
+<li><span class="math inline">\(f(x)=x^2\)</span></li>
+<li><span class="math inline">\(f(x)=x^3\)</span></li>
+<li><span class="math inline">\(f(x)=\frac{1}{x^2}\)</span></li>
+<li><span class="math inline">\(f(x)=(x^3)(2x^4)\)</span></li>
+<li><span class="math inline">\(f(x) = x^4 - x^3 + x^2 - x + 1\)</span></li>
+<li><span class="math inline">\(f(x) = (x^2 + 1)(x^3 - 1)\)</span></li>
+<li><span class="math inline">\(f(x) = 3x^2 + 2x^{1/3}\)</span></li>
+<li><span class="math inline">\(f(x)=\frac{x^2+1}{x^2-1}\)</span></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="sec-derivpoly" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-derivpoly"><span class="header-section-number">3.2</span> Higher-Order Derivatives (Derivatives of Derivatives of Derivatives)</h2>
+<p>The first derivative is applying the definition of derivatives on the function, and it can be expressed as</p>
+<p><span class="math display">\[f'(x),  ~~ y',  ~~ \frac{d}{dx}f(x), ~~ \frac{dy}{dx}\]</span></p>
+<p>We can keep applying the differentiation process to functions that are themselves derivatives. The derivative of <span class="math inline">\(f'(x)\)</span> with respect to <span class="math inline">\(x\)</span>, would then be <span class="math display">\[f''(x)=\lim\limits_{h\to 0}\frac{f'(x+h)-f'(x)}{h}\]</span> and we can therefore call it the <strong>Second derivative:</strong></p>
+<p><span class="math display">\[f''(x), ~~ y'', ~~ \frac{d^2}{dx^2}f(x), ~~ \frac{d^2y}{dx^2}\]</span></p>
+<p>Similarly, the derivative of <span class="math inline">\(f''(x)\)</span> would be called the third derivative and is denoted <span class="math inline">\(f'''(x)\)</span>. And by extension, the <strong>nth derivative</strong> is expressed as <span class="math inline">\(\frac{d^n}{dx^n}f(x)\)</span>, <span class="math inline">\(\frac{d^ny}{dx^n}\)</span>.</p>
+<div id="exm-succession" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.1 (Succession of Derivatives)</strong></span> &nbsp;</p>
+<span class="math display">\[\begin{align*}
+f(x) &amp;=x^3\\
+f^{\prime}(x) &amp;=3x^2\\
+f^{\prime\prime}(x) &amp;=6x \\
+f^{\prime\prime\prime}(x) &amp;=6\\
+f^{\prime\prime\prime\prime}(x) &amp;=0\\
+\end{align*}\]</span>
+</div>
+<p>Earlier, in Section <a href="#sec-derivintro" class="quarto-xref"><span>Section 3.1</span></a>, we said that if a function differentiable at a given point, then it must be continuous. Further, if <span class="math inline">\(f'(x)\)</span> is itself continuous, then <span class="math inline">\(f(x)\)</span> is called continuously differentiable. All of this matters because many of our findings about optimization (Section <a href="05_optimization.html" class="quarto-xref"><span>Chapter 4</span></a>) rely on differentiation, and so we want our function to be differentiable in as many layers. A function that is continuously differentiable infinitly is called “smooth”. Some examples: <span class="math inline">\(f(x) = x^2\)</span>, <span class="math inline">\(f(x) = e^x\)</span>.</p>
+</section>
+<section id="composite-functions-and-the-chain-rule" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="composite-functions-and-the-chain-rule"><span class="header-section-number">3.3</span> Composite Functions and the Chain Rule</h2>
+<p>As useful as the above rules are, many functions you’ll see won’t fit neatly in each case immediately. Instead, they will be functions of functions. For example, the difference between <span class="math inline">\(x^2 + 1^2\)</span> and <span class="math inline">\((x^2 + 1)^2\)</span> may look trivial, but the sum rule can be easily applied to the former, while it’s actually not obvious what do with the latter.</p>
+<p><strong>Composite functions</strong> are formed by substituting one function into another and are denoted by <span class="math display">\[(f\circ g)(x)=f[g(x)].\]</span> To form <span class="math inline">\(f[g(x)]\)</span>, the range of <span class="math inline">\(g\)</span> must be contained (at least in part) within the domain of <span class="math inline">\(f\)</span>. The domain of <span class="math inline">\(f\circ g\)</span> consists of all the points in the domain of <span class="math inline">\(g\)</span> for which <span class="math inline">\(g(x)\)</span> is in the domain of <span class="math inline">\(f\)</span>.</p>
+<div id="exm-composite" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.2</strong></span> Let <span class="math inline">\(f(x)=\log x\)</span> for <span class="math inline">\(0&lt;x&lt;\infty\)</span> and <span class="math inline">\(g(x)=x^2\)</span> for <span class="math inline">\(-\infty&lt;x&lt;\infty\)</span>.</p>
+<p>Then <span class="math display">\[(f\circ g)(x)=\log x^2, -\infty&lt;x&lt;\infty - \{0\}\]</span></p>
+<p>Also <span class="math display">\[(g\circ f)(x)=[\log x]^2, 0&lt;x&lt;\infty\]</span></p>
+<p>Notice that <span class="math inline">\(f\circ g\)</span> and <span class="math inline">\(g\circ f\)</span> are not the same functions.</p>
+</div>
+<p>With the notation of composite functions in place, now we can introduce a helpful additional rule that will deal with a derivative of composite functions as a chain of concentric derivatives.</p>
+<p><strong>Chain Rule</strong>:</p>
+<p>Let <span class="math inline">\(y=(f\circ g)(x)= f[g(x)]\)</span>. The derivative of <span class="math inline">\(y\)</span> with respect to <span class="math inline">\(x\)</span> is <span class="math display">\[\frac{d}{dx} \{ f[g(x)] \} = f'[g(x)] g'(x)\]</span></p>
+<p>We can read this as: “the derivative of the composite function <span class="math inline">\(y\)</span> is the derivative of <span class="math inline">\(f\)</span> evaluated at <span class="math inline">\(g(x)\)</span>, times the derivative of <span class="math inline">\(g\)</span>.”</p>
+<p>The chain rule can be thought of as the derivative of the “outside” times the derivative of the “inside”, remembering that the derivative of the outside function is evaluated at the value of the inside function.</p>
+<ul>
+<li>The chain rule can also be written as <span class="math display">\[\frac{dy}{dx}=\frac{dy}{dg(x)} \frac{dg(x)}{dx}\]</span> This expression does not imply that the <span class="math inline">\(dg(x)\)</span>’s cancel out, as in fractions. They are part of the derivative notation and you can’t separate them out or cancel them.)</li>
+</ul>
+<div id="exm-tothesix" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.3 (Composite Exponent)</strong></span> Find <span class="math inline">\(f^\prime(x)\)</span> for <span class="math inline">\(f(x) = (3x^2+5x-7)^6\)</span>.</p>
+</div>
+<p>The direct use of a chain rule is when the exponent of is itself a function, so the power rule could not have applied generaly:</p>
+<p><strong>Generalized Power Rule</strong>:</p>
+<p>If <span class="math inline">\(f(x)=[g(x)]^p\)</span> for any rational number <span class="math inline">\(p\)</span>, <span class="math display">\[f^\prime(x) =p[g(x)]^{p-1}g^\prime(x)\]</span></p>
+</section>
+<section id="derivatives-of-natural-logs-and-the-exponent" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="derivatives-of-natural-logs-and-the-exponent"><span class="header-section-number">3.4</span> Derivatives of natural logs and the exponent</h2>
+<p>Natural logs and exponents (they are inverses of each other; see Section <a href="02_functions.html#sec-logexponents" class="quarto-xref"><span>Section 1.3</span></a>) crop up everywhere in statistics. Their derivative is a special case from the above, but quite elegant.</p>
+<div id="thm-derivexplog" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3.1</strong></span> The functions <span class="math inline">\(e^x\)</span> and the natural logarithm <span class="math inline">\(\log(x)\)</span> are continuous and differentiable in their domains, and their first derivate is <span class="math display">\[(e^x)^\prime = e^x\]</span> <span class="math display">\[\log(x)^\prime = \frac{1}{x}\]</span></p>
+<p>Also, when these are composite functions, it follows by the generalized power rule that</p>
+<p><span class="math display">\[\left(e^{g(x)}\right)^\prime = e^{g(x)} \cdot g^\prime(x)\]</span> <span class="math display">\[\left(\log g(x)\right)^\prime = \frac{g^\prime(x)}{g(x)}, ~~\text{if}~~ g(x) &gt; 0\]</span></p>
+</div>
+<p>We will relegate the proofs to small excerpts.</p>
+<section id="derivatives-of-natural-exponential-function-e" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="derivatives-of-natural-exponential-function-e">Derivatives of natural exponential function (<span class="math inline">\(e\)</span>)</h3>
+<p>To repeat the main rule in Theorem <a href="#thm-derivexplog" class="quarto-xref">Theorem&nbsp;<span>3.1</span></a>, the intuition is that</p>
+<ol type="1">
+<li>Derivative of <span class="math inline">\(e^x\)</span> is itself: <span class="math inline">\(\frac{d}{dx}e^x = e^x\)</span> (See Figure <a href="#fig-derivexponent" class="quarto-xref">Figure&nbsp;<span>3.2</span></a>.)</li>
+<li>Same thing if there were a constant in front: <span class="math inline">\(\frac{d}{dx}\alpha e^x = \alpha e^x\)</span></li>
+<li>Same thing no matter how many derivatives there are in front: <span class="math inline">\(\frac{d^n}{dx^n} \alpha e^x = \alpha e^x\)</span></li>
+<li>Chain Rule: When the exponent is a function of <span class="math inline">\(x\)</span>, remember to take derivative of that function and add to product. <span class="math inline">\(\frac{d}{dx}e^{g(x)}= e^{g(x)} g^\prime(x)\)</span></li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-derivexponent" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-derivexponent-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04_calculus_files/figure-html/fig-derivexponent-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-derivexponent-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: Derivative of the Exponential Function
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div id="exm-exmderivexp" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.4 (Derivative of exponents)</strong></span> Find the derivative for the following.</p>
+<ol type="1">
+<li><span class="math inline">\(f(x)=e^{-3x}\)</span></li>
+<li><span class="math inline">\(f(x)=e^{x^2}\)</span></li>
+<li><span class="math inline">\(f(x)=(x-1)e^x\)</span></li>
+</ol>
+</div>
+</section>
+<section id="derivatives-of-log" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="derivatives-of-log">Derivatives of <span class="math inline">\(\log\)</span></h3>
+<p>The natural log is the mirror image of the natural exponent and has mirroring properties, again, to repeat the theorem,</p>
+<ol type="1">
+<li>log prime x is one over x: <span class="math inline">\(\frac{d}{dx} \log x = \frac{1}{x}\)</span> (Figure <a href="#fig-derivlog" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>.)</li>
+<li>Exponents become multiplicative constants: <span class="math inline">\(\frac{d}{dx} \log x^k = \frac{d}{dx} k \log x = \frac{k}{x}\)</span></li>
+<li>Chain rule again: <span class="math inline">\(\frac{d}{dx} \log u(x) = \frac{u'(x)}{u(x)}\quad\)</span></li>
+<li>For any positive base <span class="math inline">\(b\)</span>, <span class="math inline">\(\frac{d}{dx} b^x = (\log b)\left(b^x\right)\)</span>.</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-derivlog" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-derivlog-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04_calculus_files/figure-html/fig-derivlog-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-derivlog-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.3: Derivative of the Natural Log
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div id="exm-exmderivlog" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.5 (Derivative of logs)</strong></span> Find <span class="math inline">\(dy/dx\)</span> for the following.</p>
+<ol type="1">
+<li><span class="math inline">\(f(x)=\log(x^2+9)\)</span></li>
+<li><span class="math inline">\(f(x)=\log(\log x)\)</span></li>
+<li><span class="math inline">\(f(x)=(\log x)^2\)</span></li>
+<li><span class="math inline">\(f(x)=\log e^x\)</span></li>
+</ol>
+</div>
+</section>
+<section id="outline-of-proof" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="outline-of-proof">Outline of Proof</h3>
+<p>We actually show the derivative of the log first, and then the derivative of the exponential naturally follows.</p>
+<p>The general derivative of the log at any base <span class="math inline">\(a\)</span> is solvable by the definition of derivatives.</p>
+<span class="math display">\[\begin{align*}
+(\log_a x)^\prime = \lim\limits_{h\to 0} \frac{1}{h}\log_{a}\left(1 + \frac{h}{x}\right)
+\end{align*}\]</span>
+<p>Re-express <span class="math inline">\(g = \frac{h}{x}\)</span> and get <span class="math display">\[\begin{align*}
+(\log_a x)^\prime &amp;= \frac{1}{x}\lim_{g\to 0}\log_{a} (1 + g)^{\frac{1}{g}}\\
+&amp;= \frac{1}{x}\log_a e
+\end{align*}\]</span></p>
+<p>By definition of <span class="math inline">\(e\)</span>. As a special case, when <span class="math inline">\(a = e\)</span>, then <span class="math inline">\((\log x)^\prime = \frac{1}{x}\)</span>.</p>
+<p>Now let’s think about the inverse, taking the derivative of <span class="math inline">\(y = a^x\)</span>.</p>
+<span class="math display">\[\begin{align*}
+y &amp;= a^x \\
+\Rightarrow \log y &amp;= x \log a\\
+\Rightarrow \frac{y^\prime}{y} &amp;= \log a\\
+\Rightarrow  y^\prime = y \log a\\
+\end{align*}\]</span>
+<p>Then in the special case where <span class="math inline">\(a = e\)</span>,</p>
+<p><span class="math display">\[(e^x)^\prime = (e^x)\]</span></p>
+</section>
+</section>
+<section id="partial-derivatives" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="partial-derivatives"><span class="header-section-number">3.5</span> Partial Derivatives</h2>
+<p>What happens when there’s more than variable that is changing?</p>
+<blockquote class="blockquote">
+<p>If you can do ordinary derivatives, you can do partial derivatives: just hold all the other input variables constant except for the one you’re differentiating with respect to. (Joe Blitzstein’s Math Notes)</p>
+</blockquote>
+<p>Suppose we have a function <span class="math inline">\(f\)</span> now of two (or more) variables and we want to determine the rate of change relative to one of the variables. To do so, we would find its partial derivative, which is defined similar to the derivative of a function of one variable.</p>
+<p><strong>Partial Derivative</strong>: Let <span class="math inline">\(f\)</span> be a function of the variables <span class="math inline">\((x_1,\ldots,x_n)\)</span>. The partial derivative of <span class="math inline">\(f\)</span> with respect to <span class="math inline">\(x_i\)</span> is</p>
+<p><span class="math display">\[\frac{\partial f}{\partial x_i} (x_1,\ldots,x_n) = \lim\limits_{h\to 0} \frac{f(x_1,\ldots,x_i+h,\ldots,x_n)-f(x_1,\ldots,x_i,\ldots,x_n)}{h}\]</span></p>
+<p>Only the <span class="math inline">\(i\)</span>th variable changes — the others are treated as constants.</p>
+<p>We can take higher-order partial derivatives, like we did with functions of a single variable, except now the higher-order partials can be with respect to multiple variables.</p>
+<div id="exm-partialtypes" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.6 (More than one type of partial)</strong></span> Notice that you can take partials with regard to different variables.</p>
+<p>Suppose <span class="math inline">\(f(x,y)=x^2+y^2\)</span>. Then</p>
+<span class="math display">\[\begin{align*}
+\frac{\partial f}{\partial x}(x,y) &amp;=\\
+\frac{\partial f}{\partial y}(x,y) &amp;=\\
+\frac{\partial^2 f}{\partial x^2}(x,y) &amp;=\\
+\frac{\partial^2 f}{\partial x \partial y}(x,y) &amp;=
+\end{align*}\]</span>
+</div>
+<div id="exr-partialderivs" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3.2</strong></span> Let <span class="math inline">\(f(x,y)=x^3 y^4 +e^x -\log y\)</span>. What are the following partial derivaitves?</p>
+<span class="math display">\[\begin{align*}
+\frac{\partial f}{\partial x}(x,y) &amp;=\\
+\frac{\partial f}{\partial y}(x,y) &amp;=\\
+\frac{\partial^2 f}{\partial x^2}(x,y) &amp;=\\
+\frac{\partial^2 f}{\partial x \partial y}(x,y) &amp;=
+\end{align*}\]</span>
+</div>
+</section>
+<section id="taylorapprox" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="taylorapprox"><span class="header-section-number">3.6</span> Taylor Series Approximation</h2>
+<p>A common form of approximation used in statistics involves derivatives. A Taylor series is a way to represent common functions as infinite series (a sum of infinite elements) of the function’s derivatives at some point <span class="math inline">\(a\)</span>.</p>
+<p>For example, Taylor series are very helpful in representing nonlinear (read: difficult) functions as linear (read: manageable) functions. One can thus <strong>approximate</strong> functions by using lower-order, finite series known as <strong>Taylor polynomials</strong>. If <span class="math inline">\(a=0\)</span>, the series is called a Maclaurin series.</p>
+<p>Specifically, a Taylor series of a real or complex function <span class="math inline">\(f(x)\)</span> that is infinitely differentiable in the neighborhood of point <span class="math inline">\(a\)</span> is:</p>
+<span class="math display">\[\begin{align*}
+    f(x) &amp;= f(a) + \frac{f'(a)}{1!} (x-a) +  \frac{f''(a)}{2!} (x-a)^2 + \cdots\\
+     &amp;= \sum_{n=0}^\infty \frac{f^{(n)} (a)}{n!} (x-a)^n
+\end{align*}\]</span>
+<p><strong>Taylor Approximation</strong>: We can often approximate the curvature of a function <span class="math inline">\(f(x)\)</span> at point <span class="math inline">\(a\)</span> using a 2nd order Taylor polynomial around point <span class="math inline">\(a\)</span>:</p>
+<p><span class="math display">\[f(x) = f(a) + \frac{f'(a)}{1!} (x-a) +  \frac{f''(a)}{2!} (x-a)^2
++ R_2\]</span></p>
+<p><span class="math inline">\(R_2\)</span> is the remainder (R for remainder, 2 for the fact that we took two derivatives) and often treated as negligible, giving us:</p>
+<p><span class="math display">\[f(x) \approx f(a) + f'(a)(x-a) +  \dfrac{f''(a)}{2} (x-a)^2\]</span></p>
+<p>The more derivatives that are added, the smaller the remainder <span class="math inline">\(R\)</span> and the more accurate the approximation. Proofs involving limits guarantee that the remainder converges to 0 as the order of derivation increases.</p>
+</section>
+<section id="the-indefinite-integration" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="the-indefinite-integration"><span class="header-section-number">3.7</span> The Indefinite Integration</h2>
+<p>So far, we’ve been interested in finding the derivative <span class="math inline">\(f=F'\)</span> of a function <span class="math inline">\(F\)</span>. However, sometimes we’re interested in exactly the reverse: finding the function <span class="math inline">\(F\)</span> for which <span class="math inline">\(f\)</span> is its derivative. We refer to <span class="math inline">\(F\)</span> as the antiderivative of <span class="math inline">\(f\)</span>.</p>
+<div id="def-antiderivative" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.2 (Antiderivative)</strong></span> The antiverivative of a function <span class="math inline">\(f(x)\)</span> is a differentiable function <span class="math inline">\(F\)</span> whose derivative is <span class="math inline">\(f\)</span>.</p>
+<p><span class="math display">\[F^\prime = f.\]</span></p>
+</div>
+<p>Another way to describe is through the inverse formula. Let <span class="math inline">\(DF\)</span> be the derivative of <span class="math inline">\(F\)</span>. And let <span class="math inline">\(DF(x)\)</span> be the derivative of <span class="math inline">\(F\)</span> evaluated at <span class="math inline">\(x\)</span>. Then the antiderivative is denoted by <span class="math inline">\(D^{-1}\)</span> (i.e., the inverse derivative). If <span class="math inline">\(DF=f\)</span>, then <span class="math inline">\(F=D^{-1}f\)</span>.</p>
+<p>This definition bolsters the main takeaway about integrals and derivatives: They are inverses of each other.</p>
+<div id="exr-antiderivatives" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3.3 (Antiderivative)</strong></span> Find the antiderivative of the following:</p>
+<ol type="1">
+<li><span class="math inline">\(f(x) = \frac{1}{x^2}\)</span></li>
+<li><span class="math inline">\(f(x) = 3e^{3x}\)</span></li>
+</ol>
+</div>
+<p>We know from derivatives how to manipulate <span class="math inline">\(F\)</span> to get <span class="math inline">\(f\)</span>. But how do you express the procedure to manipulate <span class="math inline">\(f\)</span> to get <span class="math inline">\(F\)</span>? For that, we need a new symbol, which we will call indefinite integration.</p>
+<div id="def-integral" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.3 (Indefinite Integral)</strong></span> The indefinite integral of <span class="math inline">\(f(x)\)</span> is written</p>
+<p><span class="math display">\[\int f(x) dx \]</span></p>
+<p>and is equal to the antiderivative of <span class="math inline">\(f\)</span>.</p>
+</div>
+<div id="exm-integralc" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.7</strong></span> Draw the function <span class="math inline">\(f(x)\)</span> and its indefinite integral, <span class="math inline">\(\int\limits f(x) dx\)</span></p>
+<p><span class="math display">\[f(x) = (x^2-4)\]</span></p>
+</div>
+<div id="sol-integralc" class="proof solution">
+<p><span class="proof-title"><em>Solution 3.1</em>. </span>The Indefinite Integral of the function <span class="math inline">\(f(x) = (x^2-4)\)</span> can, for example, be <span class="math inline">\(F(x) = \frac{1}{3}x^3 - 4x.\)</span> But it can also be <span class="math inline">\(F(x) = \frac{1}{3}x^3 - 4x + 1\)</span>, because the constant 1 disappears when taking the derivative.</p>
+</div>
+<p>Some of these functions are plotted in the bottom panel of Figure <a href="#fig-integralc" class="quarto-xref">Figure&nbsp;<span>3.4</span></a> as dotted lines.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-integralc" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-integralc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04_calculus_files/figure-html/fig-integralc-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-integralc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.4: The Many Indefinite Integrals of a Function
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Notice from these examples that while there is only a single derivative for any function, there are multiple antiderivatives: one for any arbitrary constant <span class="math inline">\(c\)</span>. <span class="math inline">\(c\)</span> just shifts the curve up or down on the <span class="math inline">\(y\)</span>-axis. If more information is present about the antiderivative — e.g., that it passes through a particular point — then we can solve for a specific value of <span class="math inline">\(c\)</span>.</p>
+<section id="common-rules-of-integration" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="common-rules-of-integration">Common Rules of Integration</h3>
+<p>Some common rules of integrals follow by virtue of being the inverse of a derivative.</p>
+<ol type="1">
+<li>Constants are allowed to slip out: <span class="math inline">\(\int a f(x)dx = a\int f(x)dx\)</span></li>
+<li>Integration of the sum is sum of integrations: <span class="math inline">\(\int [f(x)+g(x)]dx=\int f(x)dx + \int g(x)dx\)</span></li>
+<li>Reverse Power-rule: <span class="math inline">\(\int x^n dx = \frac{1}{n+1} x^{n+1} + c\)</span></li>
+<li>Exponents are still exponents: <span class="math inline">\(\int e^x dx = e^x +c\)</span></li>
+<li>Recall the derivative of <span class="math inline">\(\log(x)\)</span> is one over <span class="math inline">\(x\)</span>, and so: <span class="math inline">\(\int \frac{1}{x} dx = \log x + c\)</span></li>
+<li>Reverse chain-rule: <span class="math inline">\(\int e^{f(x)}f^\prime(x)dx = e^{f(x)}+c\)</span></li>
+<li>More generally: <span class="math inline">\(\int [f(x)]^n f'(x)dx = \frac{1}{n+1}[f(x)]^{n+1}+c\)</span></li>
+<li>Remember the derivative of a log of a function: <span class="math inline">\(\int \frac{f^\prime(x)}{f(x)}dx=\log f(x) + c\)</span></li>
+</ol>
+<div id="exm-common-integration" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.8 (Common Integration)</strong></span> Simplify the following indefinite integrals:</p>
+<ul>
+<li><span class="math inline">\(\int 3x^2 dx\)</span></li>
+<li><span class="math inline">\(\int (2x+1)dx\)</span></li>
+<li><span class="math inline">\(\int e^x e^{e^x} dx\)</span></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="the-definite-integral-the-area-under-the-curve" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="the-definite-integral-the-area-under-the-curve"><span class="header-section-number">3.8</span> The Definite Integral: The Area under the Curve</h2>
+<p>If there is a indefinite integral, there <em>must</em> be a definite integral. Indeed there is, but the notion of definite integrals comes from a different objective: finding the are a under a function. We will find, perhaps remarkably, that the formula we find to get the sum turns out to be expressible by the anti-derivative.</p>
+<p>Suppose we want to determine the area <span class="math inline">\(A(R)\)</span> of a region <span class="math inline">\(R\)</span> defined by a curve <span class="math inline">\(f(x)\)</span> and some interval <span class="math inline">\(a\le x \le b\)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-defintfig" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-defintfig-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04_calculus_files/figure-html/fig-defintfig-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-defintfig-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.5: The Riemann Integral as a Sum of Evaluations
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>One way to calculate the area would be to divide the interval <span class="math inline">\(a\le x\le b\)</span> into <span class="math inline">\(n\)</span> subintervals of length <span class="math inline">\(\Delta x\)</span> and then approximate the region with a series of rectangles, where the base of each rectangle is <span class="math inline">\(\Delta x\)</span> and the height is <span class="math inline">\(f(x)\)</span> at the midpoint of that interval. <span class="math inline">\(A(R)\)</span> would then be approximated by the area of the union of the rectangles, which is given by <span class="math display">\[S(f,\Delta x)=\sum\limits_{i=1}^n f(x_i)\Delta x\]</span> and is called a <strong>Riemann sum</strong>.</p>
+<p>As we decrease the size of the subintervals <span class="math inline">\(\Delta x\)</span>, making the rectangles “thinner,” we would expect our approximation of the area of the region to become closer to the true area. This allows us to express the area as a limit of a series: <span class="math display">\[A(R)=\lim\limits_{\Delta x\to 0}\sum\limits_{i=1}^n f(x_i)\Delta x\]</span></p>
+<p>Figure <a href="#fig-defintfig" class="quarto-xref">Figure&nbsp;<span>3.5</span></a> shows that illustration. The curve depicted is <span class="math inline">\(f(x) = -15(x - 5) + (x - 5)^3 + 50.\)</span> We want approximate the area under the curve between the <span class="math inline">\(x\)</span> values of 0 and 10. We can do this in blocks of arbitrary width, where the sum of rectangles (the area of which is width times <span class="math inline">\(f(x)\)</span> evaluated at the midpoint of the bar) shows the Riemann Sum. As the width of the bars <span class="math inline">\(\Delta x\)</span> becomes smaller, the better the estimate of <span class="math inline">\(A(R)\)</span>.</p>
+<p>This is how we define the “Definite” Integral:</p>
+<div id="def-defintegral" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.4 (The Definite Integral (Riemann))</strong></span> If for a given function <span class="math inline">\(f\)</span> the Riemann sum approaches a limit as <span class="math inline">\(\Delta x \to 0\)</span>, then that limit is called the Riemann integral of <span class="math inline">\(f\)</span> from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span>. We express this with the <span class="math inline">\(\int\)</span>, symbol, and write <span class="math display">\[\int\limits_a^b f(x) dx= \lim\limits_{\Delta x\to 0} \sum\limits_{i=1}^n f(x_i)\Delta x\]</span></p>
+<p>The most straightforward of a definite integral is the definite integral. That is, we read <span class="math display">\[\int\limits_a^b f(x) dx\]</span> as the definite integral of <span class="math inline">\(f\)</span> from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span> and we defined as the area under the “curve” <span class="math inline">\(f(x)\)</span> from point <span class="math inline">\(x=a\)</span> to <span class="math inline">\(x=b\)</span>.</p>
+</div>
+<p>The fundamental theorem of calculus shows us that this sum is, in fact, the antiderivative.</p>
+<div id="thm-fftc" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3.2 (First Fundamental Theorem of Calculus)</strong></span> Let the function <span class="math inline">\(f\)</span> be bounded on <span class="math inline">\([a,b]\)</span> and continuous on <span class="math inline">\((a,b)\)</span>. Then, suggestively, use the symbol <span class="math inline">\(F(x)\)</span> to denote the definite integral from <span class="math inline">\(a\)</span> to <span class="math inline">\(x\)</span>: <span class="math display">\[F(x)=\int\limits_a^x f(t)dt, \quad a\le x\le b\]</span></p>
+<p>Then <span class="math inline">\(F(x)\)</span> has a derivative at each point in <span class="math inline">\((a,b)\)</span> and <span class="math display">\[F^\prime(x)=f(x), \quad a&lt;x&lt;b\]</span> That is, the definite integral function of <span class="math inline">\(f\)</span> <em>is</em> the one of the antiderivatives of some <span class="math inline">\(f\)</span>.</p>
+</div>
+<p>This is again a long way of saying that that differentiation is the inverse of integration. But now, we’ve covered definite integrals.</p>
+<p>The second theorem gives us a simple way of computing a definite integral as a function of indefinite integrals.</p>
+<div id="thm-sftc" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3.3 (Second Fundamental Theorem of Calculus)</strong></span> Let the function <span class="math inline">\(f\)</span> be bounded on <span class="math inline">\([a,b]\)</span> and continuous on <span class="math inline">\((a,b)\)</span>. Let <span class="math inline">\(F\)</span> be any function that is continuous on <span class="math inline">\([a,b]\)</span> such that <span class="math inline">\(F^\prime(x)=f(x)\)</span> on <span class="math inline">\((a,b)\)</span>. Then <span class="math display">\[\int\limits_a^bf(x)dx = F(b)-F(a)\]</span></p>
+</div>
+<p>So the procedure to calculate a simple definite integral <span class="math inline">\(\int\limits_a^b f(x)dx\)</span> is then</p>
+<ol type="1">
+<li>Find the indefinite integral <span class="math inline">\(F(x)\)</span>.</li>
+<li>Evaluate <span class="math inline">\(F(b)-F(a)\)</span>.</li>
+</ol>
+<div id="exm-defintmon" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.9 (Definite Integral of a monomial)</strong></span> Solve <span class="math inline">\(\int\limits_1^3 3x^2 dx.\)</span></p>
+<p>Let <span class="math inline">\(f(x) = 3x^2\)</span>.</p>
+</div>
+<div id="exr-defintexp" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3.4</strong></span> What is the value of <span class="math inline">\(\int\limits_{-2}^2 e^x e^{e^x} dx\)</span>?</p>
+</div>
+<section id="common-rules-for-definite-integrals" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="common-rules-for-definite-integrals">Common Rules for Definite Integrals</h3>
+<p>The area-interpretation of the definite integral provides some rules for simplification.</p>
+<ol type="1">
+<li>There is no area below a point: <span class="math display">\[\int\limits_a^a f(x)dx=0\]</span></li>
+<li>Reversing the limits changes the sign of the integral: <span class="math display">\[\int\limits_a^b f(x)dx=-\int\limits_b^a f(x)dx\]</span></li>
+<li>Sums can be separated into their own integrals: <span class="math display">\[\int\limits_a^b [\alpha f(x)+\beta g(x)]dx = \alpha \int\limits_a^b f(x)dx + \beta \int\limits_a^b g(x)dx\]</span></li>
+<li>Areas can be combined as long as limits are linked: <span class="math display">\[\int\limits_a^b f(x) dx +\int\limits_b^c f(x)dx = \int\limits_a^c f(x)dx\]</span></li>
+</ol>
+<div id="exr-defintshort" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3.5 (Definite integral shortcuts)</strong></span> Simplify the following definite intergrals.</p>
+<ol type="1">
+<li><span class="math inline">\(\int\limits_1^1 3x^2 dx =\)</span></li>
+<li><span class="math inline">\(\int\limits_0^4 (2x+1)dx=\)</span></li>
+<li><span class="math inline">\(\int\limits_{-2}^0 e^x e^{e^x} dx + \int\limits_0^2 e^x e^{e^x} dx =\)</span></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="integration-by-substitution" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="integration-by-substitution"><span class="header-section-number">3.9</span> Integration by Substitution</h2>
+<p>From the second fundamental theorem of calculus, we now that a quick way to get a definite integral is to first find the indefinite integral, and then just plug in the bounds.</p>
+<p>Sometimes the integrand (the thing that we are trying to take an integral of) doesn’t appear integrable using common rules and antiderivatives. A method one might try is <strong>integration by substitution</strong>, which is related to the Chain Rule.</p>
+<p>Suppose we want to find the indefinite integral <span class="math display">\[\int g(x)dx\]</span> but <span class="math inline">\(g(x)\)</span> is complex and none of the formulas we have seen so far seem to apply immediately. The trick is to come up with a <em>new</em> function <span class="math inline">\(u(x)\)</span> such that <span class="math display">\[g(x)=f[u(x)]u'(x).\]</span></p>
+<p>Why does an introduction of yet another function end of simplifying things? Let’s refer to the antiderivative of <span class="math inline">\(f\)</span> as <span class="math inline">\(F\)</span>. Then the chain rule tells us that <span class="math display">\[\frac{d}{dx} F[u(x)]=f[u(x)]u'(x)\]</span>. So, <span class="math inline">\(F[u(x)]\)</span> is the antiderivative of <span class="math inline">\(g\)</span>. We can then write <span class="math display">\[\int g(x) dx= \int f[u(x)]u'(x)dx = \int \frac{d}{dx} F[u(x)]dx = F[u(x)]+c\]</span></p>
+<p>To summarize, the procedure to determine the indefinite integral <span class="math inline">\(\int g(x)dx\)</span> by the method of substitution:</p>
+<ol type="1">
+<li>Identify some part of <span class="math inline">\(g(x)\)</span> that might be simplified by substituting in a single variable <span class="math inline">\(u\)</span> (which will then be a function of <span class="math inline">\(x\)</span>).</li>
+<li>Determine if <span class="math inline">\(g(x)dx\)</span> can be reformulated in terms of <span class="math inline">\(u\)</span> and <span class="math inline">\(du\)</span>.</li>
+<li>Solve the indefinite integral.</li>
+<li>Substitute back in for <span class="math inline">\(x\)</span></li>
+</ol>
+<p>Substitution can also be used to calculate a definite integral. Using the same procedure as above, <span class="math display">\[\int\limits_a^b g(x)dx=\int\limits_c^d f(u)du = F(d)-F(c)\]</span> where <span class="math inline">\(c=u(a)\)</span> and <span class="math inline">\(d=u(b)\)</span>.</p>
+<div id="exm-intsub1" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.10 (Integration by Substitution I)</strong></span> Solve the indefinite integral <span class="math display">\[\int x^2 \sqrt{x+1}dx.\]</span></p>
+</div>
+<p>For the above problem, we could have also used the substitution <span class="math inline">\(u=\sqrt{x+1}\)</span>. Then <span class="math inline">\(x=u^2-1\)</span> and <span class="math inline">\(dx=2u du\)</span>. Substituting these in, we get <span class="math display">\[\int x^2\sqrt{x+1}dx=\int (u^2-1)^2 u 2u du\]</span> which when expanded is again a polynomial and gives the same result as above.</p>
+<p>Another case in which integration by substitution is is useful is with a fraction.</p>
+<div id="exm-intsub2" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.11 (Integration by Substitutiton II)</strong></span> Simplify <span class="math display">\[\int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx.\]</span></p>
+</div>
+</section>
+<section id="integration-by-parts" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="integration-by-parts"><span class="header-section-number">3.10</span> Integration by Parts</h2>
+<p>Another useful integration technique is <strong>integration by parts</strong>, which is related to the Product Rule of differentiation. The product rule states that <span class="math display">\[\frac{d}{dx}(uv)=u\frac{dv}{dx}+v\frac{du}{dx}\]</span> Integrating this and rearranging, we get <span class="math display">\[\int u\frac{dv}{dx}dx= u v - \int v \frac{du}{dx}dx\]</span> or <span class="math display">\[\int u(x) v'(x)dx=u(x)v(x) - \int v(x)u'(x)dx\]</span></p>
+<p>More easily remembered with the mnemonic “Ultraviolet Voodoo”: <span class="math display">\[\int u dv = u v - \int v du\]</span> where <span class="math inline">\(du=u'(x)dx\)</span> and <span class="math inline">\(dv=v'(x)dx\)</span>.</p>
+<p>For definite integrals, this is simply <span class="math display">\[\int\limits_a^b u\frac{dv}{dx}dx = \left. u v \right|_a^b - \int\limits_a^b v \frac{du}{dx}dx\]</span></p>
+<p>Our goal here is to find expressions for <span class="math inline">\(u\)</span> and <span class="math inline">\(dv\)</span> that, when substituted into the above equation, yield an expression that’s more easily evaluated.</p>
+<div id="exm-intbyparts" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.12 (Integration by Parts)</strong></span> Simplify the following integrals. These seemingly obscure forms of integrals come up often when integrating distributions.</p>
+<p><span class="math display">\[\int x e^{ax} dx\]</span></p>
+</div>
+<div id="sol-intbyparts" class="proof solution">
+<p><span class="proof-title"><em>Solution 3.2</em>. </span>Let <span class="math inline">\(u=x\)</span> and <span class="math inline">\(\frac{dv}{dx} = e^{ax}\)</span>. Then <span class="math inline">\(du=dx\)</span> and <span class="math inline">\(v=(1/a)e^{ax}\)</span>. Substituting this into the integration by parts formula, we obtain<br>
+<span class="math display">\[\begin{eqnarray}
+\int x e^{ax} dx &amp;=&amp; u v - \int v du\nonumber\\
+                &amp;=&amp;x\left( \frac{1}{a}e^{ax}\right) -\int\frac{1}{a}e^{ax}dx\nonumber\\
+                &amp;=&amp;\frac{1}{a}xe^{ax}-\frac{1}{a^2}e^{ax}+c\nonumber
+\end{eqnarray}\]</span></p>
+</div>
+<div id="exr-intparts-adv" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3.6 (Integration by Parts II)</strong></span> &nbsp;</p>
+<ol type="1">
+<li><p>Integrate <span class="math display">\[\int x^n e^{ax} dx\]</span></p></li>
+<li><p>Integrate <span class="math display">\[\int x^3 e^{-x^2} dx\]</span></p></li>
+</ol>
+</div>
+</section>
+<section id="answers-to-examples-and-exercises" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="answers-to-examples-and-exercises">Answers to Examples and Exercises</h2>
+<p>Exercise <a href="#exr-introderivatives" class="quarto-xref">Exercise&nbsp;<span>3.1</span></a></p>
+<div id="sol-introderivatives" class="proof solution">
+<p><span class="proof-title"><em>Solution 3.3</em>. </span></p>
+<ol type="1">
+<li><span class="math inline">\(f^\prime(x)= 0\)</span></li>
+<li><span class="math inline">\(f^\prime(x)= 1\)</span></li>
+<li><span class="math inline">\(f^\prime(x)= 2x^3\)</span></li>
+<li><span class="math inline">\(f\prime(x)= 3x^2\)</span></li>
+<li><span class="math inline">\(f\prime(x)= -2x^{-3}\)</span></li>
+<li><span class="math inline">\(f\prime(x)= 14x^6\)</span></li>
+<li><span class="math inline">\(f\prime(x) = 4x^3 - 3x^2 + 2x -1\)</span></li>
+<li><span class="math inline">\(f\prime(x) = 5x^4 + 3x^2 - 2x\)</span></li>
+<li><span class="math inline">\(f\prime(x) = 6x + \frac{2}{3}x^{\frac{-2}{3}}\)</span></li>
+<li><span class="math inline">\(f\prime(x)= \frac{-4x}{x^4 - 2x^2 + 1}\)</span></li>
+</ol>
+</div>
+<p>Example <a href="#exm-tothesix" class="quarto-xref">Example&nbsp;<span>3.3</span></a></p>
+<div id="sol-tothesix" class="proof solution">
+<p><span class="proof-title"><em>Solution 3.4</em>. </span>For convenience, define <span class="math inline">\(f(z) = z^6\)</span> and <span class="math inline">\(z = g(x) = 3x^2+5x-7\)</span>. Then, <span class="math inline">\(y=f[g(x)]\)</span> and</p>
+<span class="math display">\[\begin{align*}
+\frac{d}{dx}y&amp;= f^\prime(z) g^\prime(x) \\
+&amp;= 6(3x^2+5x-7)^5 (6x + 5)
+\end{align*}\]</span>
+</div>
+<p>Example <a href="#exm-exmderivexp" class="quarto-xref">Example&nbsp;<span>3.4</span></a></p>
+<div id="sol-exmderivexp" class="proof solution">
+<p><span class="proof-title"><em>Solution 3.5</em>. </span></p>
+<ol type="1">
+<li>Let <span class="math inline">\(u(x)=-3x\)</span>. Then <span class="math inline">\(u^\prime(x)=-3\)</span> and <span class="math inline">\(f^\prime(x)=-3e^{-3x}\)</span>.</li>
+<li>Let <span class="math inline">\(u(x)=x^2\)</span>. Then <span class="math inline">\(u^\prime(x)=2x\)</span> and <span class="math inline">\(f^\prime(x)=2xe^{x^2}\)</span>.</li>
+</ol>
+</div>
+<p>Example <a href="#exm-exmderivlog" class="quarto-xref">Example&nbsp;<span>3.5</span></a></p>
+<div id="sol-exmderivlog" class="proof solution">
+<p><span class="proof-title"><em>Solution 3.6</em>. </span></p>
+<ol type="1">
+<li>Let <span class="math inline">\(u(x)=x^2+9\)</span>. Then <span class="math inline">\(u^\prime(x)=2x\)</span> and <span class="math display">\[\frac{dy}{dx}= \frac{u^\prime(x)}{u(x)} = \frac{2x}{(x^2+9)}\]</span></li>
+<li>Let <span class="math inline">\(u(x)=\log x\)</span>. Then <span class="math inline">\(u^\prime(x)=1/x\)</span> and <span class="math inline">\(\frac{dy}{dx} = \frac{1}{(x\log x)}\)</span>.</li>
+<li>Use the generalized power rule. <span class="math display">\[\frac{dy}{dx} = \frac{(2 \log x)}{x}\]</span></li>
+<li>We know that <span class="math inline">\(\log e^x=x\)</span> and that <span class="math inline">\(dx/dx=1\)</span>, but we can double check. Let <span class="math inline">\(u(x)=e^x\)</span>. Then <span class="math inline">\(u^\prime(x)=e^x\)</span> and <span class="math inline">\(\frac{dy}{dx} = \frac{u^\prime(x)}{u(x)} = \frac{e^x}{e^x} = 1.\)</span></li>
+</ol>
+</div>
+<p>Example <a href="#exm-defintmon" class="quarto-xref">Example&nbsp;<span>3.9</span></a></p>
+<div id="sol-defintmon" class="proof solution">
+<p><span class="proof-title"><em>Solution 3.7</em>. </span>What is <span class="math inline">\(F(x)\)</span>? From the power rule, recognize <span class="math inline">\(\frac{d}{dx}x^3 = 3x^2\)</span> so</p>
+<span class="math display">\[\begin{align*}
+F(x) &amp;= x^3\\
+\int\limits_1^3 f(x) dx &amp;= F(x = 3) - F(x  - 1)\\
+&amp;= 3^3 - 1^3\\
+&amp;=26
+\end{align*}\]</span>
+</div>
+<p>Example <a href="#exm-intsub1" class="quarto-xref">Example&nbsp;<span>3.10</span></a></p>
+<div id="sol-intsub1" class="proof solution">
+<p><span class="proof-title"><em>Solution 3.8</em>. </span>The problem here is the <span class="math inline">\(\sqrt{x+1}\)</span> term. However, if the integrand had <span class="math inline">\(\sqrt{x}\)</span> times some polynomial, then we’d be in business. Let’s try <span class="math inline">\(u=x+1\)</span>. Then <span class="math inline">\(x=u-1\)</span> and <span class="math inline">\(dx=du\)</span>. Substituting these into the above equation, we get</p>
+<span class="math display">\[\begin{align*}
+            \int x^2\sqrt{x+1}dx&amp;= \int (u-1)^2\sqrt{u}du\\
+            &amp;= \int (u^2-2u+1)u^{1/2}du\\
+            &amp;= \int (u^{5/2}-2u^{3/2}+u^{1/2})du
+\end{align*}\]</span>
+<p>We can easily integrate this, since it is just a polynomial. Doing so and substituting <span class="math inline">\(u=x+1\)</span> back in, we get <span class="math display">\[\int x^2\sqrt{x+1}dx=2(x+1)^{3/2}\left[\frac{1}{7}(x+1)^2 - \frac{2}{5}(x+1)+\frac{1}{3}\right]+c\]</span></p>
+</div>
+<p>Example <a href="#exm-intsub2" class="quarto-xref">Example&nbsp;<span>3.11</span></a></p>
+<div id="sol-intsub2" class="proof solution">
+<p><span class="proof-title"><em>Solution 3.9</em>. </span>When an expression is raised to a power, it is often helpful to use this expression as the basis for a substitution. So, let <span class="math inline">\(u=1+e^{2x}\)</span>. Then <span class="math inline">\(du=2e^{2x}dx\)</span> and we can set <span class="math inline">\(5e^{2x}dx=5du/2\)</span>. Additionally, <span class="math inline">\(u=2\)</span> when <span class="math inline">\(x=0\)</span> and <span class="math inline">\(u=1+e^2\)</span> when <span class="math inline">\(x=1\)</span>. Substituting all of this in, we get</p>
+<span class="math display">\[\begin{align*}
+\int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx
+            &amp;= \frac{5}{2}\int\limits_2^{1+e^2}\frac{du}{u^{1/3}}\\
+            &amp;= \frac{5}{2}\int\limits_2^{1+e^2} u^{-1/3}du\\
+            &amp;= \left. \frac{15}{4} u^{2/3} \right|_2^{1+e^2}\\
+            &amp;= 9.53
+\end{align*}\]</span>
+</div>
+<p>Exercise <a href="#exr-intparts-adv" class="quarto-xref">Exercise&nbsp;<span>3.6</span></a></p>
+<ol type="1">
+<li><span class="math display">\[\int x^n e^{ax} dx\]</span></li>
+</ol>
+<div id="sol-intparts-adv" class="proof solution">
+<p><span class="proof-title"><em>Solution 3.10</em>. </span>As in the first problem, let <span class="math display">\[u=x^n, dv=e^{ax}dx\]</span> Then <span class="math inline">\(du=n x^{n-1}dx\)</span> and <span class="math inline">\(v=(1/a)e^{ax}\)</span>.</p>
+<p>Substituting these into the integration by parts formula gives <span class="math display">\[\begin{eqnarray}
+            \int x^n e^{ax} dx &amp;=&amp; u v - \int v du\nonumber\\
+            &amp;=&amp;x^n\left( \frac{1}{a}e^{ax}\right) - \int\frac{1}{a}e^{ax} n x^{n-1} dx\nonumber\\
+            &amp;=&amp;\frac{1}{a}x^n e^{ax} - \frac{n}{a}\int x^{n-1}e^{ax}dx\nonumber
+\end{eqnarray}\]</span></p>
+<p>Notice that we now have an integral similar to the previous one, but with <span class="math inline">\(x^{n-1}\)</span> instead of <span class="math inline">\(x^n\)</span>.</p>
+<p>For a given <span class="math inline">\(n\)</span>, we would repeat the integration by parts procedure until the integrand was directly integratable — e.g., when the integral became <span class="math inline">\(\int e^{ax}dx\)</span>.</p>
+<ol start="2" type="1">
+<li><span class="math display">\[\int x^3 e^{-x^2} dx\]</span></li>
+</ol>
+<p>We could, as before, choose <span class="math inline">\(u=x^3\)</span> and <span class="math inline">\(dv=e^{-x^2}dx\)</span>. But we can’t then find <span class="math inline">\(v\)</span> — i.e., integrating <span class="math inline">\(e^{-x^2}dx\)</span> isn’t possible. Instead, notice that <span class="math display">\[\frac{d}{dx}e^{-x^2} = -2xe^{-x^2},\]</span> which can be factored out of the original integrand <span class="math display">\[\int x^3 e^{-x^2} dx = \int x^2 (xe^{-x^2})dx.\]</span></p>
+<p>We can then let <span class="math inline">\(u=x^2\)</span> and <span class="math inline">\(dv=x e^{-x^2}dx\)</span>. The<span class="math inline">\(du=2x dx\)</span> and <span class="math inline">\(v=-\frac{1}{2}e^{-x^2}\)</span>. Substituting these in, we have <span class="math display">\[\begin{eqnarray}
+                \int x^3 e^{-x^2} dx &amp;=&amp; u v - \int v du\nonumber\\
+                &amp;=&amp; x^2 \left( -\frac{1}{2}e^{-x^2}\right) -\int \left(-\frac{1}{2}e^{-x^2}\right)2x dx\nonumber\\
+                &amp;=&amp; -\frac{1}{2}x^2 e^{-x^2}+\int x e^{-x^2}dx\nonumber\\
+                &amp;=&amp; -\frac{1}{2}x^2 e^{-x^2}-\frac{1}{2}e^{-x^2}+c\nonumber
+\end{eqnarray}\]</span></p>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/iqss\.github\.io\/prefresher\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./03_limits.html" class="pagination-link" aria-label="Limits">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Limits</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./05_optimization.html" class="pagination-link" aria-label="Optimization">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Optimization</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
