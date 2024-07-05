@@ -568,10 +568,10 @@ $`slot 2`
 </div>
 <p>Anything can be an object! Even graphs (in <code>ggplot</code>) can be assigned, re-assigned, and edited.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>grp_race <span class="ot">&lt;-</span> <span class="fu">group_by</span>(cen10, race) <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>grp_race <span class="ot">&lt;-</span> <span class="fu">group_by</span>(cen10, race) <span class="sc">|&gt;</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>())</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>grp_race_ordered <span class="ot">&lt;-</span> <span class="fu">arrange</span>(grp_race, count) <span class="sc">%&gt;%</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>grp_race_ordered <span class="ot">&lt;-</span> <span class="fu">arrange</span>(grp_race, count) <span class="sc">|&gt;</span></span>
 <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">race =</span> forcats<span class="sc">::</span><span class="fu">as_factor</span>(race))</span>
 <span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>gg_tab <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> grp_race_ordered) <span class="sc">+</span></span>

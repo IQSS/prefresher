@@ -397,7 +397,7 @@ window.Quarto = {
 <li>Matrices and Vectors
 <ul>
 <li>What does <code>:</code> mean in R? What about <code>==</code>? <code>,</code>?, <code>!=</code> , <code>&amp;</code>, <code>|</code>, <code>%in%</code></li>
-<li>What does <code>%&gt;%</code> do?</li>
+<li>What does <code>|&gt;</code> do?</li>
 </ul></li>
 </ul>
 <p>Today we’ll cover:</p>
@@ -508,8 +508,8 @@ American Indian or Alaska Native                      Black/Negro
 </div>
 <p><code>count</code> is a kind of shorthand for <code>group_by()</code> and <code>summarize</code>. This code would have done the same.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>cen10 <span class="sc">%&gt;%</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(race) <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>cen10 <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(race) <span class="sc">|&gt;</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 2
@@ -599,7 +599,7 @@ American Indian or Alaska Native                      Black/Negro
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>grp_race_ordered <span class="ot">&lt;-</span> <span class="fu">arrange</span>(grp_race, n) <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>grp_race_ordered <span class="ot">&lt;-</span> <span class="fu">arrange</span>(grp_race, n) <span class="sc">|&gt;</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">race =</span> <span class="fu">as_factor</span>(race))</span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> grp_race_ordered, <span class="fu">aes</span>(<span class="at">x =</span> race, <span class="at">y =</span> n)) <span class="sc">+</span></span>
@@ -804,7 +804,7 @@ American Indian or Alaska Native                      Black/Negro
 <h2 data-number="10.7" class="anchored" data-anchor-id="composition-plots"><span class="header-section-number">10.7</span> Composition Plots</h2>
 <p>How would you make the same figure with <code>ggplot()</code>? First, we want a count for each state <span class="math inline">\(\times\)</span> race combination. So group by those two factors and count how many observations are in each two-way categorization. <code>group_by()</code> can take any number of variables, separated by commas.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>grp_race_state <span class="ot">&lt;-</span> cen10 <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>grp_race_state <span class="ot">&lt;-</span> cen10 <span class="sc">|&gt;</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(race, state)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Can you tell from the code what <code>grp_race_state</code> will look like?</p>
