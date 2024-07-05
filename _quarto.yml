@@ -1,9 +1,12 @@
 project:
   type: book
   output-dir: _book
+  post-render: rename.R
 
 book:
   title: "Math Prefresher for Political Scientists"
+  date: today
+  date-format: "MMMM YYYY"
   description: "Text for Harvard Department of Government Math Prefresher"
   site-url: https://iqss.github.io/prefresher/
   cover-image: "images/logo.png"
@@ -45,7 +48,5 @@ format:
     biblio-style: apalike 
     geometry: "margin=1.5in"
     link-citations: true
-
-language:
-  ui:
-    chapter_name: "Chapter "
+    output-file: "prefresher.pdf"
+    linkcolor: "Crimson"
