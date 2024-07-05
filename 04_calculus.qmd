@@ -1,4 +1,4 @@
-# Calculus {#derivatives}
+# Calculus {#sec-derivatives}
 
 ```{r}
 #| include: false

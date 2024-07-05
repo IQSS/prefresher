@@ -1,4 +1,4 @@
-# LaTeX and markdown {#nonwysiwyg}
+# LaTeX and markdown {#sec-nonwysiwyg}
 
 ::: {.callout .callout-note}
 Module originally written by Shiro Kuriwaki.

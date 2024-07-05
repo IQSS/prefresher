@@ -3,7 +3,7 @@ execute:
   eval: false
 ---
 
-# Command-line, git {#commandline-git}
+# Command-line, git {#sec-commandline-git}
 
 ::: {.callout .callout-note}
 Module originally written by Shiro Kuriwaki

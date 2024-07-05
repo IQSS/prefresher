@@ -1,4 +1,4 @@
-# Joins and Merges, Wide and Long {#dempeace}
+# Joins and Merges, Wide and Long {#sec-dempeace}
 
 ::: {.callout .callout-note}
 Module originally written by Shiro Kuriwaki, Connor Jerzak, and Yon Soo Park.

@@ -1,4 +1,4 @@
-# Limits {#limits-precalc}
+# Limits {#sec-limits-precalc}
 
 ```{r}
 #| include: false

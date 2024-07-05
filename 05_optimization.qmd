@@ -1,4 +1,4 @@
-# Optimization {#optim}
+# Optimization {#sec-optim}
 
 ```{r}
 #| include: false
@@ -638,7 +638,6 @@ $s_1 \neq 0$ $\lambda_1 \neq 0$ & \multicolumn{4}{l|}{No solution} &\\
 \end{tabular}
 \end{center}
 ```
-
 This shows that there are two critical points: $(0,0)$ and $(\frac{8}{3},\frac{4}{3})$.
 
 5.  Find maximum: Looking at the values of $f(x_1,x_2)$ at the critical points, we see that $f(x_1,x_2)$ is maximized at $x_1^* = 0$ and $x_2^*=0$.
@@ -688,7 +687,6 @@ $s_1 \neq 0, s_2 \neq 0, s_3 \neq 0$ &\multicolumn{8}{l|}{No solution}& \\
 \end{tabular}
 \end{center}
 ```
-
 This shows that there are four critical points: $(0,0)$, $(4,0)$, $(0,4)$, and $(\frac{8}{3},\frac{4}{3})$
 
 4.  Find maximum: Looking at the values of $f(x_1,x_2)$ at the critical points, we see that the constrained maximum is located at $(x_1, x_2) = (0,0)$, which is the same as the unconstrained max. The constrained minimum is located at $(x_1, x_2) = (0,4)$, while there is no unconstrained minimum for this problem.
@@ -803,7 +801,6 @@ $x_1 \neq 0, x_2 \neq 0$ & $-\frac{16}{3}$ & $\frac{8}{3}$ & $\frac{4}{3}$ & $-\
 \end{tabular}
 \end{center}
 ```
-
 4.  Find Maximum: Three of the critical points violate the requirement that $\lambda \geq 0$, so the point $(0,0,0)$ is the maximum.
 
 ::: {#exr-ktlogs}
@@ -851,7 +848,6 @@ $x_1 \neq 0, x_2 \neq 0$ &  & $\frac{4}{3}$ & $\frac{4}{3}$ & $\log\frac{7}{3}$\
 \end{tabular}
 \end{center}
 ```
-
 4.  Find Maximum:
 
 Three of the critical points violate the constraints, so the point $(\frac{4}{3},\frac{4}{3})$ is the maximum.\\

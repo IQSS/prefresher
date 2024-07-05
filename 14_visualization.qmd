@@ -1,4 +1,4 @@
-# Visualization {#dataviz}
+# Visualization {#sec-dataviz}
 
 ::: {.callout .callout-note}
 Module originally written by Shiro Kuriwaki.

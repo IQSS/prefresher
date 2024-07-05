@@ -4,7 +4,7 @@ title: Functions and Operations
 
 **Topics** Dimensionality; Interval Notation for ${\bf R}^1$; Neighborhoods: Intervals, Disks, and Balls; Introduction to Functions; Domain and Range; Some General Types of Functions; $\log$, $\ln$, and $\exp$; Other Useful Functions; Graphing Functions; Solving for Variables; Finding Roots; Limit of a Function; Continuity; Sets, Sets, and More Sets.
 
-## Summation Operators $\sum$ and $\prod$ {#sum-notation}
+## Summation Operators $\sum$ and $\prod$ {#sec-sum-notation}
 
 Addition (+), Subtraction (-), multiplication and division are basic operations of arithmetic -- combining numbers. In statistics and calculus, we want to add a *sequence* of numbers that can be expressed as a pattern without needing to write down all its components. For example, how would we express the sum of all numbers from 1 to 100 without writing a hundred numbers?
 

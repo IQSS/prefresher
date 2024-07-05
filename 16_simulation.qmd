@@ -1,4 +1,4 @@
-# Simulation {#simulation}
+# Simulation {#sec-simulation}
 
 ```{r}
 #| include: false

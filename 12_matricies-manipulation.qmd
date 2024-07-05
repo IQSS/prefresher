@@ -1,4 +1,4 @@
-# Manipulating Vectors and Matrices {#rmatrices}
+# Manipulating Vectors and Matrices {#sec-rmatrices}
 
 ```{r}
 #| include: false
