@@ -522,8 +522,8 @@ Suppose we want to determine the area $A(R)$ of a region $R$ defined by a curve 
 #| fig-cap: The Riemann Integral as a Sum of Evaluations
 f3 <- function(x) -15 * (x - 5) + (x - 5)^3 + 50
 
-d1 <- tibble(x = seq(0, 10, 1)) %>% mutate(f = f3(x))
-d2 <- tibble(x = seq(0, 10, 0.1)) %>% mutate(f = f3(x))
+d1 <- tibble(x = seq(0, 10, 1)) |> mutate(f = f3(x))
+d2 <- tibble(x = seq(0, 10, 0.1)) |> mutate(f = f3(x))
 
 range <- tibble::tibble(x = c(0, 10))
 

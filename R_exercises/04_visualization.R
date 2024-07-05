@@ -16,7 +16,7 @@ library(scales)
 # * Reading and handling data
 # * Matrices and Vectors
 # * What does `:` mean in R? What about `==`? `,`?, `!=` , `&`, `|`, `%in% `
-# * What does `%>%` do?
+# * What does `|>` do?
 #
 #
 # Today we'll cover:
@@ -92,8 +92,8 @@ count(cen10, race, sort = TRUE)
 
 # `count` is a kind of shorthand for `group_by()` and `summarize`. This code would have done the same.
 
-cen10 %>%
-  group_by(race) %>%
+cen10 |>
+  group_by(race) |>
   summarize(n = n())
 
 
@@ -169,7 +169,7 @@ barplot(sort(table(cen10$race)), # sort numbers
 # In ggplot you might do this by:
 library(forcats)
 
-grp_race_ordered <- arrange(grp_race, n) %>%
+grp_race_ordered <- arrange(grp_race, n) |>
   mutate(race = as_factor(race))
 
 ggplot(data = grp_race_ordered, aes(x = race, y = n)) +
@@ -224,7 +224,7 @@ ptab_race_state
 # `group_by()` can take any number of variables, separated by commas.
 
 
-grp_race_state <- cen10 %>%
+grp_race_state <- cen10 |>
   count(race, state)
 
 

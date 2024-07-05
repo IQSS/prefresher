@@ -144,10 +144,10 @@ class(ols)
 
 # Anything can be an object! Even graphs (in `ggplot`) can be assigned, re-assigned, and edited.
 
-grp_race <- group_by(cen10, race) %>%
+grp_race <- group_by(cen10, race) |>
   summarize(count = n())
 
-grp_race_ordered <- arrange(grp_race, count) %>%
+grp_race_ordered <- arrange(grp_race, count) |>
   mutate(race = forcats::as_factor(race))
 
 gg_tab <- ggplot(data = grp_race_ordered) +

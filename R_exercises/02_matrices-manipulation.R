@@ -77,14 +77,14 @@ cross_tab[6, 2]
 # Below two lines of code do the same thing
 cen10[1:20, ]
 
-cen10 %>% slice(1:20)
+cen10 |> slice(1:20)
 
 # Of the first 20 rows of the entire data, look at values of just race and age
 # Below two lines of code do the same thing
 cen10[1:20, c("race", "age")]
 
-cen10 %>%
-  slice(1:20) %>%
+cen10 |>
+  slice(1:20) |>
   select(race, age)
 
 
@@ -93,14 +93,14 @@ cen10 %>%
 # One column
 cen10[1:10, c("age")]
 
-cen10 %>%
-  slice(1:10) %>%
+cen10 |>
+  slice(1:10) |>
   select(c("age"))
 
 # One row
 cen10[2, ]
 
-cen10 %>% slice(2)
+cen10 |> slice(2)
 
 
 # What if we want a special subset of the data? For example, what if I only want the
@@ -110,15 +110,15 @@ cen10 %>% slice(2)
 # subset for CA rows
 ca_subset <- cen10[cen10$state == "California", ]
 
-ca_subset_tidy <- cen10 %>% filter(state == "California")
+ca_subset_tidy <- cen10 |> filter(state == "California")
 
 all_equal(ca_subset, ca_subset_tidy)
 
 # subset for CA rows and select age and race
 ca_subset_age_race <- cen10[cen10$state == "California", c("age", "race")]
 
-ca_subset_age_race_tidy <- cen10 %>%
-  filter(state == "California") %>%
+ca_subset_age_race_tidy <- cen10 |>
+  filter(state == "California") |>
   select(age, race)
 
 all_equal(ca_subset_age_race, ca_subset_age_race_tidy)
@@ -130,23 +130,23 @@ all_equal(ca_subset_age_race, ca_subset_age_race_tidy)
 
 # all individuals older than 30 and younger than 70
 s1 <- cen10[cen10$age > 30 & cen10$age < 70, ]
-s2 <- cen10 %>% filter(age > 30 & age < 70)
+s2 <- cen10 |> filter(age > 30 & age < 70)
 all_equal(s1, s2)
 
 # all individuals in either New York or California
 s3 <- cen10[cen10$state == "New York" | cen10$state == "California", ]
-s4 <- cen10 %>% filter(state == "New York" | state == "California")
+s4 <- cen10 |> filter(state == "New York" | state == "California")
 all_equal(s3, s4)
 
 
 # all individuals in any of the following states: California, Ohio, Nevada, Michigan
 s5 <- cen10[cen10$state %in% c("California", "Ohio", "Nevada", "Michigan"), ]
-s6 <- cen10 %>% filter(state %in% c("California", "Ohio", "Nevada", "Michigan"))
+s6 <- cen10 |> filter(state %in% c("California", "Ohio", "Nevada", "Michigan"))
 all_equal(s5, s6)
 
 # all individuals NOT in any of the following states: California, Ohio, Nevada, Michigan
 s7 <- cen10[!(cen10$state %in% c("California", "Ohio", "Nevada", "Michigan")), ]
-s8 <- cen10 %>% filter(!state %in% c("California", "Ohio", "Nevada", "Michigan"))
+s8 <- cen10 |> filter(!state %in% c("California", "Ohio", "Nevada", "Michigan"))
 all_equal(s7, s8)
 
 
