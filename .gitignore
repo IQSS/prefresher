@@ -12,3 +12,4 @@ rsconnect
 prefresher\\.log
 /.quarto/
 *.quarto_ipynb
+*.log
