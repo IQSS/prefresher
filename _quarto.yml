@@ -18,6 +18,13 @@ book:
         - 05_optimization.qmd
         - 06_probability.qmd
         - 07_linear-algebra.qmd
+    - part: Programming
+      chapters:
+        - 11_data-handling_counting.qmd
+        - 12_matricies-manipulation.qmd
+        - 13_functions_obj_loops.qmd
+        - 14_visualization.qmd
+        - 15_project-dempeace.qmd
         
 delete_merged_file: true
 language:
