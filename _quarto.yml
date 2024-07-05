@@ -1,0 +1,55 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "Math Prefresher for Political Scientists"
+  date: today
+  date-format: "MMMM YYYY"
+  description: "Text for Harvard Department of Government Math Prefresher"
+  site-url: https://iqss.github.io/prefresher/
+  cover-image: "images/logo.png"
+  repo-url: "https://github.com/IQSS/prefresher"
+  downloads: [pdf]
+  chapters:
+    - index.qmd
+    - 01_warmup.qmd
+    - part: Math
+      chapters: 
+        - 02_functions.qmd
+        - 03_limits.qmd
+        - 04_calculus.qmd
+        - 05_optimization.qmd
+        - 06_probability.qmd
+        - 07_linear-algebra.qmd
+    - part: Programming
+      chapters:
+        - 11_data-handling_counting.qmd
+        - 12_matricies-manipulation.qmd
+        - 13_functions_obj_loops.qmd
+        - 14_visualization.qmd
+        - 15_project-dempeace.qmd
+        - 16_simulation.qmd
+        - 17_non-wysiwyg.qmd
+        - 18_text.qmd
+        - 19_command-line_git.qmd
+    - part: Solutions
+      chapters:
+        - 21_solutions-warmup.qmd
+        - 23_solution_programming.qmd
+        
+format:
+  html:
+    theme:
+      - cosmo
+    biblio-style: apalike
+  pdf:
+    include-in-header: preamble.tex
+    biblio-style: apalike 
+    geometry: "margin=1.5in"
+    link-citations: true
+    output-file: "prefresher.pdf"
+    linkcolor: "crimson"
+    toccolor: "crimson"
+    urlcolor: "crimson"
+    citecolor: "crimson"

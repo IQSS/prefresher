@@ -83,7 +83,7 @@ ober
 dim(ober)
 
 # From your tutorials, you also know how to do graphics! 
-# Graphics are useful for grasping your data, but we will cover them more deeply in Chapter \@ref(dataviz).
+# Graphics are useful for grasping your data, but we will cover them more deeply in Chapter @sec-dataviz.
 
 ggplot(ober, aes(x = Fame)) + geom_histogram()
 

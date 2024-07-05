@@ -10,3 +10,6 @@ rsconnect
 .DS_Store
 
 prefresher\\.log
+/.quarto/
+*.quarto_ipynb
+*.log
