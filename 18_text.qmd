@@ -288,13 +288,13 @@ Stemming is the process of reducing inflected/derived words to their word stem o
 
 ## Exercises {.unnumbered}
 
-### 1 {.unnumbered}
+#### 1 {.unnumbered}
 
 Figure out why this command does what it does:
 
-\``{R} sprintf("%s of spontaneous events are %s in the mind.          Really, %.2f?",          "15.03322123", "puzzles", 15.03322123)`
+`r sprintf("%s of spontaneous events are %s in the mind.          Really, %.2f?",          "15.03322123", "puzzles", 15.03322123)`
 
-### 2 {.unnumbered}
+#### 2 {.unnumbered}
 
 Why does this command not work?
 
@@ -303,7 +303,7 @@ try(sprintf("%s of spontaneous events are %s in the mind. Really, %.2f?",
             "15.03322123", "puzzles", "15.03322123" ), TRUE)  
 ```
 
-### 3 {.unnumbered}
+#### 3 {.unnumbered}
 
 Using `grepl`, these materials, Google, and your friends, describe what the following command does. What changes when `value = FALSE`?
 
@@ -312,7 +312,7 @@ grep('\'',
      c("To dare is to lose one's footing momentarily.",  "To not dare is to lose oneself."), value = TRUE)
 ```
 
-### 4 {.unnumbered}
+#### 4 {.unnumbered}
 
 Write code to automatically extract the file names that DO end start with presidential and DO end in .pdf
 
@@ -328,7 +328,7 @@ my_string <- c("legislative1_term1.png",
                "presidential1_term2.pdf")
 ```
 
-### 5 {.unnumbered}
+#### 5 {.unnumbered}
 
 Using the same string as in the above, write code to automatically extract the file names that end in .pdf and that contain the text `term2`.
 
@@ -336,7 +336,7 @@ Using the same string as in the above, write code to automatically extract the f
 # Your code here
 ```
 
-### 6 {.unnumbered}
+#### 6 {.unnumbered}
 
 Combine these two strings into a single string separated by a "-". Desired output: "The carbonyl group in aldehydes and ketones is an oxygen analog of the carbon–carbon double bond."
 
@@ -346,7 +346,7 @@ string1 <- "The carbonyl group in aldehydes and ketones
 string2 <-  "–carbon double bond."
 ```
 
-### 7 {.unnumbered}
+#### 7 {.unnumbered}
 
 Challenge problem! Download this webpage <https://en.wikipedia.org/wiki/Odyssey>
 

@@ -68,7 +68,7 @@ Using `..` and `.` are "relative" to where you are currently at. So are things l
 
 Relative paths are nice if you have a shared Dropbox, for example, and I had `/Users/shirokuriwaki/mathcamp` but Connor's path to the same folder is `/Users/connorjerzak/mathcamp`. To run the same code in `mathcamp`, we should be using relative paths that start from "`mathcamp`". Relative paths are also shorter, and they are invariant to higher-level changes in your computer.
 
-### running things via command-line
+### Running things via command-line
 
 Suppose you have a simple Rscript, call it `hello_world.R`. This is simply a plain text file that contains
 
@@ -108,7 +108,7 @@ On the other hand, command-line prompts may require more keystrokes, and is also
 
 Git is a tool for version control. It comes pre-installed on Macs, you will probably need to install it yourself on Windows.
 
-### why version control?
+### Why version control?
 
 All version control software should be built to
 
@@ -123,7 +123,7 @@ Further, git is most commonly used for collaborative work.
 
 Note that Dropbox is useful for collaborative work too. But the added value of git's branches is that people can make different changes simultaneously on their computers and merge them to the master branch later. In Dropbox, there is only one copy of each thing so simultaneous editing is not possible.
 
-### open-source code at your fingertips
+### Open-source code at your fingertips
 
 Some links to check out:
 
@@ -135,7 +135,7 @@ GitHub <https://github.com> is the GUI to git. Making an account there is free. 
 
 "cloning" someone else's repository is similar to forking -- it gives you your own copy.
 
-### commands in git
+### Commands in git
 
 As you might have noticed from all the quoted terms, git uses a lot of its own terms that are not intuitive and hard to remember at first. The nuts and bolts of maintaining your version control further requires "adding", "committing", and "push"ing, sometimes "pull"ing.
 
@@ -147,7 +147,7 @@ RStudio Projects has a great git GUI as well.
 
 If you are using GitHub for managing git repositories, one option is to use a desktop version, [GitHub Desktop](https://desktop.github.com/). It offers an in-between step to ease into the git lingo. Repositories become a drop-down menu. "push"ing, "pull"ing, and "fetch"ing all become a big button. It also provides a visual difference interface, which shows the changes you are making to files before you "push" them. It can't do everything, but it provides a way to become familiar with GitHub without the (potentially) intimidating aspects of diving full-on into the command line.
 
-### is git worth it?
+### Is git worth it?
 
 While git is a powerful tool, you may choose to not use it for everything because
 

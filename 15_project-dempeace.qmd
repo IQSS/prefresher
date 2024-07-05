@@ -138,7 +138,7 @@ select(p_m_wide, 1:10)
 
 Try building a panel that would be useful in answering the Democratic Peace Question, perhaps in these steps.
 
-### Task 1: Data Input and Standardization {.unnumbered}
+#### Task 1: Data Input and Standardization {.unnumbered}
 
 Often, files we need are saved in the `.xls` or `xlsx` format. It is possible to read these files directly into `R`, but experience suggests that this process is slower than converting them first to `.csv` format and reading them in as `.csv` files.
 
@@ -148,7 +148,7 @@ Often, files we need are saved in the `.xls` or `xlsx` format. It is possible to
 
 ```
 
-### Task 2: Data Merging {.unnumbered}
+#### Task 2: Data Merging {.unnumbered}
 
 We will use data to test a version of the Democratic Peace Thesis (DPS). Democracies are said to go to war less because the leaders who wage wars are accountable to voters who have to bear the costs of war. Are democracies less likely to engage in militarized interstate disputes?
 
@@ -162,7 +162,7 @@ To start, let's download and merge some data.
 
 ```
 
-### Task 3: Tabulations and Visualization {.unnumbered}
+#### Task 3: Tabulations and Visualization {.unnumbered}
 
 1.  Calculate the mean Polity2 score by year. Plot the result. Use graphical indicators of your choosing to show where key events fall in this timeline (such as 1914, 1929, 1939, 1989, 2008). Speculate on why the behavior from 1800 to 1920 seems to be qualitatively different than behavior afterwards.
 2.  Do the same but only among state-years that were invovled in a MID. Plot this line together with your results from 1.

@@ -305,7 +305,7 @@ As social scientists, we should also not forget to ask ourselves whether these n
 
 In the time remaining, try the following exercises. Order doesn't matter.
 
-### 1: Rural states {.unnumbered}
+#### 1: Rural states {.unnumbered}
 
 Make a well-labelled figure that plots the proportion of the state's population (as per the census) that is 65 years or older. Each state should be visualized as a point, rather than a bar, and there should be 51 points, ordered by their value. All labels should be readable.
 
@@ -314,7 +314,7 @@ Make a well-labelled figure that plots the proportion of the state's population 
 
 ```
 
-### 2: The swing justice {.unnumbered}
+#### 2: The swing justice {.unnumbered}
 
 Using the `justices_court-median.csv` dataset and building off of the plot that was given, make an improved plot by implementing as many of the following changes (which hopefully improves the graph):
 
@@ -335,7 +335,7 @@ Using the `justices_court-median.csv` dataset and building off of the plot that 
 
 ```
 
-### 3: Don't sort by the alphabet {.unnumbered}
+#### 3: Don't sort by the alphabet {.unnumbered}
 
 The Figure we made that shows racial composition by state has one notable shortcoming: it orders the states alphabetically, which is not particularly useful if you want see an overall pattern, without having particular states in mind.
 
@@ -345,6 +345,6 @@ Find a way to modify the figures so that the states are ordered by the *proporti
 # Enter yourself
 ```
 
-### 4 What to show and how to show it {.unnumbered}
+#### 4 What to show and how to show it {.unnumbered}
 
 As a student of politics our goal is not necessarily to make pretty pictures, but rather make pictures that tell us something about politics, government, or society. If you could augment either the census dataset or the justices dataset in some way, what would be an substantively significant thing to show as a graphic?

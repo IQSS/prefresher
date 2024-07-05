@@ -337,7 +337,7 @@ nw_in_state(cen10, "Massachusetts")
 
 ## Checkpoint {.unnumbered}
 
-### 1 {.unnumbered}
+#### 1 {.unnumbered}
 
 Try making your own function, `average_age_in_state`, that will give you the average age of people in a given state.
 
@@ -346,7 +346,7 @@ Try making your own function, `average_age_in_state`, that will give you the ave
 
 ```
 
-### 2 {.unnumbered}
+#### 2 {.unnumbered}
 
 Try making your own function, `asians_in_state`, that will give you the number of `Chinese`, `Japanese`, and `Other Asian or Pacific Islander` people in a given state.
 
@@ -354,7 +354,7 @@ Try making your own function, `asians_in_state`, that will give you the number o
 # Enter on your own
 ```
 
-### 3 {.unnumbered}
+#### 3 {.unnumbered}
 
 Try making your own function, 'top_10_oldest_cities', that will give you the names of cities whose population's average age is top 10 oldest.
 

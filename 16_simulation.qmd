@@ -206,7 +206,7 @@ runif(n = 10)
 
 ## Exercises {.unnumbered}
 
-### Census Sampling {.unnumbered}
+#### Census Sampling {.unnumbered}
 
 What can we learn from surveys of populations, and how wrong do we get if our sampling is biased?[^16_simulation-5] Suppose we want to estimate the proportion of U.S. residents who are non-white (`race != "White"`). In reality, we do not have any population dataset to utilize and so we *only see the sample survey*. Here, however, to understand how sampling works, let's conveniently use the Census extract in some cases and pretend we didn't in others.
 
@@ -254,7 +254,7 @@ You can do this by creating a variable, e.g. `propensity`, that is 0.9 for non-W
 
 ```
 
-### Conditional Proportions {.unnumbered}
+#### Conditional Proportions {.unnumbered}
 
 This example is not on simulation, but is meant to reinforce some of the probability discussion from math lecture.
 
@@ -282,7 +282,7 @@ In addition to some standard demographic questions, we will focus on one called 
 
 (f) Suppose we randomly sampled a person who participated in the survey and found that he/she had a Bachelor's degree or higher. Given this evidence, what is the probability that the same person supports Donald Trump? Use Bayes Rule and show your work -- that is, do not use data or R to compute the quantity directly. Then, verify this is the case via R.
 
-### The Birthday problem {.unnumbered}
+#### The Birthday problem {.unnumbered}
 
 Write code that will answer the well-known birthday problem via simulation.[^16_simulation-6]
 

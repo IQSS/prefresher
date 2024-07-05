@@ -50,7 +50,7 @@ Markdown is the text we have been using throughout this course! At its core mark
 
 Markdown is known as a "light-weight" editor, which means that it is relatively easy to write code that will compile. It is quick and easy and satisfies most presentation purposes; you might want to try `LaTeX` for more involved papers.
 
-### markdown commands
+### Markdown commands
 
 For italic and bold, use either the asterisks or the underlines,
 
@@ -66,7 +66,7 @@ And for headers use the hash symbols,
 ## Sub-headers
 ```
 
-### your own markdown
+### Your own markdown
 
 RStudio makes it easy to compile your very first markdown file by giving you templates. Got to `New > R Markdown`, pick a document and click Ok. This will give you a skeleton of a document you can compile -- or "knit".
 
@@ -103,7 +103,7 @@ Since June 2021, RStudio has offered a visual editor which tries to bridge the g
 
 LaTeX is a typesetting program. You'd engage with LaTeX much like you engage with your `R` code. You will interact with LaTeX in a text editor, and will writing code which will be interpreted by the LaTeX compiler and which will finally be parsed to form your final PDF.
 
-### compile online
+### Compile online
 
 1.  Go to <https://www.overleaf.com>
 2.  Scroll down and go to "CREATE A NEW PAPER" if you don't have an account.
@@ -117,7 +117,7 @@ Hello World
 \end{document}
 ```
 
-### compile your first LaTeX document locally
+### Compile your first LaTeX document locally
 
 LaTeX is a very stable system, and few changes to it have been made since the 1990s. The main benefit: better control over how your papers will look; better methods for writing equations or making tables; overall pleasing aesthetic.
 
@@ -134,7 +134,7 @@ Hello World
 3.  Open this in your "LaTeX" editor. This can be `TeXMaker`, `Aqumacs`, etc..
 4.  Go through the click/dropdown interface and click compile.
 
-### main LaTeX commands
+### Main LaTeX commands
 
 LaTeX can cover most of your typesetting needs, to clean equations and intricate diagrams.
 
@@ -199,7 +199,7 @@ There is a version of LaTeX called Beamer, which is a popular way of making a sl
 
 BibTeX is a reference system for bibliographical tests. We have a `.bib` file separately on our computer. This is also a plain text file, but it encodes bibliographical resources with special syntax so that a program can rearrange parts accordingly for different citation systems.
 
-### what is a `.bib` file?
+### What is a `.bib` file?
 
 For example, here is the Nunn and Wantchekon article entry in `.bib` form.
 
@@ -217,7 +217,7 @@ For example, here is the Nunn and Wantchekon article entry in `.bib` form.
 
 The first entry, `nunn2011slave`, is "pick your favorite" -- pick your own name for your reference system. The other slots in this `@article` entry are entries that refer to specific bibliographical text.
 
-### what does LaTeX do with .bib files?
+### What does LaTeX do with .bib files?
 
 Now, in LaTeX, if you type
 
@@ -237,7 +237,7 @@ Also at the end of your paper you will have a bibliography with entries ordered 
 
 This is a much less frustrating way of keeping track of your references -- no need to hand-edit formatting the bibliography to conform to citation rules (which biblatex already knows) and no need to update your bibliography as you add and drop references (biblatex will only show entries that are used in the main text).
 
-### stocking up on your .bib files
+### Stocking up on your .bib files
 
 You should keep your own `.bib` file that has all your bibliographical resources. Storing entries is cheap (does not take much memory), so it is fine to keep all your references in one place (but you'll want to make a new one for collaborative projects where multiple people will compile a `.tex` file).
 
