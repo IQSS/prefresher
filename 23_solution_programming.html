@@ -577,44 +577,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="task-2-data-merging" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="task-2-data-merging">Task 2: Data Merging</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>mid_y_by_y <span class="ot">&lt;-</span> <span class="fu">data_frame</span>(<span class="at">ccode =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>                               <span class="at">year =</span> <span class="fu">numeric</span>(),</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                               <span class="at">dispute =</span> <span class="fu">numeric</span>())</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mid_b)</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(mid_b)) {</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">data_frame</span>(<span class="at">ccode =</span> mid_b<span class="sc">$</span>ccode[i], <span class="do">## row i's country</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">year =</span> mid_b<span class="sc">$</span>styear[i]<span class="sc">:</span>mid_b<span class="sc">$</span>endyear[i],  <span class="do">## sequence of years for dispute in row i</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">dispute =</span> <span class="dv">1</span>)<span class="do">## there was a dispute</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    mid_y_by_y <span class="ot">&lt;-</span> <span class="fu">rbind</span>(mid_y_by_y, x)</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>merged_mid_polity <span class="ot">&lt;-</span> <span class="fu">left_join</span>(polity,</span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">distinct</span>(mid_y_by_y),</span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>                 <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"ccode"</span>, <span class="st">"year"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>mid_y_by_y <span class="ot">&lt;-</span> <span class="fu">data_frame</span>(</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">ccode =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> <span class="fu">numeric</span>(),</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">dispute =</span> <span class="fu">numeric</span>()</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mid_b)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(mid_b)) {</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">data_frame</span>(</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">ccode =</span> mid_b<span class="sc">$</span>ccode[i], <span class="do">## row i's country</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">year =</span> mid_b<span class="sc">$</span>styear[i]<span class="sc">:</span>mid_b<span class="sc">$</span>endyear[i], <span class="do">## sequence of years for dispute in row i</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">dispute =</span> <span class="dv">1</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="do">## there was a dispute</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  mid_y_by_y <span class="ot">&lt;-</span> <span class="fu">rbind</span>(mid_y_by_y, x)</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>merged_mid_polity <span class="ot">&lt;-</span> <span class="fu">left_join</span>(polity,</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(mid_y_by_y),</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"ccode"</span>, <span class="st">"year"</span>)</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="task-3-tabulations-and-visualization" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="task-3-tabulations-and-visualization">Task 3: Tabulations and Visualization</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#don't include the -88, -77, -66 values in calculating the mean of polity</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>mean_polity_by_year <span class="ot">&lt;-</span> merged_mid_polity <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mean_polity =</span> <span class="fu">mean</span>(polity[<span class="fu">which</span>(polity <span class="sc">&lt;</span><span class="dv">11</span> <span class="sc">&amp;</span> polity <span class="sc">&gt;</span> <span class="sc">-</span><span class="dv">11</span>)]))</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>mean_polity_by_year_ordered <span class="ot">&lt;-</span> <span class="fu">arrange</span>(mean_polity_by_year, year) </span>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># don't include the -88, -77, -66 values in calculating the mean of polity</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>mean_polity_by_year <span class="ot">&lt;-</span> merged_mid_polity <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_polity =</span> <span class="fu">mean</span>(polity[<span class="fu">which</span>(polity <span class="sc">&lt;</span> <span class="dv">11</span> <span class="sc">&amp;</span> polity <span class="sc">&gt;</span> <span class="sc">-</span><span class="dv">11</span>)]))</span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>mean_polity_by_year_mid <span class="ot">&lt;-</span> merged_mid_polity <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(year, dispute) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mean_polity_mid =</span> <span class="fu">mean</span>(polity[<span class="fu">which</span>(polity <span class="sc">&lt;</span><span class="dv">11</span> <span class="sc">&amp;</span> polity <span class="sc">&gt;</span> <span class="sc">-</span><span class="dv">11</span>)]))</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>mean_polity_by_year_ordered <span class="ot">&lt;-</span> <span class="fu">arrange</span>(mean_polity_by_year, year)</span>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>mean_polity_by_year_mid_ordered <span class="ot">&lt;-</span> <span class="fu">arrange</span>(mean_polity_by_year_mid, year) </span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>mean_polity_no_mid <span class="ot">&lt;-</span> mean_polity_by_year_mid_ordered <span class="sc">%&gt;%</span> <span class="fu">filter</span>(dispute <span class="sc">==</span> <span class="dv">0</span>)</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>mean_polity_yes_mid <span class="ot">&lt;-</span> mean_polity_by_year_mid_ordered <span class="sc">%&gt;%</span> <span class="fu">filter</span>(dispute <span class="sc">==</span> <span class="dv">1</span>)</span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>answer <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> mean_polity_by_year_ordered, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> mean_polity)) <span class="sc">+</span></span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Mean Polity Score"</span>,</span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">""</span>) <span class="sc">+</span></span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(<span class="dv">1914</span>, <span class="dv">1929</span>, <span class="dv">1939</span>, <span class="dv">1989</span>, <span class="dv">2008</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>answer <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span>mean_polity_no_mid, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> mean_polity_mid), <span class="at">col =</span> <span class="st">"indianred"</span>) <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span>mean_polity_yes_mid, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> mean_polity_mid), <span class="at">col =</span> <span class="st">"dodgerblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>mean_polity_by_year_mid <span class="ot">&lt;-</span> merged_mid_polity <span class="sc">%&gt;%</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, dispute) <span class="sc">%&gt;%</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_polity_mid =</span> <span class="fu">mean</span>(polity[<span class="fu">which</span>(polity <span class="sc">&lt;</span> <span class="dv">11</span> <span class="sc">&amp;</span> polity <span class="sc">&gt;</span> <span class="sc">-</span><span class="dv">11</span>)]))</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>mean_polity_by_year_mid_ordered <span class="ot">&lt;-</span> <span class="fu">arrange</span>(mean_polity_by_year_mid, year)</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>mean_polity_no_mid <span class="ot">&lt;-</span> mean_polity_by_year_mid_ordered <span class="sc">%&gt;%</span> <span class="fu">filter</span>(dispute <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>mean_polity_yes_mid <span class="ot">&lt;-</span> mean_polity_by_year_mid_ordered <span class="sc">%&gt;%</span> <span class="fu">filter</span>(dispute <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>answer <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> mean_polity_by_year_ordered, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> mean_polity)) <span class="sc">+</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Mean Polity Score"</span>,</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">""</span></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(<span class="dv">1914</span>, <span class="dv">1929</span>, <span class="dv">1939</span>, <span class="dv">1989</span>, <span class="dv">2008</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>answer <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> mean_polity_no_mid, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> mean_polity_mid), <span class="at">col =</span> <span class="st">"indianred"</span>) <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> mean_polity_yes_mid, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> mean_polity_mid), <span class="at">col =</span> <span class="st">"dodgerblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>

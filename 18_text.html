@@ -375,30 +375,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Use <code>{</code> <code>}</code> when you are defining a function or writing a <code>for</code> loop:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#function </span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>MyFunction <span class="ot">&lt;-</span> <span class="cf">function</span>(InputMatrix){ </span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># function</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>MyFunction <span class="ot">&lt;-</span> <span class="cf">function</span>(InputMatrix) {</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  TempMat <span class="ot">&lt;-</span> InputMatrix</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>){</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    TempMat <span class="ot">&lt;-</span> <span class="fu">t</span>(TempMat)  <span class="sc">%*%</span> TempMat <span class="sc">/</span> <span class="dv">10</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  } </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>( TempMat )</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    TempMat <span class="ot">&lt;-</span> <span class="fu">t</span>(TempMat) <span class="sc">%*%</span> TempMat <span class="sc">/</span> <span class="dv">10</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(TempMat)</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>myMat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">100</span><span class="sc">*</span><span class="dv">5</span>), <span class="at">nrow =</span> <span class="dv">100</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>( <span class="fu">MyFunction</span>(myMat) ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>myMat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">100</span> <span class="sc">*</span> <span class="dv">5</span>), <span class="at">nrow =</span> <span class="dv">100</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">MyFunction</span>(myMat))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>           [,1]       [,2]      [,3]       [,4]       [,5]
-[1,]   90.03078  -42.14469  121.2993 -136.73414   90.88032
-[2,]  -42.14469   67.34779 -100.7373   93.92793  -91.89335
-[3,]  121.29925 -100.73732  204.4935 -211.82959  166.84906
-[4,] -136.73414   93.92793 -211.8296  226.59656 -169.07271
-[5,]   90.88032  -91.89335  166.8491 -169.07271  145.89070</code></pre>
+<pre><code>          [,1]      [,2]      [,3]      [,4]      [,5]
+[1,]  499.4422 -450.3556 -202.7750  555.1367  437.0625
+[2,] -450.3556  421.9054  148.8076 -496.6555 -425.8478
+[3,] -202.7750  148.8076  157.0506 -234.1144 -104.3295
+[4,]  555.1367 -496.6555 -234.1144  625.3131  485.7888
+[5,]  437.0625 -425.8478 -104.3295  485.7888  473.0771</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># loop </span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>() </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>){</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  x[i] <span class="ot">&lt;-</span> i </span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># loop</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>) {</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  x[i] <span class="ot">&lt;-</span> i</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20</code></pre>
 </div>
@@ -430,13 +430,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>paste and sprintf are useful commands in text processing, such as for automatically naming files or automatically performing a series of command over a subset of your data. Table making also will often need these commands.</p>
 <p>Paste concatenates vectors together.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#use collapse for inputs of length &gt; 1 </span></span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use collapse for inputs of length &gt; 1</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>my_string <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Not"</span>, <span class="st">"one"</span>, <span class="st">"could"</span>, <span class="st">"equal"</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(my_string, <span class="at">collapse =</span> <span class="st">" "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Not one could equal"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#use sep for inputs of length == 1 </span></span>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use sep for inputs of length == 1</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"Not"</span>, <span class="st">"one"</span>, <span class="st">"could"</span>, <span class="st">"equal"</span>, <span class="at">sep =</span> <span class="st">" "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Not one could equal"</code></pre>
@@ -448,9 +448,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Coefficient for Gender: 1.523 (0.03)"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#%s is replaced by a character string</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#%.3f is replaced by a floating point digit with 3 decimal places</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#%.2f is replaced by a floating point digit with 2 decimal places</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># %s is replaced by a character string</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># %.3f is replaced by a floating point digit with 3 decimal places</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># %.2f is replaced by a floating point digit with 2 decimal places</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="regular-expressions" class="level2" data-number="14.5">
@@ -465,13 +465,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Example in <code>R</code>. Extract the tweet mentioning Indonesia.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>s1 <span class="ot">&lt;-</span> <span class="st">"If only Bradley's arm was longer. RT"</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>s2 <span class="ot">&lt;-</span> <span class="st">"Share our love in Indonesia and in the World. RT if you agree."</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>s2 <span class="ot">&lt;-</span> <span class="st">"Share our love in Indonesia and in the World. RT if you agree."</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>my_string <span class="ot">&lt;-</span> <span class="fu">c</span>(s1, s2)</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">grepl</span>(my_string, <span class="at">pattern =</span> <span class="st">"Indonesia"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE  TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>my_string[ <span class="fu">grepl</span>(my_string, <span class="at">pattern =</span> <span class="st">"Indonesia"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>my_string[<span class="fu">grepl</span>(my_string, <span class="at">pattern =</span> <span class="st">"Indonesia"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Share our love in Indonesia and in the World. RT if you agree."</code></pre>
 </div>
@@ -482,9 +482,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>REPLACE PATTERNS. <code>gsub(pattern, x, replacement)</code> goes through all the entries of <code>x</code> replaces the <code>pattern</code> with <code>replacement</code>.</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="at">x =</span> my_string,</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">pattern =</span> <span class="st">"o"</span>, </span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">replacement =</span> <span class="st">"AAAA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> my_string,</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">pattern =</span> <span class="st">"o"</span>,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">replacement =</span> <span class="st">"AAAA"</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "If AAAAnly Bradley's arm was lAAAAnger. RT"                                   
 [2] "Share AAAAur lAAAAve in IndAAAAnesia and in the WAAAArld. RT if yAAAAu agree."</code></pre>
@@ -494,7 +496,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>LOCATE PATTERNS. <code>regexpr(pattern, text)</code> goes through each element of the character string. It returns a vector of the same length, with the entries of the vector corresponding to the location of the first pattern match, or a -1 if no match was obtained.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>regex_object <span class="ot">&lt;-</span> <span class="fu">regexpr</span>(<span class="at">pattern =</span> <span class="st">"was"</span>,  <span class="at">text =</span> my_string)</span>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>regex_object <span class="ot">&lt;-</span> <span class="fu">regexpr</span>(<span class="at">pattern =</span> <span class="st">"was"</span>, <span class="at">text =</span> my_string)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(regex_object, <span class="st">"match.length"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  3 -1</code></pre>
@@ -524,11 +526,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Example in <code>R</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>my_string <span class="ot">&lt;-</span> <span class="st">"Do you think that 34% of apples are red?"</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(my_string, <span class="at">pattern =</span> <span class="st">"[[:digit:]]"</span>, <span class="at">replace =</span><span class="st">"DIGIT"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(my_string, <span class="at">pattern =</span> <span class="st">"[[:digit:]]"</span>, <span class="at">replace =</span> <span class="st">"DIGIT"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Do you think that DIGITDIGIT% of apples are red?"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(my_string, <span class="at">pattern =</span> <span class="st">"[[:alpha:]]"</span>, <span class="at">replace =</span><span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(my_string, <span class="at">pattern =</span> <span class="st">"[[:alpha:]]"</span>, <span class="at">replace =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "    34%    ?"</code></pre>
 </div>
@@ -540,14 +542,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Example in <code>R</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>my_string <span class="ot">&lt;-</span> <span class="st">"Do *really* think he will win?"</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(my_string, <span class="at">pattern =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">*"</span>, <span class="at">replace =</span><span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(my_string, <span class="at">pattern =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">*"</span>, <span class="at">replace =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Do really think he will win?"</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>my_string <span class="ot">&lt;-</span> <span class="st">"Now be brave! </span><span class="sc">\n</span><span class="st"> Dread what comrades say of you here in combat! "</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(my_string, <span class="at">pattern =</span> <span class="st">"</span><span class="sc">\\\n</span><span class="st">"</span>, <span class="at">replace =</span><span class="st">""</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(my_string, <span class="at">pattern =</span> <span class="st">"</span><span class="sc">\\\n</span><span class="st">"</span>, <span class="at">replace =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Now be brave!  Dread what comrades say of you here in combat! "</code></pre>
 </div>
@@ -568,17 +570,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>my_string <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"legislative1_term1.png"</span>, </span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>               <span class="st">"legislative1_term1.pdf"</span>,</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>               <span class="st">"legislative1_term2.png"</span>,</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>               <span class="st">"legislative1_term2.pdf"</span>,</span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>               <span class="st">"term2_presidential1.png"</span>, </span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>               <span class="st">"presidential1.png"</span>, </span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>               <span class="st">"presidential1_term2.png"</span>,</span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>               <span class="st">"presidential1_term1.pdf"</span>, </span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>               <span class="st">"presidential1_term2.pdf"</span>)</span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a><span class="fu">grepl</span>(my_string, <span class="at">pattern =</span> <span class="st">"^(?!presidential1).*</span><span class="sc">\\</span><span class="st">.png"</span>, <span class="at">perl =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>my_string <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"legislative1_term1.png"</span>,</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"legislative1_term1.pdf"</span>,</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"legislative1_term2.png"</span>,</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"legislative1_term2.pdf"</span>,</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"term2_presidential1.png"</span>,</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"presidential1.png"</span>,</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"presidential1_term2.png"</span>,</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"presidential1_term1.pdf"</span>,</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"presidential1_term2.pdf"</span></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a><span class="fu">grepl</span>(my_string, <span class="at">pattern =</span> <span class="st">"^(?!presidential1).*</span><span class="sc">\\</span><span class="st">.png"</span>, <span class="at">perl =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE</code></pre>
 </div>
@@ -610,7 +614,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="st">         hurling down to the House of Death so many sturdy souls,</span></span>
 <span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="st">         great fighters’ souls."</span></span>
 <span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>doc2 <span class="ot">&lt;-</span> <span class="st">"And fate? No one alive has ever escaped it,</span></span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="st">         neither brave man nor coward, I tell you, </span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="st">         neither brave man nor coward, I tell you,</span></span>
 <span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="st">         it's born with us the day that we are born."</span></span>
 <span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>doc3 <span class="ot">&lt;-</span> <span class="st">"Many cities of men he saw and learned their minds,</span></span>
 <span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="st">         many pains he suffered, heartsick on the open sea,</span></span>
@@ -622,17 +626,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Now we can use utility functions in the <code>tm</code> package:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tm)</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>DocCorpus <span class="ot">&lt;-</span> <span class="fu">Corpus</span>(<span class="fu">VectorSource</span>(DocVec) ) </span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>DTM1 <span class="ot">&lt;-</span>  <span class="fu">inspect</span>( <span class="fu">DocumentTermMatrix</span>(DocCorpus) ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>DocCorpus <span class="ot">&lt;-</span> <span class="fu">Corpus</span>(<span class="fu">VectorSource</span>(DocVec))</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>DTM1 <span class="ot">&lt;-</span> <span class="fu">inspect</span>(<span class="fu">DocumentTermMatrix</span>(DocCorpus))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Consider the effect of different “pre-processing” choices on the resulting DTM!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>DocVec <span class="ot">&lt;-</span> <span class="fu">tolower</span>(DocVec)</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>DocVec <span class="ot">&lt;-</span> <span class="fu">gsub</span>(DocVec, <span class="at">pattern =</span><span class="st">"[[:punct:]]"</span>, <span class="at">replace =</span> <span class="st">" "</span>)</span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>DocVec <span class="ot">&lt;-</span> <span class="fu">gsub</span>(DocVec, <span class="at">pattern =</span><span class="st">"[[:cntrl:]]"</span>, <span class="at">replace =</span> <span class="st">" "</span>)</span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>DocCorpus <span class="ot">&lt;-</span> <span class="fu">Corpus</span>(<span class="fu">VectorSource</span>(DocVec) ) </span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>DTM2 <span class="ot">&lt;-</span>  <span class="fu">inspect</span>(<span class="fu">DocumentTermMatrix</span>(DocCorpus, </span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">control =</span> <span class="fu">list</span>(<span class="at">stopwords =</span> <span class="cn">TRUE</span>,  <span class="at">stemming =</span> <span class="cn">TRUE</span>))) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>DocVec <span class="ot">&lt;-</span> <span class="fu">gsub</span>(DocVec, <span class="at">pattern =</span> <span class="st">"[[:punct:]]"</span>, <span class="at">replace =</span> <span class="st">" "</span>)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>DocVec <span class="ot">&lt;-</span> <span class="fu">gsub</span>(DocVec, <span class="at">pattern =</span> <span class="st">"[[:cntrl:]]"</span>, <span class="at">replace =</span> <span class="st">" "</span>)</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>DocCorpus <span class="ot">&lt;-</span> <span class="fu">Corpus</span>(<span class="fu">VectorSource</span>(DocVec))</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>DTM2 <span class="ot">&lt;-</span> <span class="fu">inspect</span>(<span class="fu">DocumentTermMatrix</span>(DocCorpus,</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">list</span>(<span class="at">stopwords =</span> <span class="cn">TRUE</span>, <span class="at">stemming =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Stemming is the process of reducing inflected/derived words to their word stem or base (e.g.&nbsp;stemming, stemmed, stemmer –&gt; stem*)</p>
 </section>
@@ -655,16 +660,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="unnumbered anchored" data-anchor-id="section-1">2</h4>
 <p>Why does this command not work?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">sprintf</span>(<span class="st">"%s of spontaneous events are %s in the mind. Really, %.2f?"</span>,</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>            <span class="st">"15.03322123"</span>, <span class="st">"puzzles"</span>, <span class="st">"15.03322123"</span> ), <span class="cn">TRUE</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">try</span>(<span class="fu">sprintf</span>(</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"%s of spontaneous events are %s in the mind. Really, %.2f?"</span>,</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"15.03322123"</span>, <span class="st">"puzzles"</span>, <span class="st">"15.03322123"</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>), <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-2" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="section-2">3</h4>
 <p>Using <code>grepl</code>, these materials, Google, and your friends, describe what the following command does. What changes when <code>value = FALSE</code>?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">'</span><span class="sc">\'</span><span class="st">'</span>, </span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">c</span>(<span class="st">"To dare is to lose one's footing momentarily."</span>,  <span class="st">"To not dare is to lose oneself."</span>), <span class="at">value =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">"'"</span>,</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"To dare is to lose one's footing momentarily."</span>, <span class="st">"To not dare is to lose oneself."</span>),</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> <span class="cn">TRUE</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "To dare is to lose one's footing momentarily."</code></pre>
 </div>
@@ -674,15 +683,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="unnumbered anchored" data-anchor-id="section-3">4</h4>
 <p>Write code to automatically extract the file names that DO end start with presidential and DO end in .pdf</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>my_string <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"legislative1_term1.png"</span>, </span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>               <span class="st">"legislative1_term1.pdf"</span>,</span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>               <span class="st">"legislative1_term2.png"</span>, </span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>               <span class="st">"legislative1_term2.pdf"</span>,</span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>               <span class="st">"term2_presidential1.png"</span>, </span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>               <span class="st">"presidential1.png"</span>, </span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>               <span class="st">"presidential1_term2.png"</span>,</span>
-<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>               <span class="st">"presidential1_term1.pdf"</span>,</span>
-<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>               <span class="st">"presidential1_term2.pdf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>my_string <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"legislative1_term1.png"</span>,</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"legislative1_term1.pdf"</span>,</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"legislative1_term2.png"</span>,</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"legislative1_term2.pdf"</span>,</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"term2_presidential1.png"</span>,</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"presidential1.png"</span>,</span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"presidential1_term2.png"</span>,</span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"presidential1_term1.pdf"</span>,</span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"presidential1_term2.pdf"</span></span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-4" class="level4 unnumbered">
@@ -696,9 +707,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="unnumbered anchored" data-anchor-id="section-5">6</h4>
 <p>Combine these two strings into a single string separated by a “-”. Desired output: “The carbonyl group in aldehydes and ketones is an oxygen analog of the carbon–carbon double bond.”</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>string1 <span class="ot">&lt;-</span> <span class="st">"The carbonyl group in aldehydes and ketones </span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="st">            is an oxygen analog of the carbon"</span> </span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>string2 <span class="ot">&lt;-</span>  <span class="st">"–carbon double bond."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>string1 <span class="ot">&lt;-</span> <span class="st">"The carbonyl group in aldehydes and ketones</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="st">            is an oxygen analog of the carbon"</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>string2 <span class="ot">&lt;-</span> <span class="st">"–carbon double bond."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section-6" class="level4 unnumbered">

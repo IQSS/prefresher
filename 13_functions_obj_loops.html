@@ -418,7 +418,7 @@ window.Quarto = {
 </div>
 <p>Objects are abstract symbols in which you store data. Here we will create an object from <code>copy</code>, and assign <code>cen10</code> to it.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>copy <span class="ot">&lt;-</span> cen10 </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>copy <span class="ot">&lt;-</span> cen10</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This looks the same as the original dataset:</p>
 <div class="cell">
@@ -532,10 +532,12 @@ $`slot 2`
 <p>To change or create the class of any object, you can <em>assign</em> it. To do this, assign the name of your class to character to an object’s <code>class()</code>.</p>
 <p>We can start from a simple list. For example, say we wanted to store data about pokemon. Because there is no pre-made package for this, we decide to make our own class.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pikachu <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">name =</span> <span class="st">"Pikachu"</span>,</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">number =</span> <span class="dv">25</span>,</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">type =</span> <span class="st">"Electric"</span>,</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">color =</span> <span class="st">"Yellow"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pikachu <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">"Pikachu"</span>,</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">number =</span> <span class="dv">25</span>,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"Electric"</span>,</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> <span class="st">"Yellow"</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>and we can give it any class name we want.</p>
 <div class="cell">
@@ -566,10 +568,10 @@ $`slot 2`
 </div>
 <p>Anything can be an object! Even graphs (in <code>ggplot</code>) can be assigned, re-assigned, and edited.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>grp_race <span class="ot">&lt;-</span> <span class="fu">group_by</span>(cen10, race)<span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>grp_race <span class="ot">&lt;-</span> <span class="fu">group_by</span>(cen10, race) <span class="sc">%&gt;%</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>())</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>grp_race_ordered <span class="ot">&lt;-</span> <span class="fu">arrange</span>(grp_race, count) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>grp_race_ordered <span class="ot">&lt;-</span> <span class="fu">arrange</span>(grp_race, count) <span class="sc">%&gt;%</span></span>
 <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">race =</span> forcats<span class="sc">::</span><span class="fu">as_factor</span>(race))</span>
 <span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>gg_tab <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> grp_race_ordered) <span class="sc">+</span></span>
@@ -588,7 +590,7 @@ $`slot 2`
 </div>
 <p>You can change the orientation</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>gg_tab<span class="ot">&lt;-</span> gg_tab <span class="sc">+</span> <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>gg_tab <span class="ot">&lt;-</span> gg_tab <span class="sc">+</span> <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="parsing-an-object-by-strs" class="level3" data-number="9.2.2">
@@ -693,7 +695,7 @@ $`slot 2`
 </div>
 <p>or more characters. Notice here that there’s a difference between a vector of individual characters and a length-one object of characters.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>my_name_letters <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">"M"</span>,<span class="st">"e"</span>,<span class="st">"g"</span>)</span>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>my_name_letters <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"e"</span>, <span class="st">"g"</span>)</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>my_name_letters</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "M" "e" "g"</code></pre>
@@ -731,11 +733,10 @@ $`slot 2`
 <p>If we wanted to generate a function that computed the number of men in your data, what would that look like?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>count_men <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
-<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>  nmen <span class="ot">&lt;-</span> <span class="fu">sum</span>(data<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">"Male"</span>)</span>
-<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(nmen)</span>
-<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  nmen <span class="ot">&lt;-</span> <span class="fu">sum</span>(data<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">"Male"</span>)</span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(nmen)</span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then all we need to do is feed this function a dataset</p>
 <div class="cell">
@@ -746,7 +747,7 @@ $`slot 2`
 </div>
 <p>The point of a function is that you can use it again and again without typing up the set of constituent manipulations. So, what if we wanted to figure out the number of men in California?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">count_men</span>(cen10[cen10<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"California"</span>,])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">count_men</span>(cen10[cen10<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"California"</span>, ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1876</code></pre>
 </div>
@@ -754,13 +755,12 @@ $`slot 2`
 <p>Let’s go one step further. What if we want to know the proportion of non-whites in a state, just by entering the name of the state? There’s multiple ways to do it, but it could look something like this</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>nw_in_state <span class="ot">&lt;-</span> <span class="cf">function</span>(data, state) {</span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  s.subset <span class="ot">&lt;-</span> data[data<span class="sc">$</span>state <span class="sc">==</span> state,]</span>
-<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>  total.s <span class="ot">&lt;-</span> <span class="fu">nrow</span>(s.subset)</span>
-<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>  nw.s <span class="ot">&lt;-</span> <span class="fu">sum</span>(s.subset<span class="sc">$</span>race <span class="sc">!=</span> <span class="st">"White"</span>)</span>
-<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>  nw.s <span class="sc">/</span> total.s</span>
-<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  s.subset <span class="ot">&lt;-</span> data[data<span class="sc">$</span>state <span class="sc">==</span> state, ]</span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  total.s <span class="ot">&lt;-</span> <span class="fu">nrow</span>(s.subset)</span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>  nw.s <span class="ot">&lt;-</span> <span class="fu">sum</span>(s.subset<span class="sc">$</span>race <span class="sc">!=</span> <span class="st">"White"</span>)</span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>  nw.s <span class="sc">/</span> total.s</span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The last line is what gets generated from the function. To be more explicit you can wrap the last line around <code>return()</code>. (as in <code>return(nw.s/total.s</code>). <code>return()</code> is used when you want to break out of a function in the middle of it and not wait till the last line.</p>
 <p>Try it on your favorite state!</p>
@@ -816,10 +816,10 @@ $`slot 2`
 <p>For example,</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span><span class="dv">0</span>) {</span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
 <span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"positive number"</span>)</span>
-<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">==</span> <span class="dv">0</span>)  {</span>
-<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span> (<span class="st">"zero"</span>)</span>
+<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"zero"</span>)</span>
 <span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
 <span id="cb75-7"><a href="#cb75-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"negative number"</span>)</span>
 <span id="cb75-8"><a href="#cb75-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -830,10 +830,10 @@ $`slot 2`
 <p>You can wrap that whole things in a function</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>is_positive <span class="ot">&lt;-</span> <span class="cf">function</span>(number) {</span>
-<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (number <span class="sc">&gt;</span><span class="dv">0</span>) {</span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (number <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
 <span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"positive number"</span>)</span>
-<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (number <span class="sc">==</span> <span class="dv">0</span>)  {</span>
-<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span> (<span class="st">"zero"</span>)</span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (number <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"zero"</span>)</span>
 <span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
 <span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"negative number"</span>)</span>
 <span id="cb77-8"><a href="#cb77-8" aria-hidden="true" tabindex="-1"></a>  }</span>
@@ -881,15 +881,14 @@ $`slot 2`
 <div class="cell">
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>states_of_interest <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"California"</span>, <span class="st">"Massachusetts"</span>, <span class="st">"New Hampshire"</span>, <span class="st">"Washington"</span>)</span>
 <span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>( state <span class="cf">in</span> states_of_interest){</span>
-<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a>  state_data <span class="ot">&lt;-</span> cen10[cen10<span class="sc">$</span>state <span class="sc">==</span> state,]</span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (state <span class="cf">in</span> states_of_interest) {</span>
+<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a>  state_data <span class="ot">&lt;-</span> cen10[cen10<span class="sc">$</span>state <span class="sc">==</span> state, ]</span>
 <span id="cb86-5"><a href="#cb86-5" aria-hidden="true" tabindex="-1"></a>  nmen <span class="ot">&lt;-</span> <span class="fu">sum</span>(state_data<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">"Male"</span>)</span>
 <span id="cb86-6"><a href="#cb86-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb86-7"><a href="#cb86-7" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(state_data)</span>
-<span id="cb86-8"><a href="#cb86-8" aria-hidden="true" tabindex="-1"></a>  men_perc <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="dv">100</span><span class="sc">*</span>(nmen<span class="sc">/</span>n), <span class="at">digits=</span><span class="dv">2</span>)</span>
-<span id="cb86-9"><a href="#cb86-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Percentage of men in"</span>,state, <span class="st">"is"</span>, men_perc))</span>
-<span id="cb86-10"><a href="#cb86-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb86-11"><a href="#cb86-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb86-8"><a href="#cb86-8" aria-hidden="true" tabindex="-1"></a>  men_perc <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> (nmen <span class="sc">/</span> n), <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb86-9"><a href="#cb86-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Percentage of men in"</span>, state, <span class="st">"is"</span>, men_perc))</span>
+<span id="cb86-10"><a href="#cb86-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Percentage of men in California is 49.85"
 [1] "Percentage of men in Massachusetts is 47.6"
@@ -901,13 +900,13 @@ $`slot 2`
 <div class="cell">
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>states_of_interest <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"California"</span>, <span class="st">"Massachusetts"</span>, <span class="st">"New Hampshire"</span>, <span class="st">"Washington"</span>)</span>
 <span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>male_percentages <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>iter <span class="ot">&lt;-</span><span class="dv">1</span> </span>
+<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>iter <span class="ot">&lt;-</span> <span class="dv">1</span></span>
 <span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb88-5"><a href="#cb88-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>( state <span class="cf">in</span> states_of_interest){</span>
-<span id="cb88-6"><a href="#cb88-6" aria-hidden="true" tabindex="-1"></a>  state_data <span class="ot">&lt;-</span> cen10[cen10<span class="sc">$</span>state <span class="sc">==</span> state,]</span>
+<span id="cb88-5"><a href="#cb88-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (state <span class="cf">in</span> states_of_interest) {</span>
+<span id="cb88-6"><a href="#cb88-6" aria-hidden="true" tabindex="-1"></a>  state_data <span class="ot">&lt;-</span> cen10[cen10<span class="sc">$</span>state <span class="sc">==</span> state, ]</span>
 <span id="cb88-7"><a href="#cb88-7" aria-hidden="true" tabindex="-1"></a>  nmen <span class="ot">&lt;-</span> <span class="fu">sum</span>(state_data<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">"Male"</span>)</span>
 <span id="cb88-8"><a href="#cb88-8" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(state_data)</span>
-<span id="cb88-9"><a href="#cb88-9" aria-hidden="true" tabindex="-1"></a>  men_perc <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="dv">100</span><span class="sc">*</span>(nmen<span class="sc">/</span>n), <span class="at">digits=</span><span class="dv">2</span>)</span>
+<span id="cb88-9"><a href="#cb88-9" aria-hidden="true" tabindex="-1"></a>  men_perc <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> (nmen <span class="sc">/</span> n), <span class="at">digits =</span> <span class="dv">2</span>)</span>
 <span id="cb88-10"><a href="#cb88-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb88-11"><a href="#cb88-11" aria-hidden="true" tabindex="-1"></a>  male_percentages <span class="ot">&lt;-</span> <span class="fu">c</span>(male_percentages, men_perc)</span>
 <span id="cb88-12"><a href="#cb88-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(male_percentages)[iter] <span class="ot">&lt;-</span> state</span>
@@ -930,8 +929,8 @@ $`slot 2`
 <span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (race <span class="cf">in</span> <span class="fu">unique</span>(cen10<span class="sc">$</span>race)) {</span>
 <span id="cb90-4"><a href="#cb90-4" aria-hidden="true" tabindex="-1"></a>    race_state_num <span class="ot">&lt;-</span> <span class="fu">nrow</span>(cen10[cen10<span class="sc">$</span>race <span class="sc">==</span> race <span class="sc">&amp;</span> cen10<span class="sc">$</span>state <span class="sc">==</span> state, ])</span>
 <span id="cb90-5"><a href="#cb90-5" aria-hidden="true" tabindex="-1"></a>    state_pop <span class="ot">&lt;-</span> <span class="fu">nrow</span>(cen10[cen10<span class="sc">$</span>state <span class="sc">==</span> state, ])</span>
-<span id="cb90-6"><a href="#cb90-6" aria-hidden="true" tabindex="-1"></a>    race_perc <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="dv">100</span><span class="sc">*</span>(race_state_num<span class="sc">/</span>(state_pop)), <span class="at">digits=</span><span class="dv">2</span>)</span>
-<span id="cb90-7"><a href="#cb90-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Percentage of "</span>, race , <span class="st">"in"</span>, state, <span class="st">"is"</span>, race_perc))</span>
+<span id="cb90-6"><a href="#cb90-6" aria-hidden="true" tabindex="-1"></a>    race_perc <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> (race_state_num <span class="sc">/</span> (state_pop)), <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb90-7"><a href="#cb90-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Percentage of "</span>, race, <span class="st">"in"</span>, state, <span class="st">"is"</span>, race_perc))</span>
 <span id="cb90-8"><a href="#cb90-8" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb90-9"><a href="#cb90-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1000,8 +999,8 @@ $`slot 2`
 <span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (race <span class="cf">in</span> <span class="fu">unique</span>(cen10<span class="sc">$</span>race)) {</span>
 <span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a>    race_state_num <span class="ot">&lt;-</span> <span class="fu">nrow</span>(cen10[cen10<span class="sc">$</span>race <span class="sc">==</span> race <span class="sc">&amp;</span> cen10<span class="sc">$</span>state <span class="sc">==</span> state, ])</span>
 <span id="cb94-5"><a href="#cb94-5" aria-hidden="true" tabindex="-1"></a>    state_pop <span class="ot">&lt;-</span> <span class="fu">nrow</span>(cen10[cen10<span class="sc">$</span>state <span class="sc">==</span> state, ])</span>
-<span id="cb94-6"><a href="#cb94-6" aria-hidden="true" tabindex="-1"></a>    race_perc <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="dv">100</span><span class="sc">*</span>(race_state_num<span class="sc">/</span>(state_pop)), <span class="at">digits=</span><span class="dv">2</span>)</span>
-<span id="cb94-7"><a href="#cb94-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Percentage of "</span>, race , <span class="st">"in"</span>, state, <span class="st">"is"</span>, race_perc))</span>
+<span id="cb94-6"><a href="#cb94-6" aria-hidden="true" tabindex="-1"></a>    race_perc <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> (race_state_num <span class="sc">/</span> (state_pop)), <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb94-7"><a href="#cb94-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Percentage of "</span>, race, <span class="st">"in"</span>, state, <span class="st">"is"</span>, race_perc))</span>
 <span id="cb94-8"><a href="#cb94-8" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb94-9"><a href="#cb94-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
