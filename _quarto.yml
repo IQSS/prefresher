@@ -25,6 +25,9 @@ book:
         - 13_functions_obj_loops.qmd
         - 14_visualization.qmd
         - 15_project-dempeace.qmd
+        - 16_simulation.qmd
+        - 17_non-wysiwyg.qmd
+        - 18_text.qmd
         
 delete_merged_file: true
 language:
