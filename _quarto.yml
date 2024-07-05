@@ -16,6 +16,7 @@ book:
         - 03_limits.qmd
         - 04_calculus.qmd
         - 05_optimization.qmd
+        - 06_probability.qmd
   
 
 delete_merged_file: true

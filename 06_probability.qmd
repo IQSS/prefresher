@@ -14,9 +14,8 @@ Probability in high school is usually really about combinatorics: the probabilit
 
 __Fundamental Theorem of Counting__: If an object has $j$ different characteristics that are independent of each other, and each characteristic $i$ has $n_i$ ways of being expressed, then there are $\prod_{i = 1}^j n_i$ possible unique objects.
 
-```{example}
-#| name: Counting Possibilities
-#| label: countingrules
+:::{#exm-countingrules}
+## Counting Possibilities
 
 Suppose we are given a stack of cards. Cards can be either red or black and can take on any of 13 values. There is only one of each color-number combination. In this case,
 
@@ -28,7 +27,7 @@ Suppose we are given a stack of cards. Cards can be either red or black and can 
 
 4. Number of Outcomes $=$
 
-```
+:::
 
 We often need to count the number of ways to choose a subset from some set of possibilities.  The number of outcomes depends on two characteristics of the process: does the order matter and is replacement allowed?
 
@@ -46,9 +45,8 @@ If replacement is allowed, there are always the same $n$ objects to select from.
 
 Expression $\binom{n}{k}$ is read as "n choose k" and denotes $\frac{n!}{(n-k)!k!}$. Also, note that $0! = 1$.
 
-```{example}
-#| name: Counting
-#| label: counting
+:::{#exm-counting}
+## Counting
 
 There are five balls numbered from 1 through 5 in a jar. Three balls are chosen. How many possible choices are there?
 
@@ -58,15 +56,14 @@ There are five balls numbered from 1 through 5 in a jar. Three balls are chosen.
 
 3. Unordered, without replacement $=$ 
 
-```
+:::
 
-```{exercise}
-#| name: Counting
-#| label: counting1
+:::{#exr-counting1}
+## Counting
 
 Four cards are selected from a deck of 52 cards. Once a card has been drawn, it is not reshuffled back into the deck. Moreover, we care only about the complete hand that we get (i.e. we care about the set of selected cards, not the sequence in which it was drawn). How many possible outcomes are there?
 
-```
+:::
 
 ## Sets {#setoper}
 
@@ -99,9 +96,8 @@ Properties of set operations:
 * __de Morgan's laws__: $(A \cup B)^C = A^C \cap B^C$; $(A \cap B)^C = A^C \cup B^C$
 * __Disjointness__: Sets are disjoint when they do not intersect, such that $A \cap B = \emptyset$.  A collection of sets is pairwise disjoint (**mutually exclusive**) if, for all $i \neq j$, $A_i \cap A_j = \emptyset$.  A collection of sets form a partition of set $S$ if they are pairwise disjoint and they cover set $S$, such that $\bigcup_{i = 1}^k A_i = S$.
 
-```{example}
-#| name: Sets
-#| label: sets
+:::{#exm-sets}
+## Sets
 
 Let set $A$ be {1, 2, 3, 4}, $B$ be {3, 4, 5, 6}, and $C$ be {5, 6, 7, 8}. Sets $A$, $B$, and $C$ are all subsets of the sample space $S$ which is {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 
@@ -112,11 +108,10 @@ Write out the following sets:
 3. $B^c$
 4. $A \cap (B \cup C)$
 
-```
+:::
 
-```{exercise}
-#| name: Sets
-#| label: sets1
+:::{#exr-sets1}
+## Sets
 
 Suppose you had a pair of four-sided dice. You sum the results from a single toss.
 
@@ -127,7 +122,7 @@ Consider subsets A {2, 8} and B {2,3,7} of the sample space you found. What is
   1. $A^c$
   2. $(A \cup B)^c$
 
-```
+:::
 
 ## Probability {#probdef}
 
@@ -147,17 +142,17 @@ __Probability Distribution Function__: a mapping of each event in the sample spa
 
 Formally, 
 
-```{definition}
-#| name: Probability
+:::{#def-probability}
+## Probability
 
 Probability is a function that maps events to a real number, obeying the axioms of probability.
 
-```
+:::
 
 The axioms of probability make sure that the separate events add up in terms of probability, and -- for standardization purposes -- that they add up to 1.
 
-```{definition}
-#| name: Axioms of Probability
+:::{#def-axiomsofprobability}
+## Axioms of Probability
 
 1. For any event $A$, $P(A)\ge 0$.
 2. $P(S)=1$
@@ -170,7 +165,7 @@ The last axiom is an extension of a union to infinite sets. When there are only 
 P(A_1 \cup A_2) = P(A_1) + P(A_2) \quad\text{for disjoint } A_1, A_2
 \end{align*}
 
-```
+:::
 
 ### Probability Operations  {.unnumbered}
 
@@ -185,9 +180,8 @@ B)=P(A)+P(B)-P(A\cap B)$
 6. Boole's Inequality: For any sequence of $n$ events (which need not be disjoint) $A_1,A_2,\ldots,A_n$,  then $P\left( \bigcup\limits_{i=1}^n
 A_i\right) \leq \sum\limits_{i=1}^n P(A_i)$.
 
-```{example}
-#| name: Probability
-#| label: prob
+:::{#exm-prob}
+## Probability
 
 Assume we have an evenly-balanced, six-sided die.
 
@@ -201,11 +195,10 @@ Then,
 6. Let $A=\{ 1,2,3,4,5 \}\subset S$.  Then $P(A)=5/6<P(S)=$ 
 7.  Let $A=\{ 1, 2, 3 \}$ and $B=\{ 2, 4, 6 \}$.  Then $A\cup B$? $A\cap B$? $P(A \cup B)$?
 
-```
+:::
 
-```{exercise}
-#| name: Probability
-#| label: prob1
+:::{#exr-prob1}
+## Probability
 
 Suppose you had a pair of four-sided dice. You sum the results from a single toss. Let us call this sum, or the outcome, X.
 
@@ -213,7 +206,7 @@ Suppose you had a pair of four-sided dice. You sum the results from a single tos
 
 2. What is $P(X=5 \cup X = 3)^C$? 
 
-```
+:::
 
 ## Conditional Probability and Bayes Rule
 
@@ -223,9 +216,8 @@ $$P(A|B)=\frac{P(A\cap B)}{P(B)}$$
 
 Note that conditional probabilities are probabilities and must also follow the Kolmagorov axioms of probability.
 
-```{example}
-#| name: Conditional Probability 1
-#| label: condprobexm1
+:::{#exm-condprobexm1}
+## Conditional Probability 1
 
 Assume $A$ and $B$ occur with the following frequencies: $\quad$
 
@@ -242,20 +234,19 @@ and let $n_{ab}+n_{a^Cb}+n_{ab^C}+n_{(ab)^C}=N$.  Then
 4.  $P(A|B)= \frac{P(A\cap B)}{P(B)}=$ 
 5.  $P(B|A)= \frac{P(A\cap B)}{P(A)}=$ 
 
-```
+:::
 
-```{example}
-#| name: Conditional Probability 2
-#| label: condprobexm2
+:::{#exm-condprobexm2}
+## Conditional Probability 2
 
- A six-sided die is rolled.  What is the probability of a 1, given the outcome is an odd number? 
+A six-sided die is rolled.  What is the probability of a 1, given the outcome is an odd number? 
 
-```
+:::
 
 You could rearrange the fraction to highlight how a joint probability could be expressed as the product of a conditional probability. 
 
-```{definition}
-#| name: Multiplicative Law of Probability
+:::{#def-multiplawprob}
+## Multiplicative Law of Probability
 
 The probability of the intersection of two events $A$ and $B$ is $P(A\cap B)=P(A)P(B|A)=P(B)P(A|B)$ which follows directly from the definition of conditional probability. More generally,
 
@@ -263,10 +254,10 @@ $$P(A_1\cap \cdots\cap A_k) = P(A_k| A_{k-1}\cap \cdots \cap A_1)\times P(A_{k-1
 
 Sometimes it is easier to calculate these conditional probabilities and sum them than it is to calculate $P(A)$ directly.
 
-```
+:::
 
-```{definition}
-#| name: Law of Total Probability
+:::{#def-lawtotalprob}
+## Law of Total Probability
 Let $S$ be the sample space of some experiment and let the disjoint $k$ events $B_1,\ldots,B_k$ partition $S$, such that $P(B_1\cup ... \cup B_k) = P(S) = 1$.  If $A$ is some other event in $S$, then the events $A\cap B_1, A\cap B_2, \ldots, A\cap B_k$ will form a partition of $A$ and we can write $A$ as $$A=(A\cap B_1)\cup\cdots\cup (A\cap B_k)$$.  
 
 Since the $k$ events are disjoint,
@@ -276,7 +267,7 @@ P(A)&=&\sum\limits_{i=1}^k P(A \cap B_i)\\
       &=&\sum\limits_{i=1}^k P(B_i)P(A|B_i)
 \end{eqnarray*}
 
-```
+:::
 
 __Bayes Rule__: Assume that events $B_1,\ldots,B_k$ form a partition of the space $S$.  Then by the Law of Total Probability 
 
@@ -289,29 +280,27 @@ Bayes' rule  determines the posterior probability of a state  $P(B_j|A)$ by calc
 
 __Prior and Posterior Probabilities__:  Above, $P(B_1)$ is often called the prior probability, since it's the probability of $B_1$ before anything else is known.  $P(B_1|A)$ is called the posterior probability, since it's the probability after other information is taken into account.
 
-```{example}
-#| name: Bayes' Rule
-#| label: bayesrule
+:::{#exm-bayesrule}
+## Bayes' Rule
 
 In a given town, 40% of the voters are Democrat and 60% are Republican. The president's budget is supported by 50% of the Democrats and 90% of the Republicans. If a randomly (equally likely) selected voter is found to support the president's budget, what is the probability that they are a Democrat?
 
-```
+:::
 
-```{exercise}
-#| name: Conditional Probability
-#| label: condprobexr
+:::{#exr-condprobexr}
+## Conditional Probability
 
 Assume that 2% of the population of the U.S. are members of some extremist militia group. We develop a survey that positively classifies someone as being a member of a militia group given that they are a member 95% of the time and negatively classifies someone as not being a member of a militia group given that they are not a member 97% of the time. What is the probability that someone positively classified as being a member of a militia group is actually a militia member?
 
-```
+:::
 
 ## Independence 
 
-```{definition}
-#| name: Independence
+:::{#def-independence}
+## Independence
  If the occurrence or nonoccurrence of either events $A$ and $B$ have no effect on the occurrence or nonoccurrence of the other, then $A$ and $B$ are independent. 
 
-```
+:::
 
  If $A$ and $B$ are independent, then
 
@@ -347,12 +336,12 @@ Most questions in the social sciences involve events, rather than numbers per se
 knitr::include_graphics('images/rv.png')
 ```
 
-```{definition}
-#| name: Random Variable
+:::{#def-rv}
+## Random Variable
 
 A random variable is a measurable function $X$ that maps from the sample space $S$ to the set of real numbers $R.$ It assigns a real number to every outcome $s \in S$. 
 
-```
+:::
 
 Figure \@ref(fig:rv-image) shows a image of the function. It might seem strange to define a random variable as a function -- which is neither random nor variable. The randomness comes from the realization of an event from the sample space $s$.
 
@@ -372,24 +361,24 @@ We now have two main concepts in this section -- probability and random variable
 
 The concept of distributions is the natural bridge between these two concepts.
 
-```{definition}
-#| name: Distribution of a random variable
+:::{#def-distribution}
+## Distribution of a random variable
 A distribution of a random variable is a function that specifies the probabilities of all events associated with that random variable. There are several types of distributions: A probability mass function for a discrete random variable and probability density function for a continuous random variable.
-```
+:::
 
 Notice how the definition of distributions combines two ideas of random variables and probabilities of events. First, the distribution considers a random variable, call it $X$. $X$ can take a number of possible numeric values. 
 
-```{example}
-#| name: Total Number of Occurrences
+:::{#exm-distribution}
+## Total Number of Occurrences
 
 Consider three binary outcomes, one for each patient recovering from a disease: $R_i$ denotes the event in which patient $i$ ($i = 1, 2, 3$) recovers from a disease. $R_1$, $R_2$, and $R_3$.  How would we represent the total number of people who end up recovering from the disease?
 
-```
+:::
 
-```{solution}
+:::{#sol-distribution}
 Define the random variable $X$ be the total number of people (out of three) who recover from the disease. Random variables are functions, that take as an input a set of events (in the sample space $S$) and deterministically assigns them to a number of the analyst's choice.
 
-```
+:::
 
 Recall that with each of these numerical values there is a class of *events*. In the previous example, for $X = 3$ there is one outcome ($R_1, R_2, R_3$) and for $X = 1$ there are multiple ($\{(R_1, R_2^c, R_3^c), (R_1^c, R_2, R_3^c), (R_1^c, R_2^c, R_3), \}$). Now, the thing to notice here is that each of these events naturally come with a probability associated with them. That is, $P(R_1, R_2, R_3)$ is a number from 0 to 1, as is $P(R_1, R_2^c, R_3^c)$. These all have probabilities because they are in the sample space $S$. The function that tells us these probabilities that are associated with a numerical value of a random variable is called a distribution.
 
@@ -399,23 +388,23 @@ In other words, a random variable $X$ *induces a probability distribution* $P$ (
 
 The formal definition of a random variable is easier to given by separating out two cases: discrete random variables when the numeric summaries of the events are discrete,  and continuous random variables when they are continuous.
 
-```{definition}
-#| name: Discrete Random Variable
+:::{#def-rv-discrete}
+## Discrete Random Variable
 $X$ is a discrete random variable if it can assume only a finite or countably infinite number of distinct values. Examples:  number of wars per year, heads or tails.
 
-```
+:::
 
 The distribution of a discrete r.v. is a PMF:
 
-```{definition}
-#| name: Probability Mass Function
+:::{#def-pmf}
+## Probability Mass Function
 
 For a discrete random variable $X$, the probability mass function (Also referred to simply as the "probability distribution.") (PMF), $p(x)=P(X=x)$, assigns probabilities to a countable number of distinct $x$ values such that
 
 1. $0\le p(x)\le 1$
 2.  $\sum\limits_y p(x)=1$
 
-```
+:::
 
 Example: For a fair six-sided die, there is an equal probability of rolling any number.  Since there are six sides, the probability mass function is then $p(y)=1/6$ for $y=1,\ldots,6$, 0 otherwise.}
 
@@ -433,35 +422,35 @@ Properties a CDF must satisfy:
 
 Note that $P(X > x) = 1 - P(X \le x)$.
 
-```{example}
+:::{#exm-die-pmf}
 For a fair die with its value as $Y$, What are the following?
 
 1. $P(Y\le 1)$
 2. $P(Y\le 3)$
 3. $P(Y\le 6)$
 
-```
+:::
 
 ### Continuous Random Variables {.unnumbered}
 
 We also have a similar definition for _continuous_ random variables. 
 
-```{definition}
-#| name: Continuous Random Variable
+:::{#def-rv-continuous}
+## Continuous Random Variable
 
 $X$ is a continuous random variable if there exists a nonnegative function $f(x)$ defined for all real $x\in (-\infty,\infty)$, such that for any interval $A$, $P(X\in A)=\int\limits_A f(x)dx$. Examples: age, income, GNP, temperature.
 
-```
+:::
 
-```{definition}
-#| name: Probability Density Function
+:::{#def-pdf}
+## Probability Density Function
 
 The function $f$ above is called the probability density function (pdf) of $X$ and must satisfy
 $$f(x)\ge 0$$
 $$\int\limits_{-\infty}^\infty f(x)dx=1$$
 
   Note also that $P(X = x)=0$ --- i.e., the probability of any point $y$ is zero.
-```
+:::
 
 \begin{comment}
 \item[] \parbox[t]{4.5in}{Example: $f(y)=1, \quad 0\le y \le1$}\parbox{1.5in}{\hfill
@@ -470,22 +459,22 @@ $$\int\limits_{-\infty}^\infty f(x)dx=1$$
 
 For both discrete and continuous random variables, we have a unifying concept of another measure: the cumulative distribution: 
 
-```{definition}
-#| name: Cumulative Density Function
+:::{#def-cdf}
+## Cumulative Density Function
 Because the probability that a continuous random variable will assume any particular value is zero, we can only make statements about the probability of a continuous random variable being within an interval.  The cumulative distribution gives the probability that $Y$ lies on the interval $(-\infty,y)$ and is defined as $$F(x)=P(X\le x)=\int\limits_{-\infty}^x f(s)ds$$  Note that $F(x)$ has similar  properties with continuous distributions as it does with discrete - non-decreasing, continuous (not just right-continuous), and $\lim\limits_{x \to -\infty} F(x) = 0$ and $\lim\limits_{x \to \infty} F(x) = 1$.
 
-```
+:::
 
 We can also make statements about the probability of $Y$ falling in an interval $a\le y\le b$. 
 $$P(a\le x\le b)=\int\limits_a^b f(x)dx$$
 
 The PDF and CDF are linked by the integral: The CDF of the integral of the PDF: $$f(x) = F'(x)=\frac{dF(x)}{dx}$$
 
-```{example}
+:::{#exm-continuous-pdf}
 
 For $f(y)=1, \quad 0<y<1$, find: (1) The CDF $F(y)$ and  (2) The probability $P(0.5<y<0.75)$.
 
-```
+:::
 
 ## Joint Distributions
 
@@ -519,8 +508,8 @@ __Conditional Probability Distribution__: probability distribution for one varia
 * Discrete: $p_{Y|X}(y|x) = \frac{p(x,y)}{p_X(x)}, \quad p_X(x) > 0$
 * Continuous: $f_{Y|X}(y|x) = \frac{f(x,y)}{f_X(x)},\quad f_X(x) > 0$
 
-```{exercise}
-#| name: Discrete Outcomes
+:::{#exr-joint-distribution}
+## Discrete Outcomes
 Suppose we are interested in the outcomes of flipping a coin and rolling a 6-sided die at the same time.  The sample space for this process contains 12 elements: $$\{(H, 1), (H, 2), (H, 3), (H, 4), (H, 5), (H, 6), (T, 1), (T, 2), (T, 3), (T, 4), (T, 5), (T, 6)\}$$  We can define two random variables $X$ and $Y$ such that $X = 1$ if heads and $X = 0$ if tails, while $Y$ equals the number on the die.  
 
 We can then make statements about the joint distribution of $X$ and $Y$. What are the following?
@@ -531,26 +520,25 @@ We can then make statements about the joint distribution of $X$ and $Y$. What ar
 1. $P(X=x|Y=y)$
 1. Are X and Y independent? 
 
-```
+:::
 
 ## Expectation 
 
 We often want to summarize some characteristics of the distribution of a random variable.  The most important summary is the expectation (or expected value, or mean), in which the possible values of a random variable are weighted by their probabilities.
 
-```{definition}
-#| name: Expectation of a Discrete Random Variable
+:::{#def-expectation}
+## Expectation of a Discrete Random Variable
 The expected value of a discrete random variable $Y$ is $$E(Y)=\sum\limits_{y} y P(Y=y)= \sum\limits_{y} y p(y)$$  
 In words, it is the weighted average of all possible values of $Y$, weighted by the probability that $y$ occurs.  It is not necessarily the number we would expect $Y$ to take on, but the average value of $Y$ after a large number of repetitions of an experiment.
 
-```
+:::
 
-```{example}
-#| name: Expectation of a Discrete Random Variable
-#| label: expectdiscrete
+:::{#exm-expectdiscrete}
+## Expectation of a Discrete Random Variable
 
 What is the expectation of a fair, six-sided die?
 
-```
+:::
 
 __Expectation of a Continuous Random Variable__:  The expected
 value of a continuous random variable is similar in concept to that of
@@ -559,13 +547,12 @@ probabilities as weights, we integrate using the density to weight.
 Hence, the expected value of the continuous variable $Y$ is defined by
 $$E(Y)=\int\limits_{y} y f(y) dy$$
 
-```{example}
-#| name: Expectation of a Continuous Random Variable
-#| label: expectconti
+:::{#exm-expectconti}
+## Expectation of a Continuous Random Variable
 
 Find $E(Y)$ for $f(y)=\frac{1}{1.5}, \quad 0<y<1.5$.
 
-```
+:::
 
 ### Expected Value of a Function {.unnumbered}
 
@@ -603,19 +590,18 @@ The conditional expectation is often used for prediction when one knows the valu
 
 We can also look at other summaries of the distribution, which build on the idea of taking expectations. Variance tells us about the "spread" of the distribution; it is the expected value of the squared deviations from the mean of the distribution.  The standard deviation is simply the square root of the variance.
 
-```{definition}
-#| name: Variance
+:::{#def-variance}
+## Variance
 The Variance of a Random Variable $Y$ is
 
   $$\text{Var}(Y) = E[(Y - E(Y))^2] =  E(Y^2)-[E(Y)]^2$$
 
 The Standard Deviation is the square root of the variance : $$SD(Y) = \sigma_Y= \sqrt{\text{Var}(Y)}$$
 
-```
+:::
 
-```{example}
-#| name: Variance
-#| label: var
+:::{#exm-var}
+## Variance
 
 Given the following PMF: 
 $$f(x) =  \begin{cases}
@@ -628,10 +614,10 @@ What is $\text{Var}(x)$?
 
 __Hint:__ First calculate $E(X)$ and $E(X^2)$
 
-```
+:::
 
-```{definition}
-#| name: Covariance and Correlation
+:::{#def-covariance}
+## Covariance and Correlation
 
 The covariance measures the degree to which two random variables vary together; if the covariance between $X$ and $Y$ is positive, X tends to be larger than its mean when Y is larger than its mean.  
 
@@ -644,19 +630,19 @@ We can also write this as
 &= E(XY) - E(X)E(Y)
 \end{align*}
 
-```
+:::
 
 The covariance of a variable with itself is the variance of that variable.
 
 The Covariance is unfortunately hard to interpret in magnitude. The correlation is a standardized version of the covariance, and always ranges from -1 to 1. 
 
-```{definition}
-#| name: Correlation
+:::{#def-correlation}
+## Correlation
 The correlation coefficient is the covariance divided by the standard deviations of $X$ and $Y$.  It is a unitless measure and always takes on values in the interval $[-1,1]$.
 
 $$\text{Corr}(X, Y) = \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}} = \frac{\text{Cov}(X,Y)}{SD(X)SD(Y)}$$
 
-```
+:::
 
 ___Properties of Variance and Covariance:___
 
@@ -669,9 +655,8 @@ ___Properties of Variance and Covariance:___
 7. $\text{Cov}(X+Z,Y+W) = \text{Cov}(X,Y) + \text{Cov}(X,W) + \text{Cov}(Z,Y) + \text{Cov}(Z,W)$
 8. $\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y) + 2\text{Cov}(X,Y)$
 
-```{exercise}
-#| name: Expectation and Variance
-#| label: expvar
+:::{#exr-expvar}
+## Expectation and Variance
 
 Suppose we have a PMF with the following characteristics:
 \begin{eqnarray*}
@@ -690,11 +675,10 @@ Define the random variable $Y = X^2$.
 
 3. Calculate the variance of X.
 
-```
+:::
 
-```{exercise}
-#| name: Expectation and Variance 2
-#| label: expvar2
+:::{#exr-expvar2}
+## Expectation and Variance 2
 
 1. Find the expectation and variance
 
@@ -705,11 +689,10 @@ $$f(x) =  \begin{cases}
             \end{cases}
                $$
 
-```
+:::
 
-```{exercise}
-#| name: Expectation and Variance 3
-#| label: expvar3
+:::{#exr-expvar3}
+## Expectation and Variance 3
 
 1. Find the mean and standard deviation of random variable X. The PDF of this X is as follows:
 
@@ -722,43 +705,43 @@ $$f(x) =  \begin{cases}
 
 2. Next, calculate $P(X < \mu - \sigma)$ Remember, $\mu$ is the mean and $\sigma$ is the standard deviation
 
-```
+:::
 
 ## Special Distributions
 
 Two _discrete_ distributions used often are:  
 
-```{definition}
-#| name: Binomial Distribution
+:::{#def-bernoulli}
+## Binomial Distribution
 $Y$ is distributed binomial if it represents the number of "successes" observed in $n$ independent, identical "trials," where the probability of success in any trial is $p$ and the probability of failure is $q=1-p$.
-```
+:::
 
 For any particular sequence of $y$ successes and $n-y$ failures, the probability of obtaining that sequence is $p^y q^{n-y}$ (by the multiplicative law and independence).  However, there are $\binom{n}{y}=\frac{n!}{(n-y)!y!}$ ways of obtaining a sequence with $y$ successes and $n-y$ failures.  So the binomial distribution is given by $$p(y)=\binom{n}{y}p^y q^{n-y}, \quad y=0,1,2,\ldots,n$$ with mean $\mu=E(Y)=np$ and variance $\sigma^2=\text{Var}(Y)=npq$.
 
-```{example}
+:::{#exm-binom}
 Republicans vote for Democrat-sponsored bills 2\% of the time. What is the probability that out of 10 Republicans questioned, half voted for a particular Democrat-sponsored bill?  What is the mean number of Republicans voting for Democrat-sponsored bills?  The variance?
 1. $P(Y=5)=$
 1. $E(Y)=$ 
 1. $\text{Var}(Y)=6$
-```
+:::
 
   \begin{comment}
   \parbox{1.5in}{\hfill \epsffile{binopmf.eps}}
   \end{comment}
 
-```{definition}
-#| name: Poisson Distribution
+:::{#def-poisson}
+## Poisson Distribution
 A random variable $Y$ has a Poisson distribution if 
 
 $$P(Y = y)=\frac{\lambda^y}{y!}e^{-\lambda}, \quad y=0,1,2,\ldots, \quad \lambda>0$$
 
 The Poisson has the unusual feature that its expectation equals its variance: $E(Y)=\text{Var}(Y)=\lambda$. The Poisson distribution is often used to model rare event counts:  counts of the number of events that occur during some unit of time.  $\lambda$ is often called the "arrival rate."
 
-```
+:::
 
-```{example}
+:::{#exm-pois}
 Border disputes occur between two countries through a Poisson Distribution, at a rate of 2 per month.  What is the probability of 0, 2, and less than 5 disputes occurring in a month?
-```
+:::
 
  \begin{comment}
  \parbox{1.5in}{\hfill \epsffile{poispmf.eps}}
@@ -766,12 +749,12 @@ Border disputes occur between two countries through a Poisson Distribution, at a
 
 Two _continuous_  distributions used often are: 
 
-```{definition}
-#| name: Uniform Distribution
+:::{#def-unif}
+## Uniform Distribution
 A random variable $Y$ has a continuous uniform distribution on the interval $(\alpha,\beta)$ if its density is given by $$f(y)=\frac{1}{\beta-\alpha}, \quad \alpha\le y\le \beta$$  The mean and variance of $Y$ are $E(Y)=\frac{\alpha+\beta}{2}$ and $\text{Var}(Y)=\frac{(\beta-\alpha)^2}{12}$.
-```
+:::
 
-```{example}
+:::{#exm-unif}
 For $Y$ uniformly distributed over $(1,3)$, what are the following probabilities?
 
 1. $P(Y=2)$
@@ -779,25 +762,25 @@ For $Y$ uniformly distributed over $(1,3)$, what are the following probabilities
 1. $P(Y \le 2)$
 1. $P(Y > 2)$
 
-```
+:::
 
 \begin{comment}
 \parbox{1.5in}{\hfill \epsffile{unifpdf.eps}}
 \end{comment}
 
-```{definition}
-#| name: Normal Distribution
+:::{#def-normal}
+## Normal Distribution
 
 A random variable $Y$ is normally distributed with mean $E(Y)=\mu$ and variance $\text{Var}(Y)=\sigma^2$ if its density is 
 
 $$f(y)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(y-\mu)^2}{2\sigma^2}}$$
 
-```
+:::
 
-See Figure \@ref(fig:normaldens) are various Normal Distributions with the same $\mu = 1$ and two versions of the variance. 
+See Figure @fig-normaldens are various Normal Distributions with the same $\mu = 1$ and two versions of the variance. 
 
 ```{r}
-#| label: normaldens
+#| label: fig-normaldens
 #| echo: false
 #| fig-cap: Normal Distribution Density
 range <- tibble::tibble(x = c(-5, 5))
@@ -806,8 +789,8 @@ fx0 <- ggplot(range, aes(x = x)) +
   labs(x = expression(x), y = expression(f(x)))
 
 fx <- fx0 +  
-  stat_function(fun = function(x) dnorm(x, mean = 0, sd = 1), size = 0.5) +
-  stat_function(fun = function(x) dnorm(x, mean = 0, sd = sqrt(2)), size = 1.5) +
+  stat_function(fun = function(x) dnorm(x, mean = 0, sd = 1), linewidth = 0.5) +
+  stat_function(fun = function(x) dnorm(x, mean = 0, sd = sqrt(2)), linewidth = 1.5) +
   expand_limits(y = 0) +
   labs(caption = "Thick line: variance = 2, Normal line: variance = 1")
 
@@ -865,13 +848,13 @@ __Covariance and Correlation__: Both of these quantities measure the degree to w
 1. **Sample covariance**: $\hat{\text{Cov}}(X,Y) = \frac{1}{n-1}\sum_{i = 1}^n(x_i - \bar{x})(y_i - \bar{y})$
 2. **Sample correlation**: $\hat{\text{Corr}} = \frac{\hat{\text{Cov}}(X,Y)}{\sqrt{\hat{\text{Var}}(X)\hat{\text{Var}}(Y)}}$
 
-```{example}
+:::{#exm-sample}
 Example:  Using the above table, calculate the sample versions of:
 
 1. $\text{Cov}(X,Y)$
 2. $\text{Corr}(X, Y)$
 
-```
+:::
 
 ## Asymptotic Theory
 
@@ -885,12 +868,13 @@ Why is this important?  We rarely know the true process governing the events we 
 
 We are now finally ready to revisit, with a bit more precise terms, the two pillars of statistical theory we motivated Section \@ref(limitsfun) with.
 
-```{theorem}
-#| label: clt
-#| name: Central Limit Theorem (i.i.d. case)
+:::{#thm-clt}
+## Central Limit Theorem (i.i.d. case)
 Let $\{X_n\} = \{X_1, X_2, \ldots\}$ be a sequence of i.i.d. random variables with finite mean ($\mu$) and variance ($\sigma^2$). Then, the sample mean $\bar{X}_n = \frac{X_1 + X_2 + \cdots + X_n}{n}$ increasingly converges into a Normal distribution. 
 
 $$\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \xrightarrow{d} \text{Normal}(0, 1),$$
+
+:::
 
 Another way to write this as a probability statement is that for all real numbers $a$,
 
@@ -902,15 +886,16 @@ $$\bar{X}_n \approx \mathcal{N}\bigg(\mu, \frac{\sigma^2}{n}\bigg).$$ The standa
 
 Intuitively, this result also justifies that whenever a lot of small, independent processes somehow combine together to form the realized observations, practitioners often feel comfortable assuming Normality. 
 
-```{theorem}
-#| label: lln
-#| name: Law of Large Numbers (LLN)
+:::{#thm-lln}
+
+## Law of Large Numbers (LLN)
 For any draw of independent random variables with the same mean $\mu$, the sample average after $n$ draws, $\bar{X}_n = \frac{1}{n}(X_1 + X_2 + \ldots + X_n)$, converges in probability to the expected value of $X$, $\mu$  as $n \rightarrow \infty$:
 
 $$\lim\limits_{n\to \infty} P(|\bar{X}_n - \mu | > \varepsilon) = 0$$
 
 A shorthand of which is  $\bar{X}_n \xrightarrow{p} \mu$, where the arrow is read as "converges in probability to".
-```
+
+:::
 
 as $n\to \infty$. In other words, $P( \lim_{n\to\infty}\bar{X}_n = \mu) = 1$. This is an important motivation for the widespread use of the sample mean, as well as the intuition link between averages and expected values. 
 
@@ -925,9 +910,7 @@ Some of you may encounter "big-OH''-notation. If $f, g$ are two functions, we sa
 Example. 
 
 What is $\mathcal{O}( 5\exp(0.5 n) + n^2 + n / 2)$? Answer: $\exp(n)$. Why? Because, for large $n$, 
-$$
-\frac{ 5\exp(0.5 n) + n^2 + n / 2 }{ \exp(n)} \leq \frac{ c \exp(n) }{ \exp(n)} = c. 
-$$
+$$\frac{ 5\exp(0.5 n) + n^2 + n / 2 }{ \exp(n)} \leq \frac{ c \exp(n) }{ \exp(n)} = c. $$
 whenever $n > 4$ and where $c = 1$. 
 
 \begin{comment}
@@ -938,7 +921,7 @@ numerator / denominator <= (1 * denominator) / denominator
 
 ## Answers to Examples and Exercises  {.unnumbered}
 
-Answer to Example \@ref(exm:counting):
+Answer to Example @exm-counting:
 
 1. $5 \times 5 \times 5 = 125$
 
@@ -946,25 +929,25 @@ Answer to Example \@ref(exm:counting):
 
 3. $\binom{5}{3} = \frac{5!}{(5-3)!3!} = \frac{5 \times 4}{2 \times 1} = 10$
 
-Answer to Exercise \@ref(exr:counting1):
+Answer to Exercise @exr-counting1:
 
 1. $\binom{52}{4} = \frac{52!}{(52-4)!4!} = 270725$
 
-Answer to Example \@ref(exm:sets):
+Answer to Example @exm-sets:
 
 1. {1, 2, 3, 4, 5, 6}
 2. {5, 6}
 3. {1, 2, 7, 8, 9, 10}
 4. {3, 4}
 
-Answer to Exercise \@ref(exr:sets1):
+Answer to Exercise @exr-sets1:
 
 Sample Space: {2, 3, 4, 5, 6, 7, 8}
 
 1. {3, 4, 5, 6, 7}
 2. {4, 5, 6}
 
-Answer to Example \@ref(exm:prob):
+Answer to Example @exm-prob:
 
 1. ${1, 2, 3, 4, 5, 6}$
 
@@ -980,13 +963,13 @@ Answer to Example \@ref(exm:prob):
 
 7. $A\cup B=\{1, 2, 3, 4, 6\}$, $A\cap B=\{2\}$, $\frac{5}{6}$
 
-Answer to Exercise \@ref(exr:prob1):
+Answer to Exercise @exr-prob1:
 
 1. $P(X = 5) = \frac{4}{16}$, $P(X = 3) = \frac{2}{16}$, $P(X = 6) = \frac{3}{16}$
 
 2. What is $P(X=5 \cup X = 3)^C = \frac{10}{16}$? 
 
-Answer to Example \@ref(exm:condprobexm1):
+Answer to Example @exm-condprobexm1:
 
 1. $\frac{n_{ab} + n_{ab^c}}{N}$
 
@@ -998,11 +981,11 @@ Answer to Example \@ref(exm:condprobexm1):
 
 5. $\frac{\frac{n_{ab}}{N}}{\frac{n_{ab} + n_{ab^c}}{N}} = \frac{n_{ab}}{n_{ab} + n_{ab^c}}$
 
-Answer to Example \@ref(exm:condprobexm2):
+Answer to Example @exm-condprobexm2:
 
 $P(1|Odd) = \frac{P(1 \cap Odd)}{P(Odd)} = \frac{\frac{1}{6}}{\frac{1}{2}} = \frac{1}{3}$
 
-Answer to Example \@ref(exm:bayesrule):
+Answer to Example @exm-bayesrule:
 
 We are given that
 $$P(D) = .4, P(D^c) = .6, P(S|D) = .5, P(S|D^c) = .9$$
@@ -1011,7 +994,7 @@ Using this, Bayes' Law and the Law of Total Probability, we know:
 $$P(D|S) = \frac{P(D)P(S|D)}{P(D)P(S|D) + P(D^c)P(S|D^c)}$$
 $$P(D|S) = \frac{.4 \times .5}{.4 \times .5 + .6 \times .9 } = .27$$
 
-Answer to Exercise \@ref(exr:condprobexr):
+Answer to Exercise @exr-condprobexr:
 
 We are given that
 
@@ -1024,17 +1007,17 @@ $$= \frac{P(C|M)P(M)}{P(C|M)P(M) + P(C|M^c)P(M^c)}$$
 $$= \frac{P(C|M)P(M)}{P(C|M)P(M) + [1-P(C^c|M^c)]P(M^c)}$$
 $$ = \frac{.95 \times .02}{.95 \times .02 + .03 \times .98} = .38$$
 
-Answer to Example \@ref(exm:expectdiscrete):
+Answer to Example @exm-expectdiscrete:
 
 $E(Y)=7/2$ 
 
 We would never expect the result of a rolled die to be $7/2$, but that would be the average over a large number of rolls of the die.
 
-Answer to Example \@ref(exm:expectconti)
+Answer to Example @exm-expectconti
 
 0.75
 
-Answer to Example \@ref(exm:var):
+Answer to Example @exm-var:
 
 $E(X) = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 2 \times \frac{3}{8} + 3 \times \frac{1}{8} = \frac{3}{2}$
 
@@ -1046,7 +1029,7 @@ Since there is a 1 to 1 mapping from $X$ to $X^2:$ $E(X^2) = 0 \times \frac{1}{8
 &= \frac{3}{4}
 \end{align*}
 
-Answer to Exercise \@ref(exr:expvar):
+Answer to Exercise @exr-expvar:
 
 1. $E(X) = -2(\frac{1}{5}) + -1(\frac{1}{6}) + 0(\frac{1}{5}) + 1(\frac{1}{15}) + 2(\frac{11}{30}) = \frac{7}{30}$
 
@@ -1060,11 +1043,11 @@ Answer to Exercise \@ref(exr:expvar):
 &= \frac{5}{2} - \frac{7}{30}^2 \approx 2.45
 \end{align*}
 
-Answer to Exercise \@ref(exr:expvar2):
+Answer to Exercise @exr-expvar2:
 
 1. expectation = $\frac{6}{5}$, variance = $\frac{6}{25}$
 
-Answer to Exercise \@ref(exr:expvar3):
+Answer to Exercise @exr-expvar3:
 
 1. mean = 2, standard deviation = $\sqrt(\frac{2}{3})$
 
