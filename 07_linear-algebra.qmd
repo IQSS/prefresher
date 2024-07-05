@@ -2,17 +2,17 @@
 
 Topics:
 
-- Working with Vectors
-- Linear Independence
-- Basics of Matrix Algebra
-- Square Matrices
-- Linear Equations
-- Systems of Linear Equations
-- Systems of Equations as Matrices
-- Solving Augmented Matrices and Systems of Equations
-- Rank
-- The Inverse of a Matrix
-- Inverse of Larger Matrices
+-   Working with Vectors
+-   Linear Independence
+-   Basics of Matrix Algebra
+-   Square Matrices
+-   Linear Equations
+-   Systems of Linear Equations
+-   Systems of Equations as Matrices
+-   Solving Augmented Matrices and Systems of Equations
+-   Rank
+-   The Inverse of a Matrix
+-   Inverse of Larger Matrices
 
 ## Working with Vectors {#vector-def}
 
@@ -29,30 +29,28 @@ $$ c{\bf v} =  \begin{pmatrix} cv_1 & cv_2 & \dots & cv_n \end{pmatrix} $$
 
 **Vector Norm**: The norm of a vector is a measure of its length. There are many different ways to calculate the norm, but the most common is the Euclidean norm (which corresponds to our usual conception of distance in three-dimensional space): $$ ||{\bf v}|| = \sqrt{{\bf v}\cdot{\bf v}} = \sqrt{ v_1v_1 + v_2v_2 + \cdots + v_nv_n}$$
 
-:::{#exm-vectors}
+::: {#exm-vectors}
 ## Vector Algebra
 
-Let  $a = \begin{pmatrix} 2&1&2\end{pmatrix}$, $b = \begin{pmatrix} 3&4&5 \end{pmatrix}$. Calculate the following:
+Let $a = \begin{pmatrix} 2&1&2\end{pmatrix}$, $b = \begin{pmatrix} 3&4&5 \end{pmatrix}$. Calculate the following:
 
-1. $a - b$
+1.  $a - b$
 
-2. $a \cdot b$
-
+2.  $a \cdot b$
 :::
 
-:::{#exr-vectors1}
+::: {#exr-vectors1}
 ## Vector Algebra
 
-Let $u = \begin{pmatrix} 7&1&-5&3\end{pmatrix}$, $v = \begin{pmatrix} 9&-3&2&8 \end{pmatrix}$, $w = \begin{pmatrix} 1&13& -7&2 &15 \end{pmatrix}$, and $c = 2$. Calculate the following: 
+Let $u = \begin{pmatrix} 7&1&-5&3\end{pmatrix}$, $v = \begin{pmatrix} 9&-3&2&8 \end{pmatrix}$, $w = \begin{pmatrix} 1&13& -7&2 &15 \end{pmatrix}$, and $c = 2$. Calculate the following:
 
-  1. $u-v$
+1.  $u-v$
 
-  2. $cw$
+2.  $cw$
 
-  3. $u \cdot v$
+3.  $u \cdot v$
 
-  4. $w \cdot v$
-
+4.  $w \cdot v$
 :::
 
 ## Linear Independence {#linearindependence}
@@ -69,25 +67,23 @@ Linear independence is only defined for sets of vectors with the same number of 
 
 Since $\begin{pmatrix}9 & 13 & 17 \end{pmatrix}$ is a linear combination of $\begin{pmatrix}1 & 2 & 3 \end{pmatrix}$, $\begin{pmatrix} 2 & 3& 4\end{pmatrix}$, and $\begin{pmatrix} 3 & 4 & 5 \end{pmatrix}$, these 4 vectors constitute a linearly dependent set.
 
-:::{#exm-linearindep}
+::: {#exm-linearindep}
 ## Linear Independence
 
 Are the following sets of vectors linearly independent?
 
-  1. $\begin{pmatrix}2 & 3 & 1 \end{pmatrix}$ and $\begin{pmatrix}4 & 6 & 1 \end{pmatrix}$
-  2. $\begin{pmatrix}1 & 0 & 0 \end{pmatrix}$, $\begin{pmatrix}0 & 5 & 0 \end{pmatrix}$, and $\begin{pmatrix}10 & 10 & 0 \end{pmatrix}$
-
+1.  $\begin{pmatrix}2 & 3 & 1 \end{pmatrix}$ and $\begin{pmatrix}4 & 6 & 1 \end{pmatrix}$
+2.  $\begin{pmatrix}1 & 0 & 0 \end{pmatrix}$, $\begin{pmatrix}0 & 5 & 0 \end{pmatrix}$, and $\begin{pmatrix}10 & 10 & 0 \end{pmatrix}$
 :::
 
-:::{#exr-linearindep1}
+::: {#exr-linearindep1}
 ## Linear Independence
 
 Are the following sets of vectors linearly independent?
 
-  1. $${\bf v}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} $$ 
+1.  $${\bf v}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} $$
 
-  2. $${\bf v}_1 = \begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} -4 \\ 6 \\ 5 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} -2 \\ 8 \\ 6 \end{pmatrix} $$
-
+2.  $${\bf v}_1 = \begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} -4 \\ 6 \\ 5 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} -2 \\ 8 \\ 6 \end{pmatrix} $$
 :::
 
 ## Basics of Matrix Algebra {#matrixbasics}
@@ -114,12 +110,9 @@ It's also useful to think of matrices as being made up of a collection of row or
 
 Note that matrices ${\bf A}$ and ${\bf B}$ must have the same dimensionality, in which case they are **conformable for addition**.
 
-:::{#exm-matrixaddition}
-
+::: {#exm-matrixaddition}
 $${\bf A}=\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}, \qquad
-			{\bf B}=\begin{pmatrix} 1 & 2 & 1 \\ 2 & 1 & 2 \end{pmatrix}$$
-		${\bf A+B}=$
-
+            {\bf B}=\begin{pmatrix} 1 & 2 & 1 \\ 2 & 1 & 2 \end{pmatrix}$$ ${\bf A+B}=$
 :::
 
 **Scalar Multiplication**: Given the scalar $s$, the scalar multiplication of $s {\bf A}$ is $$ s {\bf A}=  s \begin{pmatrix}
@@ -135,23 +128,19 @@ $${\bf A}=\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}, \qquad
             s a_{m1} & s a_{m2} & \cdots & s a_{mn}
         \end{pmatrix}$$
 
-:::{#exm-scalarmulti}
-
+::: {#exm-scalarmulti}
 $s=2, \qquad {\bf A}=\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}$
 
 $s {\bf A} =$
-
 :::
 
 **Matrix Multiplication**: If ${\bf A}$ is an $m\times k$ matrix and $\bf B$ is a $k\times n$ matrix, then their product $\bf C = A B$ is the $m\times n$ matrix where $$c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{ik}b_{kj}$$
 
-:::{#exm-matrixmulti}
-
+::: {#exm-matrixmulti}
 1.  $\begin{pmatrix} a&b\\c&d\\e&f \end{pmatrix} \begin{pmatrix} A&B\\C&D \end{pmatrix}
-			=$
+            =$
 
-2. $\begin{pmatrix} 1&2&-1\\3&1&4 \end{pmatrix} \begin{pmatrix} -2&5\\4&-3\\2&1\end{pmatrix} =$
-
+2.  $\begin{pmatrix} 1&2&-1\\3&1&4 \end{pmatrix} \begin{pmatrix} -2&5\\4&-3\\2&1\end{pmatrix} =$
 :::
 
 Note that the number of columns of the first matrix must equal the number of rows of the second matrix, in which case they are **conformable for multiplication**. The sizes of the matrices (including the resulting product) must be $$(m\times k)(k\times n)=(m\times n)$$
@@ -195,22 +184,21 @@ The following rules apply for transposed matrices:
 ```
 Example of $({\bf AB})^T = {\bf B}^T{\bf A}^T$: $${\bf A}=\begin{pmatrix} 1&3&2\\2&-1&3\end{pmatrix}, \qquad {\bf B}=\begin{pmatrix} 0&1\\2&2\\3&-1\end{pmatrix}$$ $$ ({\bf AB})^T = \left[ \begin{pmatrix} 1&3&2\\2&-1&3\end{pmatrix} \begin{pmatrix} 0&1\\2&2\\3&-1\end{pmatrix} \right]^T = \begin{pmatrix} 12&7\\5&-3 \end{pmatrix}$$ $$ {\bf B}^T{\bf A}^T= \begin{pmatrix} 0&2&3\\1&2&-1 \end{pmatrix}  \begin{pmatrix} 1&2\\3&-1\\2&3 \end{pmatrix} = \begin{pmatrix} 12&7\\5&-3 \end{pmatrix}$$
 
-:::{#exr-matrixmulti1}
+::: {#exr-matrixmulti1}
 ## Matrix Multiplication
 
 Let $$A =  \begin{pmatrix} 2&0&-1&1\\1&2&0&1 \end{pmatrix}$$
 
 $$B = \begin{pmatrix} 1&5&-7\\1&1&0\\0&-1&1\\2&0&0\end{pmatrix} $$
 
-  $$C =  \begin{pmatrix} 3&2&-1\\0&4&6 \end{pmatrix}$$
+$$C =  \begin{pmatrix} 3&2&-1\\0&4&6 \end{pmatrix}$$
 
 Calculate the following:
 
-1. $$AB$$
-2. $$BA$$
-3. $$(BC)^T$$
-4. $$BC^T$$
-
+1.  $$AB$$
+2.  $$BA$$
+3.  $$(BC)^T$$
+4.  $$BC^T$$
 :::
 
 ## Systems of Linear Equations
@@ -259,17 +247,16 @@ Methods to solve linear systems:
 2.  Elimination of variables
 3.  Matrix methods
 
-:::{#exr-lineareq}
+::: {#exr-lineareq}
 ## Linear Equations
 
 Provide a system of 2 equations with 2 unknowns that has
 
-1. one solution
+1.  one solution
 
-2. no solution
+2.  no solution
 
-3. infinite solutions
-
+3.  infinite solutions
 :::
 
 ## Systems of Equations as Matrices
@@ -301,15 +288,12 @@ The right hand side of the linear system is represented by the vector ${\bf b}=\
             a_{m1} & a_{m2} & \cdots & a_{mn} & | & b_m
             \end{pmatrix}$$
 
-:::{#exr-augmatrix}
+::: {#exr-augmatrix}
 ## Augmented Matrix
 
 Create an augmented matrix that represent the following system of equations:
 
-  $$2x_1 -7x_2 + 9x_3 -4x_4 = 8$$
-  $$41x_2 + 9x_3 -5x_6 = 11$$
-  $$x_1 -15x_2 -11x_5 = 9$$
-
+$$2x_1 -7x_2 + 9x_3 -4x_4 = 8$$ $$41x_2 + 9x_3 -5x_6 = 11$$ $$x_1 -15x_2 -11x_5 = 9$$
 :::
 
 ## Finding Solutions to Augmented Matrices and Systems of Equations
@@ -357,18 +341,16 @@ $$\begin{pmatrix}
             a_{11}+a_{21} & a_{12}+a_{22} & | & b_1+b_2
             \end{pmatrix}$$ which represents a linear system equivalent to that represented by matrix $\widehat{\bf A}$.
 
-:::{#exm-solvesys}
-
+::: {#exm-solvesys}
 Solve the following system of equations by using elementary row operations:
 
 $\begin{matrix}
-			x  & - & 3y & = & -3\\
-			2x & + &  y & = &  8
-			\end{matrix}$
-
+            x  & - & 3y & = & -3\\
+            2x & + &  y & = &  8
+            \end{matrix}$
 :::
 
-:::{#exr-solvesys1}
+::: {#exr-solvesys1}
 ## Solving Systems of Equations
 
 Put the following system of equations into augmented matrix form. Then, using Gaussian or Gauss-Jordan elimination, solve the system of equations by putting the matrix into row echelon or reduced row echelon form.
@@ -388,7 +370,6 @@ $$
              -x -4y + z = -6
             \end{cases}
                $$
-
 :::
 
 ## Rank --- and Whether a System Has One, Infinite, or No Solutions
@@ -411,24 +392,23 @@ $\begin{pmatrix} 1 & 2 & 3 \\
 
 Rank = 2
 
-:::{#exr-rank}
+::: {#exr-rank}
 ## Rank of Matrices
 
 Find the rank of each matrix below:
 
 (Hint: transform the matrices into row echelon form. Remember that the number of nonzero rows of a matrix in row echelon form is the rank of that matrix)
 
-1.$\begin{pmatrix} 1 & 1 & 2 \\ 
+1.$\begin{pmatrix} 1 & 1 & 2 \\
 2 & 1 & 3 \\
 1 & 2 & 3 \end{pmatrix}$
 
 \bigskip
 
-2.$\begin{pmatrix} 1 & 3 & 3 & -3 & 3\\ 
+2.$\begin{pmatrix} 1 & 3 & 3 & -3 & 3\\
 1 & 3 & 1 & 1 & 3 \\
 1 & 3 & 2 & -1 & -2 \\
 1 & 3 & 0 & 3 & -2 \end{pmatrix}$
-
 :::
 
 Answer to Exercise @exr-rank:
@@ -475,21 +455,18 @@ To summarize: To calculate the inverse of ${\bf A}$
 
     b.  If ${\bf C}\ne{\bf I}_n$, then $\bf C$ has a row of zeros. This means ${\bf A}$ is singular and ${\bf A}^{-1}$ does not exist.
 
-:::{#exm-inverse}
-
+::: {#exm-inverse}
 Find the inverse of the following matricies:
 
-1. ${\bf A}=\begin{pmatrix} 1&1&1\\0&2&3\\5&5&1 \end{pmatrix}$
-
+1.  ${\bf A}=\begin{pmatrix} 1&1&1\\0&2&3\\5&5&1 \end{pmatrix}$
 :::
 
-:::{#exr-inverse1}
+::: {#exr-inverse1}
 ## Finding the inverse of matrices
 
 Find the inverse of the following matrix:
 
-1. ${\bf A}=\begin{pmatrix} 1&0&4\\0&2&0\\0&0&1 \end{pmatrix}$
-
+1.  ${\bf A}=\begin{pmatrix} 1&0&4\\0&2&0\\0&0&1 \end{pmatrix}$
 :::
 
 ## Linear Systems and Inverses
@@ -510,27 +487,24 @@ If $\bf{A}$ is an $n\times n$ matrix,then $\bf{Ax}=\bf{b}$ is a system of $n$ eq
 ```
 Hence, given $\bf{A}$ and $\bf{b}$ and given that $\bf{A}$ is nonsingular, then $\bf{x} = \bf{A}^{-1} \bf{b}$ is a unique solution to this system.
 
-:::{#exr-invlinsys}
-
+::: {#exr-invlinsys}
 ## Solve linear system using inverses
 
 Use the inverse matrix to solve the following linear system:
 
+```{=tex}
 \begin{align*} 
 -3x + 4y &= 5 \\
 2x - y &= -10
 \end{align*}
+```
+***Hint: the linear system above can be written in the matrix form***
 
-___Hint: the linear system above can be written in the matrix form___ 
+$\textbf{A}\textbf{z} = \textbf{b}$
 
-$\textbf{A}\textbf{z} = \textbf{b}$ 
+given $$\textbf{A} = \begin{pmatrix} -3&4\\2&-1 \end{pmatrix},$$
 
-given $$\textbf{A} = \begin{pmatrix} -3&4\\2&-1 \end{pmatrix},$$ 
-
-$$\textbf{z} = \begin{pmatrix} x\\y \end{pmatrix},$$ 
-and 
-$$\textbf{b} = \begin{pmatrix} 5\\-10 \end{pmatrix}$$
-
+$$\textbf{z} = \begin{pmatrix} x\\y \end{pmatrix},$$ and $$\textbf{b} = \begin{pmatrix} 5\\-10 \end{pmatrix}$$
 :::
 
 ## Determinants
@@ -572,23 +546,22 @@ For example, in figuring out whether the following matrix has an inverse? $${\bf
                 &=& -8\nonumber
 \end{eqnarray} 2. Since $|{\bf A}|\ne 0$, we conclude that ${\bf A}$ has an inverse.
 
-:::{#exr-determinants}
+::: {#exr-determinants}
 ## Determinants and Inverses
 
 Determine whether the following matrices are nonsingular:
 
-  $$1. \begin{pmatrix}
-			1 & 0 & 1\\
-			2 & 1 & 2\\
-			1 & 0 & -1
-		\end{pmatrix}$$
+$$1. \begin{pmatrix}
+            1 & 0 & 1\\
+            2 & 1 & 2\\
+            1 & 0 & -1
+        \end{pmatrix}$$
 
 $$2. \begin{pmatrix}
-			2 & 1 & 2\\
-			1 & 0 & 1\\
-			4 & 1 & 4
-		\end{pmatrix}$$
-
+            2 & 1 & 2\\
+            1 & 0 & 1\\
+            4 & 1 & 4
+        \end{pmatrix}$$
 :::
 
 ## Getting Inverse of a Matrix using its Determinant
@@ -637,16 +610,15 @@ $$ \begin{pmatrix}
             \frac{2}{5} & \frac{3}{5}\\
         \end{pmatrix}$$
 
-:::{#exr-calcinverse}
+::: {#exr-calcinverse}
 ## Calculate Inverse using Determinant Formula
 
 Caculate the inverse of A
 
 $$A = \begin{pmatrix}
-			3 & 5\\
-			-7 & 2\\
-		\end{pmatrix}$$
-
+            3 & 5\\
+            -7 & 2\\
+        \end{pmatrix}$$
 :::
 
 ## Answers to Examples and Exercises {.unnumbered}
