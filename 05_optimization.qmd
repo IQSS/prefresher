@@ -109,21 +109,22 @@ fx0 <- ggplot(range, aes(x = x)) +
   labs(x = expression(x), y = expression(f(x)),
        labs = expression(f(x)==x^2+2)) 
 fx <- fx0 +  
-  stat_function(fun = function(x) x^2 + 2, size = 0.5) +
+  stat_function(fun = function(x) x^2 + 2, linewidth = 0.5) +
   expand_limits(y = 0)
 
-fprimex <- fx0 + stat_function(fun = function(x) 2*x, size = 0.5, linetype = "dashed") +
+fprimex <- fx0 + stat_function(fun = function(x) 2*x, linewidth = 0.5, linetype = "dashed") +
   labs(x = expression(x), y = expression(f~plain("'")~(x)))
 
 fx + fprimex + plot_layout(nrow = 1)
 ```
 
 
-```{exercise}
-#| name: Plotting a mazimum and minimum
-Plot $f(x)=x^3+ x^2 + 2$, plot its derivative, and identifiy where the derivative is zero. Is there a maximum or minimum?
+:::{#exr-maxminplot}
 
-```
+##  Plotting a maximum and minimum
+Plot $f(x)=x^3+ x^2 + 2$, plot its derivative, and identify where the derivative is zero. Is there a maximum or minimum?
+
+:::
 
 
 ```{r}
@@ -175,8 +176,9 @@ __Global Maxima and Minima__ Sometimes no global max or min exists --- e.g., $f(
 
 
 
-```{example}
-#| name: Maxima and Minima by drawing
+:::{#exm-maxmindraw}
+
+##  Maxima and Minima by drawing
 
 Find any critical points and identify whether they are a max, min, or saddle point:
 
@@ -186,7 +188,7 @@ Find any critical points and identify whether they are a max, min, or saddle poi
 1. $f(x)=|x^2-1|$, $x\in [-2,2]$
 
 
-```
+:::
 
 
 
@@ -194,11 +196,13 @@ Find any critical points and identify whether they are a max, min, or saddle poi
 
 Concavity helps identify the curvature of a function, $f(x)$, in 2 dimensional space.
 
-```{definition}
-#| name: Concave Function
+:::{#def-concave}
+
+##  Concave Function
 A function $f$ is strictly concave over the set S \underline{if} $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) > af(x_1) + (1-a)f(x_2)$$
 \textit{Any} line connecting two points on a concave function will lie \textit{below} the function.
-```
+
+:::
 
 
 ```{r}
@@ -215,12 +219,12 @@ fx1 + fx2 + plot_layout(nrow = 1)
 ```
 
 
-```{definition}
-#| name: Convex Function
+:::{#def-convex}
+##  Convex Function
 Convex: A function f is strictly convex over the set S \underline{if} $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) < af(x_1) + (1-a)f(x_2)$$
 
   Any line connecting two points on a convex function will lie above the function.
-```
+:::
 
 
 \begin{comment}
@@ -229,23 +233,25 @@ Convex: A function f is strictly convex over the set S \underline{if} $\forall x
 
 Sometimes, concavity and convexity are strict of a requirement. For most purposes of getting solutions, what we call quasi-concavity is enough.
 
-```{definition}
-#| name: Quasiconcave Function
+:::{#def-quasiconcave}
+##  Quasiconcave Function
 A function f is quasiconcave over the set S if $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) \ge \min(f(x_1),f(x_2))$$
 
   No matter what two points you select, the \textit{lowest} valued point will always be an end point.
 
-```
+:::
 
 \begin{comment}
   \parbox{2in}{\includegraphics[scale=.4]{Quasiconcave.pdf}}
 \end{comment}
 
-```{definition}
-#| name: Quasiconvex
+:::{#def-quasiconvex}
+
+##  Quasiconvex
 A function f is quasiconvex over the set $S$ if $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) \le \max(f(x_1),f(x_2))$$
 No matter what two points you select, the \textit{highest} valued point will always be an end point.
-```
+
+:::
 
 \begin{comment}
   \parbox{1.8in}{\includegraphics[scale=.4]{Quasiconvex.pdf}}
@@ -328,8 +334,8 @@ When we examined functions of one variable $x$, we found critical points by taki
 
 In a derivative, we only took the derivative with respect to one variable at a time. When we take the derivative separately with respect to all variables in the elements of $\mathbf{x}$ and then express the result as a vector, we use the term Gradient and Hessian. 
 
-```{definition}
-#| name: Gradient
+:::{#def-gradient}
+##  Gradient
 
 Given a function $f(\textbf{x})$ in $n$ variables, the gradient $\nabla f(\mathbf{x})$ (the greek letter nabla ) is a column vector, where the $i$th element is the partial derivative of $f(\textbf{x})$ with respect to $x_i$: 
 
@@ -337,28 +343,28 @@ $$\nabla f(\mathbf{x}) = \begin{pmatrix}
 \frac{\partial f(\mathbf{x})}{\partial x_1}\\ \frac{\partial f(\mathbf{x})}{\partial x_2}\\
   \vdots \\ \frac{\partial f(\mathbf{x})}{\partial x_n} \end{pmatrix}$$
 
-```
+:::
 
 Before we know whether a point is a maxima or minima, if it meets the FOC it is a "Critical Point".
 
-```{definition}
-#| name: Critical Point
+:::{#def-criticalpoint}
+##  Critical Point
 
 $\mathbf{x}^*$ is a critical point if and only if $\nabla f(\mathbf{x}^*)=0$. If the partial derivative of f(x) with respect to $x^*$ is 0, then $\mathbf{x}^*$ is a critical point. To solve for $\mathbf{x}^*$, find the gradient, set each element equal to 0, and solve the system of equations. $$\mathbf{x}^* = \begin{pmatrix} x_1^*\\x_2^*\\ \vdots \\ x_n^*\end{pmatrix}$$
   
-```
+:::
 
 
 
 
 
-```{example}
+:::{#exm-gradcp}
 
 Example: Given a function $f(\mathbf{x})=(x_1-1)^2+x_2^2+1$, find the (1) Gradient and (2) Critical point of $f(\mathbf{x})$.
 
-```
+:::
 
-```{solution}
+:::{#sol-gradcp}
 Gradient 
 
 \begin{align*}
@@ -380,7 +386,7 @@ Critical Point $\mathbf{x}^* =$
 So $$\mathbf{x}^* = (1,0)$$
 
 
-```
+:::
 
 
 
@@ -388,23 +394,22 @@ So $$\mathbf{x}^* = (1,0)$$
 ### Second Order Conditions {.unnumbered}
 When we found a critical point for a function of one variable, we used the second derivative as a indicator of the curvature at the point in order to determine whether the point was a min, max, or saddle (second derivative test of concavity).  For functions of $n$ variables, we use _second order partial derivatives_ as an indicator of curvature.
 
-```{definition}
-#| name: Hessian
+:::{#def-hessian}
+
+##  Hessian
 
 Given a function $f(\mathbf{x})$ in $n$ variables, the hessian $\mathbf{H(x)}$ is
 an $n\times n$ matrix, where the $(i,j)$th element is the second order
 partial derivative of $f(\mathbf{x})$ with respect to $x_i$ and $x_j$:
 
-$$\mathbf{H(x)}=\begin{pmatrix}
-\frac{\partial^2 f(\mathbf{x})}{\partial x_1^2}&\frac{\partial^2f(\mathbf{x})}{\partial x_1 \partial x_2}&
-\cdots & \frac{\partial^2 f(\mathbf{x})}{\partial x_1 \partial x_n}\$$9pt]
+$$\mathbf{H(x)}=\begin{pmatrix} \frac{\partial^2 f(\mathbf{x})}{\partial x_1^2}&\frac{\partial^2f(\mathbf{x})}{\partial x_1 \partial x_2}& \cdots & \frac{\partial^2 f(\mathbf{x})}{\partial x_1 \partial x_n}\$$9pt]
 \frac{\partial^2 f(\mathbf{x})}{\partial x_2 \partial x_1}&\frac{\partial^2f(\mathbf{x})}{\partial x_2^2}&
 \cdots & \frac{\partial^2 f(\mathbf{x})}{\partial x_2 \partial x_n}\\
 \vdots & \vdots & \ddots & \vdots \$$3pt]
 \frac{\partial^2 f(\mathbf{x})}{\partial x_n \partial x_1}&\frac{\partial^2f(\mathbf{x})}{\partial x_n \partial x_2}&
 \cdots & \frac{\partial^2 f(\mathbf{x})}{\partial x_n^2}\end{pmatrix}$$
 
-```
+:::
 
 
 
@@ -426,17 +431,17 @@ Given a function $f(\mathbf{x})$ and a point $\mathbf{x}^*$ such that $\nabla f(
 
 
 
-```{example}
-#| name: Max and min with two dimensions
+:::{#exm-maxmin2d}
+##  Max and min with two dimensions
 
 We found that the only critical point of
 $f(\mathbf{x})=(x_1-1)^2+x_2^2+1$ is at $\mathbf{x}^*=(1,0)$.  Is it a min, max, or
 saddle point?
 
-```
+:::
 
 
-```{solution}
+:::{#sol-maxmin2d}
 
 The Hessian is
 \begin{align*}
@@ -458,7 +463,7 @@ Note: Alternate check of definiteness. Is $\mathbf{H(x^*)} \geq \leq 0 \quad \fo
 
 For any $\mathbf{x}\ne 0$, $2(x_1^2+x_2^2)>0$, so the Hessian is 	positive definite and $\mathbf{x}^*$ is a strict local minimum.
   
-```
+:::
 
 
 
@@ -501,9 +506,11 @@ is globally concave.  So $x=0$ is a global min of $f_1(x)$ and a
 global max of $f_2(x)$.
 
 
-```{exercise}
+:::{#exr-maxmin}
+
 Given $f(\mathbf{x})=x_1^3-x_2^3+9x_1x_2$, find any maxima or minima.
-```
+
+:::
 
 
   \begin{enumerate}
@@ -640,15 +647,15 @@ We can then solve this system of equations, because there are $n+k$ equations an
 
 **Second-order Conditions and Unconstrained Optimization:** There may be more than one critical point, i.e. we need to verify that the critical point we find is a maximum/minimum.  Similar to unconstrained optimization, we can do this by checking the second-order conditions.
 
-```{example}
-#| name: Constrained optimization with two goods and a budget constraint
+:::{#exm-constropt}
+##  Constrained optimization with two goods and a budget constraint
 
 Find the constrained optimization of 
 $$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } x_1 + x_2 = 4$$
   
-```
+:::
 
-```{solution}
+:::{#sol-constropt}
 
 1. Begin by writing the Lagrangian:
 $$L(x_1, x_2, \lambda) =  -(x_1^2 + 2x_2^2) - \lambda(x_1 + x_2 - 4)$$
@@ -668,7 +675,7 @@ $$L(x_1, x_2, \lambda) =  -(x_1^2 + 2x_2^2) - \lambda(x_1 + x_2 - 4)$$
 5. This gives $f(\frac{8}{3}, \frac{4}{3}) = -\frac{96}{9}$, which is less than the unconstrained optimum $f(0,0) = 0$
 
 
-```
+:::
 
 Notice that when we take the partial derivative of L with respect to the Lagrangian multiplier and set it equal to 0, we return exactly our constraint! This is why signs matter.
 
@@ -756,7 +763,7 @@ Looking at the values of $f(x_1,x_2)$ at the critical points, we see that $f(x_1
 
 
 
-```{exercise}
+:::{#exr-critical-points-constrained-optimization}
 Example: Find the critical points for the following constrained optimization:
 $$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } 
 \begin{array}{l}
@@ -764,12 +771,12 @@ x_1 + x_2 \le 4\\
 x_1 \ge 0\\
 x_2 \ge 0
 \end{array}$$
-```
+:::
 
 
 
 1.  Rewrite with the slack variables:
-$$\phantom{max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } 
+$$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t.  
 \begin{array}{l}
 x_1 + x_2 \le 4 - s_1^2\\
 -x_1 \le 0 - s_2^2\\
@@ -790,7 +797,7 @@ $\frac{\partial L}{\partial s_1} = 2s_1\lambda_1  =  0$\\
 $\frac{\partial L}{\partial s_2} = 2s_2\lambda_2  =  0$\\
 $\frac{\partial L}{\partial s_3} = 2s_3\lambda_3  =  0$}
 
-4. Consider all ways that the complementary slackness conditions are solved:
+3. Consider all ways that the complementary slackness conditions are solved:
 \begin{center}
 \begin{tabular}{|l|cccccccc|c|}
 \hline
@@ -810,7 +817,7 @@ $s_1 \neq 0, s_2 \neq 0, s_3 \neq 0$ &\multicolumn{8}{l|}{\phantom{No solution}}
 
 \phantom{This shows that there are four critical points: $(0,0)$, $(4,0)$, $(0,4)$, and $(\frac{8}{3},\frac{4}{3})$}
 
-5.  Find maximum: \phantom{Looking at the values of $f(x_1,x_2)$ at the critical points, we see that the constrained maximum is located at $(x_1, x_2) = (0,0)$, which is the same as the unconstrained max.  The constrained minimum is located at $(x_1, x_2) = (0,4)$, while there is no unconstrained minimum for this problem.}
+4.  Find maximum: \phantom{Looking at the values of $f(x_1,x_2)$ at the critical points, we see that the constrained maximum is located at $(x_1, x_2) = (0,0)$, which is the same as the unconstrained max.  The constrained minimum is located at $(x_1, x_2) = (0,4)$, while there is no unconstrained minimum for this problem.}
 
 
 
@@ -877,8 +884,8 @@ In a two-dimensional set-up, this means we must check the following cases:
 
 
 
-```{example}
-#| name: Kuhn-Tucker with two variables
+:::{#exm-k-t-2}
+##  Kuhn-Tucker with two variables
 Solve the following optimization problem with inequality constraints
 $$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2)$$
 
@@ -891,7 +898,7 @@ $$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2)$$
 \end{cases}
 \end{align*}
 
-```
+:::
 
 
 1.  Write the Lagrangian:
@@ -939,8 +946,8 @@ Three of the critical points violate the requirement that $\lambda \geq 0$, so t
 
 
 
-```{exercise}
-#| name: Kuhn-Tucker with logs
+:::{#exr-ktlogs}
+##  Kuhn-Tucker with logs
 Solve the constrained optimization problem,
 
 
@@ -950,51 +957,34 @@ x_1 + 2x_2 \leq 4\\
 	 x_1 \geq 0\\
 	x_2 \geq 0
 \end{array}$$
-```
+:::
 
 
 
-\begin{enumerate}
-\item Write the Lagrangian:
-$$\phantom{L(x_1, x_2, \lambda) =  \frac{1}{3}\log(x_1+1) + \frac{2}{3}\log(x_2+1) - \lambda(x_1 + 2x_2 - 4)}$$
+1. Write the Lagrangian:
+$$L(x_1, x_2, \lambda) =  \frac{1}{3}\log(x_1+1) + \frac{2}{3}\log(x_2+1) - \lambda(x_1 + 2x_2 - 4)$$
 
-\item Find the First Order Conditions:\\
-Kuhn-Tucker Conditions\\
-\phantom{$\frac{\partial L}{\partial x_1} = \frac{1}{3(x_1+1)} - \lambda   \leq  0$\\
+2. Find the First Order Conditions:
+
+Kuhn-Tucker Conditions
+
+$\frac{\partial L}{\partial x_1} = \frac{1}{3(x_1+1)} - \lambda   \leq  0$\\
 $\frac{\partial L}{\partial x_2}  = \frac{2}{3(x_2+1)} - \lambda  \leq   0$\\
-$\frac{\partial L}{\partial \lambda} = -(x_1 + 2x_2 - 4) \geq  0$}\\
-\item[]
-\item[]
-\item[]
-\item[]
-\item[]
-\item[]
-\item[]
-\item[]
+$\frac{\partial L}{\partial \lambda} = -(x_1 + 2x_2 - 4) \geq  0$\\
  
-Complementary Slackness Conditions\\
-\phantom{$x_1\frac{\partial L}{\partial x_2} = x_1(\frac{1}{3(x_1+1)} - \lambda)  =  0$\\
+Complementary Slackness Conditions
+
+$x_1\frac{\partial L}{\partial x_2} = x_1(\frac{1}{3(x_1+1)} - \lambda)  =  0$\\
 $x_2\frac{\partial L}{\partial x_2} = x_2(\frac{2}{3(x_2+1)} - \lambda)   =  0$\\
-$\lambda\frac{\partial L}{\partial \lambda} = -\lambda(x_1 + 2x_2 - 4) =  0$}\\
-\item[]
-\item[]
-\item[]
-\item[]
-\item[]
-\item[]
-\item[]
-\item[]
-\item[]
+$\lambda\frac{\partial L}{\partial \lambda} = -\lambda(x_1 + 2x_2 - 4) =  0$\\
 
-Non-negativity Conditions\\
-\phantom{$x_1  \geq  0$\\
+Non-negativity Conditions
+
+$x_1  \geq  0$\\
 $x_2  \geq  0$\\
-$\lambda  \geq  $0}\\
-\item[]
-\item[]
-\item[]
+$\lambda  \geq  $0\\
 
-\item Consider all border and interior cases:
+3. Consider all border and interior cases:
 \begin{center}
 \begin{tabular}{|l|ccc|c|}
 \hline
@@ -1008,14 +998,9 @@ $x_1 \neq 0, x_2 \neq 0$ &  & \phantom{$\frac{4}{3}$} & \phantom{$\frac{4}{3}$} 
 \end{tabular}
 \end{center}
 
-\item[]
-\item[]
-\item[]
-\item[]
+4.  Find Maximum:
 
-\item  Find Maximum:\\
 \phantom{Three of the critical points violate the constraints, so the point $(\frac{4}{3},\frac{4}{3})$ is the maximum.}\\
-\end{enumerate}
 
 
 
@@ -1027,11 +1012,8 @@ The Hessian is used in a Taylor polynomial approximation to $f(\mathbf{x})$ and 
 
 1.  The second order Taylor polynomial about the critical point
 ${\bf x}^*$ is
-  $$f({\bf x}^*+\bf h)=f({\bf x}^*)+\nabla f({\bf x}^*) \bf h +\frac{1}{2} \bf h^\top
-{\bf H(x^*)} \bf h + R(\bf h)$$
+  $$f({\bf x}^*+\bf h)=f({\bf x}^*)+\nabla f({\bf x}^*) \bf h +\frac{1}{2} \bf h^\top {\bf H(x^*)} \bf h + R(\bf h)$$
 2.  Since we're looking at a critical point, $\nabla f({\bf x}^*)=0$;
 and for small $\bf h$, $R(\bf h)$ is negligible.  Rearranging, we get
-$$f({\bf x}^*+\bf h)-f({\bf x}^*)\approx \frac{1}{2} \bf h^\top {\bf H(x^*)}
-\bf h $$
-3. The Righthand side here is a quadratic form and we can determine the definiteness of $\bf
-H(x^*)$.
+$$f({\bf x}^*+\bf h)-f({\bf x}^*)\approx \frac{1}{2} \bf h^\top {\bf H(x^*)} \bf h $$
+3. The Righthand side here is a quadratic form and we can determine the definiteness of $\bf H(x^*)$.

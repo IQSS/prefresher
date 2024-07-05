@@ -14,6 +14,8 @@ book:
       chapters: 
         - 02_functions.qmd
         - 03_limits.qmd
+        - 04_calculus.qmd
+        - 05_optimization.qmd
   
 
 delete_merged_file: true
