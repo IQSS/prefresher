@@ -442,7 +442,7 @@ Given $f(\mathbf{x})=x_1^3-x_2^3+9x_1x_2$, find any maxima or minima.
         \Rightarrow \quad x_1 = 3$$
         $$3(3)^2 + 9x_2 = 0 \quad \Rightarrow \quad x_2 = -3$$  
     \end{enumerate}       
- 
+
   \item Second order conditions.  
     \begin{enumerate}
     \item Hessian $\mathbf{H(x)} = $
@@ -465,7 +465,7 @@ Given $f(\mathbf{x})=x_1^3-x_2^3+9x_1x_2$, find any maxima or minima.
     \item Maxima, Minima, or Saddle Point for $\mathbf{x}_2^*$?\\
         Since $\mathbf{H(x_2^*)}$ is positive definite, $\mathbf{x}_1^*=(3,-3)$ is a strict local minimum\\
     \end{enumerate}   
-    
+
   \item Global concavity/convexity.  
     \begin{enumerate}
     \item Is f(x) globally concave/convex?\\

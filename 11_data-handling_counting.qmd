@@ -64,13 +64,13 @@ library(fs)
     To load a dataset, you need to specify where that file is. Computer files (data, documents, programs) are organized hiearchically, like a branching tree. Folders can contain files, and also other folders.   The GUI toolbar makes this lineaer and hiearchical relationship apparent. When we turn to locate the file in our commands, we need another set of syntax. Importantly, denote the hierarchy of a folder by the `/` (slash) symbol. `data/input/2018-08` indicates the `2018-08` folder, which is included in the `input` folder, which is in turn included in the `data` folder. 
 
     Files (but not folders) have "file extensions" which you are probably familiar with already: `.docx`, `.pdf`, and `.pdf`. The file extensions you will see in a stats or quantitative social science class are:
-    
+
     * `.pdf`: PDF, a convenient format to view documents and slides in, regardless of Mac/Windows.
     * `.csv`: A comma separated values file
     * `.xlsx`: Microsoft Excel file
     * `.dta`: Stata data
     * `.sav`: SPSS data
-    
+
     * `.R`: R code (script)
     * `.Rmd`: Rmarkdown code (text + code)
     * `.do`: Stata code (script)

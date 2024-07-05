@@ -117,7 +117,7 @@ my_string[ grepl(my_string, pattern = "Indonesia")]
 Key point: Many R commands use regular expressions. See ```?grepl```. Assume that ```x``` is a character vector and that ```pattern``` is the target pattern. In the earlier example, ```x``` could have been something like ```my_string``` and  ```pattern``` would have been "```Indonesia```". Here are other key uses: 
 
 1. DETECT PATTERNS. ```grepl(pattern, x)``` goes through all the entries of ```x``` and returns a string of TRUE and FALSE values of the same size as ```x```. It will return a ```TRUE``` whenever that string entry has the target pattern, and ```FALSE``` whenever it doesn't. 
-      
+
 2. REPLACE PATTERNS. ```gsub(pattern, x, replacement)``` goes through all the entries of ```x``` replaces the ```pattern``` with ```replacement```. 
 
 ```{r}
@@ -159,7 +159,7 @@ my_string <- "Do you think that 34% of apples are red?"
 gsub(my_string, pattern = "[[:digit:]]", replace ="DIGIT")
 gsub(my_string, pattern = "[[:alpha:]]", replace ="")
 ```
-        
+
 ### Special Characters. 
 
 Certain characters (such as ```., *, \```) have special meaning in the regular expressions framework (they are used to form conditional patterns as discussed below). Thus, when we want our pattern to explicitly include those characters as characters, we must "escape" them by using \\ or encoding them in \\Q...\\E. 
@@ -340,7 +340,7 @@ string2 <-  "–carbon double bond."
 ### 7 {.unnumbered}
 
 Challenge problem! Download this webpage  <https://en.wikipedia.org/wiki/Odyssey>
- 
+
 * Read the html file into your R workspace. 
 * Remove all of the htlm tags (you may need Google to help with this one). 
 * Remove all punctuation. 

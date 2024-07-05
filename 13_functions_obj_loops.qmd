@@ -104,7 +104,6 @@ __class__ - Book, __object__ - To Kill a Mockingbird
 __class__ - DataFrame, __object__ - 2010 census data
 
 __class__ - Character, __object__ - "Programming is Fun"
-           
 
 What is type (class) of object is `cen10`?
 ```{r}
@@ -264,7 +263,7 @@ It's worth remembering the basic structure of a function. You create a new funct
 ```{r}
 #| eval: !expr F
 my_fun <- function() {
-  
+
 }
 ```
 
@@ -272,9 +271,9 @@ If we wanted to generate a function that computed the number of men in your data
 
 ```{r}
 count_men <- function(data) {
-  
+
   nmen <- sum(data$sex == "Male")
-  
+
   return(nmen)
 }
 ```
@@ -294,11 +293,11 @@ Let's go one step further. What if we want to know the proportion of non-whites 
 
 ```{r}
 nw_in_state <- function(data, state) {
-  
+
   s.subset <- data[data$state == state,]
   total.s <- nrow(s.subset)
   nw.s <- sum(s.subset$race != "White")
-  
+
   nw.s / total.s
 }
 ```
@@ -445,7 +444,7 @@ for( state in states_of_interest){
   nmen <- sum(state_data$sex == "Male")
   n <- nrow(state_data)
   men_perc <- round(100*(nmen/n), digits=2)
-  
+
   male_percentages <- c(male_percentages, men_perc)
   names(male_percentages)[iter] <- state
   iter <- iter + 1

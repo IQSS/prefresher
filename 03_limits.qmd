@@ -39,9 +39,9 @@ A finding that perhaps rivals the Central Limit Theorem is the Law of Large Numb
 ## (Weak) Law of Large Numbers
 
 For any draw of identically distributed independent variables with mean $\mu$, the sample average after $n$ draws, $\bar{X}_n$, converges in probability to the true mean as $n \rightarrow \infty$:
-  
+
 $$\lim\limits_{n\to \infty} P(|\bar{X}_n - \mu | > \varepsilon) = 0$$
-  
+
 A shorthand of which is  $\bar{X}_n \xrightarrow{p} \mu$, where the arrow is read as "converges in probability to".
 :::
 
@@ -74,14 +74,13 @@ We need a couple of steps until we get to limit theorems in probability. First w
 A **sequence** $$\{x_n\}=\{x_1, x_2, x_3, \ldots, x_n\}$$ is an ordered set of real numbers, where $x_1$ is the first term in the sequence and $y_n$ is the $n$th term. Generally, a sequence is infinite, that is it extends to $n=\infty$. We can also write the sequence as $$\{x_n\}^\infty_{n=1}$$
 
 where the subscript and superscript are read together as "from 1 to infinity."
-	
 
 :::{#exm-seqbehav}
 
 ## Sequences
 
 How do these sequences behave?
-  
+
 1. $\{A_n\}=\left\{ 2-\frac{1}{n^2} \right\}$
 2. $\{B_n\}=\left\{\frac{n^2+1}{n} \right\}$
 3. $\{C_n\}=\left\{(-1)^n \left(1-\frac{1}{n}\right) \right\}$
@@ -148,7 +147,7 @@ $$\lim_{n\to \infty} \frac{n + 3}{n},$$
 :::{#sol-simplfrac}
 
 At first glance, $n + 3$ and $n$  both grow to $\infty$, so it looks like we need to divide infinity by infinity. However, we can express this fraction as a sum, then the limits apply separately:
-  
+
 $$\lim_{n\to \infty} \frac{n + 3}{n} = \lim_{n\to \infty} \left(1 + \frac{3}{n}\right) =  \underbrace{\lim_{n\to \infty}1}_{1} +  \underbrace{\lim_{n\to \infty}\left(\frac{3}{n}\right)}_{0}$$
 
 so, the limit is actually 1. 
@@ -170,9 +169,9 @@ Find the following limits of sequences, then explain in English the intuition fo
 We've now covered functions and just covered limits of sequences, so now is the time to combine the two.
 
 A function $f$ is a compact representation of some behavior we care about. Like for sequences, we often want to know if $f(x)$ approaches some number $L$ as its independent variable $x$ moves to some number $c$ (which is usually 0 or $\pm\infty$).  If it does, we say that the limit of $f(x)$, as $x$ approaches $c$, is $L$: $\lim\limits_{x \to c} f(x)=L$. Unlike a sequence, $x$ is a continuous number, and we can move in decreasing order as well as increasing. 
-	
+
 For a limit $L$ to exist, the function $f(x)$ must approach $L$ from both the left (increasing) and the right (decreasing).
-	
+
 :::{#def-limfunc}
 
 ## Limit of a function
@@ -228,8 +227,6 @@ Solve the following limits of functions
 
 :::
 
-		
-
 So there are a few more alternatives about what a limit of a function could be:
 
 1. Right-hand limit: The value approached by $f(x)$ when you move from right to left.
@@ -280,7 +277,7 @@ For each function, determine if it is continuous or discontinuous.
  2. $f(x) = e^x$
  3. $f(x) = 1 + \frac{1}{x^2}$ 
  4. $f(x) = \text{floor}(x)$. 
- 
+
 The floor is the smaller of the two integers bounding a number. So $\text{floor}(x = 2.999) =  2$, $\text{floor}(x = 2.0001) =  2$, and $\text{floor}(x = 2) =  2.$ 
 :::
 
@@ -345,7 +342,7 @@ Example @exm-seqbehav
  1. $\{A_n\}=\left\{ 2-\frac{1}{n^2} \right\} = \left\{1, \frac{7}{4}, \frac{17}{9},  \frac{31}{16}, \frac{49}{25},  \ldots\right\} = 2$
  2. $\{B_n\}=\left\{\frac{n^2+1}{n} \right\} = \left\{2, \frac{5}{2}, \frac{10}{3},  \frac{17}{4}..., \right\}$
  3. $\{C_n\}=\left\{(-1)^n \left(1-\frac{1}{n}\right) \right\} = \left\{0, \frac{1}{2}, -\frac{2}{3}, \frac{3}{4}, -\frac{4}{5}\right\}$
-  
+
 :::
 
 Exercise @exr-limseq2

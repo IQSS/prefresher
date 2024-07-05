@@ -2,13 +2,11 @@
 
 Probability and Inferences are mirror images of each other, and both are integral to social science. Probability quantifies uncertainty, which is important because many things in the social world are at first uncertain. Inference is then the study of how to learn about facts you don't observe from facts you do  observe.
 
- 
 ```{r}
 #| include: false
 library(ggplot2)
 options(knitr.graphics.auto_pdf = TRUE) # use pdf for images
 ```
- 
 
 ## Counting rules
 
@@ -68,8 +66,6 @@ There are five balls numbered from 1 through 5 in a jar. Three balls are chosen.
 
 Four cards are selected from a deck of 52 cards. Once a card has been drawn, it is not reshuffled back into the deck. Moreover, we care only about the complete hand that we get (i.e. we care about the set of selected cards, not the sequence in which it was drawn). How many possible outcomes are there?
 
-  
-
 ```
 
 ## Sets {#setoper}
@@ -115,7 +111,6 @@ Write out the following sets:
 2. $C \cap B$
 3. $B^c$
 4. $A \cap (B \cup C)$
-  
 
 ```
 
@@ -127,14 +122,11 @@ Suppose you had a pair of four-sided dice. You sum the results from a single tos
 
 What is the set of possible outcomes (i.e. the sample space)?
 
-  
 Consider subsets A {2, 8} and B {2,3,7} of the sample space you found. What is
 
   1. $A^c$
   2. $(A \cup B)^c$
-    
-  
- 
+
 ```
 
 ## Probability {#probdef}
@@ -173,7 +165,7 @@ The axioms of probability make sure that the separate events add up in terms of 
 A_i\right)=\sum\limits_{i=1}^k P(A_i)$$
 
 The last axiom is an extension of a union to infinite sets. When there are only two events in the space, it boils down to:
-  
+
 \begin{align*}
 P(A_1 \cup A_2) = P(A_1) + P(A_2) \quad\text{for disjoint } A_1, A_2
 \end{align*}
@@ -219,9 +211,7 @@ Suppose you had a pair of four-sided dice. You sum the results from a single tos
 
 1. What is $P(X = 5)$, $P(X = 3)$, $P(X = 6)$?
 
-  
 2. What is $P(X=5 \cup X = 3)^C$? 
-  
 
 ```
 
@@ -243,7 +233,6 @@ Assume $A$ and $B$ occur with the following frequencies: $\quad$
 --------- ---------  ---------
 $B$       $n_{ab}$   $n_{a^cb}$
 $B^C$     $n_{ab^c}$ $n_{(ab)^c}$
-    
 
 and let $n_{ab}+n_{a^Cb}+n_{ab^C}+n_{(ab)^C}=N$.  Then
 
@@ -260,7 +249,7 @@ and let $n_{ab}+n_{a^Cb}+n_{ab^C}+n_{(ab)^C}=N$.  Then
 #| label: condprobexm2
 
  A six-sided die is rolled.  What is the probability of a 1, given the outcome is an odd number? 
-  
+
 ```
 
 You could rearrange the fraction to highlight how a joint probability could be expressed as the product of a conditional probability. 
@@ -313,7 +302,6 @@ In a given town, 40% of the voters are Democrat and 60% are Republican. The pres
 #| label: condprobexr
 
 Assume that 2% of the population of the U.S. are members of some extremist militia group. We develop a survey that positively classifies someone as being a member of a militia group given that they are a member 95% of the time and negatively classifies someone as not being a member of a militia group given that they are not a member 97% of the time. What is the probability that someone positively classified as being a member of a militia group is actually a militia member?
-  
 
 ```
 
@@ -347,7 +335,6 @@ No. If A and B are mutually exclusive, then they cannot happen simultaneously. I
 Just because two events are conditionally independent does not mean that they are independent. Actually it is hard to think of real-world things that are "unconditionally" independent. That's why it's always important to ask about a finding: What was it conditioned on?  For example, suppose that a graduate school admission decisions are done by only one professor, who picks a group of 50 bright students and flips a coin for each student to generate a class of about 25 students. Then the the probability that two students get accepted are conditionally independent, because they are determined by two separate coin tosses. However, this does not mean that their admittance is not completely independent. Knowing that student $A$ got in gives us information about whether student $B$ got in, if we think that the professor originally picked her pool of 50 students by merit. 
 
 Perhaps more counter-intuitively: If two events are already independent, then it might seem that no amount of "conditioning" will make them dependent. But this is not always so. For example^[Example taken from Blitzstein and Hwang, Example 2.5.10], suppose I only get a call from two people, Alice and Bob. Let $A$ be the event that Alice calls, and $B$ be the event that Bob calls. Alice and Bob do not communicate, so $P(A \mid B) = P(A).$ But now let $C$ be the event that your phone rings. For conditional independence to hold here, then $P(A \mid C)$ must be equal to $P(A \mid B \cap C).$ But this is not true -- $A \mid C$  may or may not be true, but $P(A \mid B \cap C)$ certainly is true. 
- 
 
 ## Random Variables
 
@@ -448,12 +435,11 @@ Note that $P(X > x) = 1 - P(X \le x)$.
 
 ```{example}
 For a fair die with its value as $Y$, What are the following?
-  
+
 1. $P(Y\le 1)$
 2. $P(Y\le 3)$
 3. $P(Y\le 6)$
 
-  
 ```
 
 ### Continuous Random Variables {.unnumbered}
@@ -545,8 +531,6 @@ We can then make statements about the joint distribution of $X$ and $Y$. What ar
 1. $P(X=x|Y=y)$
 1. Are X and Y independent? 
 
-  
-
 ```
 
 ## Expectation 
@@ -565,7 +549,6 @@ In words, it is the weighted average of all possible values of $Y$, weighted by 
 #| label: expectdiscrete
 
 What is the expectation of a fair, six-sided die?
-  
 
 ```
 
@@ -623,10 +606,9 @@ We can also look at other summaries of the distribution, which build on the idea
 ```{definition}
 #| name: Variance
 The Variance of a Random Variable $Y$ is
-  
+
   $$\text{Var}(Y) = E[(Y - E(Y))^2] =  E(Y^2)-[E(Y)]^2$$
 
-  
 The Standard Deviation is the square root of the variance : $$SD(Y) = \sigma_Y= \sqrt{\text{Var}(Y)}$$
 
 ```
@@ -643,10 +625,8 @@ $$f(x) =  \begin{cases}
                $$
 
 What is $\text{Var}(x)$?
-  
-__Hint:__ First calculate $E(X)$ and $E(X^2)$
 
-  
+__Hint:__ First calculate $E(X)$ and $E(X^2)$
 
 ```
 
@@ -701,7 +681,7 @@ Suppose we have a PMF with the following characteristics:
   P(X = 1) = \frac{1}{15}\\
   P(X = 2) = \frac{11}{30}
 \end{eqnarray*}
-  
+
 1. Calculate the expected value of X
 
 Define the random variable $Y = X^2$. 
@@ -732,7 +712,7 @@ $$f(x) =  \begin{cases}
 #| label: expvar3
 
 1. Find the mean and standard deviation of random variable X. The PDF of this X is as follows:
-  
+
   $$f(x) =  \begin{cases}
               \frac{1}{4}x \quad 0 \leq x \leq 2\\
                \frac{1}{4}(4 - x)  \quad 2 \leq x \leq 4\\
@@ -741,7 +721,6 @@ $$f(x) =  \begin{cases}
                $$
 
 2. Next, calculate $P(X < \mu - \sigma)$ Remember, $\mu$ is the mean and $\sigma$ is the standard deviation
-  
 
 ```
 
@@ -776,7 +755,6 @@ $$P(Y = y)=\frac{\lambda^y}{y!}e^{-\lambda}, \quad y=0,1,2,\ldots, \quad \lambda
 The Poisson has the unusual feature that its expectation equals its variance: $E(Y)=\text{Var}(Y)=\lambda$. The Poisson distribution is often used to model rare event counts:  counts of the number of events that occur during some unit of time.  $\lambda$ is often called the "arrival rate."
 
 ```
-   
 
 ```{example}
 Border disputes occur between two countries through a Poisson Distribution, at a rate of 2 per month.  What is the probability of 0, 2, and less than 5 disputes occurring in a month?
@@ -889,7 +867,7 @@ __Covariance and Correlation__: Both of these quantities measure the degree to w
 
 ```{example}
 Example:  Using the above table, calculate the sample versions of:
-  
+
 1. $\text{Cov}(X,Y)$
 2. $\text{Corr}(X, Y)$
 
@@ -921,16 +899,16 @@ as $n\to \infty$, where $$\Phi(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}}e^{-\f
 
 This result means that, as $n$ grows, the distribution of the sample mean $\bar X_n = \frac{1}{n} (X_1 + X_2 + \cdots + X_n)$ is approximately normal with mean $\mu$ and standard deviation $\frac{\sigma}{\sqrt n}$, i.e.,
 $$\bar{X}_n \approx \mathcal{N}\bigg(\mu, \frac{\sigma^2}{n}\bigg).$$ The standard deviation of $\bar X_n$ (which is roughly a measure of the precision of $\bar X_n$ as an estimator of $\mu$) decreases at the rate $1/\sqrt{n}$, so, for example, to increase its precision by $10$ (i.e., to get one more digit right), one needs to collect $10^2=100$ times more units of data.
- 
+
 Intuitively, this result also justifies that whenever a lot of small, independent processes somehow combine together to form the realized observations, practitioners often feel comfortable assuming Normality. 
 
 ```{theorem}
 #| label: lln
 #| name: Law of Large Numbers (LLN)
 For any draw of independent random variables with the same mean $\mu$, the sample average after $n$ draws, $\bar{X}_n = \frac{1}{n}(X_1 + X_2 + \ldots + X_n)$, converges in probability to the expected value of $X$, $\mu$  as $n \rightarrow \infty$:
-  
+
 $$\lim\limits_{n\to \infty} P(|\bar{X}_n - \mu | > \varepsilon) = 0$$
-  
+
 A shorthand of which is  $\bar{X}_n \xrightarrow{p} \mu$, where the arrow is read as "converges in probability to".
 ```
 
@@ -1006,7 +984,6 @@ Answer to Exercise \@ref(exr:prob1):
 
 1. $P(X = 5) = \frac{4}{16}$, $P(X = 3) = \frac{2}{16}$, $P(X = 6) = \frac{3}{16}$
 
-  
 2. What is $P(X=5 \cup X = 3)^C = \frac{10}{16}$? 
 
 Answer to Example \@ref(exm:condprobexm1):

@@ -210,7 +210,7 @@ The first entry, `nunn2011slave`, is "pick your favorite" -- pick your own name 
 Now, in LaTeX, if you type  
 
       \textcite{nunn2011slave} argue that current variation in the trust among citizens of African countries has historical roots in the European slave trade in the 1600s.
-      
+
 as part of your text, then when the `.tex` file is compiled the PDF shows something like 
 
 ![](images/biblatex_inline.png)

@@ -39,7 +39,7 @@ Let $f$ be a function whose domain includes an open interval containing the poin
 $$\frac{d}{dx}f(x) =\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{(x+h)-x} = \lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{h}$$
 
 There are a two main ways to denote a derivative:
-  
+
 * Leibniz Notation: $\frac{d}{dx}(f(x))$
 * Prime or Lagrange Notation: $f'(x)$
 
@@ -68,7 +68,7 @@ gx <- fx0 +
   stat_function(fun = function(x) x^3, size = 0.5) +
   labs(y = expression(g(x)), title = expression(g(x)==x^3)) +
   expand_limits(y = 0)
-  
+
 gprimex <- fx0 + stat_function(fun = function(x) 3*(x^2), size = 0.5, linetype = "dashed") +
   labs(x = expression(x), y = expression(g~plain("'")~(x)))
 
@@ -148,7 +148,6 @@ For each of the following functions, find the first-order derivative $f^\prime(x
 1. $f(x) = (x^2 + 1)(x^3 - 1)$
 1. $f(x) = 3x^2 + 2x^{1/3}$
 1. $f(x)=\frac{x^2+1}{x^2-1}$
-  
 
 :::
 
@@ -206,10 +205,9 @@ We can read this as: "the derivative of the composite function $y$ is the deriva
 The chain rule can be thought of as the derivative of the "outside" times the derivative of the "inside", remembering that the derivative of the outside function is evaluated at the value of the inside function.
 
 * The chain rule can also be written as $$\frac{dy}{dx}=\frac{dy}{dg(x)} \frac{dg(x)}{dx}$$ This expression does not imply that the $dg(x)$'s cancel out, as in fractions.  They are part of the derivative notation and you can't separate them out or cancel them.)	
-	
 
 :::{#exm-tothesix}
- 
+
 ## Composite Exponent
 
 Find $f^\prime(x)$ for $f(x) = (3x^2+5x-7)^6$.
@@ -393,7 +391,6 @@ Let $f(x,y)=x^3 y^4 +e^x -\log y$. What are the following partial derivaitves?
 \frac{\partial^2 f}{\partial x^2}(x,y) &=\\
 \frac{\partial^2 f}{\partial x \partial y}(x,y) &= 
 \end{align*}
-  
 
 :::
 
@@ -402,7 +399,6 @@ Let $f(x,y)=x^3 y^4 +e^x -\log y$. What are the following partial derivaitves?
 A common form of approximation used in statistics involves derivatives. A Taylor series is a way to represent common functions as infinite series (a sum of infinite elements) of the function's derivatives at some point $a$. 
 
 For example, Taylor series are very helpful in representing nonlinear (read: difficult) functions as linear (read: manageable) functions. One can thus __approximate__ functions by using lower-order, finite series known as __Taylor polynomials__. If $a=0$, the series is called a Maclaurin series.
-  
 
 Specifically, a Taylor series of a real or complex function  $f(x)$ that is infinitely differentiable in the neighborhood of point $a$ is: 
 
@@ -410,7 +406,7 @@ Specifically, a Taylor series of a real or complex function  $f(x)$ that is infi
 	f(x) &= f(a) + \frac{f'(a)}{1!} (x-a) +  \frac{f''(a)}{2!} (x-a)^2 + \cdots\\
 	 &= \sum_{n=0}^\infty \frac{f^{(n)} (a)}{n!} (x-a)^n
 \end{align*}
-  
+
 __Taylor Approximation__: We can often approximate the curvature of a function $f(x)$ at point $a$ using a 2nd order Taylor polynomial around point $a$: 
 
 $$f(x) = f(a) + \frac{f'(a)}{1!} (x-a) +  \frac{f''(a)}{2!} (x-a)^2
@@ -442,10 +438,9 @@ This definition bolsters the main takeaway about integrals and derivatives: They
 :::{#exr-antiderivatives}
 ## Antiderivative
 Find the antiderivative of the following:
-  
+
 1. $f(x) = \frac{1}{x^2}$
 2. $f(x) = 3e^{3x}$
-  
 
 :::
 
@@ -465,7 +460,7 @@ and is equal to the antiderivative of $f$.
 Draw the function $f(x)$ and its indefinite integral, $\int\limits f(x) dx$
 
 $$f(x) = (x^2-4)$$
-  
+
 :::
 
 :::{#sol-integralc}
@@ -493,7 +488,6 @@ Fx <- ggplot(range1, aes(x = x)) +
 fx + Fx + plot_layout(ncol = 1)
 ```
 
-	
 Notice from these examples that while there is only a single derivative for any function, there are multiple antiderivatives: one for any arbitrary constant $c$.  $c$ just shifts the curve up or down on the $y$-axis.  If more information is present about the antiderivative --- e.g., that it passes through a particular point --- then we can solve for a specific value of $c$.
 
 ### Common Rules of Integration {.unnumbered}
@@ -512,7 +506,7 @@ Some common rules of integrals follow by virtue of being the inverse of a deriva
 :::{#exm-common-integration}
 ## Common Integration
 Simplify the following indefinite integrals:
-  
+
 * $\int 3x^2 dx$
 * $\int (2x+1)dx$
 * $\int e^x e^{e^x} dx$
@@ -562,7 +556,7 @@ This is how we define the "Definite" Integral:
 :::{#def-defintegral}
 ## The Definite Integral (Riemann)
 If for a given function $f$ the Riemann sum approaches a limit as $\Delta x \to 0$, then that limit is called the Riemann integral of $f$ from $a$ to $b$.  We express this with the $\int$, symbol, and write $$\int\limits_a^b f(x) dx= \lim\limits_{\Delta x\to 0} \sum\limits_{i=1}^n f(x_i)\Delta x$$
-  
+
 The most straightforward of a definite integral is the definite integral. That is, we read 
 $$\int\limits_a^b f(x) dx$$ as the definite integral of $f$ from $a$ to $b$ and we defined as the  area under the "curve" $f(x)$ from point $x=a$ to $x=b$.
 :::
@@ -622,7 +616,7 @@ Simplify the following definite intergrals.
 1. $\int\limits_1^1 3x^2 dx =$ 
 2. $\int\limits_0^4 (2x+1)dx=$ 
 3. $\int\limits_{-2}^0 e^x e^{e^x} dx + \int\limits_0^2 e^x e^{e^x} dx =$
-  
+
 :::
 
 ## Integration by Substitution
@@ -646,7 +640,7 @@ Substitution can also be used to calculate a definite integral. Using the same p
 where $c=u(a)$ and $d=u(b)$.
 
 :::{#exm-intsub1}
- 
+
 ## Integration by Substitution I
 
 Solve the indefinite integral $$\int x^2 \sqrt{x+1}dx.$$
@@ -673,13 +667,12 @@ $$\int\limits_a^b u\frac{dv}{dx}dx = \left. u v \right|_a^b - \int\limits_a^b v 
 
 Our goal here is to find expressions for $u$ and $dv$ that, when substituted into the above equation, yield an expression that's more easily evaluated.
 
-	
 :::{#exm-intbyparts}
 ## Integration by Parts
 Simplify the following integrals. These seemingly obscure forms of integrals come up often when integrating distributions.
 
 $$\int x e^{ax} dx$$
-  
+
 :::
 
 :::{#sol-intbyparts}
@@ -740,7 +733,7 @@ Example @exm-exmderivexp
 
  1. Let $u(x)=-3x$.  Then $u^\prime(x)=-3$ and $f^\prime(x)=-3e^{-3x}$. 
  2. Let $u(x)=x^2$.  Then $u^\prime(x)=2x$ and $f^\prime(x)=2xe^{x^2}$.
- 
+
 :::
 
 Example @exm-exmderivlog
@@ -752,14 +745,13 @@ Example @exm-exmderivlog
 3. Use the generalized power rule. $$\frac{dy}{dx} = \frac{(2 \log x)}{x}$$
 4. We know that $\log e^x=x$ and that $dx/dx=1$, but we can double check.  Let $u(x)=e^x$.  Then $u^\prime(x)=e^x$ and $\frac{dy}{dx} = \frac{u^\prime(x)}{u(x)} = \frac{e^x}{e^x} = 1.$
 
-  
 :::
 
 Example @exm-defintmon
 
 :::{#sol-defintmon}
 What is $F(x)$? From the power rule, recognize $\frac{d}{dx}x^3 = 3x^2$ so 
-  
+
 \begin{align*}
 F(x) &= x^3\\
 \int\limits_1^3 f(x) dx &= F(x = 3) - F(x  - 1)\\
@@ -822,7 +814,7 @@ For a given $n$, we would repeat the integration by parts procedure until the in
 2. $$\int x^3 e^{-x^2} dx$$
 
 We could, as before, choose $u=x^3$ and $dv=e^{-x^2}dx$. But we can't then find $v$ --- i.e., integrating $e^{-x^2}dx$ isn't possible. Instead, notice that $$\frac{d}{dx}e^{-x^2} = -2xe^{-x^2},$$ which can be factored out of the original integrand $$\int x^3 e^{-x^2} dx = \int x^2 (xe^{-x^2})dx.$$ 
-  
+
 We can then let $u=x^2$ and $dv=x e^{-x^2}dx$. The$du=2x dx$ and $v=-\frac{1}{2}e^{-x^2}$.  Substituting these in, we have
 \begin{eqnarray}
 				\int x^3 e^{-x^2} dx &=& u v - \int v du\nonumber\\
