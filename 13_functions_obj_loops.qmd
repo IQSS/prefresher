@@ -1,6 +1,5 @@
 # Objects, Functions, Loops {#robjloops}
 
-
 ### Where are we? Where are we headed? {.unnumbered}
 
 Up till now, you should have covered:
@@ -10,14 +9,11 @@ Up till now, you should have covered:
 * Statistical Summaries
 * Visualization
 
-
 Today we'll cover
 
 * Objects
 * Functions
 * Loops
-
-
 
 ## What is an object?
 
@@ -34,11 +30,9 @@ library(haven)
 library(ggplot2)
 ```
 
-
 ```{r}
 cen10 <- read_csv("data/input/usc2010_001percent.csv", col_types = cols())
 ```
-
 
 Objects are abstract symbols in which you store data. Here we will create an object from `copy`, and assign `cen10` to it. 
 
@@ -46,24 +40,20 @@ Objects are abstract symbols in which you store data. Here we will create an obj
 copy <- cen10 
 ```
 
-
 This looks the same as the original dataset:
 ```{r}
 copy
 ```
-
 
 What happens if you do this next?
 ```{r}
 copy <- ""
 ```
 
-
 It got reassigned:
 ```{r}
 copy
 ```
-
 
 ### lists
 
@@ -88,7 +78,6 @@ my_list[[1]] <- c(1, 2, 3, 4, 5)
 my_list
 ```
 
-
 You can even make nested lists. Let's say we want the 1st slot of the list to be another list of three elements. 
 
 ```{r}
@@ -98,8 +87,6 @@ my_list[[1]][[3]] <- "subitem 1 in slot 3 of my_list"
 
 my_list
 ```
-
-
 
 ## Making your own objects
 We've covered one type of object, which is a list. You saw it was quite flexible. How many types of objects are there? 
@@ -124,12 +111,10 @@ What is type (class) of object is `cen10`?
 class(cen10)
 ```
 
-
 What about this text? 
 ```{r}
 class("some random text")
 ```
-
 
 To change or create the class of any object, you can _assign_ it. To do this, assign the name of your class to character to an object's `class()`. 
 
@@ -142,7 +127,6 @@ pikachu <- list(name = "Pikachu",
                 color = "Yellow")
 ```
 
-
 and we can give it any class name we want. 
 ```{r}
 class(pikachu) <- "Pokemon"
@@ -151,14 +135,12 @@ pikachu$type
 
 ```
 
-
 ### Seeing R through objects
 Most of the R objects that you will see as you advance are their own objects. For example, here's a linear regression object (which you will learn more about in Gov 2000):
 ```{r}
 ols <- lm(mpg ~ wt + vs + gear + carb, mtcars)
 class(ols)
 ```
-
 
 Anything can be an object! Even graphs (in `ggplot`) can be assigned, re-assigned, and edited. 
 
@@ -179,14 +161,10 @@ gg_tab <- ggplot(data = grp_race_ordered) +
 gg_tab
 ```
 
-
 You can change the orientation
 ```{r}
 gg_tab<- gg_tab + coord_flip()
 ```
-
-
-
 
 ### Parsing an object by `str()s`
 It can be hard to understand an `R` object because it's contents are unknown. The function `str`, short for structure, is a quick way to look into the innards of an object
@@ -201,7 +179,6 @@ Same for the object we just made
 str(pikachu)
 ```
 
-
 What does a `ggplot` object look like? Very complicated, but at least you can see it:
 
 ```{r}
@@ -209,9 +186,6 @@ What does a `ggplot` object look like? Very complicated, but at least you can se
 # enter this on your console
 str(gg_tab)
 ```
-
-
-
 
 ## Types of variables
 In the social science we often analyze variables. As you saw in the tutorial, different types of variables require different care. 
@@ -232,7 +206,6 @@ mean(cen10$race == "American Indian or Alaska Native")
 ```
 
 Hint: you can use the function `mean()` to calcualte the sample mean. The sample proportion is the mean of a sequence of number, where your event of interest is a 1 (or `TRUE`) and others are 0 (or `FALSE`).
-
 
 ### numeric vectors
 
@@ -270,9 +243,6 @@ my_name2 <- "shiro"
 my_name == my_name2
 ```
 
-
-
-
 ## What is a function?
 
 Most of what we do in R is executing a function. `read_csv()`, `nrow()`, `ggplot()` .. pretty much anything with a parentheses is a function. And even things like `<-` and `[` are functions as well.
@@ -288,7 +258,6 @@ table
 You'll see below that the most basic functions are quite complicated internally. 
 
 You'll notice that functions contain other functions. _wrapper_ functions are functions that "wrap around" existing functions. This sounds redundant, but it's an important feature of programming. If you find yourself repeating a command more than two times, you should make your own function, rather than writing the same type of code. 
-
 
 ### Write your own function
 It's worth remembering the basic structure of a function. You create a new function, call it `my_fun` by this:
@@ -310,7 +279,6 @@ count_men <- function(data) {
 }
 ```
 
-
 Then all we need to do is feed this function a dataset
 ```{r}
 count_men(cen10)
@@ -321,7 +289,6 @@ The point of a function is that you can use it again and again without typing up
 ```{r}
 count_men(cen10[cen10$state == "California",])
 ```
-
 
 Let's go one step further. What if we want to know the proportion of non-whites in a state, just by entering the name of the state? There's multiple ways to do it, but it could look something like this
 
@@ -344,9 +311,7 @@ nw_in_state(cen10, "Massachusetts")
 
 ```
 
-
 ## Checkpoint {.unnumbered}
-
 
 ### 1 {.unnumbered}
 
@@ -355,9 +320,6 @@ Try making your own function, `average_age_in_state`, that will give you the ave
 # Enter on your own
 
 ```
-
-
-
 
 ### 2 {.unnumbered}
 
@@ -374,14 +336,12 @@ Try making your own function, 'top_10_oldest_cities', that will give you the nam
 # Enter on your own
 ```
 
-
 ## What is a package?
 You can think of a package as a suite of functions that other people have already built for you to make your life easier. 
 
 ```{r}
 help(package = "ggplot2")
 ```
-
 
 To use a package, you need to do two things: (1) install it, and then (2) load it. 
 
@@ -395,7 +355,6 @@ But you need to load each time you start a  R instance. So always keep these com
 ```{r}
 library(ggplot2)
 ```
-
 
 In `rstudio.cloud`, we already installed a set of packages for you. But when you start your own R instance, you need to have installed the package at some point. 
 
@@ -453,7 +412,6 @@ for (fruit in fruits) {
 ``` 
 
 Here `for()` and `in` must be part of any for loop. The right hand side `fruits` must be a thing that exists. Finally the `left-hand` side object is "Pick your favor name." It is analogous to how we can index a sum with any letter. $\sum_{i=1}^{10}i$ and `sum_{j = 1}^{10}j` are in fact the same thing.
-
 
 ```{r}
 for (i in 1:length(fruits)) {
@@ -516,7 +474,6 @@ for (state in states_of_interest) {
 ```
 ## Exercises {.unnumbered}
 
-
 ### Exercise 1: Write your own function {.unnumbered}
 Write your own function that makes some task of data analysis simpler. Ideally, it would be a function that helps you do either of the previous tasks in fewer lines of code. You can use the three lines of code that was provided in exercise 1 to wrap that into another function too!
 ```{r}
@@ -524,10 +481,7 @@ Write your own function that makes some task of data analysis simpler. Ideally, 
 
 ``` 
 
-
-
 ### Exercise 2: Using Loops {.unnumbered}
-
 
 Using a loop, create a crosstab of sex and race for each state in the set "states_of_interest"
 ```{r}
@@ -535,8 +489,6 @@ states_of_interest <- c("California", "Massachusetts", "New Hampshire", "Washing
 # Enter yourself
 
 ``` 
-
-
 
 ### Exercise 3: Storing information derived within loops in a global dataframe {.unnumbered}
 
@@ -555,9 +507,7 @@ for (state in states_of_interest) {
 
 Instead of printing the percentage of each race in each state, create a dataframe, and store all that information in that dataframe. (Hint: look at how I stored information about male percentage in each state of interest in a vector.)
 
-
 ```{r}
-
 
 ```
 

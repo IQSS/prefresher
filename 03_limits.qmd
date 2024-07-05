@@ -9,7 +9,6 @@ library(glue)
 library(patchwork)
 ```
 
-
 Solving limits, i.e. finding out the value of functions as its input moves  closer to some value, is important for the social scientist's mathematical toolkit for two related tasks. The first is for the study of calculus, which will be in turn useful to show where certain functions are maximized or minimized. The second is for the study of statistical inference, which is the study of inferring things about things you cannot see by using things you can see. 
 
 ## Example: The Central Limit Theorem {.unnumbered}
@@ -31,7 +30,6 @@ That is,  the limit of the distribution of the lefthand side is the distribution
 
 The sign of a limit is the arrow "$\rightarrow$". Although we have not yet covered probability (in Section @probability-theory) so we have not described what distributions and random variables are, it is worth foreshadowing the Central Limit Theorem. The Central Limit Theorem is powerful because it gives us a _guarantee_ of what would happen if $n \rightarrow \infty$, which in this case means we collected more data.
 
-
 ## Example: The Law of Large Numbers {.unnumbered}
 
 A finding that perhaps rivals the Central Limit Theorem is the Law of Large Numbers:
@@ -44,10 +42,8 @@ For any draw of identically distributed independent variables with mean $\mu$, t
   
 $$\lim\limits_{n\to \infty} P(|\bar{X}_n - \mu | > \varepsilon) = 0$$
   
-  
 A shorthand of which is  $\bar{X}_n \xrightarrow{p} \mu$, where the arrow is read as "converges in probability to".
 :::
-
 
 Intuitively, the more data, the more accurate is your guess.  For example, the Figure @fig-llnsim shows how the sample average from many coin tosses converges to the true value : 0.5.
 
@@ -71,8 +67,6 @@ ggplot(tibble(n = 1:n, estimate = means), aes(x = n, y = estimate)) +
        y =  "Estimate of the Probability of Heads after n trials")
 ```
 
-
-
 ## Sequences
 
 We need a couple of steps until we get to limit theorems in probability. First we will introduce a "sequence", then we will think about the limit of a sequence, then we will think about the limit of a _function_.
@@ -94,7 +88,6 @@ How do these sequences behave?
 
 :::
 
-
 We find the sequence by simply "plugging in" the integers into each $n$. The important thing is to get a sense of how these numbers are going to change. Example 1's numbers seem to come closer and closer to 2, but will it ever surpass 2? Example 2's numbers are also increasing each time, but will it hit a limit? What is the pattern in Example 3? Graphing helps you make this point more clearly.  See the sequence of $n = 1, ...20$ for each of the three examples in Figure @fig-seqabc.
 
 ```{r}
@@ -114,18 +107,13 @@ gA + gB + gC + plot_layout(nrow = 1)
 
 ```
 
-
-
-
 ## The Limit of a Sequence
-
 
 The notion of "converging to a limit" is the behavior of the points in Example @exm-seqbehav. In some sense, that's the counterfactual we want to know. What happens as $n\rightarrow \infty$? 
 
 1. Sequences like 1 above that converge to a limit.
 2. Sequences like 2 above that increase without bound.
 3. Sequences like 3 above that neither converge nor increase without bound --- alternating over the number line.
-
 
 :::{#def-limseq}
 The sequence $\{y_n\}$ has the limit $L$, which we write as $$\lim\limits_{n \to \infty} y_n =L$$, if for any $\epsilon>0$ there is an integer $N$ (which depends on $\epsilon$) with the property that $|y_n -L|<\epsilon$ for each $n>N$.  $\{y_n\}$ is said to converge to $L$.  If the above does not hold, then $\{y_n\}$ diverges.
@@ -136,7 +124,6 @@ We can also express the behavior of a sequence as bounded or not:
 1. Bounded: if $|y_n|\le K$ for all $n$
 2. Monotonically Increasing: $y_{n+1}>y_n$ for all $n$
 3. Monotonically Decreasing: $y_{n+1}<y_n$ for all $n$
-
 
 A limit is *unique*: If $\{y_n\}$ converges, then the limit $L$ is unique.
 
@@ -178,12 +165,9 @@ Find the following limits of sequences, then explain in English the intuition fo
 
 :::
 
-
-
 ## Limits of a Function {#limitsfun}
 
 We've now covered functions and just covered limits of sequences, so now is the time to combine the two.
-
 
 A function $f$ is a compact representation of some behavior we care about. Like for sequences, we often want to know if $f(x)$ approaches some number $L$ as its independent variable $x$ moves to some number $c$ (which is usually 0 or $\pm\infty$).  If it does, we say that the limit of $f(x)$, as $x$ approaches $c$, is $L$: $\lim\limits_{x \to c} f(x)=L$. Unlike a sequence, $x$ is a continuous number, and we can move in decreasing order as well as increasing. 
 	
@@ -197,7 +181,6 @@ Let $f(x)$ be defined at each point in some open interval containing the point $
 :::
 
 A neat, if subtle result is that $f(x)$ does not necessarily have to be defined at $c$ for $\lim\limits_{x \to c}$ to exist.
-
 
 Properties: Let $f$ and $g$ be functions with $\lim\limits_{x \to c} f(x)=k$ and $\lim\limits_{x \to c} g(x)=\ell$.
 
@@ -234,9 +217,6 @@ Find the limit of
 $$\lim_{x\to\infty} \frac{(x^4 +3x−99)(2−x^5)}{(18x^7 +9x^6 −3x^2 −1)(x+1)}$$
 :::
 
-
-
-
 Now, the functions will become a bit more complex:
 
 :::{#exr-discontlim}
@@ -249,7 +229,6 @@ Solve the following limits of functions
 :::
 
 		
-
 
 So there are a few more alternatives about what a limit of a function could be:
 
@@ -267,7 +246,6 @@ The distinction between left and right becomes important when the function is no
 range1 <- tibble::tibble(x = c(-2, 16))
 range2 <- tibble::tibble(x = c(-2, 2))
 
-
 fx1 <- ggplot(range1, aes(x = x)) +
   stat_function(fun = function(x) sqrt(x), size = 0.5) +
   labs(x = expression(x), y = expression(f(x)), title = expression(f(x)==sqrt(x))) +
@@ -280,8 +258,6 @@ fx2 <-
 
 fx1 + fx2 + plot_layout(nrow = 1)
 ```
-
-
 
 ## Continuity
 
@@ -305,14 +281,12 @@ For each function, determine if it is continuous or discontinuous.
  3. $f(x) = 1 + \frac{1}{x^2}$ 
  4. $f(x) = \text{floor}(x)$. 
  
- 
 The floor is the smaller of the two integers bounding a number. So $\text{floor}(x = 2.999) =  2$, $\text{floor}(x = 2.0001) =  2$, and $\text{floor}(x = 2) =  2.$ 
 :::
 
 :::{#sol-contdiscont}
 In Figure @fig-contdiscont, we can see that the first two functions are continuous, and the next two are discontinuous. $f(x) = 1 + \frac{1}{x^2}$  is discontinuous at $x= 0$, and $f(x) = \text{floor}(x)$ is discontinuous at each whole number.
 :::
-
 
 ```{r}
 #| label: fig-contdiscont
@@ -323,7 +297,6 @@ range1 <- tibble(x = c(0, 10))
 range2 <- tibble(x = c(-2, 2))
 range3 <- tibble(x = c(-4, 4))
 range4 <- tibble(x = c(0, 5))
-
 
 fx1 <- ggplot(range1, aes(x = x)) +
   stat_function(fun = function(x) sqrt(x), size = 0.5) +
@@ -343,21 +316,14 @@ fx4 <- ggplot(range4, aes(x = x)) +
   geom_point(data = tibble(x = 1:5, y = (1:5) - 1), aes(y = y), pch = 21, fill = "white") +
   labs(y = expression(f(x)), title = expression(f(x)==plain("floor(x)")))
 
-
-
 fx1 + fx2 + fx3 + fx4 + plot_layout(ncol = 2)
 ```
-
-
-
 
 Some properties of continuous functions:
 
 1. If $f$ and $g$ are continuous at point $c$, then $f+g$, $f-g$, $f \cdot g$, $|f|$, and $\alpha f$ are continuous at point $c$ also. $f/g$ is continuous, provided $g(c)\ne 0$.
 2. Boundedness: If $f$ is continuous on the closed bounded interval $[a,b]$, then there is a number $K$ such that $|f(x)|\le K$ for each $x$ in $[a,b]$.
 3. Max/Min: If $f$ is continuous on the closed bounded interval $[a,b]$, then $f$ has a maximum and a minimum on $[a,b]$. They may be located at the end points.
-
-
 
 :::{#exr-discontdraw}
 
@@ -368,26 +334,19 @@ Let $$f(x) = \frac{x^2 + 2x}{x}.$$
 1. Graph the function. Is it defined everywhere?
 2. What is the functions limit at $x \rightarrow 0$? 
 
-
 :::
-
-
 
 ## Answers to Examples {.unnumbered}
 
 Example @exm-seqbehav
 
-
 :::{#sol-seqbehav}
-
 
  1. $\{A_n\}=\left\{ 2-\frac{1}{n^2} \right\} = \left\{1, \frac{7}{4}, \frac{17}{9},  \frac{31}{16}, \frac{49}{25},  \ldots\right\} = 2$
  2. $\{B_n\}=\left\{\frac{n^2+1}{n} \right\} = \left\{2, \frac{5}{2}, \frac{10}{3},  \frac{17}{4}..., \right\}$
  3. $\{C_n\}=\left\{(-1)^n \left(1-\frac{1}{n}\right) \right\} = \left\{0, \frac{1}{2}, -\frac{2}{3}, \frac{3}{4}, -\frac{4}{5}\right\}$
   
-  
 :::
-
 
 Exercise @exr-limseq2
 
@@ -395,24 +354,18 @@ Exercise @exr-limseq2
 
 ```
 
-
 Example @exm-limfun1
 
 :::{#sol-limfun1}
-
 
  1. $k$
  2. $c$
  3. $\lim_{x\to 2} (2x-3) = 2\lim\limits_{x\to 2} x - 3\lim\limits_{x\to 2} 1 = 1$
  4. $\lim_{x \to c} x^n = \lim\limits_{x \to c} x \cdots[\lim\limits_{x \to c} x] = c\cdots c =c^n$
 
-
 :::
 
-
 Exercise @exr-limfunmax
-
-
 
 :::{#sol-}
 Although this function seems large, the thing our eyes should focus on is where the highest order polynomial remains. That will grow the fastest, so if the highest order term is on the denominator, the fraction will converge to 0, if it is on the numerator it will converge to negative infinity. Previewing the multiplication by hand, we can see that the $-x^9$ on the numerator will be the largest power. So the answer will be $-\infty$. We can also confirm this by writing out fractions:
@@ -425,8 +378,6 @@ Although this function seems large, the thing our eyes should focus on is where 
 
 :::
 
-
-
 Exercise @exr-discontdraw
 
 :::{#sol-discontdraw}
@@ -436,7 +387,6 @@ See Figure @fig-hole-0.
 Divide each part by $x$, and we get $x + \frac{2}{x}$ on the numerator, $1$ on the denominator. So, without worrying about a function being not defined, we can say $\lim_{x\to 0}f(x) = 0$.
 
 :::
-
 
 ```{r}
 #| label: fig-hole-0

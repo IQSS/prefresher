@@ -10,7 +10,6 @@ This booklet serves as the text for the Prefresher, available as a [webpage](htt
 
 For information about the role of the prefresher (or "math camp") as a introduction to graduate school, you  may also be interested in ["The Math Prefresher and The Collective Future of Political Science Graduate Training"](https://gking.harvard.edu/prefresher), in _PS: Political Science & Politics_, by Gary King, Shiro Kuriwaki, and Yon Soo Park.
 
-
 ### Authors and Contributors {.unnumbered}
 
 - Past Authors and Instructors:  Curt Signorino 1996-1997; Ken Scheve 1997-1998; Eric Dickson 1998-2000; Orit Kedar 1999; James Fowler 2000-2001; Kosuke Imai 2001-2002; Jacob Kline 2002; Dan Epstein 2003; Ben Ansell 2003-2004; Ryan Moore 2004-2005; Mike Kellermann 2005-2006; Ellie Powell 2006-2007; Jen Katkin 2007-2008; Patrick Lam 2008-2009; Viridiana Rios 2009-2010; Jennifer Pan 2010-2011; Konstantin Kashin 2011-2012; Soledad Prillaman 2013; Stephen Pettigrew 2013-2014; Anton Strezhnev 2014-2015; Mayya Komisarchik 2015-2016; Connor Jerzak 2016-2017; Shiro Kuriwaki 2017-2018; Yon Soo Park 2018; Meg Schwenzfeier 2019; Shannon Parker 2019; Laura Royden 2020-2021; Hunter Rendleman 2020-2021; Christopher T. Kenny 2022; Jialu Li 2022; Sooahn Shin 2023; María Ballesteros 2023.
@@ -18,7 +17,6 @@ For information about the role of the prefresher (or "math camp") as a introduct
 - Past Repository Maintainers:
   - Shiro Kurikwaki ([kuriwaki](https://github.com/kuriwaki)) 2018-2023.
 - Contributors: Thanks to Juan Dodyk ([juandodyk](https://github.com/juandodyk)), Hunter Rendleman ([hrendleman](https://github.com/hrendleman)), and Tyler Simko ([tylersimko](https://github.com/tylersimko)) for contributing to the booklet for corrections and improvements as students.
-
 
 ### Contributing {.unnumbered}
 

@@ -16,7 +16,6 @@ library(ggplot2)
 
 Nunn and Wantchekon use a variety of statistical tools to make their case (adding controls, ordered logit, instrumental variables, falsification tests, causal mechanisms), many of which will be covered in future courses. In this module we will only touch on their first set of analysis that use Ordinary Least Squares (OLS). OLS is likely the most common application of linear algebra in the social sciences. We will cover some linear algebra, matrix manipulation, and vector manipulation from this data. 
 
-
 ### Where are we? Where are we headed? {.unnumbered}
 
 Up till now, you should have covered:
@@ -25,32 +24,24 @@ Up till now, you should have covered:
 * Data Import
 * Statistical Summaries.
 
-
 Today we'll cover
 
 * Matrices & Dataframes in R
 * Manipulating variables 
 * And other `R` tips
 
-
-
-
 ## Read Data
-
 
 ```{r}
 library(haven)
 nunn_full <- read_dta("data/input/Nunn_Wantchekon_AER_2011.dta")
 ```
 
-
 Nunn and Wantchekon's main dataset has more than 20,000 observations. Each observation is a respondent from the Afrobarometer survey.
 ```{r}
 head(nunn_full)
 colnames(nunn_full)
 ```
-
-
 
 First, let's consider a small subset of this dataset. 
 ```{r}
@@ -70,14 +61,11 @@ nunn <- read_dta("data/input/Nunn_Wantchekon_sample.dta")
 nunn
 ```
 
-
-
 ## data.frame vs. matricies
 This is a `data.frame` object. 
 ```{r}
 class(nunn)
 ```
-
 
 But it can be also consider a matrix in the linear algebra sense. What are the dimensions of this matrix?
 ```{r}
@@ -90,12 +78,9 @@ nrow(nunn)
 X <- as.matrix(nunn)
 ```
 
-
 What is the difference between a `data.frame` and a matrix? A `data.frame` can have columns that are of different types, whereas --- in a matrix --- all columns must be of the same type (usually either "numeric" or "character").
 
-
 You can think of data frames maybe as matrices-plus, because a column can take on characters as well as numbers. As we just saw, this is often useful for real data analyses.
-
 
 Another way to think about data frames is that it is a type of list. Try the `str()` code below and notice how it is organized in slots. Each slot is a vector. They can be vectors of numbers or characters.
 ```{r}
@@ -104,9 +89,6 @@ Another way to think about data frames is that it is a type of list. Try the `st
 str(cen10)
 ```
 
-
-
-
 ## Handling matricies in `R`
 
 You can easily transpose a matrix
@@ -114,7 +96,6 @@ You can easily transpose a matrix
 X
 t(X)
 ```
-
 
 What are the values of all rows in the first column? 
 ```{r}
@@ -145,8 +126,6 @@ Why does it give the same output as the following?
 X[which(X[, "trust_neighbors"] == 0), "export_area"]
 ```
 
-
-
 Some more manipulation 
 ```{r}
 X + X
@@ -168,11 +147,9 @@ cbind(X, 1:10)
 cbind(X, 1)
 ```
 
-
 ```{r}
 colnames(X)
 ```
-
 
 ## Variable Transformations
 
@@ -187,7 +164,6 @@ Question for you: why add the 1?
 
 Verify that this is the same as `X[, "ln_exports"]`
 
-
 ## Linear Combinations
 
 In Table 1 we see "OLS Estimates". These are estimates of OLS coefficients and standard errors. You do not need to know what these are for now, but it doesn't hurt to getting used to seeing them. 
@@ -201,7 +177,6 @@ Take the first number in Table 1, which is -0.00068. Now, multiply this by `expo
 ```{r}
 -0.00068 * X[, "exports"]
 ```
-
 
 Now, just one more step. Make a new matrix with just exports and the value 1
 ```{r}
@@ -218,12 +193,10 @@ colnames(X2)
 colnames(X2) <- c("intercept", "exports")
 ```
 
-
 What are the dimensions of the matrix `X2`?
 ```{r}
 dim(X2)
 ```
-
 
 Now consider a new matrix, called `B`.
 
@@ -236,14 +209,12 @@ What are the dimensions of `B`?
 dim(B)
 ```
 
-
 What is the product of `X2` and `B`? From the dimensions, can you tell if it will be conformable?
 ```{r}
 X2 %*% B
 ```
 
 What is this multiplication doing in terms of equations?
-
 
 ```{r}
 #| echo: false
@@ -255,9 +226,7 @@ lm_1_1 <- lm(as.formula(form), nunn_full)
 summary(lm_1_1)
 ```
 
-
 ## Matrix Basics
-
 
 Let's take a look at Matrices in the context of R
 
@@ -274,7 +243,6 @@ dim(cen10)
 nrow(cen10)
 ncol(cen10)
 ```
-
 
 What variables does this dataset hold? What kind of information does it have?
 
@@ -293,7 +261,6 @@ head(cen10$race)
 ```
 
 We can look at a unique set of variable values by calling the unique function
-
 
 ```{r}
 #| message: false
@@ -314,16 +281,13 @@ A cross-tab can be considered a matrix:
 table(cen10$race, cen10$sex)
 ```
 
-
 ```{r}
 cross_tab <- table(cen10$race, cen10$sex)
 dim(cross_tab)
 cross_tab[6, 2]
 ```
 
-
 But a subset of your data -- individual values-- can be considered a matrix too. 
-
 
 ```{r}
 #| warning: false
@@ -383,7 +347,6 @@ s3 <- cen10[cen10$state == "New York" | cen10$state == "California", ]
 s4 <- cen10 %>% filter(state == "New York" | state == "California")
 all_equal(s3, s4)
 
-
 # all individuals in any of the following states: California, Ohio, Nevada, Michigan
 s5 <- cen10[cen10$state %in% c("California", "Ohio", "Nevada", "Michigan"), ]
 s6 <- cen10 %>% filter(state %in% c("California", "Ohio", "Nevada", "Michigan"))
@@ -397,7 +360,6 @@ all_equal(s7, s8)
 
 ## Checkpoint {.unnumbered}
 
-
 ### 1 {.unnumbered}
 Get the subset of cen10 for non-white individuals (Hint: look at the set of values for the race variable by using the unique function)
 ```{r}
@@ -410,14 +372,11 @@ Get the subset of cen10 for females over the age of 40
 # Enter here
 ```
 
-
 ### 3 {.unnumbered}
 Get all the serial numbers for black, male individuals who don't live in Ohio or Nevada.
 ```{r}
 # Enter here
 ```
-
-
 
 ## Exercises {.unnumbered}
 
@@ -437,9 +396,7 @@ Use R to write code that will create the matrix $A$, and then  consecutively mul
 ## Enter yourself
 ```
 
-
 Note that R notation of matrices is different from the math notation. Simply trying `X^n` where `X` is a matrix will only take the power of each element to `n`. Instead, this problem asks you to perform matrix multiplication.
-
 
 ### 2 {.unnumbered}
 Let's apply what we learned about subsetting or filtering/selecting. Use the `nunn_full` dataset you have already loaded
@@ -466,12 +423,9 @@ c) Lastly, show all values of `"trust_neighbors"` and `"age"` for observations (
 
 Find a way to generate a vector of "column averages" of the matrix `X` from the Nunn and Wantchekon data in one line of code. Each entry in the vector should contain the sample average of the values in the column. So a 100 by 4 matrix should generate a length-4 matrix.
 
-
-
 ### 4 {.unnumbered}
 
 Similarly, generate a vector of "column medians". 
-
 
 ### 5 {.unnumbered}
 

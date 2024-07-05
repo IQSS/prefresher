@@ -10,17 +10,13 @@ library(forcats)
 library(scales)
 ```
 
-
-
 ## Chapter \@ref(dataviz): Visualization
-
 
 ### 1 State Proportions {.unnumbered}
 
 ```{r}
 cen10 <- readRDS("data/input/usc2010_001percent.Rds")
 ```
-
 
 Group by state, noting that the mean of a set of logicals is a mean of 1s (`TRUE`) and 0s (`FALSE`).
 
@@ -31,7 +27,6 @@ grp_st <- cen10 %>%
   arrange(prop) %>%
   mutate(state = as_factor(state))
 ```
-
 
 Plot points
 ```{r}
@@ -46,12 +41,7 @@ ggplot(grp_st, aes(x = state, y = prop)) +
   )
 ```
 
-
-
-
-
 ### 2 Swing Justice {.unnumbered}
-
 
 ```{r}
 #| message: false
@@ -91,9 +81,7 @@ ggplot(df_indicator, aes(x = term, y = idealpt, group = justice_id)) +
   theme_bw()
 ```
 
-
 ## Chapter \@ref(robjloops): Objects and Loops
-
 
 ```{r}
 #| message: false
@@ -101,9 +89,7 @@ cen10 <- read_csv("data/input/usc2010_001percent.csv")
 sample_acs <- read_csv("data/input/acs2015_1percent.csv")
 ```
 
-
 ### Checkpoint #3 {.unnumbered}
-
 
 ```{r}
 cen10 %>%
@@ -113,10 +99,7 @@ cen10 %>%
   slice(1:10)
 ```
 
-
-
 ### Exercise 2 {.unnumbered}
-
 
 ```{r}
 states_of_interest <- c("California", "Massachusetts", "New Hampshire", "Washington")
@@ -130,10 +113,7 @@ for (state_i in states_of_interest) {
 }
 ```
 
-
-
 ### Exercise 3 {.unnumbered}
-
 
 ```{r}
 race_d <- c()
@@ -156,7 +136,6 @@ for (state in states_of_interest) {
 }
 ```
 
-
 ## Chapter \@ref(dempeace): Demoratic Peace Project
 
 ### Task 1: Data Input and Standardization {.unnumbered}
@@ -167,8 +146,6 @@ mid_b <- read_csv("data/input/MIDB_4.2.csv")
 polity <- read_excel("data/input/p4v2017.xls")
 
 ```
-
-
 
 ### Task 2: Data Merging {.unnumbered}
 
@@ -190,9 +167,7 @@ merged_mid_polity <- left_join(polity,
                  by = c("ccode", "year"))
 ```
 
-
 ### Task 3: Tabulations and Visualization {.unnumbered}
-
 
 ```{r}
 #| eval: false
@@ -209,7 +184,6 @@ mean_polity_by_year_mid_ordered <- arrange(mean_polity_by_year_mid, year)
 mean_polity_no_mid <- mean_polity_by_year_mid_ordered %>% filter(dispute == 0)
 mean_polity_yes_mid <- mean_polity_by_year_mid_ordered %>% filter(dispute == 1)
 
-
 answer <- ggplot(data = mean_polity_by_year_ordered, aes(x = year, y = mean_polity)) +
   geom_line() +
   labs(y = "Mean Polity Score",
@@ -217,8 +191,6 @@ answer <- ggplot(data = mean_polity_by_year_ordered, aes(x = year, y = mean_poli
   geom_vline(xintercept = c(1914, 1929, 1939, 1989, 2008), linetype = "dashed")
 
 answer + geom_line(data =mean_polity_no_mid, aes(x = year, y = mean_polity_mid), col = "indianred") + geom_line(data =mean_polity_yes_mid, aes(x = year, y = mean_polity_mid), col = "dodgerblue")
-
-
 
 ```
 
@@ -234,13 +206,11 @@ pop <- read_csv("data/input/usc2010_001percent.csv")
 mean(pop$race != "White")
 ```
 
-
 ```{r}
 set.seed(1669482)
 samp <- sample_n(pop, 100)
 mean(samp$race != "White")
 ```
-
 
 ```{r}
 #| eval: false
@@ -252,11 +222,8 @@ for (i in 1:20) {
   ests[i] <- mean(samp$race != "White")
 }
 
-
 mean(ests)
 ```
-
-
 
 ```{r}
 pop_with_prop <- mutate(pop, propensity = ifelse(race != "White", 0.9, 1))
@@ -275,7 +242,6 @@ for (i in 1:20) {
 mean(ests)
 ```
 
-
 ```{r}
 #| eval: false
 ests <- c()
@@ -288,5 +254,4 @@ for (i in 1:20) {
 
 mean(ests)
 ```
-
 

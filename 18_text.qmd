@@ -1,7 +1,5 @@
 # Text^[Module originally written by Connor Jerzak] {#rtext}
 
-
-
 ```{r}
 #| include: false
 library(dplyr)
@@ -58,7 +56,6 @@ Today, we will learn more about using text data. Our objectives are:
 * To learn how to use regular expressions; 
 * To learn about other tools for representing + analyzing text in ```R```. 
 
-
 ## Reading and writing text in R 
 
 * To read in a text file, use readLines
@@ -76,7 +73,6 @@ write.table(my_string_vector, "~/mydata.txt", sep="\t")
 ## `paste()` and `sprintf()`
 
 paste and sprintf are useful commands in text processing,  such as for automatically naming files or automatically performing a series of command over a subset of your data. Table making also will often need these commands. 
-
 
 Paste concatenates vectors together. 
 ````{R}
@@ -98,7 +94,6 @@ sprintf("Coefficient for %s: %.3f (%.2f)", "Gender", 1.52324, 0.03143)
 #%.2f is replaced by a floating point digit with 2 decimal places
 ````
 
-
 ## Regular expressions 
 
 A regular expression is a special text string for describing a search pattern.
@@ -109,7 +104,6 @@ Use cases:
 1. TEXT PARSING. E.g. I have 10000 congressional speaches. Find all those which mention Iran. 
 2. WEB SCRAPING. E.g. Parse html code in order to extract research information from an online table. 
 3. CLEANING DATA. E.g. After loading in a dataset, we might need to remove mistakes from the dataset, orsubset the data using regular expression tools. 
-
 
 Example in ```R```. Extract the tweet mentioning Indonesia. 
 ```{r}
@@ -143,7 +137,6 @@ regexpr(pattern = "was", text = my_string)[2]
 ```
 
 Seems simple? The problem: the patterns can get pretty complex!
-
 
 ### Character classes 
 
@@ -215,7 +208,6 @@ grepl(my_string, pattern = "^(?!presidential1).*\\.png", perl = TRUE)
 
 ```
 
-
 * Indicates which file names don't start with `presidential1` but do end in `.png`
 * `^` indicates that the pattern should start at the beginning of the string. 
 * `?!` indicates negative lookahead -- we're looking for any pattern NOT following presidential1 which meets the subsequent conditions. (see below)
@@ -237,7 +229,6 @@ and machine learning methods to it. Those methods are discussed more in the Gov 
 Representing text numerically.  
 
 1. Document term matrix. The document term matrix (DTM) is a common method for representing text. The DTM is a matrix. Each row of this matrix corresponds to a document; each column corresponds to a word. It is often useful to look at summary statistics such as the percentage of speaches in which a Democratic lawmaker used the word "inequality" compared to a Republican; the DTM would be very helpful for this and other tasks. 
-
 
 ```{R}
 doc1 <- "Rage---Goddess, sing the rage of Peleus’ son Achilles,
@@ -284,7 +275,6 @@ Stemming is the process of reducing inflected/derived words to their word stem o
 2. tm -- Useful for converting text  into a numerical representation (forming DTMs).
 3. stringr -- Useful for string parsing. 
 
-
 ##  Exercises {.unnumbered}
 
 ### 1 {.unnumbered}
@@ -314,8 +304,6 @@ grep('\'',
      c("To dare is to lose one's footing momentarily.",  "To not dare is to lose oneself."), value = TRUE)
 ```
 
-
-
 ### 4 {.unnumbered}
 
 Write code to automatically extract the file names that DO end start with presidential and DO end in .pdf
@@ -339,7 +327,6 @@ Using the same string as in the above, write code to automatically  extract the 
 # Your code here
 ```
 
-
 ### 6 {.unnumbered}
 
 Combine these two strings into a single string separated by a "-".  Desired output: "The carbonyl group in aldehydes and ketones is an oxygen analog of the carbon–carbon double bond."
@@ -349,7 +336,6 @@ string1 <- "The carbonyl group in aldehydes and ketones
             is an oxygen analog of the carbon" 
 string2 <-  "–carbon double bond."
 ```
-
 
 ### 7 {.unnumbered}
 
@@ -361,7 +347,6 @@ Challenge problem! Download this webpage  <https://en.wikipedia.org/wiki/Odyssey
 * Make all the characters lower case. 
 * Do this same process with this webpage (https://en.wikipedia.org/wiki/Iliad). 
 * Form a document term matrix from the two resulting text strings. 
-
 
 ```{r}
 # Your code here

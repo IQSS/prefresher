@@ -28,8 +28,6 @@ Check if you have an idea of how you might code the following tasks:
 
 Elementary programming operations are done on the command-line, or by entering commands into your computer. This is different from a UI or GUI -- graphical user-interface -- which are interfaces that allow you to click buttons and enter commands in more readable form. Although there are good enough GUIs for most of your needs, you still might need to go under the hood sometimes and run a command. 
 
-
-
 ### command-line commands
 Open up `Terminal` in a Mac. (`Command Prompt` in Windows)
 
@@ -52,19 +50,15 @@ cd ..
 pwd
 ```
 
-
 `~/` stands for your home directory defined by your computer. 
 ```bash
 cd ~/
 ls
 ```
 
-
 Using `..` and `.` are "relative" to where you are currently at. So are things like `figures/figure1.pdf`, which is implicitly writing `./figures/figure1.pdf`. These are called relative paths. In contrast, `/Users/shirokuriwaki/project1/figures/figure1.pdf` is an "absolute" path because it does not start from your current directory.
 
 Relative paths are nice if you have a shared Dropbox, for example, and I had `/Users/shirokuriwaki/mathcamp` but Connor's path to the same folder is `/Users/connorjerzak/mathcamp`. To run the same code in `mathcamp`, we should be using relative paths that start from "`mathcamp`". Relative paths are also shorter, and they are invariant to higher-level changes in your computer.
-
-
 
 ### running things via command-line
 Suppose you have a simple Rscript, call it `hello_world.R`. This is simply a plain text file that contains
@@ -96,12 +90,7 @@ Then run this single file, call it `run_all_Rscripts.sh`, on your terminal as
 sh run_all_Rscripts.sh
 ```
 
-
 On the other hand, command-line prompts may require more keystrokes, and is also less intuitive than a good GUI. It can also be dangerous for beginners, because it can allow you to make large irreversible changes inadvertently. For example, removing a file (`rm`) has no "Undo" feature. 
-
-
-
-
 
 ## git
 
@@ -128,7 +117,6 @@ Some links to check out:
 * <https://github.com/apple/swift>
 * <https://github.com/kosukeimai/qss>
 
-
 GitHub <https://github.com> is the GUI to git. Making an account there is free. Making an account will allow you to be a part of the collaborative programming community. It will also allow you to "fork" other people's "repositories". "Forking" is making your own copy of the project that forks off from the master project at a point in time. A "repository" is simply the name of your main project directory.
 
 "cloning" someone else's repository is similar to forking -- it gives you your own copy. 
@@ -148,7 +136,6 @@ Repositories become a drop-down menu.
 "push"ing, "pull"ing, and "fetch"ing all become a big button.
 It also provides a visual difference interface, which shows the changes you are making to files before you "push" them.
 It can't do everything, but it provides a way to become familiar with GitHub without the (potentially) intimidating aspects of diving full-on into the command line.
-
 
 ### is git worth it?
 

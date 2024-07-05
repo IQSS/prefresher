@@ -1,6 +1,5 @@
 # Optimization {#optim}
 
-
 ```{r}
 #| include: false
 library(ggplot2)
@@ -12,12 +11,10 @@ To optimize, we use derivatives and calculus. Optimization is to find the maximu
 
 Optimization also comes up in Economics, Formal Theory, and Political Economy all the time. A go-to model of human behavior is that they optimize a certain utility function. Humans are not pure utility maximizers, of course, but nuanced models of optimization -- for example, adding constraints and adding uncertainty -- will prove to be quite useful.
 
-
 ## Example: Meltzer-Richard {.unnumbered}
 
 A standard backdrop in comparative political economy, the Meltzer-Richard (1981) model states that redistribution of wealth should be higher in societies where the median income is much smaller than the average income. More to the point, typically income distributions wher ethe median is very different from the average is one of high inequality. In other words, the Meltzer-Richard model says that highly unequal economies will have more re-distribution of wealth.  Why is that the case? Here is a simplified example that is not the exact model by Meltzer and Richard^[Allan H. Meltzer and Scott F. Richard. ["A Rational Theory of the Size of Government"](https://www.jstor.org/stable/1830813).  _Journal of Political Economy_
 89:5 (1981), p. 914-927], but adapted from Persson and Tabellini^[Adapted from Torsten Persson and Guido Tabellini, _Political Economics: Explaining Economic Policy_. MIT Press. ]
-
 
 We will set the following things about our model human and model democracy.
 
@@ -44,16 +41,13 @@ Income varies by person (In the next section we will cover probability, by then 
 - $E(y)$ is the average income of the society.
 - $\text{med}(y)$ is the __median income__ of the society. 
 
-
 What will happen in this economy? What will the tax rate be set too? How much public goods will be provided? 
-
 
 We've skipped ahead of some formal theory results of demoracy, but hopefully these are conceptually intuitive. First, if a democracy is competitive, there is no slack in the government's goods, and all tax revenue becomes a public good. So we can go ahead and set the constraint:
 
 $$g = \sum_{i} \tau y_i P(y_i) = \tau E(y)$$
 
 We can do this trick because of the "normalizes to unity" setting, but this is a general property of the average. 
-
 
 Now given this constraint we can re-write an individual's welfare as
 
@@ -74,24 +68,15 @@ $$g_i^\star = {U_g}^{-1}\left(\frac{y_i}{E(y)}\right)$$
 
 Now recall that because we assumed concavity, $U_g$ is a negative sloping function whose value is positive. It can be shown that the inverse of such a function is also decreasing. Thus an individual's preferred level of government is determined by a single continuum, the person's income divided by the average income, and the function is __decreasing__ in $y_i$. This is consistent with our intuition that richer people prefer less redistribution.
 
-
 That was the amount for any given person. The government has to set one value of $g$, however. So what will that be? Now we will use another result, the median voter theorem. This says that under certain general electoral conditions (single-peaked preferences, two parties, majority rule), the policy winner will be that preferred by the median person in the population. Because the only thing that determines a person's preferred level of government is $y_i / E(y)$, we can presume that the median voter, whose income is $\text{med}(y)$ will prevail in their preferred choice of government. Therefore, we wil see
-
 
 $$g^\star = {U_g}^{-1}\left(\frac{\text{med}(y)}{E(y)}\right)$$
 
 What does this say about the level of redistribution we observe in an economy? The higher the average income is than the median income, which often (but not always) means _more_ inequality, there should be _more_ redistribution.
 
-
-
-
-
-
 ## Maxima and Minima
 
 The first derivative, $f'(x)$, quantifies the slope of a function. Therefore, it can be used to check whether the function $f(x)$ at the point $x$ is increasing or decreasing at $x$.
-
-
 
 1. __Increasing:__ $f'(x)>0$
 1. __Decreasing:__ $f'(x)<0$
@@ -99,7 +84,6 @@ The first derivative, $f'(x)$, quantifies the slope of a function. Therefore, it
 			 i.e. a maximum, minimum, or saddle point
 
 So for example, $f(x) = x^2 + 2$ and $f^\prime(x) = 2x$ 
-
 
 ```{r}
 #| echo: false
@@ -118,14 +102,12 @@ fprimex <- fx0 + stat_function(fun = function(x) 2*x, linewidth = 0.5, linetype 
 fx + fprimex + plot_layout(nrow = 1)
 ```
 
-
 :::{#exr-maxminplot}
 
 ##  Plotting a maximum and minimum
 Plot $f(x)=x^3+ x^2 + 2$, plot its derivative, and identify where the derivative is zero. Is there a maximum or minimum?
 
 :::
-
 
 ```{r}
 #| echo: false
@@ -144,7 +126,6 @@ fprimex <- fx0 + stat_function(fun = function(x) 3*x^2, size = 0.5, linetype = "
 
 fx + fprimex + plot_annotation(expression(f(x)==x^3+2))
 ```
-
 
 The second derivative $f''(x)$ identifies whether the function $f(x)$ at the point $x$ is
 
@@ -174,23 +155,17 @@ __Global Maxima and Minima__ Sometimes no global max or min exists --- e.g., $f(
 2. __Globally concave up or concave down functions.__  If $f''(x)$ is never zero, then there is at most one critical point. That critical point is a global maximum if $f''<0$ and a global minimum if $f''>0$.
 3. __Functions over closed and bounded intervals__ must have both a global maximum and a global minimum.
 
-
-
 :::{#exm-maxmindraw}
 
 ##  Maxima and Minima by drawing
 
 Find any critical points and identify whether they are a max, min, or saddle point:
 
-
 1. $f(x)=x^2+2$
 1. $f(x)=x^3+2$
 1. $f(x)=|x^2-1|$, $x\in [-2,2]$
 
-
 :::
-
-
 
 ## Concavity of a Function
 
@@ -203,7 +178,6 @@ A function $f$ is strictly concave over the set S \underline{if} $\forall x_1,x_
 \textit{Any} line connecting two points on a concave function will lie \textit{below} the function.
 
 :::
-
 
 ```{r}
 #| echo: false
@@ -218,14 +192,12 @@ fx2 <- ggplot(range1, aes(x = x)) +
 fx1 + fx2 + plot_layout(nrow = 1)
 ```
 
-
 :::{#def-convex}
 ##  Convex Function
 Convex: A function f is strictly convex over the set S \underline{if} $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) < af(x_1) + (1-a)f(x_2)$$
 
   Any line connecting two points on a convex function will lie above the function.
 :::
-
 
 \begin{comment}
   \parbox{2in}{\includegraphics[scale=.4]{Convex.pdf}}
@@ -257,7 +229,6 @@ No matter what two points you select, the \textit{highest} valued point will alw
   \parbox{1.8in}{\includegraphics[scale=.4]{Quasiconvex.pdf}}
 \end{comment}
 
-
 **Second Derivative Test of Concavity**: The second derivative can be used to understand concavity. 
 
 If
@@ -265,7 +236,6 @@ $$\begin{array}{lll}
 f''(x) < 0 & \Rightarrow & \text{Concave}\\
 f''(x) > 0 & \Rightarrow & \text{Convex}
 \end{array}$$
-
 
 ### Quadratic Forms {.unnumbered}
 
@@ -310,19 +280,13 @@ For example, the  Quadratic on $\mathbf{R}^2$:
   &= a_{11}x_1^2 + a_{12}x_1x_2 + a_{22}x_2^2
 \end{align*}
 
-
-
-
 ### Definiteness of Quadratic Forms {.unnumbered}
-
 
 When the function $f(\mathbf{x})$ has more than two inputs, determining whether it has a maxima and minima (remember, functions may have many inputs but they have only one output) is a bit more tedious.  Definiteness helps identify the curvature of a function, $Q(\textbf{x})$, in n dimensional space.
 
 __Definiteness__:  By definition, a quadratic form always takes on the value of zero when $x = 0$, $Q(\textbf{x})=0$ at $\textbf{x}=0$. The definiteness of the matrix $\textbf{A}$ is  determined by whether the
 quadratic form $Q(\textbf{x})=\textbf{x}^\top\textbf{A}\textbf{x}$ is greater than zero, less than
 zero, or sometimes both over all $\mathbf{x}\ne 0$.
-
-
 
 ## FOC and SOC
 
@@ -354,10 +318,6 @@ $\mathbf{x}^*$ is a critical point if and only if $\nabla f(\mathbf{x}^*)=0$. If
   
 :::
 
-
-
-
-
 :::{#exm-gradcp}
 
 Example: Given a function $f(\mathbf{x})=(x_1-1)^2+x_2^2+1$, find the (1) Gradient and (2) Critical point of $f(\mathbf{x})$.
@@ -372,7 +332,6 @@ Gradient
 &= \begin{pmatrix} 2(x_1-1)\\ 2x_2 \end{pmatrix}
 \end{align*}
 
-
 Critical Point $\mathbf{x}^* =$
   
 \begin{align*}
@@ -382,14 +341,9 @@ Critical Point $\mathbf{x}^* =$
 &\Rightarrow   x_2^* = 0\\
 \end{align*}
 
-
 So $$\mathbf{x}^* = (1,0)$$
 
-
 :::
-
-
-
 
 ### Second Order Conditions {.unnumbered}
 When we found a critical point for a function of one variable, we used the second derivative as a indicator of the curvature at the point in order to determine whether the point was a min, max, or saddle (second derivative test of concavity).  For functions of $n$ variables, we use _second order partial derivatives_ as an indicator of curvature.
@@ -411,13 +365,9 @@ $$\mathbf{H(x)}=\begin{pmatrix} \frac{\partial^2 f(\mathbf{x})}{\partial x_1^2}&
 
 :::
 
-
-
-
 Note that the hessian will be a symmetric matrix because $\frac{\partial f(\mathbf{x})}{\partial x_1\partial x_2} = \frac{\partial f(\mathbf{x})}{\partial x_2\partial x_1}$.
 
 Also note that given that $f(\mathbf{x})$ is of quadratic form, each element of the hessian will be a constant.
-
 
 These definitions will be employed when we determine the __Second Order Conditions__ of a function:
 
@@ -429,8 +379,6 @@ Given a function $f(\mathbf{x})$ and a point $\mathbf{x}^*$ such that $\nabla f(
 4. Hessian is Negative Semidefinite  $\forall \mathbf{x}\in B(\mathbf{x}^*,\epsilon)$} $\quad \Longrightarrow \quad$  Local Max
 5. Hessian is Indefinite $\quad \Longrightarrow \quad$ Saddle Point
 
-
-
 :::{#exm-maxmin2d}
 ##  Max and min with two dimensions
 
@@ -439,7 +387,6 @@ $f(\mathbf{x})=(x_1-1)^2+x_2^2+1$ is at $\mathbf{x}^*=(1,0)$.  Is it a min, max,
 saddle point?
 
 :::
-
 
 :::{#sol-maxmin2d}
 
@@ -450,7 +397,6 @@ The Hessian is
 The Leading principal minors of the Hessian are $M_1=2; M_2=4$. Now we consider Definiteness. Since both leading principal minors are positive, the  Hessian is positive definite.
 
 Maxima, Minima, or Saddle Point? Since the Hessian is positive definite and the gradient equals 0, $x^\star = (1,0)$ is a strict local minimum.
-
 
 Note: Alternate check of definiteness. Is $\mathbf{H(x^*)} \geq \leq 0 \quad \forall \quad \mathbf{x}\ne 0$
   
@@ -465,8 +411,6 @@ For any $\mathbf{x}\ne 0$, $2(x_1^2+x_2^2)>0$, so the Hessian is 	positive defin
   
 :::
 
-
-
 ### Definiteness and Concavity {.unnumbered}
 
 Although definiteness helps us to understand the curvature of an n-dimensional function, it does not necessarily tell us whether the function is globally concave or convex.
@@ -476,9 +420,7 @@ We need to know whether a function is globally concave or convex to determine wh
 1. Hessian is Positive Semidefinite $\forall \mathbf{x}$} $\quad \Longrightarrow \quad$ Globally Convex
 2. Hessian is Negative Semidefinite  $\forall \mathbf{x}$} $\quad \Longrightarrow \quad$ Globally Concave
 
-
 Notice that the definiteness conditions must be satisfied over the entire domain.
-
 
 ## Global Maxima and Minima
 
@@ -496,7 +438,6 @@ not enough to guarantee $\mathbf{x}^*$ is a local max.  However, showing that
 $\mathbf{H(x)}$ is negative semidefinite for all $\mathbf{x}$ guarantees that $x^*$
 is a global max.  (The same goes for positive semidefinite and minima.)\\
 
-
 Example: Take $f_1(x)=x^4$ and $f_2(x)=-x^4$.  Both have $x=0$ as
 a critical point.  Unfortunately, $f''_1(0)=0$ and $f''_2(0)=0$, so we
 can't tell whether $x=0$ is a min or max for either.  However,
@@ -504,7 +445,6 @@ $f''_1(x)=12x^2$ and $f''_2(x)=-12x^2$.  For all $x$, $f''_1(x)\ge 0$
 and $f''_2(x)\le 0$ --- i.e., $f_1(x)$ is globally convex and $f_2(x)$
 is globally concave.  So $x=0$ is a global min of $f_1(x)$ and a
 global max of $f_2(x)$.
-
 
 :::{#exr-maxmin}
 
@@ -575,9 +515,7 @@ Given $f(\mathbf{x})=x_1^3-x_2^3+9x_1x_2$, find any maxima or minima.
 
 ## Constrained Optimization
 
-
 We have already looked at optimizing a function in one or more dimensions over the whole domain of the function.  Often, however, we want to find the maximum or minimum of a function over some restricted part of its domain.
-
 
 ex: Maximizing utility subject to a budget constraint
 
@@ -601,12 +539,9 @@ $$\max_{x_1,x_2} f(x_1,x_2) \text{ s.t. } c(x_1,x_2)$$
 $$\min_{x_1,x_2} f(x_1,x_2) \text{ s.t. } c(x_1,x_2)$$
 This tells us to maximize/minimize our function, $f(x_1,x_2)$, with respect to the choice variables, $x_1,x_2$, subject to the constraint.
 
-
 Example: 
 $$\max_{x_1,x_2} f(x_1, x_2) = -(x_1^2 + 2x_2^2) \text{ s.t. }x_1 + x_2 = 4$$
 It is easy to see that the \textit{unconstrained} maximum occurs at $(x_1, x_2) = (0,0)$, but that does not satisfy the constraint.  How should we proceed?
-
-
 
 ### Equality Constraints {.unnumbered}
 
@@ -630,7 +565,6 @@ $$ L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k) = f(x_1, \dots, x_n) - \sum_{
 **Getting the sign right:** Note that above we subtract the lagrangian term _and_ we subtract the constraint constant from the constraint function. Occasionally, you may see the following alternative form of the Lagrangian, which is _equivalent_:
 $$ L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k) = f(x_1, \dots, x_n) + \sum_{i=1}^k\lambda_i(r_i - c_i(x_1,\dots, x_n))$$
 Here we add the lagrangian term _and_ we subtract the constraining function from the constraint constant. 
-
 
 **Using the Lagrangian to Find the Critical Points**: To find the critical points, we take the partial derivatives of lagrangian function, $L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k)$, with respect to each of its variables (all choice variables $\mathbf{x}$ _and_ all lagrangian multipliers $\mathbf{\lambda}$).  At a critical point, each of these partial derivatives must be equal to zero, so we obtain a system of $n + k$ equations in $n + k$ unknowns:
 
@@ -674,11 +608,9 @@ $$L(x_1, x_2, \lambda) =  -(x_1^2 + 2x_2^2) - \lambda(x_1 + x_2 - 4)$$
 4. Therefore, the only critical point is $x_1^* = \frac{8}{3}$ and $x_2^* = \frac{4}{3}$
 5. This gives $f(\frac{8}{3}, \frac{4}{3}) = -\frac{96}{9}$, which is less than the unconstrained optimum $f(0,0) = 0$
 
-
 :::
 
 Notice that when we take the partial derivative of L with respect to the Lagrangian multiplier and set it equal to 0, we return exactly our constraint! This is why signs matter.
-
 
 ## Inequality Constraints
 
@@ -702,7 +634,6 @@ $$L(x_1,x_2,\lambda_1,s_1) = f(x_1,x_2) - \lambda_1 ( c(x_1,x_2) + s_1^2 - a_1)$
 More generally, in n dimensions:
 $$ L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k, s_1, \dots, s_k) = f(x_1, \dots, x_n) - \sum_{i = 1}^k \lambda_i(c_i(x_1,\dots, x_n) + s_i^2 - a_i)$$
 
-
 **Finding the Critical Points**: To find the critical points, we take the partial derivatives of the lagrangian function, $L(x_1,\dots,x_n,\lambda_1,\dots,\lambda_k,s_1,\dots,s_k)$, with respect to each of its variables (all choice variables $x$, all lagrangian multipliers $\lambda$, and all slack variables $s$). At a critical point, _each_ of these partial derivatives must be equal to zero, so we obtain a system of $n + 2k$ equations in $n + 2k$ unknowns:
 
 \begin{align*}
@@ -722,7 +653,6 @@ $$ L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k, s_1, \dots, s_k) = f(x_1, \do
 1.  $\lambda_i = 0$ and $s_i \neq 0$: This implies that the slack is positive and thus _the constraint does not bind_.
 2. $\lambda_i \neq 0$ and $s_i = 0$: This implies that there is no slack in the constraint and _the constraint does bind_.
 3.  $\lambda_i = 0$ and $s_i = 0$: In this case, there is no slack but the _constraint binds trivially_, without changing the optimum.
-
 
 Example: Find the critical points for the following constrained optimization:
 $$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } x_1 + x_2 \le 4$$
@@ -761,8 +691,6 @@ This shows that there are two critical points: $(0,0)$ and $(\frac{8}{3},\frac{4
 5.  Find maximum:
 Looking at the values of $f(x_1,x_2)$ at the critical points, we see that $f(x_1,x_2)$ is maximized at $x_1^* = 0$ and $x_2^*=0$.
 
-
-
 :::{#exr-critical-points-constrained-optimization}
 Example: Find the critical points for the following constrained optimization:
 $$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t. } 
@@ -772,8 +700,6 @@ x_1 \ge 0\\
 x_2 \ge 0
 \end{array}$$
 :::
-
-
 
 1.  Rewrite with the slack variables:
 $$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t.  
@@ -818,11 +744,7 @@ This shows that there are four critical points: $(0,0)$, $(4,0)$, $(0,4)$, and $
 
 4.  Find maximum: Looking at the values of $f(x_1,x_2)$ at the critical points, we see that the constrained maximum is located at $(x_1, x_2) = (0,0)$, which is the same as the unconstrained max.  The constrained minimum is located at $(x_1, x_2) = (0,4)$, while there is no unconstrained minimum for this problem.
 
-
-
-
 ## Kuhn-Tucker Conditions
-
 
 As you can see, this can be a pain. When dealing explicitly with _non-negativity constraints_, this process is simplified by using the Kuhn-Tucker method.
 
@@ -841,7 +763,6 @@ $$L(x_1,x_2,\lambda_2) = f(x_1,x_2) - \lambda_1(c(x_1,x_2) - a_1)$$
 
 More generally, in n dimensions:
 $$ L(x_1, \dots, x_n, \lambda_1, \dots, \lambda_k) = f(x_1, \dots, x_n) - \sum_{i=1}^k\lambda_i(c_i(x_1,\dots, x_n) - a_i)$$
-
 
 **Kuhn-Tucker and Complementary Slackness Conditions**: To find the critical points, we first calculate the Kuhn-Tucker conditions by taking the partial derivatives of the lagrangian function, $L(x_1,\dots,x_n,\lambda_1,\dots,\lambda_k)$, with respect to each of its variables (all choice variable s$x$ and all lagrangian multipliers $\lambda$) and we calculate the _complementary slackness conditions_ by multiplying each partial derivative by its respective variable _and_ include non-negativity conditions for all variables (choice variables $x$ and lagrangian multipliers $\lambda$).
 
@@ -880,9 +801,6 @@ In a two-dimensional set-up, this means we must check the following cases:
 1. $x_1 \neq 0, x_2 = 0$ Border Solution
 1. $x_1 \neq 0, x_2 \neq 0$ Interior Solution
 
-
-
-
 :::{#exm-k-t-2}
 ##  Kuhn-Tucker with two variables
 Solve the following optimization problem with inequality constraints
@@ -898,7 +816,6 @@ $$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2)$$
 \end{align*}
 
 :::
-
 
 1.  Write the Lagrangian:
 $$L(x_1, x_2, \lambda) =  -(x_1^2 + 2x_2^2) - \lambda(x_1 + x_2 - 4)$$
@@ -943,12 +860,9 @@ $x_1 \neq 0, x_2 \neq 0$ & $-\frac{16}{3}$ & $\frac{8}{3}$ & $\frac{4}{3}$ & $-\
 4.  Find Maximum:
 Three of the critical points violate the requirement that $\lambda \geq 0$, so the point $(0,0,0)$ is the maximum.
 
-
-
 :::{#exr-ktlogs}
 ##  Kuhn-Tucker with logs
 Solve the constrained optimization problem,
-
 
 $$\max_{x_1,x_2} f(x) = \frac{1}{3}\log (x_1 + 1) + \frac{2}{3}\log (x_2 + 1) \text{ s.t. }  
 \begin{array}{l}
@@ -957,8 +871,6 @@ x_1 + 2x_2 \leq 4\\
 	x_2 \geq 0
 \end{array}$$
 :::
-
-
 
 1. Write the Lagrangian:
 $$L(x_1, x_2, \lambda) =  \frac{1}{3}\log(x_1+1) + \frac{2}{3}\log(x_2+1) - \lambda(x_1 + 2x_2 - 4)$$
@@ -1001,13 +913,10 @@ $x_1 \neq 0, x_2 \neq 0$ &  & $\frac{4}{3}$ & $\frac{4}{3}$ & $\log\frac{7}{3}$\
 
 Three of the critical points violate the constraints, so the point $(\frac{4}{3},\frac{4}{3})$ is the maximum.\\
 
-
-
 ## Applications of Quadratic Forms
 
 __Curvature and The Taylor Polynomial as a Quadratic Form__: 
 The Hessian is used in a Taylor polynomial approximation to $f(\mathbf{x})$ and provides information about the curvature of $f({\bf x})$ at $\mathbf{x}$ --- e.g., which tells us whether a critical point $\mathbf{x}^*$ is a min, max, or saddle point.
-
 
 1.  The second order Taylor polynomial about the critical point
 ${\bf x}^*$ is

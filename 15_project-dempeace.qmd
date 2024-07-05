@@ -20,10 +20,6 @@ Up till now, you should have covered:
 
 Today you will work on your own, but feel free to ask a fellow classmate nearby or the instructor. The objective for this session is to get more experience using R, but in the process (a) test a prominent theory in the political science literature and (b) explore related ideas of interest to you. 
 
-
-
-
-
 ## Setting up
 
 ```{r}
@@ -35,8 +31,6 @@ library(readr)
 library(ggplot2)
 ```
 
-
-
 ## Create a project directory
 
 First start a directory for this project. This can be done manually or through RStudio's Project feature(`File > New Project...`)
@@ -44,9 +38,6 @@ First start a directory for this project. This can be done manually or through R
 Directories is the computer science / programming name for folders. While advice about how to structure your working directories might strike you as petty, we believe that starting from some well-tested guides will go a long way in improving the quality and efficiency of your work. 
 
 Chapter 4 of Gentzkow and Shapiro's memo, [Code and Data for the Social Scientist](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf)] provides a good template. 
-
-
-
 
 ## Data Sources
 Most projects you do will start with downloading data from elsewhere. For this task, you'll probably want to track down and download the following: 
@@ -65,7 +56,6 @@ polity <- read_csv("data/input/sample_polity.csv")
 mid <- read_csv("data/input/sample_mid.csv")
 ```
 
-
 What does `polity` look like?
 ```{r}
 unique(polity$country)
@@ -76,20 +66,16 @@ ggplot(polity, aes(x = year, y = polity2)) +
 head(polity)
 ```
 
-
 MID is a dataset that captures a `dispute` for a given country and year.
 ```{r}
 mid
 ```
 
-
 ## Loops
-
 
 Notice that in the `mid` data, we have a start of a dispute vs. an end of a dispute.In order to combine this into the `polity` data, we want a way to give each of the interval years a row. 
 
 There are many ways to do this, but one is a loop. We go through one row at a time, and then for each we make a new dataset. that has `year` as a sequence of each year. A lengthy loop like this is typically slow, and you'd want to recast the task so you can do things with functions. But, a loop is a good place to start.
-
 
 ```{r}
 mid_year_by_year <- data_frame(ccode = numeric(),
@@ -106,7 +92,6 @@ for(i in 1:nrow(mid)) {
 head(mid_year_by_year)
 ```
 
-
 ## Merging
 We want to combine these two datasets by merging. Base-R has a function called `merge`. `dplyr` has several types of `joins` (the same thing). Those names are based on SQL syntax.
 
@@ -120,8 +105,6 @@ p_m <- left_join(polity,
 
 head(p_m)
 ```
-
-
 
 Replace `dispute` = `NA` rows with a zero.
 
@@ -149,12 +132,9 @@ Often, files we need are saved in the `.xls` or `xlsx` format. It is possible to
 
 `readxl`/`readr`/`haven` packages(<https://github.com/tidyverse/tidyverse>) is constantly expanding to capture more file types. In day 1, we used the package `readxl`, using the `read_excel()` function.
 
-
 ```{r}
 
-
 ```
-
 
 ### Task 2: Data Merging {.unnumbered}
 We will use data to test a version of the Democratic Peace Thesis (DPS).  Democracies are said to go to war less because the leaders who wage wars are accountable to voters who have to bear the costs of war. Are democracies less likely to engage in militarized interstate disputes?
@@ -167,9 +147,7 @@ To start, let's download and merge some data.
 
 ```{r}
 
-
 ```
-
 
 ### Task 3: Tabulations and Visualization {.unnumbered}
 
@@ -180,10 +158,5 @@ To start, let's download and merge some data.
 
 ```{r}
 
-
-
 ```
-
-
-
 

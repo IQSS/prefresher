@@ -1,6 +1,5 @@
 # Visualization^[Module originally written by Shiro Kuriwaki] {#dataviz}
 
-
 ```{r}
 #| include: false
 #| message: false
@@ -12,21 +11,15 @@ library(forcats)
 library(scales)
 ```
 
-
 ### Motivation: The Law of the Census {.unnumbered}
 
 In this module, let's visualize some cross-sectional stats with an actual Census. Then, we'll do an example on time trends with Supreme Court ideal points. 
 
-
 Why care about the Census? The Census is one of the fundamental acts of a government. See the Law Review article by [Persily (2011)](http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf), "The Law of the Census."^[[Persily, Nathaniel. 2011. "The Law of the Census: How to Count, What to Count, Whom to Count, and Where to Count Them.”](http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf). _Cardozo Law Review_ 32(3): 755–91.] The Census is government's primary tool for apportionment (allocating seats to districts), appropriations (allocating federal funding), and tracking demographic change.  See for example [Hochschild and Powell (2008)](https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2) on how the categorizations of race in the Census during 1850-1930.^[[Hochschild, Jennifer L., and Brenna Marea Powell. 2008. "Racial Reorganization and the United States Census 1850–1930: Mulattoes, Half-Breeds, Mixed Parentage, Hindoos, and the Mexican Race."](https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2). _Studies in American Political Development_ 22(1): 59–96.] Notice also that both of these pieces are not inherently "quantitative" --- the Persily article is a Law Review and the Hochschild and Powell article is on American Historical Development --- but data analysis would be certainly relevant.
-
 
 Time series data is a common form of data in social science data, and there is growing methodological work on making causal inferences with time series.^[[Blackwell, Matthew,  and Adam Glynn. 2018. "How to Make Causal Inferences with Time-Series Cross-Sectional Data under Selection on Observables."](https://doi.org/10.1017/S0003055418000357)  _American Political Science Review_]  We will use the the ideological estimates of the Supreme court. 
 
-
-
 ### Where are we? Where are we headed? {.unnumbered}
-
 
 Up till now, you should have covered:
 
@@ -35,7 +28,6 @@ Up till now, you should have covered:
 * Matrices and Vectors
    * What does `:` mean in R? What about `==`? `,`?, `!=` , `&`, `|`, `%in% `
    * What does `%>%` do?
-
 
 Today we'll cover:
 
@@ -52,13 +44,9 @@ Today we'll cover:
 
 ![By Randy Schutt - Own work, CC BY-SA 3.0, [Wikimedia.]( https://commons.wikimedia.org/w/index.php?curid=29585342)](images/Martin-Quinn_Wikipedia.png)
 
-
-
-
 ## Read data
 
 First, the census. Read in a subset of the 2010 Census that we looked at earlier. This time, it is in Rds form.
-
 
 ```{r}
 #| message: false
@@ -67,14 +55,12 @@ cen10 <- readRDS("data/input/usc2010_001percent.Rds")
 
 The data comes from IPUMS^[[Ruggles, Steven, Katie Genadek, Ronald Goeken, Josiah Grover, and Matthew Sobek. 2015. Integrated Public Use Microdata Series: Version 6.0 dataset](http://doi.org/10.18128/D010.V6.0)], a great source to extract and analyze Census and Census-conducted survey (ACS, CPS) data.
 
-
 ## Counting
 How many people are in your sample?
 
 ```{r}
 nrow(cen10)
 ```
-
 
 This and all subsequent  tasks involve manipulating and summarizing data, sometimes called "wrangling". As per last time, there are both "base-R" and "tidyverse" approaches. 
 
@@ -87,7 +73,6 @@ We have already seen several functions from the tidyverse:
 
 In this visualization section, we'll make use of the pair of functions `group_by()` and `summarize()`. 
 
-
 ## Tabulating
 
 Summarizing data is the key part of communication; good data viz gets the point across.^[[Kastellec, Jonathan P., and Eduardo L. Leoni. 2007. "Using Graphs Instead of Tables in Political Science."](http://www.princeton.edu/~jkastell/Tables2Graphs/graphs.pdf).  _Perspectives on Politics_ 5 (4): 755–71.]  Summaries of data come in two forms: tables and figures.
@@ -99,13 +84,10 @@ In base-R Use the `table` function, that provides how many rows exist for an uni
 table(cen10$race)
 ```
 
-
 With tidyverse, a quick convenience function is `count`, with the variable to count on included.
 ```{r}
 count(cen10, race)
 ```
-
-
 
 We can check out the arguments of `count` and see that there is a `sort` option. What does this do?
 ```{r}
@@ -124,23 +106,18 @@ If you are new to tidyverse, what would you _think_ each row did? Reading the fu
 
 where `n()` is a function that counts rows.
 
-
 ## base R graphics and ggplot
 
 Two prevalent ways of making graphing are referred to as "base-R" and "ggplot".
-
 
 ### base R
 
 "Base-R"  graphics are graphics that are made with R's default graphics commands. First, let's assign our tabulation to an object, 
 then put it in the `barplot()` function.
 
-
 ```{r}
 barplot(table(cen10$race))
 ``` 
-
-
 
 ### ggplot
 A popular alternative a `ggplot` graphics, that you were introduced to in the tutorial. `gg` stands for grammar of graphics by Hadley Wickham, and it has a new semantics of explaining graphics in R. Again, first let's set up the data. 
@@ -160,8 +137,6 @@ We will now plot this grouped set of numbers. Recall that the `ggplot()` functio
 2. Then enter the `aes`, or aesthetics. This defines which variable in the data the plotting functions should take for pre-set dimensions in graphics. The dimensions `x` and `y` are the most important. We will assign `race` and `count` to them, respectively,
 3. After you close `ggplot()` .. add __layers__ by the plus sign. A `geom` is a layer of graphical representation, for example `geom_histogram` renders a histogram, `geom_point` renders a scatter plot. For a barplot, we can use `geom_col()`
 
-
-
 What is the right geometry layer to make a barplot? Turns out: 
 
 ```{r}
@@ -169,11 +144,9 @@ What is the right geometry layer to make a barplot? Turns out:
 ggplot(data = grp_race, aes(x = race, y = n)) + geom_col()
 ```
 
-
 ## Improving your graphics
 
 Adjusting your graphics to make the point clear is an important skill. Here is a base-R example of showing the same numbers but with a different design, in a way that aims to maximize the "data-to-ink ratio".
-
 
 ```{r}
 #| fig.fullwidth: true
@@ -203,9 +176,7 @@ ggplot(data = grp_race_ordered, aes(x = race, y = n)) +
        caption = "Source: 2010 U.S. Census sample")
 ```
 
-
 The data ink ratio was popularized by Ed Tufte (originally a political economy scholar who has recently become well known for his data visualization work). See Tufte (2001),  _The Visual Display of Quantitative Information_ and his website <https://www.edwardtufte.com/tufte/>.  For a R and ggplot focused example using social science examples, check out Healy (2018),  _Data Visualization: A Practical Introduction_ with a draft at <https://socviz.co/>^[Healy, Kieran. forthcoming. _Data Visualization:  A Practical Introduction_. Princeton University Press].  There are a growing number of excellent books on data visualization.
-
 
 ## Cross-tabs
 
@@ -225,11 +196,9 @@ Another function to make a cross-tab is the `xtabs` command, which uses formula 
 xtabs(~ state + race, cen10)
 ```
 
-
 What if we care about proportions within states, rather than counts? Say we'd like to compare the racial composition of a small state (like Delaware) and a large state (like California). In fact, most tasks of inference is about the unobserved population, not the observed data --- and proportions are estimates of a quantity in the population.
 
 One way to transform a table of counts to a table of proportions is the function `prop.table`. Be careful what you want to take proportions of -- this is set by the `margin` argument. In R, the first margin (`margin = 1`) is _rows_ and the second (`margin = 2`) is _columns_.
-
 
 ```{r}
 ptab_race_state <- prop.table(xtab_race_state, margin = 2)
@@ -254,7 +223,6 @@ Can you tell from the code what `grp_race_state` will look like?
 grp_race_state
 ```
 
-
 Now, we want to tell `ggplot2` something like the following: I want bars by state, where heights indicate racial groups. Each bar should be colored by the race. With some googling, you will get something like this:
 
 ```{r}
@@ -270,7 +238,6 @@ ggplot(data = grp_race_state, aes(x =  state, y = n,  fill = race)) +
   theme_minimal()
 ```
 
-
 ## Line graphs
 
 Line graphs are useful for plotting time trends.  
@@ -278,7 +245,6 @@ Line graphs are useful for plotting time trends.
 The Census does not track individuals over time. So let's take up another example: The U.S. Supreme Court. Take the dataset `justices_court-median.csv`.
 
 This data is adapted from the estimates of Martin and Quinn on their website <http://mqscores.lsa.umich.edu/>.^[This exercise inspired from Princeton's R Camp Assignment.]  
-
 
 ```{r}
 #| message: false
@@ -291,10 +257,7 @@ What does the data look like? How do you think it is organized? What does each r
 justice
 ```
 
-
-
 As you might have guessed, these data can be shown in a time trend from the range of the `term` variable. As there are only nine justices at any given time and justices have life tenure, there times on the court are staggered. With a common measure of "preference", we can plot time trends of these justices ideal points on the same y-axis scale. 
-
 
 ```{r}
 ggplot(justice, aes(x = term, y = idealpt)) +
@@ -310,12 +273,7 @@ If you got the right aesthetic, this seems to "work" off the shelf. But take a m
 
 Now, this graphic already indicates a lot, but let's improve the graphics so people can actually read it.  This is left for a Exercise. 
 
-
-
 As social scientists, we should also not forget to ask ourselves whether these numerical measures are fit for what we care about, or actually succeeds in measuring what we'd like to measure. The estimation of these "ideal points" is a subfield of political methodology beyond this prefresher. For more reading, skim through the original paper by Martin and Quinn (2002).^[[Martin, Andrew D. and Kevin M. Quinn. 2002. "Dynamic Ideal Point Estimation via Markov Chain Monte Carlo for the U.S. Supreme Court, 1953-1999"](http://mqscores.lsa.umich.edu/media/pa02.pdf). _Political Analysis._ 10(2): 134-153.] Also for a methodological discussion on the difficulty of measuring time series of preferences, check out Bailey (2013).^[[Bailey, Michael A. 2013. "Is Today’s Court the Most Conservative in Sixty Years? Challenges and Opportunities in Measuring Judicial Preferences." ](https://michaelbailey.georgetown.domains/wp-content/uploads/2018/05/JOP_proofs_June2013.pdf). _Journal of Politics_ 75(3): 821-834]
-
-
-
 
 ## Exercises {.unnumbered}
 In the time remaining, try the following exercises. Order doesn't matter. 
@@ -324,12 +282,10 @@ In the time remaining, try the following exercises. Order doesn't matter.
 
 Make a well-labelled figure that plots the proportion of the state's population (as per the census) that is 65 years or older. Each state should be visualized as a point, rather than a bar, and there should be 51 points, ordered by their value.  All labels should be readable. 
 
-
 ```{r}
 # Enter yourself
 
 ```
-
 
 ### 2: The swing justice {.unnumbered}
 
@@ -347,25 +303,20 @@ Using the `justices_court-median.csv` dataset and building off of the plot that 
 * Extend the x-axis label to about 2020 so the text labels of justices are to the right of the trend-lines.
 * Add a caption to your text describing the data briefly, as well as any features relevant for the reader (such as the median line and the trimming of the y-axis)
 
-
 ```{r}
 # Enter yourself
 
 ``` 
 
-
 ### 3: Don't sort by the alphabet {.unnumbered}
 
 The Figure we made that shows racial composition by state has one notable shortcoming: it orders the states alphabetically, which is not particularly useful if you want see an overall pattern, without having particular states in mind. 
 
-
 Find a way to modify the figures so that the states are ordered by the _proportion_ of White residents in the sample. 
-
 
 ```{r}
 # Enter yourself
 ```
-
 
 ### 4 What to show and how to show it {.unnumbered}
 

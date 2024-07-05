@@ -1,9 +1,6 @@
 # (PART) Programming {.unnumbered}
 
-
 # Orientation and Reading in Data^[Module originally written by Shiro Kuriwaki] {#dataimport}
-
-
 
 Welcome to the first in-class session for programming. Up till this point, you should have already:
 
@@ -11,13 +8,11 @@ Welcome to the first in-class session for programming. Up till this point, you s
 * Made an account at RStudio Cloud and join the Math Prefresher 2019 Space, and
 * Successfully signed up for the University wi-fi: <https://getonline.harvard.edu/> (Access Harvard Secure with your HarvardKey. Try to get a HarvardKey as soon as possible.)
 
-
 ## Motivation: Data and You {.unnumbered}
 
 The modal social science project starts by importing existing datasets. Datasets come in all shapes and sizes. As you search for new data you may encounter dozens of file extensions -- csv, xlsx, dta, sav, por, Rdata, Rds, txt, xml, json, shp ... the list continues. Although these files can often be cumbersome, its a good to be able to find a way to encounter any file that your research may call for. 
 
 Reviewing data import will allow us to get on the same page on how computer systems work.
-
 
 ### Where are we? Where are we headed? {.unnumbered}
 
@@ -38,7 +33,6 @@ Today we'll cover:
 * How would you figure out what variables are in the data? size of the data?
 * How would you read in a `csv` file, a `dta` file, a `sav` file?
 
-
 ```{r}
 #| include: false
 #| message: false
@@ -46,7 +40,6 @@ library(ggplot2)
 library(dplyr)
 library(fs)
 ```
-
 
 ## Orienting
 
@@ -62,11 +55,9 @@ library(fs)
 
 3. via the GUI, you the analyst needs to sends instructions, or __commands__, to the R application. The verb for this is "run" or "execute" the command. Computer programs ask users to provide instructions in very specific formats. While a English-speaking human can understand a sentence with a few typos in it by filling in the blanks, the same typo or misplaced character would halt a computer program. Each program has its own requirements for how commands should be typed; after all, each of these is its own language. We refer to the way a program needs its commands to be formatted as its __syntax__. 
 
-
 4.  Theoretically, one could do all their work by typing in commands into the Console. But that would be a lot of work, because you'd have to give instructions each time you start your data analysis. Moreover, you'll have no record of what you did. That's why you need a __script__. This is a type of __code__. It can be referred to as a __source__ because that is the source of your commands. Source is also used as a verb; "source the script" just means execute it.  RStudio doesn't start out with a script, so you can make one from "File > New" or the New file icon.
 
 ![Opening New Script (as opposed to the Console)](images/11_2_rstudio-script.png)
-
 
 4.  You can also open scripts that are in folders in your computer. A script is a type of File. Find your Files in the bottom-right "Files" pane. 
 
@@ -84,14 +75,11 @@ library(fs)
     * `.Rmd`: Rmarkdown code (text + code)
     * `.do`: Stata code (script)
 
-
 ![Opening an Existing Script from Files](images/11_3_rstudio-files.png)
 
 5.   In R, there are two main types of scripts. A classic `.R` file and a `.Rmd` file (for Rmarkdown). A .R file is just lines and lines of R code that is meant to be inserted right into the Console. A .Rmd tries to weave code and English together, to make it easier for users to create reports that interact with data and intersperse R code with explanation. For example, we built this book in Rmds. 
 
     The Rmarkdown facilitates is the use of __code chunks__, which are used here. These start and end with three back-ticks. In the beginning, we can add options in curly braces (`{}`). Specifying `r` in the beginning tells to render it as R code. Options like `echo = TRUE` switch between showing the code that was executed or not; `eval = TRUE` switch between evaluating the code. More about Rmarkdown in Section \@ref(nonwysiwyg). For example, this code chunk would evaluate `1 + 1` and show its output when compiled, but not display the code that was executed.
-
-
 
 ![A code chunk in Rmarkdown (before rendering)](images/11_4_codechunk.png)
 
@@ -127,7 +115,6 @@ Object oriented programming makes languages flexible and powerful:
 
 It is helpful to think in terms of object manipulation at a high level while programming in R, particularly at the beginning of tackling a new problem. Think about what objects you want to manipulate, what types they are, and how they fit together. Once you have the logic of your solution ready then you can write it in R.
 
-
 ## The Computer and You: Giving Instructions
 
 We'll do the Peanut Butter and Jelly Exercise in class as an introduction to programming for those who are new.^[This Exercise is taken from Harvard's Introductory Undergraduate Class, CS50 (<https://www.youtube.com/watch?v=kcbT3hrEi9s>), and many other writeups.]
@@ -145,10 +132,7 @@ n_jelly <- 9
 
 # write instructions in R here
 
-
 ```
-
-
 
 ## Base-R vs. tidyverse 
 
@@ -175,9 +159,7 @@ The following side-by-side comparison of commands for a particular function comp
 | Create a dataframe | `tibble(x = vec1, y = vec2)`| `data.frame(x = vec1, y = vec2)` |
 | Turn a dataframe into a tidyverse dataframe | `tbl_df(df)` | |
 
-
 Remember that tidyverse applies to _dataframes_ only, not vectors. For subsetting vectors, use the base-R functions with the square brackets.
-
 
 ### Read data {.unnumbered}
 
@@ -192,7 +174,6 @@ Some non-tidyverse functions are not quite "base-R" but have similar relationshi
 | Return matching strings | `str_subset()` | `grep(., value = TRUE)` |
 | Merge `data1` and `data2` on variables  `x1` and `x2` | `left_join(data1, data2, by = c("x1", "x2"))` | `merge(data1, data2, by.x = "x1", by.y = "x2", all.x = TRUE)` |
 
-
 ### Visualization {.unnumbered}
 
 Plotting by ggplot2 (from your tutorials) is also a tidyverse family.
@@ -203,9 +184,6 @@ Plotting by ggplot2 (from your tutorials) is also a tidyverse family.
 | Make a line plot | `ggplot(data, aes(x, y)) + geom_line()` | `plot(data$x, data$y, type = "l")` |
 | Make a histogram | `ggplot(data, aes(x, y)) + geom_histogram()` | `hist(data$x, data$y)` |
 | Make a barplot | See Section \@ref(dataviz) | See Section \@ref(dataviz)|
-
-
-
 
 ## A is for Athens
 
@@ -223,10 +201,7 @@ dir_ls("data/input")
 
 A typical file format is Microsoft Excel. Although this is not usually the best format for R because of its highly formatted structure as opposed to plain text (more on this in Section \ref@(sec:wysiwyg)), recent packages have made this fairly easy. 
 
-
-
 ### Reading in Data
-
 
 In Rstudio, a good way to start is to use the GUI and the Import tool. Once you click a file, an option to "Import Dataset" comes up. RStudio picks the right function for you, and you can copy that code, but it's important to eventually be able to write that code yourself. 
 
@@ -261,17 +236,13 @@ ober <- read_excel("data/input/ober_2018.xlsx")
 
 Review: what does the `/` mean?  Why do we need the `data` term first? Does the argument need to be in quotes? 
 
-
-
 ### Inspecting 
 
 For almost any dataset, you usually want to do a couple of standard checks first to understand what you loaded.
 
-
 ```{r}
 ober
 ```
-
 
 ```{r}
 dim(ober)
@@ -299,9 +270,7 @@ These `tidyverse` commands from the `dplyr` package are newer and not built-in, 
 * These verbs roughly correspond to the same commands in SQL, another important language in data science. 
 * The `%>%` symbol is a pipe. It takes the thing on the left side and pipes it down to the function on the right side. We could have done `count(cen10, race)` as `cen10 %>% count(race)`. That means take `cen10` and pass it on to the function `count`, which will count observations by race and return a collapsed dataset with the categories in its own variable and their respective counts in `n`.
 
-
 ### Extra: A sneak peak at Ober's data
-
 
 Although this is a bit beyond our current stage, it's hard to resist the temptation to see what you can do with data like this.  For example, you can map it.^[In mid-2018, changes in Google's services made it no longer possible to render maps on the fly. Therefore, the map is not currently rendered automatically (but can be rendered once the user registers their API).  Instead, you now need to register with Google. See the [change](https://github.com/dkahle/ggmap/blob/e55c0b22b0d16a010b4b45dd2fce800ff0ef19b8/NEWS#L6-L12) to the pacakge ggmap.]
 
@@ -328,7 +297,6 @@ ggmap(greece)
 
 I chose the specifications for arguments `zoom` and `maptype` by looking at the webpage and Googling some examples.
 
-
 Ober's data has the latitude and longitude of each polis. Because the map of Greece has the same coordinates, we can add the polei on the same map. 
 
 ```{r}
@@ -346,9 +314,6 @@ gg_ober +
 ```
 ![](images/ober_ggmap_polis.png)
 
-
-
-
 ## Exercises {.unnumbered}
 
 ### 1 {.unnumbered}
@@ -359,7 +324,6 @@ What is the Fame value of Delphoi?
 # Enter here
 ```
 
-
 ### 2 {.unnumbered}
 
 Find the polis with the top 10 Fame values.
@@ -367,8 +331,6 @@ Find the polis with the top 10 Fame values.
 ```{r}
 # Enter here
 ```
-
-
 
 ### 3 {.unnumbered}
 
@@ -378,10 +340,8 @@ Make a scatterplot with the number of colonies on the x-axis and Fame on the y-a
 # Enter here
 ```
 
-
 ### 4 {.unnumbered}
 Find the correct function to read the following datasets (available in your rstudio.cloud session) into your R window.
-
 
 * `data/input/acs2015_1percent.csv`: A one percent sample of the American Community Survey
 * `data/input/gapminder_wide.tab`: Country-level wealth and health from Gapminder^[Formatted and taken from <https://doi.org/10.7910/DVN/GJQNEQ>]
@@ -391,11 +351,9 @@ Find the correct function to read the following datasets (available in your rstu
 
 Our Recommendations: Look at the packages `haven` and `readr`
 
-
 ```{r}
 # Enter here, perhaps making a chunk for each file.
 ```
-
 
 ### 5 {.unnumbered}
 Read Ober's codebook and find a variable that you think is interesting. Check the distribution of that variable in your data, get a couple of statistics, and summarize it in English.
@@ -403,7 +361,6 @@ Read Ober's codebook and find a variable that you think is interesting. Check th
 ```{r}
 # Enter here
 ```
-
 
 ### 6 {.unnumbered}
 This is day 1 and we covered a lot of material. Some of you might have found this completely new; others not so. Please click through this survey before you leave so we can adjust accordingly on the next few days.
