@@ -28,6 +28,7 @@ book:
         - 16_simulation.qmd
         - 17_non-wysiwyg.qmd
         - 18_text.qmd
+        - 19_command-line_git.qmd
         
 delete_merged_file: true
 language:
