@@ -50,4 +50,7 @@ format:
     geometry: "margin=1.5in"
     link-citations: true
     output-file: "prefresher.pdf"
-    linkcolor: "Crimson"
+    linkcolor: "crimson"
+    toccolor: "crimson"
+    urlcolor: "crimson"
+    citecolor: "crimson"
