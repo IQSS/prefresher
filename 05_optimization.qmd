@@ -624,20 +624,20 @@ Example: Find the critical points for the following constrained optimization: $$
 ```
 4.  Consider all ways that the complementary slackness conditions are solved:
 
-    ```{=tex}
-    \begin{center}
-    \begin{tabular}{|l|cccc|c|}
-    \hline
-    Hypothesis & $s_1$ & $\lambda_1$ & $x_1$ & $x_2$ & $f(x_1, x_2)$\\
-    \hline
-    $s_1 = 0$ $\lambda_1 = 0$ & \multicolumn{4}{l|}{No solution} & \\
-    $s_1 \neq 0$ $\lambda_1 = 0$ & 2 & 0 & 0 & 0  & 0\\
-    $s_1 = 0$ $\lambda_1 \neq 0$ & 0 & $\frac{-16}{3}$ & $\frac{8}{3}$ & $\frac{4}{3}$ & $-\frac{32}{3}$\\
-    $s_1 \neq 0$ $\lambda_1 \neq 0$ & \multicolumn{4}{l|}{No solution} &\\
-    \hline
-    \end{tabular}
-    \end{center}
-    ```
+```{=tex}
+\begin{center}
+\begin{tabular}{|l|cccc|c|}
+\hline
+Hypothesis & $s_1$ & $\lambda_1$ & $x_1$ & $x_2$ & $f(x_1, x_2)$\\
+\hline
+$s_1 = 0$ $\lambda_1 = 0$ & \multicolumn{4}{l|}{No solution} & \\
+$s_1 \neq 0$ $\lambda_1 = 0$ & 2 & 0 & 0 & 0  & 0\\
+$s_1 = 0$ $\lambda_1 \neq 0$ & 0 & $\frac{-16}{3}$ & $\frac{8}{3}$ & $\frac{4}{3}$ & $-\frac{32}{3}$\\
+$s_1 \neq 0$ $\lambda_1 \neq 0$ & \multicolumn{4}{l|}{No solution} &\\
+\hline
+\end{tabular}
+\end{center}
+```
 
 This shows that there are two critical points: $(0,0)$ and $(\frac{8}{3},\frac{4}{3})$.
 
@@ -670,24 +670,24 @@ $\frac{\partial L}{\partial x_1} = -2x_1 - \lambda_1 + \lambda_2  =  0$\\ $\frac
 
 3.  Consider all ways that the complementary slackness conditions are solved:
 
-    ```{=tex}
-    \begin{center}
-    \begin{tabular}{|l|cccccccc|c|}
-    \hline
-    Hypothesis & $s_1$ & $s_2$ & $s_3$ & $\lambda_1$ & $\lambda_2$ & $\lambda_3$ & $x_1$ & $x_2$ & $f(x_1, x_2)$\\
-    \hline
-    $s_1 = s_2 = s_3 = 0$ & \multicolumn{8}{l|}{No solution} & \\
-    $s_1 \neq 0, s_2 = s_3 = 0$ & 2 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
-    $s_2 \neq 0, s_1 = s_3 = 0$ & 0 & 2 & 0 & -8 & 0 & -8 & 4 & 0 & -16\\
-    $s_3 \neq 0, s_1 = s_2 = 0$ & 0 & 0 & 2 & -16 & -16 & 0 & 0 & 4 & -32\\
-    $s_1 \neq 0, s_2 \neq 0, s_3 = 0$ &\multicolumn{8}{l|}{No solution} & \\
-    $s_1 \neq 0, s_3 \neq 0, s_2 = 0$ &\multicolumn{8}{l|}{No solution} & \\
-    $s_2 \neq 0, s_3 \neq 0, s_1 = 0$ &0 & $\sqrt{\frac{8}{3}}$ & $\sqrt{\frac{4}{3}}$ & $-\frac{16}{3}$ & 0 & 0 & $\frac{8}{3}$& $\frac{4}{3}$ & $-\frac{32}{3}$\\
-    $s_1 \neq 0, s_2 \neq 0, s_3 \neq 0$ &\multicolumn{8}{l|}{No solution}& \\
-    \hline
-    \end{tabular}
-    \end{center}
-    ```
+```{=tex}
+\begin{center}
+\begin{tabular}{|l|cccccccc|c|}
+\hline
+Hypothesis & $s_1$ & $s_2$ & $s_3$ & $\lambda_1$ & $\lambda_2$ & $\lambda_3$ & $x_1$ & $x_2$ & $f(x_1, x_2)$\\
+\hline
+$s_1 = s_2 = s_3 = 0$ & \multicolumn{8}{l|}{No solution} & \\
+$s_1 \neq 0, s_2 = s_3 = 0$ & 2 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+$s_2 \neq 0, s_1 = s_3 = 0$ & 0 & 2 & 0 & -8 & 0 & -8 & 4 & 0 & -16\\
+$s_3 \neq 0, s_1 = s_2 = 0$ & 0 & 0 & 2 & -16 & -16 & 0 & 0 & 4 & -32\\
+$s_1 \neq 0, s_2 \neq 0, s_3 = 0$ &\multicolumn{8}{l|}{No solution} & \\
+$s_1 \neq 0, s_3 \neq 0, s_2 = 0$ &\multicolumn{8}{l|}{No solution} & \\
+$s_2 \neq 0, s_3 \neq 0, s_1 = 0$ &0 & $\sqrt{\frac{8}{3}}$ & $\sqrt{\frac{4}{3}}$ & $-\frac{16}{3}$ & 0 & 0 & $\frac{8}{3}$& $\frac{4}{3}$ & $-\frac{32}{3}$\\
+$s_1 \neq 0, s_2 \neq 0, s_3 \neq 0$ &\multicolumn{8}{l|}{No solution}& \\
+\hline
+\end{tabular}
+\end{center}
+```
 
 This shows that there are four critical points: $(0,0)$, $(4,0)$, $(0,4)$, and $(\frac{8}{3},\frac{4}{3})$
 
@@ -789,20 +789,20 @@ x_2 & \geq 0\\
 
 3.  Consider all border and interior cases:
 
-    ```{=tex}
-    \begin{center}
-    \begin{tabular}{|l|ccc|c|}
-    \hline
-    Hypothesis  & $\lambda$& $x_1$ & $x_2$ & $f(x_1, x_2)$\\
-    \hline
-    $x_1 = 0, x_2 = 0$  &0 & 0 & 0 & 0\\
-    $x_1 = 0, x_2 \neq 0$  &-16 & 0 & 4 & -32\\
-    $x_1 \neq 0, x_2 = 0$  &-8 & 4 & 0 & -16\\
-    $x_1 \neq 0, x_2 \neq 0$ & $-\frac{16}{3}$ & $\frac{8}{3}$ & $\frac{4}{3}$ & $-\frac{32}{3}$\\
-    \hline
-    \end{tabular}
-    \end{center}
-    ```
+```{=tex}
+\begin{center}
+\begin{tabular}{|l|ccc|c|}
+\hline
+Hypothesis  & $\lambda$& $x_1$ & $x_2$ & $f(x_1, x_2)$\\
+\hline
+$x_1 = 0, x_2 = 0$  &0 & 0 & 0 & 0\\
+$x_1 = 0, x_2 \neq 0$  &-16 & 0 & 4 & -32\\
+$x_1 \neq 0, x_2 = 0$  &-8 & 4 & 0 & -16\\
+$x_1 \neq 0, x_2 \neq 0$ & $-\frac{16}{3}$ & $\frac{8}{3}$ & $\frac{4}{3}$ & $-\frac{32}{3}$\\
+\hline
+\end{tabular}
+\end{center}
+```
 
 4.  Find Maximum: Three of the critical points violate the requirement that $\lambda \geq 0$, so the point $(0,0,0)$ is the maximum.
 
@@ -837,20 +837,20 @@ $x_1  \geq  0$\\ $x_2  \geq  0$\\ \$\lambda \\geq \$0\\
 
 3.  Consider all border and interior cases:
 
-    ```{=tex}
-    \begin{center}
-    \begin{tabular}{|l|ccc|c|}
-    \hline
-    Hypothesis  & $\lambda$& $x_1$ & $x_2$ & $f(x_1, x_2)$\\
-    \hline
-    $x_1 = 0, x_2 = 0$  &\multicolumn{3}{l|}{No Solution}& \\
-    $x_1 = 0, x_2 \neq 0$  &\multicolumn{3}{l|}{No Solution}& \\
-    $x_1 \neq 0, x_2 = 0$  & \multicolumn{3}{l|}{No Solution}& \\
-    $x_1 \neq 0, x_2 \neq 0$ &  & $\frac{4}{3}$ & $\frac{4}{3}$ & $\log\frac{7}{3}$\\
-    \hline
-    \end{tabular}
-    \end{center}
-    ```
+```{=tex}
+\begin{center}
+\begin{tabular}{|l|ccc|c|}
+\hline
+Hypothesis  & $\lambda$& $x_1$ & $x_2$ & $f(x_1, x_2)$\\
+\hline
+$x_1 = 0, x_2 = 0$  &\multicolumn{3}{l|}{No Solution}& \\
+$x_1 = 0, x_2 \neq 0$  &\multicolumn{3}{l|}{No Solution}& \\
+$x_1 \neq 0, x_2 = 0$  & \multicolumn{3}{l|}{No Solution}& \\
+$x_1 \neq 0, x_2 \neq 0$ &  & $\frac{4}{3}$ & $\frac{4}{3}$ & $\log\frac{7}{3}$\\
+\hline
+\end{tabular}
+\end{center}
+```
 
 4.  Find Maximum:
 
