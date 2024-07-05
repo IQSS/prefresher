@@ -402,10 +402,10 @@ Given a function $f(\mathbf{x})$ in $n$ variables, the hessian $\mathbf{H(x)}$ i
 an $n\times n$ matrix, where the $(i,j)$th element is the second order
 partial derivative of $f(\mathbf{x})$ with respect to $x_i$ and $x_j$:
 
-$$\mathbf{H(x)}=\begin{pmatrix} \frac{\partial^2 f(\mathbf{x})}{\partial x_1^2}&\frac{\partial^2f(\mathbf{x})}{\partial x_1 \partial x_2}& \cdots & \frac{\partial^2 f(\mathbf{x})}{\partial x_1 \partial x_n}\$$9pt]
+$$\mathbf{H(x)}=\begin{pmatrix} \frac{\partial^2 f(\mathbf{x})}{\partial x_1^2}&\frac{\partial^2f(\mathbf{x})}{\partial x_1 \partial x_2}& \cdots & \frac{\partial^2 f(\mathbf{x})}{\partial x_1 \partial x_n} \\
 \frac{\partial^2 f(\mathbf{x})}{\partial x_2 \partial x_1}&\frac{\partial^2f(\mathbf{x})}{\partial x_2^2}&
 \cdots & \frac{\partial^2 f(\mathbf{x})}{\partial x_2 \partial x_n}\\
-\vdots & \vdots & \ddots & \vdots \$$3pt]
+\vdots & \vdots & \ddots & \vdots \\
 \frac{\partial^2 f(\mathbf{x})}{\partial x_n \partial x_1}&\frac{\partial^2f(\mathbf{x})}{\partial x_n \partial x_2}&
 \cdots & \frac{\partial^2 f(\mathbf{x})}{\partial x_n^2}\end{pmatrix}$$
 
@@ -512,66 +512,66 @@ Given $f(\mathbf{x})=x_1^3-x_2^3+9x_1x_2$, find any maxima or minima.
 
 :::
 
-
+```{=latex}
   \begin{enumerate}
   \item First order conditions.  
 	\begin{enumerate}
 	\item Gradient $\nabla f(\mathbf{x}) = $
-		$$\phantom{\begin{pmatrix} \frac{\partial f}{\partial x_1} \\ 
+		$$\begin{pmatrix} \frac{\partial f}{\partial x_1} \\ 
 		\frac{\partial f}{\partial x_2}\end{pmatrix} =
-		\begin{pmatrix} 3x_1^2+9x_2 \\ -3x_2^2+9x_1 \end{pmatrix}}$$
+		\begin{pmatrix} 3x_1^2+9x_2 \\ -3x_2^2+9x_1 \end{pmatrix}$$
 	\item Critical Points $\mathbf{x^*} =$\\
-		\phantom{Set the gradient equal to zero and solve for $x_1$ and 
+		Set the gradient equal to zero and solve for $x_1$ and 
 		$x_2$.We have two equations and two unknowns.  Solving for $x_1$ 
 		and $x_2$, we get two critical points:  $\mathbf{x}_1^*=(0,0)$ and
-		$\mathbf{x}_2^*=(3,-3)$.}
-		$$\phantom{3x_1^2 + 9x_2 = 0 \quad \Rightarrow \quad  9x_2 = 
-		-3x_1^2 \quad \Rightarrow \quad  x_2 = -\frac{1}{3}x_1^2}$$
-		$$\phantom{-3x_2^2 + 9x_1 = 0 \quad \Rightarrow \quad 
-		-3(-\frac{1} {3}x_1^2)^2 + 9x_1 = 0}$$ 
-		$$\phantom{\Rightarrow \quad -\frac{1}{3}x_1^4 
+		$\mathbf{x}_2^*=(3,-3)$.
+		$$3x_1^2 + 9x_2 = 0 \quad \Rightarrow \quad  9x_2 = 
+		-3x_1^2 \quad \Rightarrow \quad  x_2 = -\frac{1}{3}x_1^2$$
+		$$-3x_2^2 + 9x_1 = 0 \quad \Rightarrow \quad 
+		-3(-\frac{1} {3}x_1^2)^2 + 9x_1 = 0$$ 
+		$$\Rightarrow \quad -\frac{1}{3}x_1^4 
 		+ 9x_1 = 0 \quad \Rightarrow \quad x_1^3 = 27x_1 \quad 
-		\Rightarrow \quad x_1 = 3}$$
-		$$\phantom{3(3)^2 + 9x_2 = 0 \quad \Rightarrow \quad x_2 = -3}$$	
+		\Rightarrow \quad x_1 = 3$$
+		$$3(3)^2 + 9x_2 = 0 \quad \Rightarrow \quad x_2 = -3$$	
 	\end{enumerate}		  
  
   \item Second order conditions.  
 	\begin{enumerate}
 	\item Hessian $\mathbf{H(x)} = $
-		$$\phantom{\begin{pmatrix} 6x_1&9\\9&-6x_2 \end{pmatrix}}$$
+		$$\begin{pmatrix} 6x_1&9\\9&-6x_2 \end{pmatrix}$$
 	\item Hessian $\mathbf{H(x_1^*)} = $
-		$$\phantom{\begin{pmatrix} 0&9\\9&0\end{pmatrix}}$$
+		$$\begin{pmatrix} 0&9\\9&0\end{pmatrix}$$
 	\item Leading principal minors of $\mathbf{H(x_1^*)} = $
-		$$\phantom{M_1=0; M_2=-81}$$\\
+		$$M_1=0; M_2=-81$$\\
 	\item Definiteness of $\mathbf{H(x_1^*)}$?\\
-		\phantom{$\mathbf{H(x_1^*)}$ is indefinite}\\
+		$\mathbf{H(x_1^*)}$ is indefinite\\
 	\item Maxima, Minima, or Saddle Point for $\mathbf{x_1^*}$?\\
-		\phantom{Since $\mathbf{H(x_1^*)}$ is indefinite, $\mathbf{x}_1^*=(0,0)$ 
-		is a saddle point.}\\
+		Since $\mathbf{H(x_1^*)}$ is indefinite, $\mathbf{x}_1^*=(0,0)$ 
+		is a saddle point.\\
 	\item Hessian $\mathbf{H(x_2^*)} = $
-		$$\phantom{\begin{pmatrix} 18&9\\9&18\end{pmatrix}}$$
+		$$\begin{pmatrix} 18&9\\9&18\end{pmatrix}$$
 	\item Leading principal minors of $\mathbf{H(x_2^*)} = $
-		$$\phantom{M_1=18; M_2=243}$$\\
+		$$M_1=18; M_2=243$$\\
 	\item Definiteness of $\mathbf{H(x_2^*)}$?\\
-		\phantom{$\mathbf{H(x_2^*)}$ is positive definite}\\
+		$\mathbf{H(x_2^*)}$ is positive definite\\
 	\item Maxima, Minima, or Saddle Point for $\mathbf{x}_2^*$?\\
-		\phantom{Since $\mathbf{H(x_2^*)}$ is positive definite, $\mathbf{x}_1^*=(3,-3)$ is a strict local minimum}\\
+		Since $\mathbf{H(x_2^*)}$ is positive definite, $\mathbf{x}_1^*=(3,-3)$ is a strict local minimum\\
 	\end{enumerate}	  
 	
   \item Global concavity/convexity.  
 	\begin{enumerate}
 	\item Is f(x) globally concave/convex?\\
-		\phantom{No. 	In evaluating the Hessians for $\mathbf{x}_1^*$ 
+		No. 	In evaluating the Hessians for $\mathbf{x}_1^*$ 
 		and $\mathbf{x}_2^*$ we saw that the Hessian is not positive 
-		semidefinite at x $=$ (0,0).}\\
+		semidefinite at x $=$ (0,0).\\
 	\item Are any $\mathbf{x^*}$ global minima or maxima?\\
-		\phantom{No. Since the function is not globally concave/convex, 
+		No. Since the function is not globally concave/convex, 
 		we can't infer that $\mathbf{x}_2^*=(3,-3)$ is a global minimum.  
 		In fact, if we set $x_1=0$, the $f(\mathbf{x})=-x_2^3$, which will 
-		go to $-\infty$ as $x_2\to \infty$.}\\
+		go to $-\infty$ as $x_2\to \infty$.\\
 	\end{enumerate}	      
 \end{enumerate}
-
+```
 
 ## Constrained Optimization
 
@@ -784,10 +784,9 @@ x_1 + x_2 \le 4 - s_1^2\\
 \end{array}}$$
 
 2. Write the Lagrangian:
-$$\phantom{L(x_1, x_2, \lambda_1, \lambda_2, \lambda_3, s_1, s_2, s_3) =  -(x_1^2 + 2x_2^2) - \lambda_1(x_1 + x_2 + s_1^2  - 4) - \lambda_2(-x_1 + s_2^2) - \lambda_3(-x_2 + s_3^2)}$$
+$$L(x_1, x_2, \lambda_1, \lambda_2, \lambda_3, s_1, s_2, s_3) =  -(x_1^2 + 2x_2^2) - \lambda_1(x_1 + x_2 + s_1^2  - 4) - \lambda_2(-x_1 + s_2^2) - \lambda_3(-x_2 + s_3^2)$$
 3.  Take the partial derivatives and set equal to zero:
  
- \phantom{
 $\frac{\partial L}{\partial x_1} = -2x_1 - \lambda_1 + \lambda_2  =  0$\\
 $\frac{\partial L}{\partial x_2}  = -4x_2 - \lambda_1 + \lambda_3  =   0$\\
 $\frac{\partial L}{\partial \lambda_1} = -(x_1 + x_2 + s_1^2 - 4) =  0$\\
@@ -795,7 +794,7 @@ $\frac{\partial L}{\partial \lambda_2} = -(-x_1 + s_2^2)  =  0$\\
 $\frac{\partial L}{\partial \lambda_3} = -(-x_2 + s_3^2)  =  0$\\
 $\frac{\partial L}{\partial s_1} = 2s_1\lambda_1  =  0$\\
 $\frac{\partial L}{\partial s_2} = 2s_2\lambda_2  =  0$\\
-$\frac{\partial L}{\partial s_3} = 2s_3\lambda_3  =  0$}
+$\frac{\partial L}{\partial s_3} = 2s_3\lambda_3  =  0$
 
 3. Consider all ways that the complementary slackness conditions are solved:
 \begin{center}
@@ -803,21 +802,21 @@ $\frac{\partial L}{\partial s_3} = 2s_3\lambda_3  =  0$}
 \hline
 Hypothesis & $s_1$ & $s_2$ & $s_3$ & $\lambda_1$ & $\lambda_2$ & $\lambda_3$ & $x_1$ & $x_2$ & $f(x_1, x_2)$\\
 \hline
-$s_1 = s_2 = s_3 = 0$ & \multicolumn{8}{l|}{\phantom{No solution}} & \\
-$s_1 \neq 0, s_2 = s_3 = 0$ & \phantom{2} & \phantom{0} & \phantom{0} & \phantom{0} & \phantom{0} & \phantom{0} & \phantom{0} & \phantom{0} & \phantom{0}\\
-$s_2 \neq 0, s_1 = s_3 = 0$ & \phantom{0} & \phantom{2} & \phantom{0} & \phantom{-8} & \phantom{0} & \phantom{-8} & \phantom{4} & \phantom{0} & \phantom{-16}\\
-$s_3 \neq 0, s_1 = s_2 = 0$ & \phantom{0} & \phantom{0} & \phantom{2} & \phantom{-16} & \phantom{-16} & \phantom{0} & \phantom{0} & \phantom{4} & \phantom{-32}\\
-$s_1 \neq 0, s_2 \neq 0, s_3 = 0$ &\multicolumn{8}{l|}{\phantom{No solution}} & \\
-$s_1 \neq 0, s_3 \neq 0, s_2 = 0$ &\multicolumn{8}{l|}{\phantom{No solution}} & \\
-$s_2 \neq 0, s_3 \neq 0, s_1 = 0$ &\phantom{0} & \phantom{$\sqrt{\frac{8}{3}}$} & \phantom{$\sqrt{\frac{4}{3}}$} & \phantom{$-\frac{16}{3}$} & \phantom{0} & \phantom{0} & \phantom{$\frac{8}{3}$}& \phantom{$\frac{4}{3}$} & \phantom{$-\frac{32}{3}$}\\
-$s_1 \neq 0, s_2 \neq 0, s_3 \neq 0$ &\multicolumn{8}{l|}{\phantom{No solution}}& \\
+$s_1 = s_2 = s_3 = 0$ & \multicolumn{8}{l|}{No solution} & \\
+$s_1 \neq 0, s_2 = s_3 = 0$ & 2 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+$s_2 \neq 0, s_1 = s_3 = 0$ & 0 & 2 & 0 & -8 & 0 & -8 & 4 & 0 & -16\\
+$s_3 \neq 0, s_1 = s_2 = 0$ & 0 & 0 & 2 & -16 & -16 & 0 & 0 & 4 & -32\\
+$s_1 \neq 0, s_2 \neq 0, s_3 = 0$ &\multicolumn{8}{l|}{No solution} & \\
+$s_1 \neq 0, s_3 \neq 0, s_2 = 0$ &\multicolumn{8}{l|}{No solution} & \\
+$s_2 \neq 0, s_3 \neq 0, s_1 = 0$ &0 & $\sqrt{\frac{8}{3}}$ & $\sqrt{\frac{4}{3}}$ & $-\frac{16}{3}$ & 0 & 0 & $\frac{8}{3}$& $\frac{4}{3}$ & $-\frac{32}{3}$\\
+$s_1 \neq 0, s_2 \neq 0, s_3 \neq 0$ &\multicolumn{8}{l|}{No solution}& \\
 \hline
 \end{tabular}
 \end{center}
 
-\phantom{This shows that there are four critical points: $(0,0)$, $(4,0)$, $(0,4)$, and $(\frac{8}{3},\frac{4}{3})$}
+This shows that there are four critical points: $(0,0)$, $(4,0)$, $(0,4)$, and $(\frac{8}{3},\frac{4}{3})$
 
-4.  Find maximum: \phantom{Looking at the values of $f(x_1,x_2)$ at the critical points, we see that the constrained maximum is located at $(x_1, x_2) = (0,0)$, which is the same as the unconstrained max.  The constrained minimum is located at $(x_1, x_2) = (0,4)$, while there is no unconstrained minimum for this problem.}
+4.  Find maximum: Looking at the values of $f(x_1,x_2)$ at the critical points, we see that the constrained maximum is located at $(x_1, x_2) = (0,0)$, which is the same as the unconstrained max.  The constrained minimum is located at $(x_1, x_2) = (0,4)$, while there is no unconstrained minimum for this problem.
 
 
 
@@ -990,17 +989,17 @@ $\lambda  \geq  $0\\
 \hline
 Hypothesis  & $\lambda$& $x_1$ & $x_2$ & $f(x_1, x_2)$\\
 \hline
-$x_1 = 0, x_2 = 0$  &\multicolumn{3}{l|}{\phantom{No Solution}}& \\
-$x_1 = 0, x_2 \neq 0$  &\multicolumn{3}{l|}{\phantom{No Solution}}& \\
-$x_1 \neq 0, x_2 = 0$  & \multicolumn{3}{l|}{\phantom{No Solution}}& \\
-$x_1 \neq 0, x_2 \neq 0$ &  & \phantom{$\frac{4}{3}$} & \phantom{$\frac{4}{3}$} & \phantom{$\log\frac{7}{3}$}\\
+$x_1 = 0, x_2 = 0$  &\multicolumn{3}{l|}{No Solution}& \\
+$x_1 = 0, x_2 \neq 0$  &\multicolumn{3}{l|}{No Solution}& \\
+$x_1 \neq 0, x_2 = 0$  & \multicolumn{3}{l|}{No Solution}& \\
+$x_1 \neq 0, x_2 \neq 0$ &  & $\frac{4}{3}$ & $\frac{4}{3}$ & $\log\frac{7}{3}$\\
 \hline
 \end{tabular}
 \end{center}
 
 4.  Find Maximum:
 
-\phantom{Three of the critical points violate the constraints, so the point $(\frac{4}{3},\frac{4}{3})$ is the maximum.}\\
+Three of the critical points violate the constraints, so the point $(\frac{4}{3},\frac{4}{3})$ is the maximum.\\
 
 
 
