@@ -15,4 +15,5 @@ Imports:
     fs,
     data.table,
     ggrepel,
-    patchwork
+    patchwork,
+    rmarkdown
