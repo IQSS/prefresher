@@ -702,14 +702,18 @@ x_2 \ge 0
 :::
 
 1.  Rewrite with the slack variables:
+
+```{=latex}
 $$\max_{x_1,x_2} f(x) = -(x_1^2 + 2x_2^2) \text{ s.t.  
 \begin{array}{l}
 x_1 + x_2 \le 4 - s_1^2\\
 -x_1 \le 0 - s_2^2\\
 -x_2 \le 0 - s_3^2
 \end{array}}$$
+```
 
 2. Write the Lagrangian:
+
 $$L(x_1, x_2, \lambda_1, \lambda_2, \lambda_3, s_1, s_2, s_3) =  -(x_1^2 + 2x_2^2) - \lambda_1(x_1 + x_2 + s_1^2  - 4) - \lambda_2(-x_1 + s_2^2) - \lambda_3(-x_2 + s_3^2)$$
 3.  Take the partial derivatives and set equal to zero:
  
