@@ -1,7 +1,6 @@
 project:
   type: book
   output-dir: _book
-  post-render: rename.R
 
 book:
   title: "Math Prefresher for Political Scientists"
@@ -11,7 +10,7 @@ book:
   site-url: https://iqss.github.io/prefresher/
   cover-image: "images/logo.png"
   repo-url: "https://github.com/IQSS/prefresher"
-  downloads: [pdf, epub]
+  downloads: [pdf]
   chapters:
     - index.qmd
     - 01_warmup.qmd
