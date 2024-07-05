@@ -1,6 +1,6 @@
 # About this Booklet {.unnumbered}
 
-The [**Harvard Gov Prefresher**](https://projects.iq.harvard.edu/prefresher) is held each year in August. All relevant information is on our website, including the day-to-day schedule. The 2023 Prefresher instructors are [Sooahn Shin](http://sooahnshin.com/) and [María Ballesteros](https://scholar.harvard.edu/mariaballesteros/home), and the faculty sponsor is [Gary King](https://gking.harvard.edu).
+The [**Harvard Gov Prefresher**](https://projects.iq.harvard.edu/prefresher) is held each year in August. All relevant information is on our website, including the day-to-day schedule. The 2024 Prefresher instructors are [António Câmara](https://ascamara.github.io/) and [Noah Dasanaike](https://noahdasanaike.github.io/), and the faculty sponsor is [Gary King](https://gking.harvard.edu).
 
 This booklet serves as the text for the Prefresher, available as a [webpage](https://iqss.github.io/prefresher/) updated automatically and as a [printable PDF](https://github.com/IQSS/prefresher/releases) updated manually. It is the product of generations of Prefresher instructors. See below for a full list of instructors and contributors.
 
