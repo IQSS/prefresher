@@ -40,23 +40,23 @@ note  `c(1,2,3)` is inputting three numbers in the function `c`
 -   Use `{` `}` when you are defining a function or writing a `for` loop:
 
 ```{r}
-#function 
-MyFunction <- function(InputMatrix){ 
+# function
+MyFunction <- function(InputMatrix) {
   TempMat <- InputMatrix
-  for(i in 1:5){
-    TempMat <- t(TempMat)  %*% TempMat / 10
-  } 
-  return( TempMat )
+  for (i in 1:5) {
+    TempMat <- t(TempMat) %*% TempMat / 10
+  }
+  return(TempMat)
 }
-myMat <- matrix(rnorm(100*5), nrow = 100, ncol = 5)
-print( MyFunction(myMat) ) 
+myMat <- matrix(rnorm(100 * 5), nrow = 100, ncol = 5)
+print(MyFunction(myMat))
 
-# loop 
-x <- c() 
-for(i in 1:20){
-  x[i] <- i 
+# loop
+x <- c()
+for (i in 1:20) {
+  x[i] <- i
 }
-print(x) 
+print(x)
 ```
 
 ## Goals for today
@@ -89,11 +89,11 @@ paste and sprintf are useful commands in text processing, such as for automatica
 Paste concatenates vectors together.
 
 ```{R}
-#use collapse for inputs of length > 1 
+# use collapse for inputs of length > 1
 my_string <- c("Not", "one", "could", "equal")
 paste(my_string, collapse = " ")
 
-#use sep for inputs of length == 1 
+# use sep for inputs of length == 1
 paste("Not", "one", "could", "equal", sep = " ")
 ```
 
@@ -102,9 +102,9 @@ For more sophisticated concatenation, use sprintf. This is very useful for autom
 ```{R}
 sprintf("Coefficient for %s: %.3f (%.2f)", "Gender", 1.52324, 0.03143)
 
-#%s is replaced by a character string
-#%.3f is replaced by a floating point digit with 3 decimal places
-#%.2f is replaced by a floating point digit with 2 decimal places
+# %s is replaced by a character string
+# %.3f is replaced by a floating point digit with 3 decimal places
+# %.2f is replaced by a floating point digit with 2 decimal places
 ```
 
 ## Regular expressions
@@ -121,10 +121,10 @@ Example in `R`. Extract the tweet mentioning Indonesia.
 
 ```{r}
 s1 <- "If only Bradley's arm was longer. RT"
-s2 <- "Share our love in Indonesia and in the World. RT if you agree." 
+s2 <- "Share our love in Indonesia and in the World. RT if you agree."
 my_string <- c(s1, s2)
 grepl(my_string, pattern = "Indonesia")
-my_string[ grepl(my_string, pattern = "Indonesia")]
+my_string[grepl(my_string, pattern = "Indonesia")]
 ```
 
 Key point: Many R commands use regular expressions. See `?grepl`. Assume that `x` is a character vector and that `pattern` is the target pattern. In the earlier example, `x` could have been something like `my_string` and `pattern` would have been "`Indonesia`". Here are other key uses:
@@ -134,15 +134,17 @@ Key point: Many R commands use regular expressions. See `?grepl`. Assume that `x
 2.  REPLACE PATTERNS. `gsub(pattern, x, replacement)` goes through all the entries of `x` replaces the `pattern` with `replacement`.
 
 ```{r}
-gsub(x = my_string,
-     pattern = "o", 
-     replacement = "AAAA")
+gsub(
+  x = my_string,
+  pattern = "o",
+  replacement = "AAAA"
+)
 ```
 
 3.  LOCATE PATTERNS. `regexpr(pattern, text)` goes through each element of the character string. It returns a vector of the same length, with the entries of the vector corresponding to the location of the first pattern match, or a -1 if no match was obtained.
 
 ```{r}
-regex_object <- regexpr(pattern = "was",  text = my_string)
+regex_object <- regexpr(pattern = "was", text = my_string)
 attr(regex_object, "match.length")
 attr(regex_object, "useBytes")
 regexpr(pattern = "was", text = my_string)[1]
@@ -169,8 +171,8 @@ Example in `R`:
 
 ```{r}
 my_string <- "Do you think that 34% of apples are red?"
-gsub(my_string, pattern = "[[:digit:]]", replace ="DIGIT")
-gsub(my_string, pattern = "[[:alpha:]]", replace ="")
+gsub(my_string, pattern = "[[:digit:]]", replace = "DIGIT")
+gsub(my_string, pattern = "[[:alpha:]]", replace = "")
 ```
 
 ### Special Characters.
@@ -181,12 +183,12 @@ Example in `R`:
 
 ```{r}
 my_string <- "Do *really* think he will win?"
-gsub(my_string, pattern = "\\*", replace ="")
+gsub(my_string, pattern = "\\*", replace = "")
 ```
 
 ```{r}
 my_string <- "Now be brave! \n Dread what comrades say of you here in combat! "
-gsub(my_string, pattern = "\\\n", replace ="") 
+gsub(my_string, pattern = "\\\n", replace = "")
 ```
 
 ### Conditional patterns
@@ -207,18 +209,19 @@ gsub(my_string, pattern = "(?<=%)", replace = " ", perl = TRUE)
 ```
 
 ```{r}
-my_string <- c("legislative1_term1.png", 
-               "legislative1_term1.pdf",
-               "legislative1_term2.png",
-               "legislative1_term2.pdf",
-               "term2_presidential1.png", 
-               "presidential1.png", 
-               "presidential1_term2.png",
-               "presidential1_term1.pdf", 
-               "presidential1_term2.pdf")
+my_string <- c(
+  "legislative1_term1.png",
+  "legislative1_term1.pdf",
+  "legislative1_term2.png",
+  "legislative1_term2.pdf",
+  "term2_presidential1.png",
+  "presidential1.png",
+  "presidential1_term2.png",
+  "presidential1_term1.pdf",
+  "presidential1_term2.pdf"
+)
 
 grepl(my_string, pattern = "^(?!presidential1).*\\.png", perl = TRUE)
-
 ```
 
 -   Indicates which file names don't start with `presidential1` but do end in `.png`
@@ -246,7 +249,7 @@ doc1 <- "Rage---Goddess, sing the rage of Peleus’ son Achilles,
          hurling down to the House of Death so many sturdy souls,
          great fighters’ souls."
 doc2 <- "And fate? No one alive has ever escaped it,
-         neither brave man nor coward, I tell you, 
+         neither brave man nor coward, I tell you,
          it's born with us the day that we are born."
 doc3 <- "Many cities of men he saw and learned their minds,
          many pains he suffered, heartsick on the open sea,
@@ -262,8 +265,8 @@ Now we can use utility functions in the `tm` package:
 ```{R}
 #| eval: false
 library(tm)
-DocCorpus <- Corpus(VectorSource(DocVec) ) 
-DTM1 <-  inspect( DocumentTermMatrix(DocCorpus) ) 
+DocCorpus <- Corpus(VectorSource(DocVec))
+DTM1 <- inspect(DocumentTermMatrix(DocCorpus))
 ```
 
 Consider the effect of different "pre-processing" choices on the resulting DTM!
@@ -271,11 +274,12 @@ Consider the effect of different "pre-processing" choices on the resulting DTM!
 ```{r}
 #| eval: false
 DocVec <- tolower(DocVec)
-DocVec <- gsub(DocVec, pattern ="[[:punct:]]", replace = " ")
-DocVec <- gsub(DocVec, pattern ="[[:cntrl:]]", replace = " ")
-DocCorpus <- Corpus(VectorSource(DocVec) ) 
-DTM2 <-  inspect(DocumentTermMatrix(DocCorpus, 
-                                    control = list(stopwords = TRUE,  stemming = TRUE))) 
+DocVec <- gsub(DocVec, pattern = "[[:punct:]]", replace = " ")
+DocVec <- gsub(DocVec, pattern = "[[:cntrl:]]", replace = " ")
+DocCorpus <- Corpus(VectorSource(DocVec))
+DTM2 <- inspect(DocumentTermMatrix(DocCorpus,
+  control = list(stopwords = TRUE, stemming = TRUE)
+))
 ```
 
 Stemming is the process of reducing inflected/derived words to their word stem or base (e.g. stemming, stemmed, stemmer --\> stem\*)
@@ -299,8 +303,10 @@ Figure out why this command does what it does:
 Why does this command not work?
 
 ```{r}
-try(sprintf("%s of spontaneous events are %s in the mind. Really, %.2f?",
-            "15.03322123", "puzzles", "15.03322123" ), TRUE)  
+try(sprintf(
+  "%s of spontaneous events are %s in the mind. Really, %.2f?",
+  "15.03322123", "puzzles", "15.03322123"
+), TRUE)
 ```
 
 #### 3 {.unnumbered}
@@ -308,8 +314,10 @@ try(sprintf("%s of spontaneous events are %s in the mind. Really, %.2f?",
 Using `grepl`, these materials, Google, and your friends, describe what the following command does. What changes when `value = FALSE`?
 
 ```{r}
-grep('\'', 
-     c("To dare is to lose one's footing momentarily.",  "To not dare is to lose oneself."), value = TRUE)
+grep("'",
+  c("To dare is to lose one's footing momentarily.", "To not dare is to lose oneself."),
+  value = TRUE
+)
 ```
 
 #### 4 {.unnumbered}
@@ -317,15 +325,17 @@ grep('\'',
 Write code to automatically extract the file names that DO end start with presidential and DO end in .pdf
 
 ```{r}
-my_string <- c("legislative1_term1.png", 
-               "legislative1_term1.pdf",
-               "legislative1_term2.png", 
-               "legislative1_term2.pdf",
-               "term2_presidential1.png", 
-               "presidential1.png", 
-               "presidential1_term2.png",
-               "presidential1_term1.pdf",
-               "presidential1_term2.pdf")
+my_string <- c(
+  "legislative1_term1.png",
+  "legislative1_term1.pdf",
+  "legislative1_term2.png",
+  "legislative1_term2.pdf",
+  "term2_presidential1.png",
+  "presidential1.png",
+  "presidential1_term2.png",
+  "presidential1_term1.pdf",
+  "presidential1_term2.pdf"
+)
 ```
 
 #### 5 {.unnumbered}
@@ -341,9 +351,9 @@ Using the same string as in the above, write code to automatically extract the f
 Combine these two strings into a single string separated by a "-". Desired output: "The carbonyl group in aldehydes and ketones is an oxygen analog of the carbon–carbon double bond."
 
 ```{r}
-string1 <- "The carbonyl group in aldehydes and ketones 
-            is an oxygen analog of the carbon" 
-string2 <-  "–carbon double bond."
+string1 <- "The carbonyl group in aldehydes and ketones
+            is an oxygen analog of the carbon"
+string2 <- "–carbon double bond."
 ```
 
 #### 7 {.unnumbered}

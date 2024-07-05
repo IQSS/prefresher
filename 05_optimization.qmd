@@ -91,14 +91,16 @@ So for example, $f(x) = x^2 + 2$ and $f^\prime(x) = 2x$
 #| fig-cap: Maxima and Minima
 range <- tibble::tibble(x = c(-3, 3))
 fx0 <- ggplot(range, aes(x = x)) +
-  labs(x = expression(x), y = expression(f(x)),
-       labs = expression(f(x)==x^2+2)) 
-fx <- fx0 +  
+  labs(
+    x = expression(x), y = expression(f(x)),
+    labs = expression(f(x) == x^2 + 2)
+  )
+fx <- fx0 +
   stat_function(fun = function(x) x^2 + 2, linewidth = 0.5) +
   expand_limits(y = 0)
 
-fprimex <- fx0 + stat_function(fun = function(x) 2*x, linewidth = 0.5, linetype = "dashed") +
-  labs(x = expression(x), y = expression(f~plain("'")~(x)))
+fprimex <- fx0 + stat_function(fun = function(x) 2 * x, linewidth = 0.5, linetype = "dashed") +
+  labs(x = expression(x), y = expression(f ~ plain("'") ~ (x)))
 
 fx + fprimex + plot_layout(nrow = 1)
 ```
@@ -117,14 +119,14 @@ fx0 <- ggplot(range, aes(x = x)) +
   labs(x = expression(x), y = expression(f(x))) +
   theme_bw()
 
-fx <- fx0 +  
+fx <- fx0 +
   stat_function(fun = function(x) x^3 + x^2 + 2, size = 0.5) +
   expand_limits(y = 0)
 
-fprimex <- fx0 + stat_function(fun = function(x) 3*x^2, size = 0.5, linetype = "dashed") +
-  labs(x = expression(x), y = expression(f~plain("'")~(x)))
+fprimex <- fx0 + stat_function(fun = function(x) 3 * x^2, size = 0.5, linetype = "dashed") +
+  labs(x = expression(x), y = expression(f ~ plain("'") ~ (x)))
 
-fx + fprimex + plot_annotation(expression(f(x)==x^3+2))
+fx + fprimex + plot_annotation(expression(f(x) == x^3 + 2))
 ```
 
 The second derivative $f''(x)$ identifies whether the function $f(x)$ at the point $x$ is
@@ -179,7 +181,7 @@ A function $f$ is strictly concave over the set S \underline{if} $\forall x_1,x_
 range1 <- tibble(x = c(-4, 4))
 fx1 <- ggplot(range1, aes(x = x)) +
   stat_function(fun = function(x) -x^2, size = 0.5) +
-  labs(y = expression(f(x)), title  = "Concave")
+  labs(y = expression(f(x)), title = "Concave")
 fx2 <- ggplot(range1, aes(x = x)) +
   stat_function(fun = function(x) x^2, size = 0.5) +
   labs(y = expression(f(x)), title = "Convex")

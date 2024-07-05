@@ -115,8 +115,8 @@ count(cen10, race, sort = TRUE)
 `count` is a kind of shorthand for `group_by()` and `summarize`. This code would have done the same.
 
 ```{r}
-cen10 %>% 
-  group_by(race) %>% 
+cen10 %>%
+  group_by(race) %>%
   summarize(n = n())
 ```
 
@@ -158,7 +158,8 @@ We will now plot this grouped set of numbers. Recall that the `ggplot()` functio
 What is the right geometry layer to make a barplot? Turns out:
 
 ```{r}
-ggplot(data = grp_race, aes(x = race, y = n)) + geom_col()
+ggplot(data = grp_race, aes(x = race, y = n)) +
+  geom_col()
 ```
 
 ## Improving your graphics
@@ -168,11 +169,12 @@ Adjusting your graphics to make the point clear is an important skill. Here is a
 ```{r}
 par(oma = c(1, 11, 1, 1))
 barplot(sort(table(cen10$race)), # sort numbers
-        horiz = TRUE, # flip
-        border = NA, # border is extraneous
-        xlab = "Number in Race Category", 
-        bty = "n", # no box
-        las = 1) # alignment of axis labels is horizontal
+  horiz = TRUE, # flip
+  border = NA, # border is extraneous
+  xlab = "Number in Race Category",
+  bty = "n", # no box
+  las = 1
+) # alignment of axis labels is horizontal
 ```
 
 Notice that we applied the `sort()` function to order the bars in terms of their counts. The default ordering of a categorical variable / factor is alphabetical. Alphabetical ordering is uninformative and almost never the way you should order variables.
@@ -182,15 +184,17 @@ In ggplot you might do this by:
 ```{r}
 library(forcats)
 
-grp_race_ordered <- arrange(grp_race, n) %>% 
+grp_race_ordered <- arrange(grp_race, n) %>%
   mutate(race = as_factor(race))
 
 ggplot(data = grp_race_ordered, aes(x = race, y = n)) +
   geom_col() +
   coord_flip() +
-  labs(y = "Number in Race Category",
-       x = "",
-       caption = "Source: 2010 U.S. Census sample")
+  labs(
+    y = "Number in Race Category",
+    x = "",
+    caption = "Source: 2010 U.S. Census sample"
+  )
 ```
 
 The data ink ratio was popularized by Ed Tufte (originally a political economy scholar who has recently become well known for his data visualization work). See Tufte (2001), *The Visual Display of Quantitative Information* and his website <https://www.edwardtufte.com/tufte/>. For a R and ggplot focused example using social science examples, check out Healy (2018), *Data Visualization: A Practical Introduction* with a draft at <https://socviz.co/>[^14_visualization-6]. There are a growing number of excellent books on data visualization.
@@ -230,7 +234,7 @@ Check out each of these table objects in your console and familiarize yourself w
 How would you make the same figure with `ggplot()`? First, we want a count for each state $\times$ race combination. So group by those two factors and count how many observations are in each two-way categorization. `group_by()` can take any number of variables, separated by commas.
 
 ```{r}
-grp_race_state <- cen10 %>% 
+grp_race_state <- cen10 %>%
   count(race, state)
 ```
 
@@ -246,14 +250,16 @@ Now, we want to tell `ggplot2` something like the following: I want bars by stat
 
 ```{r}
 #| fig-height: 8
-ggplot(data = grp_race_state, aes(x =  state, y = n,  fill = race)) +
+ggplot(data = grp_race_state, aes(x = state, y = n, fill = race)) +
   geom_col(position = "fill") + # the position is determined by the fill ae
   scale_fill_brewer(name = "Census Race", palette = "OrRd", direction = -1) + # choose palette
   coord_flip() + # flip axes
   scale_y_continuous(labels = percent) + # label numbers as percentage
-  labs(y = "Proportion of Racial Group within State",
-       x = "",
-       source = "Source: 2010 Census  sample") +
+  labs(
+    y = "Proportion of Racial Group within State",
+    x = "",
+    source = "Source: 2010 Census  sample"
+  ) +
   theme_minimal()
 ```
 
@@ -311,7 +317,6 @@ Make a well-labelled figure that plots the proportion of the state's population 
 
 ```{r}
 # Enter yourself
-
 ```
 
 #### 2: The swing justice {.unnumbered}
@@ -332,7 +337,6 @@ Using the `justices_court-median.csv` dataset and building off of the plot that 
 
 ```{r}
 # Enter yourself
-
 ```
 
 #### 3: Don't sort by the alphabet {.unnumbered}

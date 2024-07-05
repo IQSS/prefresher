@@ -329,17 +329,20 @@ cen10 %>% slice(1:20)
 # Below two lines of code do the same thing
 cen10[1:20, c("race", "age")]
 
-cen10 %>% slice(1:20) %>% select(race, age)
+cen10 %>%
+  slice(1:20) %>%
+  select(race, age)
 ```
 
 A vector is a special type of matrix with only one column or only one row
 
 ```{r}
-
 # One column
 cen10[1:10, c("age")]
 
-cen10 %>% slice(1:10) %>% select(c("age"))
+cen10 %>%
+  slice(1:10) %>%
+  select(c("age"))
 
 # One row
 cen10[2, ]
@@ -360,7 +363,9 @@ all_equal(ca_subset, ca_subset_tidy)
 # subset for CA rows and select age and race
 ca_subset_age_race <- cen10[cen10$state == "California", c("age", "race")]
 
-ca_subset_age_race_tidy <- cen10 %>% filter(state == "California") %>% select(age, race)
+ca_subset_age_race_tidy <- cen10 %>%
+  filter(state == "California") %>%
+  select(age, race)
 
 all_equal(ca_subset_age_race, ca_subset_age_race_tidy)
 ```

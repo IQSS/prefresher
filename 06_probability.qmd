@@ -126,7 +126,7 @@ Consider subsets A {2, 8} and B {2,3,7} of the sample space you found. What is
 #| echo: false
 #| fig-cap: Probablity as a Measure^[Images of Probability and Random Variables drawn
 #|   by Shiro Kuriwaki and inspired by Blitzstein and Morris]
-knitr::include_graphics('images/probability.png')
+knitr::include_graphics("images/probability.png")
 ```
 
 ### Probability Definitions: Formal and Informal {.unnumbered}
@@ -324,7 +324,7 @@ Most questions in the social sciences involve events, rather than numbers per se
 #| label: fig-rv-image
 #| echo: false
 #| fig-cap: The Random Variable as a Real-Valued Function
-knitr::include_graphics('images/rv.png')
+knitr::include_graphics("images/rv.png")
 ```
 
 ::: {#def-rv}
@@ -757,14 +757,13 @@ range <- tibble::tibble(x = c(-5, 5))
 fx0 <- ggplot(range, aes(x = x)) +
   labs(x = expression(x), y = expression(f(x)))
 
-fx <- fx0 +  
+fx <- fx0 +
   stat_function(fun = function(x) dnorm(x, mean = 0, sd = 1), linewidth = 0.5) +
   stat_function(fun = function(x) dnorm(x, mean = 0, sd = sqrt(2)), linewidth = 1.5) +
   expand_limits(y = 0) +
   labs(caption = "Thick line: variance = 2, Normal line: variance = 1")
 
 fx
-
 ```
 
 ## Summarizing Observed Events (Data)

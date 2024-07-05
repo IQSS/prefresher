@@ -102,7 +102,7 @@ R is an object oriented programming language primarily used for statistical comp
 -   Different objects have different allowable procedures:
 
 ```{r}
-# Adding a string and a string does not work because the '+' operator 
+# Adding a string and a string does not work because the '+' operator
 # does not work for strings:
 
 # 'Harvard' + 'Gov'
@@ -114,7 +114,7 @@ R is an object oriented programming language primarily used for statistical comp
 x <- 9
 class(9)
 class(x)
-class('Harvard')
+class("Harvard")
 ```
 
 Object oriented programming makes languages flexible and powerful:
@@ -143,7 +143,6 @@ n_pb <- 3
 n_jelly <- 9
 
 # write instructions in R here
-
 ```
 
 ## Base-R vs. tidyverse
@@ -271,7 +270,8 @@ dim(ober)
 From your tutorials, you also know how to do graphics! Graphics are useful for grasping your data, but we will cover them more deeply in Chapter @sec-dataviz.
 
 ```{r}
-ggplot(ober, aes(x = Fame)) + geom_histogram()
+ggplot(ober, aes(x = Fame)) +
+  geom_histogram()
 ```
 
 What about the distribution of fame by regime?
@@ -312,10 +312,12 @@ First get a map of the Greek world.
 #| message: false
 #| warning: false
 #| eval: false
-greece <- get_map(location = c(lon = 22.6382849, lat = 39.543287),
-                  zoom = 5, 
-                  source = "stamen",
-                  maptype = "toner")
+greece <- get_map(
+  location = c(lon = 22.6382849, lat = 39.543287),
+  zoom = 5,
+  source = "stamen",
+  maptype = "toner"
+)
 ggmap(greece)
 ```
 
@@ -329,12 +331,14 @@ Ober's data has the latitude and longitude of each polis. Because the map of Gre
 #| warning: false
 #| eval: false
 gg_ober <- ggmap(greece) +
-  geom_point(data = ober, 
-             aes(y = Latitude, x = Longitude), 
-             size = 0.5,
-             color = "orange")
-gg_ober + 
-  scale_x_continuous(limits = c(10, 35)) + 
+  geom_point(
+    data = ober,
+    aes(y = Latitude, x = Longitude),
+    size = 0.5,
+    color = "orange"
+  )
+gg_ober +
+  scale_x_continuous(limits = c(10, 35)) +
   scale_y_continuous(limits = c(32, 44)) +
   theme_void()
 ```

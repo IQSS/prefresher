@@ -215,13 +215,11 @@ What can we learn from surveys of populations, and how wrong do we get if our sa
 (a) First, load `usc2010_001percent.csv` into your R session. After loading the `library(tidyverse)`, browse it. Although this is only a 0.01 percent extract, treat this as your population for pedagogical purposes. What is the population proportion of non-White residents?
 
 ```{r}
-
 ```
 
 (b) Setting a seed to `1669482`, sample 100 respondents from this sample. What is the proportion of non-White residents in this *particular* sample? By how many percentage points are you off from (what we labelled as) the true proportion?
 
 ```{r}
-
 ```
 
 (c) Now imagine what you did above was one survey. What would we get if we did 20 surveys?
@@ -231,7 +229,6 @@ To simulate this, write a loop that does the same exercise 20 times, each time c
 Try doing this with a `for` loop and storing your sample proportions in a new length-20 vector. (Suggestion: make an empty vector first as a container). After running the loop, show a histogram of the 20 values. Also what is the average of the 20 sample estimates?
 
 ```{r}
-
 ```
 
 (d) Now, to make things more real, let's introduce some response bias. The goal here is not to correct response bias but to induce it and see how it affects our estimates. Suppose that non-White residents are 10 percent less likely to respond to enter your survey than White respondents. This is plausible if you think that the Census is from 2010 but you are polling in 2018, and racial minorities are more geographically mobile than Whites. Repeat the same exercise in (c) by modeling this behavior.
@@ -239,19 +236,16 @@ Try doing this with a `for` loop and storing your sample proportions in a new le
 You can do this by creating a variable, e.g. `propensity`, that is 0.9 for non-Whites and 1 otherwise. Then, you can refer to it in the propensity argument.
 
 ```{r}
-
 ```
 
 (e) Finally, we want to see if more data ("Big Data") will improve our estimates. Using the same unequal response rates framework as (d), repeat the same exercise but instead of each poll collecting 100 responses, we collect 10,000.
 
 ```{r}
-
 ```
 
 (f) Optional - visualize your 2 pairs of 20 estimates, with a bar showing the "correct" population average.
 
 ```{r}
-
 ```
 
 #### Conditional Proportions {.unnumbered}
@@ -265,13 +259,11 @@ In addition to some standard demographic questions, we will focus on one called 
 (a) Drop the the respondents who answered the November poll (i.e. those for which `poll == "November"`). We do this in order to ignore this November population in all subsequent parts of this question because they were not asked the Presidential vote question.
 
 ```{r}
-
 ```
 
 (b) Using the dataset after the procedure in (a), find the proportion of *poll respondents* (those who are in the sample) who support Donald Trump.
 
 ```{r}
-
 ```
 
 (c) Among those who supported Donald Trump, what proportion of them has a Bachelor's degree or higher (i.e. have a Bachelor's, Graduate, or other Professional Degree)?

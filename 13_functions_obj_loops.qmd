@@ -37,7 +37,7 @@ cen10 <- read_csv("data/input/usc2010_001percent.csv", col_types = cols())
 Objects are abstract symbols in which you store data. Here we will create an object from `copy`, and assign `cen10` to it.
 
 ```{r}
-copy <- cen10 
+copy <- cen10
 ```
 
 This looks the same as the original dataset:
@@ -127,10 +127,12 @@ To change or create the class of any object, you can *assign* it. To do this, as
 We can start from a simple list. For example, say we wanted to store data about pokemon. Because there is no pre-made package for this, we decide to make our own class.
 
 ```{r}
-pikachu <- list(name = "Pikachu",
-                number = 25,
-                type = "Electric",
-                color = "Yellow")
+pikachu <- list(
+  name = "Pikachu",
+  number = 25,
+  type = "Electric",
+  color = "Yellow"
+)
 ```
 
 and we can give it any class name we want.
@@ -139,7 +141,6 @@ and we can give it any class name we want.
 class(pikachu) <- "Pokemon"
 str(pikachu)
 pikachu$type
-
 ```
 
 ### Seeing R through objects
@@ -156,10 +157,10 @@ Anything can be an object! Even graphs (in `ggplot`) can be assigned, re-assigne
 ```{r}
 #| warning: false
 
-grp_race <- group_by(cen10, race)%>%
+grp_race <- group_by(cen10, race) %>%
   summarize(count = n())
 
-grp_race_ordered <- arrange(grp_race, count) %>% 
+grp_race_ordered <- arrange(grp_race, count) %>%
   mutate(race = forcats::as_factor(race))
 
 gg_tab <- ggplot(data = grp_race_ordered) +
@@ -173,7 +174,7 @@ gg_tab
 You can change the orientation
 
 ```{r}
-gg_tab<- gg_tab + coord_flip()
+gg_tab <- gg_tab + coord_flip()
 ```
 
 ### Parsing an object by `str()s`
@@ -251,7 +252,7 @@ class(my_name)
 or more characters. Notice here that there's a difference between a vector of individual characters and a length-one object of characters.
 
 ```{r}
-my_name_letters <-  c("M","e","g")
+my_name_letters <- c("M", "e", "g")
 my_name_letters
 class(my_name_letters)
 ```
@@ -294,7 +295,6 @@ If we wanted to generate a function that computed the number of men in your data
 
 ```{r}
 count_men <- function(data) {
-
   nmen <- sum(data$sex == "Male")
 
   return(nmen)
@@ -310,15 +310,14 @@ count_men(cen10)
 The point of a function is that you can use it again and again without typing up the set of constituent manipulations. So, what if we wanted to figure out the number of men in California?
 
 ```{r}
-count_men(cen10[cen10$state == "California",])
+count_men(cen10[cen10$state == "California", ])
 ```
 
 Let's go one step further. What if we want to know the proportion of non-whites in a state, just by entering the name of the state? There's multiple ways to do it, but it could look something like this
 
 ```{r}
 nw_in_state <- function(data, state) {
-
-  s.subset <- data[data$state == state,]
+  s.subset <- data[data$state == state, ]
   total.s <- nrow(s.subset)
   nw.s <- sum(s.subset$race != "White")
 
@@ -332,7 +331,6 @@ Try it on your favorite state!
 
 ```{r}
 nw_in_state(cen10, "Massachusetts")
-
 ```
 
 ## Checkpoint {.unnumbered}
@@ -343,7 +341,6 @@ Try making your own function, `average_age_in_state`, that will give you the ave
 
 ```{r}
 # Enter on your own
-
 ```
 
 #### 2 {.unnumbered}
@@ -396,10 +393,10 @@ For example,
 
 ```{r}
 x <- 5
-if (x >0) {
+if (x > 0) {
   print("positive number")
-} else if (x == 0)  {
-  print ("zero")
+} else if (x == 0) {
+  print("zero")
 } else {
   print("negative number")
 }
@@ -410,10 +407,10 @@ You can wrap that whole things in a function
 ```{r}
 #| warning: false
 is_positive <- function(number) {
-  if (number >0) {
+  if (number > 0) {
     print("positive number")
-  } else if (number == 0)  {
-    print ("zero")
+  } else if (number == 0) {
+    print("zero")
   } else {
     print("negative number")
   }
@@ -452,16 +449,14 @@ for (i in 1:length(fruits)) {
 ```{r}
 states_of_interest <- c("California", "Massachusetts", "New Hampshire", "Washington")
 
-for( state in states_of_interest){
-  state_data <- cen10[cen10$state == state,]
+for (state in states_of_interest) {
+  state_data <- cen10[cen10$state == state, ]
   nmen <- sum(state_data$sex == "Male")
 
   n <- nrow(state_data)
-  men_perc <- round(100*(nmen/n), digits=2)
-  print(paste("Percentage of men in",state, "is", men_perc))
-
+  men_perc <- round(100 * (nmen / n), digits = 2)
+  print(paste("Percentage of men in", state, "is", men_perc))
 }
-
 ```
 
 Instead of printing, you can store the information in a vector
@@ -469,13 +464,13 @@ Instead of printing, you can store the information in a vector
 ```{r}
 states_of_interest <- c("California", "Massachusetts", "New Hampshire", "Washington")
 male_percentages <- c()
-iter <-1 
+iter <- 1
 
-for( state in states_of_interest){
-  state_data <- cen10[cen10$state == state,]
+for (state in states_of_interest) {
+  state_data <- cen10[cen10$state == state, ]
   nmen <- sum(state_data$sex == "Male")
   n <- nrow(state_data)
-  men_perc <- round(100*(nmen/n), digits=2)
+  men_perc <- round(100 * (nmen / n), digits = 2)
 
   male_percentages <- c(male_percentages, men_perc)
   names(male_percentages)[iter] <- state
@@ -483,7 +478,6 @@ for( state in states_of_interest){
 }
 
 male_percentages
-
 ```
 
 ## Nested Loops
@@ -491,14 +485,13 @@ male_percentages
 What if I want to calculate the population percentage of a race group for all race groups in states of interest? You could probably use tidyverse functions to do this, but let's try using loops!
 
 ```{r}
-
 states_of_interest <- c("California", "Massachusetts", "New Hampshire", "Washington")
 for (state in states_of_interest) {
   for (race in unique(cen10$race)) {
     race_state_num <- nrow(cen10[cen10$race == race & cen10$state == state, ])
     state_pop <- nrow(cen10[cen10$state == state, ])
-    race_perc <- round(100*(race_state_num/(state_pop)), digits=2)
-    print(paste("Percentage of ", race , "in", state, "is", race_perc))
+    race_perc <- round(100 * (race_state_num / (state_pop)), digits = 2)
+    print(paste("Percentage of ", race, "in", state, "is", race_perc))
   }
 }
 ```
@@ -511,7 +504,6 @@ Write your own function that makes some task of data analysis simpler. Ideally, 
 
 ```{r}
 # Enter yourself
-
 ```
 
 ### Exercise 2: Using Loops {.unnumbered}
@@ -521,7 +513,6 @@ Using a loop, create a crosstab of sex and race for each state in the set "state
 ```{r}
 states_of_interest <- c("California", "Massachusetts", "New Hampshire", "Washington")
 # Enter yourself
-
 ```
 
 ### Exercise 3: Storing information derived within loops in a global dataframe {.unnumbered}
@@ -534,8 +525,8 @@ for (state in states_of_interest) {
   for (race in unique(cen10$race)) {
     race_state_num <- nrow(cen10[cen10$race == race & cen10$state == state, ])
     state_pop <- nrow(cen10[cen10$state == state, ])
-    race_perc <- round(100*(race_state_num/(state_pop)), digits=2)
-    print(paste("Percentage of ", race , "in", state, "is", race_perc))
+    race_perc <- round(100 * (race_state_num / (state_pop)), digits = 2)
+    print(paste("Percentage of ", race, "in", state, "is", race_perc))
   }
 }
 ```
@@ -543,5 +534,4 @@ for (state in states_of_interest) {
 Instead of printing the percentage of each race in each state, create a dataframe, and store all that information in that dataframe. (Hint: look at how I stored information about male percentage in each state of interest in a vector.)
 
 ```{r}
-
 ```

@@ -56,21 +56,21 @@ range <- tibble::tibble(x = c(-3, 3))
 fx0 <- ggplot(range, aes(x = x)) +
   labs(x = expression(x), y = expression(f(x)))
 
-fx <- fx0 +  
-  stat_function(fun = function(x) 2*x, size = 0.5) +
+fx <- fx0 +
+  stat_function(fun = function(x) 2 * x, size = 0.5) +
   labs(title = "f(x) = 2x") +
   expand_limits(y = 0)
 
 fprimex <- fx0 + stat_function(fun = function(x) 2, size = 0.5, linetype = "dashed") +
-  labs(x = expression(x), y = expression(f~plain("'")~(x)))
+  labs(x = expression(x), y = expression(f ~ plain("'") ~ (x)))
 
-gx <- fx0 +  
+gx <- fx0 +
   stat_function(fun = function(x) x^3, size = 0.5) +
-  labs(y = expression(g(x)), title = expression(g(x)==x^3)) +
+  labs(y = expression(g(x)), title = expression(g(x) == x^3)) +
   expand_limits(y = 0)
 
-gprimex <- fx0 + stat_function(fun = function(x) 3*(x^2), size = 0.5, linetype = "dashed") +
-  labs(x = expression(x), y = expression(g~plain("'")~(x)))
+gprimex <- fx0 + stat_function(fun = function(x) 3 * (x^2), size = 0.5, linetype = "dashed") +
+  labs(x = expression(x), y = expression(g ~ plain("'") ~ (x)))
 
 fx + fprimex + gx + gprimex + plot_layout(ncol = 2)
 ```
@@ -246,15 +246,17 @@ To repeat the main rule in Theorem @thm-derivexplog, the intuition is that
 range <- tibble::tibble(x = c(-3, 3))
 
 fx0 <- ggplot(range, aes(x = x)) +
-  labs(x = expression(x), y = expression(f(x)),
-       caption = expression(f(x)==e^x))
+  labs(
+    x = expression(x), y = expression(f(x)),
+    caption = expression(f(x) == e^x)
+  )
 
-fx <- fx0 +  
+fx <- fx0 +
   stat_function(fun = function(x) exp(x), size = 0.5) +
   expand_limits(y = 0)
 
 fprimex <- fx0 + stat_function(fun = function(x) exp(x), size = 0.5) +
-  labs(x = expression(x), y = expression(f~plain("'")~(x)))
+  labs(x = expression(x), y = expression(f ~ plain("'") ~ (x)))
 
 fx + fprimex + plot_layout(nrow = 1)
 ```
@@ -286,15 +288,17 @@ The natural log is the mirror image of the natural exponent and has mirroring pr
 range <- tibble::tibble(x = c(-0.1, 3))
 
 fx0 <- ggplot(range, aes(x = x)) +
-  labs(x = expression(x), y = expression(f(x)),
-       caption = expression(f(x)==log(x)))
+  labs(
+    x = expression(x), y = expression(f(x)),
+    caption = expression(f(x) == log(x))
+  )
 
-fx <- fx0 +  
+fx <- fx0 +
   stat_function(fun = function(x) ifelse(x <= 0, NA, log(x)), size = 0.5) +
   expand_limits(y = 0)
 
-fprimex <- fx0 + stat_function(fun = function(x) ifelse(x <= 0, NA, 1/x), size = 0.5) +
-  labs(x = expression(x), y = expression(f~plain("'")~(x)))
+fprimex <- fx0 + stat_function(fun = function(x) ifelse(x <= 0, NA, 1 / x), size = 0.5) +
+  labs(x = expression(x), y = expression(f ~ plain("'") ~ (x)))
 
 fx + fprimex + plot_layout(nrow = 1)
 ```
@@ -473,10 +477,10 @@ fx <- ggplot(range1, aes(x = x)) +
   labs(y = expression(f(x)))
 
 Fx <- ggplot(range1, aes(x = x)) +
-  stat_function(fun = function(x) (x^3)/3 - 4*x,     size = 0.5, linetype = "dashed") +
-  stat_function(fun = function(x) (x^3)/3 - 4*x + 1, size = 0.5, linetype = "dotted") +
-  stat_function(fun = function(x) (x^3)/3 - 4*x - 1, size = 0.5, linetype = "dotdash") +
-  labs(y = expression(integral(f(x)*dx)))
+  stat_function(fun = function(x) (x^3) / 3 - 4 * x, size = 0.5, linetype = "dashed") +
+  stat_function(fun = function(x) (x^3) / 3 - 4 * x + 1, size = 0.5, linetype = "dotted") +
+  stat_function(fun = function(x) (x^3) / 3 - 4 * x - 1, size = 0.5, linetype = "dotdash") +
+  labs(y = expression(integral(f(x) * dx)))
 
 fx + Fx + plot_layout(ncol = 1)
 ```
@@ -516,23 +520,23 @@ Suppose we want to determine the area $A(R)$ of a region $R$ defined by a curve 
 #| label: fig-defintfig
 #| echo: false
 #| fig-cap: The Riemann Integral as a Sum of Evaluations
-f3 <- function(x) -15*(x - 5) + (x - 5)^3 + 50
+f3 <- function(x) -15 * (x - 5) + (x - 5)^3 + 50
 
-d1 <- tibble(x = seq(0, 10, 1)) %>%  mutate(f = f3(x))
-d2 <- tibble(x = seq(0, 10, 0.1)) %>%  mutate(f = f3(x))
+d1 <- tibble(x = seq(0, 10, 1)) %>% mutate(f = f3(x))
+d2 <- tibble(x = seq(0, 10, 0.1)) %>% mutate(f = f3(x))
 
 range <- tibble::tibble(x = c(0, 10))
 
 fx0 <- ggplot(range, aes(x = x)) +
   labs(x = expression(x), y = expression(f(x)))
 
-fx <- fx0 +  
-  expand_limits(y = 0) + 
+fx <- fx0 +
+  expand_limits(y = 0) +
   scale_y_continuous(expand = c(0, 0)) +
   scale_x_continuous(expand = c(0, 0))
 
-g1 <- fx +   geom_col(data = d1, aes(x, f), width = 1, fill = "gray", alpha = 0.5, color = "black") +   stat_function(fun = f3, size = 1.5) + labs(title = "Evaluating f with width = 1 intervals")
-g2 <- fx +   geom_col(data = d2, aes(x, f), width = 0.1, fill = "gray", alpha = 0.5, color = "black")  +   stat_function(fun = f3, size = 1.5) +labs(title = "Evaluating f with width = 0.1 intervals")
+g1 <- fx + geom_col(data = d1, aes(x, f), width = 1, fill = "gray", alpha = 0.5, color = "black") + stat_function(fun = f3, size = 1.5) + labs(title = "Evaluating f with width = 1 intervals")
+g2 <- fx + geom_col(data = d2, aes(x, f), width = 0.1, fill = "gray", alpha = 0.5, color = "black") + stat_function(fun = f3, size = 1.5) + labs(title = "Evaluating f with width = 0.1 intervals")
 
 g1 + g2 + plot_layout(nrow = 1)
 ```

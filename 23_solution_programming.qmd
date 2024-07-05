@@ -147,27 +147,31 @@ for (state in states_of_interest) {
 #| eval: false
 mid_b <- read_csv("data/input/MIDB_4.2.csv")
 polity <- read_excel("data/input/p4v2017.xls")
-
 ```
 
 ### Task 2: Data Merging {.unnumbered}
 
 ```{r}
 #| eval: false
-mid_y_by_y <- data_frame(ccode = numeric(),
-                               year = numeric(),
-                               dispute = numeric())
+mid_y_by_y <- data_frame(
+  ccode = numeric(),
+  year = numeric(),
+  dispute = numeric()
+)
 colnames(mid_b)
-for(i in 1:nrow(mid_b)) {
-    x <- data_frame(ccode = mid_b$ccode[i], ## row i's country
-    year = mid_b$styear[i]:mid_b$endyear[i],  ## sequence of years for dispute in row i
-    dispute = 1)## there was a dispute
-    mid_y_by_y <- rbind(mid_y_by_y, x)
+for (i in 1:nrow(mid_b)) {
+  x <- data_frame(
+    ccode = mid_b$ccode[i], ## row i's country
+    year = mid_b$styear[i]:mid_b$endyear[i], ## sequence of years for dispute in row i
+    dispute = 1
+  ) ## there was a dispute
+  mid_y_by_y <- rbind(mid_y_by_y, x)
 }
 
 merged_mid_polity <- left_join(polity,
-                 distinct(mid_y_by_y),
-                 by = c("ccode", "year"))
+  distinct(mid_y_by_y),
+  by = c("ccode", "year")
+)
 ```
 
 ### Task 3: Tabulations and Visualization {.unnumbered}
@@ -175,26 +179,31 @@ merged_mid_polity <- left_join(polity,
 ```{r}
 #| eval: false
 
-#don't include the -88, -77, -66 values in calculating the mean of polity
-mean_polity_by_year <- merged_mid_polity %>% group_by(year) %>% summarise(mean_polity = mean(polity[which(polity <11 & polity > -11)]))
+# don't include the -88, -77, -66 values in calculating the mean of polity
+mean_polity_by_year <- merged_mid_polity %>%
+  group_by(year) %>%
+  summarise(mean_polity = mean(polity[which(polity < 11 & polity > -11)]))
 
-mean_polity_by_year_ordered <- arrange(mean_polity_by_year, year) 
+mean_polity_by_year_ordered <- arrange(mean_polity_by_year, year)
 
-mean_polity_by_year_mid <- merged_mid_polity %>% group_by(year, dispute) %>% summarise(mean_polity_mid = mean(polity[which(polity <11 & polity > -11)]))
+mean_polity_by_year_mid <- merged_mid_polity %>%
+  group_by(year, dispute) %>%
+  summarise(mean_polity_mid = mean(polity[which(polity < 11 & polity > -11)]))
 
-mean_polity_by_year_mid_ordered <- arrange(mean_polity_by_year_mid, year) 
+mean_polity_by_year_mid_ordered <- arrange(mean_polity_by_year_mid, year)
 
 mean_polity_no_mid <- mean_polity_by_year_mid_ordered %>% filter(dispute == 0)
 mean_polity_yes_mid <- mean_polity_by_year_mid_ordered %>% filter(dispute == 1)
 
 answer <- ggplot(data = mean_polity_by_year_ordered, aes(x = year, y = mean_polity)) +
   geom_line() +
-  labs(y = "Mean Polity Score",
-       x = "") +
+  labs(
+    y = "Mean Polity Score",
+    x = ""
+  ) +
   geom_vline(xintercept = c(1914, 1929, 1939, 1989, 2008), linetype = "dashed")
 
-answer + geom_line(data =mean_polity_no_mid, aes(x = year, y = mean_polity_mid), col = "indianred") + geom_line(data =mean_polity_yes_mid, aes(x = year, y = mean_polity_mid), col = "dodgerblue")
-
+answer + geom_line(data = mean_polity_no_mid, aes(x = year, y = mean_polity_mid), col = "indianred") + geom_line(data = mean_polity_yes_mid, aes(x = year, y = mean_polity_mid), col = "dodgerblue")
 ```
 
 ## Chapter @sec-simulation: Simulation

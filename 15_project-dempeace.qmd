@@ -68,7 +68,7 @@ What does `polity` look like?
 ```{r}
 unique(polity$country)
 ggplot(polity, aes(x = year, y = polity2)) +
-  facet_wrap(~ country) +
+  facet_wrap(~country) +
   geom_line()
 
 head(polity)
@@ -87,14 +87,18 @@ Notice that in the `mid` data, we have a start of a dispute vs. an end of a disp
 There are many ways to do this, but one is a loop. We go through one row at a time, and then for each we make a new dataset. that has `year` as a sequence of each year. A lengthy loop like this is typically slow, and you'd want to recast the task so you can do things with functions. But, a loop is a good place to start.
 
 ```{r}
-mid_year_by_year <- data_frame(ccode = numeric(),
-                               year = numeric(),
-                               dispute = numeric())
+mid_year_by_year <- data_frame(
+  ccode = numeric(),
+  year = numeric(),
+  dispute = numeric()
+)
 
-for(i in 1:nrow(mid)) {
-  x <- data_frame(ccode = mid$ccode[i], ## row i's country
-             year = mid$StYear[i]:mid$EndYear[i],  ## sequence of years for dispute in row i
-             dispute = 1) 
+for (i in 1:nrow(mid)) {
+  x <- data_frame(
+    ccode = mid$ccode[i], ## row i's country
+    year = mid$StYear[i]:mid$EndYear[i], ## sequence of years for dispute in row i
+    dispute = 1
+  )
   mid_year_by_year <- rbind(mid_year_by_year, x)
 }
 
@@ -111,8 +115,9 @@ Here we can do a `left_join` matching rows from `mid` to `polity`. We want to ke
 
 ```{r}
 p_m <- left_join(polity,
-                 distinct(mid_year_by_year),
-                 by = c("ccode", "year"))
+  distinct(mid_year_by_year),
+  by = c("ccode", "year")
+)
 
 head(p_m)
 ```
@@ -126,10 +131,11 @@ p_m$dispute[is.na(p_m$dispute)] <- 0
 Reshape the dataset long to wide
 
 ```{r}
-p_m_wide <- pivot_wider(p_m, 
-                        id_cols = c(scode, ccode, country),
-                        names_from = year,
-                        values_from = polity2)
+p_m_wide <- pivot_wider(p_m,
+  id_cols = c(scode, ccode, country),
+  names_from = year,
+  values_from = polity2
+)
 
 select(p_m_wide, 1:10)
 ```
@@ -145,7 +151,6 @@ Often, files we need are saved in the `.xls` or `xlsx` format. It is possible to
 `readxl`/`readr`/`haven` packages(<https://github.com/tidyverse/tidyverse>) is constantly expanding to capture more file types. In day 1, we used the package `readxl`, using the `read_excel()` function.
 
 ```{r}
-
 ```
 
 #### Task 2: Data Merging {.unnumbered}
@@ -159,7 +164,6 @@ To start, let's download and merge some data.
 -   An *advanced* version of this task would be to download the dyadic form of the data and try merging that with polity.
 
 ```{r}
-
 ```
 
 #### Task 3: Tabulations and Visualization {.unnumbered}
@@ -170,5 +174,4 @@ To start, let's download and merge some data.
 4.  Arrive at a tentative conclusion for how well the Democratic Peace argument seems to hold up in this dataset. Visualize this conclusion.
 
 ```{r}
-
 ```

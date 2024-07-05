@@ -57,12 +57,14 @@ means <- cumsum(Xs) / 1:n
 
 ggplot(tibble(n = 1:n, estimate = means), aes(x = n, y = estimate)) +
   geom_line() +
-  scale_x_continuous(labels = comma, limit = c(0, n*1.1), breaks = seq(0, n, length.out = 5)) +
+  scale_x_continuous(labels = comma, limit = c(0, n * 1.1), breaks = seq(0, n, length.out = 5)) +
   scale_y_continuous(limits = c(0, 1)) +
-  annotate(geom = "text", x = 1.1*n, y = means[n], label = glue("Estimate at\nn = {comma(n)}", ":\n", means[n]), size = 2.8) +
+  annotate(geom = "text", x = 1.1 * n, y = means[n], label = glue("Estimate at\nn = {comma(n)}", ":\n", means[n]), size = 2.8) +
   annotate(geom = "point", x = n, y = means[n]) +
-  labs(x = "n, or the number of times of a coin-flip experiment", 
-       y =  "Estimate of the Probability of Heads after n trials")
+  labs(
+    x = "n, or the number of times of a coin-flip experiment",
+    y = "Estimate of the Probability of Heads after n trials"
+  )
 ```
 
 ## Sequences
@@ -90,16 +92,16 @@ We find the sequence by simply "plugging in" the integers into each $n$. The imp
 #| echo: false
 #| fig-cap: Behavior of Some Sequences
 seq <- 1:20
-df <- tibble(n = seq, A = 2 - 1/(seq^2), B = (seq^2 + 1)/(seq), C = (-1)^seq * (1 - 1/seq))
+df <- tibble(n = seq, A = 2 - 1 / (seq^2), B = (seq^2 + 1) / (seq), C = (-1)^seq * (1 - 1 / seq))
 
-g0 <- ggplot(df, aes(x = n, y = A)) + geom_point()
+g0 <- ggplot(df, aes(x = n, y = A)) +
+  geom_point()
 
 gA <- g0 + labs(y = expression(A[n]))
 gB <- g0 + aes(y = B) + labs(y = expression(B[n]))
 gC <- g0 + aes(y = C) + labs(y = expression(C[n]))
 
 gA + gB + gC + plot_layout(nrow = 1)
-
 ```
 
 ## The Limit of a Sequence
@@ -230,13 +232,13 @@ range2 <- tibble::tibble(x = c(-2, 2))
 
 fx1 <- ggplot(range1, aes(x = x)) +
   stat_function(fun = function(x) sqrt(x), size = 0.5) +
-  labs(x = expression(x), y = expression(f(x)), title = expression(f(x)==sqrt(x))) +
+  labs(x = expression(x), y = expression(f(x)), title = expression(f(x) == sqrt(x))) +
   expand_limits(y = max(range1$x))
 
-fx2 <- 
+fx2 <-
   ggplot(range2, aes(x = x)) +
-  stat_function(fun = function(x) ifelse(x == 0, NA, 1/x), size = 0.5) +
-  labs(x = expression(x), y = expression(f(x)), title = expression(f(x)==frac(1,x)))
+  stat_function(fun = function(x) ifelse(x == 0, NA, 1 / x), size = 0.5) +
+  labs(x = expression(x), y = expression(f(x)), title = expression(f(x) == frac(1, x)))
 
 fx1 + fx2 + plot_layout(nrow = 1)
 ```
@@ -282,21 +284,21 @@ range4 <- tibble(x = c(0, 5))
 
 fx1 <- ggplot(range1, aes(x = x)) +
   stat_function(fun = function(x) sqrt(x), size = 0.5) +
-  labs(y = expression(f(x)), title = expression(f(x)==sqrt(x)))
+  labs(y = expression(f(x)), title = expression(f(x) == sqrt(x)))
 
 fx2 <- ggplot(range2, aes(x = x)) +
   stat_function(fun = function(x) exp(x), size = 0.5) +
-  labs(y = expression(f(x)), title = expression(f(x)==e^x))
+  labs(y = expression(f(x)), title = expression(f(x) == e^x))
 
 fx3 <- ggplot(range3, aes(x = x)) +
-  stat_function(fun = function(x) ifelse(x == 0, NA, 1 + 1/(x^2)), size = 0.5) +
-  labs(y = expression(f(x)), title = expression(f(x)==1+frac(1,x^2)))
+  stat_function(fun = function(x) ifelse(x == 0, NA, 1 + 1 / (x^2)), size = 0.5) +
+  labs(y = expression(f(x)), title = expression(f(x) == 1 + frac(1, x^2)))
 
 fx4 <- ggplot(range4, aes(x = x)) +
   stat_function(fun = function(x) ifelse(1 - (x %% 1) < 9e-2, NA, floor(x)), size = 0.5) +
   geom_point(data = tibble(x = 0:5, y = 0:5), aes(y = y), pch = 19) +
   geom_point(data = tibble(x = 1:5, y = (1:5) - 1), aes(y = y), pch = 21, fill = "white") +
-  labs(y = expression(f(x)), title = expression(f(x)==plain("floor(x)")))
+  labs(y = expression(f(x)), title = expression(f(x) == plain("floor(x)")))
 
 fx1 + fx2 + fx3 + fx4 + plot_layout(ncol = 2)
 ```
@@ -329,7 +331,6 @@ Example @exm-seqbehav
 Exercise @exr-limseq2
 
 ```{r}
-
 ```
 
 Example @exm-limfun1
@@ -370,7 +371,7 @@ Divide each part by $x$, and we get $x + \frac{2}{x}$ on the numerator, $1$ on t
 range0 <- tibble(x = c(-4, 2))
 
 ggplot(range0, aes(x = x)) +
-  stat_function(fun = function(x) ifelse(x == 0, NA, (x^2 + 2*x)/(x)), size = 0.5) +
-  labs(y = expression(f(x)), title = expression(f(x)==frac(x^2+2*x, x^2))) +
-    geom_point(data = tibble(x = 0, y = 2), aes(y = y), pch = 21, fill = "white")
+  stat_function(fun = function(x) ifelse(x == 0, NA, (x^2 + 2 * x) / (x)), size = 0.5) +
+  labs(y = expression(f(x)), title = expression(f(x) == frac(x^2 + 2 * x, x^2))) +
+  geom_point(data = tibble(x = 0, y = 2), aes(y = y), pch = 21, fill = "white")
 ```
