@@ -153,4 +153,3 @@ While git is a powerful tool, you may choose to not use it for everything becaus
 
 -   git is mainly for code, not data. It has a fairly strict limit on the size of your dataset that you cover.
 -   your collaborators might want to work with Dropbox
--   unless you get a paid account, all your repositories will be public.
